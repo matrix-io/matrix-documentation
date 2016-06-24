@@ -1,4 +1,4 @@
-# CrossTalk
+# Cross-Talk
 
 CrossTalk is how MatrixOS applications communicate between different devices. Applications can exchange information with other applications, or with other instances of the same application. Cool, right?
 
