@@ -43,4 +43,4 @@ Complex sensors emit structured data
 ```
 
 # Filtering Sensor Data
-see [docs/filter.md]()
+see [API > Filter](filter.md)

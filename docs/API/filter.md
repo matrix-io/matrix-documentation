@@ -12,36 +12,67 @@ matrix.init('temperature')
 })
 ```
 
+Filtering decides whether or not a data point is passed to the `then()`, it does not change the data in any way.
+
 ## Simple Filtering methods
 
-#### equality
+### equality
 
-##### Numeric
+###### Numeric
 `is()` `like()`
 ```
 matrix.init('temperature').is(72)
 ```
 
-##### String
+###### String
 ```
 matrix.init('microphone').contains('hello world')
 ```
 
-#### negation
+### negation
 `not()`
 ```
 matrix.init('temperature').not(72)
 ```
 
-#### proximity
+### proximity
 `near()`
 ```
 matrix.init('gps').near([39.0432661,117.7249414])
 ```
 
-#### bounds
-##### >
-`above`, ``
+## Complex Filtering
+
+### has
+`has()` is used to refine a data source by additional criteria and keys.
+
 ```
-matrix.init('temperature').above(72)
+// for simple sensors
+matrix.init('temperature').has('value')
+// equivalent to
+matrix.init('temperature').has()
+
+// for complex sensors
+matrix.init('gyro').has('x')
+
+// for detections
+matrix.init('face').has('age')
+```
+
+### bounds
+###### > greater then
+`above`, `over`, 'after'
+```
+matrix.init('temperature').has().above(72)
+```
+
+###### < less then
+`below`, `under`, 'before'
+```
+matrix.init('temperature').has().below(32)
+```
+
+###### between
+```
+matrix.init('temperature').has().between(32,70)
 ```

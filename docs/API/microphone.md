@@ -1,2 +1,3 @@
 ```
-matrix.init('microphone').say('hi there')
+matrix.init('microphone').contains('hello world')
+```
