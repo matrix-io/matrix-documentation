@@ -18,7 +18,7 @@ Inside the [matrix-app-config-helper](https://github.com/matrix-io/matrix-app-co
 In order to standardize the configuration, as well as permit a wide variety of user configuration interpretations, a population step is performed before the finished record is stored.
 
 ## Role of Firebase
-Firebase is the primary store of application configuration. It permits us to dynamically refresh the application when the configuration changes. If an application does not have a Firebase configuration, the `config.yaml` file is validated, populated and stored.
+Firebase is the primary store of application configuration. It permits us to dynamically refresh the application when the configuration changes. If an application does not have a Firebase configuration, the `config.yaml` file is validated, populated and stored inside Firebase with the following structure. `userId > deviceId > appName`. 
 
 ## Meta Information
 `name`, `version`, `description` are used internally and for the Matrix App Store

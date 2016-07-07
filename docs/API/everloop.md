@@ -2,6 +2,7 @@
 
 A powerful tool for communicating with end users is the EverLoop LED circle.
 
+
 ## Set Colors
 ```
 // set an initial color
@@ -14,6 +15,7 @@ matrix.led([ '#bada55, '#e1337e'])
 matrix.led('rgba(255, 0, 100, 0.6)')
 ```
 
+
 ## Generate Shapes
 ```
 matrix.led({
@@ -25,6 +27,11 @@ matrix.led({
   // index to start drawing arc
   start: 12
 });
+
+//no color assumes off
+matrix.led({
+  arc: 360
+})
 
 // draw a point
 matrix.led({
@@ -53,11 +60,40 @@ matrix.led().darken(10)
 
 ```
 // rotate the lights clockwise by a specified angle
-matrix.led().rotateCW(90)
-
-// rotate the lights counter clockwise by a specified angle
-matrix.led().rotateCCW(45)
+matrix.led().rotate(90)
 ```
+
+## Composition
+
+### Shape Objects
+```
+// make a smiley face
+matrix.led([
+  {
+    angle: 45,
+    color: 'yellow'
+  },
+  {
+    angle: 135,
+    color: 'yellow'
+  },
+  {
+    arc: 90,
+    color: 'yellow',
+    start: 225
+  }
+]).darken(90).render();
+```
+### Direct Pixel Manipulation
+Array index = led to change
+```
+matrix.led([0, 0, 0, 0, 'yellow', 0,
+0, 0, 0, 0, 0, 0, 0, 'yellow', 0, 0,
+0, 0, 0, 0, 0, 0, 'yellow', 'yellow',
+'yellow', 'yellow', 'yellow', 'yellow',
+'yellow', 'yellow', 'yellow' ]).render();
+```
+
 
 ## Example clock
 ```

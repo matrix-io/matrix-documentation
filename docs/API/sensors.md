@@ -26,6 +26,14 @@ Simple sensors emit float numbers with a `value` key.
 ## Data from complex sensors
 Complex sensors emit structured data
 
+### microphone
+```
+{
+  db: 132.23,
+  text: 'hello world'
+}
+```
+
 ### gps
 ```
 {
