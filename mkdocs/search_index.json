@@ -1,0 +1,679 @@
+{
+    "docs": [
+        {
+            "location": "/", 
+            "text": "Welcome to MkDocs\n\n\nFor full documentation visit \nmkdocs.org\n.\n\n\nCommands\n\n\n\n\nmkdocs new [dir-name]\n - Create a new project.\n\n\nmkdocs serve\n - Start the live-reloading docs server.\n\n\nmkdocs build\n - Build the documentation site.\n\n\nmkdocs help\n - Print this help message.\n\n\n\n\nProject layout\n\n\nmkdocs.yml    # The configuration file.\ndocs/\n    index.md  # The documentation homepage.\n    ...       # Other markdown pages, images and other files.", 
+            "title": "Home"
+        }, 
+        {
+            "location": "/#welcome-to-mkdocs", 
+            "text": "For full documentation visit  mkdocs.org .", 
+            "title": "Welcome to MkDocs"
+        }, 
+        {
+            "location": "/#commands", 
+            "text": "mkdocs new [dir-name]  - Create a new project.  mkdocs serve  - Start the live-reloading docs server.  mkdocs build  - Build the documentation site.  mkdocs help  - Print this help message.", 
+            "title": "Commands"
+        }, 
+        {
+            "location": "/#project-layout", 
+            "text": "mkdocs.yml    # The configuration file.\ndocs/\n    index.md  # The documentation homepage.\n    ...       # Other markdown pages, images and other files.", 
+            "title": "Project layout"
+        }, 
+        {
+            "location": "/API/GPIO/", 
+            "text": "", 
+            "title": "GPIO"
+        }, 
+        {
+            "location": "/API/computer-vision/", 
+            "text": "Computer Vision\n\n\nmatrix.init( algorithm, options )\n\n\n\n\nDetection Algorithms\n\n\nthumb-up\n\n\npalm-open\n\n\npalm-closed\n\n\nface-detect\n\n\nface-id\n\n\nvehicle-count\n\n\nperson-count\n\n\nBase Options\n\n\nThese are applicable to all algorithms.\n\n\n\n\nzone\n - a nested array of x,y, width and height\n\n\nzones\n - an array of zone arrays\n\n\n\n\nExample\n\n\nvar zone1 =  [ 100, 100, 300, 400 ];\nvar zone2 =  [ 50, 50, 250, 300 ];\n{\n  zone: zone1,\n  zones: [zone1, zone2]\n}\n\n\n\n\nGesture\n\n\nmatrix.init('gesture', options).then(function(data){})\n\n\n\n\nthen\n will call when any gesture is detected.\n\n\nGesture Options\n\n\nTo trigger on specific gestures pass an array of the desired values as \noptions.detect\n.\n\n\nExample\n\n\nvar options = { detect: ['THUMB_UP'] };\nmatrix.init('gesture', options);\n\n\n\n\nGestures\n\n\nTHUMB_UP\n\n\nPALM_OPEN\n\n\nPALM_CLOSED\n\n\nData Format\n\n\n// TODO\n\n\nFace Detection\n\n\nmatrix.init('face-detect').then(function(data){})\n\n\n\n\nthen\n will call when any face is detected\n\n\nFace Detection Options\n\n\nTo only detect particular characteristics pass an array of the desired values as \noptions.detect\n.\n\n\nExample\n\n\nvar options = { detect: ['GENDER','AGE','HAPPY'] };\nmatrix.init('gesture', options);\n\n\n\n\ncharacteristics\n\n\nGENDER\n\n\nAGE\n\n\nHAPPY\n\n\nSAD\n\n\nCONFUSED\n\n\nANGRY\n\n\nCALM\n\n\nSURPRISED\n\n\nDISGUST\n\n\nDWELL\n\n\nFace Recognition\n\n\nmatrix.init('face-id').then(function(data){})\n\n\n\n\nFacial recognition requires a target face to be supplied to it first. This can be provided in the application folder or uploaded to the device.\n\n\nOptions\n\n\nTo detect a face, supply it in \noptions.match\n. Use an array to recognize multiple faces.\n\n\nExample\n\n\n// preuploaded Example - myFace.jpg\nmatrix.init('face-id', { match: 'myFace' })\n\n\n\n\n// dynamic faces from dashboard\nmatrix.on('faceUpload', function(data){\n  // saves upload to filesystem\n  matrix.save(data.name + '.' + data.typeSuffix, data.file);\n\n  // retrieve the configuration variable\n  var faces = matrix.faces;\n\n  // update with new face file\n  faces.push(data.name);\n\n  // save new face to configuration\n  matrix.config('faces', faces);\n\n  // restart application to use new face\n  matrix.restartApp();\n});\n\n// use configuration for recognition\nmatrix.init('face', { match: matrix.faces })\n\n\n\n\nVehicle Counting\n\n\nmatrix.init('vehicle-count').then(function(data){})\n\n\n\n\nOptions\n\n\nToggle different detection modes depending on circumstances.\n\n\nExample\n\n\n//TODO\n\n\nPeople Counting\n\n\nmatrix.init('people-count').then(function(data){})\n\n\n\n\nOptions\n\n\nExample", 
+            "title": "Computer vision"
+        }, 
+        {
+            "location": "/API/computer-vision/#computer-vision", 
+            "text": "matrix.init( algorithm, options )", 
+            "title": "Computer Vision"
+        }, 
+        {
+            "location": "/API/computer-vision/#detection-algorithms", 
+            "text": "thumb-up  palm-open  palm-closed  face-detect  face-id  vehicle-count  person-count", 
+            "title": "Detection Algorithms"
+        }, 
+        {
+            "location": "/API/computer-vision/#base-options", 
+            "text": "These are applicable to all algorithms.   zone  - a nested array of x,y, width and height  zones  - an array of zone arrays", 
+            "title": "Base Options"
+        }, 
+        {
+            "location": "/API/computer-vision/#example", 
+            "text": "var zone1 =  [ 100, 100, 300, 400 ];\nvar zone2 =  [ 50, 50, 250, 300 ];\n{\n  zone: zone1,\n  zones: [zone1, zone2]\n}", 
+            "title": "Example"
+        }, 
+        {
+            "location": "/API/computer-vision/#gesture", 
+            "text": "matrix.init('gesture', options).then(function(data){})  then  will call when any gesture is detected.", 
+            "title": "Gesture"
+        }, 
+        {
+            "location": "/API/computer-vision/#gesture-options", 
+            "text": "To trigger on specific gestures pass an array of the desired values as  options.detect .", 
+            "title": "Gesture Options"
+        }, 
+        {
+            "location": "/API/computer-vision/#example_1", 
+            "text": "var options = { detect: ['THUMB_UP'] };\nmatrix.init('gesture', options);", 
+            "title": "Example"
+        }, 
+        {
+            "location": "/API/computer-vision/#gestures", 
+            "text": "THUMB_UP  PALM_OPEN  PALM_CLOSED", 
+            "title": "Gestures"
+        }, 
+        {
+            "location": "/API/computer-vision/#data-format", 
+            "text": "// TODO", 
+            "title": "Data Format"
+        }, 
+        {
+            "location": "/API/computer-vision/#face-detection", 
+            "text": "matrix.init('face-detect').then(function(data){})  then  will call when any face is detected", 
+            "title": "Face Detection"
+        }, 
+        {
+            "location": "/API/computer-vision/#face-detection-options", 
+            "text": "To only detect particular characteristics pass an array of the desired values as  options.detect .", 
+            "title": "Face Detection Options"
+        }, 
+        {
+            "location": "/API/computer-vision/#example_2", 
+            "text": "var options = { detect: ['GENDER','AGE','HAPPY'] };\nmatrix.init('gesture', options);", 
+            "title": "Example"
+        }, 
+        {
+            "location": "/API/computer-vision/#characteristics", 
+            "text": "GENDER  AGE  HAPPY  SAD  CONFUSED  ANGRY  CALM  SURPRISED  DISGUST  DWELL", 
+            "title": "characteristics"
+        }, 
+        {
+            "location": "/API/computer-vision/#face-recognition", 
+            "text": "matrix.init('face-id').then(function(data){})  Facial recognition requires a target face to be supplied to it first. This can be provided in the application folder or uploaded to the device.", 
+            "title": "Face Recognition"
+        }, 
+        {
+            "location": "/API/computer-vision/#options", 
+            "text": "To detect a face, supply it in  options.match . Use an array to recognize multiple faces.", 
+            "title": "Options"
+        }, 
+        {
+            "location": "/API/computer-vision/#example_3", 
+            "text": "// preuploaded Example - myFace.jpg\nmatrix.init('face-id', { match: 'myFace' })  // dynamic faces from dashboard\nmatrix.on('faceUpload', function(data){\n  // saves upload to filesystem\n  matrix.save(data.name + '.' + data.typeSuffix, data.file);\n\n  // retrieve the configuration variable\n  var faces = matrix.faces;\n\n  // update with new face file\n  faces.push(data.name);\n\n  // save new face to configuration\n  matrix.config('faces', faces);\n\n  // restart application to use new face\n  matrix.restartApp();\n});\n\n// use configuration for recognition\nmatrix.init('face', { match: matrix.faces })", 
+            "title": "Example"
+        }, 
+        {
+            "location": "/API/computer-vision/#vehicle-counting", 
+            "text": "matrix.init('vehicle-count').then(function(data){})", 
+            "title": "Vehicle Counting"
+        }, 
+        {
+            "location": "/API/computer-vision/#options_1", 
+            "text": "Toggle different detection modes depending on circumstances.", 
+            "title": "Options"
+        }, 
+        {
+            "location": "/API/computer-vision/#example_4", 
+            "text": "//TODO", 
+            "title": "Example"
+        }, 
+        {
+            "location": "/API/computer-vision/#people-counting", 
+            "text": "matrix.init('people-count').then(function(data){})", 
+            "title": "People Counting"
+        }, 
+        {
+            "location": "/API/computer-vision/#options_2", 
+            "text": "", 
+            "title": "Options"
+        }, 
+        {
+            "location": "/API/computer-vision/#example_5", 
+            "text": "", 
+            "title": "Example"
+        }, 
+        {
+            "location": "/API/crosstalk/", 
+            "text": "Cross-Talk\n\n\nCrossTalk is how MatrixOS applications communicate between different devices. Applications can exchange information with other applications, or with other instances of the same application. Cool, right?\n\n\nGlobal Emitters \n Listeners\n\n\n// Send a payload to all listeners\nmatrix.emit(payload);\n\n// Listen for global CrossTalk messages\nmatrix.on(function(payload) { ... });\n\n\n\n\nApp Specific Message\n\n\n// Send a message to a particular application\nmatrix.emit('app', payload);\n\n// Listen for application specific CrossTalk messages\nmatrix.on(function(payload) { ... });\n\n\n\n\nSpecific Event within App\n\n\n// Trigger an event in a specific application\nmatrix.emit('app', 'event', payload);\n\n// Listen for CrossTalk events sent to this application\nmatrix.on('event', function(payload) { ... });\n\n\n\n\nDashboard\n\n\n// Interface elements from Dashboards can also trigger CrossTalk events.\nmatrix.on('buttonClick', function(payload) { ... });\n\n\n\n\nsee \ndocs/configuration/widgets\n for more information", 
+            "title": "Crosstalk"
+        }, 
+        {
+            "location": "/API/crosstalk/#cross-talk", 
+            "text": "CrossTalk is how MatrixOS applications communicate between different devices. Applications can exchange information with other applications, or with other instances of the same application. Cool, right?", 
+            "title": "Cross-Talk"
+        }, 
+        {
+            "location": "/API/crosstalk/#global-emitters-listeners", 
+            "text": "// Send a payload to all listeners\nmatrix.emit(payload);\n\n// Listen for global CrossTalk messages\nmatrix.on(function(payload) { ... });", 
+            "title": "Global Emitters &amp; Listeners"
+        }, 
+        {
+            "location": "/API/crosstalk/#app-specific-message", 
+            "text": "// Send a message to a particular application\nmatrix.emit('app', payload);\n\n// Listen for application specific CrossTalk messages\nmatrix.on(function(payload) { ... });", 
+            "title": "App Specific Message"
+        }, 
+        {
+            "location": "/API/crosstalk/#specific-event-within-app", 
+            "text": "// Trigger an event in a specific application\nmatrix.emit('app', 'event', payload);\n\n// Listen for CrossTalk events sent to this application\nmatrix.on('event', function(payload) { ... });", 
+            "title": "Specific Event within App"
+        }, 
+        {
+            "location": "/API/crosstalk/#dashboard", 
+            "text": "// Interface elements from Dashboards can also trigger CrossTalk events.\nmatrix.on('buttonClick', function(payload) { ... });  see  docs/configuration/widgets  for more information", 
+            "title": "Dashboard"
+        }, 
+        {
+            "location": "/API/everloop/", 
+            "text": "Everloop\n\n\nA powerful tool for communicating with end users is the EverLoop LED circle.\n\n\nSet Colors\n\n\n// set an initial color\nmatrix.led('red')\n\n// interleave two colors\nmatrix.led([ '#bada55, '#e1337e'])\n\n// support opacity\nmatrix.led('rgba(255, 0, 100, 0.6)')\n\n\n\n\nGenerate Shapes\n\n\nmatrix.led({\n  // number of lights to use [ 90\u00b0 = 9 ]   \n  arc: 9,\n\n  color: 'green',\n\n  // index to start drawing arc\n  start: 12\n});\n\n//no color assumes off\nmatrix.led({\n  arc: 360\n})\n\n// draw a point\nmatrix.led({\n  angle: 245,\n  color: 'white',\n  // blends interlight space if true, solid lights if false, default false\n  blend: true\n})\n\n// support multiple shapes\n\n\n\n\nManipulate colors\n\n\n//retrieves the current color state of the LED\nmatrix.led()\n\n// lighten all colors 0 - 100\nmatrix.led().brighten(10)\n\n// darken all colors 0 - 100\nmatrix.led().darken(10)\n\n\n\n\nManipulate position\n\n\n// rotate the lights clockwise by a specified angle\nmatrix.led().rotate(90)\n\n\n\n\nComposition\n\n\nShape Objects\n\n\n// make a smiley face\nmatrix.led([\n  {\n    angle: 45,\n    color: 'yellow'\n  },\n  {\n    angle: 135,\n    color: 'yellow'\n  },\n  {\n    arc: 90,\n    color: 'yellow',\n    start: 225\n  }\n]).darken(90).render();\n\n\n\n\nDirect Pixel Manipulation\n\n\nArray index = led to change\n\n\nmatrix.led([0, 0, 0, 0, 'yellow', 0,\n0, 0, 0, 0, 0, 0, 0, 'yellow', 0, 0,\n0, 0, 0, 0, 0, 0, 'yellow', 'yellow',\n'yellow', 'yellow', 'yellow', 'yellow',\n'yellow', 'yellow', 'yellow' ]).render();\n\n\n\n\nExample clock\n\n\nsetInterval(function(){\n  var time = new Date();\n  var h = time.getHours();\n  var m = time.getMinutes();\n  var s = time.getSeconds();\n\n  var hourLED = {\n    // translate hours (12) to angle (360)\n    arc: h * 3,\n    color: 'blue',\n    darken: 50\n  };\n\n  var minuteLED = {\n    // translate minutes ( 60 ) to angle ( 360 )\n    angle: m * 6,\n    color: 'green'\n  };\n\n  var secondLED = {\n    // translate seconds (60) to angle (360)\n    angle: s * 6,\n    color: yellow,\n    blend: true\n  };\n\n  matrix.led([hourLED, minuteLED]);\n\n}, 1000)", 
+            "title": "Everloop"
+        }, 
+        {
+            "location": "/API/everloop/#everloop", 
+            "text": "A powerful tool for communicating with end users is the EverLoop LED circle.", 
+            "title": "Everloop"
+        }, 
+        {
+            "location": "/API/everloop/#set-colors", 
+            "text": "// set an initial color\nmatrix.led('red')\n\n// interleave two colors\nmatrix.led([ '#bada55, '#e1337e'])\n\n// support opacity\nmatrix.led('rgba(255, 0, 100, 0.6)')", 
+            "title": "Set Colors"
+        }, 
+        {
+            "location": "/API/everloop/#generate-shapes", 
+            "text": "matrix.led({\n  // number of lights to use [ 90\u00b0 = 9 ]   \n  arc: 9,\n\n  color: 'green',\n\n  // index to start drawing arc\n  start: 12\n});\n\n//no color assumes off\nmatrix.led({\n  arc: 360\n})\n\n// draw a point\nmatrix.led({\n  angle: 245,\n  color: 'white',\n  // blends interlight space if true, solid lights if false, default false\n  blend: true\n})\n\n// support multiple shapes", 
+            "title": "Generate Shapes"
+        }, 
+        {
+            "location": "/API/everloop/#manipulate-colors", 
+            "text": "//retrieves the current color state of the LED\nmatrix.led()\n\n// lighten all colors 0 - 100\nmatrix.led().brighten(10)\n\n// darken all colors 0 - 100\nmatrix.led().darken(10)", 
+            "title": "Manipulate colors"
+        }, 
+        {
+            "location": "/API/everloop/#manipulate-position", 
+            "text": "// rotate the lights clockwise by a specified angle\nmatrix.led().rotate(90)", 
+            "title": "Manipulate position"
+        }, 
+        {
+            "location": "/API/everloop/#composition", 
+            "text": "", 
+            "title": "Composition"
+        }, 
+        {
+            "location": "/API/everloop/#shape-objects", 
+            "text": "// make a smiley face\nmatrix.led([\n  {\n    angle: 45,\n    color: 'yellow'\n  },\n  {\n    angle: 135,\n    color: 'yellow'\n  },\n  {\n    arc: 90,\n    color: 'yellow',\n    start: 225\n  }\n]).darken(90).render();", 
+            "title": "Shape Objects"
+        }, 
+        {
+            "location": "/API/everloop/#direct-pixel-manipulation", 
+            "text": "Array index = led to change  matrix.led([0, 0, 0, 0, 'yellow', 0,\n0, 0, 0, 0, 0, 0, 0, 'yellow', 0, 0,\n0, 0, 0, 0, 0, 0, 'yellow', 'yellow',\n'yellow', 'yellow', 'yellow', 'yellow',\n'yellow', 'yellow', 'yellow' ]).render();", 
+            "title": "Direct Pixel Manipulation"
+        }, 
+        {
+            "location": "/API/everloop/#example-clock", 
+            "text": "setInterval(function(){\n  var time = new Date();\n  var h = time.getHours();\n  var m = time.getMinutes();\n  var s = time.getSeconds();\n\n  var hourLED = {\n    // translate hours (12) to angle (360)\n    arc: h * 3,\n    color: 'blue',\n    darken: 50\n  };\n\n  var minuteLED = {\n    // translate minutes ( 60 ) to angle ( 360 )\n    angle: m * 6,\n    color: 'green'\n  };\n\n  var secondLED = {\n    // translate seconds (60) to angle (360)\n    angle: s * 6,\n    color: yellow,\n    blend: true\n  };\n\n  matrix.led([hourLED, minuteLED]);\n\n}, 1000)", 
+            "title": "Example clock"
+        }, 
+        {
+            "location": "/API/filter/", 
+            "text": "Filters\n\n\nMatrixOS sensors and computer vision algorithms provide data which can be filtered between the \ninit\n, which can be regarded as the data source, and the \nthen\n, which can be regarded as the data receiver. Between the two, we can use chaining methods to easily filter what data is received.\n\n\n// filtering in a simple application\nmatrix.init('temperature')\n.above(80)\n.then(function(data){\n  // see CrossTalk documentation for more information about matrix.emit\n  matrix.emit('ac-control', 'turnOn');\n})\n\n\n\n\nFiltering decides whether or not a data point is passed to the \nthen()\n, it does not change the data in any way.\n\n\nSimple Filtering methods\n\n\nequality\n\n\nNumeric\n\n\nis()\n \nlike()\n\n\nmatrix.init('temperature').is(72)\n\n\n\n\nString\n\n\nmatrix.init('microphone').contains('hello world')\n\n\n\n\nnegation\n\n\nnot()\n\n\nmatrix.init('temperature').not(72)\n\n\n\n\nproximity\n\n\nnear()\n\n\nmatrix.init('gps').near([39.0432661,117.7249414])\n\n\n\n\nComplex Filtering\n\n\nhas\n\n\nhas()\n is used to refine a data source by additional criteria and keys.\n\n\n// for simple sensors\nmatrix.init('temperature').has('value')\n// equivalent to\nmatrix.init('temperature').has()\n\n// for complex sensors\nmatrix.init('gyro').has('x')\n\n// for detections\nmatrix.init('face').has('age')\n\n\n\n\nbounds\n\n\n greater then\n\n\nabove\n, \nover\n, 'after'\n\n\nmatrix.init('temperature').has().above(72)\n\n\n\n\n less then\n\n\nbelow\n, \nunder\n, 'before'\n\n\nmatrix.init('temperature').has().below(32)\n\n\n\n\nbetween\n\n\nmatrix.init('temperature').has().between(32,70)", 
+            "title": "Filter"
+        }, 
+        {
+            "location": "/API/filter/#filters", 
+            "text": "MatrixOS sensors and computer vision algorithms provide data which can be filtered between the  init , which can be regarded as the data source, and the  then , which can be regarded as the data receiver. Between the two, we can use chaining methods to easily filter what data is received.  // filtering in a simple application\nmatrix.init('temperature')\n.above(80)\n.then(function(data){\n  // see CrossTalk documentation for more information about matrix.emit\n  matrix.emit('ac-control', 'turnOn');\n})  Filtering decides whether or not a data point is passed to the  then() , it does not change the data in any way.", 
+            "title": "Filters"
+        }, 
+        {
+            "location": "/API/filter/#simple-filtering-methods", 
+            "text": "", 
+            "title": "Simple Filtering methods"
+        }, 
+        {
+            "location": "/API/filter/#equality", 
+            "text": "", 
+            "title": "equality"
+        }, 
+        {
+            "location": "/API/filter/#numeric", 
+            "text": "is()   like()  matrix.init('temperature').is(72)", 
+            "title": "Numeric"
+        }, 
+        {
+            "location": "/API/filter/#string", 
+            "text": "matrix.init('microphone').contains('hello world')", 
+            "title": "String"
+        }, 
+        {
+            "location": "/API/filter/#negation", 
+            "text": "not()  matrix.init('temperature').not(72)", 
+            "title": "negation"
+        }, 
+        {
+            "location": "/API/filter/#proximity", 
+            "text": "near()  matrix.init('gps').near([39.0432661,117.7249414])", 
+            "title": "proximity"
+        }, 
+        {
+            "location": "/API/filter/#complex-filtering", 
+            "text": "", 
+            "title": "Complex Filtering"
+        }, 
+        {
+            "location": "/API/filter/#has", 
+            "text": "has()  is used to refine a data source by additional criteria and keys.  // for simple sensors\nmatrix.init('temperature').has('value')\n// equivalent to\nmatrix.init('temperature').has()\n\n// for complex sensors\nmatrix.init('gyro').has('x')\n\n// for detections\nmatrix.init('face').has('age')", 
+            "title": "has"
+        }, 
+        {
+            "location": "/API/filter/#bounds", 
+            "text": "", 
+            "title": "bounds"
+        }, 
+        {
+            "location": "/API/filter/#greater-then", 
+            "text": "above ,  over , 'after'  matrix.init('temperature').has().above(72)", 
+            "title": "&gt; greater then"
+        }, 
+        {
+            "location": "/API/filter/#less-then", 
+            "text": "below ,  under , 'before'  matrix.init('temperature').has().below(32)", 
+            "title": "&lt; less then"
+        }, 
+        {
+            "location": "/API/filter/#between", 
+            "text": "matrix.init('temperature').has().between(32,70)", 
+            "title": "between"
+        }, 
+        {
+            "location": "/API/microphone/", 
+            "text": "Microphones\n\n\nmatrix.init('microphone').contains('hello world')\n\n\n\n\nDirectional array\n\n\nIndividual microphones can be toggled as follows.\n\n\nmatrix.init('microphone', {\n// degrees\n  source: 90,\n// or by index\n  sensor: 5\n});\n\n\n\n\nFiltering\n\n\nmatrix.init('microphone').has('db').above(155).then()\n\n\n\n\ndb\n, \nfft", 
+            "title": "Microphone"
+        }, 
+        {
+            "location": "/API/microphone/#microphones", 
+            "text": "matrix.init('microphone').contains('hello world')", 
+            "title": "Microphones"
+        }, 
+        {
+            "location": "/API/microphone/#directional-array", 
+            "text": "Individual microphones can be toggled as follows.  matrix.init('microphone', {\n// degrees\n  source: 90,\n// or by index\n  sensor: 5\n});", 
+            "title": "Directional array"
+        }, 
+        {
+            "location": "/API/microphone/#filtering", 
+            "text": "matrix.init('microphone').has('db').above(155).then()  db ,  fft", 
+            "title": "Filtering"
+        }, 
+        {
+            "location": "/API/overview/", 
+            "text": "matrix.save\nmatrix.file\nmatrix.config( '' ) - get\nmatrix.config( '', '' ) - set\nmatrix.restartApp();\nmatrix.push", 
+            "title": "Overview"
+        }, 
+        {
+            "location": "/API/sensors/", 
+            "text": "Sensors\n\n\nSimple Sensor List\n\n\ntemperature\nhumidity\n\n\nComplex Sensor List\n\n\ngps\ngyro\naccellerometer\n\n\nUsing Sensors\n\n\nmatrix.init('temperature').then(function(data){\n  //see below for data formats\n})\n\n\n\n\nData from Simple Sensors\n\n\nSimple sensors emit float numbers with a \nvalue\n key.\n\n\n{\n  value: 72.0\n}\n\n\n\n\nData from complex sensors\n\n\nComplex sensors emit structured data\n\n\nmicrophone\n\n\n{\n  db: 132.23,\n  text: 'hello world'\n}\n\n\n\n\ngps\n\n\n{\n  lat: 34.234,\n  lon: 13.111\n}\n\n\n\n\ngyro / accelleromete\n\n\n{\n  x: 0.2323,\n  y: 0.234234,\n  z: 1.31231\n}\n\n\n\n\nFiltering Sensor Data\n\n\nsee \nAPI \n Filter", 
+            "title": "Sensors"
+        }, 
+        {
+            "location": "/API/sensors/#sensors", 
+            "text": "", 
+            "title": "Sensors"
+        }, 
+        {
+            "location": "/API/sensors/#simple-sensor-list", 
+            "text": "temperature\nhumidity", 
+            "title": "Simple Sensor List"
+        }, 
+        {
+            "location": "/API/sensors/#complex-sensor-list", 
+            "text": "gps\ngyro\naccellerometer", 
+            "title": "Complex Sensor List"
+        }, 
+        {
+            "location": "/API/sensors/#using-sensors", 
+            "text": "matrix.init('temperature').then(function(data){\n  //see below for data formats\n})", 
+            "title": "Using Sensors"
+        }, 
+        {
+            "location": "/API/sensors/#data-from-simple-sensors", 
+            "text": "Simple sensors emit float numbers with a  value  key.  {\n  value: 72.0\n}", 
+            "title": "Data from Simple Sensors"
+        }, 
+        {
+            "location": "/API/sensors/#data-from-complex-sensors", 
+            "text": "Complex sensors emit structured data", 
+            "title": "Data from complex sensors"
+        }, 
+        {
+            "location": "/API/sensors/#microphone", 
+            "text": "{\n  db: 132.23,\n  text: 'hello world'\n}", 
+            "title": "microphone"
+        }, 
+        {
+            "location": "/API/sensors/#gps", 
+            "text": "{\n  lat: 34.234,\n  lon: 13.111\n}", 
+            "title": "gps"
+        }, 
+        {
+            "location": "/API/sensors/#gyro-accelleromete", 
+            "text": "{\n  x: 0.2323,\n  y: 0.234234,\n  z: 1.31231\n}", 
+            "title": "gyro / accelleromete"
+        }, 
+        {
+            "location": "/API/sensors/#filtering-sensor-data", 
+            "text": "see  API   Filter", 
+            "title": "Filtering Sensor Data"
+        }, 
+        {
+            "location": "/API/speaker/", 
+            "text": "Speakers\n\n\nText to Speech\n\n\nmatrix.say('hello world')\n\n\n\n\nPlayback a file\n\n\nmatrix.play('neo.mp3')", 
+            "title": "Speaker"
+        }, 
+        {
+            "location": "/API/speaker/#speakers", 
+            "text": "", 
+            "title": "Speakers"
+        }, 
+        {
+            "location": "/API/speaker/#text-to-speech", 
+            "text": "matrix.say('hello world')", 
+            "title": "Text to Speech"
+        }, 
+        {
+            "location": "/API/speaker/#playback-a-file", 
+            "text": "matrix.play('neo.mp3')", 
+            "title": "Playback a file"
+        }, 
+        {
+            "location": "/API/typesend/", 
+            "text": "Send\n\n\nUnless otherwise specified, sensor data is typed with the application name.\n\n\nmatrix.send({\n  foo: 123\n})\n\n\n\n\nis read in a widget \nconfig.yaml\n ( See \nConfiguration\n)\n\n\nname: fooApp\nwidgets:\n  fooWidget:\n    display: digit,\n    type: fooApp\n    key: foo\n\n\n\n\nType\n\n\nTypes are another way to organize the data coming off MatrixOS and make it easier to work with in dashboards.\n\n\nmatrix.type('bar').send({\n  foo: 123\n})\n\n\n\n\nwould instead be utilized with the following\n\n\nname: fooApp\nwidgets:\n  fooWidget:\n    display: digit,\n    type: bar\n    key: foo\n\n\n\n\nTypes are also different ways of segmenting the data. When your application generates reports, types and keys will form the structure of that report. ( See \n Data Types \n for more )", 
+            "title": "Typesend"
+        }, 
+        {
+            "location": "/API/typesend/#send", 
+            "text": "Unless otherwise specified, sensor data is typed with the application name.  matrix.send({\n  foo: 123\n})  is read in a widget  config.yaml  ( See  Configuration )  name: fooApp\nwidgets:\n  fooWidget:\n    display: digit,\n    type: fooApp\n    key: foo", 
+            "title": "Send"
+        }, 
+        {
+            "location": "/API/typesend/#type", 
+            "text": "Types are another way to organize the data coming off MatrixOS and make it easier to work with in dashboards.  matrix.type('bar').send({\n  foo: 123\n})  would instead be utilized with the following  name: fooApp\nwidgets:\n  fooWidget:\n    display: digit,\n    type: bar\n    key: foo  Types are also different ways of segmenting the data. When your application generates reports, types and keys will form the structure of that report. ( See   Data Types   for more )", 
+            "title": "Type"
+        }, 
+        {
+            "location": "/CLI/apps/", 
+            "text": "Applications\n\n\nSearch\n\n\n# Find MatrixOS apps for a keyword\nmatrix search keyword\n\n\n\n\nAll the following commands require an active MatrixOS to be specified with \nmatrix use\n.\n\n\nInstall\n\n\n# Install an app from the store to MatrixOS\nmatrix install appName\n\n\n\n\nCreate\n\n\n#creates a folder with a base matrix app template\nmatrix create appName\n\n\n\n\nSee \ndocs/api\n for more information about writing MatrixOS apps.\n\n\nDeploy\n\n\n# uploads app folder to MatrixOS\nmatrix deploy appName\n\n\n\n\nRun\n\n\nmatrix start appName\n\n\n\n\nStop\n\n\nmatrix stop appName\n\n\n\n\nRestart\n\n\nmatrix restart appName", 
+            "title": "Apps"
+        }, 
+        {
+            "location": "/CLI/apps/#applications", 
+            "text": "", 
+            "title": "Applications"
+        }, 
+        {
+            "location": "/CLI/apps/#search", 
+            "text": "# Find MatrixOS apps for a keyword\nmatrix search keyword  All the following commands require an active MatrixOS to be specified with  matrix use .", 
+            "title": "Search"
+        }, 
+        {
+            "location": "/CLI/apps/#install", 
+            "text": "# Install an app from the store to MatrixOS\nmatrix install appName", 
+            "title": "Install"
+        }, 
+        {
+            "location": "/CLI/apps/#create", 
+            "text": "#creates a folder with a base matrix app template\nmatrix create appName  See  docs/api  for more information about writing MatrixOS apps.", 
+            "title": "Create"
+        }, 
+        {
+            "location": "/CLI/apps/#deploy", 
+            "text": "# uploads app folder to MatrixOS\nmatrix deploy appName", 
+            "title": "Deploy"
+        }, 
+        {
+            "location": "/CLI/apps/#run", 
+            "text": "matrix start appName", 
+            "title": "Run"
+        }, 
+        {
+            "location": "/CLI/apps/#stop", 
+            "text": "matrix stop appName", 
+            "title": "Stop"
+        }, 
+        {
+            "location": "/CLI/apps/#restart", 
+            "text": "matrix restart appName", 
+            "title": "Restart"
+        }, 
+        {
+            "location": "/CLI/management/", 
+            "text": "", 
+            "title": "Management"
+        }, 
+        {
+            "location": "/CLI/overview/", 
+            "text": "Overview\n\n\nMatrixOS devices and applications are managed via the Matrix CLI.\n\n\nInstallation\n\n\nnpm install -g matrix-cli\n\n\n\n\nThis will make the \nmatrix\n command available in your terminal.\n\n\n  _  _ ____ ___ ____ _ _  _\n  |\\/| |__|  |  |__/ |  \\/   _ | [o]\n  |  | |  |  |  |  \\ | _/\\_ |_ |_ | v1.1.3  - production\n\n\nAPI: http://demo.admobilize.com Streaming: http://mxss.admobilize.com:80\nUser: hello@rokk3rlabs.com Device: 12:23:34:45:56\n\n---- SETUP ----\n login - Login to the MatrixOS platform\nlogout - Log out of the MatrixOS platform\n   use - Indicate active device\n   set - set environment settings, update application configuration\n       \u21b3 [env \nenvironment\n, config \napp\n k=v]\n\n-- MANAGEMENT --\n   sim - manage local MatrixOS simulator using docker\n       \u21b3 [ init, restore, start, stop, save, clear ]\n  list - information about your devices, applications and installations\n       \u21b3 [ apps, devices, all, groups ]\nreboot - Reboots the active MatrixOS device\n\n----- APPS -----\nsearch - Search for apps\ninstall - Install an app or sensor to active MatrixOS device\n       \u21b3 [ app / sensor ] \nname\n. defaults to app\nconfig - view and modify application configuration\nuninstall - uninstall \napp\n\nupdate - Update to a specified version of a MatrixOS application\n       \u21b3 \nappName\n \nversion\n\n start - Starts an app running on the active MatrixOS\n  stop - Stops an app running on the active MatrixOS\nrestart - Restarts an app running on the MatrixOS\n\n- DEVELOPMENT -\ncreate - Creates a new scaffolding for a MatrixOS Application\ndeploy - Deploys an app to the active MatrixOS\ntrigger - Runs a trigger test\n   log - Logs output from selected MatrixOS and applications\n\n\n\n\nCreating an Application\n\n\nCreating an application is very basic. It deploys from template stored in the \nmatrix-console\n package.\n\n\nmatrix create app1\n\n\n\n\nApp Structure\n\n\n\n\napp.js\n -- This is your application logic\n\n\nconfig.yaml\n -- Change variables, indicate sensors, configure dashboard.\n\n\nDEVELOPER.MD\n -- Developer information that will be published for integrations on the Developer Portal.\n\n\nindex.js\n -- app entry point, do not modify\n\n\npackage.json\n -- NodeJS information file, do not modify without knowledge.\n\n\n\n\nManagement\n\n\nmatrix list - information about your MatrixOS devices, applications and installations [ apps, devices, all, groups ]\n -- matrix list apps - Shows a list of apps under your account.\n -- matrix list devices - Shows a list of devices under your account.\n -- matrix list all - Shows a list of devices, with the Apps installed on each device.\n -- matrix list groups - Shows a list of groups under your account.\n\n\n\n\nControl over Applications\n\n\nWork with your apps, and within the app ecosystem here. You can deploy to your simulator, or deploy to your actual MATRIX hardware. It's up to you.\n\n\nmatrix search - Search for apps\nmatrix install - [-a] app and [-s] sensor install. defaults to app.\n -- matrix install sensor [sensorname]\n -- matrix install app [appname]\nmatrix update - Update, update app1, update app1 v0.1\nmatrix uninstall - Usage: uninstall app1\n -- matrix uninstall sensor [sensorname]\n -- matrix uninstall app [appname]\nmatrix start - Starts an app running on the MATRIX.\nmatrix stop - Stops an app running on the MATRIX.\nmatrix restart - Restarts an app running on the MATRIX.\n\n\n\n\nDeveloping an Application\n\n\nFlexibility to develop anything you want. These four simple commands help you test and build pretty much anything.\n\n\nmatrix create - Creates a new scaffolding for a MATRIX App.\nmatrix deploy - Deploys an app to the Matrix.\nmatrix trigger - Runs a trigger test\nmatrix log - Usage: log [-f, --follow]\n\n\n\n\n\n\nUsing the Simulator\n\n\nCreate a fresh simulator, using the MATRIX OS image available online.\n\n\nmatrix sim - manage local MatrixOS simulator using docker [ upgrade, restore, init, start, save, clear ]\n -- matrix sim upgrade - initialize your MatrixOS simulator\n -- matrix sim restore - Restore your MatrixOS simulator\n -- matrix sim init - initialize your MatrixOS simulator\n -- matrix sim start - start MatrixOS virtual environment\n -- matrix sim save - save MatrixOS state, use after deploy / install\n -- matrix sim clear - remove simulation local data", 
+            "title": "Overview"
+        }, 
+        {
+            "location": "/CLI/overview/#overview", 
+            "text": "MatrixOS devices and applications are managed via the Matrix CLI.", 
+            "title": "Overview"
+        }, 
+        {
+            "location": "/CLI/overview/#installation", 
+            "text": "npm install -g matrix-cli  This will make the  matrix  command available in your terminal.    _  _ ____ ___ ____ _ _  _\n  |\\/| |__|  |  |__/ |  \\/   _ | [o]\n  |  | |  |  |  |  \\ | _/\\_ |_ |_ | v1.1.3  - production\n\n\nAPI: http://demo.admobilize.com Streaming: http://mxss.admobilize.com:80\nUser: hello@rokk3rlabs.com Device: 12:23:34:45:56\n\n---- SETUP ----\n login - Login to the MatrixOS platform\nlogout - Log out of the MatrixOS platform\n   use - Indicate active device\n   set - set environment settings, update application configuration\n       \u21b3 [env  environment , config  app  k=v]\n\n-- MANAGEMENT --\n   sim - manage local MatrixOS simulator using docker\n       \u21b3 [ init, restore, start, stop, save, clear ]\n  list - information about your devices, applications and installations\n       \u21b3 [ apps, devices, all, groups ]\nreboot - Reboots the active MatrixOS device\n\n----- APPS -----\nsearch - Search for apps\ninstall - Install an app or sensor to active MatrixOS device\n       \u21b3 [ app / sensor ]  name . defaults to app\nconfig - view and modify application configuration\nuninstall - uninstall  app \nupdate - Update to a specified version of a MatrixOS application\n       \u21b3  appName   version \n start - Starts an app running on the active MatrixOS\n  stop - Stops an app running on the active MatrixOS\nrestart - Restarts an app running on the MatrixOS\n\n- DEVELOPMENT -\ncreate - Creates a new scaffolding for a MatrixOS Application\ndeploy - Deploys an app to the active MatrixOS\ntrigger - Runs a trigger test\n   log - Logs output from selected MatrixOS and applications", 
+            "title": "Installation"
+        }, 
+        {
+            "location": "/CLI/overview/#creating-an-application", 
+            "text": "Creating an application is very basic. It deploys from template stored in the  matrix-console  package.  matrix create app1", 
+            "title": "Creating an Application"
+        }, 
+        {
+            "location": "/CLI/overview/#app-structure", 
+            "text": "app.js  -- This is your application logic  config.yaml  -- Change variables, indicate sensors, configure dashboard.  DEVELOPER.MD  -- Developer information that will be published for integrations on the Developer Portal.  index.js  -- app entry point, do not modify  package.json  -- NodeJS information file, do not modify without knowledge.", 
+            "title": "App Structure"
+        }, 
+        {
+            "location": "/CLI/overview/#management", 
+            "text": "matrix list - information about your MatrixOS devices, applications and installations [ apps, devices, all, groups ]\n -- matrix list apps - Shows a list of apps under your account.\n -- matrix list devices - Shows a list of devices under your account.\n -- matrix list all - Shows a list of devices, with the Apps installed on each device.\n -- matrix list groups - Shows a list of groups under your account.", 
+            "title": "Management"
+        }, 
+        {
+            "location": "/CLI/overview/#control-over-applications", 
+            "text": "Work with your apps, and within the app ecosystem here. You can deploy to your simulator, or deploy to your actual MATRIX hardware. It's up to you.  matrix search - Search for apps\nmatrix install - [-a] app and [-s] sensor install. defaults to app.\n -- matrix install sensor [sensorname]\n -- matrix install app [appname]\nmatrix update - Update, update app1, update app1 v0.1\nmatrix uninstall - Usage: uninstall app1\n -- matrix uninstall sensor [sensorname]\n -- matrix uninstall app [appname]\nmatrix start - Starts an app running on the MATRIX.\nmatrix stop - Stops an app running on the MATRIX.\nmatrix restart - Restarts an app running on the MATRIX.", 
+            "title": "Control over Applications"
+        }, 
+        {
+            "location": "/CLI/overview/#developing-an-application", 
+            "text": "Flexibility to develop anything you want. These four simple commands help you test and build pretty much anything.  matrix create - Creates a new scaffolding for a MATRIX App.\nmatrix deploy - Deploys an app to the Matrix.\nmatrix trigger - Runs a trigger test\nmatrix log - Usage: log [-f, --follow]", 
+            "title": "Developing an Application"
+        }, 
+        {
+            "location": "/CLI/overview/#using-the-simulator", 
+            "text": "Create a fresh simulator, using the MATRIX OS image available online.  matrix sim - manage local MatrixOS simulator using docker [ upgrade, restore, init, start, save, clear ]\n -- matrix sim upgrade - initialize your MatrixOS simulator\n -- matrix sim restore - Restore your MatrixOS simulator\n -- matrix sim init - initialize your MatrixOS simulator\n -- matrix sim start - start MatrixOS virtual environment\n -- matrix sim save - save MatrixOS state, use after deploy / install\n -- matrix sim clear - remove simulation local data", 
+            "title": "Using the Simulator"
+        }, 
+        {
+            "location": "/CLI/setup/", 
+            "text": "", 
+            "title": "Setup"
+        }, 
+        {
+            "location": "/Configuration/datatypes/", 
+            "text": "", 
+            "title": "Datatypes"
+        }, 
+        {
+            "location": "/Configuration/examples/", 
+            "text": "Layout\n\n\n\n\nscreens:\n  - - cpu\n    - memory\n\n\n\n\nDisplays\n\n\nValue\n\n\n\n\ncpu:\n  type: monitor\n  key: cpu\n  display: digit\n  format: round\n  label: cpu\n\n\n\n\nBar Chart\n\n\n\n\nbarChart:\n  type: monitor\n  keys: cpu, memory\n  display: bar\n  label: Bar Chart\n\n\n\n\nRadar Chart\n\n\n\n\nradarTest:\n  type: monitor\n  keys: cpu,memory\n  display: radar\n  label: radarTest\n\n\n\n\nLine Chart\n\n\n\n\ncpuChart:\n  type: monitor\n  keys: cpu,memory\n  display: line\n  label: CPU Chart\n\n\n\n\nLists\n\n\n\n\ninfo:\n  type: device\n  display: list-group\n  label: Secret Information\n\n\n\n\nInteractive\n\n\nButtons\n\n\nSingle\n\n\n\n\nbuttonTest:\n  label: Hacking Buttons\n  control: button\n  trigger: buttonInfo\n  value: Get Secret Information\n\n\n\n\nHandling Code\n\n\nmatrix.on('buttonInfo', function(){\n  // ...\n})\n\n\n\n\ntrigger\n in the config file, is the event name (\nbuttonInfo\n) handled.\n\n\nMultiple\n\n\n\n\nbuttonsTest:\n  label: Matrix Activation Buttons\n  control: button\n  map:\n    'amps+': buttonUp\n    'amps-': buttonDown\n    begin : buttonStart\n    end : buttonStop\n    capture : buttonSample\n    'refresh+' : buttonSlow\n    'refresh-' : buttonFast\n\n\n\n\nHandling Code\n\n\n matrix.on('buttonStop', function(){\n   //...\n})\n\n matrix.on('buttonStart', function(){\n   //...\n })\n\n matrix.on('buttonSample', function () {\n   //...\n })\n\n\n\n\nDrop Downs\n\n\n\n\ndropDown:\n  control: dropdown\n  map:\n    test1: doTest1\n    test2: doTest2\n  label: dropdown test\n\n\n\n\nHandling Code\n\n\nmatrix.on('doTest1', function(){\n //...\n})\n\n\nmatrix.on('doTest2', function(){\n //...\n})\n\n\n\n\nResponsive Data Flow\n\n\nmatrix.on('buttonInfo', function(){\n  matrix.type('device').send({\n    'os_hostname': os.hostname(),\n    'os_type': os.type(),\n    'os_platform': os.platform(),\n    'os_arch': os.arch()\n  });\n})\n\n\n\n\nWhen \nbuttonInfo\n is triggered, respond with information with a type \ndevice\n.\n\n\nThe list looks for\n\n\nlist:\n  type: device\n\n\n\n\nwhich tells it to display information with type \ndevice\n.", 
+            "title": "Examples"
+        }, 
+        {
+            "location": "/Configuration/examples/#layout", 
+            "text": "screens:\n  - - cpu\n    - memory", 
+            "title": "Layout"
+        }, 
+        {
+            "location": "/Configuration/examples/#displays", 
+            "text": "", 
+            "title": "Displays"
+        }, 
+        {
+            "location": "/Configuration/examples/#value", 
+            "text": "cpu:\n  type: monitor\n  key: cpu\n  display: digit\n  format: round\n  label: cpu", 
+            "title": "Value"
+        }, 
+        {
+            "location": "/Configuration/examples/#bar-chart", 
+            "text": "barChart:\n  type: monitor\n  keys: cpu, memory\n  display: bar\n  label: Bar Chart", 
+            "title": "Bar Chart"
+        }, 
+        {
+            "location": "/Configuration/examples/#radar-chart", 
+            "text": "radarTest:\n  type: monitor\n  keys: cpu,memory\n  display: radar\n  label: radarTest", 
+            "title": "Radar Chart"
+        }, 
+        {
+            "location": "/Configuration/examples/#line-chart", 
+            "text": "cpuChart:\n  type: monitor\n  keys: cpu,memory\n  display: line\n  label: CPU Chart", 
+            "title": "Line Chart"
+        }, 
+        {
+            "location": "/Configuration/examples/#lists", 
+            "text": "info:\n  type: device\n  display: list-group\n  label: Secret Information", 
+            "title": "Lists"
+        }, 
+        {
+            "location": "/Configuration/examples/#interactive", 
+            "text": "", 
+            "title": "Interactive"
+        }, 
+        {
+            "location": "/Configuration/examples/#buttons", 
+            "text": "", 
+            "title": "Buttons"
+        }, 
+        {
+            "location": "/Configuration/examples/#single", 
+            "text": "buttonTest:\n  label: Hacking Buttons\n  control: button\n  trigger: buttonInfo\n  value: Get Secret Information", 
+            "title": "Single"
+        }, 
+        {
+            "location": "/Configuration/examples/#handling-code", 
+            "text": "matrix.on('buttonInfo', function(){\n  // ...\n})  trigger  in the config file, is the event name ( buttonInfo ) handled.", 
+            "title": "Handling Code"
+        }, 
+        {
+            "location": "/Configuration/examples/#multiple", 
+            "text": "buttonsTest:\n  label: Matrix Activation Buttons\n  control: button\n  map:\n    'amps+': buttonUp\n    'amps-': buttonDown\n    begin : buttonStart\n    end : buttonStop\n    capture : buttonSample\n    'refresh+' : buttonSlow\n    'refresh-' : buttonFast", 
+            "title": "Multiple"
+        }, 
+        {
+            "location": "/Configuration/examples/#handling-code_1", 
+            "text": "matrix.on('buttonStop', function(){\n   //...\n})\n\n matrix.on('buttonStart', function(){\n   //...\n })\n\n matrix.on('buttonSample', function () {\n   //...\n })", 
+            "title": "Handling Code"
+        }, 
+        {
+            "location": "/Configuration/examples/#drop-downs", 
+            "text": "dropDown:\n  control: dropdown\n  map:\n    test1: doTest1\n    test2: doTest2\n  label: dropdown test", 
+            "title": "Drop Downs"
+        }, 
+        {
+            "location": "/Configuration/examples/#handling-code_2", 
+            "text": "matrix.on('doTest1', function(){\n //...\n})\n\n\nmatrix.on('doTest2', function(){\n //...\n})", 
+            "title": "Handling Code"
+        }, 
+        {
+            "location": "/Configuration/examples/#responsive-data-flow", 
+            "text": "matrix.on('buttonInfo', function(){\n  matrix.type('device').send({\n    'os_hostname': os.hostname(),\n    'os_type': os.type(),\n    'os_platform': os.platform(),\n    'os_arch': os.arch()\n  });\n})  When  buttonInfo  is triggered, respond with information with a type  device .  The list looks for  list:\n  type: device  which tells it to display information with type  device .", 
+            "title": "Responsive Data Flow"
+        }, 
+        {
+            "location": "/Configuration/filters/", 
+            "text": "", 
+            "title": "Filters"
+        }, 
+        {
+            "location": "/Configuration/overview/", 
+            "text": "Workflow\n\n\nApplication\n\n\nEach application has an \nconfig.yaml\n file which determines several things.\n\n\n\n\nHow to evaluate and categorize the application for the MatrixOS app Store\n\n\nApplication dashboard widget layout, display and data sources\n\n\nRuntime variables used by Matrix applications\n\n\nFixed data structure for saving information and routing to dashboard.\n\n\nWhat external services, such as CV and sensors, will be used, and how will they be provided to the app.\n\n\n\n\nExternal services can also be coded in the application directly.\n\n\nValidation\n\n\nInside the \nmatrix-app-config-helper\n repository the configuration is validated to be soundly structured.\n\n\nPopulation\n\n\nIn order to standardize the configuration, as well as permit a wide variety of user configuration interpretations, a population step is performed\u00a0before the finished record is stored.\n\n\nRole of Firebase\n\n\nFirebase is the primary store of application configuration. It permits us to dynamically refresh the application when the configuration changes. If an application does not have a Firebase configuration, the \nconfig.yaml\n file is validated, populated and stored inside Firebase with the following structure. \nuserId \n deviceId \n appName\n. \n\n\nMeta Information\n\n\nname\n, \nversion\n, \ndescription\n are used internally and for the Matrix App Store\n\n\nData Types\n\n\nIf you've setup a migration or an SQL table, this is a very simple structure to tell the application what sort of data you will be passing around.\n\n\ndataTypes:\n  foobar: integer\n\n\n\n\nSee \nData Types\n\n\nScreens \n Widgets\n\n\nTwo root nodes. \nscreens\n and \nwidgets\n work together to determine layout and content.\n\n\nScreens\n\n\nScreens notates a nested array which informs the dashboard how to layout the widgets.\n\n\nscreens:\n  - - a\n    - b\n    - foo\n  - - 1\n    - 2\n    - 3\n\n// =\n turns into\n\n[ [ a, b, foo ], [ 1, 2, 3 ] ]\n\n\n\n\nSub arrays correlates to rows in a display.\nThe above would display on the dashboard as follows:\n\n\n[a][b][foo]\n[1][2][3]\n\n\n\n\nThe value in the array corresponds to a widget name.\n\n\nWidgets\n\n\nWidgets describe the module to load inside a designated screen.\n\n\nwidgets:\n  foo:\n    # type defines what type of data this widget should display\n    type: foobar\n    # if provided, label shows above each widget\n    label: Foo widget\n\n\n\n\nFor more info see \nScreens \n Widgets", 
+            "title": "Overview"
+        }, 
+        {
+            "location": "/Configuration/overview/#workflow", 
+            "text": "", 
+            "title": "Workflow"
+        }, 
+        {
+            "location": "/Configuration/overview/#application", 
+            "text": "Each application has an  config.yaml  file which determines several things.   How to evaluate and categorize the application for the MatrixOS app Store  Application dashboard widget layout, display and data sources  Runtime variables used by Matrix applications  Fixed data structure for saving information and routing to dashboard.  What external services, such as CV and sensors, will be used, and how will they be provided to the app.   External services can also be coded in the application directly.", 
+            "title": "Application"
+        }, 
+        {
+            "location": "/Configuration/overview/#validation", 
+            "text": "Inside the  matrix-app-config-helper  repository the configuration is validated to be soundly structured.", 
+            "title": "Validation"
+        }, 
+        {
+            "location": "/Configuration/overview/#population", 
+            "text": "In order to standardize the configuration, as well as permit a wide variety of user configuration interpretations, a population step is performed\u00a0before the finished record is stored.", 
+            "title": "Population"
+        }, 
+        {
+            "location": "/Configuration/overview/#role-of-firebase", 
+            "text": "Firebase is the primary store of application configuration. It permits us to dynamically refresh the application when the configuration changes. If an application does not have a Firebase configuration, the  config.yaml  file is validated, populated and stored inside Firebase with the following structure.  userId   deviceId   appName .", 
+            "title": "Role of Firebase"
+        }, 
+        {
+            "location": "/Configuration/overview/#meta-information", 
+            "text": "name ,  version ,  description  are used internally and for the Matrix App Store", 
+            "title": "Meta Information"
+        }, 
+        {
+            "location": "/Configuration/overview/#data-types", 
+            "text": "If you've setup a migration or an SQL table, this is a very simple structure to tell the application what sort of data you will be passing around.  dataTypes:\n  foobar: integer  See  Data Types", 
+            "title": "Data Types"
+        }, 
+        {
+            "location": "/Configuration/overview/#screens-widgets", 
+            "text": "Two root nodes.  screens  and  widgets  work together to determine layout and content.", 
+            "title": "Screens &amp; Widgets"
+        }, 
+        {
+            "location": "/Configuration/overview/#screens", 
+            "text": "Screens notates a nested array which informs the dashboard how to layout the widgets.  screens:\n  - - a\n    - b\n    - foo\n  - - 1\n    - 2\n    - 3\n\n// =  turns into\n\n[ [ a, b, foo ], [ 1, 2, 3 ] ]  Sub arrays correlates to rows in a display.\nThe above would display on the dashboard as follows:  [a][b][foo]\n[1][2][3]  The value in the array corresponds to a widget name.", 
+            "title": "Screens"
+        }, 
+        {
+            "location": "/Configuration/overview/#widgets", 
+            "text": "Widgets describe the module to load inside a designated screen.  widgets:\n  foo:\n    # type defines what type of data this widget should display\n    type: foobar\n    # if provided, label shows above each widget\n    label: Foo widget  For more info see  Screens   Widgets", 
+            "title": "Widgets"
+        }, 
+        {
+            "location": "/Configuration/screens/", 
+            "text": "", 
+            "title": "Screens"
+        }, 
+        {
+            "location": "/Configuration/services/", 
+            "text": "", 
+            "title": "Services"
+        }, 
+        {
+            "location": "/Configuration/setup/", 
+            "text": "", 
+            "title": "Setup"
+        }, 
+        {
+            "location": "/Configuration/widgets/", 
+            "text": "", 
+            "title": "Widgets"
+        }
+    ]
+}
