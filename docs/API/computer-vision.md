@@ -4,8 +4,10 @@
 matrix.init( algorithm, options )
 ```
 
-## Algorithms
-`gesture`
+## Detection Algorithms
+`thumb-up`
+`palm-open`
+`palm-closed`
 `face-detect`
 `face-id`
 `vehicle-count`
@@ -14,13 +16,13 @@ matrix.init( algorithm, options )
 ## Base Options
 These are applicable to all algorithms.
 
-- `zone` - a nested array of x,y points
+- `zone` - a nested array of x,y, width and height
 - `zones` - an array of zone arrays
 
 ### Example
 ```
-var zone1 =  [ [100, 100], [100,200], [200,200], [200,100] ];
-var zone2 =  [ [150, 150], [150,250], [250,250], [250,150] ]
+var zone1 =  [ 100, 100, 300, 400 ];
+var zone2 =  [ 50, 50, 250, 300 ];
 {
   zone: zone1,
   zones: [zone1, zone2]
