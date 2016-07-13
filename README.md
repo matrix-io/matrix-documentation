@@ -1,3 +1,9 @@
 # README
 
-For Brian, because he needs a readme in a documentation repo.
+Matrix Documentation uses [MkDocs](http://www.mkdocs.org/) to format and compile Markdown into a HTML site.
+
+```
+# Do this to get the docs running locally.
+pip install mkdocs
+mkdocs serve
+```
