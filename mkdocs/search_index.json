@@ -2,23 +2,28 @@
     "docs": [
         {
             "location": "/", 
-            "text": "Welcome to MkDocs\n\n\nFor full documentation visit \nmkdocs.org\n.\n\n\nCommands\n\n\n\n\nmkdocs new [dir-name]\n - Create a new project.\n\n\nmkdocs serve\n - Start the live-reloading docs server.\n\n\nmkdocs build\n - Build the documentation site.\n\n\nmkdocs help\n - Print this help message.\n\n\n\n\nProject layout\n\n\nmkdocs.yml    # The configuration file.\ndocs/\n    index.md  # The documentation homepage.\n    ...       # Other markdown pages, images and other files.", 
+            "text": "Welcome to the Official MatrixOS Documentation\n\n\nMatrixOS is a device and language agnostic approach towards building IoT applications which can utilize sensors, integrations, external API's and powerful computer vision, to drive real world behavior.\n\n\nAll the hardware is abstracted away, so you don't have to worry about reading voltages.\nAll the infrastructure is provided, so you can easily gather data from hundreds of devices in real time.\n\n\nOverview\n\n\nCLI\n - Manage your devices and apps through the CLI\n\nConfig\n - App configuration informs device permissions, dashboards, data storage, app meta information and service integrations\n\nAPI\n - MatrixOS syntax and examples\n\n\nLanguage Support\n\n\nCurrently, MatrixOS supports JavaScript. Next on the list is Python.\n\n\nFeedback\n\n\nWe at AdMobilize have spent tens of thousands of hours making this for you. Please let us know your thoughts and feedback.", 
             "title": "Home"
         }, 
         {
-            "location": "/#welcome-to-mkdocs", 
-            "text": "For full documentation visit  mkdocs.org .", 
-            "title": "Welcome to MkDocs"
+            "location": "/#welcome-to-the-official-matrixos-documentation", 
+            "text": "MatrixOS is a device and language agnostic approach towards building IoT applications which can utilize sensors, integrations, external API's and powerful computer vision, to drive real world behavior.  All the hardware is abstracted away, so you don't have to worry about reading voltages.\nAll the infrastructure is provided, so you can easily gather data from hundreds of devices in real time.", 
+            "title": "Welcome to the Official MatrixOS Documentation"
         }, 
         {
-            "location": "/#commands", 
-            "text": "mkdocs new [dir-name]  - Create a new project.  mkdocs serve  - Start the live-reloading docs server.  mkdocs build  - Build the documentation site.  mkdocs help  - Print this help message.", 
-            "title": "Commands"
+            "location": "/#overview", 
+            "text": "CLI  - Manage your devices and apps through the CLI Config  - App configuration informs device permissions, dashboards, data storage, app meta information and service integrations API  - MatrixOS syntax and examples", 
+            "title": "Overview"
         }, 
         {
-            "location": "/#project-layout", 
-            "text": "mkdocs.yml    # The configuration file.\ndocs/\n    index.md  # The documentation homepage.\n    ...       # Other markdown pages, images and other files.", 
-            "title": "Project layout"
+            "location": "/#language-support", 
+            "text": "Currently, MatrixOS supports JavaScript. Next on the list is Python.", 
+            "title": "Language Support"
+        }, 
+        {
+            "location": "/#feedback", 
+            "text": "We at AdMobilize have spent tens of thousands of hours making this for you. Please let us know your thoughts and feedback.", 
+            "title": "Feedback"
         }, 
         {
             "location": "/API/GPIO/", 
@@ -312,8 +317,18 @@
         }, 
         {
             "location": "/API/overview/", 
-            "text": "matrix.save\nmatrix.file\nmatrix.config( '' ) - get\nmatrix.config( '', '' ) - set\nmatrix.restartApp();\nmatrix.push", 
+            "text": "Overview\n\n\nMatrixOS applications are an independent process running on a device. They communicate with the MatrixOS core via IPC which is largely event driven. This makes sense for sensors, because just like a REST call, we are waiting for a data point.\n\n\nThe approach we have chosen for this is to use JavaScript callbacks which look like this.\n\n\nsomeFunction(function callback(data){})\n\n\n\n\nWhat this means is that we execute \nfunction callback()\n at a determined time inside of \nsomeFunction()\n.\n\n\nThis permits MatrixOS applications to respond to events, such as sensor information, CV detection, or external events as they happen.\n\n\nReactionary Logic\n\n\nWhile you can write a \nmain()\n and loop it's execution, most of the power in the MatrixOS is in listening for certain conditions to be met, and then performing an action.", 
             "title": "Overview"
+        }, 
+        {
+            "location": "/API/overview/#overview", 
+            "text": "MatrixOS applications are an independent process running on a device. They communicate with the MatrixOS core via IPC which is largely event driven. This makes sense for sensors, because just like a REST call, we are waiting for a data point.  The approach we have chosen for this is to use JavaScript callbacks which look like this.  someFunction(function callback(data){})  What this means is that we execute  function callback()  at a determined time inside of  someFunction() .  This permits MatrixOS applications to respond to events, such as sensor information, CV detection, or external events as they happen.", 
+            "title": "Overview"
+        }, 
+        {
+            "location": "/API/overview/#reactionary-logic", 
+            "text": "While you can write a  main()  and loop it's execution, most of the power in the MatrixOS is in listening for certain conditions to be met, and then performing an action.", 
+            "title": "Reactionary Logic"
         }, 
         {
             "location": "/API/sensors/", 

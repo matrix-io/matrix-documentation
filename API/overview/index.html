@@ -114,6 +114,11 @@
         
             <ul>
             
+                <li class="toctree-l3"><a href="#overview">Overview</a></li>
+                
+                    <li><a class="toctree-l4" href="#reactionary-logic">Reactionary Logic</a></li>
+                
+            
             </ul>
         
     </li>
@@ -279,12 +284,16 @@
           <div role="main">
             <div class="section">
               
-                <p>matrix.save
-matrix.file
-matrix.config( '' ) - get
-matrix.config( '', '' ) - set
-matrix.restartApp();
-matrix.push</p>
+                <h2 id="overview">Overview</h2>
+<p>MatrixOS applications are an independent process running on a device. They communicate with the MatrixOS core via IPC which is largely event driven. This makes sense for sensors, because just like a REST call, we are waiting for a data point.</p>
+<p>The approach we have chosen for this is to use JavaScript callbacks which look like this.</p>
+<pre><code>someFunction(function callback(data){})
+</code></pre>
+
+<p>What this means is that we execute <code>function callback()</code> at a determined time inside of <code>someFunction()</code>.</p>
+<p>This permits MatrixOS applications to respond to events, such as sensor information, CV detection, or external events as they happen.</p>
+<h3 id="reactionary-logic">Reactionary Logic</h3>
+<p>While you can write a <code>main()</code> and loop it's execution, most of the power in the MatrixOS is in listening for certain conditions to be met, and then performing an action. </p>
               
             </div>
           </div>
