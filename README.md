@@ -1,6 +1,6 @@
 # README
 
-Matrix Documentation uses [MkDocs](http://www.mkdocs.org/) to format and compile Markdown into a HTML site.
+MATRIX Documentation uses [MkDocs](http://www.mkdocs.org/) to format and compile Markdown into a HTML site.
 
 ```
 # Do this to get the docs running locally.
