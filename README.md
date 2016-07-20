@@ -7,3 +7,12 @@ Matrix Documentation uses [MkDocs](http://www.mkdocs.org/) to format and compile
 pip install mkdocs
 mkdocs serve
 ```
+
+### Deployment
+
+```
+mkdocs gh-deploy --clean
+```
+That's it.
+
+http://matrix-io.github.io/matrix-documentation

@@ -1,17 +1,19 @@
-# Welcome to MkDocs
+# Welcome to the Official MatrixOS Documentation
 
-For full documentation visit [mkdocs.org](http://mkdocs.org).
+MatrixOS is a device and language agnostic approach towards building IoT applications which can utilize sensors, integrations, external API's and powerful computer vision, to drive real world behavior.
 
-## Commands
+All the hardware is abstracted away, so you don't have to worry about reading voltages.
+All the infrastructure is provided, so you can easily gather data from hundreds of devices in real time.
 
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs help` - Print this help message.
+## Overview
+[CLI](CLI/overview.md) - Manage your devices and apps through the CLI
 
-## Project layout
+[Config](Configuration/overview.md) - App configuration informs device permissions, dashboards, data storage, app meta information and service integrations
 
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
+[API](API/overview.md) - MatrixOS syntax and examples
+
+## Language Support
+Currently, MatrixOS supports JavaScript. Next on the list is Python.
+
+### Feedback
+We at AdMobilize have spent tens of thousands of hours making this for you. Please let us know your thoughts and feedback.
