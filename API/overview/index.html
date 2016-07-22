@@ -116,7 +116,9 @@
             
                 <li class="toctree-l3"><a href="#overview">Overview</a></li>
                 
-                    <li><a class="toctree-l4" href="#reactionary-logic">Reactionary Logic</a></li>
+                    <li><a class="toctree-l4" href="#thinking-in-events">Thinking in Events</a></li>
+                
+                    <li><a class="toctree-l4" href="#heed-warning">Heed Warning</a></li>
                 
             
             </ul>
@@ -162,7 +164,7 @@
         
             
     <li class="toctree-l1 ">
-        <a class="" href="../../CLI/management/">Management</a>
+        <a class="" href="../../CLI/example/">Example</a>
         
     </li>
 
@@ -170,13 +172,6 @@
             
     <li class="toctree-l1 ">
         <a class="" href="../../CLI/overview/">Overview</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../../CLI/setup/">Setup</a>
         
     </li>
 
@@ -292,8 +287,10 @@
 
 <p>What this means is that we execute <code>function callback()</code> at a determined time inside of <code>someFunction()</code>.</p>
 <p>This permits MatrixOS applications to respond to events, such as sensor information, CV detection, or external events as they happen.</p>
-<h3 id="reactionary-logic">Reactionary Logic</h3>
-<p>While you can write a <code>main()</code> and loop it's execution, most of the power in the MatrixOS is in listening for certain conditions to be met, and then performing an action. </p>
+<h3 id="thinking-in-events">Thinking in Events</h3>
+<p>While you can write a <code>main()</code> and loop it's execution, most of the power in the MatrixOS is in listening for certain conditions to be met, and then performing an action.</p>
+<h3 id="heed-warning">Heed Warning</h3>
+<p>Not all of this API is built and functional yet. We have endeavored to supply warning messages where there are implementation gaps. Use <code>matrix log</code> for more info about your running apps.</p>
               
             </div>
           </div>

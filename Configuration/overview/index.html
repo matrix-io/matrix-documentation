@@ -153,7 +153,7 @@
         
             
     <li class="toctree-l1 ">
-        <a class="" href="../../CLI/management/">Management</a>
+        <a class="" href="../../CLI/example/">Example</a>
         
     </li>
 
@@ -161,13 +161,6 @@
             
     <li class="toctree-l1 ">
         <a class="" href="../../CLI/overview/">Overview</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../../CLI/setup/">Setup</a>
         
     </li>
 
@@ -211,13 +204,7 @@
                 
                     <li><a class="toctree-l4" href="#application">Application</a></li>
                 
-                    <li><a class="toctree-l4" href="#validation">Validation</a></li>
-                
-                    <li><a class="toctree-l4" href="#population">Population</a></li>
-                
-                    <li><a class="toctree-l4" href="#role-of-firebase">Role of Firebase</a></li>
-                
-                    <li><a class="toctree-l4" href="#meta-information">Meta Information</a></li>
+                    <li><a class="toctree-l4" href="#deployment">Deployment</a></li>
                 
                     <li><a class="toctree-l4" href="#data-types">Data Types</a></li>
                 
@@ -307,14 +294,8 @@
 <li>What external services, such as CV and sensors, will be used, and how will they be provided to the app.</li>
 </ol>
 <p>External services can also be coded in the application directly.</p>
-<h2 id="validation">Validation</h2>
-<p>Inside the <a href="https://github.com/matrix-io/matrix-app-config-helper">matrix-app-config-helper</a> repository the configuration is validated to be soundly structured.</p>
-<h2 id="population">Population</h2>
-<p>In order to standardize the configuration, as well as permit a wide variety of user configuration interpretations, a population step is performed before the finished record is stored.</p>
-<h2 id="role-of-firebase">Role of Firebase</h2>
-<p>Firebase is the primary store of application configuration. It permits us to dynamically refresh the application when the configuration changes. If an application does not have a Firebase configuration, the <code>config.yaml</code> file is validated, populated and stored inside Firebase with the following structure. <code>userId &gt; deviceId &gt; appName</code>. </p>
-<h2 id="meta-information">Meta Information</h2>
-<p><code>name</code>, <code>version</code>, <code>description</code> are used internally and for the Matrix App Store</p>
+<h2 id="deployment">Deployment</h2>
+<p>Configurations are written on deployment ( see <a href="../../CLI/apps/">matrix deploy</a> ). If you change the <code>config.yaml</code>, you must deploy the application again. Otherwise you can change configuration using <code>matrix set config</code>.</p>
 <h2 id="data-types">Data Types</h2>
 <p>If you've setup a migration or an SQL table, this is a very simple structure to tell the application what sort of data you will be passing around.</p>
 <pre><code>dataTypes:

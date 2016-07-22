@@ -82,19 +82,13 @@
     </url>
         
     <url>
-     <loc>None/CLI/management/</loc>
+     <loc>None/CLI/example/</loc>
      <lastmod>2016-07-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>None/CLI/overview/</loc>
-     <lastmod>2016-07-22</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>None/CLI/setup/</loc>
      <lastmod>2016-07-22</lastmod>
      <changefreq>daily</changefreq>
     </url>

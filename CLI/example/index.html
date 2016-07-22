@@ -8,7 +8,7 @@
   
   
   
-  <title>GPIO - MatrixOS Documentation</title>
+  <title>Example - MatrixOS Documentation</title>
   
 
   <link rel="shortcut icon" href="../../img/favicon.ico">
@@ -23,9 +23,9 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "GPIO";
-    var mkdocs_page_input_path = "API/GPIO.md";
-    var mkdocs_page_url = "/API/GPIO/";
+    var mkdocs_page_name = "Example";
+    var mkdocs_page_input_path = "CLI/example.md";
+    var mkdocs_page_url = "/CLI/example/";
   </script>
   
   <script src="../../js/jquery-2.1.1.min.js"></script>
@@ -67,78 +67,71 @@
 
         
             
-    <li class="toctree-l1 current">
-        <a class="current" href="./">GPIO</a>
-        
-            <ul>
-            
-                <li class="toctree-l3"><a href="#gpio">GPIO</a></li>
-                
-            
-            </ul>
+    <li class="toctree-l1 ">
+        <a class="" href="../../API/GPIO/">GPIO</a>
         
     </li>
 
         
             
     <li class="toctree-l1 ">
-        <a class="" href="../computer-vision/">Computer vision</a>
+        <a class="" href="../../API/computer-vision/">Computer vision</a>
         
     </li>
 
         
             
     <li class="toctree-l1 ">
-        <a class="" href="../crosstalk/">Crosstalk</a>
+        <a class="" href="../../API/crosstalk/">Crosstalk</a>
         
     </li>
 
         
             
     <li class="toctree-l1 ">
-        <a class="" href="../everloop/">Everloop</a>
+        <a class="" href="../../API/everloop/">Everloop</a>
         
     </li>
 
         
             
     <li class="toctree-l1 ">
-        <a class="" href="../filter/">Filter</a>
+        <a class="" href="../../API/filter/">Filter</a>
         
     </li>
 
         
             
     <li class="toctree-l1 ">
-        <a class="" href="../microphone/">Microphone</a>
+        <a class="" href="../../API/microphone/">Microphone</a>
         
     </li>
 
         
             
     <li class="toctree-l1 ">
-        <a class="" href="../overview/">Overview</a>
+        <a class="" href="../../API/overview/">Overview</a>
         
     </li>
 
         
             
     <li class="toctree-l1 ">
-        <a class="" href="../sensors/">Sensors</a>
+        <a class="" href="../../API/sensors/">Sensors</a>
         
     </li>
 
         
             
     <li class="toctree-l1 ">
-        <a class="" href="../speaker/">Speaker</a>
+        <a class="" href="../../API/speaker/">Speaker</a>
         
     </li>
 
         
             
     <li class="toctree-l1 ">
-        <a class="" href="../typesend/">Typesend</a>
+        <a class="" href="../../API/typesend/">Typesend</a>
         
     </li>
 
@@ -153,21 +146,31 @@
         
             
     <li class="toctree-l1 ">
-        <a class="" href="../../CLI/apps/">Apps</a>
+        <a class="" href="../apps/">Apps</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 current">
+        <a class="current" href="./">Example</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#example-simulator-workflow">Example Simulator Workflow</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#example-app-install-and-set-configurations">Example App Install and Set Configurations</a></li>
+                
+            
+            </ul>
         
     </li>
 
         
             
     <li class="toctree-l1 ">
-        <a class="" href="../../CLI/example/">Example</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../../CLI/overview/">Overview</a>
+        <a class="" href="../overview/">Overview</a>
         
     </li>
 
@@ -261,11 +264,11 @@
     
       
         
-          <li>API &raquo;</li>
+          <li>CLI &raquo;</li>
         
       
     
-    <li>GPIO</li>
+    <li>Example</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -275,8 +278,31 @@
           <div role="main">
             <div class="section">
               
-                <h2 id="gpio">GPIO</h2>
-<p>Still working out the precise API for this. Stay tuned.</p>
+                <h1 id="example-simulator-workflow">Example Simulator Workflow</h1>
+<pre><code>matrix login
+matrix sim init
+matrix use simid-abc123
+matrix sim start
+
+# makes testapp/ with app scaffold
+matrix create testapp
+
+# places testapp/ onto matrixos
+matrix deploy testapp
+
+# starts testapp/
+matrix start testapp
+</code></pre>
+
+<h1 id="example-app-install-and-set-configurations">Example App Install and Set Configurations</h1>
+<pre><code>matrix login
+matrix list devices
+matrix use &lt;deviceId&gt;
+
+matrix install frontdoor
+matrix set config frontdoor settings.lock.apiKey=ABC123FED
+matrix start frontdoor
+</code></pre>
               
             </div>
           </div>
@@ -284,10 +310,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../computer-vision/" class="btn btn-neutral float-right" title="Computer vision">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../overview/" class="btn btn-neutral float-right" title="Overview">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../.." class="btn btn-neutral" title="Home"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../apps/" class="btn btn-neutral" title="Apps"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -313,10 +339,10 @@
     <span class="rst-current-version" data-toggle="rst-current-version">
       
       
-        <span><a href="../.." style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../apps/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../computer-vision/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../overview/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>
