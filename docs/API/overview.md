@@ -11,5 +11,8 @@ What this means is that we execute `function callback()` at a determined time in
 
 This permits MatrixOS applications to respond to events, such as sensor information, CV detection, or external events as they happen.
 
-### Reactionary Logic
-While you can write a `main()` and loop it's execution, most of the power in the MatrixOS is in listening for certain conditions to be met, and then performing an action. 
+### Thinking in Events
+While you can write a `main()` and loop it's execution, most of the power in the MatrixOS is in listening for certain conditions to be met, and then performing an action.
+
+### Heed Warning
+Not all of this API is built and functional yet. We have endeavored to supply warning messages where there are implementation gaps. Use `matrix log` for more info about your running apps.

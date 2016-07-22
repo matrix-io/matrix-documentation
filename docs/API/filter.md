@@ -74,5 +74,5 @@ matrix.init('temperature').has().below(32)
 
 ###### between
 ```
-matrix.init('temperature').has().between(32,70)
+matrix.init('face').has('happy').between(50,100)
 ```

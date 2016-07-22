@@ -11,18 +11,8 @@ Each application has an `config.yaml` file which determines several things.
 
 External services can also be coded in the application directly.
 
-## Validation
-Inside the [matrix-app-config-helper](https://github.com/matrix-io/matrix-app-config-helper) repository the configuration is validated to be soundly structured.
-
-## Population
-In order to standardize the configuration, as well as permit a wide variety of user configuration interpretations, a population step is performed before the finished record is stored.
-
-## Role of Firebase
-Firebase is the primary store of application configuration. It permits us to dynamically refresh the application when the configuration changes. If an application does not have a Firebase configuration, the `config.yaml` file is validated, populated and stored inside Firebase with the following structure. `userId > deviceId > appName`. 
-
-## Meta Information
-`name`, `version`, `description` are used internally and for the Matrix App Store
-
+## Deployment
+Configurations are written on deployment ( see [matrix deploy](../CLI/apps.md) ). If you change the `config.yaml`, you must deploy the application again. Otherwise you can change configuration using `matrix set config`.
 
 ## Data Types
 If you've setup a migration or an SQL table, this is a very simple structure to tell the application what sort of data you will be passing around.

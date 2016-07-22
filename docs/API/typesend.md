@@ -8,7 +8,7 @@ matrix.send({
 })
 ```
 
-is read in a widget `config.yaml` ( See [Configuration](../Configuration/overview.md))
+is read in a widget `config.yaml` ( See [Configuration>Widgets](../Configuration/widgets.md))
 
 ```
 name: fooApp
