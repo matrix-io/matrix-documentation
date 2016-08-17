@@ -95,6 +95,8 @@
             
                 <li class="toctree-l3"><a href="#everloop">Everloop</a></li>
                 
+                    <li><a class="toctree-l4" href="#rendering">Rendering</a></li>
+                
                     <li><a class="toctree-l4" href="#set-colors">Set Colors</a></li>
                 
                     <li><a class="toctree-l4" href="#generate-shapes">Generate Shapes</a></li>
@@ -289,6 +291,19 @@
               
                 <h1 id="everloop">Everloop</h1>
 <p>A powerful tool for communicating with end users is the EverLoop LED circle.</p>
+<h2 id="rendering">Rendering</h2>
+<p>MatrixOS is an attempt at abstracting out the complexity of hardware to make it very accessible for end users. At the same time, one also wants to support those who might want to perform more complex operations. When designing a language, sometimes compromises between ease of use and features must be made. </p>
+<h4 id="the-problem">The problem</h4>
+<p>Many things might want to write to the LED. We can leave it up to chance as to which gets to write, or we can approach it intelligently to optimize the aesthetics and performance. This requires a more complex notation. </p>
+<h4 id="the-solution">The Solution</h4>
+<pre><code>matrix.led('blue')
+//does nothing
+
+
+matrix.led('green').render()
+//lights change
+</code></pre>
+
 <h2 id="set-colors">Set Colors</h2>
 <pre><code>// set an initial color
 matrix.led('red')
@@ -399,7 +414,7 @@ matrix.led([
     blend: true
   };
 
-  matrix.led([hourLED, minuteLED]);
+  matrix.led([hourLED, minuteLED]).render();
 
 }, 1000)
 </code></pre>
