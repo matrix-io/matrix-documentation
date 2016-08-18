@@ -291,12 +291,16 @@
               
                 <h1 id="sensors">Sensors</h1>
 <h2 id="simple-sensor-list">Simple Sensor List</h2>
-<p>temperature
-humidity</p>
+<ul>
+<li>temperature</li>
+<li>humidity</li>
+</ul>
 <h2 id="complex-sensor-list">Complex Sensor List</h2>
-<p>gps
-gyro
-accellerometer</p>
+<ul>
+<li>gps</li>
+<li>gyroscope</li>
+<li>accellerometer</li>
+</ul>
 <h1 id="using-sensors">Using Sensors</h1>
 <pre><code>matrix.init('temperature').then(function(data){
   //see below for data formats
@@ -326,14 +330,28 @@ accellerometer</p>
 }
 </code></pre>
 
-<h3 id="gyro-accelleromete">gyro / accelleromete</h3>
+<h3 id="gyroscope">gyroscope</h3>
 <pre><code>{
-  x: 0.2323,
-  y: 0.234234,
-  z: 1.31231
+  x: 0.1,
+  y: 0.23,
+  z: 0.224
+}
+
+</code></pre>
+
+<h3 id="accellerometer">accellerometer</h3>
+<pre><code>{
+  yaw: 82.06211853027344,
+  pitch: -7.972985744476318,
+  roll: 1.0514432191848755
 }
 </code></pre>
 
+<h4 id="accellerometer-options">accellerometer options</h4>
+<ul>
+<li><code>refresh</code> - ms delay between refresh</li>
+<li><code>timeout</code> - how long before auto timeout</li>
+</ul>
 <h1 id="filtering-sensor-data">Filtering Sensor Data</h1>
 <p>see <a href="../filter/">API &gt; Filter</a></p>
               

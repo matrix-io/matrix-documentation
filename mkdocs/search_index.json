@@ -357,7 +357,7 @@
         }, 
         {
             "location": "/API/sensors/", 
-            "text": "Sensors\n\n\nSimple Sensor List\n\n\ntemperature\nhumidity\n\n\nComplex Sensor List\n\n\ngps\ngyro\naccellerometer\n\n\nUsing Sensors\n\n\nmatrix.init('temperature').then(function(data){\n  //see below for data formats\n})\n\n\n\n\nData from Simple Sensors\n\n\nSimple sensors emit float numbers with a \nvalue\n key.\n\n\n{\n  value: 72.0\n}\n\n\n\n\nData from complex sensors\n\n\nComplex sensors emit structured data\n\n\nmicrophone\n\n\n{\n  db: 132.23,\n  text: 'hello world'\n}\n\n\n\n\ngps\n\n\n{\n  lat: 34.234,\n  lon: 13.111\n}\n\n\n\n\ngyro / accelleromete\n\n\n{\n  x: 0.2323,\n  y: 0.234234,\n  z: 1.31231\n}\n\n\n\n\nFiltering Sensor Data\n\n\nsee \nAPI \n Filter", 
+            "text": "Sensors\n\n\nSimple Sensor List\n\n\n\n\ntemperature\n\n\nhumidity\n\n\n\n\nComplex Sensor List\n\n\n\n\ngps\n\n\ngyroscope\n\n\naccellerometer\n\n\n\n\nUsing Sensors\n\n\nmatrix.init('temperature').then(function(data){\n  //see below for data formats\n})\n\n\n\n\nData from Simple Sensors\n\n\nSimple sensors emit float numbers with a \nvalue\n key.\n\n\n{\n  value: 72.0\n}\n\n\n\n\nData from complex sensors\n\n\nComplex sensors emit structured data\n\n\nmicrophone\n\n\n{\n  db: 132.23,\n  text: 'hello world'\n}\n\n\n\n\ngps\n\n\n{\n  lat: 34.234,\n  lon: 13.111\n}\n\n\n\n\ngyroscope\n\n\n{\n  x: 0.1,\n  y: 0.23,\n  z: 0.224\n}\n\n\n\n\n\naccellerometer\n\n\n{\n  yaw: 82.06211853027344,\n  pitch: -7.972985744476318,\n  roll: 1.0514432191848755\n}\n\n\n\n\naccellerometer options\n\n\n\n\nrefresh\n - ms delay between refresh\n\n\ntimeout\n - how long before auto timeout\n\n\n\n\nFiltering Sensor Data\n\n\nsee \nAPI \n Filter", 
             "title": "Sensors"
         }, 
         {
@@ -367,12 +367,12 @@
         }, 
         {
             "location": "/API/sensors/#simple-sensor-list", 
-            "text": "temperature\nhumidity", 
+            "text": "temperature  humidity", 
             "title": "Simple Sensor List"
         }, 
         {
             "location": "/API/sensors/#complex-sensor-list", 
-            "text": "gps\ngyro\naccellerometer", 
+            "text": "gps  gyroscope  accellerometer", 
             "title": "Complex Sensor List"
         }, 
         {
@@ -401,9 +401,19 @@
             "title": "gps"
         }, 
         {
-            "location": "/API/sensors/#gyro-accelleromete", 
-            "text": "{\n  x: 0.2323,\n  y: 0.234234,\n  z: 1.31231\n}", 
-            "title": "gyro / accelleromete"
+            "location": "/API/sensors/#gyroscope", 
+            "text": "{\n  x: 0.1,\n  y: 0.23,\n  z: 0.224\n}", 
+            "title": "gyroscope"
+        }, 
+        {
+            "location": "/API/sensors/#accellerometer", 
+            "text": "{\n  yaw: 82.06211853027344,\n  pitch: -7.972985744476318,\n  roll: 1.0514432191848755\n}", 
+            "title": "accellerometer"
+        }, 
+        {
+            "location": "/API/sensors/#accellerometer-options", 
+            "text": "refresh  - ms delay between refresh  timeout  - how long before auto timeout", 
+            "title": "accellerometer options"
         }, 
         {
             "location": "/API/sensors/#filtering-sensor-data", 
