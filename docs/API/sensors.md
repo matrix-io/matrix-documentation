@@ -1,13 +1,13 @@
 # Sensors
 
 ## Simple Sensor List
-temperature
-humidity
+- temperature
+- humidity
 
 ## Complex Sensor List
-gps
-gyro
-accellerometer
+- gps
+- gyroscope
+- accellerometer
 
 # Using Sensors
 ```
@@ -41,14 +41,28 @@ Complex sensors emit structured data
   lon: 13.111
 }
 ```
-### gyro / accelleromete
+### gyroscope
 ```
 {
-  x: 0.2323,
-  y: 0.234234,
-  z: 1.31231
+  x: 0.1,
+  y: 0.23,
+  z: 0.224
+}
+
+```
+### accellerometer
+```
+{
+  yaw: 82.06211853027344,
+  pitch: -7.972985744476318,
+  roll: 1.0514432191848755
 }
 ```
+
+#### accellerometer options
+
+- `refresh` - ms delay between refresh
+- `timeout` - how long before auto timeout
 
 # Filtering Sensor Data
 see [API > Filter](filter.md)
