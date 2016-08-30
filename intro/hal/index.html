@@ -8,7 +8,7 @@
   
   
   
-  <title>GPIO - MatrixOS Documentation</title>
+  <title>Hal - MatrixOS Documentation</title>
   
 
   <link rel="shortcut icon" href="../../img/favicon.ico">
@@ -23,9 +23,9 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "GPIO";
-    var mkdocs_page_input_path = "API/GPIO.md";
-    var mkdocs_page_url = "/API/GPIO/";
+    var mkdocs_page_name = "Hal";
+    var mkdocs_page_input_path = "intro/hal.md";
+    var mkdocs_page_url = "/intro/hal/";
   </script>
   
   <script src="../../js/jquery-2.1.1.min.js"></script>
@@ -67,78 +67,71 @@
 
         
             
-    <li class="toctree-l1 current">
-        <a class="current" href="./">GPIO</a>
-        
-            <ul>
-            
-                <li class="toctree-l3"><a href="#gpio">GPIO</a></li>
-                
-            
-            </ul>
+    <li class="toctree-l1 ">
+        <a class="" href="../../API/GPIO/">GPIO</a>
         
     </li>
 
         
             
     <li class="toctree-l1 ">
-        <a class="" href="../computer-vision/">Computer vision</a>
+        <a class="" href="../../API/computer-vision/">Computer vision</a>
         
     </li>
 
         
             
     <li class="toctree-l1 ">
-        <a class="" href="../crosstalk/">Crosstalk</a>
+        <a class="" href="../../API/crosstalk/">Crosstalk</a>
         
     </li>
 
         
             
     <li class="toctree-l1 ">
-        <a class="" href="../everloop/">Everloop</a>
+        <a class="" href="../../API/everloop/">Everloop</a>
         
     </li>
 
         
             
     <li class="toctree-l1 ">
-        <a class="" href="../filter/">Filter</a>
+        <a class="" href="../../API/filter/">Filter</a>
         
     </li>
 
         
             
     <li class="toctree-l1 ">
-        <a class="" href="../microphone/">Microphone</a>
+        <a class="" href="../../API/microphone/">Microphone</a>
         
     </li>
 
         
             
     <li class="toctree-l1 ">
-        <a class="" href="../overview/">Overview</a>
+        <a class="" href="../../API/overview/">Overview</a>
         
     </li>
 
         
             
     <li class="toctree-l1 ">
-        <a class="" href="../sensors/">Sensors</a>
+        <a class="" href="../../API/sensors/">Sensors</a>
         
     </li>
 
         
             
     <li class="toctree-l1 ">
-        <a class="" href="../speaker/">Speaker</a>
+        <a class="" href="../../API/speaker/">Speaker</a>
         
     </li>
 
         
             
     <li class="toctree-l1 ">
-        <a class="" href="../typesend/">Typesend</a>
+        <a class="" href="../../API/typesend/">Typesend</a>
         
     </li>
 
@@ -317,22 +310,26 @@
 
         
             
-    <li class="toctree-l1 ">
-        <a class="" href="../../intro/hal/">Hal</a>
+    <li class="toctree-l1 current">
+        <a class="current" href="./">Hal</a>
+        
+            <ul>
+            
+            </ul>
         
     </li>
 
         
             
     <li class="toctree-l1 ">
-        <a class="" href="../../intro/install/">Install</a>
+        <a class="" href="../install/">Install</a>
         
     </li>
 
         
             
     <li class="toctree-l1 ">
-        <a class="" href="../../intro/malos/">Malos</a>
+        <a class="" href="../malos/">Malos</a>
         
     </li>
 
@@ -362,11 +359,11 @@
     
       
         
-          <li>API &raquo;</li>
+          <li>Intro &raquo;</li>
         
       
     
-    <li>GPIO</li>
+    <li>Hal</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -376,8 +373,42 @@
           <div role="main">
             <div class="section">
               
-                <h2 id="gpio">GPIO</h2>
-<p>Still working out the precise API for this. Stay tuned.</p>
+                <p>With the following instructions you will be able to run demos for the Everloop LED Array and for the IMU. These demos make use of the <a href="https://github.com/matrix-io/matrix-creator-hal/tree/master/cpp/driver">hardware abstraction layer</a>.</p>
+<p>[[http://packages.matrix.one/wiki-images/general-assets/hand-small.png|alt=MATRIX Creator]]</p>
+<p>If you followed the <a href="../getting-started">getting started</a> steps the <a href="../fpga-programming">FPGA</a> and the <a href="../sam3mcu-programming">SAM3 MCU</a> should be programmed and ready. Also, <a href="../enable-spi">SPI should have been enabled for you</a>.</p>
+<p>Thus you can just get the required source code and build it:</p>
+<pre><code>git clone https://github.com/matrix-io/matrix-creator-hal.git
+cd matrix-creator-hal
+mkdir build &amp;&amp; cd build
+cmake .. &amp;&amp; make
+</code></pre>
+<p>If the project built with no issues you can run the demos. The demos run for ever, you can terminate them with Control+C.</p>
+<p>Spinning leds ( <a href="https://www.youtube.com/watch?v=0cEtEyCdVI4">video</a> ):</p>
+<pre><code>demos/everloop_demo
+</code></pre>
+<p>Arc demo ( <a href="https://www.youtube.com/watch?v=1UFFT1JSw4Q">video</a> ) :</p>
+<pre><code>demos/arc_demo
+</code></pre>
+<p>Compass demo:</p>
+<pre><code>demos/compass_demo
+
+yaw = -116.006  roll = 3.19588  pitch = 0.370596
+yaw = -116.577  roll = 3.61794  pitch = 0.210613
+yaw = -115.649  roll = 3.64227  pitch = 0.334733
+yaw = -115.468  roll = 3.34762  pitch = 0.42658
+yaw = -116.423  roll = 3.49536  pitch = 0.566351
+</code></pre>
+<p>Microphones:</p>
+<pre><code>demos/mic_demo
+
+52  29  54  74  74  49  39  60
+60  31  52  46  41  55  68  70
+60  44  55  43  53  68  62  62
+45  17  69  54  18  38  74  67
+
+(You get one value for each microphone)
+</code></pre>
+<p>Questions? Post them on <a href="http://raspberrypi.stackexchange.com">raspberrypi.stackexchange.com</a>! Use the tag #matrix-creator</p>
               
             </div>
           </div>
@@ -385,10 +416,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../computer-vision/" class="btn btn-neutral float-right" title="Computer vision">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../install/" class="btn btn-neutral float-right" title="Install">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../.." class="btn btn-neutral" title="Home"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../../Reference/pinout/" class="btn btn-neutral" title="Pinout"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -414,10 +445,10 @@
     <span class="rst-current-version" data-toggle="rst-current-version">
       
       
-        <span><a href="../.." style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../../Reference/pinout/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../computer-vision/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../install/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>

@@ -8,7 +8,7 @@
   
   
   
-  <title>GPIO - MatrixOS Documentation</title>
+  <title>Malos - MatrixOS Documentation</title>
   
 
   <link rel="shortcut icon" href="../../img/favicon.ico">
@@ -23,9 +23,9 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "GPIO";
-    var mkdocs_page_input_path = "API/GPIO.md";
-    var mkdocs_page_url = "/API/GPIO/";
+    var mkdocs_page_name = "Malos";
+    var mkdocs_page_input_path = "intro/malos.md";
+    var mkdocs_page_url = "/intro/malos/";
   </script>
   
   <script src="../../js/jquery-2.1.1.min.js"></script>
@@ -67,78 +67,71 @@
 
         
             
-    <li class="toctree-l1 current">
-        <a class="current" href="./">GPIO</a>
-        
-            <ul>
-            
-                <li class="toctree-l3"><a href="#gpio">GPIO</a></li>
-                
-            
-            </ul>
+    <li class="toctree-l1 ">
+        <a class="" href="../../API/GPIO/">GPIO</a>
         
     </li>
 
         
             
     <li class="toctree-l1 ">
-        <a class="" href="../computer-vision/">Computer vision</a>
+        <a class="" href="../../API/computer-vision/">Computer vision</a>
         
     </li>
 
         
             
     <li class="toctree-l1 ">
-        <a class="" href="../crosstalk/">Crosstalk</a>
+        <a class="" href="../../API/crosstalk/">Crosstalk</a>
         
     </li>
 
         
             
     <li class="toctree-l1 ">
-        <a class="" href="../everloop/">Everloop</a>
+        <a class="" href="../../API/everloop/">Everloop</a>
         
     </li>
 
         
             
     <li class="toctree-l1 ">
-        <a class="" href="../filter/">Filter</a>
+        <a class="" href="../../API/filter/">Filter</a>
         
     </li>
 
         
             
     <li class="toctree-l1 ">
-        <a class="" href="../microphone/">Microphone</a>
+        <a class="" href="../../API/microphone/">Microphone</a>
         
     </li>
 
         
             
     <li class="toctree-l1 ">
-        <a class="" href="../overview/">Overview</a>
+        <a class="" href="../../API/overview/">Overview</a>
         
     </li>
 
         
             
     <li class="toctree-l1 ">
-        <a class="" href="../sensors/">Sensors</a>
+        <a class="" href="../../API/sensors/">Sensors</a>
         
     </li>
 
         
             
     <li class="toctree-l1 ">
-        <a class="" href="../speaker/">Speaker</a>
+        <a class="" href="../../API/speaker/">Speaker</a>
         
     </li>
 
         
             
     <li class="toctree-l1 ">
-        <a class="" href="../typesend/">Typesend</a>
+        <a class="" href="../../API/typesend/">Typesend</a>
         
     </li>
 
@@ -318,21 +311,38 @@
         
             
     <li class="toctree-l1 ">
-        <a class="" href="../../intro/hal/">Hal</a>
+        <a class="" href="../hal/">Hal</a>
         
     </li>
 
         
             
     <li class="toctree-l1 ">
-        <a class="" href="../../intro/install/">Install</a>
+        <a class="" href="../install/">Install</a>
         
     </li>
 
         
             
-    <li class="toctree-l1 ">
-        <a class="" href="../../intro/malos/">Malos</a>
+    <li class="toctree-l1 current">
+        <a class="current" href="./">Malos</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#matrix-abstraction-layer-for-os">Matrix Abstraction Layer for OS</a></li>
+                
+                    <li><a class="toctree-l4" href="#install-the-most-recent-version">Install the most recent version</a></li>
+                
+                    <li><a class="toctree-l4" href="#running-malos">Running malos</a></li>
+                
+                    <li><a class="toctree-l4" href="#details">Details</a></li>
+                
+                    <li><a class="toctree-l4" href="#example-query-device-list">Example - Query device list</a></li>
+                
+                    <li><a class="toctree-l4" href="#everloop-demo">Everloop demo</a></li>
+                
+            
+            </ul>
         
     </li>
 
@@ -362,11 +372,11 @@
     
       
         
-          <li>API &raquo;</li>
+          <li>Intro &raquo;</li>
         
       
     
-    <li>GPIO</li>
+    <li>Malos</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -376,8 +386,66 @@
           <div role="main">
             <div class="section">
               
-                <h2 id="gpio">GPIO</h2>
-<p>Still working out the precise API for this. Stay tuned.</p>
+                <h1 id="matrix-abstraction-layer-for-os">Matrix Abstraction Layer for OS</h1>
+<p>MALOS provides a <a href="http://zeromq.org/">ZeroMQ</a> messaging layer. The intended target for this layer is <a href="http://github.com/matrix-io/matrix-os">MatrixOS</a>.</p>
+<h2 id="install-the-most-recent-version">Install the most recent version</h2>
+<p>To use it make sure that you have the most recent version installed:</p>
+<pre><code>apt-get update
+apt-get install matrix-creator-malos
+</code></pre>
+<h2 id="running-malos">Running malos</h2>
+<p>And then run it. You should see an output like the following one:</p>
+<pre><code>$ malos
+**************
+MALOS starting
+**************
+
+You can query specific driver info using port 20012.
+Registered driver IMU with port 20013.
+Registered driver Humidity with port 20017.
+Registered driver Everloop with port 20021.
+</code></pre>
+<h2 id="details">Details</h2>
+<p>MALOS gives you direct access to the hardware devices, and each device has four ZeroMQ (ZMQ) sockets:</p>
+<ol>
+<li>Base port (for instance 20013). ZMQ PULL channel used for device configuration (if configuration is required, most devices have a default configuration).</li>
+<li>(base_port + 1) is used as a keep-alive channel. This channel is used to tell the driver that it should keep sending updates to MATRIX OS. Each driver has a configurable time interval that tells it how often it should expect keep-alive messages. If an amount of time bigger than the interval elapses without keepalives, the driver will stop sending updates.</li>
+<li>(base_port + 2) is used as error channel. ZMQ PUSH. If an error occurs, it will be sent in this channel.</li>
+<li>(base_port + 3) is used to send device updates. ZMQ PUSH. Clients will normally listen on this port for updates.</li>
+</ol>
+<p>It's important to note that <strong>more than one program</strong> can subscribe to the <strong>error channel</strong> and the <strong>device updates channel</strong>. This is achieved thanks to the PUB/SUB model of ZMQ.</p>
+<p>In this <a href="https://github.com/matrix-io/matrix-creator-malos/blob/master/src/js_test/test_imu.js">Node.js example</a> you can see all the channels used. If you want to run it you need to edit the IP address (and maybe the port depending on the device base-port mapping.</p>
+<h2 id="example-query-device-list">Example - Query device list</h2>
+<p>This <a href="https://github.com/matrix-io/matrix-creator-malos/blob/master/src/js_test/test_driver_info.js">Node.js example</a> shows how you can query the device list and some capabilities. This program uses a ZMQ RPC call.</p>
+<p>To run the file, you need to edit the <code>creator_ip</code> to match the IP of the Raspberry PI and the first port printed when the command malos is started (20012 in the sample session shown above).</p>
+<p>This is what the output looks like:</p>
+<pre><code>$ nodejs test_driver_info.js
+{ info:
+   [ { driver_name: 'IMU',
+       base_port: 20013,
+       provides_updates: true,
+       delay_between_updates: 1000,
+       needs_pings: true,
+       timeout_after_last_ping: 5000,
+       notes_for_human: 'Provides yaw/pitch/roll. Check Imu message (protocol buffer)' },
+     { driver_name: 'Humidity',
+       base_port: 20017,
+       provides_updates: true,
+       delay_between_updates: 1000,
+       needs_pings: true,
+       timeout_after_last_ping: 5000,
+       notes_for_human: 'Provides humidity and temperature. Check Humidity message (protocol buffer)' },
+     { driver_name: 'Everloop',
+       base_port: 20021,
+       provides_updates: false,
+       delay_between_updates: 1000,
+       needs_pings: false,
+       timeout_after_last_ping: 5000,
+       notes_for_human: 'Write-only. There are 35 leds. Values range from 0 to 255. Check message EverloopImage (protocol buffer)' } ] }
+</code></pre>
+<h2 id="everloop-demo">Everloop demo</h2>
+<p>Once MALOS is operational, you can run the <a href="https://github.com/matrix-io/matrix-creator-malos/blob/master/src/js_test/test_everloop.js">Everloop LED array demo</a>. Remember to edit the IP address of your Raspberry PI.</p>
+<p>For the impatient, here is a video of what this demo does: <a href="https://youtu.be/b0n2-hzFgcY">https://youtu.be/b0n2-hzFgcY</a>.</p>
               
             </div>
           </div>
@@ -385,10 +453,8 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../computer-vision/" class="btn btn-neutral float-right" title="Computer vision">Next <span class="icon icon-circle-arrow-right"></span></a>
       
-      
-        <a href="../.." class="btn btn-neutral" title="Home"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../install/" class="btn btn-neutral" title="Install"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -414,10 +480,8 @@
     <span class="rst-current-version" data-toggle="rst-current-version">
       
       
-        <span><a href="../.." style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../install/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
-      
-        <span style="margin-left: 15px"><a href="../computer-vision/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>

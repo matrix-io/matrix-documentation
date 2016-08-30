@@ -60,7 +60,16 @@
         
             <ul>
             
-                <li class="toctree-l3"><a href="#welcome-to-the-official-matrixos-documentation">Welcome to the Official MatrixOS Documentation</a></li>
+                <li class="toctree-l3"><a href="#welcome-to-the-matrix-documentation">Welcome to the MATRIX documentation</a></li>
+                
+                    <li><a class="toctree-l4" href="#creator-getting-started">Creator Getting Started</a></li>
+                
+                    <li><a class="toctree-l4" href="#hardware">Hardware</a></li>
+                
+                    <li><a class="toctree-l4" href="#support">Support</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#matrixos-documentation">MatrixOS Documentation</a></li>
                 
                     <li><a class="toctree-l4" href="#overview">Overview</a></li>
                 
@@ -243,6 +252,107 @@
     </ul>
 <li>
           
+            <li>
+    <ul class="subnav">
+    <li><span>Hardware</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="Hardware/SPI/">SPI</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="Hardware/Sam3/">Sam3</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="Hardware/fpga/">Fpga</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="Hardware/microphone/">Microphone</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="Hardware/sam3mcu-programming/">Sam3mcu programming</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Reference</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="Reference/Data-Sheets/">Data Sheets</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="Reference/overview/">Overview</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="Reference/pinout/">Pinout</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Intro</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="intro/hal/">Hal</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="intro/install/">Install</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="intro/malos/">Malos</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
         </ul>
       </div>
       &nbsp;
@@ -275,7 +385,40 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="welcome-to-the-official-matrixos-documentation">Welcome to the Official MatrixOS Documentation</h1>
+                <h1 id="welcome-to-the-matrix-documentation">Welcome to the MATRIX documentation</h1>
+<p><img alt="Matrix Creator" src="http://packages.matrix.one/wiki-images/general-assets/hand-small.png" /></p>
+<p>This documentation is for MATRIX Creator and MATRIX OS.</p>
+<h2 id="creator-getting-started">Creator Getting Started</h2>
+<h3 id="base-install">Base Install</h3>
+<ul>
+<li><a href="intro/install/">Installing required device software</a></li>
+</ul>
+<h3 id="step-two">Step Two</h3>
+<h4 id="low-level-software">Low Level Software</h4>
+<ul>
+<li><a href="intro/hal/">How to Implement the Everloop LED array</a> -- Using HAL C++ hardware abstraction layer.</li>
+</ul>
+<h4 id="high-level-software">High Level Software</h4>
+<ul>
+<li><a href="intro/malos/">Installing MALOS Interface</a> -- Using Node.js and MALOS (Matrix Abstraction Layer for OS).</li>
+</ul>
+<h2 id="hardware">Hardware</h2>
+<h3 id="fpga-and-sam3-mcu">FPGA and SAM3 MCU</h3>
+<p>These will be programmed for you at boot after you follow the <a href="./2.-Getting-Started">getting started</a> session, but here is the documentation that you need in case you want to program them yourself.
+<em> <a href="Hardware/fpga/">FPGA programming</a>
+</em> <a href="Hardware/sam3.md">SAM3 flash</a>
+* <a href="Hardware/sam3mcu-programming/">SAM3 MCU firmware programming</a></p>
+<h3 id="reference">Reference</h3>
+<ul>
+<li><a href="Hardware/overview.md">Overview</a></li>
+<li><a href="Hardware/pinout.md">Expansion connector pinout</a></li>
+<li><a href="https://github.com/matrix-io/matrix-creator-mcu">Firmware for the SAM3S MCU</a></li>
+</ul>
+<h2 id="support">Support</h2>
+<p>Post them on <a href="http://raspberrypi.stackexchange.com">raspberrypi.stackexchange.com</a>! Use the tag #matrix-creator</p>
+<p>Or post to our own forums</p>
+<p><a href="http://community.matrix.one/">community.matrix.one</a></p>
+<h1 id="matrixos-documentation">MatrixOS Documentation</h1>
 <p>MatrixOS is a device and language agnostic approach towards building IoT applications which can utilize sensors, integrations, external API's and powerful computer vision, to drive real world behavior.</p>
 <p>All the hardware is abstracted away, so you don't have to worry about reading voltages.
 All the infrastructure is provided, so you can easily gather data from hundreds of devices in real time.</p>
@@ -332,5 +475,5 @@ All the infrastructure is provided, so you can easily gather data from hundreds 
 
 <!--
 MkDocs version : 0.15.3
-Build Date UTC : 2016-08-18 23:50:54.123891
+Build Date UTC : 2016-08-30 17:31:49.112115
 -->

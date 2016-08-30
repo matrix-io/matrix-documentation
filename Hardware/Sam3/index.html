@@ -8,7 +8,7 @@
   
   
   
-  <title>GPIO - MatrixOS Documentation</title>
+  <title>Sam3 - MatrixOS Documentation</title>
   
 
   <link rel="shortcut icon" href="../../img/favicon.ico">
@@ -23,9 +23,9 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "GPIO";
-    var mkdocs_page_input_path = "API/GPIO.md";
-    var mkdocs_page_url = "/API/GPIO/";
+    var mkdocs_page_name = "Sam3";
+    var mkdocs_page_input_path = "Hardware/Sam3.md";
+    var mkdocs_page_url = "/Hardware/Sam3/";
   </script>
   
   <script src="../../js/jquery-2.1.1.min.js"></script>
@@ -67,78 +67,71 @@
 
         
             
-    <li class="toctree-l1 current">
-        <a class="current" href="./">GPIO</a>
-        
-            <ul>
-            
-                <li class="toctree-l3"><a href="#gpio">GPIO</a></li>
-                
-            
-            </ul>
+    <li class="toctree-l1 ">
+        <a class="" href="../../API/GPIO/">GPIO</a>
         
     </li>
 
         
             
     <li class="toctree-l1 ">
-        <a class="" href="../computer-vision/">Computer vision</a>
+        <a class="" href="../../API/computer-vision/">Computer vision</a>
         
     </li>
 
         
             
     <li class="toctree-l1 ">
-        <a class="" href="../crosstalk/">Crosstalk</a>
+        <a class="" href="../../API/crosstalk/">Crosstalk</a>
         
     </li>
 
         
             
     <li class="toctree-l1 ">
-        <a class="" href="../everloop/">Everloop</a>
+        <a class="" href="../../API/everloop/">Everloop</a>
         
     </li>
 
         
             
     <li class="toctree-l1 ">
-        <a class="" href="../filter/">Filter</a>
+        <a class="" href="../../API/filter/">Filter</a>
         
     </li>
 
         
             
     <li class="toctree-l1 ">
-        <a class="" href="../microphone/">Microphone</a>
+        <a class="" href="../../API/microphone/">Microphone</a>
         
     </li>
 
         
             
     <li class="toctree-l1 ">
-        <a class="" href="../overview/">Overview</a>
+        <a class="" href="../../API/overview/">Overview</a>
         
     </li>
 
         
             
     <li class="toctree-l1 ">
-        <a class="" href="../sensors/">Sensors</a>
+        <a class="" href="../../API/sensors/">Sensors</a>
         
     </li>
 
         
             
     <li class="toctree-l1 ">
-        <a class="" href="../speaker/">Speaker</a>
+        <a class="" href="../../API/speaker/">Speaker</a>
         
     </li>
 
         
             
     <li class="toctree-l1 ">
-        <a class="" href="../typesend/">Typesend</a>
+        <a class="" href="../../API/typesend/">Typesend</a>
         
     </li>
 
@@ -246,35 +239,42 @@
         
             
     <li class="toctree-l1 ">
-        <a class="" href="../../Hardware/SPI/">SPI</a>
+        <a class="" href="../SPI/">SPI</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 current">
+        <a class="current" href="./">Sam3</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#sam3-firmware-flash">SAM3 Firmware Flash</a></li>
+                
+            
+            </ul>
         
     </li>
 
         
             
     <li class="toctree-l1 ">
-        <a class="" href="../../Hardware/Sam3/">Sam3</a>
+        <a class="" href="../fpga/">Fpga</a>
         
     </li>
 
         
             
     <li class="toctree-l1 ">
-        <a class="" href="../../Hardware/fpga/">Fpga</a>
+        <a class="" href="../microphone/">Microphone</a>
         
     </li>
 
         
             
     <li class="toctree-l1 ">
-        <a class="" href="../../Hardware/microphone/">Microphone</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../../Hardware/sam3mcu-programming/">Sam3mcu programming</a>
+        <a class="" href="../sam3mcu-programming/">Sam3mcu programming</a>
         
     </li>
 
@@ -362,11 +362,11 @@
     
       
         
-          <li>API &raquo;</li>
+          <li>Hardware &raquo;</li>
         
       
     
-    <li>GPIO</li>
+    <li>Sam3</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -376,8 +376,20 @@
           <div role="main">
             <div class="section">
               
-                <h2 id="gpio">GPIO</h2>
-<p>Still working out the precise API for this. Stay tuned.</p>
+                <h1 id="sam3-firmware-flash">SAM3 Firmware Flash</h1>
+<p>This firmware is used to read the sensors. You can build it in your host machine, and then copy the resulting binary to the Raspberry Pi.</p>
+<p>First, you need to compile the firmware. You can do it in the Rasbperry Pi (if you have enough space available) or in your host machine if you want to do it faster.</p>
+<pre><code>apt-get install gcc-arm-none-eabi
+git clone https://github.com/matrix-io/matrix-creator-mcu
+cd  matrix-creator-mcu/creator &amp;&amp; make
+</code></pre>
+
+<p>Now copy build/ch.bin to the Rasbperry Pi (if you didn't build there) and <a href="../sam3mcu-programming">flash it</a>. In order to flash it you need to replace the file blob/ch.bin (or edit the cfg/sam3s.cfg configuration file).</p>
+<p>And only then you can flash the SAM3 firmware.</p>
+<pre><code>sudo openocd -f cfg/sam3s.cfg
+</code></pre>
+
+<p>Questions? Post them on raspberrypi.stackexchange.com! Use the tag #matrix-creator</p>
               
             </div>
           </div>
@@ -385,10 +397,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../computer-vision/" class="btn btn-neutral float-right" title="Computer vision">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../fpga/" class="btn btn-neutral float-right" title="Fpga">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../.." class="btn btn-neutral" title="Home"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../SPI/" class="btn btn-neutral" title="SPI"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -414,10 +426,10 @@
     <span class="rst-current-version" data-toggle="rst-current-version">
       
       
-        <span><a href="../.." style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../SPI/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../computer-vision/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../fpga/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>

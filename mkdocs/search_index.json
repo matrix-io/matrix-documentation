@@ -2,13 +2,63 @@
     "docs": [
         {
             "location": "/", 
-            "text": "Welcome to the Official MatrixOS Documentation\n\n\nMatrixOS is a device and language agnostic approach towards building IoT applications which can utilize sensors, integrations, external API's and powerful computer vision, to drive real world behavior.\n\n\nAll the hardware is abstracted away, so you don't have to worry about reading voltages.\nAll the infrastructure is provided, so you can easily gather data from hundreds of devices in real time.\n\n\nOverview\n\n\nCLI\n - Manage your devices and apps through the CLI\n\n\nConfig\n - App configuration informs device permissions, dashboards, data storage, app meta information and service integrations\n\n\nAPI\n - MatrixOS syntax and examples\n\n\nLanguage Support\n\n\nCurrently, MatrixOS supports JavaScript. Next on the list is Python.\n\n\nFeedback\n\n\nWe at AdMobilize have spent tens of thousands of hours making this for you. Please let us know your thoughts and feedback.", 
+            "text": "Welcome to the MATRIX documentation\n\n\n\n\nThis documentation is for MATRIX Creator and MATRIX OS.\n\n\nCreator Getting Started\n\n\nBase Install\n\n\n\n\nInstalling required device software\n\n\n\n\nStep Two\n\n\nLow Level Software\n\n\n\n\nHow to Implement the Everloop LED array\n -- Using HAL C++ hardware abstraction layer.\n\n\n\n\nHigh Level Software\n\n\n\n\nInstalling MALOS Interface\n -- Using Node.js and MALOS (Matrix Abstraction Layer for OS).\n\n\n\n\nHardware\n\n\nFPGA and SAM3 MCU\n\n\nThese will be programmed for you at boot after you follow the \ngetting started\n session, but here is the documentation that you need in case you want to program them yourself.\n\n \nFPGA programming\n\n\n \nSAM3 flash\n\n* \nSAM3 MCU firmware programming\n\n\nReference\n\n\n\n\nOverview\n\n\nExpansion connector pinout\n\n\nFirmware for the SAM3S MCU\n\n\n\n\nSupport\n\n\nPost them on \nraspberrypi.stackexchange.com\n! Use the tag #matrix-creator\n\n\nOr post to our own forums\n\n\ncommunity.matrix.one\n\n\nMatrixOS Documentation\n\n\nMatrixOS is a device and language agnostic approach towards building IoT applications which can utilize sensors, integrations, external API's and powerful computer vision, to drive real world behavior.\n\n\nAll the hardware is abstracted away, so you don't have to worry about reading voltages.\nAll the infrastructure is provided, so you can easily gather data from hundreds of devices in real time.\n\n\nOverview\n\n\nCLI\n - Manage your devices and apps through the CLI\n\n\nConfig\n - App configuration informs device permissions, dashboards, data storage, app meta information and service integrations\n\n\nAPI\n - MatrixOS syntax and examples\n\n\nLanguage Support\n\n\nCurrently, MatrixOS supports JavaScript. Next on the list is Python.\n\n\nFeedback\n\n\nWe at AdMobilize have spent tens of thousands of hours making this for you. Please let us know your thoughts and feedback.", 
             "title": "Home"
         }, 
         {
-            "location": "/#welcome-to-the-official-matrixos-documentation", 
+            "location": "/#welcome-to-the-matrix-documentation", 
+            "text": "This documentation is for MATRIX Creator and MATRIX OS.", 
+            "title": "Welcome to the MATRIX documentation"
+        }, 
+        {
+            "location": "/#creator-getting-started", 
+            "text": "", 
+            "title": "Creator Getting Started"
+        }, 
+        {
+            "location": "/#base-install", 
+            "text": "Installing required device software", 
+            "title": "Base Install"
+        }, 
+        {
+            "location": "/#step-two", 
+            "text": "", 
+            "title": "Step Two"
+        }, 
+        {
+            "location": "/#low-level-software", 
+            "text": "How to Implement the Everloop LED array  -- Using HAL C++ hardware abstraction layer.", 
+            "title": "Low Level Software"
+        }, 
+        {
+            "location": "/#high-level-software", 
+            "text": "Installing MALOS Interface  -- Using Node.js and MALOS (Matrix Abstraction Layer for OS).", 
+            "title": "High Level Software"
+        }, 
+        {
+            "location": "/#hardware", 
+            "text": "", 
+            "title": "Hardware"
+        }, 
+        {
+            "location": "/#fpga-and-sam3-mcu", 
+            "text": "These will be programmed for you at boot after you follow the  getting started  session, but here is the documentation that you need in case you want to program them yourself.   FPGA programming    SAM3 flash \n*  SAM3 MCU firmware programming", 
+            "title": "FPGA and SAM3 MCU"
+        }, 
+        {
+            "location": "/#reference", 
+            "text": "Overview  Expansion connector pinout  Firmware for the SAM3S MCU", 
+            "title": "Reference"
+        }, 
+        {
+            "location": "/#support", 
+            "text": "Post them on  raspberrypi.stackexchange.com ! Use the tag #matrix-creator  Or post to our own forums  community.matrix.one", 
+            "title": "Support"
+        }, 
+        {
+            "location": "/#matrixos-documentation", 
             "text": "MatrixOS is a device and language agnostic approach towards building IoT applications which can utilize sensors, integrations, external API's and powerful computer vision, to drive real world behavior.  All the hardware is abstracted away, so you don't have to worry about reading voltages.\nAll the infrastructure is provided, so you can easily gather data from hundreds of devices in real time.", 
-            "title": "Welcome to the Official MatrixOS Documentation"
+            "title": "MatrixOS Documentation"
         }, 
         {
             "location": "/#overview", 
@@ -357,7 +407,7 @@
         }, 
         {
             "location": "/API/sensors/", 
-            "text": "Sensors\n\n\nSimple Sensor List\n\n\n\n\ntemperature\n\n\nhumidity\n\n\n\n\nComplex Sensor List\n\n\n\n\ngps\n\n\ngyroscope\n\n\naccellerometer\n\n\n\n\nUsing Sensors\n\n\nmatrix.init('temperature').then(function(data){\n  //see below for data formats\n})\n\n\n\n\nData from Simple Sensors\n\n\nSimple sensors emit float numbers with a \nvalue\n key.\n\n\n{\n  value: 72.0\n}\n\n\n\n\nData from complex sensors\n\n\nComplex sensors emit structured data\n\n\nmicrophone\n\n\n{\n  db: 132.23,\n  text: 'hello world'\n}\n\n\n\n\ngps\n\n\n{\n  lat: 34.234,\n  lon: 13.111\n}\n\n\n\n\ngyroscope\n\n\n{\n  x: 0.1,\n  y: 0.23,\n  z: 0.224\n}\n\n\n\n\n\naccellerometer\n\n\n{\n  yaw: 82.06211853027344,\n  pitch: -7.972985744476318,\n  roll: 1.0514432191848755\n}\n\n\n\n\naccellerometer options\n\n\n\n\nrefresh\n - ms delay between refresh\n\n\ntimeout\n - how long before auto timeout\n\n\n\n\nFiltering Sensor Data\n\n\nsee \nAPI \n Filter", 
+            "text": "Sensors\n\n\nSimple Sensor List\n\n\n\n\ntemperature\n\n\nhumidity\n\n\n\n\nComplex Sensor List\n\n\n\n\ngps\n\n\ngyroscope\n\n\naccellerometer\n\n\n\n\nUsing Sensors\n\n\nUse of options is optional.\n\n\nmatrix.init('temperature', options).then(function(data){\n  //see below for data formats\n})\n\n\n\n\noptions\n\n\n\n\nrefresh\n - ms delay between refresh\n\n\ntimeout\n - how long before auto timeout\n\n\n\n\nData from Simple Sensors\n\n\nSimple sensors emit float numbers with a \nvalue\n key.\n\n\n{\n  value: 72.0\n}\n\n\n\n\nData from complex sensors\n\n\nComplex sensors emit structured data\n\n\nmicrophone\n\n\n{\n  db: 132.23,\n  text: 'hello world'\n}\n\n\n\n\ngps\n\n\n{\n  lat: 34.234,\n  lon: 13.111\n}\n\n\n\n\naccelerometer\n\n\n{\n  x: 0.1,\n  y: 0.23,\n  z: 0.224\n}\n\n\n\n\n\ngyroscope\n\n\n{\n  yaw: 82.06211853027344,\n  pitch: -7.972985744476318,\n  roll: 1.0514432191848755\n}\n\n\n\n\nFiltering Sensor Data\n\n\nsee \nAPI \n Filter", 
             "title": "Sensors"
         }, 
         {
@@ -377,8 +427,13 @@
         }, 
         {
             "location": "/API/sensors/#using-sensors", 
-            "text": "matrix.init('temperature').then(function(data){\n  //see below for data formats\n})", 
+            "text": "Use of options is optional.  matrix.init('temperature', options).then(function(data){\n  //see below for data formats\n})", 
             "title": "Using Sensors"
+        }, 
+        {
+            "location": "/API/sensors/#options", 
+            "text": "refresh  - ms delay between refresh  timeout  - how long before auto timeout", 
+            "title": "options"
         }, 
         {
             "location": "/API/sensors/#data-from-simple-sensors", 
@@ -401,19 +456,14 @@
             "title": "gps"
         }, 
         {
-            "location": "/API/sensors/#gyroscope", 
+            "location": "/API/sensors/#accelerometer", 
             "text": "{\n  x: 0.1,\n  y: 0.23,\n  z: 0.224\n}", 
-            "title": "gyroscope"
+            "title": "accelerometer"
         }, 
         {
-            "location": "/API/sensors/#accellerometer", 
+            "location": "/API/sensors/#gyroscope", 
             "text": "{\n  yaw: 82.06211853027344,\n  pitch: -7.972985744476318,\n  roll: 1.0514432191848755\n}", 
-            "title": "accellerometer"
-        }, 
-        {
-            "location": "/API/sensors/#accellerometer-options", 
-            "text": "refresh  - ms delay between refresh  timeout  - how long before auto timeout", 
-            "title": "accellerometer options"
+            "title": "gyroscope"
         }, 
         {
             "location": "/API/sensors/#filtering-sensor-data", 
@@ -754,6 +804,141 @@
             "location": "/Configuration/widgets/#widgets", 
             "text": "A comprehensive overview coming soon\nsee  Examples  for now", 
             "title": "widgets"
+        }, 
+        {
+            "location": "/Hardware/SPI/", 
+            "text": "SPI\n\n\nThe SPI bus is not enabled by default by Raspbian.\n\n\nTo enable it you can follow the next steps.\n\n\nFirst, open raspi-config.\n\n\nsudo raspi-config\n\n\n\n[[https://storage.googleapis.com/packages.matrix.one/wiki-images/enable-spi/1-open.png|alt=open the interface]]\n\n\nThen navigate the interface to activate the SPI bus. Go to advanced options.\n\n\n[[https://storage.googleapis.com/packages.matrix.one/wiki-images/enable-spi/2-select-advanced.png|alt=select advanced]]\n\n\nSelect SPI.\n\n\n[[https://storage.googleapis.com/packages.matrix.one/wiki-images/enable-spi/3-select-spi.png|alt=select SPI]]\n\n\nEnable SPI.\n\n\n[[https://storage.googleapis.com/packages.matrix.one/wiki-images/enable-spi/4-enable.jpg|alt=enable SPI]]\n\n\nVerify that SPI has been enabled.\n\n\n[[https://storage.googleapis.com/packages.matrix.one/wiki-images/enable-spi/5-enabled.jpg|alt=SPI enabled]]\n\n\nNow you can exit raspi-config and SPI will be permanently enabled.\n\n\nThis allows you to play with the \nEverloop LED Array And IMU\n.", 
+            "title": "SPI"
+        }, 
+        {
+            "location": "/Hardware/SPI/#spi", 
+            "text": "The SPI bus is not enabled by default by Raspbian.  To enable it you can follow the next steps.  First, open raspi-config.  sudo raspi-config  [[https://storage.googleapis.com/packages.matrix.one/wiki-images/enable-spi/1-open.png|alt=open the interface]]  Then navigate the interface to activate the SPI bus. Go to advanced options.  [[https://storage.googleapis.com/packages.matrix.one/wiki-images/enable-spi/2-select-advanced.png|alt=select advanced]]  Select SPI.  [[https://storage.googleapis.com/packages.matrix.one/wiki-images/enable-spi/3-select-spi.png|alt=select SPI]]  Enable SPI.  [[https://storage.googleapis.com/packages.matrix.one/wiki-images/enable-spi/4-enable.jpg|alt=enable SPI]]  Verify that SPI has been enabled.  [[https://storage.googleapis.com/packages.matrix.one/wiki-images/enable-spi/5-enabled.jpg|alt=SPI enabled]]  Now you can exit raspi-config and SPI will be permanently enabled.  This allows you to play with the  Everloop LED Array And IMU .", 
+            "title": "SPI"
+        }, 
+        {
+            "location": "/Hardware/Sam3/", 
+            "text": "SAM3 Firmware Flash\n\n\nThis firmware is used to read the sensors. You can build it in your host machine, and then copy the resulting binary to the Raspberry Pi.\n\n\nFirst, you need to compile the firmware. You can do it in the Rasbperry Pi (if you have enough space available) or in your host machine if you want to do it faster.\n\n\napt-get install gcc-arm-none-eabi\ngit clone https://github.com/matrix-io/matrix-creator-mcu\ncd  matrix-creator-mcu/creator \n make\n\n\n\n\nNow copy build/ch.bin to the Rasbperry Pi (if you didn't build there) and \nflash it\n. In order to flash it you need to replace the file blob/ch.bin (or edit the cfg/sam3s.cfg configuration file).\n\n\nAnd only then you can flash the SAM3 firmware.\n\n\nsudo openocd -f cfg/sam3s.cfg\n\n\n\n\nQuestions? Post them on raspberrypi.stackexchange.com! Use the tag #matrix-creator", 
+            "title": "Sam3"
+        }, 
+        {
+            "location": "/Hardware/Sam3/#sam3-firmware-flash", 
+            "text": "This firmware is used to read the sensors. You can build it in your host machine, and then copy the resulting binary to the Raspberry Pi.  First, you need to compile the firmware. You can do it in the Rasbperry Pi (if you have enough space available) or in your host machine if you want to do it faster.  apt-get install gcc-arm-none-eabi\ngit clone https://github.com/matrix-io/matrix-creator-mcu\ncd  matrix-creator-mcu/creator   make  Now copy build/ch.bin to the Rasbperry Pi (if you didn't build there) and  flash it . In order to flash it you need to replace the file blob/ch.bin (or edit the cfg/sam3s.cfg configuration file).  And only then you can flash the SAM3 firmware.  sudo openocd -f cfg/sam3s.cfg  Questions? Post them on raspberrypi.stackexchange.com! Use the tag #matrix-creator", 
+            "title": "SAM3 Firmware Flash"
+        }, 
+        {
+            "location": "/Hardware/fpga/", 
+            "text": "Once you have installed the \nrequired software\n you can program the FPGA. This will allow you to play with the everloop LED array.\n\n\nFirst, get the firmware.\n\n\nwget http://packages.matrix.one/matrix-creator-firmware/firmware-0.8.tar.gz\ntar xzvf firmware-0.8.tar.gz\n\n\n\nThen flash the firmware using the \nxc3sprog\n program that should be installed on the Raspberry.\n\n\nsudo xc3sprog -c matrix_pi firmware-0.8/blob/system.bit -p 1\n\n\n\nSample result:\n\n\n$ sudo xc3sprog -c matrix_pi firmware-0.8/blob/system.bit -p 1\nXC3SPROG (c) 2004-2011 xc3sprog project $Rev: 774 $ OS: Linux\nFree software: If you contribute nothing, expect nothing!\nFeedback on success/failure/enhancement requests:\n    http://sourceforge.net/mail/?group_id=170565 \nCheck Sourceforge for updates:\n    http://sourceforge.net/projects/xc3sprog/develop\n\nDNA is 0x39c620e4bfe15bfd\n\n\n\nQuestions? Post them on \nraspberrypi.stackexchange.com\n! Use the tag #matrix-creator", 
+            "title": "Fpga"
+        }, 
+        {
+            "location": "/Hardware/microphone/", 
+            "text": "First check the \nGetting started\n\n\nUpdate and upgrade the raspbian\n\n\nsudo apt-get update\nsudo apt-get upgrade\n\n\n\nInstall \nAlsa tools\n and the \nsox\n utility\n\n\nsudo apt-get install sox alsa-utils\n\n\n\nRun the volumen control\n\n\nalsamixer\n\n\n\nInstall and compile the MATRIX Creator's hardware abstraction layer\n\n\ngit clone https://github.com/matrix-io/matrix-creator-hal.git\ncd matrix-creator-hal \nmkdir build \n cd build\ncmake ..\nmake\n\n\n\nRun capture and check the recorded files\n    cd demos\n    ./micarray_recorder\n    ls -1 *raw\n\n\nConvert the audio\n\n\nsox -r 16000 -c 1 -e signed -c 1 -e signed -b 16 mic_16000_s16le_channel_0.raw channel_0.wav\nsox -r 16000 -c 1 -e signed -c 1 -e signed -b 16 mic_16000_s16le_channel_1.raw channel_1.wav\nsox -r 16000 -c 1 -e signed -c 1 -e signed -b 16 mic_16000_s16le_channel_2.raw channel_2.wav\nsox -r 16000 -c 1 -e signed -c 1 -e signed -b 16 mic_16000_s16le_channel_3.raw channel_3.wav\nsox -r 16000 -c 1 -e signed -c 1 -e signed -b 16 mic_16000_s16le_channel_4.raw channel_4.wav\nsox -r 16000 -c 1 -e signed -c 1 -e signed -b 16 mic_16000_s16le_channel_5.raw channel_5.wav\nsox -r 16000 -c 1 -e signed -c 1 -e signed -b 16 mic_16000_s16le_channel_6.raw channel_6.wav\nsox -r 16000 -c 1 -e signed -c 1 -e signed -b 16 mic_16000_s16le_channel_7.raw channel_7.wav\n\n\n\nPlay the wave file (i.e. audio from channel 0)\n\n\naplay channel_0.wav", 
+            "title": "Microphone"
+        }, 
+        {
+            "location": "/Hardware/sam3mcu-programming/", 
+            "text": "Sam3 MCU Programmingm\n\n\nOnce you have installed the \nrequired software\n you can program the SAM3 MCU. The MCU is used to read the sensors.\n\n\nThis firmware is free software and \nyou can compile it yourself\n. Here we describe the process of compiling the shipped firmware.\n\n\nFirst, get the firmware.\n\n\nwget http://packages.matrix.one/matrix-creator-firmware/firmware-0.8.tar.gz\ntar xzvf firmware-0.8.tar.gz\n\n\n\nThen flash the firmware using the \nopenocd\n program that should be installed on the Raspberry (with the package matrix-creator-openocd).\n\n\nThen execute the following commands as root.\n\n\necho 18 \n /sys/class/gpio/export\necho out \n /sys/class/gpio/gpio18/direction\necho 1 \n /sys/class/gpio/gpio18/value\necho 0 \n /sys/class/gpio/gpio18/value\necho 1 \n /sys/class/gpio/gpio18/value\n\n\n\nNow you can program the firmware.\n\n\ncd firmware-0.8\nsudo openocd -f cfg/sam3s.cfg\n\n\n\nExample output:\n\n\n$ sudo openocd -f cfg/sam3s.cfg\nOpen On-Chip Debugger 0.10.0-dev-00283-g7223cae-dirty (2016-07-15-08:36)\nLicensed under GNU GPL v2\nFor bug reports, read\n    http://openocd.org/doc/doxygen/bugs.html\nBCM2835 GPIO config: tck = 17, tms = 4, tdi = 22, tdo = 27\nBCM2835 GPIO config: trst = 18\ntrst_only separate trst_push_pull\nadapter speed: 512 kHz\nWarn : em357.bs: nonstandard IR value\nWarn : Specify TAP 'sam3n.cpu.cpu' by name, not number 3\nInfo : BCM2835 GPIO JTAG/SWD bitbang driver\nInfo : JTAG only mode enabled (specify swclk and swdio gpio to add SWD mode)\nInfo : clock speed 512 kHz\nInfo : JTAG tap: em357.cpu tap/device found: 0x3ba00477 (mfg: 0x23b (ARM Ltd.), part: 0xba00, ver: 0x3)\nInfo : JTAG tap: em357.bs tap/device found: 0x069aa62b (mfg: 0x315 (Ember Corporation), part: 0x69aa, ver: 0x0)\nInfo : JTAG tap: xc6sxl4.fpga.fpga tap/device found: 0x24000093 (mfg: 0x049 (Xilinx), part: 0x4000, ver: 0x2)\nInfo : JTAG tap: sam3n.cpu.cpu tap/device found: 0x4ba00477 (mfg: 0x23b (ARM Ltd.), part: 0xba00, ver: 0x4)\nError: xc6sxl4.fpga.fpga: IR capture error; saw 0x35 not 0x11\nWarn : Bypassing JTAG setup events due to errors\nInfo : sam3n.cpu: hardware has 6 breakpoints, 4 watchpoints\nsam3n.cpu: target state: halted\ntarget halted due to debug-request, current mode: Thread\nxPSR: 0x61000000 pc: 0x00402560 psp: 0x20000800\n#0 : at91sam3 at 0x00400000, size 0x00020000, buswidth 0, chipwidth 0\n    #  0: 0x00000000 (0x4000 16kB) not protected\n    #  1: 0x00004000 (0x4000 16kB) not protected\n    #  2: 0x00008000 (0x4000 16kB) not protected\n    #  3: 0x0000c000 (0x4000 16kB) not protected\n    #  4: 0x00010000 (0x4000 16kB) not protected\n    #  5: 0x00014000 (0x4000 16kB) not protected\n    #  6: 0x00018000 (0x4000 16kB) not protected\n    #  7: 0x0001c000 (0x4000 16kB) not protected\nflash 'at91sam3' found at 0x00400000\nError: Invalid ACK (6) in DAP response\nError: Failed to read memory at 0x400e0a0c\nError: SAM3: Error performing Erase \n Write page @ phys address 0x00400800\nwrote 38620 bytes from file blob/ch.bin to flash bank 0 at offset 0x00000000 in 1.256279s (30.021 KiB/s)\nInfo : JTAG tap: em357.cpu tap/device found: 0x3ba00477 (mfg: 0x23b (ARM Ltd.), part: 0xba00, ver: 0x3)\nInfo : JTAG tap: em357.bs tap/device found: 0x069aa62b (mfg: 0x315 (Ember Corporation), part: 0x69aa, ver: 0x0)\nInfo : JTAG tap: xc6sxl4.fpga.fpga tap/device found: 0x24000093 (mfg: 0x049 (Xilinx), part: 0x4000, ver: 0x2)\nInfo : JTAG tap: sam3n.cpu.cpu tap/device found: 0x4ba00477 (mfg: 0x23b (ARM Ltd.), part: 0xba00, ver: 0x4)\nError: xc6sxl4.fpga.fpga: IR capture error; saw 0x35 not 0x11\nWarn : Bypassing JTAG setup events due to errors\nWarn : Only resetting the Cortex-M core, use a reset-init event handler to reset any peripherals or configure     hardware srst support.\nshutdown command invoked\n\n\n\nFlashing succeeded if you get the line \"wrote 38620 bytes from file blob/ch.bin to flash bank 0 at offset 0x00000000 in 1.256279s (30.021 KiB/s)\" in the previous output. A small LED next to the SAM3 MCU should start flashing once per second.\n\n\nIf flashing fails, please retry the flashing command.\n\n\nSample video\n\n\nQuestions? Post them on raspberrypi.stackexchange.com! Use the tag #matrix-creator", 
+            "title": "Sam3mcu programming"
+        }, 
+        {
+            "location": "/Hardware/sam3mcu-programming/#sam3-mcu-programmingm", 
+            "text": "Once you have installed the  required software  you can program the SAM3 MCU. The MCU is used to read the sensors.  This firmware is free software and  you can compile it yourself . Here we describe the process of compiling the shipped firmware.  First, get the firmware.  wget http://packages.matrix.one/matrix-creator-firmware/firmware-0.8.tar.gz\ntar xzvf firmware-0.8.tar.gz  Then flash the firmware using the  openocd  program that should be installed on the Raspberry (with the package matrix-creator-openocd).  Then execute the following commands as root.  echo 18   /sys/class/gpio/export\necho out   /sys/class/gpio/gpio18/direction\necho 1   /sys/class/gpio/gpio18/value\necho 0   /sys/class/gpio/gpio18/value\necho 1   /sys/class/gpio/gpio18/value  Now you can program the firmware.  cd firmware-0.8\nsudo openocd -f cfg/sam3s.cfg  Example output:  $ sudo openocd -f cfg/sam3s.cfg\nOpen On-Chip Debugger 0.10.0-dev-00283-g7223cae-dirty (2016-07-15-08:36)\nLicensed under GNU GPL v2\nFor bug reports, read\n    http://openocd.org/doc/doxygen/bugs.html\nBCM2835 GPIO config: tck = 17, tms = 4, tdi = 22, tdo = 27\nBCM2835 GPIO config: trst = 18\ntrst_only separate trst_push_pull\nadapter speed: 512 kHz\nWarn : em357.bs: nonstandard IR value\nWarn : Specify TAP 'sam3n.cpu.cpu' by name, not number 3\nInfo : BCM2835 GPIO JTAG/SWD bitbang driver\nInfo : JTAG only mode enabled (specify swclk and swdio gpio to add SWD mode)\nInfo : clock speed 512 kHz\nInfo : JTAG tap: em357.cpu tap/device found: 0x3ba00477 (mfg: 0x23b (ARM Ltd.), part: 0xba00, ver: 0x3)\nInfo : JTAG tap: em357.bs tap/device found: 0x069aa62b (mfg: 0x315 (Ember Corporation), part: 0x69aa, ver: 0x0)\nInfo : JTAG tap: xc6sxl4.fpga.fpga tap/device found: 0x24000093 (mfg: 0x049 (Xilinx), part: 0x4000, ver: 0x2)\nInfo : JTAG tap: sam3n.cpu.cpu tap/device found: 0x4ba00477 (mfg: 0x23b (ARM Ltd.), part: 0xba00, ver: 0x4)\nError: xc6sxl4.fpga.fpga: IR capture error; saw 0x35 not 0x11\nWarn : Bypassing JTAG setup events due to errors\nInfo : sam3n.cpu: hardware has 6 breakpoints, 4 watchpoints\nsam3n.cpu: target state: halted\ntarget halted due to debug-request, current mode: Thread\nxPSR: 0x61000000 pc: 0x00402560 psp: 0x20000800\n#0 : at91sam3 at 0x00400000, size 0x00020000, buswidth 0, chipwidth 0\n    #  0: 0x00000000 (0x4000 16kB) not protected\n    #  1: 0x00004000 (0x4000 16kB) not protected\n    #  2: 0x00008000 (0x4000 16kB) not protected\n    #  3: 0x0000c000 (0x4000 16kB) not protected\n    #  4: 0x00010000 (0x4000 16kB) not protected\n    #  5: 0x00014000 (0x4000 16kB) not protected\n    #  6: 0x00018000 (0x4000 16kB) not protected\n    #  7: 0x0001c000 (0x4000 16kB) not protected\nflash 'at91sam3' found at 0x00400000\nError: Invalid ACK (6) in DAP response\nError: Failed to read memory at 0x400e0a0c\nError: SAM3: Error performing Erase   Write page @ phys address 0x00400800\nwrote 38620 bytes from file blob/ch.bin to flash bank 0 at offset 0x00000000 in 1.256279s (30.021 KiB/s)\nInfo : JTAG tap: em357.cpu tap/device found: 0x3ba00477 (mfg: 0x23b (ARM Ltd.), part: 0xba00, ver: 0x3)\nInfo : JTAG tap: em357.bs tap/device found: 0x069aa62b (mfg: 0x315 (Ember Corporation), part: 0x69aa, ver: 0x0)\nInfo : JTAG tap: xc6sxl4.fpga.fpga tap/device found: 0x24000093 (mfg: 0x049 (Xilinx), part: 0x4000, ver: 0x2)\nInfo : JTAG tap: sam3n.cpu.cpu tap/device found: 0x4ba00477 (mfg: 0x23b (ARM Ltd.), part: 0xba00, ver: 0x4)\nError: xc6sxl4.fpga.fpga: IR capture error; saw 0x35 not 0x11\nWarn : Bypassing JTAG setup events due to errors\nWarn : Only resetting the Cortex-M core, use a reset-init event handler to reset any peripherals or configure     hardware srst support.\nshutdown command invoked  Flashing succeeded if you get the line \"wrote 38620 bytes from file blob/ch.bin to flash bank 0 at offset 0x00000000 in 1.256279s (30.021 KiB/s)\" in the previous output. A small LED next to the SAM3 MCU should start flashing once per second.  If flashing fails, please retry the flashing command.  Sample video  Questions? Post them on raspberrypi.stackexchange.com! Use the tag #matrix-creator", 
+            "title": "Sam3 MCU Programmingm"
+        }, 
+        {
+            "location": "/Reference/Data-Sheets/", 
+            "text": "Datasheets\n\n\nMicrocontroller: \nAtmel Cortex M3 ATSAM3S2\n\n\nFPGA:\n[Spartan 6 (xc6slx4tqg144)] (http://www.xilinx.com/support/documentation/data_sheets/ds160.pdf)\n\n\nMICS:\n\nMEMS MP34DB02\n\n\niNEMO (IMU):\n\n3D accelerometer, 3D gyroscope, 3D magnetometer LSM9DS1\n\n\nINFRARED Receptor:\n\nVishay IR Receiver\n\n\nTEMP/HUM:\n[HTS221 Capacitive digital sensor for relative humidity and temperature] (http://www.st.com/content/ccc/resource/technical/document/datasheet/4d/9a/9c/ad/25/07/42/34/DM00116291.pdf/files/DM00116291.pdf/jcr:content/translations/en.DM00116291.pdf)\n\n\nUV: \n\nVishay UV A Light Sensor\n\n\nNFC:\n\nNXP N512\n\n\nEVERLOOP:\n\nRGBW Leds", 
+            "title": "Data Sheets"
+        }, 
+        {
+            "location": "/Reference/Data-Sheets/#datasheets", 
+            "text": "Microcontroller:  Atmel Cortex M3 ATSAM3S2  FPGA:\n[Spartan 6 (xc6slx4tqg144)] (http://www.xilinx.com/support/documentation/data_sheets/ds160.pdf)  MICS: MEMS MP34DB02  iNEMO (IMU): 3D accelerometer, 3D gyroscope, 3D magnetometer LSM9DS1  INFRARED Receptor: Vishay IR Receiver  TEMP/HUM:\n[HTS221 Capacitive digital sensor for relative humidity and temperature] (http://www.st.com/content/ccc/resource/technical/document/datasheet/4d/9a/9c/ad/25/07/42/34/DM00116291.pdf/files/DM00116291.pdf/jcr:content/translations/en.DM00116291.pdf)  UV:  Vishay UV A Light Sensor  NFC: NXP N512  EVERLOOP: RGBW Leds", 
+            "title": "Datasheets"
+        }, 
+        {
+            "location": "/Reference/overview/", 
+            "text": "MATRIX Creator\n\n\n![Select Advanced](https://storage.googleapis.com/packages.matrix.one/wiki-images/hardware/matrixlabs_creator_block.jpg]\n\n\nTechnical Datasheets:\n\n\n\n\n\n\nAtmel 32 bits Cortex M3 SAM3S2\n\n\n\n\n\n\nXilinx Spartan 6S XC6SLX4 FPGA\n\n\n\n\n\n\n8 \nMEMS audio sensor digital microphones\n\n\n\n\n\n\nST LSM9DS1 3D accelerometer, 3D gyroscope, 3D magnetometer\n\n\n\n\n\n\nST HTS221 digital sensor for relative humidity and temperature\n\n\n\n\n\n\nNXP PN512 NFC reader\n\n\n\n\n\n\nNXP MPL3115A2 Altimeter\n\n\n\n\n\n\nVishay VEML6070 UV Light Sensor\n\n\n\n\n\n\nVishay INFRARED Receptor\n\n\n\n\n\n\nRGBW everloop LED", 
+            "title": "Overview"
+        }, 
+        {
+            "location": "/Reference/overview/#matrix-creator", 
+            "text": "![Select Advanced](https://storage.googleapis.com/packages.matrix.one/wiki-images/hardware/matrixlabs_creator_block.jpg]", 
+            "title": "MATRIX Creator"
+        }, 
+        {
+            "location": "/Reference/overview/#technical-datasheets", 
+            "text": "Atmel 32 bits Cortex M3 SAM3S2    Xilinx Spartan 6S XC6SLX4 FPGA    8  MEMS audio sensor digital microphones    ST LSM9DS1 3D accelerometer, 3D gyroscope, 3D magnetometer    ST HTS221 digital sensor for relative humidity and temperature    NXP PN512 NFC reader    NXP MPL3115A2 Altimeter    Vishay VEML6070 UV Light Sensor    Vishay INFRARED Receptor    RGBW everloop LED", 
+            "title": "Technical Datasheets:"
+        }, 
+        {
+            "location": "/Reference/pinout/", 
+            "text": "Expansion pinout\n\n\n\n\nExpansion location\n\n\n\n\nFPGA's UCF definition\n\n\nNET \nDF\n16\n LOC=\nP106\n;\nNET \nDF\n15\n LOC=\nP102\n;\nNET \nDF\n14\n LOC=\nP101\n;\nNET \nDF\n13\n LOC=\nP99\n;\nNET \nDF\n12\n LOC=\nP98\n;\nNET \nDF\n11\n LOC=\nP95\n;\nNET \nDF\n10\n LOC=\nP94\n;\nNET \nDF\n9\n LOC=\nP93\n;\nNET \nDF\n8\n LOC=\nP92\n;\nNET \nDF\n7\n LOC=\nP88\n;\nNET \nDF\n6\n LOC=\nP85\n;\nNET \nDF\n5\n LOC=\nP83\n;\nNET \nDF\n4\n LOC=\nP82\n;\nNET \nDF\n3\n LOC=\nP81\n;\nNET \nDF\n2\n LOC=\nP80\n;\nNET \nDF\n1\n LOC=\nP79\n;\nNET \nDF\n0\n LOC=\nP78\n;", 
+            "title": "Pinout"
+        }, 
+        {
+            "location": "/Reference/pinout/#expansion-pinout", 
+            "text": "", 
+            "title": "Expansion pinout"
+        }, 
+        {
+            "location": "/Reference/pinout/#expansion-location", 
+            "text": "", 
+            "title": "Expansion location"
+        }, 
+        {
+            "location": "/Reference/pinout/#fpgas-ucf-definition", 
+            "text": "NET  DF 16  LOC= P106 ;\nNET  DF 15  LOC= P102 ;\nNET  DF 14  LOC= P101 ;\nNET  DF 13  LOC= P99 ;\nNET  DF 12  LOC= P98 ;\nNET  DF 11  LOC= P95 ;\nNET  DF 10  LOC= P94 ;\nNET  DF 9  LOC= P93 ;\nNET  DF 8  LOC= P92 ;\nNET  DF 7  LOC= P88 ;\nNET  DF 6  LOC= P85 ;\nNET  DF 5  LOC= P83 ;\nNET  DF 4  LOC= P82 ;\nNET  DF 3  LOC= P81 ;\nNET  DF 2  LOC= P80 ;\nNET  DF 1  LOC= P79 ;\nNET  DF 0  LOC= P78 ;", 
+            "title": "FPGA's UCF definition"
+        }, 
+        {
+            "location": "/intro/hal/", 
+            "text": "With the following instructions you will be able to run demos for the Everloop LED Array and for the IMU. These demos make use of the \nhardware abstraction layer\n.\n\n\n[[http://packages.matrix.one/wiki-images/general-assets/hand-small.png|alt=MATRIX Creator]]\n\n\nIf you followed the \ngetting started\n steps the \nFPGA\n and the \nSAM3 MCU\n should be programmed and ready. Also, \nSPI should have been enabled for you\n.\n\n\nThus you can just get the required source code and build it:\n\n\ngit clone https://github.com/matrix-io/matrix-creator-hal.git\ncd matrix-creator-hal\nmkdir build \n cd build\ncmake .. \n make\n\n\n\nIf the project built with no issues you can run the demos. The demos run for ever, you can terminate them with Control+C.\n\n\nSpinning leds ( \nvideo\n ):\n\n\ndemos/everloop_demo\n\n\n\nArc demo ( \nvideo\n ) :\n\n\ndemos/arc_demo\n\n\n\nCompass demo:\n\n\ndemos/compass_demo\n\nyaw = -116.006  roll = 3.19588  pitch = 0.370596\nyaw = -116.577  roll = 3.61794  pitch = 0.210613\nyaw = -115.649  roll = 3.64227  pitch = 0.334733\nyaw = -115.468  roll = 3.34762  pitch = 0.42658\nyaw = -116.423  roll = 3.49536  pitch = 0.566351\n\n\n\nMicrophones:\n\n\ndemos/mic_demo\n\n52  29  54  74  74  49  39  60\n60  31  52  46  41  55  68  70\n60  44  55  43  53  68  62  62\n45  17  69  54  18  38  74  67\n\n(You get one value for each microphone)\n\n\n\nQuestions? Post them on \nraspberrypi.stackexchange.com\n! Use the tag #matrix-creator", 
+            "title": "Hal"
+        }, 
+        {
+            "location": "/intro/install/", 
+            "text": "Creator Software Installation\n\n\nWelcome to the MATRIX Creator! To enjoy your new board you\u2019ll need to set it up. First, you need to have Raspbian installed on your Raspberry Pi. If you don\u2019t have it, you can \ndownload\n it and \nfollow the instructions\n.\n\n\nThen you need to install the software that will allow you to program the MATRIX Creator. To do it, you need to configure APT in the \nMATRIX Creator\n. The following steps should do it:\n\n\necho \"deb http://packages.matrix.one/matrix-creator/ ./\" | sudo tee --append /etc/apt/sources.list\n\n\n\nNow update the package list.\n\n\nsudo apt-get update\n\n\n\nThen you can install the required packages.\n\n\nsudo apt-get install matrix-creator-init matrix-creator-malos cmake g++ git\n\n\n\nNow reboot the Raspberry Pi\n. After rebooting the FPGA and the SAM3 MCU will be programmed for you automatically.\nThat is, after \nevery\n reboot the FPGA will be programmed for you with the default firmware and you will be able to \nplay with the EverLoop LEDs\n.\n\n\nIf you wish, you can also learn more about \nhow to program the FPGA\n.\n\n\nQuestions? Post them on \nraspberrypi.stackexchange.com\n! Use the tag #matrix-creator", 
+            "title": "Install"
+        }, 
+        {
+            "location": "/intro/install/#creator-software-installation", 
+            "text": "Welcome to the MATRIX Creator! To enjoy your new board you\u2019ll need to set it up. First, you need to have Raspbian installed on your Raspberry Pi. If you don\u2019t have it, you can  download  it and  follow the instructions .  Then you need to install the software that will allow you to program the MATRIX Creator. To do it, you need to configure APT in the  MATRIX Creator . The following steps should do it:  echo \"deb http://packages.matrix.one/matrix-creator/ ./\" | sudo tee --append /etc/apt/sources.list  Now update the package list.  sudo apt-get update  Then you can install the required packages.  sudo apt-get install matrix-creator-init matrix-creator-malos cmake g++ git  Now reboot the Raspberry Pi . After rebooting the FPGA and the SAM3 MCU will be programmed for you automatically.\nThat is, after  every  reboot the FPGA will be programmed for you with the default firmware and you will be able to  play with the EverLoop LEDs .  If you wish, you can also learn more about  how to program the FPGA .  Questions? Post them on  raspberrypi.stackexchange.com ! Use the tag #matrix-creator", 
+            "title": "Creator Software Installation"
+        }, 
+        {
+            "location": "/intro/malos/", 
+            "text": "Matrix Abstraction Layer for OS\n\n\nMALOS provides a \nZeroMQ\n messaging layer. The intended target for this layer is \nMatrixOS\n.\n\n\nInstall the most recent version\n\n\nTo use it make sure that you have the most recent version installed:\n\n\napt-get update\napt-get install matrix-creator-malos\n\n\n\nRunning malos\n\n\nAnd then run it. You should see an output like the following one:\n\n\n$ malos\n**************\nMALOS starting\n**************\n\nYou can query specific driver info using port 20012.\nRegistered driver IMU with port 20013.\nRegistered driver Humidity with port 20017.\nRegistered driver Everloop with port 20021.\n\n\n\nDetails\n\n\nMALOS gives you direct access to the hardware devices, and each device has four ZeroMQ (ZMQ) sockets:\n\n\n\n\nBase port (for instance 20013). ZMQ PULL channel used for device configuration (if configuration is required, most devices have a default configuration).\n\n\n(base_port + 1) is used as a keep-alive channel. This channel is used to tell the driver that it should keep sending updates to MATRIX OS. Each driver has a configurable time interval that tells it how often it should expect keep-alive messages. If an amount of time bigger than the interval elapses without keepalives, the driver will stop sending updates.\n\n\n(base_port + 2) is used as error channel. ZMQ PUSH. If an error occurs, it will be sent in this channel.\n\n\n(base_port + 3) is used to send device updates. ZMQ PUSH. Clients will normally listen on this port for updates.\n\n\n\n\nIt's important to note that \nmore than one program\n can subscribe to the \nerror channel\n and the \ndevice updates channel\n. This is achieved thanks to the PUB/SUB model of ZMQ.\n\n\nIn this \nNode.js example\n you can see all the channels used. If you want to run it you need to edit the IP address (and maybe the port depending on the device base-port mapping.\n\n\nExample - Query device list\n\n\nThis \nNode.js example\n shows how you can query the device list and some capabilities. This program uses a ZMQ RPC call.\n\n\nTo run the file, you need to edit the \ncreator_ip\n to match the IP of the Raspberry PI and the first port printed when the command malos is started (20012 in the sample session shown above).\n\n\nThis is what the output looks like:\n\n\n$ nodejs test_driver_info.js\n{ info:\n   [ { driver_name: 'IMU',\n       base_port: 20013,\n       provides_updates: true,\n       delay_between_updates: 1000,\n       needs_pings: true,\n       timeout_after_last_ping: 5000,\n       notes_for_human: 'Provides yaw/pitch/roll. Check Imu message (protocol buffer)' },\n     { driver_name: 'Humidity',\n       base_port: 20017,\n       provides_updates: true,\n       delay_between_updates: 1000,\n       needs_pings: true,\n       timeout_after_last_ping: 5000,\n       notes_for_human: 'Provides humidity and temperature. Check Humidity message (protocol buffer)' },\n     { driver_name: 'Everloop',\n       base_port: 20021,\n       provides_updates: false,\n       delay_between_updates: 1000,\n       needs_pings: false,\n       timeout_after_last_ping: 5000,\n       notes_for_human: 'Write-only. There are 35 leds. Values range from 0 to 255. Check message EverloopImage (protocol buffer)' } ] }\n\n\n\nEverloop demo\n\n\nOnce MALOS is operational, you can run the \nEverloop LED array demo\n. Remember to edit the IP address of your Raspberry PI.\n\n\nFor the impatient, here is a video of what this demo does: \nhttps://youtu.be/b0n2-hzFgcY\n.", 
+            "title": "Malos"
+        }, 
+        {
+            "location": "/intro/malos/#matrix-abstraction-layer-for-os", 
+            "text": "MALOS provides a  ZeroMQ  messaging layer. The intended target for this layer is  MatrixOS .", 
+            "title": "Matrix Abstraction Layer for OS"
+        }, 
+        {
+            "location": "/intro/malos/#install-the-most-recent-version", 
+            "text": "To use it make sure that you have the most recent version installed:  apt-get update\napt-get install matrix-creator-malos", 
+            "title": "Install the most recent version"
+        }, 
+        {
+            "location": "/intro/malos/#running-malos", 
+            "text": "And then run it. You should see an output like the following one:  $ malos\n**************\nMALOS starting\n**************\n\nYou can query specific driver info using port 20012.\nRegistered driver IMU with port 20013.\nRegistered driver Humidity with port 20017.\nRegistered driver Everloop with port 20021.", 
+            "title": "Running malos"
+        }, 
+        {
+            "location": "/intro/malos/#details", 
+            "text": "MALOS gives you direct access to the hardware devices, and each device has four ZeroMQ (ZMQ) sockets:   Base port (for instance 20013). ZMQ PULL channel used for device configuration (if configuration is required, most devices have a default configuration).  (base_port + 1) is used as a keep-alive channel. This channel is used to tell the driver that it should keep sending updates to MATRIX OS. Each driver has a configurable time interval that tells it how often it should expect keep-alive messages. If an amount of time bigger than the interval elapses without keepalives, the driver will stop sending updates.  (base_port + 2) is used as error channel. ZMQ PUSH. If an error occurs, it will be sent in this channel.  (base_port + 3) is used to send device updates. ZMQ PUSH. Clients will normally listen on this port for updates.   It's important to note that  more than one program  can subscribe to the  error channel  and the  device updates channel . This is achieved thanks to the PUB/SUB model of ZMQ.  In this  Node.js example  you can see all the channels used. If you want to run it you need to edit the IP address (and maybe the port depending on the device base-port mapping.", 
+            "title": "Details"
+        }, 
+        {
+            "location": "/intro/malos/#example-query-device-list", 
+            "text": "This  Node.js example  shows how you can query the device list and some capabilities. This program uses a ZMQ RPC call.  To run the file, you need to edit the  creator_ip  to match the IP of the Raspberry PI and the first port printed when the command malos is started (20012 in the sample session shown above).  This is what the output looks like:  $ nodejs test_driver_info.js\n{ info:\n   [ { driver_name: 'IMU',\n       base_port: 20013,\n       provides_updates: true,\n       delay_between_updates: 1000,\n       needs_pings: true,\n       timeout_after_last_ping: 5000,\n       notes_for_human: 'Provides yaw/pitch/roll. Check Imu message (protocol buffer)' },\n     { driver_name: 'Humidity',\n       base_port: 20017,\n       provides_updates: true,\n       delay_between_updates: 1000,\n       needs_pings: true,\n       timeout_after_last_ping: 5000,\n       notes_for_human: 'Provides humidity and temperature. Check Humidity message (protocol buffer)' },\n     { driver_name: 'Everloop',\n       base_port: 20021,\n       provides_updates: false,\n       delay_between_updates: 1000,\n       needs_pings: false,\n       timeout_after_last_ping: 5000,\n       notes_for_human: 'Write-only. There are 35 leds. Values range from 0 to 255. Check message EverloopImage (protocol buffer)' } ] }", 
+            "title": "Example - Query device list"
+        }, 
+        {
+            "location": "/intro/malos/#everloop-demo", 
+            "text": "Once MALOS is operational, you can run the  Everloop LED array demo . Remember to edit the IP address of your Raspberry PI.  For the impatient, here is a video of what this demo does:  https://youtu.be/b0n2-hzFgcY .", 
+            "title": "Everloop demo"
         }
     ]
 }

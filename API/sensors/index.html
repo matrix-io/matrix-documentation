@@ -130,9 +130,18 @@
             
                 <li class="toctree-l3"><a href="#using-sensors">Using Sensors</a></li>
                 
-                    <li><a class="toctree-l4" href="#data-from-simple-sensors">Data from Simple Sensors</a></li>
+                    <li><a class="toctree-l4" href="#options">options</a></li>
                 
-                    <li><a class="toctree-l4" href="#data-from-complex-sensors">Data from complex sensors</a></li>
+            
+                <li class="toctree-l3"><a href="#data-from-complex-sensors">Data from complex sensors</a></li>
+                
+                    <li><a class="toctree-l4" href="#microphone">microphone</a></li>
+                
+                    <li><a class="toctree-l4" href="#gps">gps</a></li>
+                
+                    <li><a class="toctree-l4" href="#accelerometer">accelerometer</a></li>
+                
+                    <li><a class="toctree-l4" href="#gyroscope">gyroscope</a></li>
                 
             
                 <li class="toctree-l3"><a href="#filtering-sensor-data">Filtering Sensor Data</a></li>
@@ -253,6 +262,107 @@
     </ul>
 <li>
           
+            <li>
+    <ul class="subnav">
+    <li><span>Hardware</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../Hardware/SPI/">SPI</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../Hardware/Sam3/">Sam3</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../Hardware/fpga/">Fpga</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../Hardware/microphone/">Microphone</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../Hardware/sam3mcu-programming/">Sam3mcu programming</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Reference</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../Reference/Data-Sheets/">Data Sheets</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../Reference/overview/">Overview</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../Reference/pinout/">Pinout</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Intro</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../intro/hal/">Hal</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../intro/install/">Install</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../intro/malos/">Malos</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
         </ul>
       </div>
       &nbsp;
@@ -290,47 +400,53 @@
             <div class="section">
               
                 <h1 id="sensors">Sensors</h1>
-<h2 id="simple-sensor-list">Simple Sensor List</h2>
+<h3 id="simple-sensor-list">Simple Sensor List</h3>
 <ul>
 <li>temperature</li>
 <li>humidity</li>
 </ul>
-<h2 id="complex-sensor-list">Complex Sensor List</h2>
+<h3 id="complex-sensor-list">Complex Sensor List</h3>
 <ul>
 <li>gps</li>
 <li>gyroscope</li>
 <li>accellerometer</li>
 </ul>
 <h1 id="using-sensors">Using Sensors</h1>
-<pre><code>matrix.init('temperature').then(function(data){
+<p>Use of options is optional.</p>
+<pre><code>matrix.init('temperature', options).then(function(data){
   //see below for data formats
 })
 </code></pre>
 
-<h2 id="data-from-simple-sensors">Data from Simple Sensors</h2>
+<h2 id="options">options</h2>
+<ul>
+<li><code>refresh</code> - ms delay between refresh</li>
+<li><code>timeout</code> - how long before auto timeout</li>
+</ul>
+<h3 id="data-from-simple-sensors">Data from Simple Sensors</h3>
 <p>Simple sensors emit float numbers with a <code>value</code> key.</p>
 <pre><code>{
   value: 72.0
 }
 </code></pre>
 
-<h2 id="data-from-complex-sensors">Data from complex sensors</h2>
+<h1 id="data-from-complex-sensors">Data from complex sensors</h1>
 <p>Complex sensors emit structured data</p>
-<h3 id="microphone">microphone</h3>
+<h2 id="microphone">microphone</h2>
 <pre><code>{
   db: 132.23,
   text: 'hello world'
 }
 </code></pre>
 
-<h3 id="gps">gps</h3>
+<h2 id="gps">gps</h2>
 <pre><code>{
   lat: 34.234,
   lon: 13.111
 }
 </code></pre>
 
-<h3 id="gyroscope">gyroscope</h3>
+<h2 id="accelerometer">accelerometer</h2>
 <pre><code>{
   x: 0.1,
   y: 0.23,
@@ -339,7 +455,7 @@
 
 </code></pre>
 
-<h3 id="accellerometer">accellerometer</h3>
+<h2 id="gyroscope">gyroscope</h2>
 <pre><code>{
   yaw: 82.06211853027344,
   pitch: -7.972985744476318,
@@ -347,11 +463,6 @@
 }
 </code></pre>
 
-<h4 id="accellerometer-options">accellerometer options</h4>
-<ul>
-<li><code>refresh</code> - ms delay between refresh</li>
-<li><code>timeout</code> - how long before auto timeout</li>
-</ul>
 <h1 id="filtering-sensor-data">Filtering Sensor Data</h1>
 <p>see <a href="../filter/">API &gt; Filter</a></p>
               

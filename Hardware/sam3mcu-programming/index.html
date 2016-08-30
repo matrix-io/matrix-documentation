@@ -8,7 +8,7 @@
   
   
   
-  <title>GPIO - MatrixOS Documentation</title>
+  <title>Sam3mcu programming - MatrixOS Documentation</title>
   
 
   <link rel="shortcut icon" href="../../img/favicon.ico">
@@ -23,9 +23,9 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "GPIO";
-    var mkdocs_page_input_path = "API/GPIO.md";
-    var mkdocs_page_url = "/API/GPIO/";
+    var mkdocs_page_name = "Sam3mcu programming";
+    var mkdocs_page_input_path = "Hardware/sam3mcu-programming.md";
+    var mkdocs_page_url = "/Hardware/sam3mcu-programming/";
   </script>
   
   <script src="../../js/jquery-2.1.1.min.js"></script>
@@ -67,78 +67,71 @@
 
         
             
-    <li class="toctree-l1 current">
-        <a class="current" href="./">GPIO</a>
-        
-            <ul>
-            
-                <li class="toctree-l3"><a href="#gpio">GPIO</a></li>
-                
-            
-            </ul>
+    <li class="toctree-l1 ">
+        <a class="" href="../../API/GPIO/">GPIO</a>
         
     </li>
 
         
             
     <li class="toctree-l1 ">
-        <a class="" href="../computer-vision/">Computer vision</a>
+        <a class="" href="../../API/computer-vision/">Computer vision</a>
         
     </li>
 
         
             
     <li class="toctree-l1 ">
-        <a class="" href="../crosstalk/">Crosstalk</a>
+        <a class="" href="../../API/crosstalk/">Crosstalk</a>
         
     </li>
 
         
             
     <li class="toctree-l1 ">
-        <a class="" href="../everloop/">Everloop</a>
+        <a class="" href="../../API/everloop/">Everloop</a>
         
     </li>
 
         
             
     <li class="toctree-l1 ">
-        <a class="" href="../filter/">Filter</a>
+        <a class="" href="../../API/filter/">Filter</a>
         
     </li>
 
         
             
     <li class="toctree-l1 ">
-        <a class="" href="../microphone/">Microphone</a>
+        <a class="" href="../../API/microphone/">Microphone</a>
         
     </li>
 
         
             
     <li class="toctree-l1 ">
-        <a class="" href="../overview/">Overview</a>
+        <a class="" href="../../API/overview/">Overview</a>
         
     </li>
 
         
             
     <li class="toctree-l1 ">
-        <a class="" href="../sensors/">Sensors</a>
+        <a class="" href="../../API/sensors/">Sensors</a>
         
     </li>
 
         
             
     <li class="toctree-l1 ">
-        <a class="" href="../speaker/">Speaker</a>
+        <a class="" href="../../API/speaker/">Speaker</a>
         
     </li>
 
         
             
     <li class="toctree-l1 ">
-        <a class="" href="../typesend/">Typesend</a>
+        <a class="" href="../../API/typesend/">Typesend</a>
         
     </li>
 
@@ -246,35 +239,42 @@
         
             
     <li class="toctree-l1 ">
-        <a class="" href="../../Hardware/SPI/">SPI</a>
+        <a class="" href="../SPI/">SPI</a>
         
     </li>
 
         
             
     <li class="toctree-l1 ">
-        <a class="" href="../../Hardware/Sam3/">Sam3</a>
+        <a class="" href="../Sam3/">Sam3</a>
         
     </li>
 
         
             
     <li class="toctree-l1 ">
-        <a class="" href="../../Hardware/fpga/">Fpga</a>
+        <a class="" href="../fpga/">Fpga</a>
         
     </li>
 
         
             
     <li class="toctree-l1 ">
-        <a class="" href="../../Hardware/microphone/">Microphone</a>
+        <a class="" href="../microphone/">Microphone</a>
         
     </li>
 
         
             
-    <li class="toctree-l1 ">
-        <a class="" href="../../Hardware/sam3mcu-programming/">Sam3mcu programming</a>
+    <li class="toctree-l1 current">
+        <a class="current" href="./">Sam3mcu programming</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#sam3-mcu-programmingm">Sam3 MCU Programmingm</a></li>
+                
+            
+            </ul>
         
     </li>
 
@@ -362,11 +362,11 @@
     
       
         
-          <li>API &raquo;</li>
+          <li>Hardware &raquo;</li>
         
       
     
-    <li>GPIO</li>
+    <li>Sam3mcu programming</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -376,8 +376,77 @@
           <div role="main">
             <div class="section">
               
-                <h2 id="gpio">GPIO</h2>
-<p>Still working out the precise API for this. Stay tuned.</p>
+                <h1 id="sam3-mcu-programmingm">Sam3 MCU Programmingm</h1>
+<p>Once you have installed the <a href="../matrix-creator-quickstart">required software</a> you can program the SAM3 MCU. The MCU is used to read the sensors.</p>
+<p>This firmware is free software and <a href="../compile-sam3-free-firmware">you can compile it yourself</a>. Here we describe the process of compiling the shipped firmware.</p>
+<p>First, get the firmware.</p>
+<pre><code>wget http://packages.matrix.one/matrix-creator-firmware/firmware-0.8.tar.gz
+tar xzvf firmware-0.8.tar.gz
+</code></pre>
+<p>Then flash the firmware using the <a href="https://github.com/matrix-io/matrix-creator-openocd">openocd</a> program that should be installed on the Raspberry (with the package matrix-creator-openocd).</p>
+<p>Then execute the following commands as root.</p>
+<pre><code>echo 18 &gt; /sys/class/gpio/export
+echo out &gt; /sys/class/gpio/gpio18/direction
+echo 1 &gt; /sys/class/gpio/gpio18/value
+echo 0 &gt; /sys/class/gpio/gpio18/value
+echo 1 &gt; /sys/class/gpio/gpio18/value
+</code></pre>
+<p>Now you can program the firmware.</p>
+<pre><code>cd firmware-0.8
+sudo openocd -f cfg/sam3s.cfg
+</code></pre>
+<p>Example output:</p>
+<pre><code>$ sudo openocd -f cfg/sam3s.cfg
+Open On-Chip Debugger 0.10.0-dev-00283-g7223cae-dirty (2016-07-15-08:36)
+Licensed under GNU GPL v2
+For bug reports, read
+    http://openocd.org/doc/doxygen/bugs.html
+BCM2835 GPIO config: tck = 17, tms = 4, tdi = 22, tdo = 27
+BCM2835 GPIO config: trst = 18
+trst_only separate trst_push_pull
+adapter speed: 512 kHz
+Warn : em357.bs: nonstandard IR value
+Warn : Specify TAP 'sam3n.cpu.cpu' by name, not number 3
+Info : BCM2835 GPIO JTAG/SWD bitbang driver
+Info : JTAG only mode enabled (specify swclk and swdio gpio to add SWD mode)
+Info : clock speed 512 kHz
+Info : JTAG tap: em357.cpu tap/device found: 0x3ba00477 (mfg: 0x23b (ARM Ltd.), part: 0xba00, ver: 0x3)
+Info : JTAG tap: em357.bs tap/device found: 0x069aa62b (mfg: 0x315 (Ember Corporation), part: 0x69aa, ver: 0x0)
+Info : JTAG tap: xc6sxl4.fpga.fpga tap/device found: 0x24000093 (mfg: 0x049 (Xilinx), part: 0x4000, ver: 0x2)
+Info : JTAG tap: sam3n.cpu.cpu tap/device found: 0x4ba00477 (mfg: 0x23b (ARM Ltd.), part: 0xba00, ver: 0x4)
+Error: xc6sxl4.fpga.fpga: IR capture error; saw 0x35 not 0x11
+Warn : Bypassing JTAG setup events due to errors
+Info : sam3n.cpu: hardware has 6 breakpoints, 4 watchpoints
+sam3n.cpu: target state: halted
+target halted due to debug-request, current mode: Thread
+xPSR: 0x61000000 pc: 0x00402560 psp: 0x20000800
+#0 : at91sam3 at 0x00400000, size 0x00020000, buswidth 0, chipwidth 0
+    #  0: 0x00000000 (0x4000 16kB) not protected
+    #  1: 0x00004000 (0x4000 16kB) not protected
+    #  2: 0x00008000 (0x4000 16kB) not protected
+    #  3: 0x0000c000 (0x4000 16kB) not protected
+    #  4: 0x00010000 (0x4000 16kB) not protected
+    #  5: 0x00014000 (0x4000 16kB) not protected
+    #  6: 0x00018000 (0x4000 16kB) not protected
+    #  7: 0x0001c000 (0x4000 16kB) not protected
+flash 'at91sam3' found at 0x00400000
+Error: Invalid ACK (6) in DAP response
+Error: Failed to read memory at 0x400e0a0c
+Error: SAM3: Error performing Erase &amp; Write page @ phys address 0x00400800
+wrote 38620 bytes from file blob/ch.bin to flash bank 0 at offset 0x00000000 in 1.256279s (30.021 KiB/s)
+Info : JTAG tap: em357.cpu tap/device found: 0x3ba00477 (mfg: 0x23b (ARM Ltd.), part: 0xba00, ver: 0x3)
+Info : JTAG tap: em357.bs tap/device found: 0x069aa62b (mfg: 0x315 (Ember Corporation), part: 0x69aa, ver: 0x0)
+Info : JTAG tap: xc6sxl4.fpga.fpga tap/device found: 0x24000093 (mfg: 0x049 (Xilinx), part: 0x4000, ver: 0x2)
+Info : JTAG tap: sam3n.cpu.cpu tap/device found: 0x4ba00477 (mfg: 0x23b (ARM Ltd.), part: 0xba00, ver: 0x4)
+Error: xc6sxl4.fpga.fpga: IR capture error; saw 0x35 not 0x11
+Warn : Bypassing JTAG setup events due to errors
+Warn : Only resetting the Cortex-M core, use a reset-init event handler to reset any peripherals or configure     hardware srst support.
+shutdown command invoked
+</code></pre>
+<p>Flashing succeeded if you get the line "wrote 38620 bytes from file blob/ch.bin to flash bank 0 at offset 0x00000000 in 1.256279s (30.021 KiB/s)" in the previous output. A small LED next to the SAM3 MCU should start flashing once per second.</p>
+<p>If flashing fails, please retry the flashing command.</p>
+<p><a href="https://www.youtube.com/watch?v=K4TU3eBAOns">Sample video</a></p>
+<p>Questions? Post them on raspberrypi.stackexchange.com! Use the tag #matrix-creator</p>
               
             </div>
           </div>
@@ -385,10 +454,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../computer-vision/" class="btn btn-neutral float-right" title="Computer vision">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../../Reference/Data-Sheets/" class="btn btn-neutral float-right" title="Data Sheets">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../.." class="btn btn-neutral" title="Home"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../microphone/" class="btn btn-neutral" title="Microphone"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -414,10 +483,10 @@
     <span class="rst-current-version" data-toggle="rst-current-version">
       
       
-        <span><a href="../.." style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../microphone/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../computer-vision/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../../Reference/Data-Sheets/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>

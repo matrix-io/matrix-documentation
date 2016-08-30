@@ -8,7 +8,7 @@
   
   
   
-  <title>GPIO - MatrixOS Documentation</title>
+  <title>Pinout - MatrixOS Documentation</title>
   
 
   <link rel="shortcut icon" href="../../img/favicon.ico">
@@ -23,9 +23,9 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "GPIO";
-    var mkdocs_page_input_path = "API/GPIO.md";
-    var mkdocs_page_url = "/API/GPIO/";
+    var mkdocs_page_name = "Pinout";
+    var mkdocs_page_input_path = "Reference/pinout.md";
+    var mkdocs_page_url = "/Reference/pinout/";
   </script>
   
   <script src="../../js/jquery-2.1.1.min.js"></script>
@@ -67,78 +67,71 @@
 
         
             
-    <li class="toctree-l1 current">
-        <a class="current" href="./">GPIO</a>
-        
-            <ul>
-            
-                <li class="toctree-l3"><a href="#gpio">GPIO</a></li>
-                
-            
-            </ul>
+    <li class="toctree-l1 ">
+        <a class="" href="../../API/GPIO/">GPIO</a>
         
     </li>
 
         
             
     <li class="toctree-l1 ">
-        <a class="" href="../computer-vision/">Computer vision</a>
+        <a class="" href="../../API/computer-vision/">Computer vision</a>
         
     </li>
 
         
             
     <li class="toctree-l1 ">
-        <a class="" href="../crosstalk/">Crosstalk</a>
+        <a class="" href="../../API/crosstalk/">Crosstalk</a>
         
     </li>
 
         
             
     <li class="toctree-l1 ">
-        <a class="" href="../everloop/">Everloop</a>
+        <a class="" href="../../API/everloop/">Everloop</a>
         
     </li>
 
         
             
     <li class="toctree-l1 ">
-        <a class="" href="../filter/">Filter</a>
+        <a class="" href="../../API/filter/">Filter</a>
         
     </li>
 
         
             
     <li class="toctree-l1 ">
-        <a class="" href="../microphone/">Microphone</a>
+        <a class="" href="../../API/microphone/">Microphone</a>
         
     </li>
 
         
             
     <li class="toctree-l1 ">
-        <a class="" href="../overview/">Overview</a>
+        <a class="" href="../../API/overview/">Overview</a>
         
     </li>
 
         
             
     <li class="toctree-l1 ">
-        <a class="" href="../sensors/">Sensors</a>
+        <a class="" href="../../API/sensors/">Sensors</a>
         
     </li>
 
         
             
     <li class="toctree-l1 ">
-        <a class="" href="../speaker/">Speaker</a>
+        <a class="" href="../../API/speaker/">Speaker</a>
         
     </li>
 
         
             
     <li class="toctree-l1 ">
-        <a class="" href="../typesend/">Typesend</a>
+        <a class="" href="../../API/typesend/">Typesend</a>
         
     </li>
 
@@ -289,21 +282,34 @@
         
             
     <li class="toctree-l1 ">
-        <a class="" href="../../Reference/Data-Sheets/">Data Sheets</a>
+        <a class="" href="../Data-Sheets/">Data Sheets</a>
         
     </li>
 
         
             
     <li class="toctree-l1 ">
-        <a class="" href="../../Reference/overview/">Overview</a>
+        <a class="" href="../overview/">Overview</a>
         
     </li>
 
         
             
-    <li class="toctree-l1 ">
-        <a class="" href="../../Reference/pinout/">Pinout</a>
+    <li class="toctree-l1 current">
+        <a class="current" href="./">Pinout</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#expansion-pinout">Expansion pinout</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#expansion-location">Expansion location</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#fpgas-ucf-definition">FPGA's UCF definition</a></li>
+                
+            
+            </ul>
         
     </li>
 
@@ -362,11 +368,11 @@
     
       
         
-          <li>API &raquo;</li>
+          <li>Reference &raquo;</li>
         
       
     
-    <li>GPIO</li>
+    <li>Pinout</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -376,8 +382,29 @@
           <div role="main">
             <div class="section">
               
-                <h2 id="gpio">GPIO</h2>
-<p>Still working out the precise API for this. Stay tuned.</p>
+                <h2 id="expansion-pinout">Expansion pinout</h2>
+<p><img alt="Pinout" src="https://storage.googleapis.com/packages.matrix.one/wiki-images/hardware/creator_pinout.png" /></p>
+<h2 id="expansion-location">Expansion location</h2>
+<p><img alt="" src="https://storage.googleapis.com/packages.matrix.one/wiki-images/hardware/creator_expansion.jpg" /></p>
+<h2 id="fpgas-ucf-definition">FPGA's UCF definition</h2>
+<pre><code>NET &quot;DF&lt;16&gt;&quot; LOC=&quot;P106&quot;;
+NET &quot;DF&lt;15&gt;&quot; LOC=&quot;P102&quot;;
+NET &quot;DF&lt;14&gt;&quot; LOC=&quot;P101&quot;;
+NET &quot;DF&lt;13&gt;&quot; LOC=&quot;P99&quot;;
+NET &quot;DF&lt;12&gt;&quot; LOC=&quot;P98&quot;;
+NET &quot;DF&lt;11&gt;&quot; LOC=&quot;P95&quot;;
+NET &quot;DF&lt;10&gt;&quot; LOC=&quot;P94&quot;;
+NET &quot;DF&lt;9&gt;&quot; LOC=&quot;P93&quot;;
+NET &quot;DF&lt;8&gt;&quot; LOC=&quot;P92&quot;;
+NET &quot;DF&lt;7&gt;&quot; LOC=&quot;P88&quot;;
+NET &quot;DF&lt;6&gt;&quot; LOC=&quot;P85&quot;;
+NET &quot;DF&lt;5&gt;&quot; LOC=&quot;P83&quot;;
+NET &quot;DF&lt;4&gt;&quot; LOC=&quot;P82&quot;;
+NET &quot;DF&lt;3&gt;&quot; LOC=&quot;P81&quot;;
+NET &quot;DF&lt;2&gt;&quot; LOC=&quot;P80&quot;;
+NET &quot;DF&lt;1&gt;&quot; LOC=&quot;P79&quot;;
+NET &quot;DF&lt;0&gt;&quot; LOC=&quot;P78&quot;;
+</code></pre>
               
             </div>
           </div>
@@ -385,10 +412,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../computer-vision/" class="btn btn-neutral float-right" title="Computer vision">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../../intro/hal/" class="btn btn-neutral float-right" title="Hal">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../.." class="btn btn-neutral" title="Home"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../overview/" class="btn btn-neutral" title="Overview"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -414,10 +441,10 @@
     <span class="rst-current-version" data-toggle="rst-current-version">
       
       
-        <span><a href="../.." style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../overview/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../computer-vision/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../../intro/hal/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>
