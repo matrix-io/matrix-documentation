@@ -1,32 +1,38 @@
 # Sensors
 
-## Simple Sensor List
+### Simple Sensor List
 - temperature
 - humidity
 
-## Complex Sensor List
+### Complex Sensor List
 - gps
 - gyroscope
 - accellerometer
 
 # Using Sensors
+Use of options is optional.
 ```
-matrix.init('temperature').then(function(data){
+matrix.init('temperature', options).then(function(data){
   //see below for data formats
 })
 ```
 
-## Data from Simple Sensors
+## options
+
+- `refresh` - ms delay between refresh
+- `timeout` - how long before auto timeout
+
+### Data from Simple Sensors
 Simple sensors emit float numbers with a `value` key.
 ```
 {
   value: 72.0
 }
 ```
-## Data from complex sensors
+# Data from complex sensors
 Complex sensors emit structured data
 
-### microphone
+## microphone
 ```
 {
   db: 132.23,
@@ -34,14 +40,14 @@ Complex sensors emit structured data
 }
 ```
 
-### gps
+## gps
 ```
 {
   lat: 34.234,
   lon: 13.111
 }
 ```
-### gyroscope
+## accelerometer
 ```
 {
   x: 0.1,
@@ -50,7 +56,7 @@ Complex sensors emit structured data
 }
 
 ```
-### accellerometer
+## gyroscope
 ```
 {
   yaw: 82.06211853027344,
@@ -59,10 +65,6 @@ Complex sensors emit structured data
 }
 ```
 
-#### accellerometer options
-
-- `refresh` - ms delay between refresh
-- `timeout` - how long before auto timeout
 
 # Filtering Sensor Data
 see [API > Filter](filter.md)
