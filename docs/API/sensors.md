@@ -4,7 +4,9 @@
 - temperature
 - humidity
 
+
 ### Complex Sensor List
+- uv
 - gps
 - gyroscope
 - accellerometer

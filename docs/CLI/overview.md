@@ -9,6 +9,18 @@ npm install -g matrix-cli
 
 This will make the `matrix` command available in your terminal.
 
+## Registration
+
+If you do not have an AdMobilize MATRIX account, use:
+```
+matrix register
+```
+Check your email to confirm the account then you can login.
+
+## help
+
+Run `matrix` by itself to see the command reference and configuration information.
+
 ```
   _  _ ____ ___ ____ _ _  _
   |\/| |__|  |  |__/ |  \/   _ | [o]

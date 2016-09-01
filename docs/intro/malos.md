@@ -1,6 +1,25 @@
 # Matrix Abstraction Layer for OS
 
-MALOS provides a [ZeroMQ](http://zeromq.org/) messaging layer. The intended target for this layer is [MatrixOS](http://github.com/matrix-io/matrix-os).
+MALOS provides a [ZeroMQ](http://zeromq.org/) messaging layer. An intended target for this layer is [MatrixOS](http://github.com/matrix-io/matrix-os).
+
+
+### Install MALOS
+```
+sudo apt-get install matrix-creator-init matrix-creator-malos cmake g++ git
+sudo shutdown -r now
+```
+
+### Upgrade MALOS
+```
+sudo apt-get update && sudo apt-get upgrade
+sudo shutdown -r now
+```
+
+### Test MALOS
+Start it as a background process.
+```
+malos > /dev/null 2>&1 &
+```
 
 ## Install the most recent version
 
