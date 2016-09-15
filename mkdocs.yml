@@ -1,2 +1,23 @@
 site_name: MATRIX
-theme: mkdocs
+theme: material
+site_description: MATRIX OS Documentation
+docs_dir: docs
+extra_css: ['styles.css']
+
+pages:
+- Home: 'index.md'
+- OS:
+  - 'Overview': 'api/overview.md'
+  - 'GPIO': 'api/gpio.md'
+  - 'Sensors': 'api/sensors.md'
+  - 'Filters': 'api/filter.md'
+  - 'Microphone': 'api/microphone.md'
+  - 'IR TX/RX': 'api/ir.md'
+  - 'Everloop': 'api/everloop.md'
+  - 'NFC': 'api/nfc.md'
+  - 'Z-wave': 'api/zwave.md'
+  - 'Zigbee': 'api/zigbee.md'
+- CLI:
+  - 'Overview': 'cli/overview.md'
+  - 'Apps': 'cli/apps.md'
+  - 'Examples': 'cli/example.md'

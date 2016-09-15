@@ -1,5 +1,3 @@
-# Filters
-
 MatrixOS sensors and computer vision algorithms provide data which can be filtered between the `init`, which can be regarded as the data source, and the `then`, which can be regarded as the data receiver. Between the two, we can use chaining methods to easily filter what data is received.
 
 ```

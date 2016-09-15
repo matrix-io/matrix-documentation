@@ -1,5 +1,3 @@
-# Speakers
-
 ## Text to Speech
 ```
 matrix.say('hello world')

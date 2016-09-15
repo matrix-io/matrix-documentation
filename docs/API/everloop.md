@@ -1,5 +1,3 @@
-# Everloop
-
 A powerful tool for communicating with end users is the EverLoop LED circle.
 
 ## Rendering
