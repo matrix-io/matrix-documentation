@@ -1,8 +1,8 @@
 With the following instructions you will be able to run demos for the Everloop LED Array and for the IMU. These demos make use of the [hardware abstraction layer](https://github.com/matrix-io/matrix-creator-hal/tree/master/cpp/driver).
 
-[[http://packages.matrix.one/wiki-images/general-assets/hand-small.png|alt=MATRIX Creator]]
+![Matrix Creator](http://packages.matrix.one/wiki-images/general-assets/hand-small.png)
 
-If you followed the [getting started](getting-started) steps the [FPGA](fpga-programming) and the [SAM3 MCU](sam3mcu-programming) should be programmed and ready. Also, [SPI should have been enabled for you](enable-spi).
+If you followed the [getting started](install) steps the [FPGA](/Hardware/fpga) and the [SAM3 MCU](/Hardware/sam3mcu-programming) should be programmed and ready. Also, [SPI should have been enabled for you](enable-spi).
 
 Thus you can just get the required source code and build it:
 

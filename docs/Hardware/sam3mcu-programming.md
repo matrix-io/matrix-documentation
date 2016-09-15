@@ -1,6 +1,6 @@
-# Sam3 MCU Programmingm
+# Sam3 MCU Programming
 
-Once you have installed the [required software](matrix-creator-quickstart) you can program the SAM3 MCU. The MCU is used to read the sensors.
+Once you have installed the [required software](/intro/install) you can program the SAM3 MCU. The MCU is used to read the sensors.
 
 This firmware is free software and [you can compile it yourself](compile-sam3-free-firmware). Here we describe the process of compiling the shipped firmware.
 

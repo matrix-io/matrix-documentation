@@ -14,7 +14,7 @@ ________
 ## Hardware
 
 ### FPGA and SAM3 MCU
-These will be programmed for you at boot after you follow the [getting started](2.-Getting-Started) session, but here is the documentation that you need in case you want to program them yourself.
+These will be programmed for you at boot after you follow the [getting started](install) session, but here is the documentation that you need in case you want to program them yourself.
 * [FPGA programming](Hardware/fpga.md)
 * [SAM3 flash](Hardware/Sam3.md)
 * [SAM3 MCU firmware programming](Hardware/sam3mcu-programming.md)

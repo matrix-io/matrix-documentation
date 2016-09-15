@@ -15,8 +15,8 @@ Then you can install the required packages.
     sudo apt-get install matrix-creator-init matrix-creator-malos cmake g++ git
 
 **Now reboot the Raspberry Pi**. After rebooting the FPGA and the SAM3 MCU will be programmed for you automatically.
-That is, after *every* reboot the FPGA will be programmed for you with the default firmware and you will be able to [play with the EverLoop LEDs](3.-HAL---Everloop-LED-Array-And-IMU).
+That is, after *every* reboot the FPGA will be programmed for you with the default firmware and you will be able to [play with the EverLoop LEDs](hal).
 
-If you wish, you can also learn more about [how to program the FPGA](fpga-programming).
+If you wish, you can also learn more about [how to program the FPGA](/Hardware/fpga).
 
 Questions? Post them on [raspberrypi.stackexchange.com](http://raspberrypi.stackexchange.com)! Use the tag #matrix-creator
