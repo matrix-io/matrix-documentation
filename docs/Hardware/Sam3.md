@@ -1,4 +1,4 @@
-# SAM3 Firmware Flash
+### SAM3 Firmware Flash
 
 This firmware is used to read the sensors. You can build it in your host machine, and then copy the resulting binary to the Raspberry Pi.
 

@@ -1,4 +1,4 @@
-# Sam3 MCU Programming
+### Sam3 MCU Programming
 
 Once you have installed the [required software](/intro/install) you can program the SAM3 MCU. The MCU is used to read the sensors.
 

@@ -1,3 +1,4 @@
+### FPGA
 Once you have installed the [required software](/intro/install) you can program the FPGA. This will allow you to play with the everloop LED array.
 
 First, get the firmware.
