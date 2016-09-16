@@ -6,33 +6,34 @@ extra_css: ['styles.css']
 
 pages:
 - Home: 'index.md'
+- Getting Started: 'intro/install.md'
 - OS:
-  - 'Overview': 'API/overview.md'
-  - 'GPIO': 'API/gpio.md'
-  - 'Sensors': 'API/sensors.md'
-  - 'Filters': 'API/filter.md'
-  - 'Microphone': 'API/microphone.md'
-  - 'IR TX/RX': 'API/ir.md'
-  - 'Everloop': 'API/everloop.md'
-  - 'NFC': 'API/nfc.md'
-  - 'Z-wave': 'API/zwave.md'
-  - 'Zigbee': 'API/zigbee.md'
+  - Apps:
+    - 'Overview': 'API/overview.md'
+    - 'GPIO': 'API/gpio.md'
+    - 'Sensors': 'API/sensors.md'
+    - 'Filters': 'API/filter.md'
+    - 'Microphone': 'API/microphone.md'
+    - 'IR TX/RX': 'API/ir.md'
+    - 'Everloop': 'API/everloop.md'
+    - 'NFC': 'API/nfc.md'
+    - 'Z-wave': 'API/zwave.md'
+    - 'Zigbee': 'API/zigbee.md'
+  - Config:
+    - 'Overview': 'Configuration/overview.md'
+    - 'Screens': 'Configuration/screens.md'
+    - 'Datatypes': 'Configuration/datatypes.md'
 - CLI:
   - 'Overview': 'CLI/overview.md'
   - 'Apps': 'CLI/apps.md'
   - 'Examples': 'CLI/example.md'
-- INTRO:
-  - 'Install': 'intro/install.md'
-  - 'HAL': 'intro/hal.md'
-  - 'MALOS': 'intro/malos.md'
-- HARDWARE: 
+- Hardware: 
   - 'FPGA': 'Hardware/fpga.md'
   - 'SAM3': 'Hardware/Sam3.md'
   - 'SAM3MCU': 'Hardware/sam3mcu-programming.md'
-- REFERENCE: 
+- Supporting Libraries:
+  - 'HAL': 'intro/hal.md'
+  - 'MALOS': 'intro/malos.md'  
+- Reference: 
   - 'Overview': 'Reference/overview.md'
   - 'Pinout': 'Reference/pinout.md'
-- CONFIGURATION:
-  - 'Overview': 'Configuration/overview.md'
-  - 'Screens': 'Configuration/screens.md'
-  - 'Datatypes': 'Configuration/datatypes.md'
