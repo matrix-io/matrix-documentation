@@ -1,397 +1,501 @@
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  
-  
-  <title>Everloop - MatrixOS Documentation</title>
-  
-
-  <link rel="shortcut icon" href="../../img/favicon.ico">
-
-  
-  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
-
-  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
-  <link rel="stylesheet" href="../../css/highlight.css">
-
-  
-  <script>
-    // Current page data
-    var mkdocs_page_name = "Everloop";
-    var mkdocs_page_input_path = "API/everloop.md";
-    var mkdocs_page_url = "/API/everloop/";
-  </script>
-  
-  <script src="../../js/jquery-2.1.1.min.js"></script>
-  <script src="../../js/modernizr-2.8.3.min.js"></script>
-  <script type="text/javascript" src="../../js/highlight.pack.js"></script>
-  <script src="../../js/theme.js"></script> 
-
-  
-</head>
-
-<body class="wy-body-for-nav" role="document">
-
-  <div class="wy-grid-for-nav">
-
+<!--[if lt IE 7 ]><html class="no-js ie6"><![endif]-->
+<!--[if IE 7 ]><html class="no-js ie7"><![endif]-->
+<!--[if IE 8 ]><html class="no-js ie8"><![endif]-->
+<!--[if IE 9 ]><html class="no-js ie9"><![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html class="no-js"> <!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
     
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
-      <div class="wy-side-nav-search">
-        <a href="../.." class="icon icon-home"> MatrixOS Documentation</a>
-        <div role="search">
-  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
-  </form>
-</div>
+      
+        <title>Everloop - MATRIX</title>
+      
+      
+      
+      
+    
+    <meta property="og:url" content="None">
+    <meta property="og:title" content="MATRIX">
+    <meta property="og:image" content="None/../../">
+    <meta name="apple-mobile-web-app-title" content="MATRIX">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    
+    
+    <link rel="shortcut icon" type="image/x-icon" href="../../assets/images/favicon-e565ddfa3b.ico">
+    <link rel="icon" type="image/x-icon" href="../../assets/images/favicon-e565ddfa3b.ico">
+    <style>
+      @font-face {
+      	font-family: 'Icon';
+      	src: url('../../assets/fonts/icon.eot?52m981');
+      	src: url('../../assets/fonts/icon.eot?#iefix52m981')
+               format('embedded-opentype'),
+      		   url('../../assets/fonts/icon.woff?52m981')
+               format('woff'),
+      		   url('../../assets/fonts/icon.ttf?52m981')
+               format('truetype'),
+      		   url('../../assets/fonts/icon.svg?52m981#icon')
+               format('svg');
+      	font-weight: normal;
+      	font-style: normal;
+      }
+    </style>
+    <link rel="stylesheet" href="../../assets/stylesheets/application-a422ff04cc.css">
+    
+    
+      
+      
+      
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:400,700|Ubuntu+Mono">
+      <style>
+        body, input {
+          font-family: 'Ubuntu', Helvetica, Arial, sans-serif;
+        }
+        pre, code {
+          font-family: 'Ubuntu Mono', 'Courier New', 'Courier', monospace;
+        }
+      </style>
+    
+    
+      <link rel="stylesheet" href="../../styles.css">
+    
+    <script src="../../assets/javascripts/modernizr-4ab42b99fd.js"></script>
+    
+  </head>
+  
+  
+  
+  <body class=" ">
+    
+    <div class="backdrop">
+      <div class="backdrop-paper"></div>
+    </div>
+    <input class="toggle" type="checkbox" id="toggle-drawer">
+    <input class="toggle" type="checkbox" id="toggle-search">
+    <label class="toggle-button overlay" for="toggle-drawer"></label>
+    <header class="header">
+      <nav aria-label="Header">
+  <div class="bar default">
+    <div class="button button-menu" role="button" aria-label="Menu">
+      <label class="toggle-button icon icon-menu" for="toggle-drawer">
+        <span></span>
+      </label>
+    </div>
+    <div class="stretch">
+      <div class="title">
+        
+          <span class="path">
+            
+              
+                OS <i class="icon icon-link"></i>
+              
+            
+              
+                Apps <i class="icon icon-link"></i>
+              
+            
+          </span>
+        
+        Everloop
       </div>
-
-      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-        <ul class="current">
+    </div>
+    
+    
+    <div class="button button-search" role="button" aria-label="Search">
+      <label class="toggle-button icon icon-search" title="Search" for="toggle-search"></label>
+    </div>
+  </div>
+  <div class="bar search">
+    <div class="button button-close" role="button" aria-label="Close">
+      <label class="toggle-button icon icon-back" for="toggle-search"></label>
+    </div>
+    <div class="stretch">
+      <div class="field">
+        <input class="query" type="text" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck>
+      </div>
+    </div>
+    <div class="button button-reset" role="button" aria-label="Search">
+      <button class="toggle-button icon icon-close" id="reset-search"></button>
+    </div>
+  </div>
+</nav>
+    </header>
+    <main class="main">
+      
+      <div class="drawer">
+        <nav aria-label="Navigation">
+  
+  <a href="/" class="project">
+    <div class="banner">
+      
+      <div class="name">
+        <strong>
+          MATRIX
+          <span class="version">
+            
+          </span>
+        </strong>
+        
+      </div>
+    </div>
+  </a>
+  <div class="scrollable">
+    <div class="wrapper">
+      
+      <div class="toc">
+        <ul>
           
-            <li>
-    <li class="toctree-l1 ">
-        <a class="" href="../..">Home</a>
-        
-    </li>
-<li>
+            
+  <li>
+    <a class="" title="Home" href="../..">
+      Home
+    </a>
+    
+  </li>
+
           
-            <li>
-    <ul class="subnav">
-    <li><span>API</span></li>
+            
+  <li>
+    <a class="" title="Getting Started" href="../../intro/install/">
+      Getting Started
+    </a>
+    
+  </li>
 
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../GPIO/">GPIO</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../computer-vision/">Computer vision</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../crosstalk/">Crosstalk</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 current">
-        <a class="current" href="./">Everloop</a>
-        
-            <ul>
-            
-                <li class="toctree-l3"><a href="#everloop">Everloop</a></li>
-                
-                    <li><a class="toctree-l4" href="#rendering">Rendering</a></li>
-                
-                    <li><a class="toctree-l4" href="#set-colors">Set Colors</a></li>
-                
-                    <li><a class="toctree-l4" href="#generate-shapes">Generate Shapes</a></li>
-                
-                    <li><a class="toctree-l4" href="#manipulate-colors">Manipulate colors</a></li>
-                
-                    <li><a class="toctree-l4" href="#manipulate-position">Manipulate position</a></li>
-                
-                    <li><a class="toctree-l4" href="#composition">Composition</a></li>
-                
-                    <li><a class="toctree-l4" href="#example-clock">Example clock</a></li>
-                
-            
-            </ul>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../filter/">Filter</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../microphone/">Microphone</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../overview/">Overview</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../sensors/">Sensors</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../speaker/">Speaker</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../typesend/">Typesend</a>
-        
-    </li>
-
-        
-    </ul>
-<li>
           
-            <li>
-    <ul class="subnav">
-    <li><span>CLI</span></li>
-
-        
             
-    <li class="toctree-l1 ">
-        <a class="" href="../../CLI/apps/">Apps</a>
+  <li>
+    <span class="section">OS</span>
+    <ul>
+      
         
-    </li>
+  <li>
+    <span class="section">Apps</span>
+    <ul>
+      
+        
+  <li>
+    <a class="" title="Overview" href="../overview/">
+      Overview
+    </a>
+    
+  </li>
 
+      
         
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../../CLI/example/">Example</a>
-        
-    </li>
+  <li>
+    <a class="" title="GPIO" href="../gpio/">
+      GPIO
+    </a>
+    
+  </li>
 
+      
         
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../../CLI/overview/">Overview</a>
-        
-    </li>
+  <li>
+    <a class="" title="Sensors" href="../sensors/">
+      Sensors
+    </a>
+    
+  </li>
 
+      
         
-    </ul>
-<li>
+  <li>
+    <a class="" title="Filters" href="../filter/">
+      Filters
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Microphone" href="../microphone/">
+      Microphone
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="IR TX/RX" href="../ir/">
+      IR TX/RX
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="current" title="Everloop" href="./">
+      Everloop
+    </a>
+    
+      
+      
+        <ul>
           
-            <li>
-    <ul class="subnav">
-    <li><span>Configuration</span></li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../../Configuration/datatypes/">Datatypes</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../../Configuration/examples/">Examples</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../../Configuration/filters/">Filters</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../../Configuration/overview/">Overview</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../../Configuration/screens/">Screens</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../../Configuration/services/">Services</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../../Configuration/setup/">Setup</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../../Configuration/widgets/">Widgets</a>
-        
-    </li>
-
-        
-    </ul>
-<li>
+            <li class="anchor">
+              <a title="Rendering" href="#rendering">
+                Rendering
+              </a>
+            </li>
           
-            <li>
-    <ul class="subnav">
-    <li><span>Hardware</span></li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../../Hardware/SPI/">SPI</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../../Hardware/Sam3/">Sam3</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../../Hardware/fpga/">Fpga</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../../Hardware/microphone/">Microphone</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../../Hardware/sam3mcu-programming/">Sam3mcu programming</a>
-        
-    </li>
-
-        
-    </ul>
-<li>
+            <li class="anchor">
+              <a title="Set Colors" href="#set-colors">
+                Set Colors
+              </a>
+            </li>
           
-            <li>
-    <ul class="subnav">
-    <li><span>Reference</span></li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../../Reference/Data-Sheets/">Data Sheets</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../../Reference/overview/">Overview</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../../Reference/pinout/">Pinout</a>
-        
-    </li>
-
-        
-    </ul>
-<li>
+            <li class="anchor">
+              <a title="Generate Shapes" href="#generate-shapes">
+                Generate Shapes
+              </a>
+            </li>
           
-            <li>
-    <ul class="subnav">
-    <li><span>Intro</span></li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../../intro/hal/">Hal</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../../intro/install/">Install</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../../intro/malos/">Malos</a>
-        
-    </li>
-
-        
-    </ul>
-<li>
+            <li class="anchor">
+              <a title="Manipulate colors" href="#manipulate-colors">
+                Manipulate colors
+              </a>
+            </li>
+          
+            <li class="anchor">
+              <a title="Manipulate position" href="#manipulate-position">
+                Manipulate position
+              </a>
+            </li>
+          
+            <li class="anchor">
+              <a title="Composition" href="#composition">
+                Composition
+              </a>
+            </li>
+          
+            <li class="anchor">
+              <a title="Example clock" href="#example-clock">
+                Example clock
+              </a>
+            </li>
           
         </ul>
+      
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="NFC" href="../nfc/">
+      NFC
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Z-wave" href="../zwave/">
+      Z-wave
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Zigbee" href="../zigbee/">
+      Zigbee
+    </a>
+    
+  </li>
+
+      
+    </ul>
+  </li>
+
+      
+        
+  <li>
+    <span class="section">Config</span>
+    <ul>
+      
+        
+  <li>
+    <a class="" title="Overview" href="../../Configuration/overview/">
+      Overview
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Screens" href="../../Configuration/screens/">
+      Screens
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Datatypes" href="../../Configuration/datatypes/">
+      Datatypes
+    </a>
+    
+  </li>
+
+      
+    </ul>
+  </li>
+
+      
+    </ul>
+  </li>
+
+          
+            
+  <li>
+    <span class="section">CLI</span>
+    <ul>
+      
+        
+  <li>
+    <a class="" title="Overview" href="../../CLI/overview/">
+      Overview
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Apps" href="../../CLI/apps/">
+      Apps
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Examples" href="../../CLI/example/">
+      Examples
+    </a>
+    
+  </li>
+
+      
+    </ul>
+  </li>
+
+          
+            
+  <li>
+    <span class="section">Hardware</span>
+    <ul>
+      
+        
+  <li>
+    <a class="" title="FPGA" href="../../Hardware/fpga/">
+      FPGA
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="SAM3" href="../../Hardware/Sam3/">
+      SAM3
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="SAM3MCU" href="../../Hardware/sam3mcu-programming/">
+      SAM3MCU
+    </a>
+    
+  </li>
+
+      
+    </ul>
+  </li>
+
+          
+            
+  <li>
+    <span class="section">Supporting Libraries</span>
+    <ul>
+      
+        
+  <li>
+    <a class="" title="HAL" href="../../intro/hal/">
+      HAL
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="MALOS" href="../../intro/malos/">
+      MALOS
+    </a>
+    
+  </li>
+
+      
+    </ul>
+  </li>
+
+          
+            
+  <li>
+    <span class="section">Reference</span>
+    <ul>
+      
+        
+  <li>
+    <a class="" title="Overview" href="../../Reference/overview/">
+      Overview
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Pinout" href="../../Reference/pinout/">
+      Pinout
+    </a>
+    
+  </li>
+
+      
+    </ul>
+  </li>
+
+          
+        </ul>
+        
       </div>
-      &nbsp;
-    </nav>
-
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
-        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="../..">MatrixOS Documentation</a>
-      </nav>
-
-      
-      <div class="wy-nav-content">
-        <div class="rst-content">
-          <div role="navigation" aria-label="breadcrumbs navigation">
-  <ul class="wy-breadcrumbs">
-    <li><a href="../..">Docs</a> &raquo;</li>
-    
-      
-        
-          <li>API &raquo;</li>
-        
-      
-    
-    <li>Everloop</li>
-    <li class="wy-breadcrumbs-aside">
-      
-    </li>
-  </ul>
-  <hr/>
-</div>
-          <div role="main">
-            <div class="section">
-              
-                <h1 id="everloop">Everloop</h1>
-<p>A powerful tool for communicating with end users is the EverLoop LED circle.</p>
+    </div>
+  </div>
+</nav>
+      </div>
+      <article class="article">
+        <div class="wrapper">
+          
+            <h1>Everloop</h1>
+          
+          <p>A powerful tool for communicating with end users is the EverLoop LED circle.</p>
 <h2 id="rendering">Rendering</h2>
 <p>MatrixOS is an attempt at abstracting out the complexity of hardware to make it very accessible for end users. At the same time, one also wants to support those who might want to perform more complex operations. When designing a language, sometimes compromises between ease of use and features must be made. </p>
 <h4 id="the-problem">The problem</h4>
@@ -519,49 +623,79 @@ matrix.led([
 
 }, 1000)
 </code></pre>
+          <aside class="copyright" role="note">
+            
+            Documentation built with
+            <a href="http://www.mkdocs.org" target="_blank">MkDocs</a>
+            using the
+            <a href="http://squidfunk.github.io/mkdocs-material/" target="_blank">
+              Material
+            </a>
+            theme.
+          </aside>
+          
+            <footer class="footer">
               
+  <nav class="pagination" aria-label="Footer">
+    <div class="previous">
+      
+        <a href="../ir/" title="IR TX/RX">
+          <span class="direction">
+            Previous
+          </span>
+          <div class="page">
+            <div class="button button-previous" role="button" aria-label="Previous">
+              <i class="icon icon-back"></i>
+            </div>
+            <div class="stretch">
+              <div class="title">
+                IR TX/RX
+              </div>
             </div>
           </div>
-          <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="../filter/" class="btn btn-neutral float-right" title="Filter">Next <span class="icon icon-circle-arrow-right"></span></a>
-      
-      
-        <a href="../crosstalk/" class="btn btn-neutral" title="Crosstalk"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        </a>
       
     </div>
-  
+    <div class="next">
+      
+        <a href="../nfc/" title="NFC">
+          <span class="direction">
+            Next
+          </span>
+          <div class="page">
+            <div class="stretch">
+              <div class="title">
+                NFC
+              </div>
+            </div>
+            <div class="button button-next" role="button" aria-label="Next">
+              <i class="icon icon-forward"></i>
+            </div>
+          </div>
+        </a>
+      
+    </div>
+  </nav>
 
-  <hr/>
-
-  <div role="contentinfo">
-    <!-- Copyright etc -->
-    
-  </div>
-
-  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
-</footer>
-	  
+            </footer>
+          
+        </div>
+      </article>
+      <div class="results" role="status" aria-live="polite">
+        <div class="scrollable">
+          <div class="wrapper">
+            <div class="meta"></div>
+            <div class="list"></div>
+          </div>
         </div>
       </div>
-
-    </section>
-
-  </div>
-
-<div class="rst-versions" role="note" style="cursor: pointer">
-    <span class="rst-current-version" data-toggle="rst-current-version">
-      
-      
-        <span><a href="../crosstalk/" style="color: #fcfcfc;">&laquo; Previous</a></span>
-      
-      
-        <span style="margin-left: 15px"><a href="../filter/" style="color: #fcfcfc">Next &raquo;</a></span>
-      
-    </span>
-</div>
-
-</body>
+    </main>
+    <script>
+      var base_url = '../..';
+      var repo_id  = '';
+    </script>
+    <script src="../../assets/javascripts/application-997097ee0c.js"></script>
+    
+    
+  </body>
 </html>

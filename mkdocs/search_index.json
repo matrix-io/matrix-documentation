@@ -2,38 +2,28 @@
     "docs": [
         {
             "location": "/", 
-            "text": "Welcome to the MATRIX documentation\n\n\n\n\nThis documentation is for MATRIX Creator and MATRIX OS.\n\n\nCreator Getting Started\n\n\nBase Install\n\n\n\n\nInstalling required device software\n\n\n\n\nStep Two\n\n\nLow Level Software\n\n\n\n\nHow to Implement the Everloop LED array\n -- Using HAL C++ hardware abstraction layer.\n\n\n\n\nHigh Level Software\n\n\n\n\nInstalling MALOS Interface\n -- Using Node.js and MALOS (Matrix Abstraction Layer for OS).\n\n\n\n\nHardware\n\n\nFPGA and SAM3 MCU\n\n\nThese will be programmed for you at boot after you follow the \ngetting started\n session, but here is the documentation that you need in case you want to program them yourself.\n\n \nFPGA programming\n\n\n \nSAM3 flash\n\n* \nSAM3 MCU firmware programming\n\n\nReference\n\n\n\n\nOverview\n\n\nExpansion connector pinout\n\n\nFirmware for the SAM3S MCU\n\n\n\n\nSupport\n\n\nPost them on \nraspberrypi.stackexchange.com\n! Use the tag #matrix-creator\n\n\nOr post to our own forums\n\n\ncommunity.matrix.one\n\n\nMatrixOS Documentation\n\n\nMATRIX OS\n\n\nMatrixOS is a device and language agnostic approach towards building IoT applications which can utilize sensors, integrations, external API's and powerful computer vision, to drive real world behavior.\n\n\nAll the hardware is abstracted away, so you don't have to worry about reading voltages.\nAll the infrastructure is provided, so you can easily gather data from hundreds of devices in real time.\n\n\nOverview\n\n\nCLI\n - Manage your devices and apps through the CLI\n\n\nConfig\n - App configuration informs device permissions, dashboards, data storage, app meta information and service integrations\n\n\nAPI\n - MatrixOS syntax and examples\n\n\nLanguage Support\n\n\nCurrently, MatrixOS supports JavaScript. Next on the list is Python.\n\n\nFeedback\n\n\nWe at AdMobilize have spent tens of thousands of hours making this for you. Please let us know your thoughts and feedback.", 
+            "text": "Getting Started\n\n\nThis documentation is for MATRIX Creator and MATRIX OS.\n\n\n\n\n\n\nSetup\n\n\nInstalling Dependencies\n\n\n\n\nInstalling required device software\n\n\n\n\nInstalling MALOS\n\n\n\n\nHow to Implement the Everloop LED array\n -- Using HAL C++ hardware abstraction layer.\n\n\nInstalling MALOS Interface\n -- Using Node.js and MALOS (Matrix Abstraction Layer for OS).\n\n\n\n\nHardware\n\n\nFPGA and SAM3 MCU\n\n\nThese will be programmed for you at boot after you follow the \ngetting started\n session, but here is the documentation that you need in case you want to program them yourself.\n\n \nFPGA programming\n\n\n \nSAM3 flash\n\n* \nSAM3 MCU firmware programming\n\n\nReference\n\n\n\n\nOverview\n\n\nExpansion connector pinout\n\n\nFirmware for the SAM3S MCU\n\n\n\n\n\n\nInstalling MATRIX OS\n\n\nMATRIX OS\n\n\nMATRIX OS is a device and language agnostic approach towards building IoT applications which can utilize sensors, integrations, external API's and powerful computer vision, to drive real world behavior.\n\n\nAll the hardware is abstracted away, so you don't have to worry about reading voltages.\nAll the infrastructure is provided, so you can easily gather data from hundreds of devices in real time.\n\n\nOverview\n\n\n\n\nCLI\n - Manage your devices and apps through the CLI\n\n\nConfig\n - App configuration informs device permissions, dashboards, data storage, app meta information and service integrations\n\n\nAPI\n - MatrixOS syntax and examples\n\n\n\n\nLanguage Support\n\n\nMATRIX OS currently supports JavaScript. Next on the list is Python.\n\n\n\n\nSupport\n\n\n\n\nPost questions or comments on \ncommunity.matrix.one\n\n\nPost package issues on github under \nmatrix-io\n\n\n\n\nFeedback\n\n\nWe at AdMobilize have spent tens of thousands of hours making this for you. Please let us know your thoughts and feedback.", 
             "title": "Home"
         }, 
         {
-            "location": "/#welcome-to-the-matrix-documentation", 
+            "location": "/#getting-started", 
             "text": "This documentation is for MATRIX Creator and MATRIX OS.", 
-            "title": "Welcome to the MATRIX documentation"
+            "title": "Getting Started"
         }, 
         {
-            "location": "/#creator-getting-started", 
+            "location": "/#setup", 
             "text": "", 
-            "title": "Creator Getting Started"
+            "title": "Setup"
         }, 
         {
-            "location": "/#base-install", 
+            "location": "/#installing-dependencies", 
             "text": "Installing required device software", 
-            "title": "Base Install"
+            "title": "Installing Dependencies"
         }, 
         {
-            "location": "/#step-two", 
-            "text": "", 
-            "title": "Step Two"
-        }, 
-        {
-            "location": "/#low-level-software", 
-            "text": "How to Implement the Everloop LED array  -- Using HAL C++ hardware abstraction layer.", 
-            "title": "Low Level Software"
-        }, 
-        {
-            "location": "/#high-level-software", 
-            "text": "Installing MALOS Interface  -- Using Node.js and MALOS (Matrix Abstraction Layer for OS).", 
-            "title": "High Level Software"
+            "location": "/#installing-malos", 
+            "text": "How to Implement the Everloop LED array  -- Using HAL C++ hardware abstraction layer.  Installing MALOS Interface  -- Using Node.js and MALOS (Matrix Abstraction Layer for OS).", 
+            "title": "Installing MALOS"
         }, 
         {
             "location": "/#hardware", 
@@ -51,14 +41,9 @@
             "title": "Reference"
         }, 
         {
-            "location": "/#support", 
-            "text": "Post them on  raspberrypi.stackexchange.com ! Use the tag #matrix-creator  Or post to our own forums  community.matrix.one", 
-            "title": "Support"
-        }, 
-        {
-            "location": "/#matrixos-documentation", 
-            "text": "MATRIX OS  MatrixOS is a device and language agnostic approach towards building IoT applications which can utilize sensors, integrations, external API's and powerful computer vision, to drive real world behavior.  All the hardware is abstracted away, so you don't have to worry about reading voltages.\nAll the infrastructure is provided, so you can easily gather data from hundreds of devices in real time.", 
-            "title": "MatrixOS Documentation"
+            "location": "/#installing-matrix-os", 
+            "text": "MATRIX OS  MATRIX OS is a device and language agnostic approach towards building IoT applications which can utilize sensors, integrations, external API's and powerful computer vision, to drive real world behavior.  All the hardware is abstracted away, so you don't have to worry about reading voltages.\nAll the infrastructure is provided, so you can easily gather data from hundreds of devices in real time.", 
+            "title": "Installing MATRIX OS"
         }, 
         {
             "location": "/#overview", 
@@ -67,8 +52,13 @@
         }, 
         {
             "location": "/#language-support", 
-            "text": "Currently, MatrixOS supports JavaScript. Next on the list is Python.", 
+            "text": "MATRIX OS currently supports JavaScript. Next on the list is Python.", 
             "title": "Language Support"
+        }, 
+        {
+            "location": "/#support", 
+            "text": "Post questions or comments on  community.matrix.one  Post package issues on github under  matrix-io", 
+            "title": "Support"
         }, 
         {
             "location": "/#feedback", 
@@ -76,233 +66,123 @@
             "title": "Feedback"
         }, 
         {
-            "location": "/API/GPIO/", 
-            "text": "GPIO\n\n\nStill working out the precise API for this. Stay tuned.", 
+            "location": "/intro/install/", 
+            "text": "Package Installation\n\n\nWelcome to the MATRIX Creator! To enjoy your new board you\u2019ll need to set it up. First, you need to have Raspbian installed on your Raspberry Pi. If you don\u2019t have it, you can \ndownload\n it and \nfollow the instructions\n.\n\n\nAdd the matrix package repository.\n\n\necho \ndeb http://packages.matrix.one/matrix-creator/ ./\n | sudo tee --append /etc/apt/sources.list\n\n\n\n\nUpdate the Package List.\n\n\nsudo apt-get update\nsudo apt-get install matrix-creator-init matrix-creator-malos cmake g++ git\n\n\n\n\nReboot the Raspberry Pi!\n\n\nBasic Examples\n\n\nNote:\n For the following examples, the pre-requisite is NodeJS. Don't use the one shipped with raspbian because it's a bit old. If you don't have it, please check a recipe included below.\n\n\ngit clone https://github.com/matrix-io/matrix-creator-malos.git\ncd src/js_test\n\n// humidity, temperatre\nnode test_humidity.js \n\n// inertial measurement unit\nnode test_imu.js \n\n// pressure, altitude\nnode test_pressure.js \n\n// uv index, uv range\nnode test_uv.js", 
+            "title": "Getting Started"
+        }, 
+        {
+            "location": "/intro/install/#package-installation", 
+            "text": "Welcome to the MATRIX Creator! To enjoy your new board you\u2019ll need to set it up. First, you need to have Raspbian installed on your Raspberry Pi. If you don\u2019t have it, you can  download  it and  follow the instructions .  Add the matrix package repository.  echo  deb http://packages.matrix.one/matrix-creator/ ./  | sudo tee --append /etc/apt/sources.list  Update the Package List.  sudo apt-get update\nsudo apt-get install matrix-creator-init matrix-creator-malos cmake g++ git  Reboot the Raspberry Pi!", 
+            "title": "Package Installation"
+        }, 
+        {
+            "location": "/intro/install/#basic-examples", 
+            "text": "Note:  For the following examples, the pre-requisite is NodeJS. Don't use the one shipped with raspbian because it's a bit old. If you don't have it, please check a recipe included below.  git clone https://github.com/matrix-io/matrix-creator-malos.git\ncd src/js_test\n\n// humidity, temperatre\nnode test_humidity.js \n\n// inertial measurement unit\nnode test_imu.js \n\n// pressure, altitude\nnode test_pressure.js \n\n// uv index, uv range\nnode test_uv.js", 
+            "title": "Basic Examples"
+        }, 
+        {
+            "location": "/API/overview/", 
+            "text": "Installation\n\n\nMATRIX OS applications are an independent process running on a device. They communicate with the MatrixOS core via IPC which is largely event driven. This makes sense for sensors, because just like a REST call, we are waiting for a data point.\n\n\nThe approach we have chosen for this is to use JavaScript callbacks which look like this.\n\n\nsomeFunction(function callback(data){})\n\n\n\n\nWhat this means is that we execute \nfunction callback()\n at a determined time inside of \nsomeFunction()\n.\n\n\nThis permits MatrixOS applications to respond to events, such as sensor information, CV detection, or external events as they happen.\n\n\nThinking in Events\n\n\nWhile you can write a \nmain()\n and loop it's execution, most of the power in the MatrixOS is in listening for certain conditions to be met, and then performing an action.\n\n\nHeed Warning\n\n\nNot all of this API is built and functional yet. We have endeavored to supply warning messages where there are implementation gaps. Use \nmatrix log\n for more info about your running apps.", 
+            "title": "Overview"
+        }, 
+        {
+            "location": "/API/overview/#installation", 
+            "text": "MATRIX OS applications are an independent process running on a device. They communicate with the MatrixOS core via IPC which is largely event driven. This makes sense for sensors, because just like a REST call, we are waiting for a data point.  The approach we have chosen for this is to use JavaScript callbacks which look like this.  someFunction(function callback(data){})  What this means is that we execute  function callback()  at a determined time inside of  someFunction() .  This permits MatrixOS applications to respond to events, such as sensor information, CV detection, or external events as they happen.", 
+            "title": "Installation"
+        }, 
+        {
+            "location": "/API/overview/#thinking-in-events", 
+            "text": "While you can write a  main()  and loop it's execution, most of the power in the MatrixOS is in listening for certain conditions to be met, and then performing an action.", 
+            "title": "Thinking in Events"
+        }, 
+        {
+            "location": "/API/overview/#heed-warning", 
+            "text": "Not all of this API is built and functional yet. We have endeavored to supply warning messages where there are implementation gaps. Use  matrix log  for more info about your running apps.", 
+            "title": "Heed Warning"
+        }, 
+        {
+            "location": "/API/gpio/", 
+            "text": "[WIP] GPIO can be used to communicate or receive input from analog and digital components through the MATRIX Creator, or any other sensor leveraging Raspberry Pi's GPIOs.\n\n\n.open\n\n\nmatrix.gpio.open(16, \noutput\n, function(err){\n    // read or write\n});\n\n\n\n\n.read\n\n\n\n\npinNumber\n: The GPIO you are reading from.\n\n\ncallback\n: Returns \nerr\n, \nvalue\n.\n\n\n\n\nmatrix.gpio.read(16, function(err, value) {\n  if(err) throw err;\n  console.log(value);   // The current state of the pin \n});\n\n\n\n\n.write\n\n\n\n\npinNumber\n: The GPIO you are reading from.\n\n\nvalue\n: The value you would like to update the GPIO with.\n\n\ncallback\n: Returns \nerr\n, \nvalue\n.\n\n\n\n\nmatrix.gpio.write(16, 1, function(err) {\n    if(err) throw err;\n});\n\n\n\n\n.close\n\n\n\n\npinNumber\n: The GPIO you would like to close.\n\n\n\n\nmatrix.gpio.close(16);\n\n\n\n\nExample\n\n\nmatrix.gpio.open(16, \noutput\n, function(err) {\n    matrix.gpio.write(16, 1, function() {\n        matrix.gpio.close(16);\n    });\n});", 
             "title": "GPIO"
         }, 
         {
-            "location": "/API/GPIO/#gpio", 
-            "text": "Still working out the precise API for this. Stay tuned.", 
-            "title": "GPIO"
+            "location": "/API/gpio/#open", 
+            "text": "matrix.gpio.open(16,  output , function(err){\n    // read or write\n});", 
+            "title": ".open"
         }, 
         {
-            "location": "/API/computer-vision/", 
-            "text": "Computer Vision\n\n\nmatrix.init( algorithm, options )\n\n\n\n\nDetection Algorithms\n\n\nthumb-up\n\n\npalm-open\n\n\npalm-closed\n\n\nface-detect\n\n\nface-id\n\n\nvehicle-count\n\n\nperson-count\n\n\nBase Options\n\n\nThese are applicable to all algorithms.\n\n\n\n\nzone\n - a nested array of x,y, width and height\n\n\nzones\n - an array of zone arrays\n\n\n\n\nExample\n\n\nvar zone1 =  [ 100, 100, 300, 400 ];\nvar zone2 =  [ 50, 50, 250, 300 ];\n{\n  zone: zone1,\n  zones: [zone1, zone2]\n}\n\n\n\n\nGesture\n\n\nmatrix.init('gesture', options).then(function(data){})\n\n\n\n\nthen\n will call when any gesture is detected.\n\n\nGesture Options\n\n\nTo trigger on specific gestures pass an array of the desired values as \noptions.detect\n.\n\n\nExample\n\n\nvar options = { detect: ['THUMB_UP'] };\nmatrix.init('gesture', options);\n\n\n\n\nGestures\n\n\nTHUMB_UP\n\n\nPALM_OPEN\n\n\nPALM_CLOSED\n\n\nData Format\n\n\n// TODO\n\n\nFace Detection\n\n\nmatrix.init('face-detect').then(function(data){})\n\n\n\n\nthen\n will call when any face is detected\n\n\nFace Detection Options\n\n\nTo only detect particular characteristics pass an array of the desired values as \noptions.detect\n.\n\n\nExample\n\n\nvar options = { detect: ['GENDER','AGE','HAPPY'] };\nmatrix.init('gesture', options);\n\n\n\n\ncharacteristics\n\n\nGENDER\n\n\nAGE\n\n\nHAPPY\n\n\nSAD\n\n\nCONFUSED\n\n\nANGRY\n\n\nCALM\n\n\nSURPRISED\n\n\nDISGUST\n\n\nDWELL\n\n\nFace Recognition\n\n\nmatrix.init('face-id').then(function(data){})\n\n\n\n\nFacial recognition requires a target face to be supplied to it first. This can be provided in the application folder or uploaded to the device.\n\n\nOptions\n\n\nTo detect a face, supply it in \noptions.match\n. Use an array to recognize multiple faces.\n\n\nExample\n\n\n// preuploaded Example - myFace.jpg\nmatrix.init('face-id', { match: 'myFace' })\n\n\n\n\n// dynamic faces from dashboard\nmatrix.on('faceUpload', function(data){\n  // saves upload to filesystem\n  matrix.save(data.name + '.' + data.typeSuffix, data.file);\n\n  // retrieve the configuration variable\n  var faces = matrix.faces;\n\n  // update with new face file\n  faces.push(data.name);\n\n  // save new face to configuration\n  matrix.config('faces', faces);\n\n  // restart application to use new face\n  matrix.restartApp();\n});\n\n// use configuration for recognition\nmatrix.init('face', { match: matrix.faces })\n\n\n\n\nVehicle Counting\n\n\nmatrix.init('vehicle-count').then(function(data){})\n\n\n\n\nOptions\n\n\nToggle different detection modes depending on circumstances.\n\n\nExample\n\n\n//TODO\n\n\nPeople Counting\n\n\nmatrix.init('people-count').then(function(data){})\n\n\n\n\nOptions\n\n\nExample", 
-            "title": "Computer vision"
+            "location": "/API/gpio/#read", 
+            "text": "pinNumber : The GPIO you are reading from.  callback : Returns  err ,  value .   matrix.gpio.read(16, function(err, value) {\n  if(err) throw err;\n  console.log(value);   // The current state of the pin \n});", 
+            "title": ".read"
         }, 
         {
-            "location": "/API/computer-vision/#computer-vision", 
-            "text": "matrix.init( algorithm, options )", 
-            "title": "Computer Vision"
+            "location": "/API/gpio/#write", 
+            "text": "pinNumber : The GPIO you are reading from.  value : The value you would like to update the GPIO with.  callback : Returns  err ,  value .   matrix.gpio.write(16, 1, function(err) {\n    if(err) throw err;\n});", 
+            "title": ".write"
         }, 
         {
-            "location": "/API/computer-vision/#detection-algorithms", 
-            "text": "thumb-up  palm-open  palm-closed  face-detect  face-id  vehicle-count  person-count", 
-            "title": "Detection Algorithms"
+            "location": "/API/gpio/#close", 
+            "text": "pinNumber : The GPIO you would like to close.   matrix.gpio.close(16);", 
+            "title": ".close"
         }, 
         {
-            "location": "/API/computer-vision/#base-options", 
-            "text": "These are applicable to all algorithms.   zone  - a nested array of x,y, width and height  zones  - an array of zone arrays", 
-            "title": "Base Options"
-        }, 
-        {
-            "location": "/API/computer-vision/#example", 
-            "text": "var zone1 =  [ 100, 100, 300, 400 ];\nvar zone2 =  [ 50, 50, 250, 300 ];\n{\n  zone: zone1,\n  zones: [zone1, zone2]\n}", 
+            "location": "/API/gpio/#example", 
+            "text": "matrix.gpio.open(16,  output , function(err) {\n    matrix.gpio.write(16, 1, function() {\n        matrix.gpio.close(16);\n    });\n});", 
             "title": "Example"
         }, 
         {
-            "location": "/API/computer-vision/#gesture", 
-            "text": "matrix.init('gesture', options).then(function(data){})  then  will call when any gesture is detected.", 
-            "title": "Gesture"
+            "location": "/API/sensors/", 
+            "text": ".init\n\n\nAll sensors are initialized using the \ninit\n method. \n\n\n\n\nsensorType\n: Type of sensor you are initializing \ntemperature\n, \nhumidity\n, \npressure\n, \nuv\n, \naltitude\n, \ngyro\n, \naccel\n.\n\n\noptions\n: The options for that sensor. By default, all sensors have a \nrefresh\n and \ntimeout\n property.\n\n\n\n\nvar options = { \n  refresh: 1000 //milliseconds\n  timeout: 1000 //milliseconds\n};\n\nmatrix.init('temperature', options).then(function(data){\n  //see below for data formats\n})it\n\n\n\n\nTemperature\n\n\nOutput for \ntemperature\n (in \n).\n\n\n{\n  value: 28.0\n}\n\n\n\n\nHumidity\n\n\nOutput for \nhumidity\n.\n\n\nPressure\n\n\nOutput for \npressure\n.\n\n\nAltitude\n\n\nOutput for \naltitude\n.\n\n\nUV\n\n\nOutput for \ntemperature\n.\n\n\nGyroscope\n\n\nOutput for \ngyro\n.\n\n\n{\n  yaw: 82.06211853027344,\n  pitch: -7.972985744476318,\n  roll: 1.0514432191848755\n}\n\n\n\n\nAccelerometer\n\n\n{\n  x: 0.1,\n  y: 0.23,\n  z: 0.224\n}\n\n\n\n\nFiltering Sensor Data\n\n\nSee \nAPI \n Filter", 
+            "title": "Sensors"
         }, 
         {
-            "location": "/API/computer-vision/#gesture-options", 
-            "text": "To trigger on specific gestures pass an array of the desired values as  options.detect .", 
-            "title": "Gesture Options"
+            "location": "/API/sensors/#init", 
+            "text": "All sensors are initialized using the  init  method.    sensorType : Type of sensor you are initializing  temperature ,  humidity ,  pressure ,  uv ,  altitude ,  gyro ,  accel .  options : The options for that sensor. By default, all sensors have a  refresh  and  timeout  property.   var options = { \n  refresh: 1000 //milliseconds\n  timeout: 1000 //milliseconds\n};\n\nmatrix.init('temperature', options).then(function(data){\n  //see below for data formats\n})it", 
+            "title": ".init"
         }, 
         {
-            "location": "/API/computer-vision/#example_1", 
-            "text": "var options = { detect: ['THUMB_UP'] };\nmatrix.init('gesture', options);", 
-            "title": "Example"
+            "location": "/API/sensors/#temperature", 
+            "text": "Output for  temperature  (in  ).  {\n  value: 28.0\n}", 
+            "title": "Temperature"
         }, 
         {
-            "location": "/API/computer-vision/#gestures", 
-            "text": "THUMB_UP  PALM_OPEN  PALM_CLOSED", 
-            "title": "Gestures"
+            "location": "/API/sensors/#humidity", 
+            "text": "Output for  humidity .", 
+            "title": "Humidity"
         }, 
         {
-            "location": "/API/computer-vision/#data-format", 
-            "text": "// TODO", 
-            "title": "Data Format"
+            "location": "/API/sensors/#pressure", 
+            "text": "Output for  pressure .", 
+            "title": "Pressure"
         }, 
         {
-            "location": "/API/computer-vision/#face-detection", 
-            "text": "matrix.init('face-detect').then(function(data){})  then  will call when any face is detected", 
-            "title": "Face Detection"
+            "location": "/API/sensors/#altitude", 
+            "text": "Output for  altitude .", 
+            "title": "Altitude"
         }, 
         {
-            "location": "/API/computer-vision/#face-detection-options", 
-            "text": "To only detect particular characteristics pass an array of the desired values as  options.detect .", 
-            "title": "Face Detection Options"
+            "location": "/API/sensors/#uv", 
+            "text": "Output for  temperature .", 
+            "title": "UV"
         }, 
         {
-            "location": "/API/computer-vision/#example_2", 
-            "text": "var options = { detect: ['GENDER','AGE','HAPPY'] };\nmatrix.init('gesture', options);", 
-            "title": "Example"
+            "location": "/API/sensors/#gyroscope", 
+            "text": "Output for  gyro .  {\n  yaw: 82.06211853027344,\n  pitch: -7.972985744476318,\n  roll: 1.0514432191848755\n}", 
+            "title": "Gyroscope"
         }, 
         {
-            "location": "/API/computer-vision/#characteristics", 
-            "text": "GENDER  AGE  HAPPY  SAD  CONFUSED  ANGRY  CALM  SURPRISED  DISGUST  DWELL", 
-            "title": "characteristics"
+            "location": "/API/sensors/#accelerometer", 
+            "text": "{\n  x: 0.1,\n  y: 0.23,\n  z: 0.224\n}", 
+            "title": "Accelerometer"
         }, 
         {
-            "location": "/API/computer-vision/#face-recognition", 
-            "text": "matrix.init('face-id').then(function(data){})  Facial recognition requires a target face to be supplied to it first. This can be provided in the application folder or uploaded to the device.", 
-            "title": "Face Recognition"
-        }, 
-        {
-            "location": "/API/computer-vision/#options", 
-            "text": "To detect a face, supply it in  options.match . Use an array to recognize multiple faces.", 
-            "title": "Options"
-        }, 
-        {
-            "location": "/API/computer-vision/#example_3", 
-            "text": "// preuploaded Example - myFace.jpg\nmatrix.init('face-id', { match: 'myFace' })  // dynamic faces from dashboard\nmatrix.on('faceUpload', function(data){\n  // saves upload to filesystem\n  matrix.save(data.name + '.' + data.typeSuffix, data.file);\n\n  // retrieve the configuration variable\n  var faces = matrix.faces;\n\n  // update with new face file\n  faces.push(data.name);\n\n  // save new face to configuration\n  matrix.config('faces', faces);\n\n  // restart application to use new face\n  matrix.restartApp();\n});\n\n// use configuration for recognition\nmatrix.init('face', { match: matrix.faces })", 
-            "title": "Example"
-        }, 
-        {
-            "location": "/API/computer-vision/#vehicle-counting", 
-            "text": "matrix.init('vehicle-count').then(function(data){})", 
-            "title": "Vehicle Counting"
-        }, 
-        {
-            "location": "/API/computer-vision/#options_1", 
-            "text": "Toggle different detection modes depending on circumstances.", 
-            "title": "Options"
-        }, 
-        {
-            "location": "/API/computer-vision/#example_4", 
-            "text": "//TODO", 
-            "title": "Example"
-        }, 
-        {
-            "location": "/API/computer-vision/#people-counting", 
-            "text": "matrix.init('people-count').then(function(data){})", 
-            "title": "People Counting"
-        }, 
-        {
-            "location": "/API/computer-vision/#options_2", 
-            "text": "", 
-            "title": "Options"
-        }, 
-        {
-            "location": "/API/computer-vision/#example_5", 
-            "text": "", 
-            "title": "Example"
-        }, 
-        {
-            "location": "/API/crosstalk/", 
-            "text": "Cross-Talk\n\n\nCrossTalk is how MatrixOS applications communicate between different devices. Applications can exchange information with other applications, or with other instances of the same application. Cool, right?\n\n\nGlobal Emitters \n Listeners\n\n\n// Send a payload to all listeners\nmatrix.emit(payload);\n\n// Listen for global CrossTalk messages\nmatrix.on(function(payload) { ... });\n\n\n\n\nApp Specific Message\n\n\n// Send a message to a particular application\nmatrix.emit('app', payload);\n\n// Listen for application specific CrossTalk messages\nmatrix.on(function(payload) { ... });\n\n\n\n\nSpecific Event within App\n\n\n// Trigger an event in a specific application\nmatrix.emit('app', 'event', payload);\n\n// Listen for CrossTalk events sent to this application\nmatrix.on('event', function(payload) { ... });\n\n\n\n\nDashboard\n\n\n// Interface elements from Dashboards can also trigger CrossTalk events.\nmatrix.on('buttonClick', function(payload) { ... });\n\n\n\n\nsee \ndocs/configuration/widgets\n for more information", 
-            "title": "Crosstalk"
-        }, 
-        {
-            "location": "/API/crosstalk/#cross-talk", 
-            "text": "CrossTalk is how MatrixOS applications communicate between different devices. Applications can exchange information with other applications, or with other instances of the same application. Cool, right?", 
-            "title": "Cross-Talk"
-        }, 
-        {
-            "location": "/API/crosstalk/#global-emitters-listeners", 
-            "text": "// Send a payload to all listeners\nmatrix.emit(payload);\n\n// Listen for global CrossTalk messages\nmatrix.on(function(payload) { ... });", 
-            "title": "Global Emitters &amp; Listeners"
-        }, 
-        {
-            "location": "/API/crosstalk/#app-specific-message", 
-            "text": "// Send a message to a particular application\nmatrix.emit('app', payload);\n\n// Listen for application specific CrossTalk messages\nmatrix.on(function(payload) { ... });", 
-            "title": "App Specific Message"
-        }, 
-        {
-            "location": "/API/crosstalk/#specific-event-within-app", 
-            "text": "// Trigger an event in a specific application\nmatrix.emit('app', 'event', payload);\n\n// Listen for CrossTalk events sent to this application\nmatrix.on('event', function(payload) { ... });", 
-            "title": "Specific Event within App"
-        }, 
-        {
-            "location": "/API/crosstalk/#dashboard", 
-            "text": "// Interface elements from Dashboards can also trigger CrossTalk events.\nmatrix.on('buttonClick', function(payload) { ... });  see  docs/configuration/widgets  for more information", 
-            "title": "Dashboard"
-        }, 
-        {
-            "location": "/API/everloop/", 
-            "text": "Everloop\n\n\nA powerful tool for communicating with end users is the EverLoop LED circle.\n\n\nRendering\n\n\nMatrixOS is an attempt at abstracting out the complexity of hardware to make it very accessible for end users. At the same time, one also wants to support those who might want to perform more complex operations. When designing a language, sometimes compromises between ease of use and features must be made. \n\n\nThe problem\n\n\nMany things might want to write to the LED. We can leave it up to chance as to which gets to write, or we can approach it intelligently to optimize the aesthetics and performance. This requires a more complex notation. \n\n\nThe Solution\n\n\nmatrix.led('blue')\n//does nothing\n\n\nmatrix.led('green').render()\n//lights change\n\n\n\n\nSet Colors\n\n\n// set an initial color\nmatrix.led('red')\n\n// interleave two colors\nmatrix.led([ '#bada55, '#e1337e'])\n\n// support opacity\nmatrix.led('rgba(255, 0, 100, 0.6)')\n\n\n\n\nGenerate Shapes\n\n\nmatrix.led({\n  // number of lights to use [ 90\u00b0 = 9 ]   \n  arc: 9,\n\n  color: 'green',\n\n  // index to start drawing arc\n  start: 12\n});\n\n//no color assumes off\nmatrix.led({\n  arc: 360\n})\n\n// draw a point\nmatrix.led({\n  angle: 245,\n  color: 'white',\n  // blends interlight space if true, solid lights if false, default false\n  blend: true\n})\n\n// support multiple shapes\n\n\n\n\nManipulate colors\n\n\n//retrieves the current color state of the LED\nmatrix.led()\n\n// lighten all colors 0 - 100\nmatrix.led().brighten(10)\n\n// darken all colors 0 - 100\nmatrix.led().darken(10)\n\n\n\n\nManipulate position\n\n\n// rotate the lights clockwise by a specified angle\nmatrix.led().rotate(90)\n\n\n\n\nComposition\n\n\nShape Objects\n\n\n// make a smiley face\nmatrix.led([\n  {\n    angle: 45,\n    color: 'yellow'\n  },\n  {\n    angle: 135,\n    color: 'yellow'\n  },\n  {\n    arc: 90,\n    color: 'yellow',\n    start: 225\n  }\n]).darken(90).render();\n\n\n\n\nDirect Pixel Manipulation\n\n\nArray index = led to change\n\n\nmatrix.led([0, 0, 0, 0, 'yellow', 0,\n0, 0, 0, 0, 0, 0, 0, 'yellow', 0, 0,\n0, 0, 0, 0, 0, 0, 'yellow', 'yellow',\n'yellow', 'yellow', 'yellow', 'yellow',\n'yellow', 'yellow', 'yellow' ]).render();\n\n\n\n\nExample clock\n\n\nsetInterval(function(){\n  var time = new Date();\n  var h = time.getHours();\n  var m = time.getMinutes();\n  var s = time.getSeconds();\n\n  var hourLED = {\n    // translate hours (12) to angle (360)\n    arc: h * 3,\n    color: 'blue',\n    darken: 50\n  };\n\n  var minuteLED = {\n    // translate minutes ( 60 ) to angle ( 360 )\n    angle: m * 6,\n    color: 'green'\n  };\n\n  var secondLED = {\n    // translate seconds (60) to angle (360)\n    angle: s * 6,\n    color: yellow,\n    blend: true\n  };\n\n  matrix.led([hourLED, minuteLED]).render();\n\n}, 1000)", 
-            "title": "Everloop"
-        }, 
-        {
-            "location": "/API/everloop/#everloop", 
-            "text": "A powerful tool for communicating with end users is the EverLoop LED circle.", 
-            "title": "Everloop"
-        }, 
-        {
-            "location": "/API/everloop/#rendering", 
-            "text": "MatrixOS is an attempt at abstracting out the complexity of hardware to make it very accessible for end users. At the same time, one also wants to support those who might want to perform more complex operations. When designing a language, sometimes compromises between ease of use and features must be made.", 
-            "title": "Rendering"
-        }, 
-        {
-            "location": "/API/everloop/#the-problem", 
-            "text": "Many things might want to write to the LED. We can leave it up to chance as to which gets to write, or we can approach it intelligently to optimize the aesthetics and performance. This requires a more complex notation.", 
-            "title": "The problem"
-        }, 
-        {
-            "location": "/API/everloop/#the-solution", 
-            "text": "matrix.led('blue')\n//does nothing\n\n\nmatrix.led('green').render()\n//lights change", 
-            "title": "The Solution"
-        }, 
-        {
-            "location": "/API/everloop/#set-colors", 
-            "text": "// set an initial color\nmatrix.led('red')\n\n// interleave two colors\nmatrix.led([ '#bada55, '#e1337e'])\n\n// support opacity\nmatrix.led('rgba(255, 0, 100, 0.6)')", 
-            "title": "Set Colors"
-        }, 
-        {
-            "location": "/API/everloop/#generate-shapes", 
-            "text": "matrix.led({\n  // number of lights to use [ 90\u00b0 = 9 ]   \n  arc: 9,\n\n  color: 'green',\n\n  // index to start drawing arc\n  start: 12\n});\n\n//no color assumes off\nmatrix.led({\n  arc: 360\n})\n\n// draw a point\nmatrix.led({\n  angle: 245,\n  color: 'white',\n  // blends interlight space if true, solid lights if false, default false\n  blend: true\n})\n\n// support multiple shapes", 
-            "title": "Generate Shapes"
-        }, 
-        {
-            "location": "/API/everloop/#manipulate-colors", 
-            "text": "//retrieves the current color state of the LED\nmatrix.led()\n\n// lighten all colors 0 - 100\nmatrix.led().brighten(10)\n\n// darken all colors 0 - 100\nmatrix.led().darken(10)", 
-            "title": "Manipulate colors"
-        }, 
-        {
-            "location": "/API/everloop/#manipulate-position", 
-            "text": "// rotate the lights clockwise by a specified angle\nmatrix.led().rotate(90)", 
-            "title": "Manipulate position"
-        }, 
-        {
-            "location": "/API/everloop/#composition", 
-            "text": "", 
-            "title": "Composition"
-        }, 
-        {
-            "location": "/API/everloop/#shape-objects", 
-            "text": "// make a smiley face\nmatrix.led([\n  {\n    angle: 45,\n    color: 'yellow'\n  },\n  {\n    angle: 135,\n    color: 'yellow'\n  },\n  {\n    arc: 90,\n    color: 'yellow',\n    start: 225\n  }\n]).darken(90).render();", 
-            "title": "Shape Objects"
-        }, 
-        {
-            "location": "/API/everloop/#direct-pixel-manipulation", 
-            "text": "Array index = led to change  matrix.led([0, 0, 0, 0, 'yellow', 0,\n0, 0, 0, 0, 0, 0, 0, 'yellow', 0, 0,\n0, 0, 0, 0, 0, 0, 'yellow', 'yellow',\n'yellow', 'yellow', 'yellow', 'yellow',\n'yellow', 'yellow', 'yellow' ]).render();", 
-            "title": "Direct Pixel Manipulation"
-        }, 
-        {
-            "location": "/API/everloop/#example-clock", 
-            "text": "setInterval(function(){\n  var time = new Date();\n  var h = time.getHours();\n  var m = time.getMinutes();\n  var s = time.getSeconds();\n\n  var hourLED = {\n    // translate hours (12) to angle (360)\n    arc: h * 3,\n    color: 'blue',\n    darken: 50\n  };\n\n  var minuteLED = {\n    // translate minutes ( 60 ) to angle ( 360 )\n    angle: m * 6,\n    color: 'green'\n  };\n\n  var secondLED = {\n    // translate seconds (60) to angle (360)\n    angle: s * 6,\n    color: yellow,\n    blend: true\n  };\n\n  matrix.led([hourLED, minuteLED]).render();\n\n}, 1000)", 
-            "title": "Example clock"
+            "location": "/API/sensors/#filtering-sensor-data", 
+            "text": "See  API   Filter", 
+            "title": "Filtering Sensor Data"
         }, 
         {
             "location": "/API/filter/", 
-            "text": "Filters\n\n\nMatrixOS sensors and computer vision algorithms provide data which can be filtered between the \ninit\n, which can be regarded as the data source, and the \nthen\n, which can be regarded as the data receiver. Between the two, we can use chaining methods to easily filter what data is received.\n\n\n// filtering in a simple application\nmatrix.init('temperature')\n.above(80)\n.then(function(data){\n  // see CrossTalk documentation for more information about matrix.emit\n  matrix.emit('ac-control', 'turnOn');\n})\n\n\n\n\nFiltering decides whether or not a data point is passed to the \nthen()\n, it does not change the data in any way.\n\n\nSimple Filtering methods\n\n\nequality\n\n\nNumeric\n\n\nis()\n \nlike()\n\n\nmatrix.init('temperature').is(72)\n\n\n\n\nString\n\n\nmatrix.init('microphone').contains('hello world')\n\n\n\n\nnegation\n\n\nnot()\n\n\nmatrix.init('temperature').not(72)\n\n\n\n\nproximity\n\n\nnear()\n\n\nmatrix.init('gps').near([39.0432661,117.7249414])\n\n\n\n\nComplex Filtering\n\n\nhas\n\n\nhas()\n is used to refine a data source by additional criteria and keys.\n\n\n// for simple sensors\nmatrix.init('temperature').has('value')\n// equivalent to\nmatrix.init('temperature').has()\n\n// for complex sensors\nmatrix.init('gyro').has('x')\n\n// for detections\nmatrix.init('face').has('age')\n\n\n\n\nbounds\n\n\n greater then\n\n\nabove\n, \nover\n, 'after'\n\n\nmatrix.init('temperature').has().above(72)\n\n\n\n\n less then\n\n\nbelow\n, \nunder\n, 'before'\n\n\nmatrix.init('temperature').has().below(32)\n\n\n\n\nbetween\n\n\nmatrix.init('face').has('happy').between(50,100)", 
-            "title": "Filter"
-        }, 
-        {
-            "location": "/API/filter/#filters", 
-            "text": "MatrixOS sensors and computer vision algorithms provide data which can be filtered between the  init , which can be regarded as the data source, and the  then , which can be regarded as the data receiver. Between the two, we can use chaining methods to easily filter what data is received.  // filtering in a simple application\nmatrix.init('temperature')\n.above(80)\n.then(function(data){\n  // see CrossTalk documentation for more information about matrix.emit\n  matrix.emit('ac-control', 'turnOn');\n})  Filtering decides whether or not a data point is passed to the  then() , it does not change the data in any way.", 
+            "text": "MatrixOS sensors and computer vision algorithms provide data which can be filtered between the \ninit\n, which can be regarded as the data source, and the \nthen\n, which can be regarded as the data receiver. Between the two, we can use chaining methods to easily filter what data is received.\n\n\n// filtering in a simple application\nmatrix.init('temperature')\n.above(80)\n.then(function(data){\n  // see CrossTalk documentation for more information about matrix.emit\n  matrix.emit('ac-control', 'turnOn');\n})\n\n\n\n\nFiltering decides whether or not a data point is passed to the \nthen()\n, it does not change the data in any way.\n\n\nSimple Filtering methods\n\n\nequality\n\n\nNumeric\n\n\nis()\n \nlike()\n\n\nmatrix.init('temperature').is(72)\n\n\n\n\nString\n\n\nmatrix.init('microphone').contains('hello world')\n\n\n\n\nnegation\n\n\nnot()\n\n\nmatrix.init('temperature').not(72)\n\n\n\n\nproximity\n\n\nnear()\n\n\nmatrix.init('gps').near([39.0432661,117.7249414])\n\n\n\n\nComplex Filtering\n\n\nhas\n\n\nhas()\n is used to refine a data source by additional criteria and keys.\n\n\n// for simple sensors\nmatrix.init('temperature').has('value')\n// equivalent to\nmatrix.init('temperature').has()\n\n// for complex sensors\nmatrix.init('gyro').has('x')\n\n// for detections\nmatrix.init('face').has('age')\n\n\n\n\nbounds\n\n\n greater then\n\n\nabove\n, \nover\n, 'after'\n\n\nmatrix.init('temperature').has().above(72)\n\n\n\n\n less then\n\n\nbelow\n, \nunder\n, 'before'\n\n\nmatrix.init('temperature').has().below(32)\n\n\n\n\nbetween\n\n\nmatrix.init('face').has('happy').between(50,100)", 
             "title": "Filters"
         }, 
         {
@@ -367,13 +247,8 @@
         }, 
         {
             "location": "/API/microphone/", 
-            "text": "Microphones\n\n\nmatrix.init('microphone').contains('hello world')\n\n\n\n\nDirectional array\n\n\nIndividual microphones can be toggled as follows.\n\n\nmatrix.init('microphone', {\n// degrees\n  source: 90,\n// or by index\n  sensor: 5\n});\n\n\n\n\nFiltering\n\n\nmatrix.init('microphone').has('db').above(155).then()\n\n\n\n\ndb\n, \nfft", 
+            "text": "matrix.init('microphone').contains('hello world')\n\n\n\n\nDirectional array\n\n\nIndividual microphones can be toggled as follows.\n\n\nmatrix.init('microphone', {\n// degrees\n  source: 90,\n// or by index\n  sensor: 5\n});\n\n\n\n\nFiltering\n\n\nmatrix.init('microphone').has('db').above(155).then()\n\n\n\n\ndb\n, \nfft", 
             "title": "Microphone"
-        }, 
-        {
-            "location": "/API/microphone/#microphones", 
-            "text": "matrix.init('microphone').contains('hello world')", 
-            "title": "Microphones"
         }, 
         {
             "location": "/API/microphone/#directional-array", 
@@ -386,184 +261,204 @@
             "title": "Filtering"
         }, 
         {
-            "location": "/API/overview/", 
-            "text": "Overview\n\n\nMatrixOS applications are an independent process running on a device. They communicate with the MatrixOS core via IPC which is largely event driven. This makes sense for sensors, because just like a REST call, we are waiting for a data point.\n\n\nThe approach we have chosen for this is to use JavaScript callbacks which look like this.\n\n\nsomeFunction(function callback(data){})\n\n\n\n\nWhat this means is that we execute \nfunction callback()\n at a determined time inside of \nsomeFunction()\n.\n\n\nThis permits MatrixOS applications to respond to events, such as sensor information, CV detection, or external events as they happen.\n\n\nThinking in Events\n\n\nWhile you can write a \nmain()\n and loop it's execution, most of the power in the MatrixOS is in listening for certain conditions to be met, and then performing an action.\n\n\nHeed Warning\n\n\nNot all of this API is built and functional yet. We have endeavored to supply warning messages where there are implementation gaps. Use \nmatrix log\n for more info about your running apps.", 
-            "title": "Overview"
+            "location": "/API/ir/", 
+            "text": "Still working out the precise API for this. Stay tuned.\n\n\nmatrix.init('ir')...", 
+            "title": "IR TX/RX"
         }, 
         {
-            "location": "/API/overview/#overview", 
-            "text": "MatrixOS applications are an independent process running on a device. They communicate with the MatrixOS core via IPC which is largely event driven. This makes sense for sensors, because just like a REST call, we are waiting for a data point.  The approach we have chosen for this is to use JavaScript callbacks which look like this.  someFunction(function callback(data){})  What this means is that we execute  function callback()  at a determined time inside of  someFunction() .  This permits MatrixOS applications to respond to events, such as sensor information, CV detection, or external events as they happen.", 
-            "title": "Overview"
+            "location": "/API/everloop/", 
+            "text": "A powerful tool for communicating with end users is the EverLoop LED circle.\n\n\nRendering\n\n\nMatrixOS is an attempt at abstracting out the complexity of hardware to make it very accessible for end users. At the same time, one also wants to support those who might want to perform more complex operations. When designing a language, sometimes compromises between ease of use and features must be made. \n\n\nThe problem\n\n\nMany things might want to write to the LED. We can leave it up to chance as to which gets to write, or we can approach it intelligently to optimize the aesthetics and performance. This requires a more complex notation. \n\n\nThe Solution\n\n\nmatrix.led('blue')\n//does nothing\n\n\nmatrix.led('green').render()\n//lights change\n\n\n\n\nSet Colors\n\n\n// set an initial color\nmatrix.led('red')\n\n// interleave two colors\nmatrix.led([ '#bada55, '#e1337e'])\n\n// support opacity\nmatrix.led('rgba(255, 0, 100, 0.6)')\n\n\n\n\nGenerate Shapes\n\n\nmatrix.led({\n  // number of lights to use [ 90\u00b0 = 9 ]   \n  arc: 9,\n\n  color: 'green',\n\n  // index to start drawing arc\n  start: 12\n});\n\n//no color assumes off\nmatrix.led({\n  arc: 360\n})\n\n// draw a point\nmatrix.led({\n  angle: 245,\n  color: 'white',\n  // blends interlight space if true, solid lights if false, default false\n  blend: true\n})\n\n// support multiple shapes\n\n\n\n\nManipulate colors\n\n\n//retrieves the current color state of the LED\nmatrix.led()\n\n// lighten all colors 0 - 100\nmatrix.led().brighten(10)\n\n// darken all colors 0 - 100\nmatrix.led().darken(10)\n\n\n\n\nManipulate position\n\n\n// rotate the lights clockwise by a specified angle\nmatrix.led().rotate(90)\n\n\n\n\nComposition\n\n\nShape Objects\n\n\n// make a smiley face\nmatrix.led([\n  {\n    angle: 45,\n    color: 'yellow'\n  },\n  {\n    angle: 135,\n    color: 'yellow'\n  },\n  {\n    arc: 90,\n    color: 'yellow',\n    start: 225\n  }\n]).darken(90).render();\n\n\n\n\nDirect Pixel Manipulation\n\n\nArray index = led to change\n\n\nmatrix.led([0, 0, 0, 0, 'yellow', 0,\n0, 0, 0, 0, 0, 0, 0, 'yellow', 0, 0,\n0, 0, 0, 0, 0, 0, 'yellow', 'yellow',\n'yellow', 'yellow', 'yellow', 'yellow',\n'yellow', 'yellow', 'yellow' ]).render();\n\n\n\n\nExample clock\n\n\nsetInterval(function(){\n  var time = new Date();\n  var h = time.getHours();\n  var m = time.getMinutes();\n  var s = time.getSeconds();\n\n  var hourLED = {\n    // translate hours (12) to angle (360)\n    arc: h * 3,\n    color: 'blue',\n    darken: 50\n  };\n\n  var minuteLED = {\n    // translate minutes ( 60 ) to angle ( 360 )\n    angle: m * 6,\n    color: 'green'\n  };\n\n  var secondLED = {\n    // translate seconds (60) to angle (360)\n    angle: s * 6,\n    color: yellow,\n    blend: true\n  };\n\n  matrix.led([hourLED, minuteLED]).render();\n\n}, 1000)", 
+            "title": "Everloop"
         }, 
         {
-            "location": "/API/overview/#thinking-in-events", 
-            "text": "While you can write a  main()  and loop it's execution, most of the power in the MatrixOS is in listening for certain conditions to be met, and then performing an action.", 
-            "title": "Thinking in Events"
+            "location": "/API/everloop/#rendering", 
+            "text": "MatrixOS is an attempt at abstracting out the complexity of hardware to make it very accessible for end users. At the same time, one also wants to support those who might want to perform more complex operations. When designing a language, sometimes compromises between ease of use and features must be made.", 
+            "title": "Rendering"
         }, 
         {
-            "location": "/API/overview/#heed-warning", 
-            "text": "Not all of this API is built and functional yet. We have endeavored to supply warning messages where there are implementation gaps. Use  matrix log  for more info about your running apps.", 
-            "title": "Heed Warning"
+            "location": "/API/everloop/#the-problem", 
+            "text": "Many things might want to write to the LED. We can leave it up to chance as to which gets to write, or we can approach it intelligently to optimize the aesthetics and performance. This requires a more complex notation.", 
+            "title": "The problem"
         }, 
         {
-            "location": "/API/sensors/", 
-            "text": "Sensors\n\n\nSimple Sensor List\n\n\n\n\ntemperature\n\n\nhumidity\n\n\n\n\nComplex Sensor List\n\n\n\n\nuv\n\n\ngps\n\n\ngyroscope\n\n\naccellerometer\n\n\n\n\nUsing Sensors\n\n\nUse of options is optional.\n\n\nmatrix.init('temperature', options).then(function(data){\n  //see below for data formats\n})\n\n\n\n\noptions\n\n\n\n\nrefresh\n - ms delay between refresh\n\n\ntimeout\n - how long before auto timeout\n\n\n\n\nData from Simple Sensors\n\n\nSimple sensors emit float numbers with a \nvalue\n key.\n\n\n{\n  value: 72.0\n}\n\n\n\n\nData from complex sensors\n\n\nComplex sensors emit structured data\n\n\nmicrophone\n\n\n{\n  db: 132.23,\n  text: 'hello world'\n}\n\n\n\n\ngps\n\n\n{\n  lat: 34.234,\n  lon: 13.111\n}\n\n\n\n\naccelerometer\n\n\n{\n  x: 0.1,\n  y: 0.23,\n  z: 0.224\n}\n\n\n\n\n\ngyroscope\n\n\n{\n  yaw: 82.06211853027344,\n  pitch: -7.972985744476318,\n  roll: 1.0514432191848755\n}\n\n\n\n\nFiltering Sensor Data\n\n\nsee \nAPI \n Filter", 
-            "title": "Sensors"
+            "location": "/API/everloop/#the-solution", 
+            "text": "matrix.led('blue')\n//does nothing\n\n\nmatrix.led('green').render()\n//lights change", 
+            "title": "The Solution"
         }, 
         {
-            "location": "/API/sensors/#sensors", 
+            "location": "/API/everloop/#set-colors", 
+            "text": "// set an initial color\nmatrix.led('red')\n\n// interleave two colors\nmatrix.led([ '#bada55, '#e1337e'])\n\n// support opacity\nmatrix.led('rgba(255, 0, 100, 0.6)')", 
+            "title": "Set Colors"
+        }, 
+        {
+            "location": "/API/everloop/#generate-shapes", 
+            "text": "matrix.led({\n  // number of lights to use [ 90\u00b0 = 9 ]   \n  arc: 9,\n\n  color: 'green',\n\n  // index to start drawing arc\n  start: 12\n});\n\n//no color assumes off\nmatrix.led({\n  arc: 360\n})\n\n// draw a point\nmatrix.led({\n  angle: 245,\n  color: 'white',\n  // blends interlight space if true, solid lights if false, default false\n  blend: true\n})\n\n// support multiple shapes", 
+            "title": "Generate Shapes"
+        }, 
+        {
+            "location": "/API/everloop/#manipulate-colors", 
+            "text": "//retrieves the current color state of the LED\nmatrix.led()\n\n// lighten all colors 0 - 100\nmatrix.led().brighten(10)\n\n// darken all colors 0 - 100\nmatrix.led().darken(10)", 
+            "title": "Manipulate colors"
+        }, 
+        {
+            "location": "/API/everloop/#manipulate-position", 
+            "text": "// rotate the lights clockwise by a specified angle\nmatrix.led().rotate(90)", 
+            "title": "Manipulate position"
+        }, 
+        {
+            "location": "/API/everloop/#composition", 
             "text": "", 
-            "title": "Sensors"
+            "title": "Composition"
         }, 
         {
-            "location": "/API/sensors/#simple-sensor-list", 
-            "text": "temperature  humidity", 
-            "title": "Simple Sensor List"
+            "location": "/API/everloop/#shape-objects", 
+            "text": "// make a smiley face\nmatrix.led([\n  {\n    angle: 45,\n    color: 'yellow'\n  },\n  {\n    angle: 135,\n    color: 'yellow'\n  },\n  {\n    arc: 90,\n    color: 'yellow',\n    start: 225\n  }\n]).darken(90).render();", 
+            "title": "Shape Objects"
         }, 
         {
-            "location": "/API/sensors/#complex-sensor-list", 
-            "text": "uv  gps  gyroscope  accellerometer", 
-            "title": "Complex Sensor List"
+            "location": "/API/everloop/#direct-pixel-manipulation", 
+            "text": "Array index = led to change  matrix.led([0, 0, 0, 0, 'yellow', 0,\n0, 0, 0, 0, 0, 0, 0, 'yellow', 0, 0,\n0, 0, 0, 0, 0, 0, 'yellow', 'yellow',\n'yellow', 'yellow', 'yellow', 'yellow',\n'yellow', 'yellow', 'yellow' ]).render();", 
+            "title": "Direct Pixel Manipulation"
         }, 
         {
-            "location": "/API/sensors/#using-sensors", 
-            "text": "Use of options is optional.  matrix.init('temperature', options).then(function(data){\n  //see below for data formats\n})", 
-            "title": "Using Sensors"
+            "location": "/API/everloop/#example-clock", 
+            "text": "setInterval(function(){\n  var time = new Date();\n  var h = time.getHours();\n  var m = time.getMinutes();\n  var s = time.getSeconds();\n\n  var hourLED = {\n    // translate hours (12) to angle (360)\n    arc: h * 3,\n    color: 'blue',\n    darken: 50\n  };\n\n  var minuteLED = {\n    // translate minutes ( 60 ) to angle ( 360 )\n    angle: m * 6,\n    color: 'green'\n  };\n\n  var secondLED = {\n    // translate seconds (60) to angle (360)\n    angle: s * 6,\n    color: yellow,\n    blend: true\n  };\n\n  matrix.led([hourLED, minuteLED]).render();\n\n}, 1000)", 
+            "title": "Example clock"
         }, 
         {
-            "location": "/API/sensors/#options", 
-            "text": "refresh  - ms delay between refresh  timeout  - how long before auto timeout", 
+            "location": "/API/nfc/", 
+            "text": "Still working out the precise API for this. Stay tuned.\n\n\nmatrix.init('nfc')...", 
+            "title": "NFC"
+        }, 
+        {
+            "location": "/API/zwave/", 
+            "text": "Still working out the precise API for this. Stay tuned.\n\n\nmatrix.init('zwave')...", 
+            "title": "Z-wave"
+        }, 
+        {
+            "location": "/API/zigbee/", 
+            "text": "Still working out the precise API for this. Stay tuned.\n\n\nmatrix.init('zigbee')...\n\n\n\n\nList Networks\n\n\nList the networks available to connect to.\n\n\nList Appliances\n\n\nList the appliances available on the network.\n\n\nList Objects\n\n\nList the available objects within the appliance.\n\n\nObject Status\n\n\nList the current status of an object.\n\n\nObject Properties\n\n\nUpdate\n\n\nUpdate an object property.\n\n\nRetrieve\n\n\nRetrieve an object property.\n\n\nInject", 
+            "title": "Zigbee"
+        }, 
+        {
+            "location": "/API/zigbee/#list-networks", 
+            "text": "List the networks available to connect to.", 
+            "title": "List Networks"
+        }, 
+        {
+            "location": "/API/zigbee/#list-appliances", 
+            "text": "List the appliances available on the network.", 
+            "title": "List Appliances"
+        }, 
+        {
+            "location": "/API/zigbee/#list-objects", 
+            "text": "List the available objects within the appliance.", 
+            "title": "List Objects"
+        }, 
+        {
+            "location": "/API/zigbee/#object-status", 
+            "text": "List the current status of an object.", 
+            "title": "Object Status"
+        }, 
+        {
+            "location": "/API/zigbee/#object-properties", 
+            "text": "", 
+            "title": "Object Properties"
+        }, 
+        {
+            "location": "/API/zigbee/#update", 
+            "text": "Update an object property.", 
+            "title": "Update"
+        }, 
+        {
+            "location": "/API/zigbee/#retrieve", 
+            "text": "Retrieve an object property.", 
+            "title": "Retrieve"
+        }, 
+        {
+            "location": "/API/zigbee/#inject", 
+            "text": "", 
+            "title": "Inject"
+        }, 
+        {
+            "location": "/Configuration/overview/", 
+            "text": "Workflow\n\n\nApplication\n\n\nEach application has an \nconfig.yaml\n file which determines several things.\n\n\n\n\nHow to evaluate and categorize the application for the MatrixOS app Store\n\n\nApplication dashboard widget layout, display and data sources\n\n\nRuntime variables used by Matrix applications\n\n\nFixed data structure for saving information and routing to dashboard.\n\n\nWhat external services, such as CV and sensors, will be used, and how will they be provided to the app.\n\n\n\n\nExternal services can also be coded in the application directly.\n\n\nDeployment\n\n\nConfigurations are written on deployment ( see \nmatrix deploy\n ). If you change the \nconfig.yaml\n, you must deploy the application again. Otherwise you can change configuration using \nmatrix set config\n.\n\n\nData Types\n\n\nIf you've setup a migration or an SQL table, this is a very simple structure to tell the application what sort of data you will be passing around.\n\n\ndataTypes:\n  foobar: integer\n\n\n\n\nSee \nData Types\n\n\nScreens \n Widgets\n\n\nTwo root nodes. \nscreens\n and \nwidgets\n work together to determine layout and content.\n\n\nScreens\n\n\nScreens notates a nested array which informs the dashboard how to layout the widgets.\n\n\nscreens:\n  - - a\n    - b\n    - foo\n  - - 1\n    - 2\n    - 3\n\n// =\n turns into\n\n[ [ a, b, foo ], [ 1, 2, 3 ] ]\n\n\n\n\nSub arrays correlates to rows in a display.\nThe above would display on the dashboard as follows:\n\n\n[a][b][foo]\n[1][2][3]\n\n\n\n\nThe value in the array corresponds to a widget name.\n\n\nWidgets\n\n\nWidgets describe the module to load inside a designated screen.\n\n\nwidgets:\n  foo:\n    # type defines what type of data this widget should display\n    type: foobar\n    # if provided, label shows above each widget\n    label: Foo widget\n\n\n\n\nFor more info see \nScreens \n Widgets", 
+            "title": "Overview"
+        }, 
+        {
+            "location": "/Configuration/overview/#workflow", 
+            "text": "", 
+            "title": "Workflow"
+        }, 
+        {
+            "location": "/Configuration/overview/#application", 
+            "text": "Each application has an  config.yaml  file which determines several things.   How to evaluate and categorize the application for the MatrixOS app Store  Application dashboard widget layout, display and data sources  Runtime variables used by Matrix applications  Fixed data structure for saving information and routing to dashboard.  What external services, such as CV and sensors, will be used, and how will they be provided to the app.   External services can also be coded in the application directly.", 
+            "title": "Application"
+        }, 
+        {
+            "location": "/Configuration/overview/#deployment", 
+            "text": "Configurations are written on deployment ( see  matrix deploy  ). If you change the  config.yaml , you must deploy the application again. Otherwise you can change configuration using  matrix set config .", 
+            "title": "Deployment"
+        }, 
+        {
+            "location": "/Configuration/overview/#data-types", 
+            "text": "If you've setup a migration or an SQL table, this is a very simple structure to tell the application what sort of data you will be passing around.  dataTypes:\n  foobar: integer  See  Data Types", 
+            "title": "Data Types"
+        }, 
+        {
+            "location": "/Configuration/overview/#screens-widgets", 
+            "text": "Two root nodes.  screens  and  widgets  work together to determine layout and content.", 
+            "title": "Screens &amp; Widgets"
+        }, 
+        {
+            "location": "/Configuration/overview/#screens", 
+            "text": "Screens notates a nested array which informs the dashboard how to layout the widgets.  screens:\n  - - a\n    - b\n    - foo\n  - - 1\n    - 2\n    - 3\n\n// =  turns into\n\n[ [ a, b, foo ], [ 1, 2, 3 ] ]  Sub arrays correlates to rows in a display.\nThe above would display on the dashboard as follows:  [a][b][foo]\n[1][2][3]  The value in the array corresponds to a widget name.", 
+            "title": "Screens"
+        }, 
+        {
+            "location": "/Configuration/overview/#widgets", 
+            "text": "Widgets describe the module to load inside a designated screen.  widgets:\n  foo:\n    # type defines what type of data this widget should display\n    type: foobar\n    # if provided, label shows above each widget\n    label: Foo widget  For more info see  Screens   Widgets", 
+            "title": "Widgets"
+        }, 
+        {
+            "location": "/Configuration/screens/", 
+            "text": "", 
+            "title": "Screens"
+        }, 
+        {
+            "location": "/Configuration/datatypes/", 
+            "text": "dataTypes\n\n\nWe experimented with a loosely defined data structure, where the system would dynamically type information for storage and retrieval. This may return in the future, but for now, we need to clearly define data structures and types.\n\n\nThis is only useful if the application is \nmatrix.send()\ning information for storage or dashboard use.\n\n\ntypes\n\n\nTypes are segments of your data. These are used for filtering in the dashboard.\n\n\ndata\n\n\nThere are two ways to structure data types\n\n\nimplicit data type names\n\n\ndataTypes:\n  foo: string\n  bar: integer\n\n\n\n\n# matrix.send({ foo: 'abc', bar: 123 })\n\n\n\n\nexplicit data type names\n\n\ndataTypes:\n  type1:\n    foo: string\n  type2:\n    bar: integer\n\n\n\n\n# matrix.type('type1').send({foo: 'abc'})\n# matrix.type('type2').send({bar: 123})\n\n\n\n\noptions\n\n\nHere is the regex object for the different data formats.\n\n\nregex: {\n  string :/(string|str|s)/,\n  object :/(object|obj|o)/,\n  float :/(float|fl|f)/,\n  integer :/(integer|int|i)/,\n  boolean :/(b|bool|boolean)/,\n}\n\n\n\n\nThis is so you can do.\n\n\ndataTypes:\n  foo1: s\n  foo2: s\n  foo3: o", 
+            "title": "Datatypes"
+        }, 
+        {
+            "location": "/Configuration/datatypes/#datatypes", 
+            "text": "We experimented with a loosely defined data structure, where the system would dynamically type information for storage and retrieval. This may return in the future, but for now, we need to clearly define data structures and types.  This is only useful if the application is  matrix.send() ing information for storage or dashboard use.", 
+            "title": "dataTypes"
+        }, 
+        {
+            "location": "/Configuration/datatypes/#types", 
+            "text": "Types are segments of your data. These are used for filtering in the dashboard.", 
+            "title": "types"
+        }, 
+        {
+            "location": "/Configuration/datatypes/#data", 
+            "text": "There are two ways to structure data types", 
+            "title": "data"
+        }, 
+        {
+            "location": "/Configuration/datatypes/#implicit-data-type-names", 
+            "text": "dataTypes:\n  foo: string\n  bar: integer  # matrix.send({ foo: 'abc', bar: 123 })", 
+            "title": "implicit data type names"
+        }, 
+        {
+            "location": "/Configuration/datatypes/#explicit-data-type-names", 
+            "text": "dataTypes:\n  type1:\n    foo: string\n  type2:\n    bar: integer  # matrix.type('type1').send({foo: 'abc'})\n# matrix.type('type2').send({bar: 123})", 
+            "title": "explicit data type names"
+        }, 
+        {
+            "location": "/Configuration/datatypes/#options", 
+            "text": "Here is the regex object for the different data formats.  regex: {\n  string :/(string|str|s)/,\n  object :/(object|obj|o)/,\n  float :/(float|fl|f)/,\n  integer :/(integer|int|i)/,\n  boolean :/(b|bool|boolean)/,\n}  This is so you can do.  dataTypes:\n  foo1: s\n  foo2: s\n  foo3: o", 
             "title": "options"
-        }, 
-        {
-            "location": "/API/sensors/#data-from-simple-sensors", 
-            "text": "Simple sensors emit float numbers with a  value  key.  {\n  value: 72.0\n}", 
-            "title": "Data from Simple Sensors"
-        }, 
-        {
-            "location": "/API/sensors/#data-from-complex-sensors", 
-            "text": "Complex sensors emit structured data", 
-            "title": "Data from complex sensors"
-        }, 
-        {
-            "location": "/API/sensors/#microphone", 
-            "text": "{\n  db: 132.23,\n  text: 'hello world'\n}", 
-            "title": "microphone"
-        }, 
-        {
-            "location": "/API/sensors/#gps", 
-            "text": "{\n  lat: 34.234,\n  lon: 13.111\n}", 
-            "title": "gps"
-        }, 
-        {
-            "location": "/API/sensors/#accelerometer", 
-            "text": "{\n  x: 0.1,\n  y: 0.23,\n  z: 0.224\n}", 
-            "title": "accelerometer"
-        }, 
-        {
-            "location": "/API/sensors/#gyroscope", 
-            "text": "{\n  yaw: 82.06211853027344,\n  pitch: -7.972985744476318,\n  roll: 1.0514432191848755\n}", 
-            "title": "gyroscope"
-        }, 
-        {
-            "location": "/API/sensors/#filtering-sensor-data", 
-            "text": "see  API   Filter", 
-            "title": "Filtering Sensor Data"
-        }, 
-        {
-            "location": "/API/speaker/", 
-            "text": "Speakers\n\n\nText to Speech\n\n\nmatrix.say('hello world')\n\n\n\n\nPlayback a file\n\n\nmatrix.play('neo.mp3')", 
-            "title": "Speaker"
-        }, 
-        {
-            "location": "/API/speaker/#speakers", 
-            "text": "", 
-            "title": "Speakers"
-        }, 
-        {
-            "location": "/API/speaker/#text-to-speech", 
-            "text": "matrix.say('hello world')", 
-            "title": "Text to Speech"
-        }, 
-        {
-            "location": "/API/speaker/#playback-a-file", 
-            "text": "matrix.play('neo.mp3')", 
-            "title": "Playback a file"
-        }, 
-        {
-            "location": "/API/typesend/", 
-            "text": "Send\n\n\nUnless otherwise specified, sensor data is typed with the application name.\n\n\nmatrix.send({\n  foo: 123\n})\n\n\n\n\nis read in a widget \nconfig.yaml\n ( See \nConfiguration\nWidgets\n)\n\n\nname: fooApp\nwidgets:\n  fooWidget:\n    display: digit,\n    type: fooApp\n    key: foo\n\n\n\n\nType\n\n\nTypes are another way to organize the data coming off MatrixOS and make it easier to work with in dashboards.\n\n\nmatrix.type('bar').send({\n  foo: 123\n})\n\n\n\n\nwould instead be utilized with the following\n\n\nname: fooApp\nwidgets:\n  fooWidget:\n    display: digit,\n    type: bar\n    key: foo\n\n\n\n\nTypes are also different ways of segmenting the data. When your application generates reports, types and keys will form the structure of that report. ( See \n Data Types \n for more )", 
-            "title": "Typesend"
-        }, 
-        {
-            "location": "/API/typesend/#send", 
-            "text": "Unless otherwise specified, sensor data is typed with the application name.  matrix.send({\n  foo: 123\n})  is read in a widget  config.yaml  ( See  Configuration Widgets )  name: fooApp\nwidgets:\n  fooWidget:\n    display: digit,\n    type: fooApp\n    key: foo", 
-            "title": "Send"
-        }, 
-        {
-            "location": "/API/typesend/#type", 
-            "text": "Types are another way to organize the data coming off MatrixOS and make it easier to work with in dashboards.  matrix.type('bar').send({\n  foo: 123\n})  would instead be utilized with the following  name: fooApp\nwidgets:\n  fooWidget:\n    display: digit,\n    type: bar\n    key: foo  Types are also different ways of segmenting the data. When your application generates reports, types and keys will form the structure of that report. ( See   Data Types   for more )", 
-            "title": "Type"
-        }, 
-        {
-            "location": "/CLI/apps/", 
-            "text": "Applications\n\n\nSearch\n\n\n# Find MatrixOS apps for a keyword\nmatrix search keyword\n\n\n\n\nAll the following commands require an active MatrixOS to be specified with \nmatrix use\n.\n\n\nInstall\n\n\n# Install an app from the store to MatrixOS\nmatrix install appName\n\n\n\n\nCreate\n\n\n#creates a folder with a base matrix app template\nmatrix create appName\n\n\n\n\nSee \ndocs/api\n for more information about writing MatrixOS apps.\n\n\nDeploy\n\n\n# uploads app folder to MatrixOS\nmatrix deploy appName\n\n\n\n\nRun\n\n\nmatrix start appName\n\n\n\n\nStop\n\n\nmatrix stop appName\n\n\n\n\nRestart\n\n\nmatrix restart appName", 
-            "title": "Apps"
-        }, 
-        {
-            "location": "/CLI/apps/#applications", 
-            "text": "", 
-            "title": "Applications"
-        }, 
-        {
-            "location": "/CLI/apps/#search", 
-            "text": "# Find MatrixOS apps for a keyword\nmatrix search keyword  All the following commands require an active MatrixOS to be specified with  matrix use .", 
-            "title": "Search"
-        }, 
-        {
-            "location": "/CLI/apps/#install", 
-            "text": "# Install an app from the store to MatrixOS\nmatrix install appName", 
-            "title": "Install"
-        }, 
-        {
-            "location": "/CLI/apps/#create", 
-            "text": "#creates a folder with a base matrix app template\nmatrix create appName  See  docs/api  for more information about writing MatrixOS apps.", 
-            "title": "Create"
-        }, 
-        {
-            "location": "/CLI/apps/#deploy", 
-            "text": "# uploads app folder to MatrixOS\nmatrix deploy appName", 
-            "title": "Deploy"
-        }, 
-        {
-            "location": "/CLI/apps/#run", 
-            "text": "matrix start appName", 
-            "title": "Run"
-        }, 
-        {
-            "location": "/CLI/apps/#stop", 
-            "text": "matrix stop appName", 
-            "title": "Stop"
-        }, 
-        {
-            "location": "/CLI/apps/#restart", 
-            "text": "matrix restart appName", 
-            "title": "Restart"
-        }, 
-        {
-            "location": "/CLI/example/", 
-            "text": "Example Simulator Workflow\n\n\nmatrix login\nmatrix sim init\nmatrix use simid-abc123\nmatrix sim start\n\n# makes testapp/ with app scaffold\nmatrix create testapp\n\n# places testapp/ onto matrixos\nmatrix deploy testapp\n\n# starts testapp/\nmatrix start testapp\n\n\n\n\nExample App Install and Set Configurations\n\n\nmatrix login\nmatrix list devices\nmatrix use \ndeviceId\n\n\nmatrix install frontdoor\nmatrix set config frontdoor settings.lock.apiKey=ABC123FED\nmatrix start frontdoor", 
-            "title": "Example"
-        }, 
-        {
-            "location": "/CLI/example/#example-simulator-workflow", 
-            "text": "matrix login\nmatrix sim init\nmatrix use simid-abc123\nmatrix sim start\n\n# makes testapp/ with app scaffold\nmatrix create testapp\n\n# places testapp/ onto matrixos\nmatrix deploy testapp\n\n# starts testapp/\nmatrix start testapp", 
-            "title": "Example Simulator Workflow"
-        }, 
-        {
-            "location": "/CLI/example/#example-app-install-and-set-configurations", 
-            "text": "matrix login\nmatrix list devices\nmatrix use  deviceId \n\nmatrix install frontdoor\nmatrix set config frontdoor settings.lock.apiKey=ABC123FED\nmatrix start frontdoor", 
-            "title": "Example App Install and Set Configurations"
         }, 
         {
             "location": "/CLI/overview/", 
@@ -621,214 +516,79 @@
             "title": "Using the Simulator"
         }, 
         {
-            "location": "/Configuration/datatypes/", 
-            "text": "dataTypes\n\n\nWe experimented with a loosely defined data structure, where the system would dynamically type information for storage and retrieval. This may return in the future, but for now, we need to clearly define data structures and types.\n\n\nThis is only useful if the application is \nmatrix.send()\ning information for storage or dashboard use.\n\n\ntypes\n\n\nTypes are segments of your data. These are used for filtering in the dashboard.\n\n\ndata\n\n\nThere are two ways to structure data types\n\n\nimplicit data type names\n\n\ndataTypes:\n  foo: string\n  bar: integer\n\n\n\n\n# matrix.send({ foo: 'abc', bar: 123 })\n\n\n\n\nexplicit data type names\n\n\ndataTypes:\n  type1:\n    foo: string\n  type2:\n    bar: integer\n\n\n\n\n# matrix.type('type1').send({foo: 'abc'})\n# matrix.type('type2').send({bar: 123})\n\n\n\n\noptions\n\n\nHere is the regex object for the different data formats.\n\n\nregex: {\n  string :/(string|str|s)/,\n  object :/(object|obj|o)/,\n  float :/(float|fl|f)/,\n  integer :/(integer|int|i)/,\n  boolean :/(b|bool|boolean)/,\n}\n\n\n\n\nThis is so you can do.\n\n\ndataTypes:\n  foo1: s\n  foo2: s\n  foo3: o", 
-            "title": "Datatypes"
+            "location": "/CLI/apps/", 
+            "text": "Applications\n\n\nSearch\n\n\n# Find MatrixOS apps for a keyword\nmatrix search keyword\n\n\n\n\nAll the following commands require an active MatrixOS to be specified with \nmatrix use\n.\n\n\nInstall\n\n\n# Install an app from the store to MatrixOS\nmatrix install appName\n\n\n\n\nCreate\n\n\n#creates a folder with a base matrix app template\nmatrix create appName\n\n\n\n\nSee \ndocs/api\n for more information about writing MatrixOS apps.\n\n\nDeploy\n\n\n# uploads app folder to MatrixOS\nmatrix deploy appName\n\n\n\n\nRun\n\n\nmatrix start appName\n\n\n\n\nStop\n\n\nmatrix stop appName\n\n\n\n\nRestart\n\n\nmatrix restart appName", 
+            "title": "Apps"
         }, 
         {
-            "location": "/Configuration/datatypes/#datatypes", 
-            "text": "We experimented with a loosely defined data structure, where the system would dynamically type information for storage and retrieval. This may return in the future, but for now, we need to clearly define data structures and types.  This is only useful if the application is  matrix.send() ing information for storage or dashboard use.", 
-            "title": "dataTypes"
+            "location": "/CLI/apps/#applications", 
+            "text": "", 
+            "title": "Applications"
         }, 
         {
-            "location": "/Configuration/datatypes/#types", 
-            "text": "Types are segments of your data. These are used for filtering in the dashboard.", 
-            "title": "types"
+            "location": "/CLI/apps/#search", 
+            "text": "# Find MatrixOS apps for a keyword\nmatrix search keyword  All the following commands require an active MatrixOS to be specified with  matrix use .", 
+            "title": "Search"
         }, 
         {
-            "location": "/Configuration/datatypes/#data", 
-            "text": "There are two ways to structure data types", 
-            "title": "data"
+            "location": "/CLI/apps/#install", 
+            "text": "# Install an app from the store to MatrixOS\nmatrix install appName", 
+            "title": "Install"
         }, 
         {
-            "location": "/Configuration/datatypes/#implicit-data-type-names", 
-            "text": "dataTypes:\n  foo: string\n  bar: integer  # matrix.send({ foo: 'abc', bar: 123 })", 
-            "title": "implicit data type names"
+            "location": "/CLI/apps/#create", 
+            "text": "#creates a folder with a base matrix app template\nmatrix create appName  See  docs/api  for more information about writing MatrixOS apps.", 
+            "title": "Create"
         }, 
         {
-            "location": "/Configuration/datatypes/#explicit-data-type-names", 
-            "text": "dataTypes:\n  type1:\n    foo: string\n  type2:\n    bar: integer  # matrix.type('type1').send({foo: 'abc'})\n# matrix.type('type2').send({bar: 123})", 
-            "title": "explicit data type names"
+            "location": "/CLI/apps/#deploy", 
+            "text": "# uploads app folder to MatrixOS\nmatrix deploy appName", 
+            "title": "Deploy"
         }, 
         {
-            "location": "/Configuration/datatypes/#options", 
-            "text": "Here is the regex object for the different data formats.  regex: {\n  string :/(string|str|s)/,\n  object :/(object|obj|o)/,\n  float :/(float|fl|f)/,\n  integer :/(integer|int|i)/,\n  boolean :/(b|bool|boolean)/,\n}  This is so you can do.  dataTypes:\n  foo1: s\n  foo2: s\n  foo3: o", 
-            "title": "options"
+            "location": "/CLI/apps/#run", 
+            "text": "matrix start appName", 
+            "title": "Run"
         }, 
         {
-            "location": "/Configuration/examples/", 
-            "text": "MatrixOS Config Widget examples\n\n\nLayout\n\n\n\n\nscreens:\n  - - cpu\n    - memory\n\n\n\n\nDisplays\n\n\nValue\n\n\n\n\ncpu:\n  type: monitor\n  key: cpu\n  display: digit\n  format: round\n  label: cpu\n\n\n\n\nBar Chart\n\n\n\n\nbarChart:\n  type: monitor\n  keys: cpu, memory\n  display: bar\n  label: Bar Chart\n\n\n\n\nRadar Chart\n\n\n\n\nradarTest:\n  type: monitor\n  keys: cpu,memory\n  display: radar\n  label: radarTest\n\n\n\n\nLine Chart\n\n\n\n\ncpuChart:\n  type: monitor\n  keys: cpu,memory\n  display: line\n  label: CPU Chart\n\n\n\n\nLists\n\n\n\n\ninfo:\n  type: device\n  display: list-group\n  label: Secret Information\n\n\n\n\nInteractive\n\n\nButtons\n\n\nSingle\n\n\n\n\nbuttonTest:\n  label: Hacking Buttons\n  control: button\n  trigger: buttonInfo\n  value: Get Secret Information\n\n\n\n\nHandling Code\n\n\nmatrix.on('buttonInfo', function(){\n  // ...\n})\n\n\n\n\ntrigger\n in the config file, is the event name (\nbuttonInfo\n) handled.\n\n\nMultiple\n\n\n\n\nbuttonsTest:\n  label: Matrix Activation Buttons\n  control: button\n  map:\n    'amps+': buttonUp\n    'amps-': buttonDown\n    begin : buttonStart\n    end : buttonStop\n    capture : buttonSample\n    'refresh+' : buttonSlow\n    'refresh-' : buttonFast\n\n\n\n\nHandling Code\n\n\n matrix.on('buttonStop', function(){\n   //...\n})\n\n matrix.on('buttonStart', function(){\n   //...\n })\n\n matrix.on('buttonSample', function () {\n   //...\n })\n\n\n\n\nDrop Downs\n\n\n\n\ndropDown:\n  control: dropdown\n  map:\n    test1: doTest1\n    test2: doTest2\n  label: dropdown test\n\n\n\n\nHandling Code\n\n\nmatrix.on('doTest1', function(){\n //...\n})\n\n\nmatrix.on('doTest2', function(){\n //...\n})\n\n\n\n\nResponsive Data Flow\n\n\nmatrix.on('buttonInfo', function(){\n  matrix.type('device').send({\n    'os_hostname': os.hostname(),\n    'os_type': os.type(),\n    'os_platform': os.platform(),\n    'os_arch': os.arch()\n  });\n})\n\n\n\n\nWhen \nbuttonInfo\n is triggered, respond with information with a type \ndevice\n.\n\n\nThe list looks for\n\n\nlist:\n  type: device\n\n\n\n\nwhich tells it to display information with type \ndevice\n.", 
+            "location": "/CLI/apps/#stop", 
+            "text": "matrix stop appName", 
+            "title": "Stop"
+        }, 
+        {
+            "location": "/CLI/apps/#restart", 
+            "text": "matrix restart appName", 
+            "title": "Restart"
+        }, 
+        {
+            "location": "/CLI/example/", 
+            "text": "Example Simulator Workflow\n\n\nmatrix login\nmatrix sim init\nmatrix use simid-abc123\nmatrix sim start\n\n# makes testapp/ with app scaffold\nmatrix create testapp\n\n# places testapp/ onto matrixos\nmatrix deploy testapp\n\n# starts testapp/\nmatrix start testapp\n\n\n\n\nExample App Install and Set Configurations\n\n\nmatrix login\nmatrix list devices\nmatrix use \ndeviceId\n\n\nmatrix install frontdoor\nmatrix set config frontdoor settings.lock.apiKey=ABC123FED\nmatrix start frontdoor", 
             "title": "Examples"
         }, 
         {
-            "location": "/Configuration/examples/#matrixos-config-widget-examples", 
-            "text": "", 
-            "title": "MatrixOS Config Widget examples"
+            "location": "/CLI/example/#example-simulator-workflow", 
+            "text": "matrix login\nmatrix sim init\nmatrix use simid-abc123\nmatrix sim start\n\n# makes testapp/ with app scaffold\nmatrix create testapp\n\n# places testapp/ onto matrixos\nmatrix deploy testapp\n\n# starts testapp/\nmatrix start testapp", 
+            "title": "Example Simulator Workflow"
         }, 
         {
-            "location": "/Configuration/examples/#layout", 
-            "text": "screens:\n  - - cpu\n    - memory", 
-            "title": "Layout"
+            "location": "/CLI/example/#example-app-install-and-set-configurations", 
+            "text": "matrix login\nmatrix list devices\nmatrix use  deviceId \n\nmatrix install frontdoor\nmatrix set config frontdoor settings.lock.apiKey=ABC123FED\nmatrix start frontdoor", 
+            "title": "Example App Install and Set Configurations"
         }, 
         {
-            "location": "/Configuration/examples/#displays", 
-            "text": "", 
-            "title": "Displays"
+            "location": "/Hardware/fpga/", 
+            "text": "FPGA\n\n\nOnce you have installed the \nrequired software\n you can program the FPGA. This will allow you to play with the everloop LED array.\n\n\nFirst, get the firmware.\n\n\nwget http://packages.matrix.one/matrix-creator-firmware/firmware-0.8.tar.gz\ntar xzvf firmware-0.8.tar.gz\n\n\n\nThen flash the firmware using the \nxc3sprog\n program that should be installed on the Raspberry.\n\n\nsudo xc3sprog -c matrix_pi firmware-0.8/blob/system.bit -p 1\n\n\n\nSample result:\n\n\n$ sudo xc3sprog -c matrix_pi firmware-0.8/blob/system.bit -p 1\nXC3SPROG (c) 2004-2011 xc3sprog project $Rev: 774 $ OS: Linux\nFree software: If you contribute nothing, expect nothing!\nFeedback on success/failure/enhancement requests:\n    http://sourceforge.net/mail/?group_id=170565 \nCheck Sourceforge for updates:\n    http://sourceforge.net/projects/xc3sprog/develop\n\nDNA is 0x39c620e4bfe15bfd\n\n\n\nQuestions? Post them on \nraspberrypi.stackexchange.com\n! Use the tag #matrix-creator", 
+            "title": "FPGA"
         }, 
         {
-            "location": "/Configuration/examples/#value", 
-            "text": "cpu:\n  type: monitor\n  key: cpu\n  display: digit\n  format: round\n  label: cpu", 
-            "title": "Value"
-        }, 
-        {
-            "location": "/Configuration/examples/#bar-chart", 
-            "text": "barChart:\n  type: monitor\n  keys: cpu, memory\n  display: bar\n  label: Bar Chart", 
-            "title": "Bar Chart"
-        }, 
-        {
-            "location": "/Configuration/examples/#radar-chart", 
-            "text": "radarTest:\n  type: monitor\n  keys: cpu,memory\n  display: radar\n  label: radarTest", 
-            "title": "Radar Chart"
-        }, 
-        {
-            "location": "/Configuration/examples/#line-chart", 
-            "text": "cpuChart:\n  type: monitor\n  keys: cpu,memory\n  display: line\n  label: CPU Chart", 
-            "title": "Line Chart"
-        }, 
-        {
-            "location": "/Configuration/examples/#lists", 
-            "text": "info:\n  type: device\n  display: list-group\n  label: Secret Information", 
-            "title": "Lists"
-        }, 
-        {
-            "location": "/Configuration/examples/#interactive", 
-            "text": "", 
-            "title": "Interactive"
-        }, 
-        {
-            "location": "/Configuration/examples/#buttons", 
-            "text": "", 
-            "title": "Buttons"
-        }, 
-        {
-            "location": "/Configuration/examples/#single", 
-            "text": "buttonTest:\n  label: Hacking Buttons\n  control: button\n  trigger: buttonInfo\n  value: Get Secret Information", 
-            "title": "Single"
-        }, 
-        {
-            "location": "/Configuration/examples/#handling-code", 
-            "text": "matrix.on('buttonInfo', function(){\n  // ...\n})  trigger  in the config file, is the event name ( buttonInfo ) handled.", 
-            "title": "Handling Code"
-        }, 
-        {
-            "location": "/Configuration/examples/#multiple", 
-            "text": "buttonsTest:\n  label: Matrix Activation Buttons\n  control: button\n  map:\n    'amps+': buttonUp\n    'amps-': buttonDown\n    begin : buttonStart\n    end : buttonStop\n    capture : buttonSample\n    'refresh+' : buttonSlow\n    'refresh-' : buttonFast", 
-            "title": "Multiple"
-        }, 
-        {
-            "location": "/Configuration/examples/#handling-code_1", 
-            "text": "matrix.on('buttonStop', function(){\n   //...\n})\n\n matrix.on('buttonStart', function(){\n   //...\n })\n\n matrix.on('buttonSample', function () {\n   //...\n })", 
-            "title": "Handling Code"
-        }, 
-        {
-            "location": "/Configuration/examples/#drop-downs", 
-            "text": "dropDown:\n  control: dropdown\n  map:\n    test1: doTest1\n    test2: doTest2\n  label: dropdown test", 
-            "title": "Drop Downs"
-        }, 
-        {
-            "location": "/Configuration/examples/#handling-code_2", 
-            "text": "matrix.on('doTest1', function(){\n //...\n})\n\n\nmatrix.on('doTest2', function(){\n //...\n})", 
-            "title": "Handling Code"
-        }, 
-        {
-            "location": "/Configuration/examples/#responsive-data-flow", 
-            "text": "matrix.on('buttonInfo', function(){\n  matrix.type('device').send({\n    'os_hostname': os.hostname(),\n    'os_type': os.type(),\n    'os_platform': os.platform(),\n    'os_arch': os.arch()\n  });\n})  When  buttonInfo  is triggered, respond with information with a type  device .  The list looks for  list:\n  type: device  which tells it to display information with type  device .", 
-            "title": "Responsive Data Flow"
-        }, 
-        {
-            "location": "/Configuration/filters/", 
-            "text": "", 
-            "title": "Filters"
-        }, 
-        {
-            "location": "/Configuration/overview/", 
-            "text": "Workflow\n\n\nApplication\n\n\nEach application has an \nconfig.yaml\n file which determines several things.\n\n\n\n\nHow to evaluate and categorize the application for the MatrixOS app Store\n\n\nApplication dashboard widget layout, display and data sources\n\n\nRuntime variables used by Matrix applications\n\n\nFixed data structure for saving information and routing to dashboard.\n\n\nWhat external services, such as CV and sensors, will be used, and how will they be provided to the app.\n\n\n\n\nExternal services can also be coded in the application directly.\n\n\nDeployment\n\n\nConfigurations are written on deployment ( see \nmatrix deploy\n ). If you change the \nconfig.yaml\n, you must deploy the application again. Otherwise you can change configuration using \nmatrix set config\n.\n\n\nData Types\n\n\nIf you've setup a migration or an SQL table, this is a very simple structure to tell the application what sort of data you will be passing around.\n\n\ndataTypes:\n  foobar: integer\n\n\n\n\nSee \nData Types\n\n\nScreens \n Widgets\n\n\nTwo root nodes. \nscreens\n and \nwidgets\n work together to determine layout and content.\n\n\nScreens\n\n\nScreens notates a nested array which informs the dashboard how to layout the widgets.\n\n\nscreens:\n  - - a\n    - b\n    - foo\n  - - 1\n    - 2\n    - 3\n\n// =\n turns into\n\n[ [ a, b, foo ], [ 1, 2, 3 ] ]\n\n\n\n\nSub arrays correlates to rows in a display.\nThe above would display on the dashboard as follows:\n\n\n[a][b][foo]\n[1][2][3]\n\n\n\n\nThe value in the array corresponds to a widget name.\n\n\nWidgets\n\n\nWidgets describe the module to load inside a designated screen.\n\n\nwidgets:\n  foo:\n    # type defines what type of data this widget should display\n    type: foobar\n    # if provided, label shows above each widget\n    label: Foo widget\n\n\n\n\nFor more info see \nScreens \n Widgets", 
-            "title": "Overview"
-        }, 
-        {
-            "location": "/Configuration/overview/#workflow", 
-            "text": "", 
-            "title": "Workflow"
-        }, 
-        {
-            "location": "/Configuration/overview/#application", 
-            "text": "Each application has an  config.yaml  file which determines several things.   How to evaluate and categorize the application for the MatrixOS app Store  Application dashboard widget layout, display and data sources  Runtime variables used by Matrix applications  Fixed data structure for saving information and routing to dashboard.  What external services, such as CV and sensors, will be used, and how will they be provided to the app.   External services can also be coded in the application directly.", 
-            "title": "Application"
-        }, 
-        {
-            "location": "/Configuration/overview/#deployment", 
-            "text": "Configurations are written on deployment ( see  matrix deploy  ). If you change the  config.yaml , you must deploy the application again. Otherwise you can change configuration using  matrix set config .", 
-            "title": "Deployment"
-        }, 
-        {
-            "location": "/Configuration/overview/#data-types", 
-            "text": "If you've setup a migration or an SQL table, this is a very simple structure to tell the application what sort of data you will be passing around.  dataTypes:\n  foobar: integer  See  Data Types", 
-            "title": "Data Types"
-        }, 
-        {
-            "location": "/Configuration/overview/#screens-widgets", 
-            "text": "Two root nodes.  screens  and  widgets  work together to determine layout and content.", 
-            "title": "Screens &amp; Widgets"
-        }, 
-        {
-            "location": "/Configuration/overview/#screens", 
-            "text": "Screens notates a nested array which informs the dashboard how to layout the widgets.  screens:\n  - - a\n    - b\n    - foo\n  - - 1\n    - 2\n    - 3\n\n// =  turns into\n\n[ [ a, b, foo ], [ 1, 2, 3 ] ]  Sub arrays correlates to rows in a display.\nThe above would display on the dashboard as follows:  [a][b][foo]\n[1][2][3]  The value in the array corresponds to a widget name.", 
-            "title": "Screens"
-        }, 
-        {
-            "location": "/Configuration/overview/#widgets", 
-            "text": "Widgets describe the module to load inside a designated screen.  widgets:\n  foo:\n    # type defines what type of data this widget should display\n    type: foobar\n    # if provided, label shows above each widget\n    label: Foo widget  For more info see  Screens   Widgets", 
-            "title": "Widgets"
-        }, 
-        {
-            "location": "/Configuration/screens/", 
-            "text": "", 
-            "title": "Screens"
-        }, 
-        {
-            "location": "/Configuration/services/", 
-            "text": "", 
-            "title": "Services"
-        }, 
-        {
-            "location": "/Configuration/setup/", 
-            "text": "", 
-            "title": "Setup"
-        }, 
-        {
-            "location": "/Configuration/widgets/", 
-            "text": "widgets\n\n\nA comprehensive overview coming soon\nsee \nExamples\n for now", 
-            "title": "Widgets"
-        }, 
-        {
-            "location": "/Configuration/widgets/#widgets", 
-            "text": "A comprehensive overview coming soon\nsee  Examples  for now", 
-            "title": "widgets"
-        }, 
-        {
-            "location": "/Hardware/SPI/", 
-            "text": "SPI\n\n\nThe SPI bus is not enabled by default by Raspbian.\n\n\nTo enable it you can follow the next steps.\n\n\nFirst, open raspi-config.\n\n\nsudo raspi-config\n\n\n\n[[https://storage.googleapis.com/packages.matrix.one/wiki-images/enable-spi/1-open.png|alt=open the interface]]\n\n\nThen navigate the interface to activate the SPI bus. Go to advanced options.\n\n\n[[https://storage.googleapis.com/packages.matrix.one/wiki-images/enable-spi/2-select-advanced.png|alt=select advanced]]\n\n\nSelect SPI.\n\n\n[[https://storage.googleapis.com/packages.matrix.one/wiki-images/enable-spi/3-select-spi.png|alt=select SPI]]\n\n\nEnable SPI.\n\n\n[[https://storage.googleapis.com/packages.matrix.one/wiki-images/enable-spi/4-enable.jpg|alt=enable SPI]]\n\n\nVerify that SPI has been enabled.\n\n\n[[https://storage.googleapis.com/packages.matrix.one/wiki-images/enable-spi/5-enabled.jpg|alt=SPI enabled]]\n\n\nNow you can exit raspi-config and SPI will be permanently enabled.\n\n\nThis allows you to play with the \nEverloop LED Array And IMU\n.", 
-            "title": "SPI"
-        }, 
-        {
-            "location": "/Hardware/SPI/#spi", 
-            "text": "The SPI bus is not enabled by default by Raspbian.  To enable it you can follow the next steps.  First, open raspi-config.  sudo raspi-config  [[https://storage.googleapis.com/packages.matrix.one/wiki-images/enable-spi/1-open.png|alt=open the interface]]  Then navigate the interface to activate the SPI bus. Go to advanced options.  [[https://storage.googleapis.com/packages.matrix.one/wiki-images/enable-spi/2-select-advanced.png|alt=select advanced]]  Select SPI.  [[https://storage.googleapis.com/packages.matrix.one/wiki-images/enable-spi/3-select-spi.png|alt=select SPI]]  Enable SPI.  [[https://storage.googleapis.com/packages.matrix.one/wiki-images/enable-spi/4-enable.jpg|alt=enable SPI]]  Verify that SPI has been enabled.  [[https://storage.googleapis.com/packages.matrix.one/wiki-images/enable-spi/5-enabled.jpg|alt=SPI enabled]]  Now you can exit raspi-config and SPI will be permanently enabled.  This allows you to play with the  Everloop LED Array And IMU .", 
-            "title": "SPI"
+            "location": "/Hardware/fpga/#fpga", 
+            "text": "Once you have installed the  required software  you can program the FPGA. This will allow you to play with the everloop LED array.  First, get the firmware.  wget http://packages.matrix.one/matrix-creator-firmware/firmware-0.8.tar.gz\ntar xzvf firmware-0.8.tar.gz  Then flash the firmware using the  xc3sprog  program that should be installed on the Raspberry.  sudo xc3sprog -c matrix_pi firmware-0.8/blob/system.bit -p 1  Sample result:  $ sudo xc3sprog -c matrix_pi firmware-0.8/blob/system.bit -p 1\nXC3SPROG (c) 2004-2011 xc3sprog project $Rev: 774 $ OS: Linux\nFree software: If you contribute nothing, expect nothing!\nFeedback on success/failure/enhancement requests:\n    http://sourceforge.net/mail/?group_id=170565 \nCheck Sourceforge for updates:\n    http://sourceforge.net/projects/xc3sprog/develop\n\nDNA is 0x39c620e4bfe15bfd  Questions? Post them on  raspberrypi.stackexchange.com ! Use the tag #matrix-creator", 
+            "title": "FPGA"
         }, 
         {
             "location": "/Hardware/Sam3/", 
             "text": "SAM3 Firmware Flash\n\n\nThis firmware is used to read the sensors. You can build it in your host machine, and then copy the resulting binary to the Raspberry Pi.\n\n\nFirst, you need to compile the firmware. You can do it in the Rasbperry Pi (if you have enough space available) or in your host machine if you want to do it faster.\n\n\napt-get install gcc-arm-none-eabi\ngit clone https://github.com/matrix-io/matrix-creator-mcu\ncd  matrix-creator-mcu/creator \n make\n\n\n\n\nNow copy build/ch.bin to the Rasbperry Pi (if you didn't build there) and \nflash it\n. In order to flash it you need to replace the file blob/ch.bin (or edit the cfg/sam3s.cfg configuration file).\n\n\nAnd only then you can flash the SAM3 firmware.\n\n\nsudo openocd -f cfg/sam3s.cfg\n\n\n\n\nQuestions? Post them on raspberrypi.stackexchange.com! Use the tag #matrix-creator", 
-            "title": "Sam3"
+            "title": "SAM3"
         }, 
         {
             "location": "/Hardware/Sam3/#sam3-firmware-flash", 
@@ -836,89 +596,29 @@
             "title": "SAM3 Firmware Flash"
         }, 
         {
-            "location": "/Hardware/fpga/", 
-            "text": "Once you have installed the \nrequired software\n you can program the FPGA. This will allow you to play with the everloop LED array.\n\n\nFirst, get the firmware.\n\n\nwget http://packages.matrix.one/matrix-creator-firmware/firmware-0.8.tar.gz\ntar xzvf firmware-0.8.tar.gz\n\n\n\nThen flash the firmware using the \nxc3sprog\n program that should be installed on the Raspberry.\n\n\nsudo xc3sprog -c matrix_pi firmware-0.8/blob/system.bit -p 1\n\n\n\nSample result:\n\n\n$ sudo xc3sprog -c matrix_pi firmware-0.8/blob/system.bit -p 1\nXC3SPROG (c) 2004-2011 xc3sprog project $Rev: 774 $ OS: Linux\nFree software: If you contribute nothing, expect nothing!\nFeedback on success/failure/enhancement requests:\n    http://sourceforge.net/mail/?group_id=170565 \nCheck Sourceforge for updates:\n    http://sourceforge.net/projects/xc3sprog/develop\n\nDNA is 0x39c620e4bfe15bfd\n\n\n\nQuestions? Post them on \nraspberrypi.stackexchange.com\n! Use the tag #matrix-creator", 
-            "title": "Fpga"
-        }, 
-        {
-            "location": "/Hardware/microphone/", 
-            "text": "First check the \nGetting started\n\n\nUpdate and upgrade the raspbian\n\n\nsudo apt-get update\nsudo apt-get upgrade\n\n\n\nInstall \nAlsa tools\n and the \nsox\n utility\n\n\nsudo apt-get install sox alsa-utils\n\n\n\nRun the volumen control\n\n\nalsamixer\n\n\n\nInstall and compile the MATRIX Creator's hardware abstraction layer\n\n\ngit clone https://github.com/matrix-io/matrix-creator-hal.git\ncd matrix-creator-hal \nmkdir build \n cd build\ncmake ..\nmake\n\n\n\nRun capture and check the recorded files\n    cd demos\n    ./micarray_recorder\n    ls -1 *raw\n\n\nConvert the audio\n\n\nsox -r 16000 -c 1 -e signed -c 1 -e signed -b 16 mic_16000_s16le_channel_0.raw channel_0.wav\nsox -r 16000 -c 1 -e signed -c 1 -e signed -b 16 mic_16000_s16le_channel_1.raw channel_1.wav\nsox -r 16000 -c 1 -e signed -c 1 -e signed -b 16 mic_16000_s16le_channel_2.raw channel_2.wav\nsox -r 16000 -c 1 -e signed -c 1 -e signed -b 16 mic_16000_s16le_channel_3.raw channel_3.wav\nsox -r 16000 -c 1 -e signed -c 1 -e signed -b 16 mic_16000_s16le_channel_4.raw channel_4.wav\nsox -r 16000 -c 1 -e signed -c 1 -e signed -b 16 mic_16000_s16le_channel_5.raw channel_5.wav\nsox -r 16000 -c 1 -e signed -c 1 -e signed -b 16 mic_16000_s16le_channel_6.raw channel_6.wav\nsox -r 16000 -c 1 -e signed -c 1 -e signed -b 16 mic_16000_s16le_channel_7.raw channel_7.wav\n\n\n\nPlay the wave file (i.e. audio from channel 0)\n\n\naplay channel_0.wav", 
-            "title": "Microphone"
-        }, 
-        {
             "location": "/Hardware/sam3mcu-programming/", 
-            "text": "Sam3 MCU Programmingm\n\n\nOnce you have installed the \nrequired software\n you can program the SAM3 MCU. The MCU is used to read the sensors.\n\n\nThis firmware is free software and \nyou can compile it yourself\n. Here we describe the process of compiling the shipped firmware.\n\n\nFirst, get the firmware.\n\n\nwget http://packages.matrix.one/matrix-creator-firmware/firmware-0.8.tar.gz\ntar xzvf firmware-0.8.tar.gz\n\n\n\nThen flash the firmware using the \nopenocd\n program that should be installed on the Raspberry (with the package matrix-creator-openocd).\n\n\nThen execute the following commands as root.\n\n\necho 18 \n /sys/class/gpio/export\necho out \n /sys/class/gpio/gpio18/direction\necho 1 \n /sys/class/gpio/gpio18/value\necho 0 \n /sys/class/gpio/gpio18/value\necho 1 \n /sys/class/gpio/gpio18/value\n\n\n\nNow you can program the firmware.\n\n\ncd firmware-0.8\nsudo openocd -f cfg/sam3s.cfg\n\n\n\nExample output:\n\n\n$ sudo openocd -f cfg/sam3s.cfg\nOpen On-Chip Debugger 0.10.0-dev-00283-g7223cae-dirty (2016-07-15-08:36)\nLicensed under GNU GPL v2\nFor bug reports, read\n    http://openocd.org/doc/doxygen/bugs.html\nBCM2835 GPIO config: tck = 17, tms = 4, tdi = 22, tdo = 27\nBCM2835 GPIO config: trst = 18\ntrst_only separate trst_push_pull\nadapter speed: 512 kHz\nWarn : em357.bs: nonstandard IR value\nWarn : Specify TAP 'sam3n.cpu.cpu' by name, not number 3\nInfo : BCM2835 GPIO JTAG/SWD bitbang driver\nInfo : JTAG only mode enabled (specify swclk and swdio gpio to add SWD mode)\nInfo : clock speed 512 kHz\nInfo : JTAG tap: em357.cpu tap/device found: 0x3ba00477 (mfg: 0x23b (ARM Ltd.), part: 0xba00, ver: 0x3)\nInfo : JTAG tap: em357.bs tap/device found: 0x069aa62b (mfg: 0x315 (Ember Corporation), part: 0x69aa, ver: 0x0)\nInfo : JTAG tap: xc6sxl4.fpga.fpga tap/device found: 0x24000093 (mfg: 0x049 (Xilinx), part: 0x4000, ver: 0x2)\nInfo : JTAG tap: sam3n.cpu.cpu tap/device found: 0x4ba00477 (mfg: 0x23b (ARM Ltd.), part: 0xba00, ver: 0x4)\nError: xc6sxl4.fpga.fpga: IR capture error; saw 0x35 not 0x11\nWarn : Bypassing JTAG setup events due to errors\nInfo : sam3n.cpu: hardware has 6 breakpoints, 4 watchpoints\nsam3n.cpu: target state: halted\ntarget halted due to debug-request, current mode: Thread\nxPSR: 0x61000000 pc: 0x00402560 psp: 0x20000800\n#0 : at91sam3 at 0x00400000, size 0x00020000, buswidth 0, chipwidth 0\n    #  0: 0x00000000 (0x4000 16kB) not protected\n    #  1: 0x00004000 (0x4000 16kB) not protected\n    #  2: 0x00008000 (0x4000 16kB) not protected\n    #  3: 0x0000c000 (0x4000 16kB) not protected\n    #  4: 0x00010000 (0x4000 16kB) not protected\n    #  5: 0x00014000 (0x4000 16kB) not protected\n    #  6: 0x00018000 (0x4000 16kB) not protected\n    #  7: 0x0001c000 (0x4000 16kB) not protected\nflash 'at91sam3' found at 0x00400000\nError: Invalid ACK (6) in DAP response\nError: Failed to read memory at 0x400e0a0c\nError: SAM3: Error performing Erase \n Write page @ phys address 0x00400800\nwrote 38620 bytes from file blob/ch.bin to flash bank 0 at offset 0x00000000 in 1.256279s (30.021 KiB/s)\nInfo : JTAG tap: em357.cpu tap/device found: 0x3ba00477 (mfg: 0x23b (ARM Ltd.), part: 0xba00, ver: 0x3)\nInfo : JTAG tap: em357.bs tap/device found: 0x069aa62b (mfg: 0x315 (Ember Corporation), part: 0x69aa, ver: 0x0)\nInfo : JTAG tap: xc6sxl4.fpga.fpga tap/device found: 0x24000093 (mfg: 0x049 (Xilinx), part: 0x4000, ver: 0x2)\nInfo : JTAG tap: sam3n.cpu.cpu tap/device found: 0x4ba00477 (mfg: 0x23b (ARM Ltd.), part: 0xba00, ver: 0x4)\nError: xc6sxl4.fpga.fpga: IR capture error; saw 0x35 not 0x11\nWarn : Bypassing JTAG setup events due to errors\nWarn : Only resetting the Cortex-M core, use a reset-init event handler to reset any peripherals or configure     hardware srst support.\nshutdown command invoked\n\n\n\nFlashing succeeded if you get the line \"wrote 38620 bytes from file blob/ch.bin to flash bank 0 at offset 0x00000000 in 1.256279s (30.021 KiB/s)\" in the previous output. A small LED next to the SAM3 MCU should start flashing once per second.\n\n\nIf flashing fails, please retry the flashing command.\n\n\nSample video\n\n\nQuestions? Post them on raspberrypi.stackexchange.com! Use the tag #matrix-creator", 
-            "title": "Sam3mcu programming"
+            "text": "Sam3 MCU Programming\n\n\nOnce you have installed the \nrequired software\n you can program the SAM3 MCU. The MCU is used to read the sensors.\n\n\nThis firmware is free software and \nyou can compile it yourself\n. Here we describe the process of compiling the shipped firmware.\n\n\nFirst, get the firmware.\n\n\nwget http://packages.matrix.one/matrix-creator-firmware/firmware-0.8.tar.gz\ntar xzvf firmware-0.8.tar.gz\n\n\n\nThen flash the firmware using the \nopenocd\n program that should be installed on the Raspberry (with the package matrix-creator-openocd).\n\n\nThen execute the following commands as root.\n\n\necho 18 \n /sys/class/gpio/export\necho out \n /sys/class/gpio/gpio18/direction\necho 1 \n /sys/class/gpio/gpio18/value\necho 0 \n /sys/class/gpio/gpio18/value\necho 1 \n /sys/class/gpio/gpio18/value\n\n\n\nNow you can program the firmware.\n\n\ncd firmware-0.8\nsudo openocd -f cfg/sam3s.cfg\n\n\n\nExample output:\n\n\n$ sudo openocd -f cfg/sam3s.cfg\nOpen On-Chip Debugger 0.10.0-dev-00283-g7223cae-dirty (2016-07-15-08:36)\nLicensed under GNU GPL v2\nFor bug reports, read\n    http://openocd.org/doc/doxygen/bugs.html\nBCM2835 GPIO config: tck = 17, tms = 4, tdi = 22, tdo = 27\nBCM2835 GPIO config: trst = 18\ntrst_only separate trst_push_pull\nadapter speed: 512 kHz\nWarn : em357.bs: nonstandard IR value\nWarn : Specify TAP 'sam3n.cpu.cpu' by name, not number 3\nInfo : BCM2835 GPIO JTAG/SWD bitbang driver\nInfo : JTAG only mode enabled (specify swclk and swdio gpio to add SWD mode)\nInfo : clock speed 512 kHz\nInfo : JTAG tap: em357.cpu tap/device found: 0x3ba00477 (mfg: 0x23b (ARM Ltd.), part: 0xba00, ver: 0x3)\nInfo : JTAG tap: em357.bs tap/device found: 0x069aa62b (mfg: 0x315 (Ember Corporation), part: 0x69aa, ver: 0x0)\nInfo : JTAG tap: xc6sxl4.fpga.fpga tap/device found: 0x24000093 (mfg: 0x049 (Xilinx), part: 0x4000, ver: 0x2)\nInfo : JTAG tap: sam3n.cpu.cpu tap/device found: 0x4ba00477 (mfg: 0x23b (ARM Ltd.), part: 0xba00, ver: 0x4)\nError: xc6sxl4.fpga.fpga: IR capture error; saw 0x35 not 0x11\nWarn : Bypassing JTAG setup events due to errors\nInfo : sam3n.cpu: hardware has 6 breakpoints, 4 watchpoints\nsam3n.cpu: target state: halted\ntarget halted due to debug-request, current mode: Thread\nxPSR: 0x61000000 pc: 0x00402560 psp: 0x20000800\n#0 : at91sam3 at 0x00400000, size 0x00020000, buswidth 0, chipwidth 0\n    #  0: 0x00000000 (0x4000 16kB) not protected\n    #  1: 0x00004000 (0x4000 16kB) not protected\n    #  2: 0x00008000 (0x4000 16kB) not protected\n    #  3: 0x0000c000 (0x4000 16kB) not protected\n    #  4: 0x00010000 (0x4000 16kB) not protected\n    #  5: 0x00014000 (0x4000 16kB) not protected\n    #  6: 0x00018000 (0x4000 16kB) not protected\n    #  7: 0x0001c000 (0x4000 16kB) not protected\nflash 'at91sam3' found at 0x00400000\nError: Invalid ACK (6) in DAP response\nError: Failed to read memory at 0x400e0a0c\nError: SAM3: Error performing Erase \n Write page @ phys address 0x00400800\nwrote 38620 bytes from file blob/ch.bin to flash bank 0 at offset 0x00000000 in 1.256279s (30.021 KiB/s)\nInfo : JTAG tap: em357.cpu tap/device found: 0x3ba00477 (mfg: 0x23b (ARM Ltd.), part: 0xba00, ver: 0x3)\nInfo : JTAG tap: em357.bs tap/device found: 0x069aa62b (mfg: 0x315 (Ember Corporation), part: 0x69aa, ver: 0x0)\nInfo : JTAG tap: xc6sxl4.fpga.fpga tap/device found: 0x24000093 (mfg: 0x049 (Xilinx), part: 0x4000, ver: 0x2)\nInfo : JTAG tap: sam3n.cpu.cpu tap/device found: 0x4ba00477 (mfg: 0x23b (ARM Ltd.), part: 0xba00, ver: 0x4)\nError: xc6sxl4.fpga.fpga: IR capture error; saw 0x35 not 0x11\nWarn : Bypassing JTAG setup events due to errors\nWarn : Only resetting the Cortex-M core, use a reset-init event handler to reset any peripherals or configure     hardware srst support.\nshutdown command invoked\n\n\n\nFlashing succeeded if you get the line \"wrote 38620 bytes from file blob/ch.bin to flash bank 0 at offset 0x00000000 in 1.256279s (30.021 KiB/s)\" in the previous output. A small LED next to the SAM3 MCU should start flashing once per second.\n\n\nIf flashing fails, please retry the flashing command.\n\n\nSample video\n\n\nQuestions? Post them on raspberrypi.stackexchange.com! Use the tag #matrix-creator", 
+            "title": "SAM3MCU"
         }, 
         {
-            "location": "/Hardware/sam3mcu-programming/#sam3-mcu-programmingm", 
+            "location": "/Hardware/sam3mcu-programming/#sam3-mcu-programming", 
             "text": "Once you have installed the  required software  you can program the SAM3 MCU. The MCU is used to read the sensors.  This firmware is free software and  you can compile it yourself . Here we describe the process of compiling the shipped firmware.  First, get the firmware.  wget http://packages.matrix.one/matrix-creator-firmware/firmware-0.8.tar.gz\ntar xzvf firmware-0.8.tar.gz  Then flash the firmware using the  openocd  program that should be installed on the Raspberry (with the package matrix-creator-openocd).  Then execute the following commands as root.  echo 18   /sys/class/gpio/export\necho out   /sys/class/gpio/gpio18/direction\necho 1   /sys/class/gpio/gpio18/value\necho 0   /sys/class/gpio/gpio18/value\necho 1   /sys/class/gpio/gpio18/value  Now you can program the firmware.  cd firmware-0.8\nsudo openocd -f cfg/sam3s.cfg  Example output:  $ sudo openocd -f cfg/sam3s.cfg\nOpen On-Chip Debugger 0.10.0-dev-00283-g7223cae-dirty (2016-07-15-08:36)\nLicensed under GNU GPL v2\nFor bug reports, read\n    http://openocd.org/doc/doxygen/bugs.html\nBCM2835 GPIO config: tck = 17, tms = 4, tdi = 22, tdo = 27\nBCM2835 GPIO config: trst = 18\ntrst_only separate trst_push_pull\nadapter speed: 512 kHz\nWarn : em357.bs: nonstandard IR value\nWarn : Specify TAP 'sam3n.cpu.cpu' by name, not number 3\nInfo : BCM2835 GPIO JTAG/SWD bitbang driver\nInfo : JTAG only mode enabled (specify swclk and swdio gpio to add SWD mode)\nInfo : clock speed 512 kHz\nInfo : JTAG tap: em357.cpu tap/device found: 0x3ba00477 (mfg: 0x23b (ARM Ltd.), part: 0xba00, ver: 0x3)\nInfo : JTAG tap: em357.bs tap/device found: 0x069aa62b (mfg: 0x315 (Ember Corporation), part: 0x69aa, ver: 0x0)\nInfo : JTAG tap: xc6sxl4.fpga.fpga tap/device found: 0x24000093 (mfg: 0x049 (Xilinx), part: 0x4000, ver: 0x2)\nInfo : JTAG tap: sam3n.cpu.cpu tap/device found: 0x4ba00477 (mfg: 0x23b (ARM Ltd.), part: 0xba00, ver: 0x4)\nError: xc6sxl4.fpga.fpga: IR capture error; saw 0x35 not 0x11\nWarn : Bypassing JTAG setup events due to errors\nInfo : sam3n.cpu: hardware has 6 breakpoints, 4 watchpoints\nsam3n.cpu: target state: halted\ntarget halted due to debug-request, current mode: Thread\nxPSR: 0x61000000 pc: 0x00402560 psp: 0x20000800\n#0 : at91sam3 at 0x00400000, size 0x00020000, buswidth 0, chipwidth 0\n    #  0: 0x00000000 (0x4000 16kB) not protected\n    #  1: 0x00004000 (0x4000 16kB) not protected\n    #  2: 0x00008000 (0x4000 16kB) not protected\n    #  3: 0x0000c000 (0x4000 16kB) not protected\n    #  4: 0x00010000 (0x4000 16kB) not protected\n    #  5: 0x00014000 (0x4000 16kB) not protected\n    #  6: 0x00018000 (0x4000 16kB) not protected\n    #  7: 0x0001c000 (0x4000 16kB) not protected\nflash 'at91sam3' found at 0x00400000\nError: Invalid ACK (6) in DAP response\nError: Failed to read memory at 0x400e0a0c\nError: SAM3: Error performing Erase   Write page @ phys address 0x00400800\nwrote 38620 bytes from file blob/ch.bin to flash bank 0 at offset 0x00000000 in 1.256279s (30.021 KiB/s)\nInfo : JTAG tap: em357.cpu tap/device found: 0x3ba00477 (mfg: 0x23b (ARM Ltd.), part: 0xba00, ver: 0x3)\nInfo : JTAG tap: em357.bs tap/device found: 0x069aa62b (mfg: 0x315 (Ember Corporation), part: 0x69aa, ver: 0x0)\nInfo : JTAG tap: xc6sxl4.fpga.fpga tap/device found: 0x24000093 (mfg: 0x049 (Xilinx), part: 0x4000, ver: 0x2)\nInfo : JTAG tap: sam3n.cpu.cpu tap/device found: 0x4ba00477 (mfg: 0x23b (ARM Ltd.), part: 0xba00, ver: 0x4)\nError: xc6sxl4.fpga.fpga: IR capture error; saw 0x35 not 0x11\nWarn : Bypassing JTAG setup events due to errors\nWarn : Only resetting the Cortex-M core, use a reset-init event handler to reset any peripherals or configure     hardware srst support.\nshutdown command invoked  Flashing succeeded if you get the line \"wrote 38620 bytes from file blob/ch.bin to flash bank 0 at offset 0x00000000 in 1.256279s (30.021 KiB/s)\" in the previous output. A small LED next to the SAM3 MCU should start flashing once per second.  If flashing fails, please retry the flashing command.  Sample video  Questions? Post them on raspberrypi.stackexchange.com! Use the tag #matrix-creator", 
-            "title": "Sam3 MCU Programmingm"
-        }, 
-        {
-            "location": "/Reference/Data-Sheets/", 
-            "text": "Datasheets\n\n\nMicrocontroller: \nAtmel Cortex M3 ATSAM3S2\n\n\nFPGA:\n[Spartan 6 (xc6slx4tqg144)] (http://www.xilinx.com/support/documentation/data_sheets/ds160.pdf)\n\n\nMICS:\n\nMEMS MP34DB02\n\n\niNEMO (IMU):\n\n3D accelerometer, 3D gyroscope, 3D magnetometer LSM9DS1\n\n\nINFRARED Receptor:\n\nVishay IR Receiver\n\n\nTEMP/HUM:\n[HTS221 Capacitive digital sensor for relative humidity and temperature] (http://www.st.com/content/ccc/resource/technical/document/datasheet/4d/9a/9c/ad/25/07/42/34/DM00116291.pdf/files/DM00116291.pdf/jcr:content/translations/en.DM00116291.pdf)\n\n\nUV: \n\nVishay UV A Light Sensor\n\n\nNFC:\n\nNXP N512\n\n\nEVERLOOP:\n\nRGBW Leds", 
-            "title": "Data Sheets"
-        }, 
-        {
-            "location": "/Reference/Data-Sheets/#datasheets", 
-            "text": "Microcontroller:  Atmel Cortex M3 ATSAM3S2  FPGA:\n[Spartan 6 (xc6slx4tqg144)] (http://www.xilinx.com/support/documentation/data_sheets/ds160.pdf)  MICS: MEMS MP34DB02  iNEMO (IMU): 3D accelerometer, 3D gyroscope, 3D magnetometer LSM9DS1  INFRARED Receptor: Vishay IR Receiver  TEMP/HUM:\n[HTS221 Capacitive digital sensor for relative humidity and temperature] (http://www.st.com/content/ccc/resource/technical/document/datasheet/4d/9a/9c/ad/25/07/42/34/DM00116291.pdf/files/DM00116291.pdf/jcr:content/translations/en.DM00116291.pdf)  UV:  Vishay UV A Light Sensor  NFC: NXP N512  EVERLOOP: RGBW Leds", 
-            "title": "Datasheets"
-        }, 
-        {
-            "location": "/Reference/overview/", 
-            "text": "MATRIX Creator\n\n\n![Select Advanced](https://storage.googleapis.com/packages.matrix.one/wiki-images/hardware/matrixlabs_creator_block.jpg]\n\n\nTechnical Datasheets:\n\n\n\n\n\n\nAtmel 32 bits Cortex M3 SAM3S2\n\n\n\n\n\n\nXilinx Spartan 6S XC6SLX4 FPGA\n\n\n\n\n\n\n8 \nMEMS audio sensor digital microphones\n\n\n\n\n\n\nST LSM9DS1 3D accelerometer, 3D gyroscope, 3D magnetometer\n\n\n\n\n\n\nST HTS221 digital sensor for relative humidity and temperature\n\n\n\n\n\n\nNXP PN512 NFC reader\n\n\n\n\n\n\nNXP MPL3115A2 Altimeter\n\n\n\n\n\n\nVishay VEML6070 UV Light Sensor\n\n\n\n\n\n\nVishay INFRARED Receptor\n\n\n\n\n\n\nRGBW everloop LED", 
-            "title": "Overview"
-        }, 
-        {
-            "location": "/Reference/overview/#matrix-creator", 
-            "text": "![Select Advanced](https://storage.googleapis.com/packages.matrix.one/wiki-images/hardware/matrixlabs_creator_block.jpg]", 
-            "title": "MATRIX Creator"
-        }, 
-        {
-            "location": "/Reference/overview/#technical-datasheets", 
-            "text": "Atmel 32 bits Cortex M3 SAM3S2    Xilinx Spartan 6S XC6SLX4 FPGA    8  MEMS audio sensor digital microphones    ST LSM9DS1 3D accelerometer, 3D gyroscope, 3D magnetometer    ST HTS221 digital sensor for relative humidity and temperature    NXP PN512 NFC reader    NXP MPL3115A2 Altimeter    Vishay VEML6070 UV Light Sensor    Vishay INFRARED Receptor    RGBW everloop LED", 
-            "title": "Technical Datasheets:"
-        }, 
-        {
-            "location": "/Reference/pinout/", 
-            "text": "Expansion pinout\n\n\n\n\nExpansion location\n\n\n\n\nFPGA's UCF definition\n\n\nNET \nDF\n16\n LOC=\nP106\n;\nNET \nDF\n15\n LOC=\nP102\n;\nNET \nDF\n14\n LOC=\nP101\n;\nNET \nDF\n13\n LOC=\nP99\n;\nNET \nDF\n12\n LOC=\nP98\n;\nNET \nDF\n11\n LOC=\nP95\n;\nNET \nDF\n10\n LOC=\nP94\n;\nNET \nDF\n9\n LOC=\nP93\n;\nNET \nDF\n8\n LOC=\nP92\n;\nNET \nDF\n7\n LOC=\nP88\n;\nNET \nDF\n6\n LOC=\nP85\n;\nNET \nDF\n5\n LOC=\nP83\n;\nNET \nDF\n4\n LOC=\nP82\n;\nNET \nDF\n3\n LOC=\nP81\n;\nNET \nDF\n2\n LOC=\nP80\n;\nNET \nDF\n1\n LOC=\nP79\n;\nNET \nDF\n0\n LOC=\nP78\n;", 
-            "title": "Pinout"
-        }, 
-        {
-            "location": "/Reference/pinout/#expansion-pinout", 
-            "text": "", 
-            "title": "Expansion pinout"
-        }, 
-        {
-            "location": "/Reference/pinout/#expansion-location", 
-            "text": "", 
-            "title": "Expansion location"
-        }, 
-        {
-            "location": "/Reference/pinout/#fpgas-ucf-definition", 
-            "text": "NET  DF 16  LOC= P106 ;\nNET  DF 15  LOC= P102 ;\nNET  DF 14  LOC= P101 ;\nNET  DF 13  LOC= P99 ;\nNET  DF 12  LOC= P98 ;\nNET  DF 11  LOC= P95 ;\nNET  DF 10  LOC= P94 ;\nNET  DF 9  LOC= P93 ;\nNET  DF 8  LOC= P92 ;\nNET  DF 7  LOC= P88 ;\nNET  DF 6  LOC= P85 ;\nNET  DF 5  LOC= P83 ;\nNET  DF 4  LOC= P82 ;\nNET  DF 3  LOC= P81 ;\nNET  DF 2  LOC= P80 ;\nNET  DF 1  LOC= P79 ;\nNET  DF 0  LOC= P78 ;", 
-            "title": "FPGA's UCF definition"
+            "title": "Sam3 MCU Programming"
         }, 
         {
             "location": "/intro/hal/", 
-            "text": "With the following instructions you will be able to run demos for the Everloop LED Array and for the IMU. These demos make use of the \nhardware abstraction layer\n.\n\n\n[[http://packages.matrix.one/wiki-images/general-assets/hand-small.png|alt=MATRIX Creator]]\n\n\nIf you followed the \ngetting started\n steps the \nFPGA\n and the \nSAM3 MCU\n should be programmed and ready. Also, \nSPI should have been enabled for you\n.\n\n\nThus you can just get the required source code and build it:\n\n\ngit clone https://github.com/matrix-io/matrix-creator-hal.git\ncd matrix-creator-hal\nmkdir build \n cd build\ncmake .. \n make\n\n\n\nIf the project built with no issues you can run the demos. The demos run for ever, you can terminate them with Control+C.\n\n\nSpinning leds ( \nvideo\n ):\n\n\ndemos/everloop_demo\n\n\n\nArc demo ( \nvideo\n ) :\n\n\ndemos/arc_demo\n\n\n\nCompass demo:\n\n\ndemos/compass_demo\n\nyaw = -116.006  roll = 3.19588  pitch = 0.370596\nyaw = -116.577  roll = 3.61794  pitch = 0.210613\nyaw = -115.649  roll = 3.64227  pitch = 0.334733\nyaw = -115.468  roll = 3.34762  pitch = 0.42658\nyaw = -116.423  roll = 3.49536  pitch = 0.566351\n\n\n\nMicrophones:\n\n\ndemos/mic_demo\n\n52  29  54  74  74  49  39  60\n60  31  52  46  41  55  68  70\n60  44  55  43  53  68  62  62\n45  17  69  54  18  38  74  67\n\n(You get one value for each microphone)\n\n\n\nQuestions? Post them on \nraspberrypi.stackexchange.com\n! Use the tag #matrix-creator", 
-            "title": "Hal"
+            "text": "Hardware Abstraction Layer\n\n\nWith the following instructions you will be able to run demos for the Everloop LED Array and for the IMU. These demos make use of the \nhardware abstraction layer\n.\n\n\n\n\nIf you followed the \ngetting started\n steps the \nFPGA\n and the \nSAM3 MCU\n should be programmed and ready. Also, \nSPI should have been enabled for you\n.\n\n\nThus you can just get the required source code and build it:\n\n\ngit clone https://github.com/matrix-io/matrix-creator-hal.git\ncd matrix-creator-hal\nmkdir build \n cd build\ncmake .. \n make\n\n\n\nIf the project built with no issues you can run the demos. The demos run for ever, you can terminate them with Control+C.\n\n\nSpinning leds ( \nvideo\n ):\n\n\ndemos/everloop_demo\n\n\n\nArc demo ( \nvideo\n ) :\n\n\ndemos/arc_demo\n\n\n\nCompass demo:\n\n\ndemos/compass_demo\n\nyaw = -116.006  roll = 3.19588  pitch = 0.370596\nyaw = -116.577  roll = 3.61794  pitch = 0.210613\nyaw = -115.649  roll = 3.64227  pitch = 0.334733\nyaw = -115.468  roll = 3.34762  pitch = 0.42658\nyaw = -116.423  roll = 3.49536  pitch = 0.566351\n\n\n\nMicrophones:\n\n\ndemos/mic_demo\n\n52  29  54  74  74  49  39  60\n60  31  52  46  41  55  68  70\n60  44  55  43  53  68  62  62\n45  17  69  54  18  38  74  67\n\n(You get one value for each microphone)\n\n\n\nQuestions? Post them on \nraspberrypi.stackexchange.com\n! Use the tag #matrix-creator", 
+            "title": "HAL"
         }, 
         {
-            "location": "/intro/install/", 
-            "text": "Creator Software Installation\n\n\nWelcome to the MATRIX Creator! To enjoy your new board you\u2019ll need to set it up. First, you need to have Raspbian installed on your Raspberry Pi. If you don\u2019t have it, you can \ndownload\n it and \nfollow the instructions\n.\n\n\nThen you need to install the software that will allow you to program the MATRIX Creator. To do it, you need to configure APT in the \nMATRIX Creator\n. The following steps should do it:\n\n\necho \"deb http://packages.matrix.one/matrix-creator/ ./\" | sudo tee --append /etc/apt/sources.list\n\n\n\nNow update the package list.\n\n\nsudo apt-get update\n\n\n\nThen you can install the required packages.\n\n\nsudo apt-get install matrix-creator-init matrix-creator-malos cmake g++ git\n\n\n\nNow reboot the Raspberry Pi\n. After rebooting the FPGA and the SAM3 MCU will be programmed for you automatically.\nThat is, after \nevery\n reboot the FPGA will be programmed for you with the default firmware and you will be able to \nplay with the EverLoop LEDs\n.\n\n\nIf you wish, you can also learn more about \nhow to program the FPGA\n.\n\n\nQuestions? Post them on \nraspberrypi.stackexchange.com\n! Use the tag #matrix-creator", 
-            "title": "Install"
-        }, 
-        {
-            "location": "/intro/install/#creator-software-installation", 
-            "text": "Welcome to the MATRIX Creator! To enjoy your new board you\u2019ll need to set it up. First, you need to have Raspbian installed on your Raspberry Pi. If you don\u2019t have it, you can  download  it and  follow the instructions .  Then you need to install the software that will allow you to program the MATRIX Creator. To do it, you need to configure APT in the  MATRIX Creator . The following steps should do it:  echo \"deb http://packages.matrix.one/matrix-creator/ ./\" | sudo tee --append /etc/apt/sources.list  Now update the package list.  sudo apt-get update  Then you can install the required packages.  sudo apt-get install matrix-creator-init matrix-creator-malos cmake g++ git  Now reboot the Raspberry Pi . After rebooting the FPGA and the SAM3 MCU will be programmed for you automatically.\nThat is, after  every  reboot the FPGA will be programmed for you with the default firmware and you will be able to  play with the EverLoop LEDs .  If you wish, you can also learn more about  how to program the FPGA .  Questions? Post them on  raspberrypi.stackexchange.com ! Use the tag #matrix-creator", 
-            "title": "Creator Software Installation"
+            "location": "/intro/hal/#hardware-abstraction-layer", 
+            "text": "With the following instructions you will be able to run demos for the Everloop LED Array and for the IMU. These demos make use of the  hardware abstraction layer .   If you followed the  getting started  steps the  FPGA  and the  SAM3 MCU  should be programmed and ready. Also,  SPI should have been enabled for you .  Thus you can just get the required source code and build it:  git clone https://github.com/matrix-io/matrix-creator-hal.git\ncd matrix-creator-hal\nmkdir build   cd build\ncmake ..   make  If the project built with no issues you can run the demos. The demos run for ever, you can terminate them with Control+C.  Spinning leds (  video  ):  demos/everloop_demo  Arc demo (  video  ) :  demos/arc_demo  Compass demo:  demos/compass_demo\n\nyaw = -116.006  roll = 3.19588  pitch = 0.370596\nyaw = -116.577  roll = 3.61794  pitch = 0.210613\nyaw = -115.649  roll = 3.64227  pitch = 0.334733\nyaw = -115.468  roll = 3.34762  pitch = 0.42658\nyaw = -116.423  roll = 3.49536  pitch = 0.566351  Microphones:  demos/mic_demo\n\n52  29  54  74  74  49  39  60\n60  31  52  46  41  55  68  70\n60  44  55  43  53  68  62  62\n45  17  69  54  18  38  74  67\n\n(You get one value for each microphone)  Questions? Post them on  raspberrypi.stackexchange.com ! Use the tag #matrix-creator", 
+            "title": "Hardware Abstraction Layer"
         }, 
         {
             "location": "/intro/malos/", 
             "text": "Matrix Abstraction Layer for OS\n\n\nMALOS provides a \nZeroMQ\n messaging layer. An intended target for this layer is \nMatrixOS\n.\n\n\nInstall MALOS\n\n\nsudo apt-get install matrix-creator-init matrix-creator-malos cmake g++ git\nsudo shutdown -r now\n\n\n\n\nUpgrade MALOS\n\n\nsudo apt-get update \n sudo apt-get upgrade\nsudo shutdown -r now\n\n\n\n\nTest MALOS\n\n\nStart it as a background process.\n\n\nmalos \n /dev/null 2\n1 \n\n\n\n\n\nInstall the most recent version\n\n\nTo use it make sure that you have the most recent version installed:\n\n\napt-get update\napt-get install matrix-creator-malos\n\n\n\nRunning malos\n\n\nAnd then run it. You should see an output like the following one:\n\n\n$ malos\n**************\nMALOS starting\n**************\n\nYou can query specific driver info using port 20012.\nRegistered driver IMU with port 20013.\nRegistered driver Humidity with port 20017.\nRegistered driver Everloop with port 20021.\n\n\n\nDetails\n\n\nMALOS gives you direct access to the hardware devices, and each device has four ZeroMQ (ZMQ) sockets:\n\n\n\n\nBase port (for instance 20013). ZMQ PULL channel used for device configuration (if configuration is required, most devices have a default configuration).\n\n\n(base_port + 1) is used as a keep-alive channel. This channel is used to tell the driver that it should keep sending updates to MATRIX OS. Each driver has a configurable time interval that tells it how often it should expect keep-alive messages. If an amount of time bigger than the interval elapses without keepalives, the driver will stop sending updates.\n\n\n(base_port + 2) is used as error channel. ZMQ PUSH. If an error occurs, it will be sent in this channel.\n\n\n(base_port + 3) is used to send device updates. ZMQ PUSH. Clients will normally listen on this port for updates.\n\n\n\n\nIt's important to note that \nmore than one program\n can subscribe to the \nerror channel\n and the \ndevice updates channel\n. This is achieved thanks to the PUB/SUB model of ZMQ.\n\n\nIn this \nNode.js example\n you can see all the channels used. If you want to run it you need to edit the IP address (and maybe the port depending on the device base-port mapping.\n\n\nExample - Query device list\n\n\nThis \nNode.js example\n shows how you can query the device list and some capabilities. This program uses a ZMQ RPC call.\n\n\nTo run the file, you need to edit the \ncreator_ip\n to match the IP of the Raspberry PI and the first port printed when the command malos is started (20012 in the sample session shown above).\n\n\nThis is what the output looks like:\n\n\n$ nodejs test_driver_info.js\n{ info:\n   [ { driver_name: 'IMU',\n       base_port: 20013,\n       provides_updates: true,\n       delay_between_updates: 1000,\n       needs_pings: true,\n       timeout_after_last_ping: 5000,\n       notes_for_human: 'Provides yaw/pitch/roll. Check Imu message (protocol buffer)' },\n     { driver_name: 'Humidity',\n       base_port: 20017,\n       provides_updates: true,\n       delay_between_updates: 1000,\n       needs_pings: true,\n       timeout_after_last_ping: 5000,\n       notes_for_human: 'Provides humidity and temperature. Check Humidity message (protocol buffer)' },\n     { driver_name: 'Everloop',\n       base_port: 20021,\n       provides_updates: false,\n       delay_between_updates: 1000,\n       needs_pings: false,\n       timeout_after_last_ping: 5000,\n       notes_for_human: 'Write-only. There are 35 leds. Values range from 0 to 255. Check message EverloopImage (protocol buffer)' } ] }\n\n\n\nEverloop demo\n\n\nOnce MALOS is operational, you can run the \nEverloop LED array demo\n. Remember to edit the IP address of your Raspberry PI.\n\n\nFor the impatient, here is a video of what this demo does: \nhttps://youtu.be/b0n2-hzFgcY\n.", 
-            "title": "Malos"
+            "title": "MALOS"
         }, 
         {
             "location": "/intro/malos/#matrix-abstraction-layer-for-os", 
@@ -964,6 +664,41 @@
             "location": "/intro/malos/#everloop-demo", 
             "text": "Once MALOS is operational, you can run the  Everloop LED array demo . Remember to edit the IP address of your Raspberry PI.  For the impatient, here is a video of what this demo does:  https://youtu.be/b0n2-hzFgcY .", 
             "title": "Everloop demo"
+        }, 
+        {
+            "location": "/Reference/overview/", 
+            "text": "MATRIX Creator\n\n\n\n\nTechnical Datasheets:\n\n\n\n\n\n\nAtmel 32 bits Cortex M3 SAM3S2\n\n\n\n\n\n\nXilinx Spartan 6S XC6SLX4 FPGA\n\n\n\n\n\n\n8 MEMS audio sensor digital microphones\n\n\n\n\n\n\nST LSM9DS1 3D accelerometer, 3D gyroscope, 3D magnetometer\n\n\n\n\n\n\nST HTS221 digital sensor for relative humidity and temperature\n\n\n\n\n\n\nNXP PN512 NFC reader\n\n\n\n\n\n\nNXP MPL3115A2 Altimeter\n\n\n\n\n\n\nVishay VEML6070 UV Light Sensor\n\n\n\n\n\n\nVishay INFRARED Receptor\n\n\n\n\n\n\nRGBW everloop LED", 
+            "title": "Overview"
+        }, 
+        {
+            "location": "/Reference/overview/#matrix-creator", 
+            "text": "", 
+            "title": "MATRIX Creator"
+        }, 
+        {
+            "location": "/Reference/overview/#technical-datasheets", 
+            "text": "Atmel 32 bits Cortex M3 SAM3S2    Xilinx Spartan 6S XC6SLX4 FPGA    8 MEMS audio sensor digital microphones    ST LSM9DS1 3D accelerometer, 3D gyroscope, 3D magnetometer    ST HTS221 digital sensor for relative humidity and temperature    NXP PN512 NFC reader    NXP MPL3115A2 Altimeter    Vishay VEML6070 UV Light Sensor    Vishay INFRARED Receptor    RGBW everloop LED", 
+            "title": "Technical Datasheets:"
+        }, 
+        {
+            "location": "/Reference/pinout/", 
+            "text": "Expansion pinout\n\n\n\n\nExpansion location\n\n\n\n\nFPGA's UCF definition\n\n\nNET \nDF\n16\n LOC=\nP106\n;\nNET \nDF\n15\n LOC=\nP102\n;\nNET \nDF\n14\n LOC=\nP101\n;\nNET \nDF\n13\n LOC=\nP99\n;\nNET \nDF\n12\n LOC=\nP98\n;\nNET \nDF\n11\n LOC=\nP95\n;\nNET \nDF\n10\n LOC=\nP94\n;\nNET \nDF\n9\n LOC=\nP93\n;\nNET \nDF\n8\n LOC=\nP92\n;\nNET \nDF\n7\n LOC=\nP88\n;\nNET \nDF\n6\n LOC=\nP85\n;\nNET \nDF\n5\n LOC=\nP83\n;\nNET \nDF\n4\n LOC=\nP82\n;\nNET \nDF\n3\n LOC=\nP81\n;\nNET \nDF\n2\n LOC=\nP80\n;\nNET \nDF\n1\n LOC=\nP79\n;\nNET \nDF\n0\n LOC=\nP78\n;", 
+            "title": "Pinout"
+        }, 
+        {
+            "location": "/Reference/pinout/#expansion-pinout", 
+            "text": "", 
+            "title": "Expansion pinout"
+        }, 
+        {
+            "location": "/Reference/pinout/#expansion-location", 
+            "text": "", 
+            "title": "Expansion location"
+        }, 
+        {
+            "location": "/Reference/pinout/#fpgas-ucf-definition", 
+            "text": "NET  DF 16  LOC= P106 ;\nNET  DF 15  LOC= P102 ;\nNET  DF 14  LOC= P101 ;\nNET  DF 13  LOC= P99 ;\nNET  DF 12  LOC= P98 ;\nNET  DF 11  LOC= P95 ;\nNET  DF 10  LOC= P94 ;\nNET  DF 9  LOC= P93 ;\nNET  DF 8  LOC= P92 ;\nNET  DF 7  LOC= P88 ;\nNET  DF 6  LOC= P85 ;\nNET  DF 5  LOC= P83 ;\nNET  DF 4  LOC= P82 ;\nNET  DF 3  LOC= P81 ;\nNET  DF 2  LOC= P80 ;\nNET  DF 1  LOC= P79 ;\nNET  DF 0  LOC= P78 ;", 
+            "title": "FPGA's UCF definition"
         }
     ]
 }
