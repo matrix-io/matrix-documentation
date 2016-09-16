@@ -1,64 +1,43 @@
-# Sensors
 
-### Simple Sensor List
-- temperature
-- humidity
+## .init
+All sensors are initialized using the `init` method. 
 
+* `sensorType`: Type of sensor you are initializing `temperature`, `humidity`, `pressure`, `uv`, `altitude`, `gyro`, `accel`.
+* `options`: The options for that sensor. By default, all sensors have a `refresh` and `timeout` property.
 
-### Complex Sensor List
-- uv
-- gps
-- gyroscope
-- accellerometer
-
-# Using Sensors
-Use of options is optional.
 ```
+var options = { 
+  refresh: 1000 //milliseconds
+  timeout: 1000 //milliseconds
+};
+
 matrix.init('temperature', options).then(function(data){
   //see below for data formats
-})
+})it
 ```
 
-## options
-
-- `refresh` - ms delay between refresh
-- `timeout` - how long before auto timeout
-
-### Data from Simple Sensors
-Simple sensors emit float numbers with a `value` key.
+## Temperature
+Output for `temperature` (in &#8451;).
 ```
 {
-  value: 72.0
-}
-```
-# Data from complex sensors
-Complex sensors emit structured data
-
-## microphone
-```
-{
-  db: 132.23,
-  text: 'hello world'
+  value: 28.0
 }
 ```
 
-## gps
-```
-{
-  lat: 34.234,
-  lon: 13.111
-}
-```
-## accelerometer
-```
-{
-  x: 0.1,
-  y: 0.23,
-  z: 0.224
-}
+## Humidity
+Output for `humidity`.
 
-```
-## gyroscope
+## Pressure
+Output for `pressure`.
+
+## Altitude
+Output for `altitude`.
+
+## UV
+Output for `temperature`.
+
+## Gyroscope
+Output for `gyro`.
 ```
 {
   yaw: 82.06211853027344,
@@ -67,6 +46,15 @@ Complex sensors emit structured data
 }
 ```
 
+## Accelerometer
+```
+{
+  x: 0.1,
+  y: 0.23,
+  z: 0.224
+}
+```
 
-# Filtering Sensor Data
-see [API > Filter](filter.md)
+
+## Filtering Sensor Data
+See [API > Filter](filter.md)

@@ -1,4 +1,4 @@
-## SPI
+### SPI
 
 The SPI bus is not enabled by default by Raspbian.
 

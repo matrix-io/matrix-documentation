@@ -1,5 +1,3 @@
-# Computer Vision
-
 ```
 matrix.init( algorithm, options )
 ```

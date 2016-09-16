@@ -1,6 +1,6 @@
 ### MATRIX Creator
 
-![Select Advanced](https://storage.googleapis.com/packages.matrix.one/wiki-images/hardware/matrixlabs_creator_block.jpg]
+![Select Advanced](https://storage.googleapis.com/packages.matrix.one/wiki-images/hardware/matrixlabs_creator_block.jpg)
 
 
 ### Technical Datasheets:
@@ -9,7 +9,7 @@
 
 * [Xilinx Spartan 6S XC6SLX4 FPGA](http://www.xilinx.com/support/documentation/data_sheets/ds160.pdf)
 
-* 8 [MEMS audio sensor digital microphones](http://www.st.com/content/ccc/resource/technical/document/datasheet/57/af/88/31/7b/59/4f/77/DM00111225.pdf/files/DM00111225.pdf/jcr:content/translations/en.DM00111225.pdf)
+* [8 MEMS audio sensor digital microphones](http://www.st.com/content/ccc/resource/technical/document/datasheet/57/af/88/31/7b/59/4f/77/DM00111225.pdf/files/DM00111225.pdf/jcr:content/translations/en.DM00111225.pdf)
 
 * [ST LSM9DS1 3D accelerometer, 3D gyroscope, 3D magnetometer](http://www.st.com/content/ccc/resource/technical/document/datasheet/1e/3f/2a/d6/25/eb/48/46/DM00103319.pdf/files/DM00103319.pdf/jcr:content/translations/en.DM00103319.pdf)
 

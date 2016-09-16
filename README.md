@@ -4,7 +4,8 @@ MATRIX Documentation uses [MkDocs](http://www.mkdocs.org/) to format and compile
 
 ```
 # Do this to get the docs running locally.
-pip install mkdocs
+sudo pip install mkdocs
+sudo pip install mkdocs-material
 mkdocs serve
 ```
 

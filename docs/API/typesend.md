@@ -1,5 +1,3 @@
-# Send
-
 Unless otherwise specified, sensor data is typed with the application name.
 
 ```

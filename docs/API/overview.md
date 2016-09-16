@@ -1,6 +1,6 @@
-## Overview
+### Installation
 
-MatrixOS applications are an independent process running on a device. They communicate with the MatrixOS core via IPC which is largely event driven. This makes sense for sensors, because just like a REST call, we are waiting for a data point.
+MATRIX OS applications are an independent process running on a device. They communicate with the MatrixOS core via IPC which is largely event driven. This makes sense for sensors, because just like a REST call, we are waiting for a data point.
 
 The approach we have chosen for this is to use JavaScript callbacks which look like this.
 
