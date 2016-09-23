@@ -458,40 +458,61 @@
 <ol>
 <li>Install your Creator onto an rPi, connect to network cable which goes to local network, NOT to your computer, as it needs to be discoverable. Wifi support coming soon.</li>
 <li>Discover your rPi address with <code>arp -na | grep -i b8:27:eb</code>.</li>
-<li>SSH into your rPi. <code>ssh pi@192.168.0.15</code> Open 3 SSH sessions</li>
+<li>SSH into your rPi. <code>ssh pi@192.168.0.15</code></li>
 <li>(Optional) Map ip to a host name in <code>/etc/hosts</code>.</li>
 </ol>
 <pre><code>echo '192.168.0.15 matrix' &gt;&gt; /etc/hosts
 ssh pi@matrix
 </code></pre>
 
-<h4 id="on-raspberry-pi">On Raspberry Pi</h4>
+<h4 id="raspberry-pi">Raspberry Pi</h4>
+<h5 id="setup">Setup</h5>
 <ol>
-<li>In one SSH session on your Creator <code>echo "deb http://packages.matrix.one/matrix-creator/ ./" | sudo tee --append /etc/apt/sources.list</code></li>
-<li><code>apt-get update; apt-get upgrade;</code> - update apt-get with our packages</li>
-<li><code>sudo raspi-config</code> - enable camera</li>
-<li><code>sudo reboot</code> - reboot</li>
-<li><code>apt-get install git malos-eye matrix-creator-malos libzmq3-dev</code> - install hardware drivers</li>
-<li><code>git clone https://github.com/matrix-io/matrix-os.git</code> - install matrix os</li>
-<li><code>cd matrix-os; npm install</code> - setup</li>
+<li>In one SSH session on your Creator run the following:</li>
+</ol>
+<pre><code># setup &amp; installation
+echo &quot;deb http://packages.matrix.one/matrix-creator/ ./&quot; | sudo tee --append /etc/apt/sources.list;
+sudo apt-get update;
+sudo apt-get upgrade;
+sudo apt-get install -y xc3sprog malos-eye matrix-creator-openocd wiringpi matrix-creator-init cmake g++ git --force-yes;
+git clone https://github.com/matrix-io/matrix-os.git;
+cd matrix-os;
+git submodule update --init;
+npm install;
+
+# configure - NOTE: This is interactive. Enable your camera
+sudo raspi-config;
+
+
+sudo reboot;
+</code></pre>
+
+<ol>
+<li>Be sure your camera was enabled in <code>raspi-config</code></li>
+</ol>
+<h5 id="run-services">Run Services</h5>
+<ol>
 <li>In one SSH session, run <code>malos</code> - hardware interface</li>
 <li>In another SSH session, run <code>malos_eye</code> - computer vision provider</li>
-<li>In the final SSH session, from the <code>matrix-os</code> folder. <code>node index.js</code></li>
+</ol>
+<h5 id="register-device">Register Device</h5>
+<ol>
+<li>With https://github.com/matrix-io/matrix-cli run <code>matrix register device</code></li>
+<li>Enter a name and (optional) description</li>
+<li>After a few moments you will be provided with a device ID and secret.</li>
+<li>Add these as environment variables via a shell script or command line.</li>
+<li>(optional) We export envs via an <code>.env</code> file which can be processed using <code>source .env</code></li>
+<li>To begin targeting this device with the CLI, enter the <code>matrix use</code> command provided</li>
+</ol>
+<h5 id="run-matrix-os">Run MATRIX OS</h5>
+<ol>
+<li>Ensure environment variables are set from above step.</li>
+<li>From the <code>matrix-os</code> folder. <code>node index.js</code></li>
 <li>If you want to start a MATRIX app on launch, use the env <code>START_APP</code>. ex. <code>START_APP=monitor node index.js</code></li>
 <li>Read environment notes below.</li>
 <li>Now you can issue commands and deploy apps to your MATRIX OS from the CLI. ( https://github.com/matrix-io/matrix-cli)</li>
+<li>Have fun!</li>
 </ol>
-<h3 id="environments">Environments</h3>
-<p>MATRIX OS and CLI run on top of several different environments, most users will want to select <code>production</code>, which will be selected by default. ( Note: While in alpha, MATRIX OS will default to <code>rc</code> )</p>
-<p><code>production</code> - stable releases ( do not use while in alpha )
-<code>rc</code> - release candidate</p>
-<p>These two share a dataset, so users and devices from one will be available on the other.</p>
-<p>Change environment by setting <code>NODE_ENV</code>. ex. <code>NODE_ENV=rc node index.js</code></p>
-<p>From the CLI use <code>matrix set env rc</code>.</p>
-<p>Make sure your device software and CLI are using the same environment.</p>
-<h4 id="cutting-edge">Cutting Edge</h4>
-<p><code>dev</code> - development environment</p>
-<p>You will have to make a second account for this environment (use <code>matrix register</code>). Test out the newest features before they move to <code>rc</code>. You will have to recreate your devices here.</p>
           <aside class="copyright" role="note">
             
             Documentation built with
