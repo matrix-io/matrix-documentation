@@ -67,18 +67,33 @@
         }, 
         {
             "location": "/intro/install/", 
-            "text": "Package Installation\n\n\nWelcome to the MATRIX Creator! To enjoy your new board you\u2019ll need to set it up. First, you need to have Raspbian installed on your Raspberry Pi. If you don\u2019t have it, you can \ndownload\n it and \nfollow the instructions\n.\n\n\nAdd the matrix package repository.\n\n\necho \ndeb http://packages.matrix.one/matrix-creator/ ./\n | sudo tee --append /etc/apt/sources.list\n\n\n\n\nUpdate the Package List.\n\n\nsudo apt-get update\nsudo apt-get install matrix-creator-init matrix-creator-malos cmake g++ git\n\n\n\n\nReboot the Raspberry Pi!\n\n\nBasic Examples\n\n\nNote:\n For the following examples, the pre-requisite is NodeJS. Don't use the one shipped with raspbian because it's a bit old. If you don't have it, please check a recipe included below.\n\n\ngit clone https://github.com/matrix-io/matrix-creator-malos.git\ncd src/js_test\n\n// humidity, temperatre\nnode test_humidity.js \n\n// inertial measurement unit\nnode test_imu.js \n\n// pressure, altitude\nnode test_pressure.js \n\n// uv index, uv range\nnode test_uv.js", 
+            "text": "From https://github.com/matrix-io/matrix-os#alpha-installation-instructions\n\n\nAlpha Installation Instructions\n\n\nNew parts of the MATRIX ecosystem are being developed and integrated every day. Here are a set of instructions which will get MATRIX OS running on your Creator. This will be streamlined in the future.\n\n\nLocal Computer\n\n\n\n\nInstall your Creator onto an rPi, connect to network cable which goes to local network, NOT to your computer, as it needs to be discoverable. Wifi support coming soon.\n\n\nDiscover your rPi address with \narp -na | grep -i b8:27:eb\n.\n\n\nSSH into your rPi. \nssh pi@192.168.0.15\n Open 3 SSH sessions\n\n\n(Optional) Map ip to a host name in \n/etc/hosts\n.\n\n\n\n\necho '192.168.0.15 matrix' \n /etc/hosts\nssh pi@matrix\n\n\n\n\nOn Raspberry Pi\n\n\n\n\nIn one SSH session on your Creator \necho \"deb http://packages.matrix.one/matrix-creator/ ./\" | sudo tee --append /etc/apt/sources.list\n\n\napt-get update; apt-get upgrade;\n - update apt-get with our packages\n\n\nsudo raspi-config\n - enable camera\n\n\nsudo reboot\n - reboot\n\n\napt-get install git malos-eye matrix-creator-malos libzmq3-dev\n - install hardware drivers\n\n\ngit clone https://github.com/matrix-io/matrix-os.git\n - install matrix os\n\n\ncd matrix-os; npm install\n - setup\n\n\nIn one SSH session, run \nmalos\n - hardware interface\n\n\nIn another SSH session, run \nmalos_eye\n - computer vision provider\n\n\nIn the final SSH session, from the \nmatrix-os\n folder. \nnode index.js\n\n\nIf you want to start a MATRIX app on launch, use the env \nSTART_APP\n. ex. \nSTART_APP=monitor node index.js\n\n\nRead environment notes below.\n\n\nNow you can issue commands and deploy apps to your MATRIX OS from the CLI. ( https://github.com/matrix-io/matrix-cli)\n\n\n\n\nEnvironments\n\n\nMATRIX OS and CLI run on top of several different environments, most users will want to select \nproduction\n, which will be selected by default. ( Note: While in alpha, MATRIX OS will default to \nrc\n )\n\n\nproduction\n - stable releases ( do not use while in alpha )\n\nrc\n - release candidate\n\n\nThese two share a dataset, so users and devices from one will be available on the other.\n\n\nChange environment by setting \nNODE_ENV\n. ex. \nNODE_ENV=rc node index.js\n\n\nFrom the CLI use \nmatrix set env rc\n.\n\n\nMake sure your device software and CLI are using the same environment.\n\n\nCutting Edge\n\n\ndev\n - development environment\n\n\nYou will have to make a second account for this environment (use \nmatrix register\n). Test out the newest features before they move to \nrc\n. You will have to recreate your devices here.", 
             "title": "Getting Started"
         }, 
         {
-            "location": "/intro/install/#package-installation", 
-            "text": "Welcome to the MATRIX Creator! To enjoy your new board you\u2019ll need to set it up. First, you need to have Raspbian installed on your Raspberry Pi. If you don\u2019t have it, you can  download  it and  follow the instructions .  Add the matrix package repository.  echo  deb http://packages.matrix.one/matrix-creator/ ./  | sudo tee --append /etc/apt/sources.list  Update the Package List.  sudo apt-get update\nsudo apt-get install matrix-creator-init matrix-creator-malos cmake g++ git  Reboot the Raspberry Pi!", 
-            "title": "Package Installation"
+            "location": "/intro/install/#alpha-installation-instructions", 
+            "text": "New parts of the MATRIX ecosystem are being developed and integrated every day. Here are a set of instructions which will get MATRIX OS running on your Creator. This will be streamlined in the future.", 
+            "title": "Alpha Installation Instructions"
         }, 
         {
-            "location": "/intro/install/#basic-examples", 
-            "text": "Note:  For the following examples, the pre-requisite is NodeJS. Don't use the one shipped with raspbian because it's a bit old. If you don't have it, please check a recipe included below.  git clone https://github.com/matrix-io/matrix-creator-malos.git\ncd src/js_test\n\n// humidity, temperatre\nnode test_humidity.js \n\n// inertial measurement unit\nnode test_imu.js \n\n// pressure, altitude\nnode test_pressure.js \n\n// uv index, uv range\nnode test_uv.js", 
-            "title": "Basic Examples"
+            "location": "/intro/install/#local-computer", 
+            "text": "Install your Creator onto an rPi, connect to network cable which goes to local network, NOT to your computer, as it needs to be discoverable. Wifi support coming soon.  Discover your rPi address with  arp -na | grep -i b8:27:eb .  SSH into your rPi.  ssh pi@192.168.0.15  Open 3 SSH sessions  (Optional) Map ip to a host name in  /etc/hosts .   echo '192.168.0.15 matrix'   /etc/hosts\nssh pi@matrix", 
+            "title": "Local Computer"
+        }, 
+        {
+            "location": "/intro/install/#on-raspberry-pi", 
+            "text": "In one SSH session on your Creator  echo \"deb http://packages.matrix.one/matrix-creator/ ./\" | sudo tee --append /etc/apt/sources.list  apt-get update; apt-get upgrade;  - update apt-get with our packages  sudo raspi-config  - enable camera  sudo reboot  - reboot  apt-get install git malos-eye matrix-creator-malos libzmq3-dev  - install hardware drivers  git clone https://github.com/matrix-io/matrix-os.git  - install matrix os  cd matrix-os; npm install  - setup  In one SSH session, run  malos  - hardware interface  In another SSH session, run  malos_eye  - computer vision provider  In the final SSH session, from the  matrix-os  folder.  node index.js  If you want to start a MATRIX app on launch, use the env  START_APP . ex.  START_APP=monitor node index.js  Read environment notes below.  Now you can issue commands and deploy apps to your MATRIX OS from the CLI. ( https://github.com/matrix-io/matrix-cli)", 
+            "title": "On Raspberry Pi"
+        }, 
+        {
+            "location": "/intro/install/#environments", 
+            "text": "MATRIX OS and CLI run on top of several different environments, most users will want to select  production , which will be selected by default. ( Note: While in alpha, MATRIX OS will default to  rc  )  production  - stable releases ( do not use while in alpha ) rc  - release candidate  These two share a dataset, so users and devices from one will be available on the other.  Change environment by setting  NODE_ENV . ex.  NODE_ENV=rc node index.js  From the CLI use  matrix set env rc .  Make sure your device software and CLI are using the same environment.", 
+            "title": "Environments"
+        }, 
+        {
+            "location": "/intro/install/#cutting-edge", 
+            "text": "dev  - development environment  You will have to make a second account for this environment (use  matrix register ). Test out the newest features before they move to  rc . You will have to recreate your devices here.", 
+            "title": "Cutting Edge"
         }, 
         {
             "location": "/API/overview/", 
@@ -382,43 +397,8 @@
         }, 
         {
             "location": "/Configuration/overview/", 
-            "text": "Workflow\n\n\nApplication\n\n\nEach application has an \nconfig.yaml\n file which determines several things.\n\n\n\n\nHow to evaluate and categorize the application for the MatrixOS app Store\n\n\nApplication dashboard widget layout, display and data sources\n\n\nRuntime variables used by Matrix applications\n\n\nFixed data structure for saving information and routing to dashboard.\n\n\nWhat external services, such as CV and sensors, will be used, and how will they be provided to the app.\n\n\n\n\nExternal services can also be coded in the application directly.\n\n\nDeployment\n\n\nConfigurations are written on deployment ( see \nmatrix deploy\n ). If you change the \nconfig.yaml\n, you must deploy the application again. Otherwise you can change configuration using \nmatrix set config\n.\n\n\nData Types\n\n\nIf you've setup a migration or an SQL table, this is a very simple structure to tell the application what sort of data you will be passing around.\n\n\ndataTypes:\n  foobar: integer\n\n\n\n\nSee \nData Types\n\n\nScreens \n Widgets\n\n\nTwo root nodes. \nscreens\n and \nwidgets\n work together to determine layout and content.\n\n\nScreens\n\n\nScreens notates a nested array which informs the dashboard how to layout the widgets.\n\n\nscreens:\n  - - a\n    - b\n    - foo\n  - - 1\n    - 2\n    - 3\n\n// =\n turns into\n\n[ [ a, b, foo ], [ 1, 2, 3 ] ]\n\n\n\n\nSub arrays correlates to rows in a display.\nThe above would display on the dashboard as follows:\n\n\n[a][b][foo]\n[1][2][3]\n\n\n\n\nThe value in the array corresponds to a widget name.\n\n\nWidgets\n\n\nWidgets describe the module to load inside a designated screen.\n\n\nwidgets:\n  foo:\n    # type defines what type of data this widget should display\n    type: foobar\n    # if provided, label shows above each widget\n    label: Foo widget\n\n\n\n\nFor more info see \nScreens \n Widgets", 
-            "title": "Overview"
-        }, 
-        {
-            "location": "/Configuration/overview/#workflow", 
             "text": "", 
-            "title": "Workflow"
-        }, 
-        {
-            "location": "/Configuration/overview/#application", 
-            "text": "Each application has an  config.yaml  file which determines several things.   How to evaluate and categorize the application for the MatrixOS app Store  Application dashboard widget layout, display and data sources  Runtime variables used by Matrix applications  Fixed data structure for saving information and routing to dashboard.  What external services, such as CV and sensors, will be used, and how will they be provided to the app.   External services can also be coded in the application directly.", 
-            "title": "Application"
-        }, 
-        {
-            "location": "/Configuration/overview/#deployment", 
-            "text": "Configurations are written on deployment ( see  matrix deploy  ). If you change the  config.yaml , you must deploy the application again. Otherwise you can change configuration using  matrix set config .", 
-            "title": "Deployment"
-        }, 
-        {
-            "location": "/Configuration/overview/#data-types", 
-            "text": "If you've setup a migration or an SQL table, this is a very simple structure to tell the application what sort of data you will be passing around.  dataTypes:\n  foobar: integer  See  Data Types", 
-            "title": "Data Types"
-        }, 
-        {
-            "location": "/Configuration/overview/#screens-widgets", 
-            "text": "Two root nodes.  screens  and  widgets  work together to determine layout and content.", 
-            "title": "Screens &amp; Widgets"
-        }, 
-        {
-            "location": "/Configuration/overview/#screens", 
-            "text": "Screens notates a nested array which informs the dashboard how to layout the widgets.  screens:\n  - - a\n    - b\n    - foo\n  - - 1\n    - 2\n    - 3\n\n// =  turns into\n\n[ [ a, b, foo ], [ 1, 2, 3 ] ]  Sub arrays correlates to rows in a display.\nThe above would display on the dashboard as follows:  [a][b][foo]\n[1][2][3]  The value in the array corresponds to a widget name.", 
-            "title": "Screens"
-        }, 
-        {
-            "location": "/Configuration/overview/#widgets", 
-            "text": "Widgets describe the module to load inside a designated screen.  widgets:\n  foo:\n    # type defines what type of data this widget should display\n    type: foobar\n    # if provided, label shows above each widget\n    label: Foo widget  For more info see  Screens   Widgets", 
-            "title": "Widgets"
+            "title": "Overview"
         }, 
         {
             "location": "/Configuration/screens/", 
@@ -427,38 +407,8 @@
         }, 
         {
             "location": "/Configuration/datatypes/", 
-            "text": "dataTypes\n\n\nWe experimented with a loosely defined data structure, where the system would dynamically type information for storage and retrieval. This may return in the future, but for now, we need to clearly define data structures and types.\n\n\nThis is only useful if the application is \nmatrix.send()\ning information for storage or dashboard use.\n\n\ntypes\n\n\nTypes are segments of your data. These are used for filtering in the dashboard.\n\n\ndata\n\n\nThere are two ways to structure data types\n\n\nimplicit data type names\n\n\ndataTypes:\n  foo: string\n  bar: integer\n\n\n\n\n# matrix.send({ foo: 'abc', bar: 123 })\n\n\n\n\nexplicit data type names\n\n\ndataTypes:\n  type1:\n    foo: string\n  type2:\n    bar: integer\n\n\n\n\n# matrix.type('type1').send({foo: 'abc'})\n# matrix.type('type2').send({bar: 123})\n\n\n\n\noptions\n\n\nHere is the regex object for the different data formats.\n\n\nregex: {\n  string :/(string|str|s)/,\n  object :/(object|obj|o)/,\n  float :/(float|fl|f)/,\n  integer :/(integer|int|i)/,\n  boolean :/(b|bool|boolean)/,\n}\n\n\n\n\nThis is so you can do.\n\n\ndataTypes:\n  foo1: s\n  foo2: s\n  foo3: o", 
+            "text": "", 
             "title": "Datatypes"
-        }, 
-        {
-            "location": "/Configuration/datatypes/#datatypes", 
-            "text": "We experimented with a loosely defined data structure, where the system would dynamically type information for storage and retrieval. This may return in the future, but for now, we need to clearly define data structures and types.  This is only useful if the application is  matrix.send() ing information for storage or dashboard use.", 
-            "title": "dataTypes"
-        }, 
-        {
-            "location": "/Configuration/datatypes/#types", 
-            "text": "Types are segments of your data. These are used for filtering in the dashboard.", 
-            "title": "types"
-        }, 
-        {
-            "location": "/Configuration/datatypes/#data", 
-            "text": "There are two ways to structure data types", 
-            "title": "data"
-        }, 
-        {
-            "location": "/Configuration/datatypes/#implicit-data-type-names", 
-            "text": "dataTypes:\n  foo: string\n  bar: integer  # matrix.send({ foo: 'abc', bar: 123 })", 
-            "title": "implicit data type names"
-        }, 
-        {
-            "location": "/Configuration/datatypes/#explicit-data-type-names", 
-            "text": "dataTypes:\n  type1:\n    foo: string\n  type2:\n    bar: integer  # matrix.type('type1').send({foo: 'abc'})\n# matrix.type('type2').send({bar: 123})", 
-            "title": "explicit data type names"
-        }, 
-        {
-            "location": "/Configuration/datatypes/#options", 
-            "text": "Here is the regex object for the different data formats.  regex: {\n  string :/(string|str|s)/,\n  object :/(object|obj|o)/,\n  float :/(float|fl|f)/,\n  integer :/(integer|int|i)/,\n  boolean :/(b|bool|boolean)/,\n}  This is so you can do.  dataTypes:\n  foo1: s\n  foo2: s\n  foo3: o", 
-            "title": "options"
         }, 
         {
             "location": "/CLI/overview/", 

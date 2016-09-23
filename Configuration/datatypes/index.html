@@ -298,30 +298,6 @@
     </a>
     
       
-        
-      
-      
-        <ul>
-          
-            <li class="anchor">
-              <a title="types" href="#types">
-                types
-              </a>
-            </li>
-          
-            <li class="anchor">
-              <a title="data" href="#data">
-                data
-              </a>
-            </li>
-          
-            <li class="anchor">
-              <a title="options" href="#options">
-                options
-              </a>
-            </li>
-          
-        </ul>
       
     
   </li>
@@ -471,51 +447,9 @@
       <article class="article">
         <div class="wrapper">
           
-          <h1 id="datatypes">dataTypes</h1>
-<p>We experimented with a loosely defined data structure, where the system would dynamically type information for storage and retrieval. This may return in the future, but for now, we need to clearly define data structures and types.</p>
-<p>This is only useful if the application is <code>matrix.send()</code>ing information for storage or dashboard use.</p>
-<h2 id="types">types</h2>
-<p>Types are segments of your data. These are used for filtering in the dashboard.</p>
-<h2 id="data">data</h2>
-<p>There are two ways to structure data types</p>
-<h3 id="implicit-data-type-names">implicit data type names</h3>
-<pre><code class="yaml">dataTypes:
-  foo: string
-  bar: integer
-</code></pre>
-
-<pre><code># matrix.send({ foo: 'abc', bar: 123 })
-</code></pre>
-
-<h3 id="explicit-data-type-names">explicit data type names</h3>
-<pre><code>dataTypes:
-  type1:
-    foo: string
-  type2:
-    bar: integer
-</code></pre>
-
-<pre><code># matrix.type('type1').send({foo: 'abc'})
-# matrix.type('type2').send({bar: 123})
-</code></pre>
-
-<h2 id="options">options</h2>
-<p>Here is the regex object for the different data formats.</p>
-<pre><code>regex: {
-  string :/(string|str|s)/,
-  object :/(object|obj|o)/,
-  float :/(float|fl|f)/,
-  integer :/(integer|int|i)/,
-  boolean :/(b|bool|boolean)/,
-}
-</code></pre>
-
-<p>This is so you can do.</p>
-<pre><code>dataTypes:
-  foo1: s
-  foo2: s
-  foo3: o
-</code></pre>
+            <h1>Datatypes</h1>
+          
+          
           <aside class="copyright" role="note">
             
             Documentation built with

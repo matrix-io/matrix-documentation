@@ -158,14 +158,8 @@
         <ul>
           
             <li class="anchor">
-              <a title="Package Installation" href="#package-installation">
-                Package Installation
-              </a>
-            </li>
-          
-            <li class="anchor">
-              <a title="Basic Examples" href="#basic-examples">
-                Basic Examples
+              <a title="Alpha Installation Instructions" href="#alpha-installation-instructions">
+                Alpha Installation Instructions
               </a>
             </li>
           
@@ -457,35 +451,47 @@
           
             <h1>Getting Started</h1>
           
-          <h2 id="package-installation">Package Installation</h2>
-<p>Welcome to the MATRIX Creator! To enjoy your new board you’ll need to set it up. First, you need to have Raspbian installed on your Raspberry Pi. If you don’t have it, you can <a href="https://www.raspberrypi.org/downloads/raspbian/">download</a> it and <a href="https://www.raspberrypi.org/documentation/installation/installing-images/README.md">follow the instructions</a>.</p>
-<p>Add the matrix package repository.</p>
-<pre><code>echo &quot;deb http://packages.matrix.one/matrix-creator/ ./&quot; | sudo tee --append /etc/apt/sources.list
+          <p>From https://github.com/matrix-io/matrix-os#alpha-installation-instructions</p>
+<h2 id="alpha-installation-instructions">Alpha Installation Instructions</h2>
+<p>New parts of the MATRIX ecosystem are being developed and integrated every day. Here are a set of instructions which will get MATRIX OS running on your Creator. This will be streamlined in the future.</p>
+<h4 id="local-computer">Local Computer</h4>
+<ol>
+<li>Install your Creator onto an rPi, connect to network cable which goes to local network, NOT to your computer, as it needs to be discoverable. Wifi support coming soon.</li>
+<li>Discover your rPi address with <code>arp -na | grep -i b8:27:eb</code>.</li>
+<li>SSH into your rPi. <code>ssh pi@192.168.0.15</code> Open 3 SSH sessions</li>
+<li>(Optional) Map ip to a host name in <code>/etc/hosts</code>.</li>
+</ol>
+<pre><code>echo '192.168.0.15 matrix' &gt;&gt; /etc/hosts
+ssh pi@matrix
 </code></pre>
 
-<p>Update the Package List.</p>
-<pre><code>sudo apt-get update
-sudo apt-get install matrix-creator-init matrix-creator-malos cmake g++ git
-</code></pre>
-
-<p>Reboot the Raspberry Pi!</p>
-<h2 id="basic-examples">Basic Examples</h2>
-<p><strong>Note:</strong> For the following examples, the pre-requisite is NodeJS. Don't use the one shipped with raspbian because it's a bit old. If you don't have it, please check a recipe included below.</p>
-<pre><code>git clone https://github.com/matrix-io/matrix-creator-malos.git
-cd src/js_test
-
-// humidity, temperatre
-node test_humidity.js 
-
-// inertial measurement unit
-node test_imu.js 
-
-// pressure, altitude
-node test_pressure.js 
-
-// uv index, uv range
-node test_uv.js
-</code></pre>
+<h4 id="on-raspberry-pi">On Raspberry Pi</h4>
+<ol>
+<li>In one SSH session on your Creator <code>echo "deb http://packages.matrix.one/matrix-creator/ ./" | sudo tee --append /etc/apt/sources.list</code></li>
+<li><code>apt-get update; apt-get upgrade;</code> - update apt-get with our packages</li>
+<li><code>sudo raspi-config</code> - enable camera</li>
+<li><code>sudo reboot</code> - reboot</li>
+<li><code>apt-get install git malos-eye matrix-creator-malos libzmq3-dev</code> - install hardware drivers</li>
+<li><code>git clone https://github.com/matrix-io/matrix-os.git</code> - install matrix os</li>
+<li><code>cd matrix-os; npm install</code> - setup</li>
+<li>In one SSH session, run <code>malos</code> - hardware interface</li>
+<li>In another SSH session, run <code>malos_eye</code> - computer vision provider</li>
+<li>In the final SSH session, from the <code>matrix-os</code> folder. <code>node index.js</code></li>
+<li>If you want to start a MATRIX app on launch, use the env <code>START_APP</code>. ex. <code>START_APP=monitor node index.js</code></li>
+<li>Read environment notes below.</li>
+<li>Now you can issue commands and deploy apps to your MATRIX OS from the CLI. ( https://github.com/matrix-io/matrix-cli)</li>
+</ol>
+<h3 id="environments">Environments</h3>
+<p>MATRIX OS and CLI run on top of several different environments, most users will want to select <code>production</code>, which will be selected by default. ( Note: While in alpha, MATRIX OS will default to <code>rc</code> )</p>
+<p><code>production</code> - stable releases ( do not use while in alpha )
+<code>rc</code> - release candidate</p>
+<p>These two share a dataset, so users and devices from one will be available on the other.</p>
+<p>Change environment by setting <code>NODE_ENV</code>. ex. <code>NODE_ENV=rc node index.js</code></p>
+<p>From the CLI use <code>matrix set env rc</code>.</p>
+<p>Make sure your device software and CLI are using the same environment.</p>
+<h4 id="cutting-edge">Cutting Edge</h4>
+<p><code>dev</code> - development environment</p>
+<p>You will have to make a second account for this environment (use <code>matrix register</code>). Test out the newest features before they move to <code>rc</code>. You will have to recreate your devices here.</p>
           <aside class="copyright" role="note">
             
             Documentation built with
