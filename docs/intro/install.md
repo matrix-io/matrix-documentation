@@ -15,25 +15,37 @@ ssh pi@matrix
 
 #### Raspberry Pi
 ##### Setup
-1. In one SSH session on your Creator run the following:
+In one SSH session on your Creator run the following:
 ```
 # setup & installation
 echo "deb http://packages.matrix.one/matrix-creator/ ./" | sudo tee --append /etc/apt/sources.list;
 sudo apt-get update;
 sudo apt-get upgrade;
 sudo apt-get install -y xc3sprog malos-eye matrix-creator-openocd wiringpi matrix-creator-init cmake g++ git --force-yes;
+```
+
+This completes the Creator hardware setup.
+
+### You can now explore the [Hardware Interfaces](../intro/interfaces.md).
+
+#### Matrix OS
+##### Installation
+```
 git clone https://github.com/matrix-io/matrix-os.git;
 cd matrix-os;
 git submodule update --init;
 npm install;
+```
 
+##### Configuration
+
+```
 # configure - NOTE: This is interactive. Enable your camera
 sudo raspi-config;
-
-
 sudo reboot;
 ```
-1. Be sure your camera was enabled in `raspi-config`
+
+Be sure your camera was enabled in `raspi-config`
 
 ##### Run Services
 

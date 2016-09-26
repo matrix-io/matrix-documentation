@@ -22,7 +22,6 @@
 * [ZWAVE](../API/zwave.md) - Communication Protocol
 
 ## Configuration Specifications
-Configuration files are used to tell applications and interfaces how to behave. Portions of this are easily editable from the command line.
 * [DATATYPES](../Configuration/datatypes.md) - Combines with TYPESEND above for data segmenting superpowers.  
 * [EXAMPLES](../Configuration/examples.md) - Massive example file with most options.
 * [FILTERS](../Configuration/filters.md) - Show data transformations in charts
