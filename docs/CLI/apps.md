@@ -16,6 +16,12 @@ matrix search keyword
 matrix install appName
 ```
 
+### Uninstall
+```
+# Uninstall an app from your device
+matrix uninstall appName
+```
+
 
 ### Create
 ```

@@ -39,6 +39,11 @@ sudo reboot;
 
 1. In one SSH session, run `malos` - hardware interface
 1. In another SSH session, run `malos_eye` - computer vision provider
+```
+# currently you need to run
+sudo modprobe bcm2835-v4l2;
+# before you run malos_eye
+```
 
 ##### Register Device
 

@@ -92,7 +92,7 @@ To detect a face, supply it in `options.match`. Use an array to recognize multip
 matrix.init('face-id', { match: 'myFace' })
 ```
 ```
-// dynamic faces from dashboard
+// dynamic faces from dashboard / mobile app / cli
 matrix.on('faceUpload', function(data){
   // saves upload to filesystem
   matrix.save(data.name + '.' + data.typeSuffix, data.file);

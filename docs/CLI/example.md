@@ -1,6 +1,19 @@
+# Example Workflows
 
+# Setup New Device
+```
+matrix login
+matrix device register
 
-# Example Simulator Workflow
+# use provided id
+matrix use deviceid
+
+# should show new device
+matrix list devices
+
+```
+
+# Simulator
 ```
 matrix login
 matrix sim init
