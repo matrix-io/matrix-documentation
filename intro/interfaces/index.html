@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
     
       
-        <title>GPIO - MATRIX</title>
+        <title>Intro - Low Level Interfaces - MATRIX</title>
       
       
       
@@ -87,17 +87,9 @@
         
           <span class="path">
             
-              
-                OS <i class="icon icon-link"></i>
-              
-            
-              
-                Apps <i class="icon icon-link"></i>
-              
-            
           </span>
         
-        GPIO
+        Intro - Low Level Interfaces
       </div>
     </div>
     
@@ -157,9 +149,48 @@
           
             
   <li>
-    <a class="" title="Getting Started" href="../../intro/install/">
+    <a class="" title="Getting Started" href="../install/">
       Getting Started
     </a>
+    
+  </li>
+
+          
+            
+  <li>
+    <a class="" title="Intro - Matrix OS" href="../matrix/">
+      Intro - Matrix OS
+    </a>
+    
+  </li>
+
+          
+            
+  <li>
+    <a class="current" title="Intro - Low Level Interfaces" href="./">
+      Intro - Low Level Interfaces
+    </a>
+    
+      
+        
+      
+      
+        <ul>
+          
+            <li class="anchor">
+              <a title="Modules" href="#modules">
+                Modules
+              </a>
+            </li>
+          
+            <li class="anchor">
+              <a title="Supporting Libraries" href="#supporting-libraries">
+                Supporting Libraries
+              </a>
+            </li>
+          
+        </ul>
+      
     
   </li>
 
@@ -176,7 +207,7 @@
       
         
   <li>
-    <a class="" title="Overview" href="../overview/">
+    <a class="" title="Overview" href="../../API/overview/">
       Overview
     </a>
     
@@ -185,53 +216,16 @@
       
         
   <li>
-    <a class="current" title="GPIO" href="./">
+    <a class="" title="GPIO" href="../../API/gpio/">
       GPIO
     </a>
-    
-      
-      
-        <ul>
-          
-            <li class="anchor">
-              <a title=".open" href="#open">
-                .open
-              </a>
-            </li>
-          
-            <li class="anchor">
-              <a title=".read" href="#read">
-                .read
-              </a>
-            </li>
-          
-            <li class="anchor">
-              <a title=".write" href="#write">
-                .write
-              </a>
-            </li>
-          
-            <li class="anchor">
-              <a title=".close" href="#close">
-                .close
-              </a>
-            </li>
-          
-            <li class="anchor">
-              <a title="Example" href="#example">
-                Example
-              </a>
-            </li>
-          
-        </ul>
-      
     
   </li>
 
       
         
   <li>
-    <a class="" title="Sensors" href="../sensors/">
+    <a class="" title="Sensors" href="../../API/sensors/">
       Sensors
     </a>
     
@@ -240,7 +234,7 @@
       
         
   <li>
-    <a class="" title="Filters" href="../filter/">
+    <a class="" title="Filters" href="../../API/filter/">
       Filters
     </a>
     
@@ -249,7 +243,7 @@
       
         
   <li>
-    <a class="" title="Microphone" href="../microphone/">
+    <a class="" title="Microphone" href="../../API/microphone/">
       Microphone
     </a>
     
@@ -258,7 +252,7 @@
       
         
   <li>
-    <a class="" title="IR TX/RX" href="../ir/">
+    <a class="" title="IR TX/RX" href="../../API/ir/">
       IR TX/RX
     </a>
     
@@ -267,7 +261,7 @@
       
         
   <li>
-    <a class="" title="Everloop" href="../everloop/">
+    <a class="" title="Everloop" href="../../API/everloop/">
       Everloop
     </a>
     
@@ -276,7 +270,7 @@
       
         
   <li>
-    <a class="" title="NFC" href="../nfc/">
+    <a class="" title="NFC" href="../../API/nfc/">
       NFC
     </a>
     
@@ -285,7 +279,7 @@
       
         
   <li>
-    <a class="" title="Z-wave" href="../zwave/">
+    <a class="" title="Z-wave" href="../../API/zwave/">
       Z-wave
     </a>
     
@@ -294,7 +288,7 @@
       
         
   <li>
-    <a class="" title="Zigbee" href="../zigbee/">
+    <a class="" title="Zigbee" href="../../API/zigbee/">
       Zigbee
     </a>
     
@@ -424,7 +418,7 @@
       
         
   <li>
-    <a class="" title="HAL" href="../../intro/hal/">
+    <a class="" title="HAL" href="../hal/">
       HAL
     </a>
     
@@ -433,7 +427,7 @@
       
         
   <li>
-    <a class="" title="MALOS" href="../../intro/malos/">
+    <a class="" title="MALOS" href="../malos/">
       MALOS
     </a>
     
@@ -481,51 +475,20 @@
       <article class="article">
         <div class="wrapper">
           
-            <h1>GPIO</h1>
-          
-          <p>[WIP] GPIO can be used to communicate or receive input from analog and digital components through the MATRIX Creator, or any other sensor leveraging Raspberry Pi's GPIOs.</p>
-<h2 id="open">.open</h2>
-<pre><code>matrix.gpio.open(16, &quot;output&quot;, function(err){
-    // read or write
-});
-</code></pre>
-
-<h2 id="read">.read</h2>
+          <h1 id="hardware-interfaces">Hardware Interfaces</h1>
+<h2 id="modules">Modules</h2>
 <ul>
-<li><code>pinNumber</code>: The GPIO you are reading from.</li>
-<li><code>callback</code>: Returns <code>err</code>, <code>value</code>.</li>
+<li><a href="../../Hardware/fpga/">FPGA</a></li>
+<li><a href="../Hardware/microphone.md">MIC</a></li>
+<li><a href="../../Hardware/Sam3/">SAM</a></li>
+<li><a href="../../Hardware/sam3mcu-programming/">SAM</a></li>
+<li><a href="../Hardware/SPI.md">SPI</a></li>
 </ul>
-<pre><code>matrix.gpio.read(16, function(err, value) {
-  if(err) throw err;
-  console.log(value);   // The current state of the pin 
-});
-</code></pre>
-
-<h2 id="write">.write</h2>
+<h2 id="supporting-libraries">Supporting Libraries</h2>
 <ul>
-<li><code>pinNumber</code>: The GPIO you are reading from.</li>
-<li><code>value</code>: The value you would like to update the GPIO with.</li>
-<li><code>callback</code>: Returns <code>err</code>, <code>value</code>.</li>
+<li><a href="../hal/">HAL</a> Hardware Abstraction Layer</li>
+<li><a href="../malos/">MALOS</a>  ZeroMQ / GRPC / protobuf transactional interface</li>
 </ul>
-<pre><code>matrix.gpio.write(16, 1, function(err) {
-    if(err) throw err;
-});
-</code></pre>
-
-<h2 id="close">.close</h2>
-<ul>
-<li><code>pinNumber</code>: The GPIO you would like to close.</li>
-</ul>
-<pre><code>matrix.gpio.close(16);
-</code></pre>
-
-<h2 id="example">Example</h2>
-<pre><code>matrix.gpio.open(16, &quot;output&quot;, function(err) {
-    matrix.gpio.write(16, 1, function() {
-        matrix.gpio.close(16);
-    });
-});
-</code></pre>
           <aside class="copyright" role="note">
             
             Documentation built with
@@ -542,7 +505,7 @@
   <nav class="pagination" aria-label="Footer">
     <div class="previous">
       
-        <a href="../overview/" title="Overview">
+        <a href="../matrix/" title="Intro - Matrix OS">
           <span class="direction">
             Previous
           </span>
@@ -552,7 +515,7 @@
             </div>
             <div class="stretch">
               <div class="title">
-                Overview
+                Intro - Matrix OS
               </div>
             </div>
           </div>
@@ -561,14 +524,14 @@
     </div>
     <div class="next">
       
-        <a href="../sensors/" title="Sensors">
+        <a href="../../API/overview/" title="Overview">
           <span class="direction">
             Next
           </span>
           <div class="page">
             <div class="stretch">
               <div class="title">
-                Sensors
+                Overview
               </div>
             </div>
             <div class="button button-next" role="button" aria-label="Next">

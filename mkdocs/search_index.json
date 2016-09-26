@@ -67,7 +67,7 @@
         }, 
         {
             "location": "/intro/install/", 
-            "text": "From https://github.com/matrix-io/matrix-os#alpha-installation-instructions\n\n\nAlpha Installation Instructions\n\n\nNew parts of the MATRIX ecosystem are being developed and integrated every day. Here are a set of instructions which will get MATRIX OS running on your Creator. This will be streamlined in the future.\n\n\nLocal Computer\n\n\n\n\nInstall your Creator onto an rPi, connect to network cable which goes to local network, NOT to your computer, as it needs to be discoverable. Wifi support coming soon.\n\n\nDiscover your rPi address with \narp -na | grep -i b8:27:eb\n.\n\n\nSSH into your rPi. \nssh pi@192.168.0.15\n\n\n(Optional) Map ip to a host name in \n/etc/hosts\n.\n\n\n\n\necho '192.168.0.15 matrix' \n /etc/hosts\nssh pi@matrix\n\n\n\n\nRaspberry Pi\n\n\nSetup\n\n\n\n\nIn one SSH session on your Creator run the following:\n\n\n\n\n# setup \n installation\necho \ndeb http://packages.matrix.one/matrix-creator/ ./\n | sudo tee --append /etc/apt/sources.list;\nsudo apt-get update;\nsudo apt-get upgrade;\nsudo apt-get install -y xc3sprog malos-eye matrix-creator-openocd wiringpi matrix-creator-init cmake g++ git --force-yes;\ngit clone https://github.com/matrix-io/matrix-os.git;\ncd matrix-os;\ngit submodule update --init;\nnpm install;\n\n# configure - NOTE: This is interactive. Enable your camera\nsudo raspi-config;\n\n\nsudo reboot;\n\n\n\n\n\n\nBe sure your camera was enabled in \nraspi-config\n\n\n\n\nRun Services\n\n\n\n\nIn one SSH session, run \nmalos\n - hardware interface\n\n\nIn another SSH session, run \nmalos_eye\n - computer vision provider\n\n\n\n\nRegister Device\n\n\n\n\nWith https://github.com/matrix-io/matrix-cli run \nmatrix register device\n\n\nEnter a name and (optional) description\n\n\nAfter a few moments you will be provided with a device ID and secret.\n\n\nAdd these as environment variables via a shell script or command line.\n\n\n(optional) We export envs via an \n.env\n file which can be processed using \nsource .env\n\n\nTo begin targeting this device with the CLI, enter the \nmatrix use\n command provided\n\n\n\n\nRun MATRIX OS\n\n\n\n\nEnsure environment variables are set from above step.\n\n\nFrom the \nmatrix-os\n folder. \nnode index.js\n\n\nIf you want to start a MATRIX app on launch, use the env \nSTART_APP\n. ex. \nSTART_APP=monitor node index.js\n\n\nRead environment notes below.\n\n\nNow you can issue commands and deploy apps to your MATRIX OS from the CLI. ( https://github.com/matrix-io/matrix-cli)\n\n\nHave fun!", 
+            "text": "From https://github.com/matrix-io/matrix-os#alpha-installation-instructions\n\n\nAlpha Installation Instructions\n\n\nNew parts of the MATRIX ecosystem are being developed and integrated every day. Here are a set of instructions which will get MATRIX OS running on your Creator. This will be streamlined in the future.\n\n\nLocal Computer\n\n\n\n\nInstall your Creator onto an rPi, connect to network cable which goes to local network, NOT to your computer, as it needs to be discoverable. Wifi support coming soon.\n\n\nDiscover your rPi address with \narp -na | grep -i b8:27:eb\n.\n\n\nSSH into your rPi. \nssh pi@192.168.0.15\n\n\n(Optional) Map ip to a host name in \n/etc/hosts\n.\n\n\n\n\necho '192.168.0.15 matrix' \n /etc/hosts\nssh pi@matrix\n\n\n\n\nRaspberry Pi\n\n\nSetup\n\n\n\n\nIn one SSH session on your Creator run the following:\n\n\n\n\n# setup \n installation\necho \ndeb http://packages.matrix.one/matrix-creator/ ./\n | sudo tee --append /etc/apt/sources.list;\nsudo apt-get update;\nsudo apt-get upgrade;\nsudo apt-get install -y xc3sprog malos-eye matrix-creator-openocd wiringpi matrix-creator-init cmake g++ git --force-yes;\ngit clone https://github.com/matrix-io/matrix-os.git;\ncd matrix-os;\ngit submodule update --init;\nnpm install;\n\n# configure - NOTE: This is interactive. Enable your camera\nsudo raspi-config;\n\n\nsudo reboot;\n\n\n\n\n\n\nBe sure your camera was enabled in \nraspi-config\n\n\n\n\nRun Services\n\n\n\n\nIn one SSH session, run \nmalos\n - hardware interface\n\n\nIn another SSH session, run \nmalos_eye\n - computer vision provider\n\n\n\n\n# currently you need to run\nsudo modprobe bcm2835-v4l2;\n# before you run malos_eye\n\n\n\n\nRegister Device\n\n\n\n\nWith https://github.com/matrix-io/matrix-cli run \nmatrix register device\n\n\nEnter a name and (optional) description\n\n\nAfter a few moments you will be provided with a device ID and secret.\n\n\nAdd these as environment variables via a shell script or command line.\n\n\n(optional) We export envs via an \n.env\n file which can be processed using \nsource .env\n\n\nTo begin targeting this device with the CLI, enter the \nmatrix use\n command provided\n\n\n\n\nRun MATRIX OS\n\n\n\n\nEnsure environment variables are set from above step.\n\n\nFrom the \nmatrix-os\n folder. \nnode index.js\n\n\nIf you want to start a MATRIX app on launch, use the env \nSTART_APP\n. ex. \nSTART_APP=monitor node index.js\n\n\nRead environment notes below.\n\n\nNow you can issue commands and deploy apps to your MATRIX OS from the CLI. ( https://github.com/matrix-io/matrix-cli)\n\n\nHave fun!", 
             "title": "Getting Started"
         }, 
         {
@@ -92,7 +92,7 @@
         }, 
         {
             "location": "/intro/install/#run-services", 
-            "text": "In one SSH session, run  malos  - hardware interface  In another SSH session, run  malos_eye  - computer vision provider", 
+            "text": "In one SSH session, run  malos  - hardware interface  In another SSH session, run  malos_eye  - computer vision provider   # currently you need to run\nsudo modprobe bcm2835-v4l2;\n# before you run malos_eye", 
             "title": "Run Services"
         }, 
         {
@@ -106,8 +106,53 @@
             "title": "Run MATRIX OS"
         }, 
         {
+            "location": "/intro/matrix/", 
+            "text": "MATRIX OS\n\n\nCommand Line Interface\n\n\n\n\nOVERVIEW\n - Installation, Registration, Commands\n\n\nAPPS\n - Application lifecycle\n\n\nEXAMPLES\n - Example workflows\n\n\n\n\nAPI Guides\n\n\n\n\nOVERVIEW\n - Introduction\n\n\nVISION\n - Computer vision on MOS\n\n\nCROSSTALK\n - App to App and Device to Device communication\n\n\nEVERLOOP\n - Multicolored LED Lights\n\n\nFILTER\n - Generic logic for filtering data sources\n\n\nGPIO\n - Pins\n\n\nIR\n - Infrared Learning and Remote\n\n\nMICROPHONE\n - Accessing the microphone and speech recognition\n\n\nNFC\n - NFC Input / Output\n\n\nSENSORS\n - Basic Sensors, Temperature, Gyroscope, Pressure, etc\n\n\nSPEAKER\n - Make sound\n\n\nTYPESEND\n - Type system, read this if you are saving data.\n\n\nZIGBEE\n - Communication Protocol\n\n\nZWAVE\n - Communication Protocol\n\n\n\n\nConfiguration Specifications\n\n\nConfiguration files are used to tell applications and interfaces how to behave. Portions of this are easily editable from the command line.\n\n \nDATATYPES\n - Combines with TYPESEND above for data segmenting superpowers.\n\n\n \nEXAMPLES\n - Massive example file with most options.\n\n \nFILTERS\n - Show data transformations in charts\n\n \nSCREENS\n - Dashboard interface widget layout\n\n \nSERVICES\n - Integration with internal and external services (like computer vision)\n\n \nWIDGETS\n - The available widgets", 
+            "title": "Intro - Matrix OS"
+        }, 
+        {
+            "location": "/intro/matrix/#matrix-os", 
+            "text": "", 
+            "title": "MATRIX OS"
+        }, 
+        {
+            "location": "/intro/matrix/#command-line-interface", 
+            "text": "OVERVIEW  - Installation, Registration, Commands  APPS  - Application lifecycle  EXAMPLES  - Example workflows", 
+            "title": "Command Line Interface"
+        }, 
+        {
+            "location": "/intro/matrix/#api-guides", 
+            "text": "OVERVIEW  - Introduction  VISION  - Computer vision on MOS  CROSSTALK  - App to App and Device to Device communication  EVERLOOP  - Multicolored LED Lights  FILTER  - Generic logic for filtering data sources  GPIO  - Pins  IR  - Infrared Learning and Remote  MICROPHONE  - Accessing the microphone and speech recognition  NFC  - NFC Input / Output  SENSORS  - Basic Sensors, Temperature, Gyroscope, Pressure, etc  SPEAKER  - Make sound  TYPESEND  - Type system, read this if you are saving data.  ZIGBEE  - Communication Protocol  ZWAVE  - Communication Protocol", 
+            "title": "API Guides"
+        }, 
+        {
+            "location": "/intro/matrix/#configuration-specifications", 
+            "text": "Configuration files are used to tell applications and interfaces how to behave. Portions of this are easily editable from the command line.   DATATYPES  - Combines with TYPESEND above for data segmenting superpowers.    EXAMPLES  - Massive example file with most options.   FILTERS  - Show data transformations in charts   SCREENS  - Dashboard interface widget layout   SERVICES  - Integration with internal and external services (like computer vision)   WIDGETS  - The available widgets", 
+            "title": "Configuration Specifications"
+        }, 
+        {
+            "location": "/intro/interfaces/", 
+            "text": "Hardware Interfaces\n\n\nModules\n\n\n\n\nFPGA\n\n\nMIC\n\n\nSAM\n\n\nSAM\n\n\nSPI\n\n\n\n\nSupporting Libraries\n\n\n\n\nHAL\n Hardware Abstraction Layer\n\n\nMALOS\n  ZeroMQ / GRPC / protobuf transactional interface", 
+            "title": "Intro - Low Level Interfaces"
+        }, 
+        {
+            "location": "/intro/interfaces/#hardware-interfaces", 
+            "text": "", 
+            "title": "Hardware Interfaces"
+        }, 
+        {
+            "location": "/intro/interfaces/#modules", 
+            "text": "FPGA  MIC  SAM  SAM  SPI", 
+            "title": "Modules"
+        }, 
+        {
+            "location": "/intro/interfaces/#supporting-libraries", 
+            "text": "HAL  Hardware Abstraction Layer  MALOS   ZeroMQ / GRPC / protobuf transactional interface", 
+            "title": "Supporting Libraries"
+        }, 
+        {
             "location": "/API/overview/", 
-            "text": "Installation\n\n\nMATRIX OS applications are an independent process running on a device. They communicate with the MatrixOS core via IPC which is largely event driven. This makes sense for sensors, because just like a REST call, we are waiting for a data point.\n\n\nThe approach we have chosen for this is to use JavaScript callbacks which look like this.\n\n\nsomeFunction(function callback(data){})\n\n\n\n\nWhat this means is that we execute \nfunction callback()\n at a determined time inside of \nsomeFunction()\n.\n\n\nThis permits MatrixOS applications to respond to events, such as sensor information, CV detection, or external events as they happen.\n\n\nThinking in Events\n\n\nWhile you can write a \nmain()\n and loop it's execution, most of the power in the MatrixOS is in listening for certain conditions to be met, and then performing an action.\n\n\nHeed Warning\n\n\nNot all of this API is built and functional yet. We have endeavored to supply warning messages where there are implementation gaps. Use \nmatrix log\n for more info about your running apps.", 
+            "text": "Installation\n\n\nMATRIX OS applications are an independent process running on a device. They communicate with the MatrixOS core via IPC which is largely event driven. This makes sense for sensors, because just like a REST call, we are waiting for a data point.\n\n\nThe approach we have chosen for this is to use JavaScript callbacks which look like this.\n\n\nsomeFunction(function callback(data){})\n\n\n\n\nWhat this means is that we execute \nfunction callback()\n at a determined time inside of \nsomeFunction()\n.\n\n\nThis permits MatrixOS applications to respond to events, such as sensor information, CV detection, or external events as they happen.\n\n\nThinking in Events\n\n\nWhile you can write a \nmain()\n and \nsetInterval\n it's execution, most of the power in the MatrixOS is in listening for certain conditions to be met, and then performing an action.\n\n\nHeed Warning\n\n\nNot all of this API is built and functional yet. We have endeavored to supply warning messages where there are implementation gaps. Use \nmatrix log\n for more info about your running apps.", 
             "title": "Overview"
         }, 
         {
@@ -117,7 +162,7 @@
         }, 
         {
             "location": "/API/overview/#thinking-in-events", 
-            "text": "While you can write a  main()  and loop it's execution, most of the power in the MatrixOS is in listening for certain conditions to be met, and then performing an action.", 
+            "text": "While you can write a  main()  and  setInterval  it's execution, most of the power in the MatrixOS is in listening for certain conditions to be met, and then performing an action.", 
             "title": "Thinking in Events"
         }, 
         {
@@ -407,8 +452,18 @@
         }, 
         {
             "location": "/Configuration/overview/", 
-            "text": "", 
+            "text": "Configuration Overview\n\n\nConfiguration information is saved in the installation record for an app. It is provided by a \nconfig.yaml\n file inside the \napp.matrix\n directory.\n\n\nThis file undergoes several validations and transformations, so don't be surprised if a saved configuration is very different from a provided configuration. A finished configuration has \nvalidated: true\n in it.\n\n\nIntent\n\n\nConfigurations provide the following:\n\n\n\n\nMeta information, app name, description\n\n\nPolicy information, for asking user permissions\n\n\nData structure, what data to expect from an application\n\n\nDashboard layouts, creating interfaces for widgets\n\n\nWidget definitions, what information and controls to display where in the interface\n\n\nRuntime configuration via \nsettings\n, useful for api keys and the like.", 
             "title": "Overview"
+        }, 
+        {
+            "location": "/Configuration/overview/#configuration-overview", 
+            "text": "Configuration information is saved in the installation record for an app. It is provided by a  config.yaml  file inside the  app.matrix  directory.  This file undergoes several validations and transformations, so don't be surprised if a saved configuration is very different from a provided configuration. A finished configuration has  validated: true  in it.", 
+            "title": "Configuration Overview"
+        }, 
+        {
+            "location": "/Configuration/overview/#intent", 
+            "text": "Configurations provide the following:   Meta information, app name, description  Policy information, for asking user permissions  Data structure, what data to expect from an application  Dashboard layouts, creating interfaces for widgets  Widget definitions, what information and controls to display where in the interface  Runtime configuration via  settings , useful for api keys and the like.", 
+            "title": "Intent"
         }, 
         {
             "location": "/Configuration/screens/", 
@@ -477,7 +532,7 @@
         }, 
         {
             "location": "/CLI/apps/", 
-            "text": "Applications\n\n\nSearch\n\n\n# Find MatrixOS apps for a keyword\nmatrix search keyword\n\n\n\n\nAll the following commands require an active MatrixOS to be specified with \nmatrix use\n.\n\n\nInstall\n\n\n# Install an app from the store to MatrixOS\nmatrix install appName\n\n\n\n\nCreate\n\n\n#creates a folder with a base matrix app template\nmatrix create appName\n\n\n\n\nSee \ndocs/api\n for more information about writing MatrixOS apps.\n\n\nDeploy\n\n\n# uploads app folder to MatrixOS\nmatrix deploy appName\n\n\n\n\nRun\n\n\nmatrix start appName\n\n\n\n\nStop\n\n\nmatrix stop appName\n\n\n\n\nRestart\n\n\nmatrix restart appName", 
+            "text": "Applications\n\n\nSearch\n\n\n# Find MatrixOS apps for a keyword\nmatrix search keyword\n\n\n\n\nAll the following commands require an active MatrixOS to be specified with \nmatrix use\n.\n\n\nInstall\n\n\n# Install an app from the store to MatrixOS\nmatrix install appName\n\n\n\n\nUninstall\n\n\n# Uninstall an app from your device\nmatrix uninstall appName\n\n\n\n\nCreate\n\n\n#creates a folder with a base matrix app template\nmatrix create appName\n\n\n\n\nSee \ndocs/api\n for more information about writing MatrixOS apps.\n\n\nDeploy\n\n\n# uploads app folder to MatrixOS\nmatrix deploy appName\n\n\n\n\nRun\n\n\nmatrix start appName\n\n\n\n\nStop\n\n\nmatrix stop appName\n\n\n\n\nRestart\n\n\nmatrix restart appName", 
             "title": "Apps"
         }, 
         {
@@ -494,6 +549,11 @@
             "location": "/CLI/apps/#install", 
             "text": "# Install an app from the store to MatrixOS\nmatrix install appName", 
             "title": "Install"
+        }, 
+        {
+            "location": "/CLI/apps/#uninstall", 
+            "text": "# Uninstall an app from your device\nmatrix uninstall appName", 
+            "title": "Uninstall"
         }, 
         {
             "location": "/CLI/apps/#create", 
@@ -522,13 +582,23 @@
         }, 
         {
             "location": "/CLI/example/", 
-            "text": "Example Simulator Workflow\n\n\nmatrix login\nmatrix sim init\nmatrix use simid-abc123\nmatrix sim start\n\n# makes testapp/ with app scaffold\nmatrix create testapp\n\n# places testapp/ onto matrixos\nmatrix deploy testapp\n\n# starts testapp/\nmatrix start testapp\n\n\n\n\nExample App Install and Set Configurations\n\n\nmatrix login\nmatrix list devices\nmatrix use \ndeviceId\n\n\nmatrix install frontdoor\nmatrix set config frontdoor settings.lock.apiKey=ABC123FED\nmatrix start frontdoor", 
+            "text": "Example Workflows\n\n\nSetup New Device\n\n\nmatrix login\nmatrix device register\n\n# use provided id\nmatrix use deviceid\n\n# should show new device\nmatrix list devices\n\n\n\n\n\nSimulator\n\n\nmatrix login\nmatrix sim init\nmatrix use simid-abc123\nmatrix sim start\n\n# makes testapp/ with app scaffold\nmatrix create testapp\n\n# places testapp/ onto matrixos\nmatrix deploy testapp\n\n# starts testapp/\nmatrix start testapp\n\n\n\n\nExample App Install and Set Configurations\n\n\nmatrix login\nmatrix list devices\nmatrix use \ndeviceId\n\n\nmatrix install frontdoor\nmatrix set config frontdoor settings.lock.apiKey=ABC123FED\nmatrix start frontdoor", 
             "title": "Examples"
         }, 
         {
-            "location": "/CLI/example/#example-simulator-workflow", 
+            "location": "/CLI/example/#example-workflows", 
+            "text": "", 
+            "title": "Example Workflows"
+        }, 
+        {
+            "location": "/CLI/example/#setup-new-device", 
+            "text": "matrix login\nmatrix device register\n\n# use provided id\nmatrix use deviceid\n\n# should show new device\nmatrix list devices", 
+            "title": "Setup New Device"
+        }, 
+        {
+            "location": "/CLI/example/#simulator", 
             "text": "matrix login\nmatrix sim init\nmatrix use simid-abc123\nmatrix sim start\n\n# makes testapp/ with app scaffold\nmatrix create testapp\n\n# places testapp/ onto matrixos\nmatrix deploy testapp\n\n# starts testapp/\nmatrix start testapp", 
-            "title": "Example Simulator Workflow"
+            "title": "Simulator"
         }, 
         {
             "location": "/CLI/example/#example-app-install-and-set-configurations", 

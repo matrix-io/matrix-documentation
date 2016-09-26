@@ -162,6 +162,24 @@
           
             
   <li>
+    <a class="" title="Intro - Matrix OS" href="../../intro/matrix/">
+      Intro - Matrix OS
+    </a>
+    
+  </li>
+
+          
+            
+  <li>
+    <a class="" title="Intro - Low Level Interfaces" href="../../intro/interfaces/">
+      Intro - Low Level Interfaces
+    </a>
+    
+  </li>
+
+          
+            
+  <li>
     <span class="section">OS</span>
     <ul>
       
@@ -445,7 +463,20 @@
       <article class="article">
         <div class="wrapper">
           
-          <h1 id="example-simulator-workflow">Example Simulator Workflow</h1>
+          <h1 id="example-workflows">Example Workflows</h1>
+<h1 id="setup-new-device">Setup New Device</h1>
+<pre><code>matrix login
+matrix device register
+
+# use provided id
+matrix use deviceid
+
+# should show new device
+matrix list devices
+
+</code></pre>
+
+<h1 id="simulator">Simulator</h1>
 <pre><code>matrix login
 matrix sim init
 matrix use simid-abc123

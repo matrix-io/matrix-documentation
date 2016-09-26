@@ -166,6 +166,24 @@
           
             
   <li>
+    <a class="" title="Intro - Matrix OS" href="../../intro/matrix/">
+      Intro - Matrix OS
+    </a>
+    
+  </li>
+
+          
+            
+  <li>
+    <a class="" title="Intro - Low Level Interfaces" href="../../intro/interfaces/">
+      Intro - Low Level Interfaces
+    </a>
+    
+  </li>
+
+          
+            
+  <li>
     <span class="section">OS</span>
     <ul>
       
@@ -280,6 +298,18 @@
     </a>
     
       
+        
+      
+      
+        <ul>
+          
+            <li class="anchor">
+              <a title="Intent" href="#intent">
+                Intent
+              </a>
+            </li>
+          
+        </ul>
       
     
   </li>
@@ -447,9 +477,19 @@
       <article class="article">
         <div class="wrapper">
           
-            <h1>Overview</h1>
-          
-          
+          <h1 id="configuration-overview">Configuration Overview</h1>
+<p>Configuration information is saved in the installation record for an app. It is provided by a <code>config.yaml</code> file inside the <code>app.matrix</code> directory.</p>
+<p>This file undergoes several validations and transformations, so don't be surprised if a saved configuration is very different from a provided configuration. A finished configuration has <code>validated: true</code> in it.</p>
+<h2 id="intent">Intent</h2>
+<p>Configurations provide the following:</p>
+<ul>
+<li>Meta information, app name, description</li>
+<li>Policy information, for asking user permissions</li>
+<li>Data structure, what data to expect from an application</li>
+<li>Dashboard layouts, creating interfaces for widgets</li>
+<li>Widget definitions, what information and controls to display where in the interface</li>
+<li>Runtime configuration via <code>settings</code>, useful for api keys and the like.</li>
+</ul>
           <aside class="copyright" role="note">
             
             Documentation built with

@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
     
       
-        <title>Overview - MATRIX</title>
+        <title>Intro - Matrix OS - MATRIX</title>
       
       
       
@@ -87,17 +87,9 @@
         
           <span class="path">
             
-              
-                OS <i class="icon icon-link"></i>
-              
-            
-              
-                Apps <i class="icon icon-link"></i>
-              
-            
           </span>
         
-        Overview
+        Intro - Matrix OS
       </div>
     </div>
     
@@ -157,7 +149,7 @@
           
             
   <li>
-    <a class="" title="Getting Started" href="../../intro/install/">
+    <a class="" title="Getting Started" href="../install/">
       Getting Started
     </a>
     
@@ -166,16 +158,43 @@
           
             
   <li>
-    <a class="" title="Intro - Matrix OS" href="../../intro/matrix/">
+    <a class="current" title="Intro - Matrix OS" href="./">
       Intro - Matrix OS
     </a>
+    
+      
+        
+      
+      
+        <ul>
+          
+            <li class="anchor">
+              <a title="Command Line Interface" href="#command-line-interface">
+                Command Line Interface
+              </a>
+            </li>
+          
+            <li class="anchor">
+              <a title="API Guides" href="#api-guides">
+                API Guides
+              </a>
+            </li>
+          
+            <li class="anchor">
+              <a title="Configuration Specifications" href="#configuration-specifications">
+                Configuration Specifications
+              </a>
+            </li>
+          
+        </ul>
+      
     
   </li>
 
           
             
   <li>
-    <a class="" title="Intro - Low Level Interfaces" href="../../intro/interfaces/">
+    <a class="" title="Intro - Low Level Interfaces" href="../interfaces/">
       Intro - Low Level Interfaces
     </a>
     
@@ -194,41 +213,16 @@
       
         
   <li>
-    <a class="current" title="Overview" href="./">
+    <a class="" title="Overview" href="../../API/overview/">
       Overview
     </a>
-    
-      
-      
-        <ul>
-          
-            <li class="anchor">
-              <a title="Installation" href="#installation">
-                Installation
-              </a>
-            </li>
-          
-            <li class="anchor">
-              <a title="Thinking in Events" href="#thinking-in-events">
-                Thinking in Events
-              </a>
-            </li>
-          
-            <li class="anchor">
-              <a title="Heed Warning" href="#heed-warning">
-                Heed Warning
-              </a>
-            </li>
-          
-        </ul>
-      
     
   </li>
 
       
         
   <li>
-    <a class="" title="GPIO" href="../gpio/">
+    <a class="" title="GPIO" href="../../API/gpio/">
       GPIO
     </a>
     
@@ -237,7 +231,7 @@
       
         
   <li>
-    <a class="" title="Sensors" href="../sensors/">
+    <a class="" title="Sensors" href="../../API/sensors/">
       Sensors
     </a>
     
@@ -246,7 +240,7 @@
       
         
   <li>
-    <a class="" title="Filters" href="../filter/">
+    <a class="" title="Filters" href="../../API/filter/">
       Filters
     </a>
     
@@ -255,7 +249,7 @@
       
         
   <li>
-    <a class="" title="Microphone" href="../microphone/">
+    <a class="" title="Microphone" href="../../API/microphone/">
       Microphone
     </a>
     
@@ -264,7 +258,7 @@
       
         
   <li>
-    <a class="" title="IR TX/RX" href="../ir/">
+    <a class="" title="IR TX/RX" href="../../API/ir/">
       IR TX/RX
     </a>
     
@@ -273,7 +267,7 @@
       
         
   <li>
-    <a class="" title="Everloop" href="../everloop/">
+    <a class="" title="Everloop" href="../../API/everloop/">
       Everloop
     </a>
     
@@ -282,7 +276,7 @@
       
         
   <li>
-    <a class="" title="NFC" href="../nfc/">
+    <a class="" title="NFC" href="../../API/nfc/">
       NFC
     </a>
     
@@ -291,7 +285,7 @@
       
         
   <li>
-    <a class="" title="Z-wave" href="../zwave/">
+    <a class="" title="Z-wave" href="../../API/zwave/">
       Z-wave
     </a>
     
@@ -300,7 +294,7 @@
       
         
   <li>
-    <a class="" title="Zigbee" href="../zigbee/">
+    <a class="" title="Zigbee" href="../../API/zigbee/">
       Zigbee
     </a>
     
@@ -430,7 +424,7 @@
       
         
   <li>
-    <a class="" title="HAL" href="../../intro/hal/">
+    <a class="" title="HAL" href="../hal/">
       HAL
     </a>
     
@@ -439,7 +433,7 @@
       
         
   <li>
-    <a class="" title="MALOS" href="../../intro/malos/">
+    <a class="" title="MALOS" href="../malos/">
       MALOS
     </a>
     
@@ -487,20 +481,38 @@
       <article class="article">
         <div class="wrapper">
           
-            <h1>Overview</h1>
-          
-          <h3 id="installation">Installation</h3>
-<p>MATRIX OS applications are an independent process running on a device. They communicate with the MatrixOS core via IPC which is largely event driven. This makes sense for sensors, because just like a REST call, we are waiting for a data point.</p>
-<p>The approach we have chosen for this is to use JavaScript callbacks which look like this.</p>
-<pre><code>someFunction(function callback(data){})
-</code></pre>
-
-<p>What this means is that we execute <code>function callback()</code> at a determined time inside of <code>someFunction()</code>.</p>
-<p>This permits MatrixOS applications to respond to events, such as sensor information, CV detection, or external events as they happen.</p>
-<h3 id="thinking-in-events">Thinking in Events</h3>
-<p>While you can write a <code>main()</code> and <code>setInterval</code> it's execution, most of the power in the MatrixOS is in listening for certain conditions to be met, and then performing an action.</p>
-<h3 id="heed-warning">Heed Warning</h3>
-<p>Not all of this API is built and functional yet. We have endeavored to supply warning messages where there are implementation gaps. Use <code>matrix log</code> for more info about your running apps.</p>
+          <h1 id="matrix-os">MATRIX OS</h1>
+<h2 id="command-line-interface">Command Line Interface</h2>
+<ul>
+<li><a href="../../CLI/overview/">OVERVIEW</a> - Installation, Registration, Commands</li>
+<li><a href="../../CLI/apps/">APPS</a> - Application lifecycle</li>
+<li><a href="../../CLI/example/">EXAMPLES</a> - Example workflows</li>
+</ul>
+<h2 id="api-guides">API Guides</h2>
+<ul>
+<li><a href="../../API/overview/">OVERVIEW</a> - Introduction</li>
+<li><a href="../API/computer-vision.md">VISION</a> - Computer vision on MOS</li>
+<li><a href="../API/crosstalk.md">CROSSTALK</a> - App to App and Device to Device communication</li>
+<li><a href="../../API/everloop/">EVERLOOP</a> - Multicolored LED Lights</li>
+<li><a href="../../API/filter/">FILTER</a> - Generic logic for filtering data sources</li>
+<li><a href="../API/GPIO.md">GPIO</a> - Pins</li>
+<li><a href="../../API/ir/">IR</a> - Infrared Learning and Remote</li>
+<li><a href="../../API/microphone/">MICROPHONE</a> - Accessing the microphone and speech recognition</li>
+<li><a href="../../API/nfc/">NFC</a> - NFC Input / Output</li>
+<li><a href="../../API/sensors/">SENSORS</a> - Basic Sensors, Temperature, Gyroscope, Pressure, etc</li>
+<li><a href="../API/speaker.md">SPEAKER</a> - Make sound</li>
+<li><a href="../API/typesend.md">TYPESEND</a> - Type system, read this if you are saving data.</li>
+<li><a href="../../API/zigbee/">ZIGBEE</a> - Communication Protocol</li>
+<li><a href="../../API/zwave/">ZWAVE</a> - Communication Protocol</li>
+</ul>
+<h2 id="configuration-specifications">Configuration Specifications</h2>
+<p>Configuration files are used to tell applications and interfaces how to behave. Portions of this are easily editable from the command line.
+<em> <a href="../../Configuration/datatypes/">DATATYPES</a> - Combines with TYPESEND above for data segmenting superpowers.<br />
+</em> <a href="../Configuration/examples.md">EXAMPLES</a> - Massive example file with most options.
+<em> <a href="../Configuration/filters.md">FILTERS</a> - Show data transformations in charts
+</em> <a href="../../Configuration/screens/">SCREENS</a> - Dashboard interface widget layout
+<em> <a href="../Configuration/services.md">SERVICES</a> - Integration with internal and external services (like computer vision)
+</em> <a href="../Configuration/widgets.md">WIDGETS</a> - The available widgets</p>
           <aside class="copyright" role="note">
             
             Documentation built with
@@ -517,7 +529,7 @@
   <nav class="pagination" aria-label="Footer">
     <div class="previous">
       
-        <a href="../../intro/interfaces/" title="Intro - Low Level Interfaces">
+        <a href="../install/" title="Getting Started">
           <span class="direction">
             Previous
           </span>
@@ -527,7 +539,7 @@
             </div>
             <div class="stretch">
               <div class="title">
-                Intro - Low Level Interfaces
+                Getting Started
               </div>
             </div>
           </div>
@@ -536,14 +548,14 @@
     </div>
     <div class="next">
       
-        <a href="../gpio/" title="GPIO">
+        <a href="../interfaces/" title="Intro - Low Level Interfaces">
           <span class="direction">
             Next
           </span>
           <div class="page">
             <div class="stretch">
               <div class="title">
-                GPIO
+                Intro - Low Level Interfaces
               </div>
             </div>
             <div class="button button-next" role="button" aria-label="Next">

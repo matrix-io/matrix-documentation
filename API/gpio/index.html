@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
     
       
-        <title>Overview - MATRIX</title>
+        <title>GPIO - MATRIX</title>
       
       
       
@@ -97,7 +97,7 @@
             
           </span>
         
-        Overview
+        GPIO
       </div>
     </div>
     
@@ -194,8 +194,17 @@
       
         
   <li>
-    <a class="current" title="Overview" href="./">
+    <a class="" title="Overview" href="../overview/">
       Overview
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="current" title="GPIO" href="./">
+      GPIO
     </a>
     
       
@@ -203,34 +212,37 @@
         <ul>
           
             <li class="anchor">
-              <a title="Installation" href="#installation">
-                Installation
+              <a title=".open" href="#open">
+                .open
               </a>
             </li>
           
             <li class="anchor">
-              <a title="Thinking in Events" href="#thinking-in-events">
-                Thinking in Events
+              <a title=".read" href="#read">
+                .read
               </a>
             </li>
           
             <li class="anchor">
-              <a title="Heed Warning" href="#heed-warning">
-                Heed Warning
+              <a title=".write" href="#write">
+                .write
+              </a>
+            </li>
+          
+            <li class="anchor">
+              <a title=".close" href="#close">
+                .close
+              </a>
+            </li>
+          
+            <li class="anchor">
+              <a title="Example" href="#example">
+                Example
               </a>
             </li>
           
         </ul>
       
-    
-  </li>
-
-      
-        
-  <li>
-    <a class="" title="GPIO" href="../gpio/">
-      GPIO
-    </a>
     
   </li>
 
@@ -487,20 +499,51 @@
       <article class="article">
         <div class="wrapper">
           
-            <h1>Overview</h1>
+            <h1>GPIO</h1>
           
-          <h3 id="installation">Installation</h3>
-<p>MATRIX OS applications are an independent process running on a device. They communicate with the MatrixOS core via IPC which is largely event driven. This makes sense for sensors, because just like a REST call, we are waiting for a data point.</p>
-<p>The approach we have chosen for this is to use JavaScript callbacks which look like this.</p>
-<pre><code>someFunction(function callback(data){})
+          <p>[WIP] GPIO can be used to communicate or receive input from analog and digital components through the MATRIX Creator, or any other sensor leveraging Raspberry Pi's GPIOs.</p>
+<h2 id="open">.open</h2>
+<pre><code>matrix.gpio.open(16, &quot;output&quot;, function(err){
+    // read or write
+});
 </code></pre>
 
-<p>What this means is that we execute <code>function callback()</code> at a determined time inside of <code>someFunction()</code>.</p>
-<p>This permits MatrixOS applications to respond to events, such as sensor information, CV detection, or external events as they happen.</p>
-<h3 id="thinking-in-events">Thinking in Events</h3>
-<p>While you can write a <code>main()</code> and <code>setInterval</code> it's execution, most of the power in the MatrixOS is in listening for certain conditions to be met, and then performing an action.</p>
-<h3 id="heed-warning">Heed Warning</h3>
-<p>Not all of this API is built and functional yet. We have endeavored to supply warning messages where there are implementation gaps. Use <code>matrix log</code> for more info about your running apps.</p>
+<h2 id="read">.read</h2>
+<ul>
+<li><code>pinNumber</code>: The GPIO you are reading from.</li>
+<li><code>callback</code>: Returns <code>err</code>, <code>value</code>.</li>
+</ul>
+<pre><code>matrix.gpio.read(16, function(err, value) {
+  if(err) throw err;
+  console.log(value);   // The current state of the pin 
+});
+</code></pre>
+
+<h2 id="write">.write</h2>
+<ul>
+<li><code>pinNumber</code>: The GPIO you are reading from.</li>
+<li><code>value</code>: The value you would like to update the GPIO with.</li>
+<li><code>callback</code>: Returns <code>err</code>, <code>value</code>.</li>
+</ul>
+<pre><code>matrix.gpio.write(16, 1, function(err) {
+    if(err) throw err;
+});
+</code></pre>
+
+<h2 id="close">.close</h2>
+<ul>
+<li><code>pinNumber</code>: The GPIO you would like to close.</li>
+</ul>
+<pre><code>matrix.gpio.close(16);
+</code></pre>
+
+<h2 id="example">Example</h2>
+<pre><code>matrix.gpio.open(16, &quot;output&quot;, function(err) {
+    matrix.gpio.write(16, 1, function() {
+        matrix.gpio.close(16);
+    });
+});
+</code></pre>
           <aside class="copyright" role="note">
             
             Documentation built with
@@ -517,7 +560,7 @@
   <nav class="pagination" aria-label="Footer">
     <div class="previous">
       
-        <a href="../../intro/interfaces/" title="Intro - Low Level Interfaces">
+        <a href="../overview/" title="Overview">
           <span class="direction">
             Previous
           </span>
@@ -527,7 +570,7 @@
             </div>
             <div class="stretch">
               <div class="title">
-                Intro - Low Level Interfaces
+                Overview
               </div>
             </div>
           </div>
@@ -536,14 +579,14 @@
     </div>
     <div class="next">
       
-        <a href="../gpio/" title="GPIO">
+        <a href="../sensors/" title="Sensors">
           <span class="direction">
             Next
           </span>
           <div class="page">
             <div class="stretch">
               <div class="title">
-                GPIO
+                Sensors
               </div>
             </div>
             <div class="button button-next" role="button" aria-label="Next">

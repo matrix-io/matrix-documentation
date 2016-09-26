@@ -171,6 +171,24 @@
           
             
   <li>
+    <a class="" title="Intro - Matrix OS" href="../matrix/">
+      Intro - Matrix OS
+    </a>
+    
+  </li>
+
+          
+            
+  <li>
+    <a class="" title="Intro - Low Level Interfaces" href="../interfaces/">
+      Intro - Low Level Interfaces
+    </a>
+    
+  </li>
+
+          
+            
+  <li>
     <span class="section">OS</span>
     <ul>
       
@@ -495,6 +513,11 @@ sudo reboot;
 <li>In one SSH session, run <code>malos</code> - hardware interface</li>
 <li>In another SSH session, run <code>malos_eye</code> - computer vision provider</li>
 </ol>
+<pre><code># currently you need to run
+sudo modprobe bcm2835-v4l2;
+# before you run malos_eye
+</code></pre>
+
 <h5 id="register-device">Register Device</h5>
 <ol>
 <li>With https://github.com/matrix-io/matrix-cli run <code>matrix register device</code></li>
@@ -548,14 +571,14 @@ sudo reboot;
     </div>
     <div class="next">
       
-        <a href="../../API/overview/" title="Overview">
+        <a href="../matrix/" title="Intro - Matrix OS">
           <span class="direction">
             Next
           </span>
           <div class="page">
             <div class="stretch">
               <div class="title">
-                Overview
+                Intro - Matrix OS
               </div>
             </div>
             <div class="button button-next" role="button" aria-label="Next">
