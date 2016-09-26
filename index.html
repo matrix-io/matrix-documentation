@@ -153,40 +153,19 @@
         <ul>
           
             <li class="anchor">
-              <a title="Setup" href="#setup">
-                Setup
-              </a>
-            </li>
-          
-            <li class="anchor">
-              <a title="Hardware" href="#hardware">
-                Hardware
-              </a>
-            </li>
-          
-            <li class="anchor">
-              <a title="Installing MATRIX OS" href="#installing-matrix-os">
-                Installing MATRIX OS
-              </a>
-            </li>
-          
-            <li class="anchor">
               <a title="Support" href="#support">
                 Support
               </a>
             </li>
           
+            <li class="anchor">
+              <a title="Installation Instructions" href="#installation-instructions">
+                Installation Instructions
+              </a>
+            </li>
+          
         </ul>
       
-    
-  </li>
-
-          
-            
-  <li>
-    <a class="" title="Getting Started" href="intro/install/">
-      Getting Started
-    </a>
     
   </li>
 
@@ -493,50 +472,77 @@
 <p>This documentation is for MATRIX Creator and MATRIX OS.</p>
 <hr />
 <p><img alt="Matrix Creator" src="http://packages.matrix.one/wiki-images/general-assets/hand-small.png" /></p>
-<h2 id="setup">Setup</h2>
-<h3 id="installing-dependencies">Installing Dependencies</h3>
-<ul>
-<li><a href="intro/install/">Installing required device software</a></li>
-</ul>
-<h3 id="installing-malos">Installing MALOS</h3>
-<ul>
-<li><a href="intro/hal/">How to Implement the Everloop LED array</a> -- Using HAL C++ hardware abstraction layer.</li>
-<li><a href="intro/malos/">Installing MALOS Interface</a> -- Using Node.js and MALOS (Matrix Abstraction Layer for OS).</li>
-</ul>
-<h2 id="hardware">Hardware</h2>
-<h3 id="fpga-and-sam3-mcu">FPGA and SAM3 MCU</h3>
-<p>These will be programmed for you at boot after you follow the <a href="intro/install/">getting started</a> session, but here is the documentation that you need in case you want to program them yourself.
-<em> <a href="Hardware/fpga/">FPGA programming</a>
-</em> <a href="Hardware/Sam3/">SAM3 flash</a>
-* <a href="Hardware/sam3mcu-programming/">SAM3 MCU firmware programming</a></p>
-<h3 id="reference">Reference</h3>
-<ul>
-<li><a href="Reference/overview/">Overview</a></li>
-<li><a href="Reference/pinout/">Expansion connector pinout</a></li>
-<li><a href="https://github.com/matrix-io/matrix-creator-mcu">Firmware for the SAM3S MCU</a></li>
-</ul>
-<hr />
-<h2 id="installing-matrix-os">Installing MATRIX OS</h2>
-<p><a href="http://github.com/matrix-io/matrix-os">MATRIX OS</a></p>
-<p>MATRIX OS is a device and language agnostic approach towards building IoT applications which can utilize sensors, integrations, external API's and powerful computer vision, to drive real world behavior.</p>
-<p>All the hardware is abstracted away, so you don't have to worry about reading voltages.
-All the infrastructure is provided, so you can easily gather data from hundreds of devices in real time.</p>
-<h3 id="overview">Overview</h3>
-<ul>
-<li><a href="CLI/overview/">CLI</a> - Manage your devices and apps through the CLI</li>
-<li><a href="Configuration/overview/">Config</a> - App configuration informs device permissions, dashboards, data storage, app meta information and service integrations</li>
-<li><a href="API/overview/">API</a> - MatrixOS syntax and examples</li>
-</ul>
-<h3 id="language-support">Language Support</h3>
-<p>MATRIX OS currently supports JavaScript. Next on the list is Python.</p>
 <hr />
 <h2 id="support">Support</h2>
 <ul>
 <li>Post questions or comments on <a href="http://community.matrix.one/">community.matrix.one</a></li>
 <li>Post package issues on github under <a href="https://github.com/matrix-io">matrix-io</a></li>
 </ul>
-<h3 id="feedback">Feedback</h3>
-<p>We at AdMobilize have spent tens of thousands of hours making this for you. Please let us know your thoughts and feedback.</p>
+<h2 id="installation-instructions">Installation Instructions</h2>
+<p>New parts of the MATRIX ecosystem are being developed and integrated every day. Here are a set of instructions which will get MATRIX OS running on your Creator. This will be streamlined in the future.</p>
+<h3 id="local-computer">Local Computer</h3>
+<ol>
+<li>Install your Creator onto an rPi, connect to network cable which goes to local network, NOT to your computer, as it needs to be discoverable. Wifi support coming soon.</li>
+<li>Discover your rPi address with <code>arp -na | grep -i b8:27:eb</code>.</li>
+<li>SSH into your rPi. <code>ssh pi@192.168.0.15</code></li>
+<li>(Optional) Map ip to a host name in <code>/etc/hosts</code>.</li>
+</ol>
+<pre><code>echo '192.168.0.15 matrix' &gt;&gt; /etc/hosts
+ssh pi@matrix
+</code></pre>
+
+<h3 id="raspberry-pi">Raspberry Pi</h3>
+<h4 id="setup">Setup</h4>
+<p>SSH into your Creator and run the following:</p>
+<pre><code># setup &amp; installation
+echo &quot;deb http://packages.matrix.one/matrix-creator/ ./&quot; | sudo tee --append /etc/apt/sources.list;
+sudo apt-get update;
+sudo apt-get upgrade;
+sudo apt-get install -y xc3sprog malos-eye matrix-creator-openocd wiringpi matrix-creator-init cmake g++ git --force-yes;
+</code></pre>
+
+<p>This completes the Creator hardware setup.</p>
+<h3 id="you-can-now-explore-the-hardware-interfaces">You can now explore the <a href="../intro/interfaces.md">Hardware Interfaces</a>.</h3>
+<h3 id="matrix-os">Matrix OS</h3>
+<h4 id="installation">Installation</h4>
+<pre><code>git clone https://github.com/matrix-io/matrix-os.git;
+cd matrix-os;
+git submodule update --init;
+npm install;
+</code></pre>
+
+<h4 id="configuration">Configuration</h4>
+<pre><code># configure - NOTE: This is interactive. Enable your camera
+sudo raspi-config;
+sudo reboot;
+</code></pre>
+
+<p>Be sure your camera was enabled in <code>raspi-config</code></p>
+<h4 id="run-services">Run Services</h4>
+<pre><code># currently you need to run
+sudo modprobe bcm2835-v4l2;
+# before you run
+
+malos_eye &amp; malos 2&gt;&amp;1
+</code></pre>
+
+<h4 id="register-device">Register Device</h4>
+<ol>
+<li>With https://github.com/matrix-io/matrix-cli run <code>matrix register device</code></li>
+<li>Enter a name and (optional) description</li>
+<li>After a few moments you will be provided with a device ID and secret.</li>
+<li>Add these as environment variables via a shell script or command line.</li>
+<li>(optional) We export envs via an <code>.env</code> file which can be processed using <code>source .env</code></li>
+<li>To begin targeting this device with the CLI, enter the <code>matrix use</code> command provided</li>
+</ol>
+<h4 id="run-matrix-os">Run MATRIX OS</h4>
+<ol>
+<li>Ensure environment variables are set from above step.</li>
+<li>From the <code>matrix-os</code> folder. <code>node index.js</code></li>
+<li>If you want to start a MATRIX app on launch, use the env <code>START_APP</code>. ex. <code>START_APP=monitor node index.js</code></li>
+<li>Now you can issue commands and deploy apps to your MATRIX OS from the CLI. ( https://github.com/matrix-io/matrix-cli)</li>
+<li>Have fun!</li>
+</ol>
           <aside class="copyright" role="note">
             
             Documentation built with
@@ -556,14 +562,14 @@ All the infrastructure is provided, so you can easily gather data from hundreds 
     </div>
     <div class="next">
       
-        <a href="intro/install/" title="Getting Started">
+        <a href="intro/matrix/" title="Intro - Matrix OS">
           <span class="direction">
             Next
           </span>
           <div class="page">
             <div class="stretch">
               <div class="title">
-                Getting Started
+                Intro - Matrix OS
               </div>
             </div>
             <div class="button button-next" role="button" aria-label="Next">

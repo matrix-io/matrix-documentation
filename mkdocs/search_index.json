@@ -1,43 +1,73 @@
 {
     "docs": [
         {
-            "location": "/intro/install/", 
-            "text": "From https://github.com/matrix-io/matrix-os#alpha-installation-instructions\n\n\nAlpha Installation Instructions\n\n\nNew parts of the MATRIX ecosystem are being developed and integrated every day. Here are a set of instructions which will get MATRIX OS running on your Creator. This will be streamlined in the future.\n\n\nLocal Computer\n\n\n\n\nInstall your Creator onto an rPi, connect to network cable which goes to local network, NOT to your computer, as it needs to be discoverable. Wifi support coming soon.\n\n\nDiscover your rPi address with \narp -na | grep -i b8:27:eb\n.\n\n\nSSH into your rPi. \nssh pi@192.168.0.15\n\n\n(Optional) Map ip to a host name in \n/etc/hosts\n.\n\n\n\n\necho '192.168.0.15 matrix' \n /etc/hosts\nssh pi@matrix\n\n\n\n\nRaspberry Pi\n\n\nSetup\n\n\n\n\nIn one SSH session on your Creator run the following:\n\n\n\n\n# setup \n installation\necho \ndeb http://packages.matrix.one/matrix-creator/ ./\n | sudo tee --append /etc/apt/sources.list;\nsudo apt-get update;\nsudo apt-get upgrade;\nsudo apt-get install -y xc3sprog malos-eye matrix-creator-openocd wiringpi matrix-creator-init cmake g++ git --force-yes;\ngit clone https://github.com/matrix-io/matrix-os.git;\ncd matrix-os;\ngit submodule update --init;\nnpm install;\n\n# configure - NOTE: This is interactive. Enable your camera\nsudo raspi-config;\n\n\nsudo reboot;\n\n\n\n\n\n\nBe sure your camera was enabled in \nraspi-config\n\n\n\n\nRun Services\n\n\n\n\nIn one SSH session, run \nmalos\n - hardware interface\n\n\nIn another SSH session, run \nmalos_eye\n - computer vision provider\n\n\n\n\n# currently you need to run\nsudo modprobe bcm2835-v4l2;\n# before you run malos_eye\n\n\n\n\nRegister Device\n\n\n\n\nWith https://github.com/matrix-io/matrix-cli run \nmatrix register device\n\n\nEnter a name and (optional) description\n\n\nAfter a few moments you will be provided with a device ID and secret.\n\n\nAdd these as environment variables via a shell script or command line.\n\n\n(optional) We export envs via an \n.env\n file which can be processed using \nsource .env\n\n\nTo begin targeting this device with the CLI, enter the \nmatrix use\n command provided\n\n\n\n\nRun MATRIX OS\n\n\n\n\nEnsure environment variables are set from above step.\n\n\nFrom the \nmatrix-os\n folder. \nnode index.js\n\n\nIf you want to start a MATRIX app on launch, use the env \nSTART_APP\n. ex. \nSTART_APP=monitor node index.js\n\n\nRead environment notes below.\n\n\nNow you can issue commands and deploy apps to your MATRIX OS from the CLI. ( https://github.com/matrix-io/matrix-cli)\n\n\nHave fun!", 
+            "location": "/", 
+            "text": "Getting Started\n\n\nThis documentation is for MATRIX Creator and MATRIX OS.\n\n\n\n\n\n\n\n\nSupport\n\n\n\n\nPost questions or comments on \ncommunity.matrix.one\n\n\nPost package issues on github under \nmatrix-io\n\n\n\n\nInstallation Instructions\n\n\nNew parts of the MATRIX ecosystem are being developed and integrated every day. Here are a set of instructions which will get MATRIX OS running on your Creator. This will be streamlined in the future.\n\n\nLocal Computer\n\n\n\n\nInstall your Creator onto an rPi, connect to network cable which goes to local network, NOT to your computer, as it needs to be discoverable. Wifi support coming soon.\n\n\nDiscover your rPi address with \narp -na | grep -i b8:27:eb\n.\n\n\nSSH into your rPi. \nssh pi@192.168.0.15\n\n\n(Optional) Map ip to a host name in \n/etc/hosts\n.\n\n\n\n\necho '192.168.0.15 matrix' \n /etc/hosts\nssh pi@matrix\n\n\n\n\nRaspberry Pi\n\n\nSetup\n\n\nSSH into your Creator and run the following:\n\n\n# setup \n installation\necho \ndeb http://packages.matrix.one/matrix-creator/ ./\n | sudo tee --append /etc/apt/sources.list;\nsudo apt-get update;\nsudo apt-get upgrade;\nsudo apt-get install -y xc3sprog malos-eye matrix-creator-openocd wiringpi matrix-creator-init cmake g++ git --force-yes;\n\n\n\n\nThis completes the Creator hardware setup.\n\n\nYou can now explore the \nHardware Interfaces\n.\n\n\nMatrix OS\n\n\nInstallation\n\n\ngit clone https://github.com/matrix-io/matrix-os.git;\ncd matrix-os;\ngit submodule update --init;\nnpm install;\n\n\n\n\nConfiguration\n\n\n# configure - NOTE: This is interactive. Enable your camera\nsudo raspi-config;\nsudo reboot;\n\n\n\n\nBe sure your camera was enabled in \nraspi-config\n\n\nRun Services\n\n\n# currently you need to run\nsudo modprobe bcm2835-v4l2;\n# before you run\n\nmalos_eye \n malos 2\n1\n\n\n\n\nRegister Device\n\n\n\n\nWith https://github.com/matrix-io/matrix-cli run \nmatrix register device\n\n\nEnter a name and (optional) description\n\n\nAfter a few moments you will be provided with a device ID and secret.\n\n\nAdd these as environment variables via a shell script or command line.\n\n\n(optional) We export envs via an \n.env\n file which can be processed using \nsource .env\n\n\nTo begin targeting this device with the CLI, enter the \nmatrix use\n command provided\n\n\n\n\nRun MATRIX OS\n\n\n\n\nEnsure environment variables are set from above step.\n\n\nFrom the \nmatrix-os\n folder. \nnode index.js\n\n\nIf you want to start a MATRIX app on launch, use the env \nSTART_APP\n. ex. \nSTART_APP=monitor node index.js\n\n\nNow you can issue commands and deploy apps to your MATRIX OS from the CLI. ( https://github.com/matrix-io/matrix-cli)\n\n\nHave fun!", 
+            "title": "Home"
+        }, 
+        {
+            "location": "/#getting-started", 
+            "text": "This documentation is for MATRIX Creator and MATRIX OS.", 
             "title": "Getting Started"
         }, 
         {
-            "location": "/intro/install/#alpha-installation-instructions", 
-            "text": "New parts of the MATRIX ecosystem are being developed and integrated every day. Here are a set of instructions which will get MATRIX OS running on your Creator. This will be streamlined in the future.", 
-            "title": "Alpha Installation Instructions"
+            "location": "/#support", 
+            "text": "Post questions or comments on  community.matrix.one  Post package issues on github under  matrix-io", 
+            "title": "Support"
         }, 
         {
-            "location": "/intro/install/#local-computer", 
+            "location": "/#installation-instructions", 
+            "text": "New parts of the MATRIX ecosystem are being developed and integrated every day. Here are a set of instructions which will get MATRIX OS running on your Creator. This will be streamlined in the future.", 
+            "title": "Installation Instructions"
+        }, 
+        {
+            "location": "/#local-computer", 
             "text": "Install your Creator onto an rPi, connect to network cable which goes to local network, NOT to your computer, as it needs to be discoverable. Wifi support coming soon.  Discover your rPi address with  arp -na | grep -i b8:27:eb .  SSH into your rPi.  ssh pi@192.168.0.15  (Optional) Map ip to a host name in  /etc/hosts .   echo '192.168.0.15 matrix'   /etc/hosts\nssh pi@matrix", 
             "title": "Local Computer"
         }, 
         {
-            "location": "/intro/install/#raspberry-pi", 
+            "location": "/#raspberry-pi", 
             "text": "", 
             "title": "Raspberry Pi"
         }, 
         {
-            "location": "/intro/install/#setup", 
-            "text": "In one SSH session on your Creator run the following:   # setup   installation\necho  deb http://packages.matrix.one/matrix-creator/ ./  | sudo tee --append /etc/apt/sources.list;\nsudo apt-get update;\nsudo apt-get upgrade;\nsudo apt-get install -y xc3sprog malos-eye matrix-creator-openocd wiringpi matrix-creator-init cmake g++ git --force-yes;\ngit clone https://github.com/matrix-io/matrix-os.git;\ncd matrix-os;\ngit submodule update --init;\nnpm install;\n\n# configure - NOTE: This is interactive. Enable your camera\nsudo raspi-config;\n\n\nsudo reboot;   Be sure your camera was enabled in  raspi-config", 
+            "location": "/#setup", 
+            "text": "SSH into your Creator and run the following:  # setup   installation\necho  deb http://packages.matrix.one/matrix-creator/ ./  | sudo tee --append /etc/apt/sources.list;\nsudo apt-get update;\nsudo apt-get upgrade;\nsudo apt-get install -y xc3sprog malos-eye matrix-creator-openocd wiringpi matrix-creator-init cmake g++ git --force-yes;  This completes the Creator hardware setup.", 
             "title": "Setup"
         }, 
         {
-            "location": "/intro/install/#run-services", 
-            "text": "In one SSH session, run  malos  - hardware interface  In another SSH session, run  malos_eye  - computer vision provider   # currently you need to run\nsudo modprobe bcm2835-v4l2;\n# before you run malos_eye", 
+            "location": "/#you-can-now-explore-the-hardware-interfaces", 
+            "text": "", 
+            "title": "You can now explore the Hardware Interfaces."
+        }, 
+        {
+            "location": "/#matrix-os", 
+            "text": "", 
+            "title": "Matrix OS"
+        }, 
+        {
+            "location": "/#installation", 
+            "text": "git clone https://github.com/matrix-io/matrix-os.git;\ncd matrix-os;\ngit submodule update --init;\nnpm install;", 
+            "title": "Installation"
+        }, 
+        {
+            "location": "/#configuration", 
+            "text": "# configure - NOTE: This is interactive. Enable your camera\nsudo raspi-config;\nsudo reboot;  Be sure your camera was enabled in  raspi-config", 
+            "title": "Configuration"
+        }, 
+        {
+            "location": "/#run-services", 
+            "text": "# currently you need to run\nsudo modprobe bcm2835-v4l2;\n# before you run\n\nmalos_eye   malos 2 1", 
             "title": "Run Services"
         }, 
         {
-            "location": "/intro/install/#register-device", 
+            "location": "/#register-device", 
             "text": "With https://github.com/matrix-io/matrix-cli run  matrix register device  Enter a name and (optional) description  After a few moments you will be provided with a device ID and secret.  Add these as environment variables via a shell script or command line.  (optional) We export envs via an  .env  file which can be processed using  source .env  To begin targeting this device with the CLI, enter the  matrix use  command provided", 
             "title": "Register Device"
         }, 
         {
-            "location": "/intro/install/#run-matrix-os", 
-            "text": "Ensure environment variables are set from above step.  From the  matrix-os  folder.  node index.js  If you want to start a MATRIX app on launch, use the env  START_APP . ex.  START_APP=monitor node index.js  Read environment notes below.  Now you can issue commands and deploy apps to your MATRIX OS from the CLI. ( https://github.com/matrix-io/matrix-cli)  Have fun!", 
+            "location": "/#run-matrix-os", 
+            "text": "Ensure environment variables are set from above step.  From the  matrix-os  folder.  node index.js  If you want to start a MATRIX app on launch, use the env  START_APP . ex.  START_APP=monitor node index.js  Now you can issue commands and deploy apps to your MATRIX OS from the CLI. ( https://github.com/matrix-io/matrix-cli)  Have fun!", 
             "title": "Run MATRIX OS"
         }, 
         {

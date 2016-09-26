@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
     
       
-        <title>Getting Started - MATRIX</title>
+        <title>Home - MATRIX</title>
       
       
       
@@ -89,7 +89,7 @@
             
           </span>
         
-        Getting Started
+        Home
       </div>
     </div>
     
@@ -140,8 +140,8 @@
           
             
   <li>
-    <a class="current" title="Getting Started" href="./">
-      Getting Started
+    <a class="current" title="Home" href="./">
+      Home
     </a>
     
       
@@ -458,7 +458,7 @@
       <article class="article">
         <div class="wrapper">
           
-            <h1>Getting Started</h1>
+            <h1>Home</h1>
           
           <p>From https://github.com/matrix-io/matrix-os#alpha-installation-instructions</p>
 <h2 id="alpha-installation-instructions">Alpha Installation Instructions</h2>
@@ -476,29 +476,31 @@ ssh pi@matrix
 
 <h4 id="raspberry-pi">Raspberry Pi</h4>
 <h5 id="setup">Setup</h5>
-<ol>
-<li>In one SSH session on your Creator run the following:</li>
-</ol>
+<p>In one SSH session on your Creator run the following:</p>
 <pre><code># setup &amp; installation
 echo &quot;deb http://packages.matrix.one/matrix-creator/ ./&quot; | sudo tee --append /etc/apt/sources.list;
 sudo apt-get update;
 sudo apt-get upgrade;
 sudo apt-get install -y xc3sprog malos-eye matrix-creator-openocd wiringpi matrix-creator-init cmake g++ git --force-yes;
-git clone https://github.com/matrix-io/matrix-os.git;
+</code></pre>
+
+<p>This completes the Creator hardware setup.</p>
+<h3 id="you-can-now-explore-the-hardware-interfaces">You can now explore the <a href="../interfaces/">Hardware Interfaces</a>.</h3>
+<h4 id="matrix-os">Matrix OS</h4>
+<h5 id="installation">Installation</h5>
+<pre><code>git clone https://github.com/matrix-io/matrix-os.git;
 cd matrix-os;
 git submodule update --init;
 npm install;
+</code></pre>
 
-# configure - NOTE: This is interactive. Enable your camera
+<h5 id="configuration">Configuration</h5>
+<pre><code># configure - NOTE: This is interactive. Enable your camera
 sudo raspi-config;
-
-
 sudo reboot;
 </code></pre>
 
-<ol>
-<li>Be sure your camera was enabled in <code>raspi-config</code></li>
-</ol>
+<p>Be sure your camera was enabled in <code>raspi-config</code></p>
 <h5 id="run-services">Run Services</h5>
 <ol>
 <li>In one SSH session, run <code>malos</code> - hardware interface</li>
