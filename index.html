@@ -158,12 +158,6 @@
               </a>
             </li>
           
-            <li class="anchor">
-              <a title="Installation Instructions" href="#installation-instructions">
-                Installation Instructions
-              </a>
-            </li>
-          
         </ul>
       
     
@@ -478,9 +472,9 @@
 <li>Post questions or comments on <a href="http://community.matrix.one/">community.matrix.one</a></li>
 <li>Post package issues on github under <a href="https://github.com/matrix-io">matrix-io</a></li>
 </ul>
-<h2 id="installation-instructions">Installation Instructions</h2>
+<h1 id="installation-instructions">Installation Instructions</h1>
 <p>New parts of the MATRIX ecosystem are being developed and integrated every day. Here are a set of instructions which will get MATRIX OS running on your Creator. This will be streamlined in the future.</p>
-<h3 id="local-computer">Local Computer</h3>
+<h2 id="local-computer">Local Computer</h2>
 <ol>
 <li>Install your Creator onto an rPi, connect to network cable which goes to local network, NOT to your computer, as it needs to be discoverable. Wifi support coming soon.</li>
 <li>Discover your rPi address with <code>arp -na | grep -i b8:27:eb</code>.</li>
@@ -491,8 +485,8 @@
 ssh pi@matrix
 </code></pre>
 
-<h3 id="raspberry-pi">Raspberry Pi</h3>
-<h4 id="setup">Setup</h4>
+<h2 id="raspberry-pi">Raspberry Pi</h2>
+<h3 id="setup">Setup</h3>
 <p>SSH into your Creator and run the following:</p>
 <pre><code># setup &amp; installation
 echo &quot;deb http://packages.matrix.one/matrix-creator/ ./&quot; | sudo tee --append /etc/apt/sources.list;
@@ -503,22 +497,22 @@ sudo apt-get install -y xc3sprog malos-eye matrix-creator-openocd wiringpi matri
 
 <p>This completes the Creator hardware setup.</p>
 <h3 id="you-can-now-explore-the-hardware-interfaces">You can now explore the <a href="../intro/interfaces.md">Hardware Interfaces</a>.</h3>
-<h3 id="matrix-os">Matrix OS</h3>
-<h4 id="installation">Installation</h4>
+<h2 id="matrix-os">Matrix OS</h2>
+<h3 id="installation">Installation</h3>
 <pre><code>git clone https://github.com/matrix-io/matrix-os.git;
 cd matrix-os;
 git submodule update --init;
 npm install;
 </code></pre>
 
-<h4 id="configuration">Configuration</h4>
+<h3 id="configuration">Configuration</h3>
 <pre><code># configure - NOTE: This is interactive. Enable your camera
 sudo raspi-config;
 sudo reboot;
 </code></pre>
 
 <p>Be sure your camera was enabled in <code>raspi-config</code></p>
-<h4 id="run-services">Run Services</h4>
+<h3 id="run-services">Run Services</h3>
 <pre><code># currently you need to run
 sudo modprobe bcm2835-v4l2;
 # before you run
@@ -526,7 +520,7 @@ sudo modprobe bcm2835-v4l2;
 malos_eye &amp; malos 2&gt;&amp;1
 </code></pre>
 
-<h4 id="register-device">Register Device</h4>
+<h3 id="register-device">Register Device</h3>
 <ol>
 <li>With https://github.com/matrix-io/matrix-cli run <code>matrix register device</code></li>
 <li>Enter a name and (optional) description</li>
@@ -535,7 +529,7 @@ malos_eye &amp; malos 2&gt;&amp;1
 <li>(optional) We export envs via an <code>.env</code> file which can be processed using <code>source .env</code></li>
 <li>To begin targeting this device with the CLI, enter the <code>matrix use</code> command provided</li>
 </ol>
-<h4 id="run-matrix-os">Run MATRIX OS</h4>
+<h3 id="run-matrix-os">Run MATRIX OS</h3>
 <ol>
 <li>Ensure environment variables are set from above step.</li>
 <li>From the <code>matrix-os</code> folder. <code>node index.js</code></li>
