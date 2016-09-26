@@ -15,18 +15,17 @@
 * [IR](../API/ir.md) - Infrared Learning and Remote
 * [MICROPHONE](../API/microphone.md) - Accessing the microphone and speech recognition
 * [NFC](../API/nfc.md) - NFC Input / Output
-* [SENSORS](../API/sensors.md)
-* [SPEAKER](../API/speaker.md)
-* [TYPESEND](../API/typesend.md)
-* [ZIGBEE](../API/zigbee.md)
-* [ZWAVE](../API/zwave.md)
+* [SENSORS](../API/sensors.md) - Basic Sensors, Temperature, Gyroscope, Pressure, etc
+* [SPEAKER](../API/speaker.md) - Make sound
+* [TYPESEND](../API/typesend.md) - Type system, read this if you are saving data.
+* [ZIGBEE](../API/zigbee.md) - Communication Protocol
+* [ZWAVE](../API/zwave.md) - Communication Protocol
 
 ## Configuration Specifications
-* [DATATYPES](../Configuration/datatypes.md)
-* [EXAMPLES](../Configuration/examples.md)
-* [FILTERS](../Configuration/filters.md)
-* [OVERVIEW](../Configuration/overview.md)
-* [SCREENS](../Configuration/screens.md)
-* [SERVICES](../Configuration/services.md)
-* [SETUP](../Configuration/setup.md)
-* [WIDGETS](../Configuration/widgets.md)
+Configuration files are used to tell applications and interfaces how to behave. Portions of this are easily editable from the command line.
+* [DATATYPES](../Configuration/datatypes.md) - Combines with TYPESEND above for data segmenting superpowers.  
+* [EXAMPLES](../Configuration/examples.md) - Massive example file with most options.
+* [FILTERS](../Configuration/filters.md) - Show data transformations in charts
+* [SCREENS](../Configuration/screens.md) - Dashboard interface widget layout
+* [SERVICES](../Configuration/services.md) - Integration with internal and external services (like computer vision)
+* [WIDGETS](../Configuration/widgets.md) - The available widgets
