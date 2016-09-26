@@ -1,71 +1,6 @@
 {
     "docs": [
         {
-            "location": "/", 
-            "text": "Getting Started\n\n\nThis documentation is for MATRIX Creator and MATRIX OS.\n\n\n\n\n\n\nSetup\n\n\nInstalling Dependencies\n\n\n\n\nInstalling required device software\n\n\n\n\nInstalling MALOS\n\n\n\n\nHow to Implement the Everloop LED array\n -- Using HAL C++ hardware abstraction layer.\n\n\nInstalling MALOS Interface\n -- Using Node.js and MALOS (Matrix Abstraction Layer for OS).\n\n\n\n\nHardware\n\n\nFPGA and SAM3 MCU\n\n\nThese will be programmed for you at boot after you follow the \ngetting started\n session, but here is the documentation that you need in case you want to program them yourself.\n\n \nFPGA programming\n\n\n \nSAM3 flash\n\n* \nSAM3 MCU firmware programming\n\n\nReference\n\n\n\n\nOverview\n\n\nExpansion connector pinout\n\n\nFirmware for the SAM3S MCU\n\n\n\n\n\n\nInstalling MATRIX OS\n\n\nMATRIX OS\n\n\nMATRIX OS is a device and language agnostic approach towards building IoT applications which can utilize sensors, integrations, external API's and powerful computer vision, to drive real world behavior.\n\n\nAll the hardware is abstracted away, so you don't have to worry about reading voltages.\nAll the infrastructure is provided, so you can easily gather data from hundreds of devices in real time.\n\n\nOverview\n\n\n\n\nCLI\n - Manage your devices and apps through the CLI\n\n\nConfig\n - App configuration informs device permissions, dashboards, data storage, app meta information and service integrations\n\n\nAPI\n - MatrixOS syntax and examples\n\n\n\n\nLanguage Support\n\n\nMATRIX OS currently supports JavaScript. Next on the list is Python.\n\n\n\n\nSupport\n\n\n\n\nPost questions or comments on \ncommunity.matrix.one\n\n\nPost package issues on github under \nmatrix-io\n\n\n\n\nFeedback\n\n\nWe at AdMobilize have spent tens of thousands of hours making this for you. Please let us know your thoughts and feedback.", 
-            "title": "Home"
-        }, 
-        {
-            "location": "/#getting-started", 
-            "text": "This documentation is for MATRIX Creator and MATRIX OS.", 
-            "title": "Getting Started"
-        }, 
-        {
-            "location": "/#setup", 
-            "text": "", 
-            "title": "Setup"
-        }, 
-        {
-            "location": "/#installing-dependencies", 
-            "text": "Installing required device software", 
-            "title": "Installing Dependencies"
-        }, 
-        {
-            "location": "/#installing-malos", 
-            "text": "How to Implement the Everloop LED array  -- Using HAL C++ hardware abstraction layer.  Installing MALOS Interface  -- Using Node.js and MALOS (Matrix Abstraction Layer for OS).", 
-            "title": "Installing MALOS"
-        }, 
-        {
-            "location": "/#hardware", 
-            "text": "", 
-            "title": "Hardware"
-        }, 
-        {
-            "location": "/#fpga-and-sam3-mcu", 
-            "text": "These will be programmed for you at boot after you follow the  getting started  session, but here is the documentation that you need in case you want to program them yourself.   FPGA programming    SAM3 flash \n*  SAM3 MCU firmware programming", 
-            "title": "FPGA and SAM3 MCU"
-        }, 
-        {
-            "location": "/#reference", 
-            "text": "Overview  Expansion connector pinout  Firmware for the SAM3S MCU", 
-            "title": "Reference"
-        }, 
-        {
-            "location": "/#installing-matrix-os", 
-            "text": "MATRIX OS  MATRIX OS is a device and language agnostic approach towards building IoT applications which can utilize sensors, integrations, external API's and powerful computer vision, to drive real world behavior.  All the hardware is abstracted away, so you don't have to worry about reading voltages.\nAll the infrastructure is provided, so you can easily gather data from hundreds of devices in real time.", 
-            "title": "Installing MATRIX OS"
-        }, 
-        {
-            "location": "/#overview", 
-            "text": "CLI  - Manage your devices and apps through the CLI  Config  - App configuration informs device permissions, dashboards, data storage, app meta information and service integrations  API  - MatrixOS syntax and examples", 
-            "title": "Overview"
-        }, 
-        {
-            "location": "/#language-support", 
-            "text": "MATRIX OS currently supports JavaScript. Next on the list is Python.", 
-            "title": "Language Support"
-        }, 
-        {
-            "location": "/#support", 
-            "text": "Post questions or comments on  community.matrix.one  Post package issues on github under  matrix-io", 
-            "title": "Support"
-        }, 
-        {
-            "location": "/#feedback", 
-            "text": "We at AdMobilize have spent tens of thousands of hours making this for you. Please let us know your thoughts and feedback.", 
-            "title": "Feedback"
-        }, 
-        {
             "location": "/intro/install/", 
             "text": "From https://github.com/matrix-io/matrix-os#alpha-installation-instructions\n\n\nAlpha Installation Instructions\n\n\nNew parts of the MATRIX ecosystem are being developed and integrated every day. Here are a set of instructions which will get MATRIX OS running on your Creator. This will be streamlined in the future.\n\n\nLocal Computer\n\n\n\n\nInstall your Creator onto an rPi, connect to network cable which goes to local network, NOT to your computer, as it needs to be discoverable. Wifi support coming soon.\n\n\nDiscover your rPi address with \narp -na | grep -i b8:27:eb\n.\n\n\nSSH into your rPi. \nssh pi@192.168.0.15\n\n\n(Optional) Map ip to a host name in \n/etc/hosts\n.\n\n\n\n\necho '192.168.0.15 matrix' \n /etc/hosts\nssh pi@matrix\n\n\n\n\nRaspberry Pi\n\n\nSetup\n\n\n\n\nIn one SSH session on your Creator run the following:\n\n\n\n\n# setup \n installation\necho \ndeb http://packages.matrix.one/matrix-creator/ ./\n | sudo tee --append /etc/apt/sources.list;\nsudo apt-get update;\nsudo apt-get upgrade;\nsudo apt-get install -y xc3sprog malos-eye matrix-creator-openocd wiringpi matrix-creator-init cmake g++ git --force-yes;\ngit clone https://github.com/matrix-io/matrix-os.git;\ncd matrix-os;\ngit submodule update --init;\nnpm install;\n\n# configure - NOTE: This is interactive. Enable your camera\nsudo raspi-config;\n\n\nsudo reboot;\n\n\n\n\n\n\nBe sure your camera was enabled in \nraspi-config\n\n\n\n\nRun Services\n\n\n\n\nIn one SSH session, run \nmalos\n - hardware interface\n\n\nIn another SSH session, run \nmalos_eye\n - computer vision provider\n\n\n\n\n# currently you need to run\nsudo modprobe bcm2835-v4l2;\n# before you run malos_eye\n\n\n\n\nRegister Device\n\n\n\n\nWith https://github.com/matrix-io/matrix-cli run \nmatrix register device\n\n\nEnter a name and (optional) description\n\n\nAfter a few moments you will be provided with a device ID and secret.\n\n\nAdd these as environment variables via a shell script or command line.\n\n\n(optional) We export envs via an \n.env\n file which can be processed using \nsource .env\n\n\nTo begin targeting this device with the CLI, enter the \nmatrix use\n command provided\n\n\n\n\nRun MATRIX OS\n\n\n\n\nEnsure environment variables are set from above step.\n\n\nFrom the \nmatrix-os\n folder. \nnode index.js\n\n\nIf you want to start a MATRIX app on launch, use the env \nSTART_APP\n. ex. \nSTART_APP=monitor node index.js\n\n\nRead environment notes below.\n\n\nNow you can issue commands and deploy apps to your MATRIX OS from the CLI. ( https://github.com/matrix-io/matrix-cli)\n\n\nHave fun!", 
             "title": "Getting Started"
@@ -107,7 +42,7 @@
         }, 
         {
             "location": "/intro/matrix/", 
-            "text": "MATRIX OS\n\n\nCommand Line Interface\n\n\n\n\nOVERVIEW\n - Installation, Registration, Commands\n\n\nAPPS\n - Application lifecycle\n\n\nEXAMPLES\n - Example workflows\n\n\n\n\nAPI Guides\n\n\n\n\nOVERVIEW\n - Introduction\n\n\nVISION\n - Computer vision on MOS\n\n\nCROSSTALK\n - App to App and Device to Device communication\n\n\nEVERLOOP\n - Multicolored LED Lights\n\n\nFILTER\n - Generic logic for filtering data sources\n\n\nGPIO\n - Pins\n\n\nIR\n - Infrared Learning and Remote\n\n\nMICROPHONE\n - Accessing the microphone and speech recognition\n\n\nNFC\n - NFC Input / Output\n\n\nSENSORS\n - Basic Sensors, Temperature, Gyroscope, Pressure, etc\n\n\nSPEAKER\n - Make sound\n\n\nTYPESEND\n - Type system, read this if you are saving data.\n\n\nZIGBEE\n - Communication Protocol\n\n\nZWAVE\n - Communication Protocol\n\n\n\n\nConfiguration Specifications\n\n\nConfiguration files are used to tell applications and interfaces how to behave. Portions of this are easily editable from the command line.\n\n\n\n\nDATATYPES\n - Combines with TYPESEND above for data segmenting superpowers.  \n\n\nEXAMPLES\n - Massive example file with most options.\n\n\nFILTERS\n - Show data transformations in charts\n\n\nSCREENS\n - Dashboard interface widget layout\n\n\nSERVICES\n - Integration with internal and external services (like computer vision)\n\n\nWIDGETS\n - The available widgets", 
+            "text": "MATRIX OS\n\n\nCommand Line Interface\n\n\n\n\nOVERVIEW\n - Installation, Registration, Commands\n\n\nAPPS\n - Application lifecycle\n\n\nEXAMPLES\n - Example workflows\n\n\n\n\nAPI Guides\n\n\n\n\nOVERVIEW\n - Introduction\n\n\nVISION\n - Computer vision on MOS\n\n\nCROSSTALK\n - App to App and Device to Device communication\n\n\nEVERLOOP\n - Multicolored LED Lights\n\n\nFILTER\n - Generic logic for filtering data sources\n\n\nGPIO\n - Pins\n\n\nIR\n - Infrared Learning and Remote\n\n\nMICROPHONE\n - Accessing the microphone and speech recognition\n\n\nNFC\n - NFC Input / Output\n\n\nSENSORS\n - Basic Sensors, Temperature, Gyroscope, Pressure, etc\n\n\nSPEAKER\n - Make sound\n\n\nTYPESEND\n - Type system, read this if you are saving data.\n\n\nZIGBEE\n - Communication Protocol\n\n\nZWAVE\n - Communication Protocol\n\n\n\n\nConfiguration Specifications\n\n\n\n\nDATATYPES\n - Combines with TYPESEND above for data segmenting superpowers.  \n\n\nEXAMPLES\n - Massive example file with most options.\n\n\nFILTERS\n - Show data transformations in charts\n\n\nSCREENS\n - Dashboard interface widget layout\n\n\nSERVICES\n - Integration with internal and external services (like computer vision)\n\n\nWIDGETS\n - The available widgets", 
             "title": "Intro - Matrix OS"
         }, 
         {
@@ -127,7 +62,7 @@
         }, 
         {
             "location": "/intro/matrix/#configuration-specifications", 
-            "text": "Configuration files are used to tell applications and interfaces how to behave. Portions of this are easily editable from the command line.   DATATYPES  - Combines with TYPESEND above for data segmenting superpowers.    EXAMPLES  - Massive example file with most options.  FILTERS  - Show data transformations in charts  SCREENS  - Dashboard interface widget layout  SERVICES  - Integration with internal and external services (like computer vision)  WIDGETS  - The available widgets", 
+            "text": "DATATYPES  - Combines with TYPESEND above for data segmenting superpowers.    EXAMPLES  - Massive example file with most options.  FILTERS  - Show data transformations in charts  SCREENS  - Dashboard interface widget layout  SERVICES  - Integration with internal and external services (like computer vision)  WIDGETS  - The available widgets", 
             "title": "Configuration Specifications"
         }, 
         {
