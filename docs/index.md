@@ -23,7 +23,7 @@ SSH into your Creator and run the following:
 echo "deb http://packages.matrix.one/matrix-creator/ ./" | sudo tee --append /etc/apt/sources.list;
 sudo apt-get update;
 sudo apt-get upgrade;
-sudo apt-get install -y xc3sprog malos-eye matrix-creator-openocd wiringpi matrix-creator-init cmake g++ git --force-yes;
+sudo apt-get install -y libzmq3-dev xc3sprog malos-eye matrix-creator-openocd wiringpi matrix-creator-init cmake g++ git --force-yes;
 ```
 
 This completes the Creator hardware setup.
