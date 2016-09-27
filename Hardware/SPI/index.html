@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
     
       
-        <title>Screens - MATRIX</title>
+        <title>SPI - MATRIX</title>
       
       
       
@@ -88,16 +88,12 @@
           <span class="path">
             
               
-                OS <i class="icon icon-link"></i>
-              
-            
-              
-                Config <i class="icon icon-link"></i>
+                Hardware <i class="icon icon-link"></i>
               
             
           </span>
         
-        Screens
+        SPI
       </div>
     </div>
     
@@ -320,7 +316,7 @@
       
         
   <li>
-    <a class="" title="Overview" href="../overview/">
+    <a class="" title="Overview" href="../../Configuration/overview/">
       Overview
     </a>
     
@@ -329,7 +325,7 @@
       
         
   <li>
-    <a class="" title="Datatypes" href="../datatypes/">
+    <a class="" title="Datatypes" href="../../Configuration/datatypes/">
       Datatypes
     </a>
     
@@ -338,19 +334,16 @@
       
         
   <li>
-    <a class="current" title="Screens" href="./">
+    <a class="" title="Screens" href="../../Configuration/screens/">
       Screens
     </a>
-    
-      
-      
     
   </li>
 
       
         
   <li>
-    <a class="" title="Filters" href="../filters/">
+    <a class="" title="Filters" href="../../Configuration/filters/">
       Filters
     </a>
     
@@ -359,7 +352,7 @@
       
         
   <li>
-    <a class="" title="Widgets" href="../widgets/">
+    <a class="" title="Widgets" href="../../Configuration/widgets/">
       Widgets
     </a>
     
@@ -368,7 +361,7 @@
       
         
   <li>
-    <a class="" title="Services" href="../services/">
+    <a class="" title="Services" href="../../Configuration/services/">
       Services
     </a>
     
@@ -377,7 +370,7 @@
       
         
   <li>
-    <a class="" title="Examples" href="../examples/">
+    <a class="" title="Examples" href="../../Configuration/examples/">
       Examples
     </a>
     
@@ -435,7 +428,7 @@
       
         
   <li>
-    <a class="" title="FPGA" href="../../Hardware/fpga/">
+    <a class="" title="FPGA" href="../fpga/">
       FPGA
     </a>
     
@@ -444,7 +437,7 @@
       
         
   <li>
-    <a class="" title="SAM3" href="../../Hardware/Sam3/">
+    <a class="" title="SAM3" href="../Sam3/">
       SAM3
     </a>
     
@@ -453,7 +446,7 @@
       
         
   <li>
-    <a class="" title="SAM3MCU" href="../../Hardware/sam3mcu-programming/">
+    <a class="" title="SAM3MCU" href="../sam3mcu-programming/">
       SAM3MCU
     </a>
     
@@ -462,7 +455,7 @@
       
         
   <li>
-    <a class="" title="Microphone" href="../../Hardware/microphone/">
+    <a class="" title="Microphone" href="../microphone/">
       Microphone
     </a>
     
@@ -471,9 +464,22 @@
       
         
   <li>
-    <a class="" title="SPI" href="../../Hardware/SPI/">
+    <a class="current" title="SPI" href="./">
       SPI
     </a>
+    
+      
+      
+        <ul>
+          
+            <li class="anchor">
+              <a title="SPI" href="#spi">
+                SPI
+              </a>
+            </li>
+          
+        </ul>
+      
     
   </li>
 
@@ -546,9 +552,25 @@
       <article class="article">
         <div class="wrapper">
           
-            <h1>Screens</h1>
+            <h1>SPI</h1>
           
-          
+          <h3 id="spi">SPI</h3>
+<p>The SPI bus is not enabled by default by Raspbian.</p>
+<p>To enable it you can follow the next steps.</p>
+<p>First, open raspi-config.</p>
+<pre><code>sudo raspi-config
+</code></pre>
+<p>[[https://storage.googleapis.com/packages.matrix.one/wiki-images/enable-spi/1-open.png|alt=open the interface]]</p>
+<p>Then navigate the interface to activate the SPI bus. Go to advanced options.</p>
+<p>[[https://storage.googleapis.com/packages.matrix.one/wiki-images/enable-spi/2-select-advanced.png|alt=select advanced]]</p>
+<p>Select SPI.</p>
+<p>[[https://storage.googleapis.com/packages.matrix.one/wiki-images/enable-spi/3-select-spi.png|alt=select SPI]]</p>
+<p>Enable SPI.</p>
+<p>[[https://storage.googleapis.com/packages.matrix.one/wiki-images/enable-spi/4-enable.jpg|alt=enable SPI]]</p>
+<p>Verify that SPI has been enabled.</p>
+<p>[[https://storage.googleapis.com/packages.matrix.one/wiki-images/enable-spi/5-enabled.jpg|alt=SPI enabled]]</p>
+<p>Now you can exit raspi-config and SPI will be permanently enabled.</p>
+<p>This allows you to play with the <a href="../Everloop LED Array And IMU">Everloop LED Array And IMU</a>.</p>
           <aside class="copyright" role="note">
             
             Documentation built with
@@ -565,7 +587,7 @@
   <nav class="pagination" aria-label="Footer">
     <div class="previous">
       
-        <a href="../datatypes/" title="Datatypes">
+        <a href="../microphone/" title="Microphone">
           <span class="direction">
             Previous
           </span>
@@ -575,7 +597,7 @@
             </div>
             <div class="stretch">
               <div class="title">
-                Datatypes
+                Microphone
               </div>
             </div>
           </div>
@@ -584,14 +606,14 @@
     </div>
     <div class="next">
       
-        <a href="../filters/" title="Filters">
+        <a href="../../intro/hal/" title="HAL">
           <span class="direction">
             Next
           </span>
           <div class="page">
             <div class="stretch">
               <div class="title">
-                Filters
+                HAL
               </div>
             </div>
             <div class="button button-next" role="button" aria-label="Next">

@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
     
       
-        <title>Screens - MATRIX</title>
+        <title>Computer Vision - MATRIX</title>
       
       
       
@@ -92,12 +92,12 @@
               
             
               
-                Config <i class="icon icon-link"></i>
+                App API <i class="icon icon-link"></i>
               
             
           </span>
         
-        Screens
+        Computer Vision
       </div>
     </div>
     
@@ -194,7 +194,7 @@
       
         
   <li>
-    <a class="" title="Overview" href="../../API/overview/">
+    <a class="" title="Overview" href="../overview/">
       Overview
     </a>
     
@@ -203,16 +203,65 @@
       
         
   <li>
-    <a class="" title="Computer Vision" href="../../API/computer-vision/">
+    <a class="current" title="Computer Vision" href="./">
       Computer Vision
     </a>
+    
+      
+      
+        <ul>
+          
+            <li class="anchor">
+              <a title="Detection Algorithms" href="#detection-algorithms">
+                Detection Algorithms
+              </a>
+            </li>
+          
+            <li class="anchor">
+              <a title="Base Options" href="#base-options">
+                Base Options
+              </a>
+            </li>
+          
+            <li class="anchor">
+              <a title="Gesture" href="#gesture">
+                Gesture
+              </a>
+            </li>
+          
+            <li class="anchor">
+              <a title="Face Detection" href="#face-detection">
+                Face Detection
+              </a>
+            </li>
+          
+            <li class="anchor">
+              <a title="Face Recognition" href="#face-recognition">
+                Face Recognition
+              </a>
+            </li>
+          
+            <li class="anchor">
+              <a title="Vehicle Counting" href="#vehicle-counting">
+                Vehicle Counting
+              </a>
+            </li>
+          
+            <li class="anchor">
+              <a title="People Counting" href="#people-counting">
+                People Counting
+              </a>
+            </li>
+          
+        </ul>
+      
     
   </li>
 
       
         
   <li>
-    <a class="" title="Crosstalk" href="../../API/crosstalk/">
+    <a class="" title="Crosstalk" href="../crosstalk/">
       Crosstalk
     </a>
     
@@ -221,7 +270,7 @@
       
         
   <li>
-    <a class="" title="Type" href="../../API/typesend/">
+    <a class="" title="Type" href="../typesend/">
       Type
     </a>
     
@@ -230,7 +279,7 @@
       
         
   <li>
-    <a class="" title="GPIO" href="../../API/GPIO/">
+    <a class="" title="GPIO" href="../GPIO/">
       GPIO
     </a>
     
@@ -239,7 +288,7 @@
       
         
   <li>
-    <a class="" title="Sensors" href="../../API/sensors/">
+    <a class="" title="Sensors" href="../sensors/">
       Sensors
     </a>
     
@@ -248,7 +297,7 @@
       
         
   <li>
-    <a class="" title="Filters" href="../../API/filter/">
+    <a class="" title="Filters" href="../filter/">
       Filters
     </a>
     
@@ -257,7 +306,7 @@
       
         
   <li>
-    <a class="" title="Microphone" href="../../API/microphone/">
+    <a class="" title="Microphone" href="../microphone/">
       Microphone
     </a>
     
@@ -266,7 +315,7 @@
       
         
   <li>
-    <a class="" title="IR TX/RX" href="../../API/ir/">
+    <a class="" title="IR TX/RX" href="../ir/">
       IR TX/RX
     </a>
     
@@ -275,7 +324,7 @@
       
         
   <li>
-    <a class="" title="Everloop" href="../../API/everloop/">
+    <a class="" title="Everloop" href="../everloop/">
       Everloop
     </a>
     
@@ -284,7 +333,7 @@
       
         
   <li>
-    <a class="" title="NFC" href="../../API/nfc/">
+    <a class="" title="NFC" href="../nfc/">
       NFC
     </a>
     
@@ -293,7 +342,7 @@
       
         
   <li>
-    <a class="" title="Z-wave" href="../../API/zwave/">
+    <a class="" title="Z-wave" href="../zwave/">
       Z-wave
     </a>
     
@@ -302,7 +351,7 @@
       
         
   <li>
-    <a class="" title="Zigbee" href="../../API/zigbee/">
+    <a class="" title="Zigbee" href="../zigbee/">
       Zigbee
     </a>
     
@@ -320,7 +369,7 @@
       
         
   <li>
-    <a class="" title="Overview" href="../overview/">
+    <a class="" title="Overview" href="../../Configuration/overview/">
       Overview
     </a>
     
@@ -329,7 +378,7 @@
       
         
   <li>
-    <a class="" title="Datatypes" href="../datatypes/">
+    <a class="" title="Datatypes" href="../../Configuration/datatypes/">
       Datatypes
     </a>
     
@@ -338,19 +387,16 @@
       
         
   <li>
-    <a class="current" title="Screens" href="./">
+    <a class="" title="Screens" href="../../Configuration/screens/">
       Screens
     </a>
-    
-      
-      
     
   </li>
 
       
         
   <li>
-    <a class="" title="Filters" href="../filters/">
+    <a class="" title="Filters" href="../../Configuration/filters/">
       Filters
     </a>
     
@@ -359,7 +405,7 @@
       
         
   <li>
-    <a class="" title="Widgets" href="../widgets/">
+    <a class="" title="Widgets" href="../../Configuration/widgets/">
       Widgets
     </a>
     
@@ -368,7 +414,7 @@
       
         
   <li>
-    <a class="" title="Services" href="../services/">
+    <a class="" title="Services" href="../../Configuration/services/">
       Services
     </a>
     
@@ -377,7 +423,7 @@
       
         
   <li>
-    <a class="" title="Examples" href="../examples/">
+    <a class="" title="Examples" href="../../Configuration/examples/">
       Examples
     </a>
     
@@ -546,9 +592,123 @@
       <article class="article">
         <div class="wrapper">
           
-            <h1>Screens</h1>
+            <h1>Computer Vision</h1>
           
-          
+          <pre><code>matrix.init( algorithm, options )
+</code></pre>
+
+<h2 id="detection-algorithms">Detection Algorithms</h2>
+<p><code>thumb-up</code>
+<code>palm-open</code>
+<code>palm-closed</code>
+<code>face</code>
+<code>face-id</code>
+<code>vehicle-count</code>
+<code>person-count</code></p>
+<h2 id="base-options">Base Options</h2>
+<p>These are applicable to all algorithms.</p>
+<ul>
+<li><code>zone</code> - a nested array of x,y, width and height</li>
+<li><code>zones</code> - an array of zone arrays</li>
+</ul>
+<h3 id="example">Example</h3>
+<pre><code>var zone1 =  [ 100, 100, 300, 400 ];
+var zone2 =  [ 50, 50, 250, 300 ];
+{
+  zone: zone1,
+  zones: [zone1, zone2]
+}
+</code></pre>
+
+<h2 id="gesture">Gesture</h2>
+<pre><code>matrix.init('gesture', options).then(function(data){})
+</code></pre>
+
+<p><code>then</code> will call when any gesture is detected.</p>
+<h3 id="gesture-options">Gesture Options</h3>
+<p>To trigger on specific gestures pass an array of the desired values as <code>options.detect</code>.</p>
+<h3 id="example_1">Example</h3>
+<pre><code>var options = { detect: ['THUMB_UP'] };
+matrix.init('gesture', options);
+</code></pre>
+
+<h4 id="gestures">Gestures</h4>
+<p><code>THUMB_UP</code>
+<code>PALM_OPEN</code>
+<code>PALM_CLOSED</code></p>
+<h3 id="data-format">Data Format</h3>
+<p>// TODO</p>
+<h2 id="face-detection">Face Detection</h2>
+<pre><code>matrix.init('face').then(function(data){})
+</code></pre>
+
+<p><code>then</code> will call when any face is detected</p>
+<h3 id="face-detection-options">Face Detection Options</h3>
+<p>To only detect particular characteristics pass an array of the desired values as <code>options.detect</code>.</p>
+<h3 id="example_2">Example</h3>
+<pre><code>var options = { detect: ['GENDER','AGE','HAPPY'] };
+matrix.init('gesture', options);
+</code></pre>
+
+<h4 id="characteristics">characteristics</h4>
+<p><code>GENDER</code>
+<code>AGE</code>
+<code>HAPPY</code>
+<code>SAD</code>
+<code>CONFUSED</code>
+<code>ANGRY</code>
+<code>CALM</code>
+<code>SURPRISED</code>
+<code>DISGUST</code>
+<code>DWELL</code></p>
+<h2 id="face-recognition">Face Recognition</h2>
+<pre><code>matrix.init('face-id').then(function(data){})
+</code></pre>
+
+<p>Facial recognition requires a target face to be supplied to it first. This can be provided in the application folder or uploaded to the device.</p>
+<h3 id="options">Options</h3>
+<p>To detect a face, supply it in <code>options.match</code>. Use an array to recognize multiple faces.</p>
+<h3 id="example_3">Example</h3>
+<pre><code>// preuploaded Example - myFace.jpg
+matrix.init('face-id', { match: 'myFace' })
+</code></pre>
+
+<pre><code>// dynamic faces from dashboard / mobile app / cli
+matrix.on('faceUpload', function(data){
+  // saves upload to filesystem
+  matrix.save(data.name + '.' + data.typeSuffix, data.file);
+
+  // retrieve the configuration variable
+  var faces = matrix.faces;
+
+  // update with new face file
+  faces.push(data.name);
+
+  // save new face to configuration
+  matrix.config('faces', faces);
+
+  // restart application to use new face
+  matrix.restartApp();
+});
+
+// use configuration for recognition
+matrix.init('face', { match: matrix.faces })
+</code></pre>
+
+<h2 id="vehicle-counting">Vehicle Counting</h2>
+<pre><code>matrix.init('vehicle-count').then(function(data){})
+</code></pre>
+
+<h3 id="options_1">Options</h3>
+<p>Toggle different detection modes depending on circumstances.</p>
+<h3 id="example_4">Example</h3>
+<p>//TODO</p>
+<h2 id="people-counting">People Counting</h2>
+<pre><code>matrix.init('people-count').then(function(data){})
+</code></pre>
+
+<h3 id="options_2">Options</h3>
+<h3 id="example_5">Example</h3>
           <aside class="copyright" role="note">
             
             Documentation built with
@@ -565,7 +725,7 @@
   <nav class="pagination" aria-label="Footer">
     <div class="previous">
       
-        <a href="../datatypes/" title="Datatypes">
+        <a href="../overview/" title="Overview">
           <span class="direction">
             Previous
           </span>
@@ -575,7 +735,7 @@
             </div>
             <div class="stretch">
               <div class="title">
-                Datatypes
+                Overview
               </div>
             </div>
           </div>
@@ -584,14 +744,14 @@
     </div>
     <div class="next">
       
-        <a href="../filters/" title="Filters">
+        <a href="../crosstalk/" title="Crosstalk">
           <span class="direction">
             Next
           </span>
           <div class="page">
             <div class="stretch">
               <div class="title">
-                Filters
+                Crosstalk
               </div>
             </div>
             <div class="button button-next" role="button" aria-label="Next">

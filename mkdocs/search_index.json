@@ -2,7 +2,7 @@
     "docs": [
         {
             "location": "/", 
-            "text": "Support\n\n\n\n\nPost questions or comments on \ncommunity.matrix.one\n\n\nPost package issues on github under \nmatrix-io\n\n\n\n\nInstallation\n\n\nNew parts of the MATRIX ecosystem are being developed and integrated every day. Here are a set of instructions which will get MATRIX OS running on your Creator. This will be streamlined in the future.\n\n\nLocal Machine\n\n\n\n\nInstall your Creator onto an Raspberry Pi, connect to network cable which goes to local network, NOT to your computer, as it needs to be discoverable. Wifi support coming soon.\n\n\nDiscover your Pi's address with \narp -na | grep -i b8:27:eb\n. In our case, our IP for this example is \n192.168.0.15\n, yours may be different.\n\n\nSSH into your Pi. \nssh pi@192.168.0.15\n\n\n(Optional) Map ip to a host name in \n/etc/hosts\n.\n\n\n\n\necho '192.168.0.15 matrix' \n /etc/hosts\nssh pi@matrix\n\n\n\n\nRaspberry Pi\n\n\nSetup\n\n\nSSH into your Creator and run the following:\n\n\n# setup \n installation\necho \ndeb http://packages.matrix.one/matrix-creator/ ./\n | sudo tee --append /etc/apt/sources.list;\nsudo apt-get update;\nsudo apt-get upgrade;\nsudo apt-get install -y xc3sprog malos-eye matrix-creator-openocd wiringpi matrix-creator-init cmake g++ git --force-yes;\n\n\n\n\nThis completes the Creator hardware setup.\n\n\nYou can now explore the \nHardware Interfaces\n.\n\n\nMATRIX OS\n\n\nInstallation\n\n\nNOTE:\n MATRIX OS has a NodeJS dependency. Please Install NodeJS before installing MATRIX OS.\n\n\ngit clone https://github.com/matrix-io/matrix-os.git;\ncd matrix-os;\ngit submodule update --init;\nnpm install;\n\n\n\n\nConfiguration\n\n\nNOTE:\n Enable your camera on your Pi.\n\n\nsudo raspi-config;\nsudo reboot;\n\n\n\n\nRun Services\n\n\n# currently needs to be run on every restart\nsudo modprobe bcm2835-v4l2;\n# before you run\n\nmalos_eye \n malos 2\n1\n\n\n\n\nLocal Machine\n\n\nRegister Device\n\n\n\n\nWith \nMATRIX CLI\n installed on your computer, run \nmatrix register device\n.\n\n\nEnter a \ndevice name\n and (optional) \ndevice description\n.\n\n\nAfter a few moments you will be provided with a \nMATRIX_DEVICE_ID\n and \nMATRIX_DEVICE_SECRET\n.\n\n\n\n\n# example variables generated via registration, you'll get your own \nMATRIX_DEVICE_ID=dc7a1a71be2d\nMATRIX_DEVICE_SECRET=08629018e9d793a7a10ea823ad15894da0c3616dec7aab85b4ecf1774505f0c665b29c660f06cd4f7e5544272b\n\n\n\n\nRaspberry Pi\n\n\nSet Up ENV Variables, USE device.\n\n\n\n\nAdd the above variables as environment variables via a shell script or command line on the Raspberry Pi.\n\n\n(optional) We export envs via an \n.env\n file which can be processed using \nsource .env\n\n\nTo begin targeting this device with the CLI, enter the \nmatrix use\n command provided\n\n\n\n\nRun MATRIX OS\n\n\n\n\nFrom the \nmatrix-os\n folder. \nnode index.js\n\n\nIf you want to start a MATRIX app on launch, use the env \nSTART_APP\n. ex. \nSTART_APP=monitor node index.js\n\n\nNow you can issue commands and deploy apps to your MATRIX OS from the CLI. ( https://github.com/matrix-io/matrix-cli)\n\n\nHave fun!", 
+            "text": "Support\n\n\n\n\nPost questions or comments on \ncommunity.matrix.one\n\n\nPost package issues on github under \nmatrix-io\n\n\n\n\nInstallation\n\n\nNew parts of the MATRIX ecosystem are being developed and integrated every day. Here are a set of instructions which will get MATRIX OS running on your Creator. This will be streamlined in the future.\n\n\nLocal Machine\n\n\n\n\nInstall your Creator onto an Raspberry Pi, connect to network cable which goes to local network, NOT to your computer, as it needs to be discoverable. Wifi support coming soon.\n\n\nDiscover your Pi's address with \narp -na | grep -i b8:27:eb\n. In our case, our IP for this example is \n192.168.0.15\n, yours may be different.\n\n\nSSH into your Pi. \nssh pi@192.168.0.15\n\n\n(Optional) Map ip to a host name in \n/etc/hosts\n.\n\n\n\n\necho '192.168.0.15 matrix' \n /etc/hosts\nssh pi@matrix\n\n\n\n\nRaspberry Pi\n\n\nSetup\n\n\nSSH into your Creator and run the following:\n\n\n# setup \n installation\necho \ndeb http://packages.matrix.one/matrix-creator/ ./\n | sudo tee --append /etc/apt/sources.list;\nsudo apt-get update;\nsudo apt-get upgrade;\nsudo apt-get install -y xc3sprog malos-eye matrix-creator-openocd wiringpi matrix-creator-init cmake g++ git --force-yes;\n\n\n\n\nThis completes the Creator hardware setup.\n\n\nYou can now explore the \nHardware Interfaces\n.\n\n\nMATRIX OS\n\n\nInstallation\n\n\nNOTE:\n MATRIX OS has a NodeJS dependency. Please Install NodeJS before installing MATRIX OS.\n\n\ngit clone https://github.com/matrix-io/matrix-os.git;\ncd matrix-os;\ngit submodule update --init;\nnpm install;\n\n\n\n\nConfiguration\n\n\nNOTE:\n Enable your camera on your Pi.\n\n\nsudo raspi-config;\nsudo reboot;\n\n\n\n\nRun Services\n\n\n# currently needs to be run on every restart\nsudo modprobe bcm2835-v4l2;\n# before you run\n\nmalos_eye \n malos 2\n1\n\n\n\n\nLocal Machine\n\n\nRegister Device\n\n\n\n\nWith \nMATRIX CLI\n installed on your computer, run \nmatrix register device\n.\n\n\nEnter a \ndevice name\n and (optional) \ndevice description\n.\n\n\nAfter a few moments you will be provided with a \nMATRIX_DEVICE_ID\n and \nMATRIX_DEVICE_SECRET\n.\n\n\n\n\n# example variables generated via registration, you'll get your own\nMATRIX_DEVICE_ID=dc7a1a71be2d\nMATRIX_DEVICE_SECRET=08629018e9d793a7a10ea823ad15894da0c3616dec7aab85b4ecf1774505f0c665b29c660f06cd4f7e5544272b\n\n\n\n\nRaspberry Pi\n\n\nSet Up ENV Variables, USE device.\n\n\n\n\nAdd the above variables as environment variables via a shell script or command line on the Raspberry Pi.\n\n\n(optional) We export envs via an \n.env\n file which can be processed using \nsource .env\n\n\nTo begin targeting this device with the CLI, enter the \nmatrix use\n command provided\n\n\n\n\nRun MATRIX OS\n\n\n\n\nFrom the \nmatrix-os\n folder. \nnode index.js\n\n\nIf you want to start a MATRIX app on launch, use the env \nSTART_APP\n. ex. \nSTART_APP=monitor node index.js\n\n\nNow you can issue commands and deploy apps to your MATRIX OS from the CLI. ( https://github.com/matrix-io/matrix-cli)\n\n\nHave fun!", 
             "title": "Home"
         }, 
         {
@@ -62,7 +62,7 @@
         }, 
         {
             "location": "/#register-device", 
-            "text": "With  MATRIX CLI  installed on your computer, run  matrix register device .  Enter a  device name  and (optional)  device description .  After a few moments you will be provided with a  MATRIX_DEVICE_ID  and  MATRIX_DEVICE_SECRET .   # example variables generated via registration, you'll get your own \nMATRIX_DEVICE_ID=dc7a1a71be2d\nMATRIX_DEVICE_SECRET=08629018e9d793a7a10ea823ad15894da0c3616dec7aab85b4ecf1774505f0c665b29c660f06cd4f7e5544272b", 
+            "text": "With  MATRIX CLI  installed on your computer, run  matrix register device .  Enter a  device name  and (optional)  device description .  After a few moments you will be provided with a  MATRIX_DEVICE_ID  and  MATRIX_DEVICE_SECRET .   # example variables generated via registration, you'll get your own\nMATRIX_DEVICE_ID=dc7a1a71be2d\nMATRIX_DEVICE_SECRET=08629018e9d793a7a10ea823ad15894da0c3616dec7aab85b4ecf1774505f0c665b29c660f06cd4f7e5544272b", 
             "title": "Register Device"
         }, 
         {
@@ -82,7 +82,7 @@
         }, 
         {
             "location": "/intro/matrix/", 
-            "text": "MATRIX OS\n\n\nCommand Line Interface\n\n\n\n\nOVERVIEW\n - Installation, Registration, Commands\n\n\nAPPS\n - Application lifecycle\n\n\nEXAMPLES\n - Example workflows\n\n\n\n\nAPI Guides\n\n\n\n\nOVERVIEW\n - Introduction\n\n\nVISION\n - Computer vision on MOS\n\n\nCROSSTALK\n - App to App and Device to Device communication\n\n\nEVERLOOP\n - Multicolored LED Lights\n\n\nFILTER\n - Generic logic for filtering data sources\n\n\nGPIO\n - Pins\n\n\nIR\n - Infrared Learning and Remote\n\n\nMICROPHONE\n - Accessing the microphone and speech recognition\n\n\nNFC\n - NFC Input / Output\n\n\nSENSORS\n - Basic Sensors, Temperature, Gyroscope, Pressure, etc\n\n\nSPEAKER\n - Make sound\n\n\nTYPESEND\n - Type system, read this if you are saving data.\n\n\nZIGBEE\n - Communication Protocol\n\n\nZWAVE\n - Communication Protocol\n\n\n\n\nConfiguration Specifications\n\n\n\n\nDATATYPES\n - Combines with TYPESEND above for data segmenting superpowers.  \n\n\nEXAMPLES\n - Massive example file with most options.\n\n\nFILTERS\n - Show data transformations in charts\n\n\nSCREENS\n - Dashboard interface widget layout\n\n\nSERVICES\n - Integration with internal and external services (like computer vision)\n\n\nWIDGETS\n - The available widgets", 
+            "text": "MATRIX OS\n\n\nCommand Line Interface\n\n\n\n\nOVERVIEW\n - Installation, Registration, Commands\n\n\nAPPS\n - Application lifecycle\n\n\nEXAMPLES\n - Example workflows\n\n\n\n\nAPI Guides\n\n\n\n\nOVERVIEW\n - Introduction\n\n\nVISION\n - Computer vision on MOS\n\n\nCROSSTALK\n - App to App and Device to Device communication\n\n\nEVERLOOP\n - Multicolored LED Lights\n\n\nFILTER\n - Generic logic for filtering data sources\n\n\nGPIO\n - Pins\n\n\nIR\n - Infrared Learning and Remote\n\n\nMICROPHONE\n - Accessing the microphone and speech recognition\n\n\nNFC\n - NFC Input / Output\n\n\nSENSORS\n - Basic Sensors, Temperature, Gyroscope, Pressure, etc\n\n\n\nTYPESEND\n - Type system, read this if you are saving data.\n\n\nZIGBEE\n - Communication Protocol\n\n\nZWAVE\n - Communication Protocol\n\n\n\n\nConfiguration Specifications\n\n\n\n\nDATATYPES\n - Combines with TYPESEND above for data segmenting superpowers.  \n\n\nEXAMPLES\n - Massive example file with most options.\n\n\nFILTERS\n - Show data transformations in charts\n\n\nSCREENS\n - Dashboard interface widget layout\n\n\nSERVICES\n - Integration with internal and external services (like computer vision)\n\n\nWIDGETS\n - The available widgets", 
             "title": "Intro - MATRIX OS"
         }, 
         {
@@ -97,7 +97,7 @@
         }, 
         {
             "location": "/intro/matrix/#api-guides", 
-            "text": "OVERVIEW  - Introduction  VISION  - Computer vision on MOS  CROSSTALK  - App to App and Device to Device communication  EVERLOOP  - Multicolored LED Lights  FILTER  - Generic logic for filtering data sources  GPIO  - Pins  IR  - Infrared Learning and Remote  MICROPHONE  - Accessing the microphone and speech recognition  NFC  - NFC Input / Output  SENSORS  - Basic Sensors, Temperature, Gyroscope, Pressure, etc  SPEAKER  - Make sound  TYPESEND  - Type system, read this if you are saving data.  ZIGBEE  - Communication Protocol  ZWAVE  - Communication Protocol", 
+            "text": "OVERVIEW  - Introduction  VISION  - Computer vision on MOS  CROSSTALK  - App to App and Device to Device communication  EVERLOOP  - Multicolored LED Lights  FILTER  - Generic logic for filtering data sources  GPIO  - Pins  IR  - Infrared Learning and Remote  MICROPHONE  - Accessing the microphone and speech recognition  NFC  - NFC Input / Output  SENSORS  - Basic Sensors, Temperature, Gyroscope, Pressure, etc  TYPESEND  - Type system, read this if you are saving data.  ZIGBEE  - Communication Protocol  ZWAVE  - Communication Protocol", 
             "title": "API Guides"
         }, 
         {
@@ -201,32 +201,177 @@
             "title": "Heed Warning"
         }, 
         {
-            "location": "/API/gpio/", 
+            "location": "/API/computer-vision/", 
+            "text": "matrix.init( algorithm, options )\n\n\n\n\nDetection Algorithms\n\n\nthumb-up\n\n\npalm-open\n\n\npalm-closed\n\n\nface\n\n\nface-id\n\n\nvehicle-count\n\n\nperson-count\n\n\nBase Options\n\n\nThese are applicable to all algorithms.\n\n\n\n\nzone\n - a nested array of x,y, width and height\n\n\nzones\n - an array of zone arrays\n\n\n\n\nExample\n\n\nvar zone1 =  [ 100, 100, 300, 400 ];\nvar zone2 =  [ 50, 50, 250, 300 ];\n{\n  zone: zone1,\n  zones: [zone1, zone2]\n}\n\n\n\n\nGesture\n\n\nmatrix.init('gesture', options).then(function(data){})\n\n\n\n\nthen\n will call when any gesture is detected.\n\n\nGesture Options\n\n\nTo trigger on specific gestures pass an array of the desired values as \noptions.detect\n.\n\n\nExample\n\n\nvar options = { detect: ['THUMB_UP'] };\nmatrix.init('gesture', options);\n\n\n\n\nGestures\n\n\nTHUMB_UP\n\n\nPALM_OPEN\n\n\nPALM_CLOSED\n\n\nData Format\n\n\n// TODO\n\n\nFace Detection\n\n\nmatrix.init('face').then(function(data){})\n\n\n\n\nthen\n will call when any face is detected\n\n\nFace Detection Options\n\n\nTo only detect particular characteristics pass an array of the desired values as \noptions.detect\n.\n\n\nExample\n\n\nvar options = { detect: ['GENDER','AGE','HAPPY'] };\nmatrix.init('gesture', options);\n\n\n\n\ncharacteristics\n\n\nGENDER\n\n\nAGE\n\n\nHAPPY\n\n\nSAD\n\n\nCONFUSED\n\n\nANGRY\n\n\nCALM\n\n\nSURPRISED\n\n\nDISGUST\n\n\nDWELL\n\n\nFace Recognition\n\n\nmatrix.init('face-id').then(function(data){})\n\n\n\n\nFacial recognition requires a target face to be supplied to it first. This can be provided in the application folder or uploaded to the device.\n\n\nOptions\n\n\nTo detect a face, supply it in \noptions.match\n. Use an array to recognize multiple faces.\n\n\nExample\n\n\n// preuploaded Example - myFace.jpg\nmatrix.init('face-id', { match: 'myFace' })\n\n\n\n\n// dynamic faces from dashboard / mobile app / cli\nmatrix.on('faceUpload', function(data){\n  // saves upload to filesystem\n  matrix.save(data.name + '.' + data.typeSuffix, data.file);\n\n  // retrieve the configuration variable\n  var faces = matrix.faces;\n\n  // update with new face file\n  faces.push(data.name);\n\n  // save new face to configuration\n  matrix.config('faces', faces);\n\n  // restart application to use new face\n  matrix.restartApp();\n});\n\n// use configuration for recognition\nmatrix.init('face', { match: matrix.faces })\n\n\n\n\nVehicle Counting\n\n\nmatrix.init('vehicle-count').then(function(data){})\n\n\n\n\nOptions\n\n\nToggle different detection modes depending on circumstances.\n\n\nExample\n\n\n//TODO\n\n\nPeople Counting\n\n\nmatrix.init('people-count').then(function(data){})\n\n\n\n\nOptions\n\n\nExample", 
+            "title": "Computer Vision"
+        }, 
+        {
+            "location": "/API/computer-vision/#detection-algorithms", 
+            "text": "thumb-up  palm-open  palm-closed  face  face-id  vehicle-count  person-count", 
+            "title": "Detection Algorithms"
+        }, 
+        {
+            "location": "/API/computer-vision/#base-options", 
+            "text": "These are applicable to all algorithms.   zone  - a nested array of x,y, width and height  zones  - an array of zone arrays", 
+            "title": "Base Options"
+        }, 
+        {
+            "location": "/API/computer-vision/#example", 
+            "text": "var zone1 =  [ 100, 100, 300, 400 ];\nvar zone2 =  [ 50, 50, 250, 300 ];\n{\n  zone: zone1,\n  zones: [zone1, zone2]\n}", 
+            "title": "Example"
+        }, 
+        {
+            "location": "/API/computer-vision/#gesture", 
+            "text": "matrix.init('gesture', options).then(function(data){})  then  will call when any gesture is detected.", 
+            "title": "Gesture"
+        }, 
+        {
+            "location": "/API/computer-vision/#gesture-options", 
+            "text": "To trigger on specific gestures pass an array of the desired values as  options.detect .", 
+            "title": "Gesture Options"
+        }, 
+        {
+            "location": "/API/computer-vision/#example_1", 
+            "text": "var options = { detect: ['THUMB_UP'] };\nmatrix.init('gesture', options);", 
+            "title": "Example"
+        }, 
+        {
+            "location": "/API/computer-vision/#gestures", 
+            "text": "THUMB_UP  PALM_OPEN  PALM_CLOSED", 
+            "title": "Gestures"
+        }, 
+        {
+            "location": "/API/computer-vision/#data-format", 
+            "text": "// TODO", 
+            "title": "Data Format"
+        }, 
+        {
+            "location": "/API/computer-vision/#face-detection", 
+            "text": "matrix.init('face').then(function(data){})  then  will call when any face is detected", 
+            "title": "Face Detection"
+        }, 
+        {
+            "location": "/API/computer-vision/#face-detection-options", 
+            "text": "To only detect particular characteristics pass an array of the desired values as  options.detect .", 
+            "title": "Face Detection Options"
+        }, 
+        {
+            "location": "/API/computer-vision/#example_2", 
+            "text": "var options = { detect: ['GENDER','AGE','HAPPY'] };\nmatrix.init('gesture', options);", 
+            "title": "Example"
+        }, 
+        {
+            "location": "/API/computer-vision/#characteristics", 
+            "text": "GENDER  AGE  HAPPY  SAD  CONFUSED  ANGRY  CALM  SURPRISED  DISGUST  DWELL", 
+            "title": "characteristics"
+        }, 
+        {
+            "location": "/API/computer-vision/#face-recognition", 
+            "text": "matrix.init('face-id').then(function(data){})  Facial recognition requires a target face to be supplied to it first. This can be provided in the application folder or uploaded to the device.", 
+            "title": "Face Recognition"
+        }, 
+        {
+            "location": "/API/computer-vision/#options", 
+            "text": "To detect a face, supply it in  options.match . Use an array to recognize multiple faces.", 
+            "title": "Options"
+        }, 
+        {
+            "location": "/API/computer-vision/#example_3", 
+            "text": "// preuploaded Example - myFace.jpg\nmatrix.init('face-id', { match: 'myFace' })  // dynamic faces from dashboard / mobile app / cli\nmatrix.on('faceUpload', function(data){\n  // saves upload to filesystem\n  matrix.save(data.name + '.' + data.typeSuffix, data.file);\n\n  // retrieve the configuration variable\n  var faces = matrix.faces;\n\n  // update with new face file\n  faces.push(data.name);\n\n  // save new face to configuration\n  matrix.config('faces', faces);\n\n  // restart application to use new face\n  matrix.restartApp();\n});\n\n// use configuration for recognition\nmatrix.init('face', { match: matrix.faces })", 
+            "title": "Example"
+        }, 
+        {
+            "location": "/API/computer-vision/#vehicle-counting", 
+            "text": "matrix.init('vehicle-count').then(function(data){})", 
+            "title": "Vehicle Counting"
+        }, 
+        {
+            "location": "/API/computer-vision/#options_1", 
+            "text": "Toggle different detection modes depending on circumstances.", 
+            "title": "Options"
+        }, 
+        {
+            "location": "/API/computer-vision/#example_4", 
+            "text": "//TODO", 
+            "title": "Example"
+        }, 
+        {
+            "location": "/API/computer-vision/#people-counting", 
+            "text": "matrix.init('people-count').then(function(data){})", 
+            "title": "People Counting"
+        }, 
+        {
+            "location": "/API/computer-vision/#options_2", 
+            "text": "", 
+            "title": "Options"
+        }, 
+        {
+            "location": "/API/computer-vision/#example_5", 
+            "text": "", 
+            "title": "Example"
+        }, 
+        {
+            "location": "/API/crosstalk/", 
+            "text": "CrossTalk is how MatrixOS applications communicate between different devices. Applications can exchange information with other applications, or with other instances of the same application. Cool, right?\n\n\nGlobal Emitters \n Listeners\n\n\n// Send a payload to all listeners\nmatrix.emit(payload);\n\n// Listen for global CrossTalk messages\nmatrix.on(function(payload) { ... });\n\n\n\n\nApp Specific Message\n\n\n// Send a message to a particular application\nmatrix.emit('app', payload);\n\n// Listen for application specific CrossTalk messages\nmatrix.on(function(payload) { ... });\n\n\n\n\nSpecific Event within App\n\n\n// Trigger an event in a specific application\nmatrix.emit('app', 'event', payload);\n\n// Listen for CrossTalk events sent to this application\nmatrix.on('event', function(payload) { ... });\n\n\n\n\nDashboard\n\n\n// Interface elements from Dashboards can also trigger CrossTalk events.\nmatrix.on('buttonClick', function(payload) { ... });\n\n\n\n\nsee \ndocs/configuration/widgets\n for more information", 
+            "title": "Crosstalk"
+        }, 
+        {
+            "location": "/API/crosstalk/#global-emitters-listeners", 
+            "text": "// Send a payload to all listeners\nmatrix.emit(payload);\n\n// Listen for global CrossTalk messages\nmatrix.on(function(payload) { ... });", 
+            "title": "Global Emitters &amp; Listeners"
+        }, 
+        {
+            "location": "/API/crosstalk/#app-specific-message", 
+            "text": "// Send a message to a particular application\nmatrix.emit('app', payload);\n\n// Listen for application specific CrossTalk messages\nmatrix.on(function(payload) { ... });", 
+            "title": "App Specific Message"
+        }, 
+        {
+            "location": "/API/crosstalk/#specific-event-within-app", 
+            "text": "// Trigger an event in a specific application\nmatrix.emit('app', 'event', payload);\n\n// Listen for CrossTalk events sent to this application\nmatrix.on('event', function(payload) { ... });", 
+            "title": "Specific Event within App"
+        }, 
+        {
+            "location": "/API/crosstalk/#dashboard", 
+            "text": "// Interface elements from Dashboards can also trigger CrossTalk events.\nmatrix.on('buttonClick', function(payload) { ... });  see  docs/configuration/widgets  for more information", 
+            "title": "Dashboard"
+        }, 
+        {
+            "location": "/API/typesend/", 
+            "text": "Unless otherwise specified, sensor data is typed with the application name.\n\n\nmatrix.send({\n  foo: 123\n})\n\n\n\n\nis read in a widget \nconfig.yaml\n ( See \nConfiguration\nWidgets\n)\n\n\nname: fooApp\nwidgets:\n  fooWidget:\n    display: digit,\n    type: fooApp\n    key: foo\n\n\n\n\nType\n\n\nTypes are another way to organize the data coming off MatrixOS and make it easier to work with in dashboards.\n\n\nmatrix.type('bar').send({\n  foo: 123\n})\n\n\n\n\nwould instead be utilized with the following\n\n\nname: fooApp\nwidgets:\n  fooWidget:\n    display: digit,\n    type: bar\n    key: foo\n\n\n\n\nTypes are also different ways of segmenting the data. When your application generates reports, types and keys will form the structure of that report. ( See \n Data Types \n for more )", 
+            "title": "Type"
+        }, 
+        {
+            "location": "/API/typesend/#type", 
+            "text": "Types are another way to organize the data coming off MatrixOS and make it easier to work with in dashboards.  matrix.type('bar').send({\n  foo: 123\n})  would instead be utilized with the following  name: fooApp\nwidgets:\n  fooWidget:\n    display: digit,\n    type: bar\n    key: foo  Types are also different ways of segmenting the data. When your application generates reports, types and keys will form the structure of that report. ( See   Data Types   for more )", 
+            "title": "Type"
+        }, 
+        {
+            "location": "/API/GPIO/", 
             "text": "[WIP] GPIO can be used to communicate or receive input from analog and digital components through the MATRIX Creator, or any other sensor leveraging Raspberry Pi's GPIOs.\n\n\n.open\n\n\nmatrix.gpio.open(16, \noutput\n, function(err){\n    // read or write\n});\n\n\n\n\n.read\n\n\n\n\npinNumber\n: The GPIO you are reading from.\n\n\ncallback\n: Returns \nerr\n, \nvalue\n.\n\n\n\n\nmatrix.gpio.read(16, function(err, value) {\n  if(err) throw err;\n  console.log(value);   // The current state of the pin \n});\n\n\n\n\n.write\n\n\n\n\npinNumber\n: The GPIO you are reading from.\n\n\nvalue\n: The value you would like to update the GPIO with.\n\n\ncallback\n: Returns \nerr\n, \nvalue\n.\n\n\n\n\nmatrix.gpio.write(16, 1, function(err) {\n    if(err) throw err;\n});\n\n\n\n\n.close\n\n\n\n\npinNumber\n: The GPIO you would like to close.\n\n\n\n\nmatrix.gpio.close(16);\n\n\n\n\nExample\n\n\nmatrix.gpio.open(16, \noutput\n, function(err) {\n    matrix.gpio.write(16, 1, function() {\n        matrix.gpio.close(16);\n    });\n});", 
             "title": "GPIO"
         }, 
         {
-            "location": "/API/gpio/#open", 
+            "location": "/API/GPIO/#open", 
             "text": "matrix.gpio.open(16,  output , function(err){\n    // read or write\n});", 
             "title": ".open"
         }, 
         {
-            "location": "/API/gpio/#read", 
+            "location": "/API/GPIO/#read", 
             "text": "pinNumber : The GPIO you are reading from.  callback : Returns  err ,  value .   matrix.gpio.read(16, function(err, value) {\n  if(err) throw err;\n  console.log(value);   // The current state of the pin \n});", 
             "title": ".read"
         }, 
         {
-            "location": "/API/gpio/#write", 
+            "location": "/API/GPIO/#write", 
             "text": "pinNumber : The GPIO you are reading from.  value : The value you would like to update the GPIO with.  callback : Returns  err ,  value .   matrix.gpio.write(16, 1, function(err) {\n    if(err) throw err;\n});", 
             "title": ".write"
         }, 
         {
-            "location": "/API/gpio/#close", 
+            "location": "/API/GPIO/#close", 
             "text": "pinNumber : The GPIO you would like to close.   matrix.gpio.close(16);", 
             "title": ".close"
         }, 
         {
-            "location": "/API/gpio/#example", 
+            "location": "/API/GPIO/#example", 
             "text": "matrix.gpio.open(16,  output , function(err) {\n    matrix.gpio.write(16, 1, function() {\n        matrix.gpio.close(16);\n    });\n});", 
             "title": "Example"
         }, 
@@ -496,14 +641,34 @@
             "title": "Intent"
         }, 
         {
+            "location": "/Configuration/datatypes/", 
+            "text": "", 
+            "title": "Datatypes"
+        }, 
+        {
             "location": "/Configuration/screens/", 
             "text": "", 
             "title": "Screens"
         }, 
         {
-            "location": "/Configuration/datatypes/", 
+            "location": "/Configuration/filters/", 
             "text": "", 
-            "title": "Datatypes"
+            "title": "Filters"
+        }, 
+        {
+            "location": "/Configuration/widgets/", 
+            "text": "", 
+            "title": "Widgets"
+        }, 
+        {
+            "location": "/Configuration/services/", 
+            "text": "", 
+            "title": "Services"
+        }, 
+        {
+            "location": "/Configuration/examples/", 
+            "text": "", 
+            "title": "Examples"
         }, 
         {
             "location": "/CLI/overview/", 
@@ -664,6 +829,26 @@
             "location": "/Hardware/sam3mcu-programming/#sam3-mcu-programming", 
             "text": "Once you have installed the  required software  you can program the SAM3 MCU. The MCU is used to read the sensors.  This firmware is free software and  you can compile it yourself . Here we describe the process of compiling the shipped firmware.  First, get the firmware.  wget http://packages.matrix.one/matrix-creator-firmware/firmware-0.8.tar.gz\ntar xzvf firmware-0.8.tar.gz  Then flash the firmware using the  openocd  program that should be installed on the Raspberry (with the package matrix-creator-openocd).  Then execute the following commands as root.  echo 18   /sys/class/gpio/export\necho out   /sys/class/gpio/gpio18/direction\necho 1   /sys/class/gpio/gpio18/value\necho 0   /sys/class/gpio/gpio18/value\necho 1   /sys/class/gpio/gpio18/value  Now you can program the firmware.  cd firmware-0.8\nsudo openocd -f cfg/sam3s.cfg  Example output:  $ sudo openocd -f cfg/sam3s.cfg\nOpen On-Chip Debugger 0.10.0-dev-00283-g7223cae-dirty (2016-07-15-08:36)\nLicensed under GNU GPL v2\nFor bug reports, read\n    http://openocd.org/doc/doxygen/bugs.html\nBCM2835 GPIO config: tck = 17, tms = 4, tdi = 22, tdo = 27\nBCM2835 GPIO config: trst = 18\ntrst_only separate trst_push_pull\nadapter speed: 512 kHz\nWarn : em357.bs: nonstandard IR value\nWarn : Specify TAP 'sam3n.cpu.cpu' by name, not number 3\nInfo : BCM2835 GPIO JTAG/SWD bitbang driver\nInfo : JTAG only mode enabled (specify swclk and swdio gpio to add SWD mode)\nInfo : clock speed 512 kHz\nInfo : JTAG tap: em357.cpu tap/device found: 0x3ba00477 (mfg: 0x23b (ARM Ltd.), part: 0xba00, ver: 0x3)\nInfo : JTAG tap: em357.bs tap/device found: 0x069aa62b (mfg: 0x315 (Ember Corporation), part: 0x69aa, ver: 0x0)\nInfo : JTAG tap: xc6sxl4.fpga.fpga tap/device found: 0x24000093 (mfg: 0x049 (Xilinx), part: 0x4000, ver: 0x2)\nInfo : JTAG tap: sam3n.cpu.cpu tap/device found: 0x4ba00477 (mfg: 0x23b (ARM Ltd.), part: 0xba00, ver: 0x4)\nError: xc6sxl4.fpga.fpga: IR capture error; saw 0x35 not 0x11\nWarn : Bypassing JTAG setup events due to errors\nInfo : sam3n.cpu: hardware has 6 breakpoints, 4 watchpoints\nsam3n.cpu: target state: halted\ntarget halted due to debug-request, current mode: Thread\nxPSR: 0x61000000 pc: 0x00402560 psp: 0x20000800\n#0 : at91sam3 at 0x00400000, size 0x00020000, buswidth 0, chipwidth 0\n    #  0: 0x00000000 (0x4000 16kB) not protected\n    #  1: 0x00004000 (0x4000 16kB) not protected\n    #  2: 0x00008000 (0x4000 16kB) not protected\n    #  3: 0x0000c000 (0x4000 16kB) not protected\n    #  4: 0x00010000 (0x4000 16kB) not protected\n    #  5: 0x00014000 (0x4000 16kB) not protected\n    #  6: 0x00018000 (0x4000 16kB) not protected\n    #  7: 0x0001c000 (0x4000 16kB) not protected\nflash 'at91sam3' found at 0x00400000\nError: Invalid ACK (6) in DAP response\nError: Failed to read memory at 0x400e0a0c\nError: SAM3: Error performing Erase   Write page @ phys address 0x00400800\nwrote 38620 bytes from file blob/ch.bin to flash bank 0 at offset 0x00000000 in 1.256279s (30.021 KiB/s)\nInfo : JTAG tap: em357.cpu tap/device found: 0x3ba00477 (mfg: 0x23b (ARM Ltd.), part: 0xba00, ver: 0x3)\nInfo : JTAG tap: em357.bs tap/device found: 0x069aa62b (mfg: 0x315 (Ember Corporation), part: 0x69aa, ver: 0x0)\nInfo : JTAG tap: xc6sxl4.fpga.fpga tap/device found: 0x24000093 (mfg: 0x049 (Xilinx), part: 0x4000, ver: 0x2)\nInfo : JTAG tap: sam3n.cpu.cpu tap/device found: 0x4ba00477 (mfg: 0x23b (ARM Ltd.), part: 0xba00, ver: 0x4)\nError: xc6sxl4.fpga.fpga: IR capture error; saw 0x35 not 0x11\nWarn : Bypassing JTAG setup events due to errors\nWarn : Only resetting the Cortex-M core, use a reset-init event handler to reset any peripherals or configure     hardware srst support.\nshutdown command invoked  Flashing succeeded if you get the line \"wrote 38620 bytes from file blob/ch.bin to flash bank 0 at offset 0x00000000 in 1.256279s (30.021 KiB/s)\" in the previous output. A small LED next to the SAM3 MCU should start flashing once per second.  If flashing fails, please retry the flashing command.  Sample video  Questions? Post them on raspberrypi.stackexchange.com! Use the tag #matrix-creator", 
             "title": "Sam3 MCU Programming"
+        }, 
+        {
+            "location": "/Hardware/microphone/", 
+            "text": "Microphone\n\n\nFirst check the \nGetting started\n\n\nUpdate and upgrade the raspbian\n\n\nsudo apt-get update\nsudo apt-get upgrade\n\n\n\nInstall \nAlsa tools\n and the \nsox\n utility\n\n\nsudo apt-get install sox alsa-utils\n\n\n\nRun the volumen control\n\n\nalsamixer\n\n\n\nInstall and compile the MATRIX Creator's hardware abstraction layer\n\n\ngit clone https://github.com/matrix-io/matrix-creator-hal.git\ncd matrix-creator-hal \nmkdir build \n cd build\ncmake ..\nmake\n\n\n\nRun capture and check the recorded files\n    cd demos\n    ./micarray_recorder\n    ls -1 *raw\n\n\nConvert the audio\n\n\nsox -r 16000 -c 1 -e signed -c 1 -e signed -b 16 mic_16000_s16le_channel_0.raw channel_0.wav\nsox -r 16000 -c 1 -e signed -c 1 -e signed -b 16 mic_16000_s16le_channel_1.raw channel_1.wav\nsox -r 16000 -c 1 -e signed -c 1 -e signed -b 16 mic_16000_s16le_channel_2.raw channel_2.wav\nsox -r 16000 -c 1 -e signed -c 1 -e signed -b 16 mic_16000_s16le_channel_3.raw channel_3.wav\nsox -r 16000 -c 1 -e signed -c 1 -e signed -b 16 mic_16000_s16le_channel_4.raw channel_4.wav\nsox -r 16000 -c 1 -e signed -c 1 -e signed -b 16 mic_16000_s16le_channel_5.raw channel_5.wav\nsox -r 16000 -c 1 -e signed -c 1 -e signed -b 16 mic_16000_s16le_channel_6.raw channel_6.wav\nsox -r 16000 -c 1 -e signed -c 1 -e signed -b 16 mic_16000_s16le_channel_7.raw channel_7.wav\n\n\n\nPlay the wave file (i.e. audio from channel 0)\n\n\naplay channel_0.wav", 
+            "title": "Microphone"
+        }, 
+        {
+            "location": "/Hardware/microphone/#microphone", 
+            "text": "First check the  Getting started  Update and upgrade the raspbian  sudo apt-get update\nsudo apt-get upgrade  Install  Alsa tools  and the  sox  utility  sudo apt-get install sox alsa-utils  Run the volumen control  alsamixer  Install and compile the MATRIX Creator's hardware abstraction layer  git clone https://github.com/matrix-io/matrix-creator-hal.git\ncd matrix-creator-hal \nmkdir build   cd build\ncmake ..\nmake  Run capture and check the recorded files\n    cd demos\n    ./micarray_recorder\n    ls -1 *raw  Convert the audio  sox -r 16000 -c 1 -e signed -c 1 -e signed -b 16 mic_16000_s16le_channel_0.raw channel_0.wav\nsox -r 16000 -c 1 -e signed -c 1 -e signed -b 16 mic_16000_s16le_channel_1.raw channel_1.wav\nsox -r 16000 -c 1 -e signed -c 1 -e signed -b 16 mic_16000_s16le_channel_2.raw channel_2.wav\nsox -r 16000 -c 1 -e signed -c 1 -e signed -b 16 mic_16000_s16le_channel_3.raw channel_3.wav\nsox -r 16000 -c 1 -e signed -c 1 -e signed -b 16 mic_16000_s16le_channel_4.raw channel_4.wav\nsox -r 16000 -c 1 -e signed -c 1 -e signed -b 16 mic_16000_s16le_channel_5.raw channel_5.wav\nsox -r 16000 -c 1 -e signed -c 1 -e signed -b 16 mic_16000_s16le_channel_6.raw channel_6.wav\nsox -r 16000 -c 1 -e signed -c 1 -e signed -b 16 mic_16000_s16le_channel_7.raw channel_7.wav  Play the wave file (i.e. audio from channel 0)  aplay channel_0.wav", 
+            "title": "Microphone"
+        }, 
+        {
+            "location": "/Hardware/SPI/", 
+            "text": "SPI\n\n\nThe SPI bus is not enabled by default by Raspbian.\n\n\nTo enable it you can follow the next steps.\n\n\nFirst, open raspi-config.\n\n\nsudo raspi-config\n\n\n\n[[https://storage.googleapis.com/packages.matrix.one/wiki-images/enable-spi/1-open.png|alt=open the interface]]\n\n\nThen navigate the interface to activate the SPI bus. Go to advanced options.\n\n\n[[https://storage.googleapis.com/packages.matrix.one/wiki-images/enable-spi/2-select-advanced.png|alt=select advanced]]\n\n\nSelect SPI.\n\n\n[[https://storage.googleapis.com/packages.matrix.one/wiki-images/enable-spi/3-select-spi.png|alt=select SPI]]\n\n\nEnable SPI.\n\n\n[[https://storage.googleapis.com/packages.matrix.one/wiki-images/enable-spi/4-enable.jpg|alt=enable SPI]]\n\n\nVerify that SPI has been enabled.\n\n\n[[https://storage.googleapis.com/packages.matrix.one/wiki-images/enable-spi/5-enabled.jpg|alt=SPI enabled]]\n\n\nNow you can exit raspi-config and SPI will be permanently enabled.\n\n\nThis allows you to play with the \nEverloop LED Array And IMU\n.", 
+            "title": "SPI"
+        }, 
+        {
+            "location": "/Hardware/SPI/#spi", 
+            "text": "The SPI bus is not enabled by default by Raspbian.  To enable it you can follow the next steps.  First, open raspi-config.  sudo raspi-config  [[https://storage.googleapis.com/packages.matrix.one/wiki-images/enable-spi/1-open.png|alt=open the interface]]  Then navigate the interface to activate the SPI bus. Go to advanced options.  [[https://storage.googleapis.com/packages.matrix.one/wiki-images/enable-spi/2-select-advanced.png|alt=select advanced]]  Select SPI.  [[https://storage.googleapis.com/packages.matrix.one/wiki-images/enable-spi/3-select-spi.png|alt=select SPI]]  Enable SPI.  [[https://storage.googleapis.com/packages.matrix.one/wiki-images/enable-spi/4-enable.jpg|alt=enable SPI]]  Verify that SPI has been enabled.  [[https://storage.googleapis.com/packages.matrix.one/wiki-images/enable-spi/5-enabled.jpg|alt=SPI enabled]]  Now you can exit raspi-config and SPI will be permanently enabled.  This allows you to play with the  Everloop LED Array And IMU .", 
+            "title": "SPI"
         }, 
         {
             "location": "/intro/hal/", 

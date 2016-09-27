@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
     
       
-        <title>Screens - MATRIX</title>
+        <title>Type - MATRIX</title>
       
       
       
@@ -92,12 +92,12 @@
               
             
               
-                Config <i class="icon icon-link"></i>
+                App API <i class="icon icon-link"></i>
               
             
           </span>
         
-        Screens
+        Type
       </div>
     </div>
     
@@ -194,7 +194,7 @@
       
         
   <li>
-    <a class="" title="Overview" href="../../API/overview/">
+    <a class="" title="Overview" href="../overview/">
       Overview
     </a>
     
@@ -203,7 +203,7 @@
       
         
   <li>
-    <a class="" title="Computer Vision" href="../../API/computer-vision/">
+    <a class="" title="Computer Vision" href="../computer-vision/">
       Computer Vision
     </a>
     
@@ -212,7 +212,7 @@
       
         
   <li>
-    <a class="" title="Crosstalk" href="../../API/crosstalk/">
+    <a class="" title="Crosstalk" href="../crosstalk/">
       Crosstalk
     </a>
     
@@ -221,16 +221,21 @@
       
         
   <li>
-    <a class="" title="Type" href="../../API/typesend/">
+    <a class="current" title="Type" href="./">
       Type
     </a>
+    
+      
+        
+      
+      
     
   </li>
 
       
         
   <li>
-    <a class="" title="GPIO" href="../../API/GPIO/">
+    <a class="" title="GPIO" href="../GPIO/">
       GPIO
     </a>
     
@@ -239,7 +244,7 @@
       
         
   <li>
-    <a class="" title="Sensors" href="../../API/sensors/">
+    <a class="" title="Sensors" href="../sensors/">
       Sensors
     </a>
     
@@ -248,7 +253,7 @@
       
         
   <li>
-    <a class="" title="Filters" href="../../API/filter/">
+    <a class="" title="Filters" href="../filter/">
       Filters
     </a>
     
@@ -257,7 +262,7 @@
       
         
   <li>
-    <a class="" title="Microphone" href="../../API/microphone/">
+    <a class="" title="Microphone" href="../microphone/">
       Microphone
     </a>
     
@@ -266,7 +271,7 @@
       
         
   <li>
-    <a class="" title="IR TX/RX" href="../../API/ir/">
+    <a class="" title="IR TX/RX" href="../ir/">
       IR TX/RX
     </a>
     
@@ -275,7 +280,7 @@
       
         
   <li>
-    <a class="" title="Everloop" href="../../API/everloop/">
+    <a class="" title="Everloop" href="../everloop/">
       Everloop
     </a>
     
@@ -284,7 +289,7 @@
       
         
   <li>
-    <a class="" title="NFC" href="../../API/nfc/">
+    <a class="" title="NFC" href="../nfc/">
       NFC
     </a>
     
@@ -293,7 +298,7 @@
       
         
   <li>
-    <a class="" title="Z-wave" href="../../API/zwave/">
+    <a class="" title="Z-wave" href="../zwave/">
       Z-wave
     </a>
     
@@ -302,7 +307,7 @@
       
         
   <li>
-    <a class="" title="Zigbee" href="../../API/zigbee/">
+    <a class="" title="Zigbee" href="../zigbee/">
       Zigbee
     </a>
     
@@ -320,7 +325,7 @@
       
         
   <li>
-    <a class="" title="Overview" href="../overview/">
+    <a class="" title="Overview" href="../../Configuration/overview/">
       Overview
     </a>
     
@@ -329,7 +334,7 @@
       
         
   <li>
-    <a class="" title="Datatypes" href="../datatypes/">
+    <a class="" title="Datatypes" href="../../Configuration/datatypes/">
       Datatypes
     </a>
     
@@ -338,19 +343,16 @@
       
         
   <li>
-    <a class="current" title="Screens" href="./">
+    <a class="" title="Screens" href="../../Configuration/screens/">
       Screens
     </a>
-    
-      
-      
     
   </li>
 
       
         
   <li>
-    <a class="" title="Filters" href="../filters/">
+    <a class="" title="Filters" href="../../Configuration/filters/">
       Filters
     </a>
     
@@ -359,7 +361,7 @@
       
         
   <li>
-    <a class="" title="Widgets" href="../widgets/">
+    <a class="" title="Widgets" href="../../Configuration/widgets/">
       Widgets
     </a>
     
@@ -368,7 +370,7 @@
       
         
   <li>
-    <a class="" title="Services" href="../services/">
+    <a class="" title="Services" href="../../Configuration/services/">
       Services
     </a>
     
@@ -377,7 +379,7 @@
       
         
   <li>
-    <a class="" title="Examples" href="../examples/">
+    <a class="" title="Examples" href="../../Configuration/examples/">
       Examples
     </a>
     
@@ -546,9 +548,38 @@
       <article class="article">
         <div class="wrapper">
           
-            <h1>Screens</h1>
-          
-          
+          <p>Unless otherwise specified, sensor data is typed with the application name.</p>
+<pre><code>matrix.send({
+  foo: 123
+})
+</code></pre>
+
+<p>is read in a widget <code>config.yaml</code> ( See <a href="../../Configuration/widgets/">Configuration&gt;Widgets</a>)</p>
+<pre><code>name: fooApp
+widgets:
+  fooWidget:
+    display: digit,
+    type: fooApp
+    key: foo
+</code></pre>
+
+<h1 id="type">Type</h1>
+<p>Types are another way to organize the data coming off MatrixOS and make it easier to work with in dashboards.</p>
+<pre><code>matrix.type('bar').send({
+  foo: 123
+})
+</code></pre>
+
+<p>would instead be utilized with the following</p>
+<pre><code>name: fooApp
+widgets:
+  fooWidget:
+    display: digit,
+    type: bar
+    key: foo
+</code></pre>
+
+<p>Types are also different ways of segmenting the data. When your application generates reports, types and keys will form the structure of that report. ( See <a href="../../Configuration/datatypes/"> Data Types </a> for more )</p>
           <aside class="copyright" role="note">
             
             Documentation built with
@@ -565,7 +596,7 @@
   <nav class="pagination" aria-label="Footer">
     <div class="previous">
       
-        <a href="../datatypes/" title="Datatypes">
+        <a href="../crosstalk/" title="Crosstalk">
           <span class="direction">
             Previous
           </span>
@@ -575,7 +606,7 @@
             </div>
             <div class="stretch">
               <div class="title">
-                Datatypes
+                Crosstalk
               </div>
             </div>
           </div>
@@ -584,14 +615,14 @@
     </div>
     <div class="next">
       
-        <a href="../filters/" title="Filters">
+        <a href="../GPIO/" title="GPIO">
           <span class="direction">
             Next
           </span>
           <div class="page">
             <div class="stretch">
               <div class="title">
-                Filters
+                GPIO
               </div>
             </div>
             <div class="button button-next" role="button" aria-label="Next">

@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
     
       
-        <title>Screens - MATRIX</title>
+        <title>Microphone - MATRIX</title>
       
       
       
@@ -88,16 +88,12 @@
           <span class="path">
             
               
-                OS <i class="icon icon-link"></i>
-              
-            
-              
-                Config <i class="icon icon-link"></i>
+                Hardware <i class="icon icon-link"></i>
               
             
           </span>
         
-        Screens
+        Microphone
       </div>
     </div>
     
@@ -320,7 +316,7 @@
       
         
   <li>
-    <a class="" title="Overview" href="../overview/">
+    <a class="" title="Overview" href="../../Configuration/overview/">
       Overview
     </a>
     
@@ -329,7 +325,7 @@
       
         
   <li>
-    <a class="" title="Datatypes" href="../datatypes/">
+    <a class="" title="Datatypes" href="../../Configuration/datatypes/">
       Datatypes
     </a>
     
@@ -338,19 +334,16 @@
       
         
   <li>
-    <a class="current" title="Screens" href="./">
+    <a class="" title="Screens" href="../../Configuration/screens/">
       Screens
     </a>
-    
-      
-      
     
   </li>
 
       
         
   <li>
-    <a class="" title="Filters" href="../filters/">
+    <a class="" title="Filters" href="../../Configuration/filters/">
       Filters
     </a>
     
@@ -359,7 +352,7 @@
       
         
   <li>
-    <a class="" title="Widgets" href="../widgets/">
+    <a class="" title="Widgets" href="../../Configuration/widgets/">
       Widgets
     </a>
     
@@ -368,7 +361,7 @@
       
         
   <li>
-    <a class="" title="Services" href="../services/">
+    <a class="" title="Services" href="../../Configuration/services/">
       Services
     </a>
     
@@ -377,7 +370,7 @@
       
         
   <li>
-    <a class="" title="Examples" href="../examples/">
+    <a class="" title="Examples" href="../../Configuration/examples/">
       Examples
     </a>
     
@@ -435,7 +428,7 @@
       
         
   <li>
-    <a class="" title="FPGA" href="../../Hardware/fpga/">
+    <a class="" title="FPGA" href="../fpga/">
       FPGA
     </a>
     
@@ -444,7 +437,7 @@
       
         
   <li>
-    <a class="" title="SAM3" href="../../Hardware/Sam3/">
+    <a class="" title="SAM3" href="../Sam3/">
       SAM3
     </a>
     
@@ -453,7 +446,7 @@
       
         
   <li>
-    <a class="" title="SAM3MCU" href="../../Hardware/sam3mcu-programming/">
+    <a class="" title="SAM3MCU" href="../sam3mcu-programming/">
       SAM3MCU
     </a>
     
@@ -462,16 +455,29 @@
       
         
   <li>
-    <a class="" title="Microphone" href="../../Hardware/microphone/">
+    <a class="current" title="Microphone" href="./">
       Microphone
     </a>
+    
+      
+      
+        <ul>
+          
+            <li class="anchor">
+              <a title="Microphone" href="#microphone">
+                Microphone
+              </a>
+            </li>
+          
+        </ul>
+      
     
   </li>
 
       
         
   <li>
-    <a class="" title="SPI" href="../../Hardware/SPI/">
+    <a class="" title="SPI" href="../SPI/">
       SPI
     </a>
     
@@ -546,9 +552,44 @@
       <article class="article">
         <div class="wrapper">
           
-            <h1>Screens</h1>
+            <h1>Microphone</h1>
           
-          
+          <h3 id="microphone">Microphone</h3>
+<p>First check the <a href="../Getting-Started">Getting started</a></p>
+<p>Update and upgrade the raspbian</p>
+<pre><code>sudo apt-get update
+sudo apt-get upgrade
+</code></pre>
+<p>Install <em>Alsa tools</em> and the <em>sox</em> utility</p>
+<pre><code>sudo apt-get install sox alsa-utils
+</code></pre>
+<p>Run the volumen control</p>
+<pre><code>alsamixer
+</code></pre>
+<p>Install and compile the MATRIX Creator's hardware abstraction layer</p>
+<pre><code>git clone https://github.com/matrix-io/matrix-creator-hal.git
+cd matrix-creator-hal 
+mkdir build &amp;&amp; cd build
+cmake ..
+make
+</code></pre>
+<p>Run capture and check the recorded files
+    cd demos
+    ./micarray_recorder
+    ls -1 *raw</p>
+<p>Convert the audio</p>
+<pre><code>sox -r 16000 -c 1 -e signed -c 1 -e signed -b 16 mic_16000_s16le_channel_0.raw channel_0.wav
+sox -r 16000 -c 1 -e signed -c 1 -e signed -b 16 mic_16000_s16le_channel_1.raw channel_1.wav
+sox -r 16000 -c 1 -e signed -c 1 -e signed -b 16 mic_16000_s16le_channel_2.raw channel_2.wav
+sox -r 16000 -c 1 -e signed -c 1 -e signed -b 16 mic_16000_s16le_channel_3.raw channel_3.wav
+sox -r 16000 -c 1 -e signed -c 1 -e signed -b 16 mic_16000_s16le_channel_4.raw channel_4.wav
+sox -r 16000 -c 1 -e signed -c 1 -e signed -b 16 mic_16000_s16le_channel_5.raw channel_5.wav
+sox -r 16000 -c 1 -e signed -c 1 -e signed -b 16 mic_16000_s16le_channel_6.raw channel_6.wav
+sox -r 16000 -c 1 -e signed -c 1 -e signed -b 16 mic_16000_s16le_channel_7.raw channel_7.wav
+</code></pre>
+<p>Play the wave file (i.e. audio from channel 0)</p>
+<pre><code>aplay channel_0.wav
+</code></pre>
           <aside class="copyright" role="note">
             
             Documentation built with
@@ -565,7 +606,7 @@
   <nav class="pagination" aria-label="Footer">
     <div class="previous">
       
-        <a href="../datatypes/" title="Datatypes">
+        <a href="../sam3mcu-programming/" title="SAM3MCU">
           <span class="direction">
             Previous
           </span>
@@ -575,7 +616,7 @@
             </div>
             <div class="stretch">
               <div class="title">
-                Datatypes
+                SAM3MCU
               </div>
             </div>
           </div>
@@ -584,14 +625,14 @@
     </div>
     <div class="next">
       
-        <a href="../filters/" title="Filters">
+        <a href="../SPI/" title="SPI">
           <span class="direction">
             Next
           </span>
           <div class="page">
             <div class="stretch">
               <div class="title">
-                Filters
+                SPI
               </div>
             </div>
             <div class="button button-next" role="button" aria-label="Next">

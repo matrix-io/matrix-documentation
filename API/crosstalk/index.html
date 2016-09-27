@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
     
       
-        <title>Screens - MATRIX</title>
+        <title>Crosstalk - MATRIX</title>
       
       
       
@@ -92,12 +92,12 @@
               
             
               
-                Config <i class="icon icon-link"></i>
+                App API <i class="icon icon-link"></i>
               
             
           </span>
         
-        Screens
+        Crosstalk
       </div>
     </div>
     
@@ -194,7 +194,7 @@
       
         
   <li>
-    <a class="" title="Overview" href="../../API/overview/">
+    <a class="" title="Overview" href="../overview/">
       Overview
     </a>
     
@@ -203,7 +203,7 @@
       
         
   <li>
-    <a class="" title="Computer Vision" href="../../API/computer-vision/">
+    <a class="" title="Computer Vision" href="../computer-vision/">
       Computer Vision
     </a>
     
@@ -212,16 +212,47 @@
       
         
   <li>
-    <a class="" title="Crosstalk" href="../../API/crosstalk/">
+    <a class="current" title="Crosstalk" href="./">
       Crosstalk
     </a>
+    
+      
+      
+        <ul>
+          
+            <li class="anchor">
+              <a title="Global Emitters &amp; Listeners" href="#global-emitters-listeners">
+                Global Emitters &amp; Listeners
+              </a>
+            </li>
+          
+            <li class="anchor">
+              <a title="App Specific Message" href="#app-specific-message">
+                App Specific Message
+              </a>
+            </li>
+          
+            <li class="anchor">
+              <a title="Specific Event within App" href="#specific-event-within-app">
+                Specific Event within App
+              </a>
+            </li>
+          
+            <li class="anchor">
+              <a title="Dashboard" href="#dashboard">
+                Dashboard
+              </a>
+            </li>
+          
+        </ul>
+      
     
   </li>
 
       
         
   <li>
-    <a class="" title="Type" href="../../API/typesend/">
+    <a class="" title="Type" href="../typesend/">
       Type
     </a>
     
@@ -230,7 +261,7 @@
       
         
   <li>
-    <a class="" title="GPIO" href="../../API/GPIO/">
+    <a class="" title="GPIO" href="../GPIO/">
       GPIO
     </a>
     
@@ -239,7 +270,7 @@
       
         
   <li>
-    <a class="" title="Sensors" href="../../API/sensors/">
+    <a class="" title="Sensors" href="../sensors/">
       Sensors
     </a>
     
@@ -248,7 +279,7 @@
       
         
   <li>
-    <a class="" title="Filters" href="../../API/filter/">
+    <a class="" title="Filters" href="../filter/">
       Filters
     </a>
     
@@ -257,7 +288,7 @@
       
         
   <li>
-    <a class="" title="Microphone" href="../../API/microphone/">
+    <a class="" title="Microphone" href="../microphone/">
       Microphone
     </a>
     
@@ -266,7 +297,7 @@
       
         
   <li>
-    <a class="" title="IR TX/RX" href="../../API/ir/">
+    <a class="" title="IR TX/RX" href="../ir/">
       IR TX/RX
     </a>
     
@@ -275,7 +306,7 @@
       
         
   <li>
-    <a class="" title="Everloop" href="../../API/everloop/">
+    <a class="" title="Everloop" href="../everloop/">
       Everloop
     </a>
     
@@ -284,7 +315,7 @@
       
         
   <li>
-    <a class="" title="NFC" href="../../API/nfc/">
+    <a class="" title="NFC" href="../nfc/">
       NFC
     </a>
     
@@ -293,7 +324,7 @@
       
         
   <li>
-    <a class="" title="Z-wave" href="../../API/zwave/">
+    <a class="" title="Z-wave" href="../zwave/">
       Z-wave
     </a>
     
@@ -302,7 +333,7 @@
       
         
   <li>
-    <a class="" title="Zigbee" href="../../API/zigbee/">
+    <a class="" title="Zigbee" href="../zigbee/">
       Zigbee
     </a>
     
@@ -320,7 +351,7 @@
       
         
   <li>
-    <a class="" title="Overview" href="../overview/">
+    <a class="" title="Overview" href="../../Configuration/overview/">
       Overview
     </a>
     
@@ -329,7 +360,7 @@
       
         
   <li>
-    <a class="" title="Datatypes" href="../datatypes/">
+    <a class="" title="Datatypes" href="../../Configuration/datatypes/">
       Datatypes
     </a>
     
@@ -338,19 +369,16 @@
       
         
   <li>
-    <a class="current" title="Screens" href="./">
+    <a class="" title="Screens" href="../../Configuration/screens/">
       Screens
     </a>
-    
-      
-      
     
   </li>
 
       
         
   <li>
-    <a class="" title="Filters" href="../filters/">
+    <a class="" title="Filters" href="../../Configuration/filters/">
       Filters
     </a>
     
@@ -359,7 +387,7 @@
       
         
   <li>
-    <a class="" title="Widgets" href="../widgets/">
+    <a class="" title="Widgets" href="../../Configuration/widgets/">
       Widgets
     </a>
     
@@ -368,7 +396,7 @@
       
         
   <li>
-    <a class="" title="Services" href="../services/">
+    <a class="" title="Services" href="../../Configuration/services/">
       Services
     </a>
     
@@ -377,7 +405,7 @@
       
         
   <li>
-    <a class="" title="Examples" href="../examples/">
+    <a class="" title="Examples" href="../../Configuration/examples/">
       Examples
     </a>
     
@@ -546,9 +574,39 @@
       <article class="article">
         <div class="wrapper">
           
-            <h1>Screens</h1>
+            <h1>Crosstalk</h1>
           
-          
+          <p>CrossTalk is how MatrixOS applications communicate between different devices. Applications can exchange information with other applications, or with other instances of the same application. Cool, right?</p>
+<h2 id="global-emitters-listeners">Global Emitters &amp; Listeners</h2>
+<pre><code>// Send a payload to all listeners
+matrix.emit(payload);
+
+// Listen for global CrossTalk messages
+matrix.on(function(payload) { ... });
+</code></pre>
+
+<h2 id="app-specific-message">App Specific Message</h2>
+<pre><code>// Send a message to a particular application
+matrix.emit('app', payload);
+
+// Listen for application specific CrossTalk messages
+matrix.on(function(payload) { ... });
+</code></pre>
+
+<h2 id="specific-event-within-app">Specific Event within App</h2>
+<pre><code>// Trigger an event in a specific application
+matrix.emit('app', 'event', payload);
+
+// Listen for CrossTalk events sent to this application
+matrix.on('event', function(payload) { ... });
+</code></pre>
+
+<h2 id="dashboard">Dashboard</h2>
+<pre><code>// Interface elements from Dashboards can also trigger CrossTalk events.
+matrix.on('buttonClick', function(payload) { ... });
+</code></pre>
+
+<p>see <a href="">docs/configuration/widgets</a> for more information</p>
           <aside class="copyright" role="note">
             
             Documentation built with
@@ -565,7 +623,7 @@
   <nav class="pagination" aria-label="Footer">
     <div class="previous">
       
-        <a href="../datatypes/" title="Datatypes">
+        <a href="../computer-vision/" title="Computer Vision">
           <span class="direction">
             Previous
           </span>
@@ -575,7 +633,7 @@
             </div>
             <div class="stretch">
               <div class="title">
-                Datatypes
+                Computer Vision
               </div>
             </div>
           </div>
@@ -584,14 +642,14 @@
     </div>
     <div class="next">
       
-        <a href="../filters/" title="Filters">
+        <a href="../typesend/" title="Type">
           <span class="direction">
             Next
           </span>
           <div class="page">
             <div class="stretch">
               <div class="title">
-                Filters
+                Type
               </div>
             </div>
             <div class="button button-next" role="button" aria-label="Next">
