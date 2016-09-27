@@ -28,7 +28,7 @@ sudo apt-get install -y xc3sprog malos-eye matrix-creator-openocd wiringpi matri
 
 This completes the Creator hardware setup.
 
-### You can now explore the [Hardware Interfaces](../intro/interfaces.md).
+### You can now explore the [Hardware Interfaces](intro/interfaces.md).
 
 ## MATRIX OS
 ### Installation
@@ -65,7 +65,7 @@ malos_eye & malos 2>&1
 1. After a few moments you will be provided with a `MATRIX_DEVICE_ID` and `MATRIX_DEVICE_SECRET`.
 
 ```
-# example variables generated via registration, you'll get your own 
+# example variables generated via registration, you'll get your own
 MATRIX_DEVICE_ID=dc7a1a71be2d
 MATRIX_DEVICE_SECRET=08629018e9d793a7a10ea823ad15894da0c3616dec7aab85b4ecf1774505f0c665b29c660f06cd4f7e5544272b
 ```

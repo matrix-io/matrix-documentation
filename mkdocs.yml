@@ -7,12 +7,15 @@ extra_css: ['styles.css']
 pages:
 - Home: 'index.md'
 - Intro - MATRIX OS: 'intro/matrix.md'
-- Intro - MATRIX CLI: 'intro/cli.md'
+- Intro - MATRIX CLI: 'cli/overview.md'
 - Intro - Low Level Interfaces: 'intro/interfaces.md'
 - OS:
-  - Apps:
+  - App API:
     - 'Overview': 'API/overview.md'
-    - 'GPIO': 'API/gpio.md'
+    - 'Computer Vision': 'API/computer-vision.md'
+    - 'Crosstalk': 'API/crosstalk.md'
+    - 'Type': 'API/typesend.md'
+    - 'GPIO': 'API/GPIO.md'
     - 'Sensors': 'API/sensors.md'
     - 'Filters': 'API/filter.md'
     - 'Microphone': 'API/microphone.md'
@@ -23,8 +26,12 @@ pages:
     - 'Zigbee': 'API/zigbee.md'
   - Config:
     - 'Overview': 'Configuration/overview.md'
-    - 'Screens': 'Configuration/screens.md'
     - 'Datatypes': 'Configuration/datatypes.md'
+    - 'Screens': 'Configuration/screens.md'
+    - 'Filters': 'Configuration/filters.md'
+    - 'Widgets': 'Configuration/widgets.md'
+    - 'Services': 'Configuration/services.md'
+    - 'Examples': 'Configuration/examples.md'
 - CLI:
   - 'Overview': 'CLI/overview.md'
   - 'Apps': 'CLI/apps.md'
@@ -33,6 +40,8 @@ pages:
   - 'FPGA': 'Hardware/fpga.md'
   - 'SAM3': 'Hardware/Sam3.md'
   - 'SAM3MCU': 'Hardware/sam3mcu-programming.md'
+  - 'Microphone': 'Hardware/microphone.md'
+  - 'SPI': 'Hardware/SPI.md'
 - Supporting Libraries:
   - 'HAL': 'intro/hal.md'
   - 'MALOS': 'intro/malos.md'

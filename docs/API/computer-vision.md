@@ -6,7 +6,7 @@ matrix.init( algorithm, options )
 `thumb-up`
 `palm-open`
 `palm-closed`
-`face-detect`
+`face`
 `face-id`
 `vehicle-count`
 `person-count`
@@ -52,7 +52,7 @@ matrix.init('gesture', options);
 
 ## Face Detection
 ```
-matrix.init('face-detect').then(function(data){})
+matrix.init('face').then(function(data){})
 ```  
 `then` will call when any face is detected
 
