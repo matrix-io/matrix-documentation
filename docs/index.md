@@ -72,7 +72,7 @@ MATRIX_DEVICE_SECRET=08629018e9d793a7a10ea823ad15894da0c3616dec7aab85b4ecf177450
 
 ## Raspberry Pi
 
-### Set Up ENV Variables
+### Set Up ENV Variables, USE device.
 
 1. Add the above variables as environment variables via a shell script or command line on the Raspberry Pi.
 1. (optional) We export envs via an `.env` file which can be processed using `source .env`
