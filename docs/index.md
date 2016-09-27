@@ -1,20 +1,14 @@
-# Getting Started
-This documentation is for MATRIX Creator and MATRIX OS.
-________
-![Matrix Creator](http://packages.matrix.one/wiki-images/general-assets/hand-small.png)
-________
 ## Support
-
 * Post questions or comments on [community.matrix.one](http://community.matrix.one/)
 * Post package issues on github under [matrix-io](https://github.com/matrix-io)
 
-# Installation Instructions
+## Installation
 New parts of the MATRIX ecosystem are being developed and integrated every day. Here are a set of instructions which will get MATRIX OS running on your Creator. This will be streamlined in the future.
 
-## Local Computer
-1. Install your Creator onto an rPi, connect to network cable which goes to local network, NOT to your computer, as it needs to be discoverable. Wifi support coming soon.
-1. Discover your rPi address with `arp -na | grep -i b8:27:eb`.
-1. SSH into your rPi. `ssh pi@192.168.0.15`
+## Local Machine
+1. Install your Creator onto an Raspberry Pi, connect to network cable which goes to local network, NOT to your computer, as it needs to be discoverable. Wifi support coming soon.
+1. Discover your Pi's address with `arp -na | grep -i b8:27:eb`. In our case, our IP for this example is `192.168.0.15`, yours may be different.
+1. SSH into your Pi. `ssh pi@192.168.0.15`
 1. (Optional) Map ip to a host name in `/etc/hosts`.
 ```
 echo '192.168.0.15 matrix' >> /etc/hosts
@@ -36,8 +30,9 @@ This completes the Creator hardware setup.
 
 ### You can now explore the [Hardware Interfaces](../intro/interfaces.md).
 
-## Matrix OS
+## MATRIX OS
 ### Installation
+**NOTE:** MATRIX OS has a NodeJS dependency. Please Install NodeJS before installing MATRIX OS.
 ```
 git clone https://github.com/matrix-io/matrix-os.git;
 cd matrix-os;
@@ -47,35 +42,44 @@ npm install;
 
 ### Configuration
 
+**NOTE:** Enable your camera on your Pi.
 ```
-# configure - NOTE: This is interactive. Enable your camera
 sudo raspi-config;
 sudo reboot;
 ```
 
-Be sure your camera was enabled in `raspi-config`
-
 ### Run Services
 
 ```
-# currently you need to run
+# currently needs to be run on every restart
 sudo modprobe bcm2835-v4l2;
 # before you run
 
 malos_eye & malos 2>&1
 ```
-
+## Local Machine
 ### Register Device
 
-1. With https://github.com/matrix-io/matrix-cli run ` matrix register device `
-1. Enter a name and (optional) description
-1. After a few moments you will be provided with a device ID and secret.
-1. Add these as environment variables via a shell script or command line.
+1. With [MATRIX CLI](https://github.com/matrix-io/matrix-cli) installed on your computer, run `matrix register device`.
+1. Enter a `device name` and (optional) `device description`.
+1. After a few moments you will be provided with a `MATRIX_DEVICE_ID` and `MATRIX_DEVICE_SECRET`.
+
+```
+# example variables generated via registration, you'll get your own 
+MATRIX_DEVICE_ID=dc7a1a71be2d
+MATRIX_DEVICE_SECRET=08629018e9d793a7a10ea823ad15894da0c3616dec7aab85b4ecf1774505f0c665b29c660f06cd4f7e5544272b
+```
+
+## Raspberry Pi
+
+### Set Up ENV Variables
+
+1. Add the above variables as environment variables via a shell script or command line on the Raspberry Pi.
 1. (optional) We export envs via an `.env` file which can be processed using `source .env`
 1. To begin targeting this device with the CLI, enter the `matrix use` command provided
 
 ### Run MATRIX OS
-1. Ensure environment variables are set from above step.
+
 1. From the `matrix-os` folder. `node index.js`
 1. If you want to start a MATRIX app on launch, use the env `START_APP`. ex. `START_APP=monitor node index.js`
 1. Now you can issue commands and deploy apps to your MATRIX OS from the CLI. ( https://github.com/matrix-io/matrix-cli)

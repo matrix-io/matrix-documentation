@@ -28,7 +28,7 @@ This completes the Creator hardware setup.
 
 ### You can now explore the [Hardware Interfaces](../intro/interfaces.md).
 
-#### Matrix OS
+#### MATRIX OS
 ##### Installation
 ```
 git clone https://github.com/matrix-io/matrix-os.git;
