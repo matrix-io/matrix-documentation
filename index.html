@@ -147,14 +147,48 @@
     </a>
     
       
-        
-      
       
         <ul>
           
             <li class="anchor">
               <a title="Support" href="#support">
                 Support
+              </a>
+            </li>
+          
+            <li class="anchor">
+              <a title="Installation" href="#installation">
+                Installation
+              </a>
+            </li>
+          
+            <li class="anchor">
+              <a title="Local Machine" href="#local-machine">
+                Local Machine
+              </a>
+            </li>
+          
+            <li class="anchor">
+              <a title="Raspberry Pi" href="#raspberry-pi">
+                Raspberry Pi
+              </a>
+            </li>
+          
+            <li class="anchor">
+              <a title="MATRIX OS" href="#matrix-os">
+                MATRIX OS
+              </a>
+            </li>
+          
+            <li class="anchor">
+              <a title="Local Machine" href="#local-machine_1">
+                Local Machine
+              </a>
+            </li>
+          
+            <li class="anchor">
+              <a title="Raspberry Pi" href="#raspberry-pi_1">
+                Raspberry Pi
               </a>
             </li>
           
@@ -166,8 +200,17 @@
           
             
   <li>
-    <a class="" title="Intro - Matrix OS" href="intro/matrix/">
-      Intro - Matrix OS
+    <a class="" title="Intro - MATRIX OS" href="intro/matrix/">
+      Intro - MATRIX OS
+    </a>
+    
+  </li>
+
+          
+            
+  <li>
+    <a class="" title="Intro - MATRIX CLI" href="cli/overview/">
+      Intro - MATRIX CLI
     </a>
     
   </li>
@@ -462,23 +505,20 @@
       <article class="article">
         <div class="wrapper">
           
-          <h1 id="getting-started">Getting Started</h1>
-<p>This documentation is for MATRIX Creator and MATRIX OS.</p>
-<hr />
-<p><img alt="Matrix Creator" src="http://packages.matrix.one/wiki-images/general-assets/hand-small.png" /></p>
-<hr />
-<h2 id="support">Support</h2>
+            <h1>MATRIX</h1>
+          
+          <h2 id="support">Support</h2>
 <ul>
 <li>Post questions or comments on <a href="http://community.matrix.one/">community.matrix.one</a></li>
 <li>Post package issues on github under <a href="https://github.com/matrix-io">matrix-io</a></li>
 </ul>
-<h1 id="installation-instructions">Installation Instructions</h1>
+<h2 id="installation">Installation</h2>
 <p>New parts of the MATRIX ecosystem are being developed and integrated every day. Here are a set of instructions which will get MATRIX OS running on your Creator. This will be streamlined in the future.</p>
-<h2 id="local-computer">Local Computer</h2>
+<h2 id="local-machine">Local Machine</h2>
 <ol>
-<li>Install your Creator onto an rPi, connect to network cable which goes to local network, NOT to your computer, as it needs to be discoverable. Wifi support coming soon.</li>
-<li>Discover your rPi address with <code>arp -na | grep -i b8:27:eb</code>.</li>
-<li>SSH into your rPi. <code>ssh pi@192.168.0.15</code></li>
+<li>Install your Creator onto an Raspberry Pi, connect to network cable which goes to local network, NOT to your computer, as it needs to be discoverable. Wifi support coming soon.</li>
+<li>Discover your Pi's address with <code>arp -na | grep -i b8:27:eb</code>. In our case, our IP for this example is <code>192.168.0.15</code>, yours may be different.</li>
+<li>SSH into your Pi. <code>ssh pi@192.168.0.15</code></li>
 <li>(Optional) Map ip to a host name in <code>/etc/hosts</code>.</li>
 </ol>
 <pre><code>echo '192.168.0.15 matrix' &gt;&gt; /etc/hosts
@@ -497,8 +537,9 @@ sudo apt-get install -y xc3sprog malos-eye matrix-creator-openocd wiringpi matri
 
 <p>This completes the Creator hardware setup.</p>
 <h3 id="you-can-now-explore-the-hardware-interfaces">You can now explore the <a href="../intro/interfaces.md">Hardware Interfaces</a>.</h3>
-<h2 id="matrix-os">Matrix OS</h2>
-<h3 id="installation">Installation</h3>
+<h2 id="matrix-os">MATRIX OS</h2>
+<h3 id="installation_1">Installation</h3>
+<p><strong>NOTE:</strong> MATRIX OS has a NodeJS dependency. Please Install NodeJS before installing MATRIX OS.</p>
 <pre><code>git clone https://github.com/matrix-io/matrix-os.git;
 cd matrix-os;
 git submodule update --init;
@@ -506,32 +547,40 @@ npm install;
 </code></pre>
 
 <h3 id="configuration">Configuration</h3>
-<pre><code># configure - NOTE: This is interactive. Enable your camera
-sudo raspi-config;
+<p><strong>NOTE:</strong> Enable your camera on your Pi.</p>
+<pre><code>sudo raspi-config;
 sudo reboot;
 </code></pre>
 
-<p>Be sure your camera was enabled in <code>raspi-config</code></p>
 <h3 id="run-services">Run Services</h3>
-<pre><code># currently you need to run
+<pre><code># currently needs to be run on every restart
 sudo modprobe bcm2835-v4l2;
 # before you run
 
 malos_eye &amp; malos 2&gt;&amp;1
 </code></pre>
 
+<h2 id="local-machine_1">Local Machine</h2>
 <h3 id="register-device">Register Device</h3>
 <ol>
-<li>With https://github.com/matrix-io/matrix-cli run <code>matrix register device</code></li>
-<li>Enter a name and (optional) description</li>
-<li>After a few moments you will be provided with a device ID and secret.</li>
-<li>Add these as environment variables via a shell script or command line.</li>
+<li>With <a href="https://github.com/matrix-io/matrix-cli">MATRIX CLI</a> installed on your computer, run <code>matrix register device</code>.</li>
+<li>Enter a <code>device name</code> and (optional) <code>device description</code>.</li>
+<li>After a few moments you will be provided with a <code>MATRIX_DEVICE_ID</code> and <code>MATRIX_DEVICE_SECRET</code>.</li>
+</ol>
+<pre><code># example variables generated via registration, you'll get your own 
+MATRIX_DEVICE_ID=dc7a1a71be2d
+MATRIX_DEVICE_SECRET=08629018e9d793a7a10ea823ad15894da0c3616dec7aab85b4ecf1774505f0c665b29c660f06cd4f7e5544272b
+</code></pre>
+
+<h2 id="raspberry-pi_1">Raspberry Pi</h2>
+<h3 id="set-up-env-variables-use-device">Set Up ENV Variables, USE device.</h3>
+<ol>
+<li>Add the above variables as environment variables via a shell script or command line on the Raspberry Pi.</li>
 <li>(optional) We export envs via an <code>.env</code> file which can be processed using <code>source .env</code></li>
 <li>To begin targeting this device with the CLI, enter the <code>matrix use</code> command provided</li>
 </ol>
 <h3 id="run-matrix-os">Run MATRIX OS</h3>
 <ol>
-<li>Ensure environment variables are set from above step.</li>
 <li>From the <code>matrix-os</code> folder. <code>node index.js</code></li>
 <li>If you want to start a MATRIX app on launch, use the env <code>START_APP</code>. ex. <code>START_APP=monitor node index.js</code></li>
 <li>Now you can issue commands and deploy apps to your MATRIX OS from the CLI. ( https://github.com/matrix-io/matrix-cli)</li>
@@ -556,14 +605,14 @@ malos_eye &amp; malos 2&gt;&amp;1
     </div>
     <div class="next">
       
-        <a href="intro/matrix/" title="Intro - Matrix OS">
+        <a href="intro/matrix/" title="Intro - MATRIX OS">
           <span class="direction">
             Next
           </span>
           <div class="page">
             <div class="stretch">
               <div class="title">
-                Intro - Matrix OS
+                Intro - MATRIX OS
               </div>
             </div>
             <div class="button button-next" role="button" aria-label="Next">
