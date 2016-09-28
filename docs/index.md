@@ -32,7 +32,7 @@ This completes the Creator hardware setup.
 
 ## MATRIX OS
 ### Installation
-**NOTE:** MATRIX OS has a NodeJS dependency. Please Install NodeJS before installing MATRIX OS.
+**NOTE:** MATRIX OS has a NodeJS dependency. Please Install NodeJS before installing MATRIX OS. For installation instructions you can go to the [NodeJS downloads page](https://nodejs.org/en/download/package-manager)  
 ```
 git clone https://github.com/matrix-io/matrix-os.git;
 cd matrix-os;
