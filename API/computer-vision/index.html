@@ -224,12 +224,6 @@
             </li>
           
             <li class="anchor">
-              <a title="Gesture" href="#gesture">
-                Gesture
-              </a>
-            </li>
-          
-            <li class="anchor">
               <a title="Face Detection" href="#face-detection">
                 Face Detection
               </a>
@@ -598,13 +592,13 @@
 </code></pre>
 
 <h2 id="detection-algorithms">Detection Algorithms</h2>
-<p><code>thumb-up</code>
+<p><code>face</code>
+<!-- <code>thumb-up</code>
 <code>palm-open</code>
 <code>palm-closed</code>
-<code>face</code>
 <code>face-id</code>
 <code>vehicle-count</code>
-<code>person-count</code></p>
+<code>person-count</code> --></p>
 <h2 id="base-options">Base Options</h2>
 <p>These are applicable to all algorithms.</p>
 <ul>
@@ -620,24 +614,28 @@ var zone2 =  [ 50, 50, 250, 300 ];
 }
 </code></pre>
 
-<h2 id="gesture">Gesture</h2>
-<pre><code>matrix.init('gesture', options).then(function(data){})
-</code></pre>
+<!-- ## Gesture
 
-<p><code>then</code> will call when any gesture is detected.</p>
-<h3 id="gesture-options">Gesture Options</h3>
-<p>To trigger on specific gestures pass an array of the desired values as <code>options.detect</code>.</p>
-<h3 id="example_1">Example</h3>
-<pre><code>var options = { detect: ['THUMB_UP'] };
-matrix.init('gesture', options);
-</code></pre>
+wzxhzdk:2
 
-<h4 id="gestures">Gestures</h4>
-<p><code>THUMB_UP</code>
-<code>PALM_OPEN</code>
-<code>PALM_CLOSED</code></p>
-<h3 id="data-format">Data Format</h3>
-<p>// TODO</p>
+`then` will call when any gesture is detected.
+
+### Gesture Options
+To trigger on specific gestures pass an array of the desired values as `options.detect`.
+
+### Example
+
+wzxhzdk:3
+
+
+#### Gestures
+`THUMB_UP`
+`PALM_OPEN`
+`PALM_CLOSED`
+
+### Data Format
+// TODO -->
+
 <h2 id="face-detection">Face Detection</h2>
 <pre><code>matrix.init('face').then(function(data){})
 </code></pre>
@@ -645,22 +643,21 @@ matrix.init('gesture', options);
 <p><code>then</code> will call when any face is detected</p>
 <h3 id="face-detection-options">Face Detection Options</h3>
 <p>To only detect particular characteristics pass an array of the desired values as <code>options.detect</code>.</p>
-<h3 id="example_2">Example</h3>
-<pre><code>var options = { detect: ['GENDER','AGE','HAPPY'] };
+<h3 id="example_1">Example</h3>
+<pre><code>var options = { detect: ['AGE', 'EMOTION','GENDER','FACE_ID','HEAD_POSE','FACE_FEATURES'] };
 matrix.init('gesture', options);
 </code></pre>
 
-<h4 id="characteristics">characteristics</h4>
-<p><code>GENDER</code>
-<code>AGE</code>
-<code>HAPPY</code>
+<h4 id="emotions">emotions</h4>
+<p><code>HAPPY</code>
 <code>SAD</code>
 <code>CONFUSED</code>
 <code>ANGRY</code>
 <code>CALM</code>
 <code>SURPRISED</code>
 <code>DISGUST</code>
-<code>DWELL</code></p>
+<code>DWELL</code>
+&lt;!--</p>
 <h2 id="face-recognition">Face Recognition</h2>
 <pre><code>matrix.init('face-id').then(function(data){})
 </code></pre>
@@ -668,7 +665,7 @@ matrix.init('gesture', options);
 <p>Facial recognition requires a target face to be supplied to it first. This can be provided in the application folder or uploaded to the device.</p>
 <h3 id="options">Options</h3>
 <p>To detect a face, supply it in <code>options.match</code>. Use an array to recognize multiple faces.</p>
-<h3 id="example_3">Example</h3>
+<h3 id="example_2">Example</h3>
 <pre><code>// preuploaded Example - myFace.jpg
 matrix.init('face-id', { match: 'myFace' })
 </code></pre>
@@ -701,14 +698,14 @@ matrix.init('face', { match: matrix.faces })
 
 <h3 id="options_1">Options</h3>
 <p>Toggle different detection modes depending on circumstances.</p>
-<h3 id="example_4">Example</h3>
+<h3 id="example_3">Example</h3>
 <p>//TODO</p>
 <h2 id="people-counting">People Counting</h2>
 <pre><code>matrix.init('people-count').then(function(data){})
 </code></pre>
 
 <h3 id="options_2">Options</h3>
-<h3 id="example_5">Example</h3>
+<h3 id="example-">Example --&gt;</h3>
           <aside class="copyright" role="note">
             
             Documentation built with

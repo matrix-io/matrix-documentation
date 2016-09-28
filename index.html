@@ -621,7 +621,15 @@ sudo apt-get install -y libzmq3-dev xc3sprog malos-eye matrix-creator-malos matr
 <h2 id="matrix-os">MATRIX OS</h2>
 <h3 id="installation_1">Installation</h3>
 <p><strong>NOTE:</strong> MATRIX OS has a NodeJS dependency. Please Install NodeJS before installing MATRIX OS.</p>
-<pre><code>git clone https://github.com/matrix-io/matrix-os.git;
+<pre><code># optional nodejs installation (example)
+mkdir nodejs &amp;&amp; cd nodejs
+wget -c https://nodejs.org/dist/v4.5.0/node-v4.5.0-linux-armv7l.tar.xz
+xz -d node-v4.5.0-linux-armv7l.tar.xz
+tar xvf node-v4.5.0-linux-armv7l.tar
+export PATH=/home/pi/nodejs/node-v4.5.0-linux-armv7l/bin:$PATH
+
+# mandatory installation
+git clone https://github.com/matrix-io/matrix-os.git;
 cd matrix-os;
 git submodule update --init;
 npm install;
