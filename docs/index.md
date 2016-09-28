@@ -32,16 +32,11 @@ This completes the Creator hardware setup.
 
 ## MATRIX OS
 ### Installation
-**NOTE:** MATRIX OS has a NodeJS dependency. Please Install NodeJS before installing MATRIX OS. For installation instructions you can go to the [NodeJS downloads page](https://nodejs.org/en/download/package-manager)  
-```
-# optional nodejs installation (example)
-mkdir nodejs && cd nodejs
-wget -c https://nodejs.org/dist/v4.5.0/node-v4.5.0-linux-armv7l.tar.xz
-xz -d node-v4.5.0-linux-armv7l.tar.xz
-tar xvf node-v4.5.0-linux-armv7l.tar
-export PATH=/home/pi/nodejs/node-v4.5.0-linux-armv7l/bin:$PATH
+**NOTE:** MATRIX OS has a NodeJS dependency. Please Install NodeJS before installing MATRIX OS. For installation instructions you can go to the [NodeJS downloads page](https://nodejs.org/en/download/package-manager/#debian-and-ubuntu-based-linux-distributions)
+If the NodeJS installation fails,you might want to try a [Manual Installation](https://github.com/nodesource/distributions#debmanual) instead.
 
-# mandatory installation
+
+```
 git clone https://github.com/matrix-io/matrix-os.git;
 cd matrix-os;
 git submodule update --init;
