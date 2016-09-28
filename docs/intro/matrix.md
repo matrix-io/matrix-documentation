@@ -11,15 +11,15 @@
 * [CROSSTALK](../API/crosstalk.md) - App to App and Device to Device communication
 * [EVERLOOP](../API/everloop.md) - Multicolored LED Lights
 * [FILTER](../API/filter.md) - Generic logic for filtering data sources
-* [GPIO](../API/GPIO.md) - Pins
-* [IR](../API/ir.md) - Infrared Learning and Remote
+<!-- * [GPIO](../API/GPIO.md) - Pins -->
+<!-- * [IR](../API/ir.md) - Infrared Learning and Remote -->
 * [MICROPHONE](../API/microphone.md) - Accessing the microphone and speech recognition
-* [NFC](../API/nfc.md) - NFC Input / Output
+<!-- * [NFC](../API/nfc.md) - NFC Input / Output -->
 * [SENSORS](../API/sensors.md) - Basic Sensors, Temperature, Gyroscope, Pressure, etc
 <!-- * [SPEAKER](../API/speaker.md) - Make sound -->
 * [TYPESEND](../API/typesend.md) - Type system, read this if you are saving data.
 * [ZIGBEE](../API/zigbee.md) - Communication Protocol
-* [ZWAVE](../API/zwave.md) - Communication Protocol
+<!-- * [ZWAVE](../API/zwave.md) - Communication Protocol -->
 
 ## Configuration Specifications
 * [DATATYPES](../Configuration/datatypes.md) - Combines with TYPESEND above for data segmenting superpowers.  

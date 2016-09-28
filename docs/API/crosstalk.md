@@ -1,5 +1,7 @@
 CrossTalk is how MatrixOS applications communicate between different devices. Applications can exchange information with other applications, or with other instances of the same application. Cool, right?
 
+All messages get sent to all devices, so if you have the same app running on different devices, this is how to communicate between instances of the app. 
+
 ## Global Emitters & Listeners
 ```
 // Send a payload to all listeners

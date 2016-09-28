@@ -3,13 +3,13 @@ matrix.init( algorithm, options )
 ```
 
 ## Detection Algorithms
-`thumb-up`
+`face`
+<!-- `thumb-up`
 `palm-open`
 `palm-closed`
-`face`
 `face-id`
 `vehicle-count`
-`person-count`
+`person-count` -->
 
 ## Base Options
 These are applicable to all algorithms.
@@ -27,7 +27,7 @@ var zone2 =  [ 50, 50, 250, 300 ];
 }
 ```
 
-## Gesture
+<!-- ## Gesture
 ```
 matrix.init('gesture', options).then(function(data){})
 ```
@@ -48,7 +48,7 @@ matrix.init('gesture', options);
 `PALM_CLOSED`
 
 ### Data Format
-// TODO
+// TODO -->
 
 ## Face Detection
 ```
@@ -61,13 +61,11 @@ To only detect particular characteristics pass an array of the desired values as
 
 ### Example
 ```
-var options = { detect: ['GENDER','AGE','HAPPY'] };
+var options = { detect: ['AGE', 'EMOTION','GENDER','FACE_ID','HEAD_POSE','FACE_FEATURES'] };
 matrix.init('gesture', options);
 ```
 
-#### characteristics
-`GENDER`
-`AGE`
+#### emotions
 `HAPPY`
 `SAD`
 `CONFUSED`
@@ -76,7 +74,7 @@ matrix.init('gesture', options);
 `SURPRISED`
 `DISGUST`
 `DWELL`
-
+<!--
 ## Face Recognition
 ```
 matrix.init('face-id').then(function(data){})
@@ -129,4 +127,4 @@ Toggle different detection modes depending on circumstances.
 matrix.init('people-count').then(function(data){})
 ```
 ### Options
-### Example
+### Example -->

@@ -9,6 +9,13 @@ npm install -g matrix-cli
 
 This will make the `matrix` command available in your terminal.
 
+## Environment
+
+```
+matrix set env rc
+```
+Points the CLI to the right servers.
+
 ## Registration
 
 If you do not have an AdMobilize MATRIX account, use:
