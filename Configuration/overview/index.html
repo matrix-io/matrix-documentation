@@ -571,6 +571,61 @@
 <li>Widget definitions, what information and controls to display where in the interface</li>
 <li>Runtime configuration via <code>settings</code>, useful for api keys and the like.</li>
 </ul>
+<h1 id="workflow">Workflow</h1>
+<h2 id="application">Application</h2>
+<p>Each application has an <code>config.yaml</code> file which determines several things.</p>
+<ol>
+<li>How to evaluate and categorize the application for the MatrixOS app Store</li>
+<li>Application dashboard widget layout, display and data sources</li>
+<li>Runtime variables used by Matrix applications</li>
+<li>Fixed data structure for saving information and routing to dashboard.</li>
+<li>What external services, such as CV and sensors, will be used, and how will they be provided to the app.</li>
+</ol>
+<p>External services can also be coded in the application directly.</p>
+<h2 id="deployment">Deployment</h2>
+<p>Configurations are written on deployment ( see <a href="../../CLI/apps/">matrix deploy</a> ). If you change the <code>config.yaml</code>, you must deploy the application again. Otherwise you can change configuration using <code>matrix set config</code>.</p>
+<h2 id="data-types">Data Types</h2>
+<p>If you've setup a migration or an SQL table, this is a very simple structure to tell the application what sort of data you will be passing around.</p>
+<pre><code>dataTypes:
+  foobar: integer
+</code></pre>
+
+<p>See <a href="../datatypes/">Data Types</a></p>
+<h2 id="screens-widgets">Screens &amp; Widgets</h2>
+<p>Two root nodes. <code>screens</code> and <code>widgets</code> work together to determine layout and content.</p>
+<h3 id="screens">Screens</h3>
+<p>Screens notates a nested array which informs the dashboard how to layout the widgets.</p>
+<pre><code>screens:
+  - - a
+    - b
+    - foo
+  - - 1
+    - 2
+    - 3
+
+// =&gt; turns into
+
+[ [ a, b, foo ], [ 1, 2, 3 ] ]
+</code></pre>
+
+<p>Sub arrays correlates to rows in a display.
+The above would display on the dashboard as follows:</p>
+<pre><code>[a][b][foo]
+[1][2][3]
+</code></pre>
+
+<p>The value in the array corresponds to a widget name.</p>
+<h3 id="widgets">Widgets</h3>
+<p>Widgets describe the module to load inside a designated screen.</p>
+<pre><code>widgets:
+  foo:
+    # type defines what type of data this widget should display
+    type: foobar
+    # if provided, label shows above each widget
+    label: Foo widget
+</code></pre>
+
+<p>For more info see <a href="../screens/">Screens &amp; Widgets</a></p>
           <aside class="copyright" role="note">
             
             Documentation built with

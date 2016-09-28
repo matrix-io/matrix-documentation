@@ -607,7 +607,7 @@
         }, 
         {
             "location": "/Configuration/overview/", 
-            "text": "Configuration Overview\n\n\nConfiguration information is saved in the installation record for an app. It is provided by a \nconfig.yaml\n file inside the \napp.matrix\n directory.\n\n\nThis file undergoes several validations and transformations, so don't be surprised if a saved configuration is very different from a provided configuration. A finished configuration has \nvalidated: true\n in it.\n\n\nIntent\n\n\nConfigurations provide the following:\n\n\n\n\nMeta information, app name, description\n\n\nPolicy information, for asking user permissions\n\n\nData structure, what data to expect from an application\n\n\nDashboard layouts, creating interfaces for widgets\n\n\nWidget definitions, what information and controls to display where in the interface\n\n\nRuntime configuration via \nsettings\n, useful for api keys and the like.", 
+            "text": "Configuration Overview\n\n\nConfiguration information is saved in the installation record for an app. It is provided by a \nconfig.yaml\n file inside the \napp.matrix\n directory.\n\n\nThis file undergoes several validations and transformations, so don't be surprised if a saved configuration is very different from a provided configuration. A finished configuration has \nvalidated: true\n in it.\n\n\nIntent\n\n\nConfigurations provide the following:\n\n\n\n\nMeta information, app name, description\n\n\nPolicy information, for asking user permissions\n\n\nData structure, what data to expect from an application\n\n\nDashboard layouts, creating interfaces for widgets\n\n\nWidget definitions, what information and controls to display where in the interface\n\n\nRuntime configuration via \nsettings\n, useful for api keys and the like.\n\n\n\n\nWorkflow\n\n\nApplication\n\n\nEach application has an \nconfig.yaml\n file which determines several things.\n\n\n\n\nHow to evaluate and categorize the application for the MatrixOS app Store\n\n\nApplication dashboard widget layout, display and data sources\n\n\nRuntime variables used by Matrix applications\n\n\nFixed data structure for saving information and routing to dashboard.\n\n\nWhat external services, such as CV and sensors, will be used, and how will they be provided to the app.\n\n\n\n\nExternal services can also be coded in the application directly.\n\n\nDeployment\n\n\nConfigurations are written on deployment ( see \nmatrix deploy\n ). If you change the \nconfig.yaml\n, you must deploy the application again. Otherwise you can change configuration using \nmatrix set config\n.\n\n\nData Types\n\n\nIf you've setup a migration or an SQL table, this is a very simple structure to tell the application what sort of data you will be passing around.\n\n\ndataTypes:\n  foobar: integer\n\n\n\n\nSee \nData Types\n\n\nScreens \n Widgets\n\n\nTwo root nodes. \nscreens\n and \nwidgets\n work together to determine layout and content.\n\n\nScreens\n\n\nScreens notates a nested array which informs the dashboard how to layout the widgets.\n\n\nscreens:\n  - - a\n    - b\n    - foo\n  - - 1\n    - 2\n    - 3\n\n// =\n turns into\n\n[ [ a, b, foo ], [ 1, 2, 3 ] ]\n\n\n\n\nSub arrays correlates to rows in a display.\nThe above would display on the dashboard as follows:\n\n\n[a][b][foo]\n[1][2][3]\n\n\n\n\nThe value in the array corresponds to a widget name.\n\n\nWidgets\n\n\nWidgets describe the module to load inside a designated screen.\n\n\nwidgets:\n  foo:\n    # type defines what type of data this widget should display\n    type: foobar\n    # if provided, label shows above each widget\n    label: Foo widget\n\n\n\n\nFor more info see \nScreens \n Widgets", 
             "title": "Overview"
         }, 
         {
@@ -621,34 +621,189 @@
             "title": "Intent"
         }, 
         {
-            "location": "/Configuration/datatypes/", 
+            "location": "/Configuration/overview/#workflow", 
             "text": "", 
+            "title": "Workflow"
+        }, 
+        {
+            "location": "/Configuration/overview/#application", 
+            "text": "Each application has an  config.yaml  file which determines several things.   How to evaluate and categorize the application for the MatrixOS app Store  Application dashboard widget layout, display and data sources  Runtime variables used by Matrix applications  Fixed data structure for saving information and routing to dashboard.  What external services, such as CV and sensors, will be used, and how will they be provided to the app.   External services can also be coded in the application directly.", 
+            "title": "Application"
+        }, 
+        {
+            "location": "/Configuration/overview/#deployment", 
+            "text": "Configurations are written on deployment ( see  matrix deploy  ). If you change the  config.yaml , you must deploy the application again. Otherwise you can change configuration using  matrix set config .", 
+            "title": "Deployment"
+        }, 
+        {
+            "location": "/Configuration/overview/#data-types", 
+            "text": "If you've setup a migration or an SQL table, this is a very simple structure to tell the application what sort of data you will be passing around.  dataTypes:\n  foobar: integer  See  Data Types", 
+            "title": "Data Types"
+        }, 
+        {
+            "location": "/Configuration/overview/#screens-widgets", 
+            "text": "Two root nodes.  screens  and  widgets  work together to determine layout and content.", 
+            "title": "Screens &amp; Widgets"
+        }, 
+        {
+            "location": "/Configuration/overview/#screens", 
+            "text": "Screens notates a nested array which informs the dashboard how to layout the widgets.  screens:\n  - - a\n    - b\n    - foo\n  - - 1\n    - 2\n    - 3\n\n// =  turns into\n\n[ [ a, b, foo ], [ 1, 2, 3 ] ]  Sub arrays correlates to rows in a display.\nThe above would display on the dashboard as follows:  [a][b][foo]\n[1][2][3]  The value in the array corresponds to a widget name.", 
+            "title": "Screens"
+        }, 
+        {
+            "location": "/Configuration/overview/#widgets", 
+            "text": "Widgets describe the module to load inside a designated screen.  widgets:\n  foo:\n    # type defines what type of data this widget should display\n    type: foobar\n    # if provided, label shows above each widget\n    label: Foo widget  For more info see  Screens   Widgets", 
+            "title": "Widgets"
+        }, 
+        {
+            "location": "/Configuration/datatypes/", 
+            "text": "dataTypes\n\n\nWe experimented with a loosely defined data structure, where the system would dynamically type information for storage and retrieval. This may return in the future, but for now, we need to clearly define data structures and types.\n\n\nThis is only useful if the application is \nmatrix.send()\ning information for storage or dashboard use.\n\n\ntypes\n\n\nTypes are segments of your data. These are used for filtering in the dashboard.\n\n\ndata\n\n\nThere are two ways to structure data types\n\n\nimplicit data type names\n\n\ndataTypes:\n  foo: string\n  bar: integer\n\n\n\n\n# matrix.send({ foo: 'abc', bar: 123 })\n\n\n\n\nexplicit data type names\n\n\ndataTypes:\n  type1:\n    foo: string\n  type2:\n    bar: integer\n\n\n\n\n# matrix.type('type1').send({foo: 'abc'})\n# matrix.type('type2').send({bar: 123})\n\n\n\n\noptions\n\n\nHere is the regex object for the different data formats.\n\n\nregex: {\n  string :/(string|str|s)/,\n  object :/(object|obj|o)/,\n  float :/(float|fl|f)/,\n  integer :/(integer|int|i)/,\n  boolean :/(b|bool|boolean)/,\n}\n\n\n\n\nThis is so you can do.\n\n\ndataTypes:\n  foo1: s\n  foo2: s\n  foo3: o", 
             "title": "Datatypes"
         }, 
         {
+            "location": "/Configuration/datatypes/#datatypes", 
+            "text": "We experimented with a loosely defined data structure, where the system would dynamically type information for storage and retrieval. This may return in the future, but for now, we need to clearly define data structures and types.  This is only useful if the application is  matrix.send() ing information for storage or dashboard use.", 
+            "title": "dataTypes"
+        }, 
+        {
+            "location": "/Configuration/datatypes/#types", 
+            "text": "Types are segments of your data. These are used for filtering in the dashboard.", 
+            "title": "types"
+        }, 
+        {
+            "location": "/Configuration/datatypes/#data", 
+            "text": "There are two ways to structure data types", 
+            "title": "data"
+        }, 
+        {
+            "location": "/Configuration/datatypes/#implicit-data-type-names", 
+            "text": "dataTypes:\n  foo: string\n  bar: integer  # matrix.send({ foo: 'abc', bar: 123 })", 
+            "title": "implicit data type names"
+        }, 
+        {
+            "location": "/Configuration/datatypes/#explicit-data-type-names", 
+            "text": "dataTypes:\n  type1:\n    foo: string\n  type2:\n    bar: integer  # matrix.type('type1').send({foo: 'abc'})\n# matrix.type('type2').send({bar: 123})", 
+            "title": "explicit data type names"
+        }, 
+        {
+            "location": "/Configuration/datatypes/#options", 
+            "text": "Here is the regex object for the different data formats.  regex: {\n  string :/(string|str|s)/,\n  object :/(object|obj|o)/,\n  float :/(float|fl|f)/,\n  integer :/(integer|int|i)/,\n  boolean :/(b|bool|boolean)/,\n}  This is so you can do.  dataTypes:\n  foo1: s\n  foo2: s\n  foo3: o", 
+            "title": "options"
+        }, 
+        {
             "location": "/Configuration/screens/", 
-            "text": "", 
+            "text": "Screens overview coming soon", 
             "title": "Screens"
         }, 
         {
             "location": "/Configuration/filters/", 
-            "text": "", 
+            "text": "Filters overview coming soon", 
             "title": "Filters"
         }, 
         {
             "location": "/Configuration/widgets/", 
-            "text": "", 
+            "text": "widgets\n\n\nA comprehensive overview coming soon\nsee \nExamples\n for now", 
             "title": "Widgets"
         }, 
         {
+            "location": "/Configuration/widgets/#widgets", 
+            "text": "A comprehensive overview coming soon\nsee  Examples  for now", 
+            "title": "widgets"
+        }, 
+        {
             "location": "/Configuration/services/", 
-            "text": "", 
+            "text": "Services overview coming soon", 
             "title": "Services"
         }, 
         {
             "location": "/Configuration/examples/", 
-            "text": "", 
+            "text": "MatrixOS Config Widget examples\n\n\nLayout\n\n\n\n\nscreens:\n  - - cpu\n    - memory\n\n\n\n\nDisplays\n\n\nValue\n\n\n\n\ncpu:\n  type: monitor\n  key: cpu\n  display: digit\n  format: round\n  label: cpu\n\n\n\n\nBar Chart\n\n\n\n\nbarChart:\n  type: monitor\n  keys: cpu, memory\n  display: bar\n  label: Bar Chart\n\n\n\n\nRadar Chart\n\n\n\n\nradarTest:\n  type: monitor\n  keys: cpu,memory\n  display: radar\n  label: radarTest\n\n\n\n\nLine Chart\n\n\n\n\ncpuChart:\n  type: monitor\n  keys: cpu,memory\n  display: line\n  label: CPU Chart\n\n\n\n\nLists\n\n\n\n\ninfo:\n  type: device\n  display: list-group\n  label: Secret Information\n\n\n\n\nInteractive\n\n\nButtons\n\n\nSingle\n\n\n\n\nbuttonTest:\n  label: Hacking Buttons\n  control: button\n  trigger: buttonInfo\n  value: Get Secret Information\n\n\n\n\nHandling Code\n\n\nmatrix.on('buttonInfo', function(){\n  // ...\n})\n\n\n\n\ntrigger\n in the config file, is the event name (\nbuttonInfo\n) handled.\n\n\nMultiple\n\n\n\n\nbuttonsTest:\n  label: Matrix Activation Buttons\n  control: button\n  map:\n    'amps+': buttonUp\n    'amps-': buttonDown\n    begin : buttonStart\n    end : buttonStop\n    capture : buttonSample\n    'refresh+' : buttonSlow\n    'refresh-' : buttonFast\n\n\n\n\nHandling Code\n\n\n matrix.on('buttonStop', function(){\n   //...\n})\n\n matrix.on('buttonStart', function(){\n   //...\n })\n\n matrix.on('buttonSample', function () {\n   //...\n })\n\n\n\n\nDrop Downs\n\n\n\n\ndropDown:\n  control: dropdown\n  map:\n    test1: doTest1\n    test2: doTest2\n  label: dropdown test\n\n\n\n\nHandling Code\n\n\nmatrix.on('doTest1', function(){\n //...\n})\n\n\nmatrix.on('doTest2', function(){\n //...\n})\n\n\n\n\nResponsive Data Flow\n\n\nmatrix.on('buttonInfo', function(){\n  matrix.type('device').send({\n    'os_hostname': os.hostname(),\n    'os_type': os.type(),\n    'os_platform': os.platform(),\n    'os_arch': os.arch()\n  });\n})\n\n\n\n\nWhen \nbuttonInfo\n is triggered, respond with information with a type \ndevice\n.\n\n\nThe list looks for\n\n\nlist:\n  type: device\n\n\n\n\nwhich tells it to display information with type \ndevice\n.", 
             "title": "Examples"
+        }, 
+        {
+            "location": "/Configuration/examples/#matrixos-config-widget-examples", 
+            "text": "", 
+            "title": "MatrixOS Config Widget examples"
+        }, 
+        {
+            "location": "/Configuration/examples/#layout", 
+            "text": "screens:\n  - - cpu\n    - memory", 
+            "title": "Layout"
+        }, 
+        {
+            "location": "/Configuration/examples/#displays", 
+            "text": "", 
+            "title": "Displays"
+        }, 
+        {
+            "location": "/Configuration/examples/#value", 
+            "text": "cpu:\n  type: monitor\n  key: cpu\n  display: digit\n  format: round\n  label: cpu", 
+            "title": "Value"
+        }, 
+        {
+            "location": "/Configuration/examples/#bar-chart", 
+            "text": "barChart:\n  type: monitor\n  keys: cpu, memory\n  display: bar\n  label: Bar Chart", 
+            "title": "Bar Chart"
+        }, 
+        {
+            "location": "/Configuration/examples/#radar-chart", 
+            "text": "radarTest:\n  type: monitor\n  keys: cpu,memory\n  display: radar\n  label: radarTest", 
+            "title": "Radar Chart"
+        }, 
+        {
+            "location": "/Configuration/examples/#line-chart", 
+            "text": "cpuChart:\n  type: monitor\n  keys: cpu,memory\n  display: line\n  label: CPU Chart", 
+            "title": "Line Chart"
+        }, 
+        {
+            "location": "/Configuration/examples/#lists", 
+            "text": "info:\n  type: device\n  display: list-group\n  label: Secret Information", 
+            "title": "Lists"
+        }, 
+        {
+            "location": "/Configuration/examples/#interactive", 
+            "text": "", 
+            "title": "Interactive"
+        }, 
+        {
+            "location": "/Configuration/examples/#buttons", 
+            "text": "", 
+            "title": "Buttons"
+        }, 
+        {
+            "location": "/Configuration/examples/#single", 
+            "text": "buttonTest:\n  label: Hacking Buttons\n  control: button\n  trigger: buttonInfo\n  value: Get Secret Information", 
+            "title": "Single"
+        }, 
+        {
+            "location": "/Configuration/examples/#handling-code", 
+            "text": "matrix.on('buttonInfo', function(){\n  // ...\n})  trigger  in the config file, is the event name ( buttonInfo ) handled.", 
+            "title": "Handling Code"
+        }, 
+        {
+            "location": "/Configuration/examples/#multiple", 
+            "text": "buttonsTest:\n  label: Matrix Activation Buttons\n  control: button\n  map:\n    'amps+': buttonUp\n    'amps-': buttonDown\n    begin : buttonStart\n    end : buttonStop\n    capture : buttonSample\n    'refresh+' : buttonSlow\n    'refresh-' : buttonFast", 
+            "title": "Multiple"
+        }, 
+        {
+            "location": "/Configuration/examples/#handling-code_1", 
+            "text": "matrix.on('buttonStop', function(){\n   //...\n})\n\n matrix.on('buttonStart', function(){\n   //...\n })\n\n matrix.on('buttonSample', function () {\n   //...\n })", 
+            "title": "Handling Code"
+        }, 
+        {
+            "location": "/Configuration/examples/#drop-downs", 
+            "text": "dropDown:\n  control: dropdown\n  map:\n    test1: doTest1\n    test2: doTest2\n  label: dropdown test", 
+            "title": "Drop Downs"
+        }, 
+        {
+            "location": "/Configuration/examples/#handling-code_2", 
+            "text": "matrix.on('doTest1', function(){\n //...\n})\n\n\nmatrix.on('doTest2', function(){\n //...\n})", 
+            "title": "Handling Code"
+        }, 
+        {
+            "location": "/Configuration/examples/#responsive-data-flow", 
+            "text": "matrix.on('buttonInfo', function(){\n  matrix.type('device').send({\n    'os_hostname': os.hostname(),\n    'os_type': os.type(),\n    'os_platform': os.platform(),\n    'os_arch': os.arch()\n  });\n})  When  buttonInfo  is triggered, respond with information with a type  device .  The list looks for  list:\n  type: device  which tells it to display information with type  device .", 
+            "title": "Responsive Data Flow"
         }, 
         {
             "location": "/CLI/overview/", 
