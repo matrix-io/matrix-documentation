@@ -4,7 +4,7 @@
     
     <url>
      <loc>None/</loc>
-     <lastmod>2016-09-28</lastmod>
+     <lastmod>2016-09-29</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -12,15 +12,15 @@
     
     <url>
      <loc>None/intro/matrix/</loc>
-     <lastmod>2016-09-28</lastmod>
+     <lastmod>2016-09-29</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
 
     
     <url>
-     <loc>None/cli/overview/</loc>
-     <lastmod>2016-09-28</lastmod>
+     <loc>None/CLI/overview/</loc>
+     <lastmod>2016-09-29</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -28,7 +28,7 @@
     
     <url>
      <loc>None/intro/interfaces/</loc>
-     <lastmod>2016-09-28</lastmod>
+     <lastmod>2016-09-29</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -53,19 +53,19 @@
         
     <url>
      <loc>None/CLI/overview/</loc>
-     <lastmod>2016-09-28</lastmod>
+     <lastmod>2016-09-29</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>None/CLI/apps/</loc>
-     <lastmod>2016-09-28</lastmod>
+     <lastmod>2016-09-29</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>None/CLI/example/</loc>
-     <lastmod>2016-09-28</lastmod>
+     <lastmod>2016-09-29</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -75,31 +75,31 @@
         
     <url>
      <loc>None/Hardware/fpga/</loc>
-     <lastmod>2016-09-28</lastmod>
+     <lastmod>2016-09-29</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>None/Hardware/Sam3/</loc>
-     <lastmod>2016-09-28</lastmod>
+     <lastmod>2016-09-29</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>None/Hardware/sam3mcu-programming/</loc>
-     <lastmod>2016-09-28</lastmod>
+     <lastmod>2016-09-29</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>None/Hardware/microphone/</loc>
-     <lastmod>2016-09-28</lastmod>
+     <lastmod>2016-09-29</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>None/Hardware/SPI/</loc>
-     <lastmod>2016-09-28</lastmod>
+     <lastmod>2016-09-29</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -109,13 +109,13 @@
         
     <url>
      <loc>None/intro/hal/</loc>
-     <lastmod>2016-09-28</lastmod>
+     <lastmod>2016-09-29</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>None/intro/malos/</loc>
-     <lastmod>2016-09-28</lastmod>
+     <lastmod>2016-09-29</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -125,13 +125,13 @@
         
     <url>
      <loc>None/Reference/overview/</loc>
-     <lastmod>2016-09-28</lastmod>
+     <lastmod>2016-09-29</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>None/Reference/pinout/</loc>
-     <lastmod>2016-09-28</lastmod>
+     <lastmod>2016-09-29</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
