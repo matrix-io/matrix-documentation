@@ -89,6 +89,5 @@ MATRIX_DEVICE_SECRET=08629018e9d793a7a10ea823ad15894da0c3616dec7aab85b4ecf177450
 ### Run MATRIX OS
 
 1. From the `matrix-os` folder. `node index.js`
-1. If you want to start a MATRIX app on launch, use the env `START_APP`. ex. `START_APP=monitor node index.js`
 1. Now you can issue commands and deploy apps to your MATRIX OS from the CLI. ( https://github.com/matrix-io/matrix-cli)
 1. Have fun!
