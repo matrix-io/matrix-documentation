@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
     
       
-        <title>SPI - MATRIX</title>
+        <title>Home - MATRIX</title>
       
       
       
@@ -87,13 +87,9 @@
         
           <span class="path">
             
-              
-                Hardware <i class="icon icon-link"></i>
-              
-            
           </span>
         
-        SPI
+        Home
       </div>
     </div>
     
@@ -144,17 +140,30 @@
           
             
   <li>
-    <a class="" title="Home" href="../..">
+    <a class="current" title="Home" href="./">
       Home
     </a>
     
+      
+      
+        <ul>
+          
+            <li class="anchor">
+              <a title="Alpha Installation Instructions" href="#alpha-installation-instructions">
+                Alpha Installation Instructions
+              </a>
+            </li>
+          
+        </ul>
+      
+    
   </li>
 
           
             
   <li>
-    <a class="" title="Intro - MATRIX OS" href="../../intro/matrix/">
-      Intro - MATRIX OS
+    <a class="" title="Intro - Matrix OS" href="../matrix/">
+      Intro - Matrix OS
     </a>
     
   </li>
@@ -162,16 +171,7 @@
           
             
   <li>
-    <a class="" title="Intro - MATRIX CLI" href="../../CLI/overview/">
-      Intro - MATRIX CLI
-    </a>
-    
-  </li>
-
-          
-            
-  <li>
-    <a class="" title="Intro - Low Level Interfaces" href="../../intro/interfaces/">
+    <a class="" title="Intro - Low Level Interfaces" href="../interfaces/">
       Intro - Low Level Interfaces
     </a>
     
@@ -185,7 +185,7 @@
       
         
   <li>
-    <span class="section">App API</span>
+    <span class="section">Apps</span>
     <ul>
       
         
@@ -199,34 +199,7 @@
       
         
   <li>
-    <a class="" title="Computer Vision" href="../../API/computer-vision/">
-      Computer Vision
-    </a>
-    
-  </li>
-
-      
-        
-  <li>
-    <a class="" title="Crosstalk" href="../../API/crosstalk/">
-      Crosstalk
-    </a>
-    
-  </li>
-
-      
-        
-  <li>
-    <a class="" title="Type" href="../../API/typesend/">
-      Type
-    </a>
-    
-  </li>
-
-      
-        
-  <li>
-    <a class="" title="GPIO" href="../../API/GPIO/">
+    <a class="" title="GPIO" href="../../API/gpio/">
       GPIO
     </a>
     
@@ -325,15 +298,6 @@
       
         
   <li>
-    <a class="" title="Datatypes" href="../../Configuration/datatypes/">
-      Datatypes
-    </a>
-    
-  </li>
-
-      
-        
-  <li>
     <a class="" title="Screens" href="../../Configuration/screens/">
       Screens
     </a>
@@ -343,35 +307,8 @@
       
         
   <li>
-    <a class="" title="Filters" href="../../Configuration/filters/">
-      Filters
-    </a>
-    
-  </li>
-
-      
-        
-  <li>
-    <a class="" title="Widgets" href="../../Configuration/widgets/">
-      Widgets
-    </a>
-    
-  </li>
-
-      
-        
-  <li>
-    <a class="" title="Services" href="../../Configuration/services/">
-      Services
-    </a>
-    
-  </li>
-
-      
-        
-  <li>
-    <a class="" title="Examples" href="../../Configuration/examples/">
-      Examples
+    <a class="" title="Datatypes" href="../../Configuration/datatypes/">
+      Datatypes
     </a>
     
   </li>
@@ -428,7 +365,7 @@
       
         
   <li>
-    <a class="" title="FPGA" href="../fpga/">
+    <a class="" title="FPGA" href="../../Hardware/fpga/">
       FPGA
     </a>
     
@@ -437,7 +374,7 @@
       
         
   <li>
-    <a class="" title="SAM3" href="../Sam3/">
+    <a class="" title="SAM3" href="../../Hardware/Sam3/">
       SAM3
     </a>
     
@@ -446,40 +383,9 @@
       
         
   <li>
-    <a class="" title="SAM3MCU" href="../sam3mcu-programming/">
+    <a class="" title="SAM3MCU" href="../../Hardware/sam3mcu-programming/">
       SAM3MCU
     </a>
-    
-  </li>
-
-      
-        
-  <li>
-    <a class="" title="Microphone" href="../microphone/">
-      Microphone
-    </a>
-    
-  </li>
-
-      
-        
-  <li>
-    <a class="current" title="SPI" href="./">
-      SPI
-    </a>
-    
-      
-      
-        <ul>
-          
-            <li class="anchor">
-              <a title="SPI" href="#spi">
-                SPI
-              </a>
-            </li>
-          
-        </ul>
-      
     
   </li>
 
@@ -495,7 +401,7 @@
       
         
   <li>
-    <a class="" title="HAL" href="../../intro/hal/">
+    <a class="" title="HAL" href="../hal/">
       HAL
     </a>
     
@@ -504,7 +410,7 @@
       
         
   <li>
-    <a class="" title="MALOS" href="../../intro/malos/">
+    <a class="" title="MALOS" href="../malos/">
       MALOS
     </a>
     
@@ -552,25 +458,77 @@
       <article class="article">
         <div class="wrapper">
           
-            <h1>SPI</h1>
+            <h1>Home</h1>
           
-          <h3 id="spi">SPI</h3>
-<p>The SPI bus is not enabled by default by Raspbian.</p>
-<p>To enable it you can follow the next steps.</p>
-<p>First, open raspi-config.</p>
-<pre><code>sudo raspi-config
+          <p>From https://github.com/matrix-io/matrix-os#alpha-installation-instructions</p>
+<h2 id="alpha-installation-instructions">Alpha Installation Instructions</h2>
+<p>New parts of the MATRIX ecosystem are being developed and integrated every day. Here are a set of instructions which will get MATRIX OS running on your Creator. This will be streamlined in the future.</p>
+<h4 id="local-computer">Local Computer</h4>
+<ol>
+<li>Install your Creator onto an rPi, connect to network cable which goes to local network, NOT to your computer, as it needs to be discoverable. Wifi support coming soon.</li>
+<li>Discover your rPi address with <code>arp -na | grep -i b8:27:eb</code>.</li>
+<li>SSH into your rPi. <code>ssh pi@192.168.0.15</code></li>
+<li>(Optional) Map ip to a host name in <code>/etc/hosts</code>.</li>
+</ol>
+<pre><code>echo '192.168.0.15 matrix' &gt;&gt; /etc/hosts
+ssh pi@matrix
 </code></pre>
-<p><img alt="open the interface" src="https://storage.googleapis.com/packages.matrix.one/wiki-images/enable-spi/1-open.png" /></p>
-<p>Then navigate the interface to activate the SPI bus. Go to advanced options.</p>
-<p><img alt="select advanced" src="https://storage.googleapis.com/packages.matrix.one/wiki-images/enable-spi/2-select-advanced.png" /></p>
-<p>Select SPI.</p>
-<p><img alt="select SPI" src="https://storage.googleapis.com/packages.matrix.one/wiki-images/enable-spi/3-select-spi.png" /></p>
-<p>Enable SPI.</p>
-<p><img alt="enable SPI" src="https://storage.googleapis.com/packages.matrix.one/wiki-images/enable-spi/4-enable.jpg" /></p>
-<p>Verify that SPI has been enabled.</p>
-<p><img alt="SPI enabled" src="https://storage.googleapis.com/packages.matrix.one/wiki-images/enable-spi/5-enabled.jpg" /></p>
-<p>Now you can exit raspi-config and SPI will be permanently enabled.</p>
-<p>This allows you to play with the <a href="../Everloop LED Array And IMU">Everloop LED Array And IMU</a>.</p>
+
+<h4 id="raspberry-pi">Raspberry Pi</h4>
+<h5 id="setup">Setup</h5>
+<p>In one SSH session on your Creator run the following:</p>
+<pre><code># setup &amp; installation
+echo &quot;deb http://packages.matrix.one/matrix-creator/ ./&quot; | sudo tee --append /etc/apt/sources.list;
+sudo apt-get update;
+sudo apt-get upgrade;
+sudo apt-get install -y xc3sprog malos-eye matrix-creator-openocd wiringpi matrix-creator-init cmake g++ git --force-yes;
+</code></pre>
+
+<p>This completes the Creator hardware setup.</p>
+<h3 id="you-can-now-explore-the-hardware-interfaces">You can now explore the <a href="../interfaces/">Hardware Interfaces</a>.</h3>
+<h4 id="matrix-os">Matrix OS</h4>
+<h5 id="installation">Installation</h5>
+<pre><code>git clone https://github.com/matrix-io/matrix-os.git;
+cd matrix-os;
+git submodule update --init;
+npm install;
+</code></pre>
+
+<h5 id="configuration">Configuration</h5>
+<pre><code># configure - NOTE: This is interactive. Enable your camera
+sudo raspi-config;
+sudo reboot;
+</code></pre>
+
+<p>Be sure your camera was enabled in <code>raspi-config</code></p>
+<h5 id="run-services">Run Services</h5>
+<ol>
+<li>In one SSH session, run <code>malos</code> - hardware interface</li>
+<li>In another SSH session, run <code>malos_eye</code> - computer vision provider</li>
+</ol>
+<pre><code># currently you need to run
+sudo modprobe bcm2835-v4l2;
+# before you run malos_eye
+</code></pre>
+
+<h5 id="register-device">Register Device</h5>
+<ol>
+<li>With https://github.com/matrix-io/matrix-cli run <code>matrix register device</code></li>
+<li>Enter a name and (optional) description</li>
+<li>After a few moments you will be provided with a device ID and secret.</li>
+<li>Add these as environment variables via a shell script or command line.</li>
+<li>(optional) We export envs via an <code>.env</code> file which can be processed using <code>source .env</code></li>
+<li>To begin targeting this device with the CLI, enter the <code>matrix use</code> command provided</li>
+</ol>
+<h5 id="run-matrix-os">Run MATRIX OS</h5>
+<ol>
+<li>Ensure environment variables are set from above step.</li>
+<li>From the <code>matrix-os</code> folder. <code>node index.js</code></li>
+<li>If you want to start a MATRIX app on launch, use the env <code>START_APP</code>. ex. <code>START_APP=monitor node index.js</code></li>
+<li>Read environment notes below.</li>
+<li>Now you can issue commands and deploy apps to your MATRIX OS from the CLI. ( https://github.com/matrix-io/matrix-cli)</li>
+<li>Have fun!</li>
+</ol>
           <aside class="copyright" role="note">
             
             Documentation built with
@@ -587,33 +545,17 @@
   <nav class="pagination" aria-label="Footer">
     <div class="previous">
       
-        <a href="../microphone/" title="Microphone">
-          <span class="direction">
-            Previous
-          </span>
-          <div class="page">
-            <div class="button button-previous" role="button" aria-label="Previous">
-              <i class="icon icon-back"></i>
-            </div>
-            <div class="stretch">
-              <div class="title">
-                Microphone
-              </div>
-            </div>
-          </div>
-        </a>
-      
     </div>
     <div class="next">
       
-        <a href="../../intro/hal/" title="HAL">
+        <a href="../matrix/" title="Intro - Matrix OS">
           <span class="direction">
             Next
           </span>
           <div class="page">
             <div class="stretch">
               <div class="title">
-                HAL
+                Intro - Matrix OS
               </div>
             </div>
             <div class="button button-next" role="button" aria-label="Next">
