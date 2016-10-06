@@ -18,11 +18,19 @@ Points the CLI to the right servers. If you have errors right off the bat, try t
 
 ## Registration
 
+#### User registration
 If you do not have an AdMobilize MATRIX account, use:
 ```
 matrix register
 ```
 Check your email to confirm the account then you can login.
+
+#### Device registration
+In order to set up your device, use:
+```
+matrix register device
+```
+This will ask for your device details and then provide you with an id and a secret, you need to set those ENV vars in your device to link it to our platform.  
 
 ## help
 
@@ -31,43 +39,45 @@ Run `matrix` by itself to see the command reference and configuration informatio
 ```
   _  _ ____ ___ ____ _ _  _
   |\/| |__|  |  |__/ |  \/   _ | [o]
-  |  | |  |  |  |  \ | _/\_ |_ |_ | v1.1.3  - production
+  |  | |  |  |  |  \ | _/\_ |_ |_ | v1.1.7  - rc
 
 
 API: http://demo.admobilize.com Streaming: http://mxss.admobilize.com:80
 User: hello@rokk3rlabs.com Device: 12:23:34:45:56
 
 ---- SETUP ----
- login - Login to the MatrixOS platform
-logout - Log out of the MatrixOS platform
-   use - Indicate active device
-   set - set environment settings, update application configuration
-       ↳ [env <environment>, config <app> k=v]
+       register - Create a MatrixOS platform user
+                ↳ [device] - registers new device
+          login - Login to the MatrixOS platform
+         logout - Log out of the MatrixOS platform
+            use - Indicate active device
+            set - Set environment settings, update application configuration, change cli locale
+                ↳ [env <environment>, config <app> k=v, locale <locale>]
 
--- MANAGEMENT --
-   sim - manage local MatrixOS simulator using docker
-       ↳ [ init, restore, start, stop, save, clear ]
-  list - information about your devices, applications and installations
-       ↳ [ apps, devices, all, groups ]
-reboot - Reboots the active MatrixOS device
+ -- MANAGEMENT --
+            sim - Manage local MatrixOS simulator with Docker
+                ↳ [ init, restore, start, stop, save, clear ]
+           list - Information about your devices, applications and installs
+                ↳ [ apps, devices, all ]
+         reboot - Reboots the active MatrixOS device
 
------ APPS -----
-search - Search for apps
-install - Install an app or sensor to active MatrixOS device
-       ↳ [ app / sensor ] <name>. defaults to app
-config - view and modify application configuration
-uninstall - uninstall <app>
-update - Update to a specified version of a MatrixOS application
-       ↳ <appName> <version>
- start - Starts an app running on the active MatrixOS
-  stop - Stops an app running on the active MatrixOS
-restart - Restarts an app running on the MatrixOS
+ ----- APPS -----
+         search - Search for apps
+        install - Install an app or sensor to active MatrixOS device
+                ↳ [ app / sensor ] <name>. defaults to app
+      uninstall - Uninstall the app
+         config - View and modify application configuration
+         update - Update to a specified version of a MatrixOS application
+                ↳ <appName> <version>
+          start - Starts an app running on the active MatrixOS
+           stop - Stops an app running on the active MatrixOS
+        restart - Restarts an app running on the MatrixOS
 
-- DEVELOPMENT -
-create - Creates a new scaffolding for a MatrixOS Application
-deploy - Deploys an app to the active MatrixOS
-trigger - Runs a trigger test
-   log - Logs output from selected MatrixOS and applications
+ - DEVELOPMENT -
+         create - Creates a new scaffolding for a MatrixOS Application
+         deploy - Uploads and deploys an app to the active MatrixOS
+        trigger - Runs a trigger test
+            log - Logs output from selected MatrixOS and applications
 ```
 
 ## Creating an Application

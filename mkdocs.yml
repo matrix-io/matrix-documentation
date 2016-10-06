@@ -7,7 +7,7 @@ extra_css: ['styles.css']
 pages:
 - Home: 'index.md'
 - Intro - MATRIX OS: 'intro/matrix.md'
-- Intro - MATRIX CLI: 'cli/overview.md'
+- Intro - MATRIX CLI: 'CLI/overview.md'
 - Intro - Low Level Interfaces: 'intro/interfaces.md'
 - OS:
   - App API:
