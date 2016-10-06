@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
     
       
-        <title>NFC - MATRIX</title>
+        <title>Troubleshooting - MATRIX</title>
       
       
       
@@ -88,16 +88,12 @@
           <span class="path">
             
               
-                OS <i class="icon icon-link"></i>
-              
-            
-              
-                App API <i class="icon icon-link"></i>
+                CLI <i class="icon icon-link"></i>
               
             
           </span>
         
-        NFC
+        Troubleshooting
       </div>
     </div>
     
@@ -166,7 +162,7 @@
           
             
   <li>
-    <a class="" title="Intro - MATRIX CLI" href="../../CLI/overview/">
+    <a class="" title="Intro - MATRIX CLI" href="../overview/">
       Intro - MATRIX CLI
     </a>
     
@@ -194,7 +190,7 @@
       
         
   <li>
-    <a class="" title="Overview" href="../overview/">
+    <a class="" title="Overview" href="../../API/overview/">
       Overview
     </a>
     
@@ -203,7 +199,7 @@
       
         
   <li>
-    <a class="" title="Computer Vision" href="../computer-vision/">
+    <a class="" title="Computer Vision" href="../../API/computer-vision/">
       Computer Vision
     </a>
     
@@ -212,7 +208,7 @@
       
         
   <li>
-    <a class="" title="Crosstalk" href="../crosstalk/">
+    <a class="" title="Crosstalk" href="../../API/crosstalk/">
       Crosstalk
     </a>
     
@@ -221,7 +217,7 @@
       
         
   <li>
-    <a class="" title="Type" href="../typesend/">
+    <a class="" title="Type" href="../../API/typesend/">
       Type
     </a>
     
@@ -230,7 +226,7 @@
       
         
   <li>
-    <a class="" title="GPIO" href="../GPIO/">
+    <a class="" title="GPIO" href="../../API/GPIO/">
       GPIO
     </a>
     
@@ -239,7 +235,7 @@
       
         
   <li>
-    <a class="" title="Sensors" href="../sensors/">
+    <a class="" title="Sensors" href="../../API/sensors/">
       Sensors
     </a>
     
@@ -248,7 +244,7 @@
       
         
   <li>
-    <a class="" title="Filters" href="../filter/">
+    <a class="" title="Filters" href="../../API/filter/">
       Filters
     </a>
     
@@ -257,7 +253,7 @@
       
         
   <li>
-    <a class="" title="Microphone" href="../microphone/">
+    <a class="" title="Microphone" href="../../API/microphone/">
       Microphone
     </a>
     
@@ -266,7 +262,7 @@
       
         
   <li>
-    <a class="" title="IR TX/RX" href="../ir/">
+    <a class="" title="IR TX/RX" href="../../API/ir/">
       IR TX/RX
     </a>
     
@@ -275,7 +271,7 @@
       
         
   <li>
-    <a class="" title="Everloop" href="../everloop/">
+    <a class="" title="Everloop" href="../../API/everloop/">
       Everloop
     </a>
     
@@ -284,19 +280,16 @@
       
         
   <li>
-    <a class="current" title="NFC" href="./">
+    <a class="" title="NFC" href="../../API/nfc/">
       NFC
     </a>
-    
-      
-      
     
   </li>
 
       
         
   <li>
-    <a class="" title="Z-wave" href="../zwave/">
+    <a class="" title="Z-wave" href="../../API/zwave/">
       Z-wave
     </a>
     
@@ -305,7 +298,7 @@
       
         
   <li>
-    <a class="" title="Zigbee" href="../zigbee/">
+    <a class="" title="Zigbee" href="../../API/zigbee/">
       Zigbee
     </a>
     
@@ -399,7 +392,7 @@
       
         
   <li>
-    <a class="" title="Overview" href="../../CLI/overview/">
+    <a class="" title="Overview" href="../overview/">
       Overview
     </a>
     
@@ -408,7 +401,7 @@
       
         
   <li>
-    <a class="" title="Apps" href="../../CLI/apps/">
+    <a class="" title="Apps" href="../apps/">
       Apps
     </a>
     
@@ -417,7 +410,7 @@
       
         
   <li>
-    <a class="" title="Examples" href="../../CLI/example/">
+    <a class="" title="Examples" href="../example/">
       Examples
     </a>
     
@@ -426,9 +419,22 @@
       
         
   <li>
-    <a class="" title="Troubleshooting" href="../../CLI/troubleshooting/">
+    <a class="current" title="Troubleshooting" href="./">
       Troubleshooting
     </a>
+    
+      
+      
+        <ul>
+          
+            <li class="anchor">
+              <a title="Troubleshooting" href="#troubleshooting">
+                Troubleshooting
+              </a>
+            </li>
+          
+        </ul>
+      
     
   </li>
 
@@ -555,10 +561,16 @@
       <article class="article">
         <div class="wrapper">
           
-            <h1>NFC</h1>
+            <h1>Troubleshooting</h1>
           
-          <p>Still working out the precise API for this. Stay tuned.</p>
-<pre><code>matrix.init('nfc')...
+          <h2 id="troubleshooting">Troubleshooting</h2>
+<h3 id="login">Login</h3>
+<pre><code>Authentication error (auth/custom-token-mismatch):  The custom token corresponds to a different audience.
+Error initializing Firebase:  undefined
+</code></pre>
+
+<p>Known issue on token expiration. Reset the environment.</p>
+<pre><code>matrix set env dev
 </code></pre>
           <aside class="copyright" role="note">
             
@@ -576,7 +588,7 @@
   <nav class="pagination" aria-label="Footer">
     <div class="previous">
       
-        <a href="../everloop/" title="Everloop">
+        <a href="../example/" title="Examples">
           <span class="direction">
             Previous
           </span>
@@ -586,7 +598,7 @@
             </div>
             <div class="stretch">
               <div class="title">
-                Everloop
+                Examples
               </div>
             </div>
           </div>
@@ -595,14 +607,14 @@
     </div>
     <div class="next">
       
-        <a href="../zwave/" title="Z-wave">
+        <a href="../../Hardware/fpga/" title="FPGA">
           <span class="direction">
             Next
           </span>
           <div class="page">
             <div class="stretch">
               <div class="title">
-                Z-wave
+                FPGA
               </div>
             </div>
             <div class="button button-next" role="button" aria-label="Next">

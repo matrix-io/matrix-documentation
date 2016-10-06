@@ -966,6 +966,21 @@
             "title": "Example App Install and Set Configurations"
         }, 
         {
+            "location": "/CLI/troubleshooting/", 
+            "text": "Troubleshooting\n\n\nLogin\n\n\nAuthentication error (auth/custom-token-mismatch):  The custom token corresponds to a different audience.\nError initializing Firebase:  undefined\n\n\n\n\nKnown issue on token expiration. Reset the environment.\n\n\nmatrix set env dev", 
+            "title": "Troubleshooting"
+        }, 
+        {
+            "location": "/CLI/troubleshooting/#troubleshooting", 
+            "text": "", 
+            "title": "Troubleshooting"
+        }, 
+        {
+            "location": "/CLI/troubleshooting/#login", 
+            "text": "Authentication error (auth/custom-token-mismatch):  The custom token corresponds to a different audience.\nError initializing Firebase:  undefined  Known issue on token expiration. Reset the environment.  matrix set env dev", 
+            "title": "Login"
+        }, 
+        {
             "location": "/Hardware/fpga/", 
             "text": "FPGA\n\n\nOnce you have installed the \nrequired software\n you can program the FPGA. This will allow you to play with the everloop LED array.\n\n\nFirst, get the firmware.\n\n\nwget http://packages.matrix.one/matrix-creator-firmware/firmware-0.8.tar.gz\ntar xzvf firmware-0.8.tar.gz\n\n\n\nThen flash the firmware using the \nxc3sprog\n program that should be installed on the Raspberry.\n\n\nsudo xc3sprog -c matrix_pi firmware-0.8/blob/system.bit -p 1\n\n\n\nSample result:\n\n\n$ sudo xc3sprog -c matrix_pi firmware-0.8/blob/system.bit -p 1\nXC3SPROG (c) 2004-2011 xc3sprog project $Rev: 774 $ OS: Linux\nFree software: If you contribute nothing, expect nothing!\nFeedback on success/failure/enhancement requests:\n    http://sourceforge.net/mail/?group_id=170565 \nCheck Sourceforge for updates:\n    http://sourceforge.net/projects/xc3sprog/develop\n\nDNA is 0x39c620e4bfe15bfd\n\n\n\nQuestions? Post them on \nraspberrypi.stackexchange.com\n! Use the tag #matrix-creator", 
             "title": "FPGA"
