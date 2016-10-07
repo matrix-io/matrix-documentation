@@ -36,6 +36,7 @@ pages:
   - 'Overview': 'CLI/overview.md'
   - 'Apps': 'CLI/apps.md'
   - 'Examples': 'CLI/example.md'
+  - 'Troubleshooting': 'CLI/troubleshooting.md'
 - Hardware:
   - 'FPGA': 'Hardware/fpga.md'
   - 'SAM3': 'Hardware/Sam3.md'

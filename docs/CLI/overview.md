@@ -14,7 +14,7 @@ This will make the `matrix` command available in your terminal.
 ```
 matrix set env rc
 ```
-Points the CLI to the right servers.
+Points the CLI to the right servers. If you have errors right off the bat, try this first.
 
 ## Registration
 
