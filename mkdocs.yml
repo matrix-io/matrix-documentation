@@ -32,6 +32,7 @@ pages:
     - 'Widgets': 'Configuration/widgets.md'
     - 'Services': 'Configuration/services.md'
     - 'Examples': 'Configuration/examples.md'
+  - Troubleshooting: 'intro/matrix-troubleshooting.md'
 - CLI:
   - 'Overview': 'CLI/overview.md'
   - 'Apps': 'CLI/apps.md'
