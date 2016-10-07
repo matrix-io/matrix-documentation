@@ -967,7 +967,7 @@
         }, 
         {
             "location": "/CLI/troubleshooting/", 
-            "text": "Troubleshooting\n\n\nLogin\n\n\nAuthentication error (auth/custom-token-mismatch):  The custom token corresponds to a different audience.\nError initializing Firebase:  undefined\n\n\n\n\nKnown issue on token expiration. Reset the environment.\n\n\nmatrix set env dev", 
+            "text": "Troubleshooting\n\n\nLogin\n\n\nAuthentication error (auth/custom-token-mismatch):  The custom token corresponds to a different audience.\nError initializing Firebase:  undefined\n\n\n\n\nKnown issue on token expiration. Reset the environment.\n\n\nmatrix set env rc", 
             "title": "Troubleshooting"
         }, 
         {
@@ -977,7 +977,7 @@
         }, 
         {
             "location": "/CLI/troubleshooting/#login", 
-            "text": "Authentication error (auth/custom-token-mismatch):  The custom token corresponds to a different audience.\nError initializing Firebase:  undefined  Known issue on token expiration. Reset the environment.  matrix set env dev", 
+            "text": "Authentication error (auth/custom-token-mismatch):  The custom token corresponds to a different audience.\nError initializing Firebase:  undefined  Known issue on token expiration. Reset the environment.  matrix set env rc", 
             "title": "Login"
         }, 
         {
