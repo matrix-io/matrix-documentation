@@ -3,36 +3,36 @@
 MALOS provides a [ZeroMQ](http://zeromq.org/) messaging layer. An intended target for this layer is [MatrixOS](http://github.com/matrix-io/matrix-os).
 
 
-### Install MALOS
+## Install MALOS
 ```
-sudo apt-get install matrix-creator-init matrix-creator-malos cmake g++ git
+sudo apt-get install libzmq3-dev matrix-creator-init matrix-creator-malos cmake g++ git
 sudo shutdown -r now
 ```
 
-### Upgrade MALOS
+## Upgrade MALOS
 ```
 sudo apt-get update && sudo apt-get upgrade
 sudo shutdown -r now
 ```
 
-### Test MALOS
-Start it as a background process.
-```
-malos > /dev/null 2>&1 &
-```
-
 ## Install the most recent version
 
 To use it make sure that you have the most recent version installed:
-
+```
     apt-get update
     apt-get install matrix-creator-malos
+```
 
-## Running malos
+## Test MALOS
+Try to run malos like this:
+```
+    cd matrix-creator-malos
+    sudo malos
 
-And then run it. You should see an output like the following one:
+```
 
-    $ malos
+You should something similar to this if everithing is OK
+```
     **************
     MALOS starting
     **************
@@ -41,6 +41,17 @@ And then run it. You should see an output like the following one:
     Registered driver IMU with port 20013.
     Registered driver Humidity with port 20017.
     Registered driver Everloop with port 20021.
+    Registered driver Pressure with port 20025.
+    Registered driver UV with port 20029.
+    Registered driver ZigbeeBulb with port 20033.
+    Registered driver MicArray_Alsa with port 20037.
+    Registered driver Lirc with port 20041.
+```
+
+## Running MALOS as a background process.
+```
+malos > /dev/null 2>&1 &
+```
 
 ## Details
 
