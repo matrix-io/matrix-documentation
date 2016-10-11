@@ -1,12 +1,9 @@
 # MATRIX OS
 
-## Command Line Interface
-* [OVERVIEW](../CLI/overview.md) - Installation, Registration, Commands
-* [APPS](../CLI/apps.md) - Application lifecycle
-* [EXAMPLES](../CLI/example.md) - Example workflows
+## Installation
+* [OVERVIEW](/API/overview.md) - Installation, Getting Started.
 
 ## API Guides
-* [OVERVIEW](../API/overview.md) - Introduction
 * [VISION](../API/computer-vision.md) - Computer vision on MOS
 * [CROSSTALK](../API/crosstalk.md) - App to App and Device to Device communication
 * [EVERLOOP](../API/everloop.md) - Multicolored LED Lights

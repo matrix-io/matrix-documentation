@@ -1,5 +1,5 @@
-
-## .init
+## Sensors
+### .init
 All sensors are initialized using the `init` method. 
 
 * `sensorType`: Type of sensor you are initializing `temperature`, `humidity`, `pressure`, `uv`, `altitude`, `gyro`, `accel`.
@@ -16,7 +16,8 @@ matrix.init('temperature', options).then(function(data){
 })it
 ```
 
-## Temperature
+## Outputs
+### Temperature
 Output for `temperature` (in &#8451;).
 ```
 {
@@ -24,19 +25,19 @@ Output for `temperature` (in &#8451;).
 }
 ```
 
-## Humidity
+### Humidity
 Output for `humidity`.
 
-## Pressure
+### Pressure
 Output for `pressure`.
 
-## Altitude
+### Altitude
 Output for `altitude`.
 
-## UV
+### UV
 Output for `temperature`.
 
-## Gyroscope
+### Gyroscope
 Output for `gyro`.
 ```
 {
@@ -45,8 +46,7 @@ Output for `gyro`.
   roll: 1.0514432191848755
 }
 ```
-
-## Accelerometer
+### Accelerometer
 ```
 {
   x: 0.1,
@@ -55,6 +55,5 @@ Output for `gyro`.
 }
 ```
 
-
-## Filtering Sensor Data
+### Filtering Sensor Data
 See [API > Filter](filter.md)
