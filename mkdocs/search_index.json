@@ -2,8 +2,8 @@
     "docs": [
         {
             "location": "/", 
-            "text": "Support\n\n\n\n\nPost questions or comments on \ncommunity.matrix.one\n\n\nPost package issues on github under \nmatrix-io\n\n\n\n\nPre-Requisites\n\n\n\n\nTo enjoy your new board you\u2019ll need to set it up. First, you need to have Raspbian installed on your Raspberry Pi. If you don\u2019t have it, you can \ndownload\n it and \nfollow the instructions\n.\n\n\nYou'll also need to install \nNodeJS\n before you get started.\n\n\nBasic understanding of Terminal.\n\n\n\n\nInstallation\n\n\nNew parts of the MATRIX ecosystem are being developed and integrated every day. Here are a set of instructions which will get MATRIX OS running on your Creator. This will be streamlined in the future.\n\n\nLocal Machine\n\n\n\n\nInstall your Creator onto an Raspberry Pi, connect to network cable which goes to local network, NOT to your computer, as it needs to be discoverable. Wifi support coming soon.\n\n\nVia terminal, discover your Pi's address with \narp -na | grep -i b8:27:eb\n. In our case, our IP for this example is \n192.168.0.15\n, yours may be different.\n\n\nSSH into your Pi. \nssh pi@192.168.0.15\n\n\n(Optional) Map ip to a host name in \n/etc/hosts\n.\n\n\n\n\necho '192.168.0.15 matrix' \n /etc/hosts\nssh pi@matrix\n\n\n\n\nRaspberry Pi\n\n\nSetup\n\n\nSSH into your Creator and run the following:\n\n\n# setup \n installation\necho \ndeb http://packages.matrix.one/matrix-creator/ ./\n | sudo tee --append /etc/apt/sources.list;\nsudo apt-get update;\nsudo apt-get upgrade;\nsudo apt-get install -y libzmq3-dev xc3sprog malos-eye matrix-creator-malos matrix-creator-openocd wiringpi matrix-creator-init cmake g++ git --force-yes;\n\n\n\n\nThis completes the Creator hardware setup.\n\n\nYou can now explore the \nHardware Interfaces\n.\n\n\nMATRIX OS\n\n\nInstallation\n\n\nNOTE:\n MATRIX OS has a NodeJS dependency. Please Install NodeJS before installing MATRIX OS. For installation instructions you can go to the \nNodeJS downloads page\n\nIf the NodeJS installation fails,you might want to try a \nManual Installation\n instead.\n\n\ngit clone https://github.com/matrix-io/matrix-os.git;\ncd matrix-os;\ngit submodule update --init;\nnpm install;\n\n\n\n\nConfiguration\n\n\nNOTE:\n Enable your camera on your Pi.\n\n\nsudo raspi-config;\nsudo reboot;\n\n\n\n\nRun Services\n\n\n# currently needs to be run on every restart\nsudo modprobe bcm2835-v4l2;\n\n# before you run\nmalos_eye \n malos 2\n1\n\n\n\n\nLocal Machine\n\n\nRegister Device\n\n\n\n\nWith \nMATRIX CLI\n installed on your computer, run \nmatrix register device\n.\n\n\nEnter a \ndevice name\n and (optional) \ndevice description\n.\n\n\nAfter a few moments you will be provided with a \nMATRIX_DEVICE_ID\n and \nMATRIX_DEVICE_SECRET\n.\n\n\n\n\n# example variables generated via registration, you'll get your own\nMATRIX_DEVICE_ID=dc7a1a71be2d\nMATRIX_DEVICE_SECRET=08629018e9d793a7a10ea823ad15894da0c3616dec7aab85b4ecf1774505f0c665b29c660f06cd4f7e5544272b\n\n\n\n\nRaspberry Pi\n\n\nSet Up ENV Variables, USE device.\n\n\n\n\nAdd the above variables as environment variables via a shell script or command line on the Raspberry Pi.\n\n\n(optional) We export envs via an \n.env\n file which can be processed using \nsource .env\n\n\nTo begin targeting this device with the CLI, enter the \nmatrix use\n command provided\n\n\n\n\nRun MATRIX OS\n\n\n\n\nFrom the \nmatrix-os\n folder. \nnode index.js\n\n\nIf you want to start a MATRIX app on launch, use the env \nSTART_APP\n. ex. \nSTART_APP=monitor node index.js\n\n\nNow you can issue commands and deploy apps to your MATRIX OS from the CLI. ( https://github.com/matrix-io/matrix-cli)\n\n\nHave fun!", 
-            "title": "Home"
+            "text": "Support\n\n\n\n\nPost questions or comments on \ncommunity.matrix.one\n\n\nPost package issues on github under \nmatrix-io\n\n\n\n\nInstallation\n\n\nMATRIX CLI Setup\n\n\nNote:\n Pre-requisite of \nNodeJS\n on the client computer.\n\n\n\n\nInstall \nMATRIX CLI\n via npm \nnpm install -g matrix-cli\n.\n\n\nWith MATRIX CLI installed on your computer, register an account with MATRIX via \nmatrix register\n.\n\n\nOnce registered an account, run \nmatrix register device\n.\n\n\nEnter a \ndevice name\n and (optional) \ndevice description\n.\n\n\nAfter a few moments you will be provided with a \nMATRIX_DEVICE_ID\n and \nMATRIX_DEVICE_SECRET\n.\n\n\n\n\n# example variables generated via registration, you'll get your own\n# save your variables for later, you'll need them\nMATRIX_DEVICE_ID=dc7a1a71be2d\nMATRIX_DEVICE_SECRET=08629018e9d793a7a10ea823ad15894da0c3616dec7aab85b4ecf1774505f0c665b29c660f06cd4f7e5544272b\n\n\n\n\nRaspberry Pi Setup\n\n\n\n\nTo enjoy your new board you\u2019ll need to set it up. First, you need to have Raspbian installed on your Raspberry Pi. If you don\u2019t have it, you can \ndownload\n it and \nfollow the instructions\n.\n\n\nYou'll also need to install \nNodeJS\n on your Raspberry Pi before you get started.\n\n\nBasic understanding of Terminal. Via terminal, discover your Pi's address with \narp -na | grep -i b8:27:eb\n. In our case, our IP for this example is \n192.168.0.15\n, yours may be different.\n\n\n\n\n# setup \n installation\necho \ndeb http://packages.matrix.one/matrix-creator/ ./\n | sudo tee --append /etc/apt/sources.list;\nsudo apt-get update;\nsudo apt-get upgrade;\nsudo apt-get install -y libzmq3-dev xc3sprog malos-eye matrix-creator-malos matrix-creator-openocd wiringpi matrix-creator-init cmake g++ git --force-yes;\n\n# Enable your camera on your Pi.\nsudo raspi-config;\nsudo reboot;\n\n\n\n\nThis completes the Creator hardware setup. This is all you need to begin using \nMALOS\n and \nHAL\n.\n\nNote\n: You can also explore the \nHardware Interfaces\n.\n\n\nMATRIX OS Setup\n\n\nInstallation\n\n\nNOTE:\n MATRIX OS has a NodeJS dependency. Please Install NodeJS before installing MATRIX OS. For installation instructions you can go to the \nNodeJS downloads page\n\nIf the NodeJS installation fails,you might want to try a \nManual Installation\n instead.\n\n\ngit clone https://github.com/matrix-io/matrix-os.git;\ncd matrix-os;\ngit submodule update --init;\nnpm install;\n\n\n\n\nRun Services\n\n\n# currently needs to be run on every restart\nsudo modprobe bcm2835-v4l2;\n\n# before you run\nmalos_eye \n malos 2\n1\n\n\n\n\nConfigure ENV variables\n\n\n\n\nAdd the above variables you generated via CLI as environment variables via a shell script or command line on the Raspberry Pi.\n\n\n(optional) We export envs via an \n.env\n file which can be processed using \nsource .env\n\n\nTo begin targeting this device with the CLI, enter the \nmatrix use\n command provided\n\n\n\n\nRun MATRIX OS\n\n\n\n\nFrom the \nmatrix-os\n folder. \nNODE_ENV=rc node index.js\n\n\nNow you can issue commands and deploy apps to your MATRIX OS from the \nMATRIX CLI\n.\n\n\n\n\nCustom Raspbian Package\n\n\nWe'll be making a custom raspbian package available for download very soon!", 
+            "title": "Installation"
         }, 
         {
             "location": "/#support", 
@@ -11,39 +11,24 @@
             "title": "Support"
         }, 
         {
-            "location": "/#pre-requisites", 
-            "text": "To enjoy your new board you\u2019ll need to set it up. First, you need to have Raspbian installed on your Raspberry Pi. If you don\u2019t have it, you can  download  it and  follow the instructions .  You'll also need to install  NodeJS  before you get started.  Basic understanding of Terminal.", 
-            "title": "Pre-Requisites"
-        }, 
-        {
             "location": "/#installation", 
-            "text": "New parts of the MATRIX ecosystem are being developed and integrated every day. Here are a set of instructions which will get MATRIX OS running on your Creator. This will be streamlined in the future.", 
+            "text": "", 
             "title": "Installation"
         }, 
         {
-            "location": "/#local-machine", 
-            "text": "Install your Creator onto an Raspberry Pi, connect to network cable which goes to local network, NOT to your computer, as it needs to be discoverable. Wifi support coming soon.  Via terminal, discover your Pi's address with  arp -na | grep -i b8:27:eb . In our case, our IP for this example is  192.168.0.15 , yours may be different.  SSH into your Pi.  ssh pi@192.168.0.15  (Optional) Map ip to a host name in  /etc/hosts .   echo '192.168.0.15 matrix'   /etc/hosts\nssh pi@matrix", 
-            "title": "Local Machine"
+            "location": "/#matrix-cli-setup", 
+            "text": "Note:  Pre-requisite of  NodeJS  on the client computer.   Install  MATRIX CLI  via npm  npm install -g matrix-cli .  With MATRIX CLI installed on your computer, register an account with MATRIX via  matrix register .  Once registered an account, run  matrix register device .  Enter a  device name  and (optional)  device description .  After a few moments you will be provided with a  MATRIX_DEVICE_ID  and  MATRIX_DEVICE_SECRET .   # example variables generated via registration, you'll get your own\n# save your variables for later, you'll need them\nMATRIX_DEVICE_ID=dc7a1a71be2d\nMATRIX_DEVICE_SECRET=08629018e9d793a7a10ea823ad15894da0c3616dec7aab85b4ecf1774505f0c665b29c660f06cd4f7e5544272b", 
+            "title": "MATRIX CLI Setup"
         }, 
         {
-            "location": "/#raspberry-pi", 
+            "location": "/#raspberry-pi-setup", 
+            "text": "To enjoy your new board you\u2019ll need to set it up. First, you need to have Raspbian installed on your Raspberry Pi. If you don\u2019t have it, you can  download  it and  follow the instructions .  You'll also need to install  NodeJS  on your Raspberry Pi before you get started.  Basic understanding of Terminal. Via terminal, discover your Pi's address with  arp -na | grep -i b8:27:eb . In our case, our IP for this example is  192.168.0.15 , yours may be different.   # setup   installation\necho  deb http://packages.matrix.one/matrix-creator/ ./  | sudo tee --append /etc/apt/sources.list;\nsudo apt-get update;\nsudo apt-get upgrade;\nsudo apt-get install -y libzmq3-dev xc3sprog malos-eye matrix-creator-malos matrix-creator-openocd wiringpi matrix-creator-init cmake g++ git --force-yes;\n\n# Enable your camera on your Pi.\nsudo raspi-config;\nsudo reboot;  This completes the Creator hardware setup. This is all you need to begin using  MALOS  and  HAL . Note : You can also explore the  Hardware Interfaces .", 
+            "title": "Raspberry Pi Setup"
+        }, 
+        {
+            "location": "/#matrix-os-setup", 
             "text": "", 
-            "title": "Raspberry Pi"
-        }, 
-        {
-            "location": "/#setup", 
-            "text": "SSH into your Creator and run the following:  # setup   installation\necho  deb http://packages.matrix.one/matrix-creator/ ./  | sudo tee --append /etc/apt/sources.list;\nsudo apt-get update;\nsudo apt-get upgrade;\nsudo apt-get install -y libzmq3-dev xc3sprog malos-eye matrix-creator-malos matrix-creator-openocd wiringpi matrix-creator-init cmake g++ git --force-yes;  This completes the Creator hardware setup.", 
-            "title": "Setup"
-        }, 
-        {
-            "location": "/#you-can-now-explore-the-hardware-interfaces", 
-            "text": "", 
-            "title": "You can now explore the Hardware Interfaces."
-        }, 
-        {
-            "location": "/#matrix-os", 
-            "text": "", 
-            "title": "MATRIX OS"
+            "title": "MATRIX OS Setup"
         }, 
         {
             "location": "/#installation_1", 
@@ -51,9 +36,364 @@
             "title": "Installation"
         }, 
         {
-            "location": "/#configuration", 
-            "text": "NOTE:  Enable your camera on your Pi.  sudo raspi-config;\nsudo reboot;", 
+            "location": "/#run-services", 
+            "text": "# currently needs to be run on every restart\nsudo modprobe bcm2835-v4l2;\n\n# before you run\nmalos_eye   malos 2 1", 
+            "title": "Run Services"
+        }, 
+        {
+            "location": "/#configure-env-variables", 
+            "text": "Add the above variables you generated via CLI as environment variables via a shell script or command line on the Raspberry Pi.  (optional) We export envs via an  .env  file which can be processed using  source .env  To begin targeting this device with the CLI, enter the  matrix use  command provided", 
+            "title": "Configure ENV variables"
+        }, 
+        {
+            "location": "/#run-matrix-os", 
+            "text": "From the  matrix-os  folder.  NODE_ENV=rc node index.js  Now you can issue commands and deploy apps to your MATRIX OS from the  MATRIX CLI .", 
+            "title": "Run MATRIX OS"
+        }, 
+        {
+            "location": "/#custom-raspbian-package", 
+            "text": "We'll be making a custom raspbian package available for download very soon!", 
+            "title": "Custom Raspbian Package"
+        }, 
+        {
+            "location": "/CLI/overview/", 
+            "text": "Overview\n\n\nInstallation\n\n\nInstallation, Registration, Commands\n\n\nApplications\n\n\nApplication Management\n\n\nDevices\n\n\nDevice Management\n\n\nExamples\n\n\nExample Workflows\n\n\nTroubleshooting\n\n\nTroubleshooting", 
+            "title": "Overview"
+        }, 
+        {
+            "location": "/CLI/overview/#overview", 
+            "text": "", 
+            "title": "Overview"
+        }, 
+        {
+            "location": "/CLI/overview/#installation", 
+            "text": "Installation, Registration, Commands", 
+            "title": "Installation"
+        }, 
+        {
+            "location": "/CLI/overview/#applications", 
+            "text": "Application Management", 
+            "title": "Applications"
+        }, 
+        {
+            "location": "/CLI/overview/#devices", 
+            "text": "Device Management", 
+            "title": "Devices"
+        }, 
+        {
+            "location": "/CLI/overview/#examples", 
+            "text": "Example Workflows", 
+            "title": "Examples"
+        }, 
+        {
+            "location": "/CLI/overview/#troubleshooting", 
+            "text": "Troubleshooting", 
+            "title": "Troubleshooting"
+        }, 
+        {
+            "location": "/CLI/installation/", 
+            "text": "Installation\n\n\nThis will make the \nmatrix\n command available in your terminal.\n\n\nnpm install -g matrix-cli\n\n\n\n\nEnvironment Configuration\n\n\nPoints the CLI to the right servers. If you have errors right off the bat, try this first.\n\n\nmatrix set env rc\n\n\n\n\nRegistration\n\n\nUser registration\n\n\nIf you do not have an AdMobilize MATRIX account, use:\n\n\nmatrix register\n\n\n\n\nCheck your email to confirm the account then you can login.\n\n\nDevice registration\n\n\nIn order to set up your device, use:\n\n\nmatrix register device\n\n\n\n\nThis will ask for your device details and then provide you with an id and a secret, you need to set those ENV vars in your device to link it to our platform.  \n\n\nHelp\n\n\nFor a list of all the available options, use:\n\n\nmatrix", 
+            "title": "Installation"
+        }, 
+        {
+            "location": "/CLI/installation/#installation", 
+            "text": "This will make the  matrix  command available in your terminal.  npm install -g matrix-cli", 
+            "title": "Installation"
+        }, 
+        {
+            "location": "/CLI/installation/#environment-configuration", 
+            "text": "Points the CLI to the right servers. If you have errors right off the bat, try this first.  matrix set env rc", 
+            "title": "Environment Configuration"
+        }, 
+        {
+            "location": "/CLI/installation/#registration", 
+            "text": "", 
+            "title": "Registration"
+        }, 
+        {
+            "location": "/CLI/installation/#user-registration", 
+            "text": "If you do not have an AdMobilize MATRIX account, use:  matrix register  Check your email to confirm the account then you can login.", 
+            "title": "User registration"
+        }, 
+        {
+            "location": "/CLI/installation/#device-registration", 
+            "text": "In order to set up your device, use:  matrix register device  This will ask for your device details and then provide you with an id and a secret, you need to set those ENV vars in your device to link it to our platform.", 
+            "title": "Device registration"
+        }, 
+        {
+            "location": "/CLI/installation/#help", 
+            "text": "For a list of all the available options, use:  matrix", 
+            "title": "Help"
+        }, 
+        {
+            "location": "/CLI/apps/", 
+            "text": "Applications\n\n\nApplications are how the MATRIX OS interfaces with the MATRIX Creator hardware. Applications are a top-level abstraction of MALOS interface. Applications are developed primarly in Javascript (supported), and can leverage other languages (like Python) with non-standard implementations.\n\n\nSearch\n\n\n# Find MatrixOS apps for a keyword\nmatrix search keyword\n\n\n\n\nAll the following commands require an active MatrixOS to be specified with \nmatrix use\n.\n\n\nInstall\n\n\n# Install an app from the store to MatrixOS\nmatrix install appName\n\n\n\n\nUninstall\n\n\n# Uninstall an app from your device\nmatrix uninstall appName\n\n\n\n\nCreate\n\n\n#creates a folder with a base matrix app template\nmatrix create appName\n\n\n\n\nSee \ndocs/api\n for more information about writing MatrixOS apps.\n\n\nDeploy\n\n\n# uploads app folder to MatrixOS\nmatrix deploy appName\n\n\n\n\nRun\n\n\nmatrix start appName\n\n\n\n\nStop\n\n\nmatrix stop appName\n\n\n\n\nRestart\n\n\nmatrix restart appName", 
+            "title": "Apps"
+        }, 
+        {
+            "location": "/CLI/apps/#applications", 
+            "text": "Applications are how the MATRIX OS interfaces with the MATRIX Creator hardware. Applications are a top-level abstraction of MALOS interface. Applications are developed primarly in Javascript (supported), and can leverage other languages (like Python) with non-standard implementations.", 
+            "title": "Applications"
+        }, 
+        {
+            "location": "/CLI/apps/#search", 
+            "text": "# Find MatrixOS apps for a keyword\nmatrix search keyword  All the following commands require an active MatrixOS to be specified with  matrix use .", 
+            "title": "Search"
+        }, 
+        {
+            "location": "/CLI/apps/#install", 
+            "text": "# Install an app from the store to MatrixOS\nmatrix install appName", 
+            "title": "Install"
+        }, 
+        {
+            "location": "/CLI/apps/#uninstall", 
+            "text": "# Uninstall an app from your device\nmatrix uninstall appName", 
+            "title": "Uninstall"
+        }, 
+        {
+            "location": "/CLI/apps/#create", 
+            "text": "#creates a folder with a base matrix app template\nmatrix create appName  See  docs/api  for more information about writing MatrixOS apps.", 
+            "title": "Create"
+        }, 
+        {
+            "location": "/CLI/apps/#deploy", 
+            "text": "# uploads app folder to MatrixOS\nmatrix deploy appName", 
+            "title": "Deploy"
+        }, 
+        {
+            "location": "/CLI/apps/#run", 
+            "text": "matrix start appName", 
+            "title": "Run"
+        }, 
+        {
+            "location": "/CLI/apps/#stop", 
+            "text": "matrix stop appName", 
+            "title": "Stop"
+        }, 
+        {
+            "location": "/CLI/apps/#restart", 
+            "text": "matrix restart appName", 
+            "title": "Restart"
+        }, 
+        {
+            "location": "/CLI/device/", 
+            "text": "Devices\n\n\nDevices are virtual or physical containers where applications can be installed. A typical device would be a raspberry pi.\n\n\nDevice Registration\n\n\n# Find MatrixOS apps for a keyword\nmatrix register device\n\n\n\n\nList your Devices\n\n\nmatrix list devices\n\n\n\n\nUse a Specific Device\n\n\n# Choosing a device identifier from the list above\nmatrix use \ndevice-id", 
+            "title": "Devices"
+        }, 
+        {
+            "location": "/CLI/device/#devices", 
+            "text": "Devices are virtual or physical containers where applications can be installed. A typical device would be a raspberry pi.", 
+            "title": "Devices"
+        }, 
+        {
+            "location": "/CLI/device/#device-registration", 
+            "text": "# Find MatrixOS apps for a keyword\nmatrix register device", 
+            "title": "Device Registration"
+        }, 
+        {
+            "location": "/CLI/device/#list-your-devices", 
+            "text": "matrix list devices", 
+            "title": "List your Devices"
+        }, 
+        {
+            "location": "/CLI/device/#use-a-specific-device", 
+            "text": "# Choosing a device identifier from the list above\nmatrix use  device-id", 
+            "title": "Use a Specific Device"
+        }, 
+        {
+            "location": "/CLI/example/", 
+            "text": "Example Workflows\n\n\nRegister an Account\n\n\nmatrix register\n\n\n\n\nSetup New Device\n\n\nSet up a brand new device. This flow provides Device ID and Secret. Save these for future use, you are only given this once.\n\n\nmatrix login\nmatrix device register\n\n# use provided id\nmatrix use \ndeviceId\n\n\n# should show new device\nmatrix list devices\n\n\n\n\nApp Deployment\n\n\nDeploys an application you are developing locally.\n\n\nmatrix login\nmatrix list devices\nmatrix use \ndeviceId\n\n\nmatrix deploy frontdoor\n\n\n\n\nApp Installation\n\n\nInstalls an application that you have published locally.\n\n\nmatrix login\nmatrix list devices\nmatrix use \ndeviceId\n\n\nmatrix install frontdoor\nmatrix set config frontdoor settings.lock.apiKey=ABC123FED\nmatrix start frontdoor\n\n\n\n\nApp Publishing\n\n\nPublishes an application to the store.\n\n\nmatrix login\nmatrix list devices\nmatrix use \ndeviceId\n\n\nmatrix publish frontdoor\nmatrix install frontdoor\nmatrix start frontdoor\n\n\n\n\nUsing the Simulator\n\n\nCreates a local simulator to interface with. Currently has a dependency of Docker \n Docker-Machine.\n\n\nmatrix login\nmatrix sim init\nmatrix use simid-abc123\nmatrix sim start\n\n# makes testapp/ with app scaffold\nmatrix create testapp\n\n# places testapp/ onto matrixos\nmatrix deploy testapp\n\n# starts testapp/\nmatrix start testapp", 
+            "title": "Examples"
+        }, 
+        {
+            "location": "/CLI/example/#example-workflows", 
+            "text": "", 
+            "title": "Example Workflows"
+        }, 
+        {
+            "location": "/CLI/example/#register-an-account", 
+            "text": "matrix register", 
+            "title": "Register an Account"
+        }, 
+        {
+            "location": "/CLI/example/#setup-new-device", 
+            "text": "Set up a brand new device. This flow provides Device ID and Secret. Save these for future use, you are only given this once.  matrix login\nmatrix device register\n\n# use provided id\nmatrix use  deviceId \n\n# should show new device\nmatrix list devices", 
+            "title": "Setup New Device"
+        }, 
+        {
+            "location": "/CLI/example/#app-deployment", 
+            "text": "Deploys an application you are developing locally.  matrix login\nmatrix list devices\nmatrix use  deviceId \n\nmatrix deploy frontdoor", 
+            "title": "App Deployment"
+        }, 
+        {
+            "location": "/CLI/example/#app-installation", 
+            "text": "Installs an application that you have published locally.  matrix login\nmatrix list devices\nmatrix use  deviceId \n\nmatrix install frontdoor\nmatrix set config frontdoor settings.lock.apiKey=ABC123FED\nmatrix start frontdoor", 
+            "title": "App Installation"
+        }, 
+        {
+            "location": "/CLI/example/#app-publishing", 
+            "text": "Publishes an application to the store.  matrix login\nmatrix list devices\nmatrix use  deviceId \n\nmatrix publish frontdoor\nmatrix install frontdoor\nmatrix start frontdoor", 
+            "title": "App Publishing"
+        }, 
+        {
+            "location": "/CLI/example/#using-the-simulator", 
+            "text": "Creates a local simulator to interface with. Currently has a dependency of Docker   Docker-Machine.  matrix login\nmatrix sim init\nmatrix use simid-abc123\nmatrix sim start\n\n# makes testapp/ with app scaffold\nmatrix create testapp\n\n# places testapp/ onto matrixos\nmatrix deploy testapp\n\n# starts testapp/\nmatrix start testapp", 
+            "title": "Using the Simulator"
+        }, 
+        {
+            "location": "/intro/cli-troubleshooting/", 
+            "text": "Troubleshooting", 
+            "title": "Troubleshooting"
+        }, 
+        {
+            "location": "/intro/cli-troubleshooting/#troubleshooting", 
+            "text": "", 
+            "title": "Troubleshooting"
+        }, 
+        {
+            "location": "/API/overview/", 
+            "text": "Overview\n\n\nInstallation\n\n\nRaspberry Pi, Core Dependencies, MATRIX OS Setup.\n\n\nApp API\n\n\nSensors\n\n\nSensor interfaces and data structures.\n\n\nEverloop\n\n\nEverloop interface.\n\n\nFilters\n\n\nFilters interface for Sensors, Computer Vision, etc...\n\n\nComputer Vision\n\n\nComputer Vision services.\n\n\nMicrophones\n\n\nMicrophone Services.\n\n\nIR TX/RX\n\n\nIR receiving and transmitter services.\n\n\nGPIO\n\n\nGPIO interfaces.\n\n\nServos\n\n\nServo interfaces.\n\n\nNFC\n\n\nNFC interfaces.\n\n\nZigbee\n\n\nZigbee interfaces.\n\n\nZ-wave\n\n\nZ-wave interfaces.\n\n\nConfiguration\n\n\nData Types\n\n\nData structures and how to save to the infrastructure.\n\n\nScreens\n\n\nDashboard creation and how to structure your widgets.\n\n\nFilters\n\n\nDashboard filter configuration.\n\n\nWidgets\n\n\nDashboard widget configuration.\n\n\nServices\n\n\nAvailable infrastructure services.\n\n\nTroubleshooting\n\n\nTroubleshooting", 
+            "title": "Overview"
+        }, 
+        {
+            "location": "/API/overview/#overview", 
+            "text": "", 
+            "title": "Overview"
+        }, 
+        {
+            "location": "/API/overview/#installation", 
+            "text": "Raspberry Pi, Core Dependencies, MATRIX OS Setup.", 
+            "title": "Installation"
+        }, 
+        {
+            "location": "/API/overview/#app-api", 
+            "text": "", 
+            "title": "App API"
+        }, 
+        {
+            "location": "/API/overview/#sensors", 
+            "text": "Sensor interfaces and data structures.", 
+            "title": "Sensors"
+        }, 
+        {
+            "location": "/API/overview/#everloop", 
+            "text": "Everloop interface.", 
+            "title": "Everloop"
+        }, 
+        {
+            "location": "/API/overview/#filters", 
+            "text": "Filters interface for Sensors, Computer Vision, etc...", 
+            "title": "Filters"
+        }, 
+        {
+            "location": "/API/overview/#computer-vision", 
+            "text": "Computer Vision services.", 
+            "title": "Computer Vision"
+        }, 
+        {
+            "location": "/API/overview/#microphones", 
+            "text": "Microphone Services.", 
+            "title": "Microphones"
+        }, 
+        {
+            "location": "/API/overview/#ir-txrx", 
+            "text": "IR receiving and transmitter services.", 
+            "title": "IR TX/RX"
+        }, 
+        {
+            "location": "/API/overview/#gpio", 
+            "text": "GPIO interfaces.", 
+            "title": "GPIO"
+        }, 
+        {
+            "location": "/API/overview/#servos", 
+            "text": "Servo interfaces.", 
+            "title": "Servos"
+        }, 
+        {
+            "location": "/API/overview/#nfc", 
+            "text": "NFC interfaces.", 
+            "title": "NFC"
+        }, 
+        {
+            "location": "/API/overview/#zigbee", 
+            "text": "Zigbee interfaces.", 
+            "title": "Zigbee"
+        }, 
+        {
+            "location": "/API/overview/#z-wave", 
+            "text": "Z-wave interfaces.", 
+            "title": "Z-wave"
+        }, 
+        {
+            "location": "/API/overview/#configuration", 
+            "text": "", 
             "title": "Configuration"
+        }, 
+        {
+            "location": "/API/overview/#data-types", 
+            "text": "Data structures and how to save to the infrastructure.", 
+            "title": "Data Types"
+        }, 
+        {
+            "location": "/API/overview/#screens", 
+            "text": "Dashboard creation and how to structure your widgets.", 
+            "title": "Screens"
+        }, 
+        {
+            "location": "/API/overview/#filters_1", 
+            "text": "Dashboard filter configuration.", 
+            "title": "Filters"
+        }, 
+        {
+            "location": "/API/overview/#widgets", 
+            "text": "Dashboard widget configuration.", 
+            "title": "Widgets"
+        }, 
+        {
+            "location": "/API/overview/#services", 
+            "text": "Available infrastructure services.", 
+            "title": "Services"
+        }, 
+        {
+            "location": "/API/overview/#troubleshooting", 
+            "text": "Troubleshooting", 
+            "title": "Troubleshooting"
+        }, 
+        {
+            "location": "/", 
+            "text": "Support\n\n\n\n\nPost questions or comments on \ncommunity.matrix.one\n\n\nPost package issues on github under \nmatrix-io\n\n\n\n\nInstallation\n\n\nMATRIX CLI Setup\n\n\nNote:\n Pre-requisite of \nNodeJS\n on the client computer.\n\n\n\n\nInstall \nMATRIX CLI\n via npm \nnpm install -g matrix-cli\n.\n\n\nWith MATRIX CLI installed on your computer, register an account with MATRIX via \nmatrix register\n.\n\n\nOnce registered an account, run \nmatrix register device\n.\n\n\nEnter a \ndevice name\n and (optional) \ndevice description\n.\n\n\nAfter a few moments you will be provided with a \nMATRIX_DEVICE_ID\n and \nMATRIX_DEVICE_SECRET\n.\n\n\n\n\n# example variables generated via registration, you'll get your own\n# save your variables for later, you'll need them\nMATRIX_DEVICE_ID=dc7a1a71be2d\nMATRIX_DEVICE_SECRET=08629018e9d793a7a10ea823ad15894da0c3616dec7aab85b4ecf1774505f0c665b29c660f06cd4f7e5544272b\n\n\n\n\nRaspberry Pi Setup\n\n\n\n\nTo enjoy your new board you\u2019ll need to set it up. First, you need to have Raspbian installed on your Raspberry Pi. If you don\u2019t have it, you can \ndownload\n it and \nfollow the instructions\n.\n\n\nYou'll also need to install \nNodeJS\n on your Raspberry Pi before you get started.\n\n\nBasic understanding of Terminal. Via terminal, discover your Pi's address with \narp -na | grep -i b8:27:eb\n. In our case, our IP for this example is \n192.168.0.15\n, yours may be different.\n\n\n\n\n# setup \n installation\necho \ndeb http://packages.matrix.one/matrix-creator/ ./\n | sudo tee --append /etc/apt/sources.list;\nsudo apt-get update;\nsudo apt-get upgrade;\nsudo apt-get install -y libzmq3-dev xc3sprog malos-eye matrix-creator-malos matrix-creator-openocd wiringpi matrix-creator-init cmake g++ git --force-yes;\n\n# Enable your camera on your Pi.\nsudo raspi-config;\nsudo reboot;\n\n\n\n\nThis completes the Creator hardware setup. This is all you need to begin using \nMALOS\n and \nHAL\n.\n\nNote\n: You can also explore the \nHardware Interfaces\n.\n\n\nMATRIX OS Setup\n\n\nInstallation\n\n\nNOTE:\n MATRIX OS has a NodeJS dependency. Please Install NodeJS before installing MATRIX OS. For installation instructions you can go to the \nNodeJS downloads page\n\nIf the NodeJS installation fails,you might want to try a \nManual Installation\n instead.\n\n\ngit clone https://github.com/matrix-io/matrix-os.git;\ncd matrix-os;\ngit submodule update --init;\nnpm install;\n\n\n\n\nRun Services\n\n\n# currently needs to be run on every restart\nsudo modprobe bcm2835-v4l2;\n\n# before you run\nmalos_eye \n malos 2\n1\n\n\n\n\nConfigure ENV variables\n\n\n\n\nAdd the above variables you generated via CLI as environment variables via a shell script or command line on the Raspberry Pi.\n\n\n(optional) We export envs via an \n.env\n file which can be processed using \nsource .env\n\n\nTo begin targeting this device with the CLI, enter the \nmatrix use\n command provided\n\n\n\n\nRun MATRIX OS\n\n\n\n\nFrom the \nmatrix-os\n folder. \nNODE_ENV=rc node index.js\n\n\nNow you can issue commands and deploy apps to your MATRIX OS from the \nMATRIX CLI\n.\n\n\n\n\nCustom Raspbian Package\n\n\nWe'll be making a custom raspbian package available for download very soon!", 
+            "title": "Installation"
+        }, 
+        {
+            "location": "/#support", 
+            "text": "Post questions or comments on  community.matrix.one  Post package issues on github under  matrix-io", 
+            "title": "Support"
+        }, 
+        {
+            "location": "/#installation", 
+            "text": "", 
+            "title": "Installation"
+        }, 
+        {
+            "location": "/#matrix-cli-setup", 
+            "text": "Note:  Pre-requisite of  NodeJS  on the client computer.   Install  MATRIX CLI  via npm  npm install -g matrix-cli .  With MATRIX CLI installed on your computer, register an account with MATRIX via  matrix register .  Once registered an account, run  matrix register device .  Enter a  device name  and (optional)  device description .  After a few moments you will be provided with a  MATRIX_DEVICE_ID  and  MATRIX_DEVICE_SECRET .   # example variables generated via registration, you'll get your own\n# save your variables for later, you'll need them\nMATRIX_DEVICE_ID=dc7a1a71be2d\nMATRIX_DEVICE_SECRET=08629018e9d793a7a10ea823ad15894da0c3616dec7aab85b4ecf1774505f0c665b29c660f06cd4f7e5544272b", 
+            "title": "MATRIX CLI Setup"
+        }, 
+        {
+            "location": "/#raspberry-pi-setup", 
+            "text": "To enjoy your new board you\u2019ll need to set it up. First, you need to have Raspbian installed on your Raspberry Pi. If you don\u2019t have it, you can  download  it and  follow the instructions .  You'll also need to install  NodeJS  on your Raspberry Pi before you get started.  Basic understanding of Terminal. Via terminal, discover your Pi's address with  arp -na | grep -i b8:27:eb . In our case, our IP for this example is  192.168.0.15 , yours may be different.   # setup   installation\necho  deb http://packages.matrix.one/matrix-creator/ ./  | sudo tee --append /etc/apt/sources.list;\nsudo apt-get update;\nsudo apt-get upgrade;\nsudo apt-get install -y libzmq3-dev xc3sprog malos-eye matrix-creator-malos matrix-creator-openocd wiringpi matrix-creator-init cmake g++ git --force-yes;\n\n# Enable your camera on your Pi.\nsudo raspi-config;\nsudo reboot;  This completes the Creator hardware setup. This is all you need to begin using  MALOS  and  HAL . Note : You can also explore the  Hardware Interfaces .", 
+            "title": "Raspberry Pi Setup"
+        }, 
+        {
+            "location": "/#matrix-os-setup", 
+            "text": "", 
+            "title": "MATRIX OS Setup"
+        }, 
+        {
+            "location": "/#installation_1", 
+            "text": "NOTE:  MATRIX OS has a NodeJS dependency. Please Install NodeJS before installing MATRIX OS. For installation instructions you can go to the  NodeJS downloads page \nIf the NodeJS installation fails,you might want to try a  Manual Installation  instead.  git clone https://github.com/matrix-io/matrix-os.git;\ncd matrix-os;\ngit submodule update --init;\nnpm install;", 
+            "title": "Installation"
         }, 
         {
             "location": "/#run-services", 
@@ -61,324 +401,39 @@
             "title": "Run Services"
         }, 
         {
-            "location": "/#local-machine_1", 
-            "text": "", 
-            "title": "Local Machine"
-        }, 
-        {
-            "location": "/#register-device", 
-            "text": "With  MATRIX CLI  installed on your computer, run  matrix register device .  Enter a  device name  and (optional)  device description .  After a few moments you will be provided with a  MATRIX_DEVICE_ID  and  MATRIX_DEVICE_SECRET .   # example variables generated via registration, you'll get your own\nMATRIX_DEVICE_ID=dc7a1a71be2d\nMATRIX_DEVICE_SECRET=08629018e9d793a7a10ea823ad15894da0c3616dec7aab85b4ecf1774505f0c665b29c660f06cd4f7e5544272b", 
-            "title": "Register Device"
-        }, 
-        {
-            "location": "/#raspberry-pi_1", 
-            "text": "", 
-            "title": "Raspberry Pi"
-        }, 
-        {
-            "location": "/#set-up-env-variables-use-device", 
-            "text": "Add the above variables as environment variables via a shell script or command line on the Raspberry Pi.  (optional) We export envs via an  .env  file which can be processed using  source .env  To begin targeting this device with the CLI, enter the  matrix use  command provided", 
-            "title": "Set Up ENV Variables, USE device."
+            "location": "/#configure-env-variables", 
+            "text": "Add the above variables you generated via CLI as environment variables via a shell script or command line on the Raspberry Pi.  (optional) We export envs via an  .env  file which can be processed using  source .env  To begin targeting this device with the CLI, enter the  matrix use  command provided", 
+            "title": "Configure ENV variables"
         }, 
         {
             "location": "/#run-matrix-os", 
-            "text": "From the  matrix-os  folder.  node index.js  If you want to start a MATRIX app on launch, use the env  START_APP . ex.  START_APP=monitor node index.js  Now you can issue commands and deploy apps to your MATRIX OS from the CLI. ( https://github.com/matrix-io/matrix-cli)  Have fun!", 
+            "text": "From the  matrix-os  folder.  NODE_ENV=rc node index.js  Now you can issue commands and deploy apps to your MATRIX OS from the  MATRIX CLI .", 
             "title": "Run MATRIX OS"
         }, 
         {
-            "location": "/intro/matrix/", 
-            "text": "MATRIX OS\n\n\nCommand Line Interface\n\n\n\n\nOVERVIEW\n - Installation, Registration, Commands\n\n\nAPPS\n - Application lifecycle\n\n\nEXAMPLES\n - Example workflows\n\n\n\n\nAPI Guides\n\n\n\n\nOVERVIEW\n - Introduction\n\n\nVISION\n - Computer vision on MOS\n\n\nCROSSTALK\n - App to App and Device to Device communication\n\n\nEVERLOOP\n - Multicolored LED Lights\n\n\nFILTER\n - Generic logic for filtering data sources\n\n\n\n\n\nMICROPHONE\n - Accessing the microphone and speech recognition\n\n\n\nSENSORS\n - Basic Sensors, Temperature, Gyroscope, Pressure, etc\n\n\n\nTYPESEND\n - Type system, read this if you are saving data.\n\n\nZIGBEE\n - Communication Protocol\n\n\n\n\n\nConfiguration Specifications\n\n\n\n\nDATATYPES\n - Combines with TYPESEND above for data segmenting superpowers.  \n\n\nEXAMPLES\n - Massive example file with most options.\n\n\nFILTERS\n - Show data transformations in charts\n\n\nSCREENS\n - Dashboard interface widget layout\n\n\nSERVICES\n - Integration with internal and external services (like computer vision)\n\n\nWIDGETS\n - The available widgets", 
-            "title": "Intro - MATRIX OS"
-        }, 
-        {
-            "location": "/intro/matrix/#matrix-os", 
-            "text": "", 
-            "title": "MATRIX OS"
-        }, 
-        {
-            "location": "/intro/matrix/#command-line-interface", 
-            "text": "OVERVIEW  - Installation, Registration, Commands  APPS  - Application lifecycle  EXAMPLES  - Example workflows", 
-            "title": "Command Line Interface"
-        }, 
-        {
-            "location": "/intro/matrix/#api-guides", 
-            "text": "OVERVIEW  - Introduction  VISION  - Computer vision on MOS  CROSSTALK  - App to App and Device to Device communication  EVERLOOP  - Multicolored LED Lights  FILTER  - Generic logic for filtering data sources   MICROPHONE  - Accessing the microphone and speech recognition  SENSORS  - Basic Sensors, Temperature, Gyroscope, Pressure, etc  TYPESEND  - Type system, read this if you are saving data.  ZIGBEE  - Communication Protocol", 
-            "title": "API Guides"
-        }, 
-        {
-            "location": "/intro/matrix/#configuration-specifications", 
-            "text": "DATATYPES  - Combines with TYPESEND above for data segmenting superpowers.    EXAMPLES  - Massive example file with most options.  FILTERS  - Show data transformations in charts  SCREENS  - Dashboard interface widget layout  SERVICES  - Integration with internal and external services (like computer vision)  WIDGETS  - The available widgets", 
-            "title": "Configuration Specifications"
-        }, 
-        {
-            "location": "/CLI/overview/", 
-            "text": "Overview\n\n\nMatrixOS devices and applications are managed via the Matrix CLI.\n\n\nInstallation\n\n\nnpm install -g matrix-cli\n\n\n\n\nThis will make the \nmatrix\n command available in your terminal.\n\n\nEnvironment\n\n\nmatrix set env rc\n\n\n\n\nPoints the CLI to the right servers. If you have errors right off the bat, try this first.\n\n\nRegistration\n\n\nUser registration\n\n\nIf you do not have an AdMobilize MATRIX account, use:\n\n\nmatrix register\n\n\n\n\nCheck your email to confirm the account then you can login.\n\n\nDevice registration\n\n\nIn order to set up your device, use:\n\n\nmatrix register device\n\n\n\n\nThis will ask for your device details and then provide you with an id and a secret, you need to set those ENV vars in your device to link it to our platform.  \n\n\nhelp\n\n\nRun \nmatrix\n by itself to see the command reference and configuration information.\n\n\n  _  _ ____ ___ ____ _ _  _\n  |\\/| |__|  |  |__/ |  \\/   _ | [o]\n  |  | |  |  |  |  \\ | _/\\_ |_ |_ | v1.1.7  - rc\n\n\nAPI: http://demo.admobilize.com Streaming: http://mxss.admobilize.com:80\nUser: hello@rokk3rlabs.com Device: 12:23:34:45:56\n\n---- SETUP ----\n       register - Create a MatrixOS platform user\n                \u21b3 [device] - registers new device\n          login - Login to the MatrixOS platform\n         logout - Log out of the MatrixOS platform\n            use - Indicate active device\n            set - Set environment settings, update application configuration, change cli locale\n                \u21b3 [env \nenvironment\n, config \napp\n k=v, locale \nlocale\n]\n\n -- MANAGEMENT --\n            sim - Manage local MatrixOS simulator with Docker\n                \u21b3 [ init, restore, start, stop, save, clear ]\n           list - Information about your devices, applications and installs\n                \u21b3 [ apps, devices, all ]\n         reboot - Reboots the active MatrixOS device\n\n ----- APPS -----\n         search - Search for apps\n        install - Install an app or sensor to active MatrixOS device\n                \u21b3 [ app / sensor ] \nname\n. defaults to app\n      uninstall - Uninstall the app\n         config - View and modify application configuration\n         update - Update to a specified version of a MatrixOS application\n                \u21b3 \nappName\n \nversion\n\n          start - Starts an app running on the active MatrixOS\n           stop - Stops an app running on the active MatrixOS\n        restart - Restarts an app running on the MatrixOS\n\n - DEVELOPMENT -\n         create - Creates a new scaffolding for a MatrixOS Application\n         deploy - Uploads and deploys an app to the active MatrixOS\n        trigger - Runs a trigger test\n            log - Logs output from selected MatrixOS and applications\n\n\n\n\nCreating an Application\n\n\nCreating an application is very basic. It deploys from template stored in the \nmatrix-console\n package.\n\n\nmatrix create app1\n\n\n\n\nApp Structure\n\n\n\n\napp.js\n -- This is your application logic\n\n\nconfig.yaml\n -- Change variables, indicate sensors, configure dashboard.\n\n\nDEVELOPER.MD\n -- Developer information that will be published for integrations on the Developer Portal.\n\n\nindex.js\n -- app entry point, do not modify\n\n\npackage.json\n -- NodeJS information file, do not modify without knowledge.\n\n\n\n\nManagement\n\n\nmatrix list - information about your MatrixOS devices, applications and installations [ apps, devices, all, groups ]\n -- matrix list apps - Shows a list of apps under your account.\n -- matrix list devices - Shows a list of devices under your account.\n -- matrix list all - Shows a list of devices, with the Apps installed on each device.\n -- matrix list groups - Shows a list of groups under your account.\n\n\n\n\nControl over Applications\n\n\nWork with your apps, and within the app ecosystem here. You can deploy to your simulator, or deploy to your actual MATRIX hardware. It's up to you.\n\n\nmatrix search - Search for apps\nmatrix install - [-a] app and [-s] sensor install. defaults to app.\n -- matrix install sensor [sensorname]\n -- matrix install app [appname]\nmatrix update - Update, update app1, update app1 v0.1\nmatrix uninstall - Usage: uninstall app1\n -- matrix uninstall sensor [sensorname]\n -- matrix uninstall app [appname]\nmatrix start - Starts an app running on the MATRIX.\nmatrix stop - Stops an app running on the MATRIX.\nmatrix restart - Restarts an app running on the MATRIX.\n\n\n\n\nDeveloping an Application\n\n\nFlexibility to develop anything you want. These four simple commands help you test and build pretty much anything.\n\n\nmatrix create - Creates a new scaffolding for a MATRIX App.\nmatrix deploy - Deploys an app to the Matrix.\nmatrix trigger - Runs a trigger test\nmatrix log - Usage: log [-f, --follow]\n\n\n\n\n\n\nUsing the Simulator\n\n\nCreate a fresh simulator, using the MATRIX OS image available online.\n\n\nmatrix sim - manage local MatrixOS simulator using docker [ upgrade, restore, init, start, save, clear ]\n -- matrix sim upgrade - initialize your MatrixOS simulator\n -- matrix sim restore - Restore your MatrixOS simulator\n -- matrix sim init - initialize your MatrixOS simulator\n -- matrix sim start - start MatrixOS virtual environment\n -- matrix sim save - save MatrixOS state, use after deploy / install\n -- matrix sim clear - remove simulation local data", 
-            "title": "Intro - MATRIX CLI"
-        }, 
-        {
-            "location": "/CLI/overview/#overview", 
-            "text": "MatrixOS devices and applications are managed via the Matrix CLI.", 
-            "title": "Overview"
-        }, 
-        {
-            "location": "/CLI/overview/#installation", 
-            "text": "npm install -g matrix-cli  This will make the  matrix  command available in your terminal.", 
-            "title": "Installation"
-        }, 
-        {
-            "location": "/CLI/overview/#environment", 
-            "text": "matrix set env rc  Points the CLI to the right servers. If you have errors right off the bat, try this first.", 
-            "title": "Environment"
-        }, 
-        {
-            "location": "/CLI/overview/#registration", 
-            "text": "", 
-            "title": "Registration"
-        }, 
-        {
-            "location": "/CLI/overview/#user-registration", 
-            "text": "If you do not have an AdMobilize MATRIX account, use:  matrix register  Check your email to confirm the account then you can login.", 
-            "title": "User registration"
-        }, 
-        {
-            "location": "/CLI/overview/#device-registration", 
-            "text": "In order to set up your device, use:  matrix register device  This will ask for your device details and then provide you with an id and a secret, you need to set those ENV vars in your device to link it to our platform.", 
-            "title": "Device registration"
-        }, 
-        {
-            "location": "/CLI/overview/#help", 
-            "text": "Run  matrix  by itself to see the command reference and configuration information.    _  _ ____ ___ ____ _ _  _\n  |\\/| |__|  |  |__/ |  \\/   _ | [o]\n  |  | |  |  |  |  \\ | _/\\_ |_ |_ | v1.1.7  - rc\n\n\nAPI: http://demo.admobilize.com Streaming: http://mxss.admobilize.com:80\nUser: hello@rokk3rlabs.com Device: 12:23:34:45:56\n\n---- SETUP ----\n       register - Create a MatrixOS platform user\n                \u21b3 [device] - registers new device\n          login - Login to the MatrixOS platform\n         logout - Log out of the MatrixOS platform\n            use - Indicate active device\n            set - Set environment settings, update application configuration, change cli locale\n                \u21b3 [env  environment , config  app  k=v, locale  locale ]\n\n -- MANAGEMENT --\n            sim - Manage local MatrixOS simulator with Docker\n                \u21b3 [ init, restore, start, stop, save, clear ]\n           list - Information about your devices, applications and installs\n                \u21b3 [ apps, devices, all ]\n         reboot - Reboots the active MatrixOS device\n\n ----- APPS -----\n         search - Search for apps\n        install - Install an app or sensor to active MatrixOS device\n                \u21b3 [ app / sensor ]  name . defaults to app\n      uninstall - Uninstall the app\n         config - View and modify application configuration\n         update - Update to a specified version of a MatrixOS application\n                \u21b3  appName   version \n          start - Starts an app running on the active MatrixOS\n           stop - Stops an app running on the active MatrixOS\n        restart - Restarts an app running on the MatrixOS\n\n - DEVELOPMENT -\n         create - Creates a new scaffolding for a MatrixOS Application\n         deploy - Uploads and deploys an app to the active MatrixOS\n        trigger - Runs a trigger test\n            log - Logs output from selected MatrixOS and applications", 
-            "title": "help"
-        }, 
-        {
-            "location": "/CLI/overview/#creating-an-application", 
-            "text": "Creating an application is very basic. It deploys from template stored in the  matrix-console  package.  matrix create app1", 
-            "title": "Creating an Application"
-        }, 
-        {
-            "location": "/CLI/overview/#app-structure", 
-            "text": "app.js  -- This is your application logic  config.yaml  -- Change variables, indicate sensors, configure dashboard.  DEVELOPER.MD  -- Developer information that will be published for integrations on the Developer Portal.  index.js  -- app entry point, do not modify  package.json  -- NodeJS information file, do not modify without knowledge.", 
-            "title": "App Structure"
-        }, 
-        {
-            "location": "/CLI/overview/#management", 
-            "text": "matrix list - information about your MatrixOS devices, applications and installations [ apps, devices, all, groups ]\n -- matrix list apps - Shows a list of apps under your account.\n -- matrix list devices - Shows a list of devices under your account.\n -- matrix list all - Shows a list of devices, with the Apps installed on each device.\n -- matrix list groups - Shows a list of groups under your account.", 
-            "title": "Management"
-        }, 
-        {
-            "location": "/CLI/overview/#control-over-applications", 
-            "text": "Work with your apps, and within the app ecosystem here. You can deploy to your simulator, or deploy to your actual MATRIX hardware. It's up to you.  matrix search - Search for apps\nmatrix install - [-a] app and [-s] sensor install. defaults to app.\n -- matrix install sensor [sensorname]\n -- matrix install app [appname]\nmatrix update - Update, update app1, update app1 v0.1\nmatrix uninstall - Usage: uninstall app1\n -- matrix uninstall sensor [sensorname]\n -- matrix uninstall app [appname]\nmatrix start - Starts an app running on the MATRIX.\nmatrix stop - Stops an app running on the MATRIX.\nmatrix restart - Restarts an app running on the MATRIX.", 
-            "title": "Control over Applications"
-        }, 
-        {
-            "location": "/CLI/overview/#developing-an-application", 
-            "text": "Flexibility to develop anything you want. These four simple commands help you test and build pretty much anything.  matrix create - Creates a new scaffolding for a MATRIX App.\nmatrix deploy - Deploys an app to the Matrix.\nmatrix trigger - Runs a trigger test\nmatrix log - Usage: log [-f, --follow]", 
-            "title": "Developing an Application"
-        }, 
-        {
-            "location": "/CLI/overview/#using-the-simulator", 
-            "text": "Create a fresh simulator, using the MATRIX OS image available online.  matrix sim - manage local MatrixOS simulator using docker [ upgrade, restore, init, start, save, clear ]\n -- matrix sim upgrade - initialize your MatrixOS simulator\n -- matrix sim restore - Restore your MatrixOS simulator\n -- matrix sim init - initialize your MatrixOS simulator\n -- matrix sim start - start MatrixOS virtual environment\n -- matrix sim save - save MatrixOS state, use after deploy / install\n -- matrix sim clear - remove simulation local data", 
-            "title": "Using the Simulator"
-        }, 
-        {
-            "location": "/intro/interfaces/", 
-            "text": "Hardware Interfaces\n\n\nModules\n\n\n\n\nFPGA\n\n\nMIC\n\n\nSAM\n\n\nSAM\n\n\nSPI\n\n\n\n\nSupporting Libraries\n\n\n\n\nHAL\n Hardware Abstraction Layer\n\n\nMALOS\n  ZeroMQ / GRPC / protobuf transactional interface", 
-            "title": "Intro - Low Level Interfaces"
-        }, 
-        {
-            "location": "/intro/interfaces/#hardware-interfaces", 
-            "text": "", 
-            "title": "Hardware Interfaces"
-        }, 
-        {
-            "location": "/intro/interfaces/#modules", 
-            "text": "FPGA  MIC  SAM  SAM  SPI", 
-            "title": "Modules"
-        }, 
-        {
-            "location": "/intro/interfaces/#supporting-libraries", 
-            "text": "HAL  Hardware Abstraction Layer  MALOS   ZeroMQ / GRPC / protobuf transactional interface", 
-            "title": "Supporting Libraries"
-        }, 
-        {
-            "location": "/API/overview/", 
-            "text": "Installation\n\n\nMATRIX OS applications are an independent process running on a device. They communicate with the MatrixOS core via IPC which is largely event driven. This makes sense for sensors, because just like a REST call, we are waiting for a data point.\n\n\nThe approach we have chosen for this is to use JavaScript callbacks which look like this.\n\n\nsomeFunction(function callback(data){})\n\n\n\n\nWhat this means is that we execute \nfunction callback()\n at a determined time inside of \nsomeFunction()\n.\n\n\nThis permits MatrixOS applications to respond to events, such as sensor information, CV detection, or external events as they happen.\n\n\nThinking in Events\n\n\nWhile you can write a \nmain()\n and \nsetInterval\n it's execution, most of the power in the MatrixOS is in listening for certain conditions to be met, and then performing an action.\n\n\nHeed Warning\n\n\nNot all of this API is built and functional yet. We have endeavored to supply warning messages where there are implementation gaps. Use \nmatrix log\n for more info about your running apps.", 
-            "title": "Overview"
-        }, 
-        {
-            "location": "/API/overview/#installation", 
-            "text": "MATRIX OS applications are an independent process running on a device. They communicate with the MatrixOS core via IPC which is largely event driven. This makes sense for sensors, because just like a REST call, we are waiting for a data point.  The approach we have chosen for this is to use JavaScript callbacks which look like this.  someFunction(function callback(data){})  What this means is that we execute  function callback()  at a determined time inside of  someFunction() .  This permits MatrixOS applications to respond to events, such as sensor information, CV detection, or external events as they happen.", 
-            "title": "Installation"
-        }, 
-        {
-            "location": "/API/overview/#thinking-in-events", 
-            "text": "While you can write a  main()  and  setInterval  it's execution, most of the power in the MatrixOS is in listening for certain conditions to be met, and then performing an action.", 
-            "title": "Thinking in Events"
-        }, 
-        {
-            "location": "/API/overview/#heed-warning", 
-            "text": "Not all of this API is built and functional yet. We have endeavored to supply warning messages where there are implementation gaps. Use  matrix log  for more info about your running apps.", 
-            "title": "Heed Warning"
-        }, 
-        {
-            "location": "/API/computer-vision/", 
-            "text": "matrix.init( algorithm, options )\n\n\n\n\nDetection Algorithms\n\n\nface\n\n\n\n\nBase Options\n\n\nThese are applicable to all algorithms.\n\n\n\n\nzone\n - a nested array of x,y, width and height\n\n\nzones\n - an array of zone arrays\n\n\n\n\nExample\n\n\nvar zone1 =  [ 100, 100, 300, 400 ];\nvar zone2 =  [ 50, 50, 250, 300 ];\n{\n  zone: zone1,\n  zones: [zone1, zone2]\n}\n\n\n\n\n\n\n\nFace Detection\n\n\nmatrix.init('face').then(function(data){})\n\n\n\n\nthen\n will call when any face is detected\n\n\nFace Detection Options\n\n\nTo only detect particular characteristics pass an array of the desired values as \noptions.detect\n.\n\n\nExample\n\n\nvar options = { detect: ['AGE', 'EMOTION','GENDER','FACE_ID','HEAD_POSE','FACE_FEATURES'] };\nmatrix.init('gesture', options);\n\n\n\n\nemotions\n\n\nHAPPY\n\n\nSAD\n\n\nCONFUSED\n\n\nANGRY\n\n\nCALM\n\n\nSURPRISED\n\n\nDISGUST\n\n\nDWELL\n\n\n!--\n\n\nFace Recognition\n\n\nmatrix.init('face-id').then(function(data){})\n\n\n\n\nFacial recognition requires a target face to be supplied to it first. This can be provided in the application folder or uploaded to the device.\n\n\nOptions\n\n\nTo detect a face, supply it in \noptions.match\n. Use an array to recognize multiple faces.\n\n\nExample\n\n\n// preuploaded Example - myFace.jpg\nmatrix.init('face-id', { match: 'myFace' })\n\n\n\n\n// dynamic faces from dashboard / mobile app / cli\nmatrix.on('faceUpload', function(data){\n  // saves upload to filesystem\n  matrix.save(data.name + '.' + data.typeSuffix, data.file);\n\n  // retrieve the configuration variable\n  var faces = matrix.faces;\n\n  // update with new face file\n  faces.push(data.name);\n\n  // save new face to configuration\n  matrix.config('faces', faces);\n\n  // restart application to use new face\n  matrix.restartApp();\n});\n\n// use configuration for recognition\nmatrix.init('face', { match: matrix.faces })\n\n\n\n\nVehicle Counting\n\n\nmatrix.init('vehicle-count').then(function(data){})\n\n\n\n\nOptions\n\n\nToggle different detection modes depending on circumstances.\n\n\nExample\n\n\n//TODO\n\n\nPeople Counting\n\n\nmatrix.init('people-count').then(function(data){})\n\n\n\n\nOptions\n\n\nExample --", 
-            "title": "Computer Vision"
-        }, 
-        {
-            "location": "/API/computer-vision/#detection-algorithms", 
-            "text": "face", 
-            "title": "Detection Algorithms"
-        }, 
-        {
-            "location": "/API/computer-vision/#base-options", 
-            "text": "These are applicable to all algorithms.   zone  - a nested array of x,y, width and height  zones  - an array of zone arrays", 
-            "title": "Base Options"
-        }, 
-        {
-            "location": "/API/computer-vision/#example", 
-            "text": "var zone1 =  [ 100, 100, 300, 400 ];\nvar zone2 =  [ 50, 50, 250, 300 ];\n{\n  zone: zone1,\n  zones: [zone1, zone2]\n}", 
-            "title": "Example"
-        }, 
-        {
-            "location": "/API/computer-vision/#face-detection", 
-            "text": "matrix.init('face').then(function(data){})  then  will call when any face is detected", 
-            "title": "Face Detection"
-        }, 
-        {
-            "location": "/API/computer-vision/#face-detection-options", 
-            "text": "To only detect particular characteristics pass an array of the desired values as  options.detect .", 
-            "title": "Face Detection Options"
-        }, 
-        {
-            "location": "/API/computer-vision/#example_1", 
-            "text": "var options = { detect: ['AGE', 'EMOTION','GENDER','FACE_ID','HEAD_POSE','FACE_FEATURES'] };\nmatrix.init('gesture', options);", 
-            "title": "Example"
-        }, 
-        {
-            "location": "/API/computer-vision/#emotions", 
-            "text": "HAPPY  SAD  CONFUSED  ANGRY  CALM  SURPRISED  DISGUST  DWELL  !--", 
-            "title": "emotions"
-        }, 
-        {
-            "location": "/API/computer-vision/#face-recognition", 
-            "text": "matrix.init('face-id').then(function(data){})  Facial recognition requires a target face to be supplied to it first. This can be provided in the application folder or uploaded to the device.", 
-            "title": "Face Recognition"
-        }, 
-        {
-            "location": "/API/computer-vision/#options", 
-            "text": "To detect a face, supply it in  options.match . Use an array to recognize multiple faces.", 
-            "title": "Options"
-        }, 
-        {
-            "location": "/API/computer-vision/#example_2", 
-            "text": "// preuploaded Example - myFace.jpg\nmatrix.init('face-id', { match: 'myFace' })  // dynamic faces from dashboard / mobile app / cli\nmatrix.on('faceUpload', function(data){\n  // saves upload to filesystem\n  matrix.save(data.name + '.' + data.typeSuffix, data.file);\n\n  // retrieve the configuration variable\n  var faces = matrix.faces;\n\n  // update with new face file\n  faces.push(data.name);\n\n  // save new face to configuration\n  matrix.config('faces', faces);\n\n  // restart application to use new face\n  matrix.restartApp();\n});\n\n// use configuration for recognition\nmatrix.init('face', { match: matrix.faces })", 
-            "title": "Example"
-        }, 
-        {
-            "location": "/API/computer-vision/#vehicle-counting", 
-            "text": "matrix.init('vehicle-count').then(function(data){})", 
-            "title": "Vehicle Counting"
-        }, 
-        {
-            "location": "/API/computer-vision/#options_1", 
-            "text": "Toggle different detection modes depending on circumstances.", 
-            "title": "Options"
-        }, 
-        {
-            "location": "/API/computer-vision/#example_3", 
-            "text": "//TODO", 
-            "title": "Example"
-        }, 
-        {
-            "location": "/API/computer-vision/#people-counting", 
-            "text": "matrix.init('people-count').then(function(data){})", 
-            "title": "People Counting"
-        }, 
-        {
-            "location": "/API/computer-vision/#options_2", 
-            "text": "", 
-            "title": "Options"
-        }, 
-        {
-            "location": "/API/computer-vision/#example-", 
-            "text": "", 
-            "title": "Example --&gt;"
-        }, 
-        {
-            "location": "/API/crosstalk/", 
-            "text": "CrossTalk is how MatrixOS applications communicate between different devices. Applications can exchange information with other applications, or with other instances of the same application. Cool, right?\n\n\nAll messages get sent to all devices, so if you have the same app running on different devices, this is how to communicate between instances of the app. \n\n\nGlobal Emitters \n Listeners\n\n\n// Send a payload to all listeners\nmatrix.emit(payload);\n\n// Listen for global CrossTalk messages\nmatrix.on(function(payload) { ... });\n\n\n\n\nApp Specific Message\n\n\n// Send a message to a particular application\nmatrix.emit('app', payload);\n\n// Listen for application specific CrossTalk messages\nmatrix.on(function(payload) { ... });\n\n\n\n\nSpecific Event within App\n\n\n// Trigger an event in a specific application\nmatrix.emit('app', 'event', payload);\n\n// Listen for CrossTalk events sent to this application\nmatrix.on('event', function(payload) { ... });\n\n\n\n\nDashboard\n\n\n// Interface elements from Dashboards can also trigger CrossTalk events.\nmatrix.on('buttonClick', function(payload) { ... });\n\n\n\n\nsee \ndocs/configuration/widgets\n for more information", 
-            "title": "Crosstalk"
-        }, 
-        {
-            "location": "/API/crosstalk/#global-emitters-listeners", 
-            "text": "// Send a payload to all listeners\nmatrix.emit(payload);\n\n// Listen for global CrossTalk messages\nmatrix.on(function(payload) { ... });", 
-            "title": "Global Emitters &amp; Listeners"
-        }, 
-        {
-            "location": "/API/crosstalk/#app-specific-message", 
-            "text": "// Send a message to a particular application\nmatrix.emit('app', payload);\n\n// Listen for application specific CrossTalk messages\nmatrix.on(function(payload) { ... });", 
-            "title": "App Specific Message"
-        }, 
-        {
-            "location": "/API/crosstalk/#specific-event-within-app", 
-            "text": "// Trigger an event in a specific application\nmatrix.emit('app', 'event', payload);\n\n// Listen for CrossTalk events sent to this application\nmatrix.on('event', function(payload) { ... });", 
-            "title": "Specific Event within App"
-        }, 
-        {
-            "location": "/API/crosstalk/#dashboard", 
-            "text": "// Interface elements from Dashboards can also trigger CrossTalk events.\nmatrix.on('buttonClick', function(payload) { ... });  see  docs/configuration/widgets  for more information", 
-            "title": "Dashboard"
-        }, 
-        {
-            "location": "/API/typesend/", 
-            "text": "Unless otherwise specified, sensor data is typed with the application name.\n\n\nmatrix.send({\n  foo: 123\n})\n\n\n\n\nis read in a widget \nconfig.yaml\n ( See \nConfiguration\nWidgets\n)\n\n\nname: fooApp\nwidgets:\n  fooWidget:\n    display: digit,\n    type: fooApp\n    key: foo\n\n\n\n\nType\n\n\nTypes are another way to organize the data coming off MatrixOS and make it easier to work with in dashboards.\n\n\nmatrix.type('bar').send({\n  foo: 123\n})\n\n\n\n\nwould instead be utilized with the following\n\n\nname: fooApp\nwidgets:\n  fooWidget:\n    display: digit,\n    type: bar\n    key: foo\n\n\n\n\nTypes are also different ways of segmenting the data. When your application generates reports, types and keys will form the structure of that report. ( See \n Data Types \n for more )", 
-            "title": "Type"
-        }, 
-        {
-            "location": "/API/typesend/#type", 
-            "text": "Types are another way to organize the data coming off MatrixOS and make it easier to work with in dashboards.  matrix.type('bar').send({\n  foo: 123\n})  would instead be utilized with the following  name: fooApp\nwidgets:\n  fooWidget:\n    display: digit,\n    type: bar\n    key: foo  Types are also different ways of segmenting the data. When your application generates reports, types and keys will form the structure of that report. ( See   Data Types   for more )", 
-            "title": "Type"
-        }, 
-        {
-            "location": "/API/GPIO/", 
-            "text": "[WIP] GPIO can be used to communicate or receive input from analog and digital components through the MATRIX Creator, or any other sensor leveraging Raspberry Pi's GPIOs.\n\n\n.open\n\n\nmatrix.gpio.open(16, \noutput\n, function(err){\n    // read or write\n});\n\n\n\n\n.read\n\n\n\n\npinNumber\n: The GPIO you are reading from.\n\n\ncallback\n: Returns \nerr\n, \nvalue\n.\n\n\n\n\nmatrix.gpio.read(16, function(err, value) {\n  if(err) throw err;\n  console.log(value);   // The current state of the pin \n});\n\n\n\n\n.write\n\n\n\n\npinNumber\n: The GPIO you are reading from.\n\n\nvalue\n: The value you would like to update the GPIO with.\n\n\ncallback\n: Returns \nerr\n, \nvalue\n.\n\n\n\n\nmatrix.gpio.write(16, 1, function(err) {\n    if(err) throw err;\n});\n\n\n\n\n.close\n\n\n\n\npinNumber\n: The GPIO you would like to close.\n\n\n\n\nmatrix.gpio.close(16);\n\n\n\n\nExample\n\n\nmatrix.gpio.open(16, \noutput\n, function(err) {\n    matrix.gpio.write(16, 1, function() {\n        matrix.gpio.close(16);\n    });\n});", 
-            "title": "GPIO"
-        }, 
-        {
-            "location": "/API/GPIO/#open", 
-            "text": "matrix.gpio.open(16,  output , function(err){\n    // read or write\n});", 
-            "title": ".open"
-        }, 
-        {
-            "location": "/API/GPIO/#read", 
-            "text": "pinNumber : The GPIO you are reading from.  callback : Returns  err ,  value .   matrix.gpio.read(16, function(err, value) {\n  if(err) throw err;\n  console.log(value);   // The current state of the pin \n});", 
-            "title": ".read"
-        }, 
-        {
-            "location": "/API/GPIO/#write", 
-            "text": "pinNumber : The GPIO you are reading from.  value : The value you would like to update the GPIO with.  callback : Returns  err ,  value .   matrix.gpio.write(16, 1, function(err) {\n    if(err) throw err;\n});", 
-            "title": ".write"
-        }, 
-        {
-            "location": "/API/GPIO/#close", 
-            "text": "pinNumber : The GPIO you would like to close.   matrix.gpio.close(16);", 
-            "title": ".close"
-        }, 
-        {
-            "location": "/API/GPIO/#example", 
-            "text": "matrix.gpio.open(16,  output , function(err) {\n    matrix.gpio.write(16, 1, function() {\n        matrix.gpio.close(16);\n    });\n});", 
-            "title": "Example"
+            "location": "/#custom-raspbian-package", 
+            "text": "We'll be making a custom raspbian package available for download very soon!", 
+            "title": "Custom Raspbian Package"
         }, 
         {
             "location": "/API/sensors/", 
-            "text": ".init\n\n\nAll sensors are initialized using the \ninit\n method. \n\n\n\n\nsensorType\n: Type of sensor you are initializing \ntemperature\n, \nhumidity\n, \npressure\n, \nuv\n, \naltitude\n, \ngyro\n, \naccel\n.\n\n\noptions\n: The options for that sensor. By default, all sensors have a \nrefresh\n and \ntimeout\n property.\n\n\n\n\nvar options = { \n  refresh: 1000 //milliseconds\n  timeout: 1000 //milliseconds\n};\n\nmatrix.init('temperature', options).then(function(data){\n  //see below for data formats\n})it\n\n\n\n\nTemperature\n\n\nOutput for \ntemperature\n (in \n).\n\n\n{\n  value: 28.0\n}\n\n\n\n\nHumidity\n\n\nOutput for \nhumidity\n.\n\n\nPressure\n\n\nOutput for \npressure\n.\n\n\nAltitude\n\n\nOutput for \naltitude\n.\n\n\nUV\n\n\nOutput for \ntemperature\n.\n\n\nGyroscope\n\n\nOutput for \ngyro\n.\n\n\n{\n  yaw: 82.06211853027344,\n  pitch: -7.972985744476318,\n  roll: 1.0514432191848755\n}\n\n\n\n\nAccelerometer\n\n\n{\n  x: 0.1,\n  y: 0.23,\n  z: 0.224\n}\n\n\n\n\nFiltering Sensor Data\n\n\nSee \nAPI \n Filter", 
+            "text": "Sensors\n\n\n.init\n\n\nAll sensors are initialized using the \ninit\n method. \n\n\n\n\nsensorType\n: Type of sensor you are initializing \ntemperature\n, \nhumidity\n, \npressure\n, \nuv\n, \naltitude\n, \ngyro\n, \naccel\n.\n\n\noptions\n: The options for that sensor. By default, all sensors have a \nrefresh\n and \ntimeout\n property.\n\n\n\n\nvar options = { \n  refresh: 1000 //milliseconds\n  timeout: 1000 //milliseconds\n};\n\nmatrix.init('temperature', options).then(function(data){\n  //see below for data formats\n})it\n\n\n\n\nOutputs\n\n\nTemperature\n\n\nOutput for \ntemperature\n (in \n).\n\n\n{\n  value: 28.0\n}\n\n\n\n\nHumidity\n\n\nOutput for \nhumidity\n.\n\n\nPressure\n\n\nOutput for \npressure\n.\n\n\nAltitude\n\n\nOutput for \naltitude\n.\n\n\nUV\n\n\nOutput for \ntemperature\n.\n\n\nGyroscope\n\n\nOutput for \ngyro\n.\n\n\n{\n  yaw: 82.06211853027344,\n  pitch: -7.972985744476318,\n  roll: 1.0514432191848755\n}\n\n\n\n\nAccelerometer\n\n\n{\n  x: 0.1,\n  y: 0.23,\n  z: 0.224\n}\n\n\n\n\nFiltering Sensor Data\n\n\nSee \nAPI \n Filter", 
+            "title": "Sensors"
+        }, 
+        {
+            "location": "/API/sensors/#sensors", 
+            "text": "", 
             "title": "Sensors"
         }, 
         {
             "location": "/API/sensors/#init", 
             "text": "All sensors are initialized using the  init  method.    sensorType : Type of sensor you are initializing  temperature ,  humidity ,  pressure ,  uv ,  altitude ,  gyro ,  accel .  options : The options for that sensor. By default, all sensors have a  refresh  and  timeout  property.   var options = { \n  refresh: 1000 //milliseconds\n  timeout: 1000 //milliseconds\n};\n\nmatrix.init('temperature', options).then(function(data){\n  //see below for data formats\n})it", 
             "title": ".init"
+        }, 
+        {
+            "location": "/API/sensors/#outputs", 
+            "text": "", 
+            "title": "Outputs"
         }, 
         {
             "location": "/API/sensors/#temperature", 
@@ -421,8 +476,78 @@
             "title": "Filtering Sensor Data"
         }, 
         {
+            "location": "/API/everloop/", 
+            "text": "Everloop\n\n\nA powerful tool for communicating with end users is the EverLoop LED circle.\n\n\nRendering\n\n\nMatrixOS is an attempt at abstracting out the complexity of hardware to make it very accessible for end users. At the same time, one also wants to support those who might want to perform more complex operations. When designing a language, sometimes compromises between ease of use and features must be made. \n\n\nThe problem\n\n\nMany things might want to write to the LED. We can leave it up to chance as to which gets to write, or we can approach it intelligently to optimize the aesthetics and performance. This requires a more complex notation. \n\n\nThe Solution\n\n\nmatrix.led('blue')\n//does nothing\n\n\nmatrix.led('green').render()\n//lights change\n\n\n\n\nSet Colors\n\n\n// set an initial color\nmatrix.led('red')\n\n// interleave two colors\nmatrix.led([ '#bada55, '#e1337e'])\n\n// support opacity\nmatrix.led('rgba(255, 0, 100, 0.6)')\n\n\n\n\nGenerate Shapes\n\n\nmatrix.led({\n  // number of lights to use [ 90\u00b0 = 9 ]   \n  arc: 9,\n\n  color: 'green',\n\n  // index to start drawing arc\n  start: 12\n});\n\n//no color assumes off\nmatrix.led({\n  arc: 360\n})\n\n// draw a point\nmatrix.led({\n  angle: 245,\n  color: 'white',\n  // blends interlight space if true, solid lights if false, default false\n  blend: true\n})\n\n// support multiple shapes\n\n\n\n\nManipulate colors\n\n\n//retrieves the current color state of the LED\nmatrix.led()\n\n// lighten all colors 0 - 100\nmatrix.led().brighten(10)\n\n// darken all colors 0 - 100\nmatrix.led().darken(10)\n\n\n\n\nManipulate position\n\n\n// rotate the lights clockwise by a specified angle\nmatrix.led().rotate(90)\n\n\n\n\nComposition\n\n\nShape Objects\n\n\n// make a smiley face\nmatrix.led([\n  {\n    angle: 45,\n    color: 'yellow'\n  },\n  {\n    angle: 135,\n    color: 'yellow'\n  },\n  {\n    arc: 90,\n    color: 'yellow',\n    start: 225\n  }\n]).darken(90).render();\n\n\n\n\nDirect Pixel Manipulation\n\n\nArray index = led to change\n\n\nmatrix.led([0, 0, 0, 0, 'yellow', 0,\n0, 0, 0, 0, 0, 0, 0, 'yellow', 0, 0,\n0, 0, 0, 0, 0, 0, 'yellow', 'yellow',\n'yellow', 'yellow', 'yellow', 'yellow',\n'yellow', 'yellow', 'yellow' ]).render();\n\n\n\n\nExample clock\n\n\nsetInterval(function(){\n  var time = new Date();\n  var h = time.getHours();\n  var m = time.getMinutes();\n  var s = time.getSeconds();\n\n  var hourLED = {\n    // translate hours (12) to angle (360)\n    arc: h * 3,\n    color: 'blue',\n    darken: 50\n  };\n\n  var minuteLED = {\n    // translate minutes ( 60 ) to angle ( 360 )\n    angle: m * 6,\n    color: 'green'\n  };\n\n  var secondLED = {\n    // translate seconds (60) to angle (360)\n    angle: s * 6,\n    color: yellow,\n    blend: true\n  };\n\n  matrix.led([hourLED, minuteLED]).render();\n\n}, 1000)", 
+            "title": "Everloop"
+        }, 
+        {
+            "location": "/API/everloop/#everloop", 
+            "text": "A powerful tool for communicating with end users is the EverLoop LED circle.", 
+            "title": "Everloop"
+        }, 
+        {
+            "location": "/API/everloop/#rendering", 
+            "text": "MatrixOS is an attempt at abstracting out the complexity of hardware to make it very accessible for end users. At the same time, one also wants to support those who might want to perform more complex operations. When designing a language, sometimes compromises between ease of use and features must be made.", 
+            "title": "Rendering"
+        }, 
+        {
+            "location": "/API/everloop/#the-problem", 
+            "text": "Many things might want to write to the LED. We can leave it up to chance as to which gets to write, or we can approach it intelligently to optimize the aesthetics and performance. This requires a more complex notation.", 
+            "title": "The problem"
+        }, 
+        {
+            "location": "/API/everloop/#the-solution", 
+            "text": "matrix.led('blue')\n//does nothing\n\n\nmatrix.led('green').render()\n//lights change", 
+            "title": "The Solution"
+        }, 
+        {
+            "location": "/API/everloop/#set-colors", 
+            "text": "// set an initial color\nmatrix.led('red')\n\n// interleave two colors\nmatrix.led([ '#bada55, '#e1337e'])\n\n// support opacity\nmatrix.led('rgba(255, 0, 100, 0.6)')", 
+            "title": "Set Colors"
+        }, 
+        {
+            "location": "/API/everloop/#generate-shapes", 
+            "text": "matrix.led({\n  // number of lights to use [ 90\u00b0 = 9 ]   \n  arc: 9,\n\n  color: 'green',\n\n  // index to start drawing arc\n  start: 12\n});\n\n//no color assumes off\nmatrix.led({\n  arc: 360\n})\n\n// draw a point\nmatrix.led({\n  angle: 245,\n  color: 'white',\n  // blends interlight space if true, solid lights if false, default false\n  blend: true\n})\n\n// support multiple shapes", 
+            "title": "Generate Shapes"
+        }, 
+        {
+            "location": "/API/everloop/#manipulate-colors", 
+            "text": "//retrieves the current color state of the LED\nmatrix.led()\n\n// lighten all colors 0 - 100\nmatrix.led().brighten(10)\n\n// darken all colors 0 - 100\nmatrix.led().darken(10)", 
+            "title": "Manipulate colors"
+        }, 
+        {
+            "location": "/API/everloop/#manipulate-position", 
+            "text": "// rotate the lights clockwise by a specified angle\nmatrix.led().rotate(90)", 
+            "title": "Manipulate position"
+        }, 
+        {
+            "location": "/API/everloop/#composition", 
+            "text": "", 
+            "title": "Composition"
+        }, 
+        {
+            "location": "/API/everloop/#shape-objects", 
+            "text": "// make a smiley face\nmatrix.led([\n  {\n    angle: 45,\n    color: 'yellow'\n  },\n  {\n    angle: 135,\n    color: 'yellow'\n  },\n  {\n    arc: 90,\n    color: 'yellow',\n    start: 225\n  }\n]).darken(90).render();", 
+            "title": "Shape Objects"
+        }, 
+        {
+            "location": "/API/everloop/#direct-pixel-manipulation", 
+            "text": "Array index = led to change  matrix.led([0, 0, 0, 0, 'yellow', 0,\n0, 0, 0, 0, 0, 0, 0, 'yellow', 0, 0,\n0, 0, 0, 0, 0, 0, 'yellow', 'yellow',\n'yellow', 'yellow', 'yellow', 'yellow',\n'yellow', 'yellow', 'yellow' ]).render();", 
+            "title": "Direct Pixel Manipulation"
+        }, 
+        {
+            "location": "/API/everloop/#example-clock", 
+            "text": "setInterval(function(){\n  var time = new Date();\n  var h = time.getHours();\n  var m = time.getMinutes();\n  var s = time.getSeconds();\n\n  var hourLED = {\n    // translate hours (12) to angle (360)\n    arc: h * 3,\n    color: 'blue',\n    darken: 50\n  };\n\n  var minuteLED = {\n    // translate minutes ( 60 ) to angle ( 360 )\n    angle: m * 6,\n    color: 'green'\n  };\n\n  var secondLED = {\n    // translate seconds (60) to angle (360)\n    angle: s * 6,\n    color: yellow,\n    blend: true\n  };\n\n  matrix.led([hourLED, minuteLED]).render();\n\n}, 1000)", 
+            "title": "Example clock"
+        }, 
+        {
             "location": "/API/filter/", 
-            "text": "MatrixOS sensors and computer vision algorithms provide data which can be filtered between the \ninit\n, which can be regarded as the data source, and the \nthen\n, which can be regarded as the data receiver. Between the two, we can use chaining methods to easily filter what data is received.\n\n\n// filtering in a simple application\nmatrix.init('temperature')\n.above(80)\n.then(function(data){\n  // see CrossTalk documentation for more information about matrix.emit\n  matrix.emit('ac-control', 'turnOn');\n})\n\n\n\n\nFiltering decides whether or not a data point is passed to the \nthen()\n, it does not change the data in any way.\n\n\nSimple Filtering methods\n\n\nequality\n\n\nNumeric\n\n\nis()\n \nlike()\n\n\nmatrix.init('temperature').is(72)\n\n\n\n\nString\n\n\nmatrix.init('microphone').contains('hello world')\n\n\n\n\nnegation\n\n\nnot()\n\n\nmatrix.init('temperature').not(72)\n\n\n\n\nproximity\n\n\nnear()\n\n\nmatrix.init('gps').near([39.0432661,117.7249414])\n\n\n\n\nComplex Filtering\n\n\nhas\n\n\nhas()\n is used to refine a data source by additional criteria and keys.\n\n\n// for simple sensors\nmatrix.init('temperature').has('value')\n// equivalent to\nmatrix.init('temperature').has()\n\n// for complex sensors\nmatrix.init('gyro').has('x')\n\n// for detections\nmatrix.init('face').has('age')\n\n\n\n\nbounds\n\n\n greater then\n\n\nabove\n, \nover\n, 'after'\n\n\nmatrix.init('temperature').has().above(72)\n\n\n\n\n less then\n\n\nbelow\n, \nunder\n, 'before'\n\n\nmatrix.init('temperature').has().below(32)\n\n\n\n\nbetween\n\n\nmatrix.init('face').has('happy').between(50,100)", 
+            "text": "Filters\n\n\nMatrixOS sensors and computer vision algorithms provide data which can be filtered between the \ninit\n, which can be regarded as the data source, and the \nthen\n, which can be regarded as the data receiver. Between the two, we can use chaining methods to easily filter what data is received.\n\n\n// filtering in a simple application\nmatrix.init('temperature')\n.above(80)\n.then(function(data){\n  // see CrossTalk documentation for more information about matrix.emit\n  matrix.emit('ac-control', 'turnOn');\n})\n\n\n\n\nFiltering decides whether or not a data point is passed to the \nthen()\n, it does not change the data in any way.\n\n\nSimple Filtering methods\n\n\nequality\n\n\nNumeric\n\n\nis()\n \nlike()\n\n\nmatrix.init('temperature').is(72)\n\n\n\n\nString\n\n\nmatrix.init('microphone').contains('hello world')\n\n\n\n\nnegation\n\n\nnot()\n\n\nmatrix.init('temperature').not(72)\n\n\n\n\nproximity\n\n\nnear()\n\n\nmatrix.init('gps').near([39.0432661,117.7249414])\n\n\n\n\nComplex Filtering\n\n\nhas\n\n\nhas()\n is used to refine a data source by additional criteria and keys.\n\n\n// for simple sensors\nmatrix.init('temperature').has('value')\n// equivalent to\nmatrix.init('temperature').has()\n\n// for complex sensors\nmatrix.init('gyro').has('x')\n\n// for detections\nmatrix.init('face').has('age')\n\n\n\n\nbounds\n\n\n greater then\n\n\nabove\n, \nover\n, 'after'\n\n\nmatrix.init('temperature').has().above(72)\n\n\n\n\n less then\n\n\nbelow\n, \nunder\n, 'before'\n\n\nmatrix.init('temperature').has().below(32)\n\n\n\n\nbetween\n\n\nmatrix.init('face').has('happy').between(50,100)", 
+            "title": "Filters"
+        }, 
+        {
+            "location": "/API/filter/#filters", 
+            "text": "MatrixOS sensors and computer vision algorithms provide data which can be filtered between the  init , which can be regarded as the data source, and the  then , which can be regarded as the data receiver. Between the two, we can use chaining methods to easily filter what data is received.  // filtering in a simple application\nmatrix.init('temperature')\n.above(80)\n.then(function(data){\n  // see CrossTalk documentation for more information about matrix.emit\n  matrix.emit('ac-control', 'turnOn');\n})  Filtering decides whether or not a data point is passed to the  then() , it does not change the data in any way.", 
             "title": "Filters"
         }, 
         {
@@ -486,84 +611,149 @@
             "title": "between"
         }, 
         {
+            "location": "/API/computer-vision/", 
+            "text": "Computer Vision\n\n\nWe've build computer vision algorithms in the API inteface to add another level of experiential IoT applications. We've also made it extremely simple to get started.\n\n\nDetection Algorithms\n\n\nAvailable algorithms: \nface\n\n\n\n\nInitialization\n\n\nvar algorithm = 'face';\nvar options   = {};\nmatrix.init( algorithm, options ).then(function( data ){\n  // some callback\n  console.log( data );\n});", 
+            "title": "Computer Vision"
+        }, 
+        {
+            "location": "/API/computer-vision/#computer-vision", 
+            "text": "We've build computer vision algorithms in the API inteface to add another level of experiential IoT applications. We've also made it extremely simple to get started.", 
+            "title": "Computer Vision"
+        }, 
+        {
+            "location": "/API/computer-vision/#detection-algorithms", 
+            "text": "Available algorithms:  face", 
+            "title": "Detection Algorithms"
+        }, 
+        {
+            "location": "/API/computer-vision/#initialization", 
+            "text": "var algorithm = 'face';\nvar options   = {};\nmatrix.init( algorithm, options ).then(function( data ){\n  // some callback\n  console.log( data );\n});", 
+            "title": "Initialization"
+        }, 
+        {
             "location": "/API/microphone/", 
-            "text": "matrix.init('microphone').contains('hello world')\n\n\n\n\nDirectional array\n\n\nIndividual microphones can be toggled as follows.\n\n\nmatrix.init('microphone', {\n// degrees\n  source: 90,\n// or by index\n  sensor: 5\n});\n\n\n\n\nFiltering\n\n\nmatrix.init('microphone').has('db').above(155).then()\n\n\n\n\ndb\n, \nfft", 
+            "text": "Microphone\n\n\nComing soon...", 
             "title": "Microphone"
         }, 
         {
-            "location": "/API/microphone/#directional-array", 
-            "text": "Individual microphones can be toggled as follows.  matrix.init('microphone', {\n// degrees\n  source: 90,\n// or by index\n  sensor: 5\n});", 
-            "title": "Directional array"
+            "location": "/API/microphone/#microphone", 
+            "text": "Coming soon...", 
+            "title": "Microphone"
         }, 
         {
-            "location": "/API/microphone/#filtering", 
-            "text": "matrix.init('microphone').has('db').above(155).then()  db ,  fft", 
-            "title": "Filtering"
+            "location": "/API/crosstalk/", 
+            "text": "Cross-Talk\n\n\nCross-Talk is how applications communicate between different devices. Applications can exchange information with other applications, or with other instances of the same application. Cool, right? All messages get sent to all devices, so if you have the same app running on different devices, this is how to communicate between instances of the app. \n\n\nGlobal Emitters \n Listeners\n\n\nGlobal messages that can be received across applications, devices, and clients. e.g. Emit from one device, receive on another.\n\n\n.emit(payload)\n\n\n\n\npayload\n Object or string to pass through to retrieve with the listener.\n\n\n\n\n// Send a payload to all listeners\nmatrix.emit(payload);\n\n\n\n\n.on(cb)\n\n\n\n\ncb\n Callback method with \npayload\n returned.\n\n\n\n\n// Listen for global CrossTalk messages\nmatrix.on(function(payload) { ... });\n\n\n\n\nApp Specific Message\n\n\nMessages that can be shared across applications on a single device.\n\n\n.emit(app, payload)\n\n\n\n\napp\n Label to later listen for.\n\n\npayload\n Object or string to pass through to retrieve with the listener.\n\n\n\n\n// Send a message to a particular application\nmatrix.emit('app', payload);\n\n\n\n\n.on(cb)\n\n\n\n\ncb\n Callback method with payload returned.\n\n\n\n\n// Listen for application specific CrossTalk messages\nmatrix.on(function(payload) { ... });\n\n\n\n\nSpecific Event within App\n\n\nMessages that can be filtered by application, and an event type.\n\n\n.emit(app, event, payload)\n\n\n\n\napp\n Label to later listen for.\n\n\nevent\n Event scope within \napp\n to listen for.\n\n\npayload\n Object or string to pass through to retrieve with the listener.\n\n\n\n\n// Trigger an event in a specific application\nmatrix.emit('app', 'event', payload);\n\n\n\n\n.on(event, cb)\n\n\n\n\nevent\n Event to listen on.\n\n\ncb\n Callback method with payload returned.\n\n\n\n\n// Listen for CrossTalk events sent to this application\nmatrix.on('event', function(payload) { ... });\n\n\n\n\nDashboard\n\n\nReceive events from web or mobile by binding them to widget controls.\n\n\n// Interface elements from Dashboards can also trigger CrossTalk events.\nmatrix.on('buttonClick', function(payload) { ... });\n\n\n\n\nConfiguration-Driven Events\n\n\nSee \nConfiguration \n Widgets", 
+            "title": "Cross-Talk"
+        }, 
+        {
+            "location": "/API/crosstalk/#cross-talk", 
+            "text": "Cross-Talk is how applications communicate between different devices. Applications can exchange information with other applications, or with other instances of the same application. Cool, right? All messages get sent to all devices, so if you have the same app running on different devices, this is how to communicate between instances of the app.", 
+            "title": "Cross-Talk"
+        }, 
+        {
+            "location": "/API/crosstalk/#global-emitters-listeners", 
+            "text": "Global messages that can be received across applications, devices, and clients. e.g. Emit from one device, receive on another.", 
+            "title": "Global Emitters &amp; Listeners"
+        }, 
+        {
+            "location": "/API/crosstalk/#emitpayload", 
+            "text": "payload  Object or string to pass through to retrieve with the listener.   // Send a payload to all listeners\nmatrix.emit(payload);", 
+            "title": ".emit(payload)"
+        }, 
+        {
+            "location": "/API/crosstalk/#oncb", 
+            "text": "cb  Callback method with  payload  returned.   // Listen for global CrossTalk messages\nmatrix.on(function(payload) { ... });", 
+            "title": ".on(cb)"
+        }, 
+        {
+            "location": "/API/crosstalk/#app-specific-message", 
+            "text": "Messages that can be shared across applications on a single device.", 
+            "title": "App Specific Message"
+        }, 
+        {
+            "location": "/API/crosstalk/#emitapp-payload", 
+            "text": "app  Label to later listen for.  payload  Object or string to pass through to retrieve with the listener.   // Send a message to a particular application\nmatrix.emit('app', payload);", 
+            "title": ".emit(app, payload)"
+        }, 
+        {
+            "location": "/API/crosstalk/#oncb_1", 
+            "text": "cb  Callback method with payload returned.   // Listen for application specific CrossTalk messages\nmatrix.on(function(payload) { ... });", 
+            "title": ".on(cb)"
+        }, 
+        {
+            "location": "/API/crosstalk/#specific-event-within-app", 
+            "text": "Messages that can be filtered by application, and an event type.", 
+            "title": "Specific Event within App"
+        }, 
+        {
+            "location": "/API/crosstalk/#emitapp-event-payload", 
+            "text": "app  Label to later listen for.  event  Event scope within  app  to listen for.  payload  Object or string to pass through to retrieve with the listener.   // Trigger an event in a specific application\nmatrix.emit('app', 'event', payload);", 
+            "title": ".emit(app, event, payload)"
+        }, 
+        {
+            "location": "/API/crosstalk/#onevent-cb", 
+            "text": "event  Event to listen on.  cb  Callback method with payload returned.   // Listen for CrossTalk events sent to this application\nmatrix.on('event', function(payload) { ... });", 
+            "title": ".on(event, cb)"
+        }, 
+        {
+            "location": "/API/crosstalk/#dashboard", 
+            "text": "Receive events from web or mobile by binding them to widget controls.  // Interface elements from Dashboards can also trigger CrossTalk events.\nmatrix.on('buttonClick', function(payload) { ... });", 
+            "title": "Dashboard"
+        }, 
+        {
+            "location": "/API/crosstalk/#configuration-driven-events", 
+            "text": "See  Configuration   Widgets", 
+            "title": "Configuration-Driven Events"
+        }, 
+        {
+            "location": "/API/typesend/", 
+            "text": "Unless otherwise specified, sensor data is typed with the application name.\n\n\nmatrix.send({\n  foo: 123\n})\n\n\n\n\nis read in a widget \nconfig.yaml\n ( See \nConfiguration\nWidgets\n)\n\n\nname: fooApp\nwidgets:\n  fooWidget:\n    display: digit,\n    type: fooApp\n    key: foo\n\n\n\n\nType\n\n\nTypes are another way to organize the data coming off MatrixOS and make it easier to work with in dashboards.\n\n\nmatrix.type('bar').send({\n  foo: 123\n})\n\n\n\n\nwould instead be utilized with the following\n\n\nname: fooApp\nwidgets:\n  fooWidget:\n    display: digit,\n    type: bar\n    key: foo\n\n\n\n\nTypes are also different ways of segmenting the data. When your application generates reports, types and keys will form the structure of that report. ( See \n Data Types \n for more )", 
+            "title": "Type"
+        }, 
+        {
+            "location": "/API/typesend/#type", 
+            "text": "Types are another way to organize the data coming off MatrixOS and make it easier to work with in dashboards.  matrix.type('bar').send({\n  foo: 123\n})  would instead be utilized with the following  name: fooApp\nwidgets:\n  fooWidget:\n    display: digit,\n    type: bar\n    key: foo  Types are also different ways of segmenting the data. When your application generates reports, types and keys will form the structure of that report. ( See   Data Types   for more )", 
+            "title": "Type"
+        }, 
+        {
+            "location": "/API/GPIO/", 
+            "text": "GPIO\n\n\n[WIP] GPIO can be used to communicate or receive input from analog and digital components through the MATRIX Creator, or any other sensor leveraging Raspberry Pi's GPIOs.\n\n\n.open\n\n\nmatrix.gpio.open(16, \noutput\n, function(err){\n    // read or write\n});\n\n\n\n\n.read\n\n\n\n\npinNumber\n: The GPIO you are reading from.\n\n\ncallback\n: Returns \nerr\n, \nvalue\n.\n\n\n\n\nmatrix.gpio.read(16, function(err, value) {\n  if(err) throw err;\n  console.log(value);   // The current state of the pin \n});\n\n\n\n\n.write\n\n\n\n\npinNumber\n: The GPIO you are reading from.\n\n\nvalue\n: The value you would like to update the GPIO with.\n\n\ncallback\n: Returns \nerr\n, \nvalue\n.\n\n\n\n\nmatrix.gpio.write(16, 1, function(err) {\n    if(err) throw err;\n});\n\n\n\n\n.close\n\n\n\n\npinNumber\n: The GPIO you would like to close.\n\n\n\n\nmatrix.gpio.close(16);\n\n\n\n\nExample\n\n\nmatrix.gpio.open(16, \noutput\n, function(err) {\n    matrix.gpio.write(16, 1, function() {\n        matrix.gpio.close(16);\n    });\n});", 
+            "title": "GPIO"
+        }, 
+        {
+            "location": "/API/GPIO/#gpio", 
+            "text": "[WIP] GPIO can be used to communicate or receive input from analog and digital components through the MATRIX Creator, or any other sensor leveraging Raspberry Pi's GPIOs.", 
+            "title": "GPIO"
+        }, 
+        {
+            "location": "/API/GPIO/#open", 
+            "text": "matrix.gpio.open(16,  output , function(err){\n    // read or write\n});", 
+            "title": ".open"
+        }, 
+        {
+            "location": "/API/GPIO/#read", 
+            "text": "pinNumber : The GPIO you are reading from.  callback : Returns  err ,  value .   matrix.gpio.read(16, function(err, value) {\n  if(err) throw err;\n  console.log(value);   // The current state of the pin \n});", 
+            "title": ".read"
+        }, 
+        {
+            "location": "/API/GPIO/#write", 
+            "text": "pinNumber : The GPIO you are reading from.  value : The value you would like to update the GPIO with.  callback : Returns  err ,  value .   matrix.gpio.write(16, 1, function(err) {\n    if(err) throw err;\n});", 
+            "title": ".write"
+        }, 
+        {
+            "location": "/API/GPIO/#close", 
+            "text": "pinNumber : The GPIO you would like to close.   matrix.gpio.close(16);", 
+            "title": ".close"
+        }, 
+        {
+            "location": "/API/GPIO/#example", 
+            "text": "matrix.gpio.open(16,  output , function(err) {\n    matrix.gpio.write(16, 1, function() {\n        matrix.gpio.close(16);\n    });\n});", 
+            "title": "Example"
         }, 
         {
             "location": "/API/ir/", 
             "text": "Still working out the precise API for this. Stay tuned.\n\n\nmatrix.init('ir')...", 
             "title": "IR TX/RX"
-        }, 
-        {
-            "location": "/API/everloop/", 
-            "text": "A powerful tool for communicating with end users is the EverLoop LED circle.\n\n\nRendering\n\n\nMatrixOS is an attempt at abstracting out the complexity of hardware to make it very accessible for end users. At the same time, one also wants to support those who might want to perform more complex operations. When designing a language, sometimes compromises between ease of use and features must be made. \n\n\nThe problem\n\n\nMany things might want to write to the LED. We can leave it up to chance as to which gets to write, or we can approach it intelligently to optimize the aesthetics and performance. This requires a more complex notation. \n\n\nThe Solution\n\n\nmatrix.led('blue')\n//does nothing\n\n\nmatrix.led('green').render()\n//lights change\n\n\n\n\nSet Colors\n\n\n// set an initial color\nmatrix.led('red')\n\n// interleave two colors\nmatrix.led([ '#bada55, '#e1337e'])\n\n// support opacity\nmatrix.led('rgba(255, 0, 100, 0.6)')\n\n\n\n\nGenerate Shapes\n\n\nmatrix.led({\n  // number of lights to use [ 90\u00b0 = 9 ]   \n  arc: 9,\n\n  color: 'green',\n\n  // index to start drawing arc\n  start: 12\n});\n\n//no color assumes off\nmatrix.led({\n  arc: 360\n})\n\n// draw a point\nmatrix.led({\n  angle: 245,\n  color: 'white',\n  // blends interlight space if true, solid lights if false, default false\n  blend: true\n})\n\n// support multiple shapes\n\n\n\n\nManipulate colors\n\n\n//retrieves the current color state of the LED\nmatrix.led()\n\n// lighten all colors 0 - 100\nmatrix.led().brighten(10)\n\n// darken all colors 0 - 100\nmatrix.led().darken(10)\n\n\n\n\nManipulate position\n\n\n// rotate the lights clockwise by a specified angle\nmatrix.led().rotate(90)\n\n\n\n\nComposition\n\n\nShape Objects\n\n\n// make a smiley face\nmatrix.led([\n  {\n    angle: 45,\n    color: 'yellow'\n  },\n  {\n    angle: 135,\n    color: 'yellow'\n  },\n  {\n    arc: 90,\n    color: 'yellow',\n    start: 225\n  }\n]).darken(90).render();\n\n\n\n\nDirect Pixel Manipulation\n\n\nArray index = led to change\n\n\nmatrix.led([0, 0, 0, 0, 'yellow', 0,\n0, 0, 0, 0, 0, 0, 0, 'yellow', 0, 0,\n0, 0, 0, 0, 0, 0, 'yellow', 'yellow',\n'yellow', 'yellow', 'yellow', 'yellow',\n'yellow', 'yellow', 'yellow' ]).render();\n\n\n\n\nExample clock\n\n\nsetInterval(function(){\n  var time = new Date();\n  var h = time.getHours();\n  var m = time.getMinutes();\n  var s = time.getSeconds();\n\n  var hourLED = {\n    // translate hours (12) to angle (360)\n    arc: h * 3,\n    color: 'blue',\n    darken: 50\n  };\n\n  var minuteLED = {\n    // translate minutes ( 60 ) to angle ( 360 )\n    angle: m * 6,\n    color: 'green'\n  };\n\n  var secondLED = {\n    // translate seconds (60) to angle (360)\n    angle: s * 6,\n    color: yellow,\n    blend: true\n  };\n\n  matrix.led([hourLED, minuteLED]).render();\n\n}, 1000)", 
-            "title": "Everloop"
-        }, 
-        {
-            "location": "/API/everloop/#rendering", 
-            "text": "MatrixOS is an attempt at abstracting out the complexity of hardware to make it very accessible for end users. At the same time, one also wants to support those who might want to perform more complex operations. When designing a language, sometimes compromises between ease of use and features must be made.", 
-            "title": "Rendering"
-        }, 
-        {
-            "location": "/API/everloop/#the-problem", 
-            "text": "Many things might want to write to the LED. We can leave it up to chance as to which gets to write, or we can approach it intelligently to optimize the aesthetics and performance. This requires a more complex notation.", 
-            "title": "The problem"
-        }, 
-        {
-            "location": "/API/everloop/#the-solution", 
-            "text": "matrix.led('blue')\n//does nothing\n\n\nmatrix.led('green').render()\n//lights change", 
-            "title": "The Solution"
-        }, 
-        {
-            "location": "/API/everloop/#set-colors", 
-            "text": "// set an initial color\nmatrix.led('red')\n\n// interleave two colors\nmatrix.led([ '#bada55, '#e1337e'])\n\n// support opacity\nmatrix.led('rgba(255, 0, 100, 0.6)')", 
-            "title": "Set Colors"
-        }, 
-        {
-            "location": "/API/everloop/#generate-shapes", 
-            "text": "matrix.led({\n  // number of lights to use [ 90\u00b0 = 9 ]   \n  arc: 9,\n\n  color: 'green',\n\n  // index to start drawing arc\n  start: 12\n});\n\n//no color assumes off\nmatrix.led({\n  arc: 360\n})\n\n// draw a point\nmatrix.led({\n  angle: 245,\n  color: 'white',\n  // blends interlight space if true, solid lights if false, default false\n  blend: true\n})\n\n// support multiple shapes", 
-            "title": "Generate Shapes"
-        }, 
-        {
-            "location": "/API/everloop/#manipulate-colors", 
-            "text": "//retrieves the current color state of the LED\nmatrix.led()\n\n// lighten all colors 0 - 100\nmatrix.led().brighten(10)\n\n// darken all colors 0 - 100\nmatrix.led().darken(10)", 
-            "title": "Manipulate colors"
-        }, 
-        {
-            "location": "/API/everloop/#manipulate-position", 
-            "text": "// rotate the lights clockwise by a specified angle\nmatrix.led().rotate(90)", 
-            "title": "Manipulate position"
-        }, 
-        {
-            "location": "/API/everloop/#composition", 
-            "text": "", 
-            "title": "Composition"
-        }, 
-        {
-            "location": "/API/everloop/#shape-objects", 
-            "text": "// make a smiley face\nmatrix.led([\n  {\n    angle: 45,\n    color: 'yellow'\n  },\n  {\n    angle: 135,\n    color: 'yellow'\n  },\n  {\n    arc: 90,\n    color: 'yellow',\n    start: 225\n  }\n]).darken(90).render();", 
-            "title": "Shape Objects"
-        }, 
-        {
-            "location": "/API/everloop/#direct-pixel-manipulation", 
-            "text": "Array index = led to change  matrix.led([0, 0, 0, 0, 'yellow', 0,\n0, 0, 0, 0, 0, 0, 0, 'yellow', 0, 0,\n0, 0, 0, 0, 0, 0, 'yellow', 'yellow',\n'yellow', 'yellow', 'yellow', 'yellow',\n'yellow', 'yellow', 'yellow' ]).render();", 
-            "title": "Direct Pixel Manipulation"
-        }, 
-        {
-            "location": "/API/everloop/#example-clock", 
-            "text": "setInterval(function(){\n  var time = new Date();\n  var h = time.getHours();\n  var m = time.getMinutes();\n  var s = time.getSeconds();\n\n  var hourLED = {\n    // translate hours (12) to angle (360)\n    arc: h * 3,\n    color: 'blue',\n    darken: 50\n  };\n\n  var minuteLED = {\n    // translate minutes ( 60 ) to angle ( 360 )\n    angle: m * 6,\n    color: 'green'\n  };\n\n  var secondLED = {\n    // translate seconds (60) to angle (360)\n    angle: s * 6,\n    color: yellow,\n    blend: true\n  };\n\n  matrix.led([hourLED, minuteLED]).render();\n\n}, 1000)", 
-            "title": "Example clock"
         }, 
         {
             "location": "/API/nfc/", 
@@ -717,13 +907,13 @@
         }, 
         {
             "location": "/Configuration/widgets/", 
-            "text": "widgets\n\n\nA comprehensive overview coming soon\nsee \nExamples\n for now", 
+            "text": "Widgets\n\n\nA comprehensive overview coming soon. See \nexamples\n for now.", 
             "title": "Widgets"
         }, 
         {
             "location": "/Configuration/widgets/#widgets", 
-            "text": "A comprehensive overview coming soon\nsee  Examples  for now", 
-            "title": "widgets"
+            "text": "A comprehensive overview coming soon. See  examples  for now.", 
+            "title": "Widgets"
         }, 
         {
             "location": "/Configuration/services/", 
@@ -822,7 +1012,7 @@
         }, 
         {
             "location": "/intro/matrix-troubleshooting/", 
-            "text": "Matrix OS Troubleshooting\n\n\nIf you are running Matrix OS from your device, you will have access to more error messages.\n\n\nLights are spinning, but don't stop\n\n\nExits with message\n\n\nDevice Error undefined\n\n\n\n\nSolution. Run again with environment set.\n\n\nNODE_ENV=rc node index.js", 
+            "text": "HEAD\n\n\nMatrix OS Troubleshooting\n\n\nIf you are running Matrix OS from your device, you will have access to more error messages.\n\n\nLights are spinning, but don't stop\n\n\nExits with message\n\n\nDevice Error undefined\n\n\n\n\nSolution. Run again with environment set.\n\n\nNODE_ENV=rc node index.js\n\n\n\n\n=======\n\n\nTroubleshooting\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nmajor reorganization", 
             "title": "Troubleshooting"
         }, 
         {
@@ -832,168 +1022,173 @@
         }, 
         {
             "location": "/intro/matrix-troubleshooting/#lights-are-spinning-but-dont-stop", 
-            "text": "Exits with message  Device Error undefined  Solution. Run again with environment set.  NODE_ENV=rc node index.js", 
+            "text": "Exits with message  Device Error undefined  Solution. Run again with environment set.  NODE_ENV=rc node index.js  =======", 
             "title": "Lights are spinning, but don't stop"
         }, 
         {
-            "location": "/CLI/overview/", 
-            "text": "Overview\n\n\nMatrixOS devices and applications are managed via the Matrix CLI.\n\n\nInstallation\n\n\nnpm install -g matrix-cli\n\n\n\n\nThis will make the \nmatrix\n command available in your terminal.\n\n\nEnvironment\n\n\nmatrix set env rc\n\n\n\n\nPoints the CLI to the right servers. If you have errors right off the bat, try this first.\n\n\nRegistration\n\n\nUser registration\n\n\nIf you do not have an AdMobilize MATRIX account, use:\n\n\nmatrix register\n\n\n\n\nCheck your email to confirm the account then you can login.\n\n\nDevice registration\n\n\nIn order to set up your device, use:\n\n\nmatrix register device\n\n\n\n\nThis will ask for your device details and then provide you with an id and a secret, you need to set those ENV vars in your device to link it to our platform.  \n\n\nhelp\n\n\nRun \nmatrix\n by itself to see the command reference and configuration information.\n\n\n  _  _ ____ ___ ____ _ _  _\n  |\\/| |__|  |  |__/ |  \\/   _ | [o]\n  |  | |  |  |  |  \\ | _/\\_ |_ |_ | v1.1.7  - rc\n\n\nAPI: http://demo.admobilize.com Streaming: http://mxss.admobilize.com:80\nUser: hello@rokk3rlabs.com Device: 12:23:34:45:56\n\n---- SETUP ----\n       register - Create a MatrixOS platform user\n                \u21b3 [device] - registers new device\n          login - Login to the MatrixOS platform\n         logout - Log out of the MatrixOS platform\n            use - Indicate active device\n            set - Set environment settings, update application configuration, change cli locale\n                \u21b3 [env \nenvironment\n, config \napp\n k=v, locale \nlocale\n]\n\n -- MANAGEMENT --\n            sim - Manage local MatrixOS simulator with Docker\n                \u21b3 [ init, restore, start, stop, save, clear ]\n           list - Information about your devices, applications and installs\n                \u21b3 [ apps, devices, all ]\n         reboot - Reboots the active MatrixOS device\n\n ----- APPS -----\n         search - Search for apps\n        install - Install an app or sensor to active MatrixOS device\n                \u21b3 [ app / sensor ] \nname\n. defaults to app\n      uninstall - Uninstall the app\n         config - View and modify application configuration\n         update - Update to a specified version of a MatrixOS application\n                \u21b3 \nappName\n \nversion\n\n          start - Starts an app running on the active MatrixOS\n           stop - Stops an app running on the active MatrixOS\n        restart - Restarts an app running on the MatrixOS\n\n - DEVELOPMENT -\n         create - Creates a new scaffolding for a MatrixOS Application\n         deploy - Uploads and deploys an app to the active MatrixOS\n        trigger - Runs a trigger test\n            log - Logs output from selected MatrixOS and applications\n\n\n\n\nCreating an Application\n\n\nCreating an application is very basic. It deploys from template stored in the \nmatrix-console\n package.\n\n\nmatrix create app1\n\n\n\n\nApp Structure\n\n\n\n\napp.js\n -- This is your application logic\n\n\nconfig.yaml\n -- Change variables, indicate sensors, configure dashboard.\n\n\nDEVELOPER.MD\n -- Developer information that will be published for integrations on the Developer Portal.\n\n\nindex.js\n -- app entry point, do not modify\n\n\npackage.json\n -- NodeJS information file, do not modify without knowledge.\n\n\n\n\nManagement\n\n\nmatrix list - information about your MatrixOS devices, applications and installations [ apps, devices, all, groups ]\n -- matrix list apps - Shows a list of apps under your account.\n -- matrix list devices - Shows a list of devices under your account.\n -- matrix list all - Shows a list of devices, with the Apps installed on each device.\n -- matrix list groups - Shows a list of groups under your account.\n\n\n\n\nControl over Applications\n\n\nWork with your apps, and within the app ecosystem here. You can deploy to your simulator, or deploy to your actual MATRIX hardware. It's up to you.\n\n\nmatrix search - Search for apps\nmatrix install - [-a] app and [-s] sensor install. defaults to app.\n -- matrix install sensor [sensorname]\n -- matrix install app [appname]\nmatrix update - Update, update app1, update app1 v0.1\nmatrix uninstall - Usage: uninstall app1\n -- matrix uninstall sensor [sensorname]\n -- matrix uninstall app [appname]\nmatrix start - Starts an app running on the MATRIX.\nmatrix stop - Stops an app running on the MATRIX.\nmatrix restart - Restarts an app running on the MATRIX.\n\n\n\n\nDeveloping an Application\n\n\nFlexibility to develop anything you want. These four simple commands help you test and build pretty much anything.\n\n\nmatrix create - Creates a new scaffolding for a MATRIX App.\nmatrix deploy - Deploys an app to the Matrix.\nmatrix trigger - Runs a trigger test\nmatrix log - Usage: log [-f, --follow]\n\n\n\n\n\n\nUsing the Simulator\n\n\nCreate a fresh simulator, using the MATRIX OS image available online.\n\n\nmatrix sim - manage local MatrixOS simulator using docker [ upgrade, restore, init, start, save, clear ]\n -- matrix sim upgrade - initialize your MatrixOS simulator\n -- matrix sim restore - Restore your MatrixOS simulator\n -- matrix sim init - initialize your MatrixOS simulator\n -- matrix sim start - start MatrixOS virtual environment\n -- matrix sim save - save MatrixOS state, use after deploy / install\n -- matrix sim clear - remove simulation local data", 
+            "location": "/intro/matrix-troubleshooting/#troubleshooting", 
+            "text": "major reorganization", 
+            "title": "Troubleshooting"
+        }, 
+        {
+            "location": "/HAL/overview/", 
+            "text": "", 
             "title": "Overview"
         }, 
         {
-            "location": "/CLI/overview/#overview", 
-            "text": "MatrixOS devices and applications are managed via the Matrix CLI.", 
-            "title": "Overview"
-        }, 
-        {
-            "location": "/CLI/overview/#installation", 
-            "text": "npm install -g matrix-cli  This will make the  matrix  command available in your terminal.", 
-            "title": "Installation"
-        }, 
-        {
-            "location": "/CLI/overview/#environment", 
-            "text": "matrix set env rc  Points the CLI to the right servers. If you have errors right off the bat, try this first.", 
-            "title": "Environment"
-        }, 
-        {
-            "location": "/CLI/overview/#registration", 
+            "location": "/HAL/example/", 
             "text": "", 
-            "title": "Registration"
-        }, 
-        {
-            "location": "/CLI/overview/#user-registration", 
-            "text": "If you do not have an AdMobilize MATRIX account, use:  matrix register  Check your email to confirm the account then you can login.", 
-            "title": "User registration"
-        }, 
-        {
-            "location": "/CLI/overview/#device-registration", 
-            "text": "In order to set up your device, use:  matrix register device  This will ask for your device details and then provide you with an id and a secret, you need to set those ENV vars in your device to link it to our platform.", 
-            "title": "Device registration"
-        }, 
-        {
-            "location": "/CLI/overview/#help", 
-            "text": "Run  matrix  by itself to see the command reference and configuration information.    _  _ ____ ___ ____ _ _  _\n  |\\/| |__|  |  |__/ |  \\/   _ | [o]\n  |  | |  |  |  |  \\ | _/\\_ |_ |_ | v1.1.7  - rc\n\n\nAPI: http://demo.admobilize.com Streaming: http://mxss.admobilize.com:80\nUser: hello@rokk3rlabs.com Device: 12:23:34:45:56\n\n---- SETUP ----\n       register - Create a MatrixOS platform user\n                \u21b3 [device] - registers new device\n          login - Login to the MatrixOS platform\n         logout - Log out of the MatrixOS platform\n            use - Indicate active device\n            set - Set environment settings, update application configuration, change cli locale\n                \u21b3 [env  environment , config  app  k=v, locale  locale ]\n\n -- MANAGEMENT --\n            sim - Manage local MatrixOS simulator with Docker\n                \u21b3 [ init, restore, start, stop, save, clear ]\n           list - Information about your devices, applications and installs\n                \u21b3 [ apps, devices, all ]\n         reboot - Reboots the active MatrixOS device\n\n ----- APPS -----\n         search - Search for apps\n        install - Install an app or sensor to active MatrixOS device\n                \u21b3 [ app / sensor ]  name . defaults to app\n      uninstall - Uninstall the app\n         config - View and modify application configuration\n         update - Update to a specified version of a MatrixOS application\n                \u21b3  appName   version \n          start - Starts an app running on the active MatrixOS\n           stop - Stops an app running on the active MatrixOS\n        restart - Restarts an app running on the MatrixOS\n\n - DEVELOPMENT -\n         create - Creates a new scaffolding for a MatrixOS Application\n         deploy - Uploads and deploys an app to the active MatrixOS\n        trigger - Runs a trigger test\n            log - Logs output from selected MatrixOS and applications", 
-            "title": "help"
-        }, 
-        {
-            "location": "/CLI/overview/#creating-an-application", 
-            "text": "Creating an application is very basic. It deploys from template stored in the  matrix-console  package.  matrix create app1", 
-            "title": "Creating an Application"
-        }, 
-        {
-            "location": "/CLI/overview/#app-structure", 
-            "text": "app.js  -- This is your application logic  config.yaml  -- Change variables, indicate sensors, configure dashboard.  DEVELOPER.MD  -- Developer information that will be published for integrations on the Developer Portal.  index.js  -- app entry point, do not modify  package.json  -- NodeJS information file, do not modify without knowledge.", 
-            "title": "App Structure"
-        }, 
-        {
-            "location": "/CLI/overview/#management", 
-            "text": "matrix list - information about your MatrixOS devices, applications and installations [ apps, devices, all, groups ]\n -- matrix list apps - Shows a list of apps under your account.\n -- matrix list devices - Shows a list of devices under your account.\n -- matrix list all - Shows a list of devices, with the Apps installed on each device.\n -- matrix list groups - Shows a list of groups under your account.", 
-            "title": "Management"
-        }, 
-        {
-            "location": "/CLI/overview/#control-over-applications", 
-            "text": "Work with your apps, and within the app ecosystem here. You can deploy to your simulator, or deploy to your actual MATRIX hardware. It's up to you.  matrix search - Search for apps\nmatrix install - [-a] app and [-s] sensor install. defaults to app.\n -- matrix install sensor [sensorname]\n -- matrix install app [appname]\nmatrix update - Update, update app1, update app1 v0.1\nmatrix uninstall - Usage: uninstall app1\n -- matrix uninstall sensor [sensorname]\n -- matrix uninstall app [appname]\nmatrix start - Starts an app running on the MATRIX.\nmatrix stop - Stops an app running on the MATRIX.\nmatrix restart - Restarts an app running on the MATRIX.", 
-            "title": "Control over Applications"
-        }, 
-        {
-            "location": "/CLI/overview/#developing-an-application", 
-            "text": "Flexibility to develop anything you want. These four simple commands help you test and build pretty much anything.  matrix create - Creates a new scaffolding for a MATRIX App.\nmatrix deploy - Deploys an app to the Matrix.\nmatrix trigger - Runs a trigger test\nmatrix log - Usage: log [-f, --follow]", 
-            "title": "Developing an Application"
-        }, 
-        {
-            "location": "/CLI/overview/#using-the-simulator", 
-            "text": "Create a fresh simulator, using the MATRIX OS image available online.  matrix sim - manage local MatrixOS simulator using docker [ upgrade, restore, init, start, save, clear ]\n -- matrix sim upgrade - initialize your MatrixOS simulator\n -- matrix sim restore - Restore your MatrixOS simulator\n -- matrix sim init - initialize your MatrixOS simulator\n -- matrix sim start - start MatrixOS virtual environment\n -- matrix sim save - save MatrixOS state, use after deploy / install\n -- matrix sim clear - remove simulation local data", 
-            "title": "Using the Simulator"
-        }, 
-        {
-            "location": "/CLI/apps/", 
-            "text": "Applications\n\n\nSearch\n\n\n# Find MatrixOS apps for a keyword\nmatrix search keyword\n\n\n\n\nAll the following commands require an active MatrixOS to be specified with \nmatrix use\n.\n\n\nInstall\n\n\n# Install an app from the store to MatrixOS\nmatrix install appName\n\n\n\n\nUninstall\n\n\n# Uninstall an app from your device\nmatrix uninstall appName\n\n\n\n\nCreate\n\n\n#creates a folder with a base matrix app template\nmatrix create appName\n\n\n\n\nSee \ndocs/api\n for more information about writing MatrixOS apps.\n\n\nDeploy\n\n\n# uploads app folder to MatrixOS\nmatrix deploy appName\n\n\n\n\nRun\n\n\nmatrix start appName\n\n\n\n\nStop\n\n\nmatrix stop appName\n\n\n\n\nRestart\n\n\nmatrix restart appName", 
-            "title": "Apps"
-        }, 
-        {
-            "location": "/CLI/apps/#applications", 
-            "text": "", 
-            "title": "Applications"
-        }, 
-        {
-            "location": "/CLI/apps/#search", 
-            "text": "# Find MatrixOS apps for a keyword\nmatrix search keyword  All the following commands require an active MatrixOS to be specified with  matrix use .", 
-            "title": "Search"
-        }, 
-        {
-            "location": "/CLI/apps/#install", 
-            "text": "# Install an app from the store to MatrixOS\nmatrix install appName", 
-            "title": "Install"
-        }, 
-        {
-            "location": "/CLI/apps/#uninstall", 
-            "text": "# Uninstall an app from your device\nmatrix uninstall appName", 
-            "title": "Uninstall"
-        }, 
-        {
-            "location": "/CLI/apps/#create", 
-            "text": "#creates a folder with a base matrix app template\nmatrix create appName  See  docs/api  for more information about writing MatrixOS apps.", 
-            "title": "Create"
-        }, 
-        {
-            "location": "/CLI/apps/#deploy", 
-            "text": "# uploads app folder to MatrixOS\nmatrix deploy appName", 
-            "title": "Deploy"
-        }, 
-        {
-            "location": "/CLI/apps/#run", 
-            "text": "matrix start appName", 
-            "title": "Run"
-        }, 
-        {
-            "location": "/CLI/apps/#stop", 
-            "text": "matrix stop appName", 
-            "title": "Stop"
-        }, 
-        {
-            "location": "/CLI/apps/#restart", 
-            "text": "matrix restart appName", 
-            "title": "Restart"
-        }, 
-        {
-            "location": "/CLI/example/", 
-            "text": "Example Workflows\n\n\nSetup New Device\n\n\nmatrix login\nmatrix device register\n\n# use provided id\nmatrix use deviceid\n\n# should show new device\nmatrix list devices\n\n\n\n\n\nSimulator\n\n\nmatrix login\nmatrix sim init\nmatrix use simid-abc123\nmatrix sim start\n\n# makes testapp/ with app scaffold\nmatrix create testapp\n\n# places testapp/ onto matrixos\nmatrix deploy testapp\n\n# starts testapp/\nmatrix start testapp\n\n\n\n\nExample App Install and Set Configurations\n\n\nmatrix login\nmatrix list devices\nmatrix use \ndeviceId\n\n\nmatrix install frontdoor\nmatrix set config frontdoor settings.lock.apiKey=ABC123FED\nmatrix start frontdoor", 
             "title": "Examples"
         }, 
         {
-            "location": "/CLI/example/#example-workflows", 
-            "text": "", 
-            "title": "Example Workflows"
-        }, 
-        {
-            "location": "/CLI/example/#setup-new-device", 
-            "text": "matrix login\nmatrix device register\n\n# use provided id\nmatrix use deviceid\n\n# should show new device\nmatrix list devices", 
-            "title": "Setup New Device"
-        }, 
-        {
-            "location": "/CLI/example/#simulator", 
-            "text": "matrix login\nmatrix sim init\nmatrix use simid-abc123\nmatrix sim start\n\n# makes testapp/ with app scaffold\nmatrix create testapp\n\n# places testapp/ onto matrixos\nmatrix deploy testapp\n\n# starts testapp/\nmatrix start testapp", 
-            "title": "Simulator"
-        }, 
-        {
-            "location": "/CLI/example/#example-app-install-and-set-configurations", 
-            "text": "matrix login\nmatrix list devices\nmatrix use  deviceId \n\nmatrix install frontdoor\nmatrix set config frontdoor settings.lock.apiKey=ABC123FED\nmatrix start frontdoor", 
-            "title": "Example App Install and Set Configurations"
-        }, 
-        {
-            "location": "/CLI/troubleshooting/", 
-            "text": "Troubleshooting\n\n\nLogin\n\n\nAuthentication error (auth/custom-token-mismatch):  The custom token corresponds to a different audience.\nError initializing Firebase:  undefined\n\n\n\n\nKnown issue on token expiration. Reset the environment.\n\n\nmatrix set env rc", 
+            "location": "/HAL/troubleshooting/", 
+            "text": "Troubleshooting", 
             "title": "Troubleshooting"
         }, 
         {
-            "location": "/CLI/troubleshooting/#troubleshooting", 
+            "location": "/HAL/troubleshooting/#troubleshooting", 
             "text": "", 
             "title": "Troubleshooting"
         }, 
         {
-            "location": "/CLI/troubleshooting/#login", 
-            "text": "Authentication error (auth/custom-token-mismatch):  The custom token corresponds to a different audience.\nError initializing Firebase:  undefined  Known issue on token expiration. Reset the environment.  matrix set env rc", 
-            "title": "Login"
+            "location": "/MALOS/overview/", 
+            "text": "Matrix Abstraction Layer for OS\n\n\nMALOS provides a \nZeroMQ\n messaging layer. An intended target for this layer is \nMATRIX OS\n.\n\n\nInstallation\n\n\n# setup \n installation\necho \ndeb http://packages.matrix.one/matrix-creator/ ./\n | sudo tee --append /etc/apt/sources.list;\nsudo apt-get update;\nsudo apt-get upgrade;\nsudo apt-get install -y libzmq3-dev xc3sprog malos-eye matrix-creator-malos matrix-creator-openocd wiringpi matrix-creator-init cmake g++ git --force-yes;\n\n\n\n\nUpgrades\n\n\nIf you need to upgrade your \nmalos\n package at any time, please run the following commands and restart.\n\n\nsudo apt-get update;\nsudo apt-get upgrade;\nsudo shutdown -r now;\n\n\n\n\nYou should something similar to this if everything is OK.\n\n\n$ malos\n\n**************\nMALOS starting\n**************\n\nYou can query specific driver info using port 20012.\nRegistered driver IMU with port 20013.\nRegistered driver Humidity with port 20017.\nRegistered driver Everloop with port 20021.\nRegistered driver Pressure with port 20025.\nRegistered driver UV with port 20029.\nRegistered driver ZigbeeBulb with port 20033.\nRegistered driver MicArray_Alsa with port 20037.\nRegistered driver Lirc with port 20041.\n\n\n\n\nRunning MALOS as a background process.\n\n\n$ malos \n /dev/null 2\n1 \n\n\n\n\n\nDemos\n\n\nSee \nMALOS \n Demos", 
+            "title": "Overview"
+        }, 
+        {
+            "location": "/MALOS/overview/#matrix-abstraction-layer-for-os", 
+            "text": "MALOS provides a  ZeroMQ  messaging layer. An intended target for this layer is  MATRIX OS .", 
+            "title": "Matrix Abstraction Layer for OS"
+        }, 
+        {
+            "location": "/MALOS/overview/#installation", 
+            "text": "# setup   installation\necho  deb http://packages.matrix.one/matrix-creator/ ./  | sudo tee --append /etc/apt/sources.list;\nsudo apt-get update;\nsudo apt-get upgrade;\nsudo apt-get install -y libzmq3-dev xc3sprog malos-eye matrix-creator-malos matrix-creator-openocd wiringpi matrix-creator-init cmake g++ git --force-yes;", 
+            "title": "Installation"
+        }, 
+        {
+            "location": "/MALOS/overview/#upgrades", 
+            "text": "If you need to upgrade your  malos  package at any time, please run the following commands and restart.  sudo apt-get update;\nsudo apt-get upgrade;\nsudo shutdown -r now;  You should something similar to this if everything is OK.  $ malos\n\n**************\nMALOS starting\n**************\n\nYou can query specific driver info using port 20012.\nRegistered driver IMU with port 20013.\nRegistered driver Humidity with port 20017.\nRegistered driver Everloop with port 20021.\nRegistered driver Pressure with port 20025.\nRegistered driver UV with port 20029.\nRegistered driver ZigbeeBulb with port 20033.\nRegistered driver MicArray_Alsa with port 20037.\nRegistered driver Lirc with port 20041.", 
+            "title": "Upgrades"
+        }, 
+        {
+            "location": "/MALOS/overview/#running-malos-as-a-background-process", 
+            "text": "$ malos   /dev/null 2 1", 
+            "title": "Running MALOS as a background process."
+        }, 
+        {
+            "location": "/MALOS/overview/#demos", 
+            "text": "See  MALOS   Demos", 
+            "title": "Demos"
+        }, 
+        {
+            "location": "/MALOS/example/", 
+            "text": "Getting Started\n\n\ngit clone https://github.com/matrix-io/matrix-creator-malos;\ncd src/js_test;\nnpm install;\n\n\n\n\nExamples\n\n\nMALOS is the program that sits between the low level hardware layer and MATRIX OS. This program allows MATRIX OS to access the board hardware via ZeroMQ sockets. You can also use it directly, as it is done with the examples below. The The IPs used in the examples are 127.0.0.1. Remember to edit them if you're accessing the Creator from another host and not from the Raspberry itself.\n\n\nNote:\n Pre-requisite of \nNodeJS\n on the client computer.\n\n\nDrivers\n\n\nnode test_driver_info.js\n\n\n\n\nEverloop\n\n\nnode test_everloop.js\n\n\n\n\nHumidity\n\n\nnode test_humidity.js\n\n\n\n\nIMU\n\n\nnode test_imu.js\n\n\n\n\nIR Remote\n\n\nnode test_ir_remote.js\n\n\n\n\nPressure\n\n\nnode test_pressure.js\n\n\n\n\nUV\n\n\nnode test_uv.js\n\n\n\n\nZigbee Bulb On/Off\n\n\nnode test_zigbee_bulb.js\n\n\n\n\nZigbee Bulb Color\n\n\nnode test_zigbee_color.js\n\n\n\n\nZigbee Bulb Brightness\n\n\nnode test_zigbee_level.js", 
+            "title": "Examples"
+        }, 
+        {
+            "location": "/MALOS/example/#getting-started", 
+            "text": "git clone https://github.com/matrix-io/matrix-creator-malos;\ncd src/js_test;\nnpm install;", 
+            "title": "Getting Started"
+        }, 
+        {
+            "location": "/MALOS/example/#examples", 
+            "text": "MALOS is the program that sits between the low level hardware layer and MATRIX OS. This program allows MATRIX OS to access the board hardware via ZeroMQ sockets. You can also use it directly, as it is done with the examples below. The The IPs used in the examples are 127.0.0.1. Remember to edit them if you're accessing the Creator from another host and not from the Raspberry itself.  Note:  Pre-requisite of  NodeJS  on the client computer.", 
+            "title": "Examples"
+        }, 
+        {
+            "location": "/MALOS/example/#drivers", 
+            "text": "node test_driver_info.js", 
+            "title": "Drivers"
+        }, 
+        {
+            "location": "/MALOS/example/#everloop", 
+            "text": "node test_everloop.js", 
+            "title": "Everloop"
+        }, 
+        {
+            "location": "/MALOS/example/#humidity", 
+            "text": "node test_humidity.js", 
+            "title": "Humidity"
+        }, 
+        {
+            "location": "/MALOS/example/#imu", 
+            "text": "node test_imu.js", 
+            "title": "IMU"
+        }, 
+        {
+            "location": "/MALOS/example/#ir-remote", 
+            "text": "node test_ir_remote.js", 
+            "title": "IR Remote"
+        }, 
+        {
+            "location": "/MALOS/example/#pressure", 
+            "text": "node test_pressure.js", 
+            "title": "Pressure"
+        }, 
+        {
+            "location": "/MALOS/example/#uv", 
+            "text": "node test_uv.js", 
+            "title": "UV"
+        }, 
+        {
+            "location": "/MALOS/example/#zigbee-bulb-onoff", 
+            "text": "node test_zigbee_bulb.js", 
+            "title": "Zigbee Bulb On/Off"
+        }, 
+        {
+            "location": "/MALOS/example/#zigbee-bulb-color", 
+            "text": "node test_zigbee_color.js", 
+            "title": "Zigbee Bulb Color"
+        }, 
+        {
+            "location": "/MALOS/example/#zigbee-bulb-brightness", 
+            "text": "node test_zigbee_level.js", 
+            "title": "Zigbee Bulb Brightness"
+        }, 
+        {
+            "location": "/MALOS/troubleshooting/", 
+            "text": "Troubleshooting", 
+            "title": "Troubleshooting"
+        }, 
+        {
+            "location": "/MALOS/troubleshooting/#troubleshooting", 
+            "text": "", 
+            "title": "Troubleshooting"
+        }, 
+        {
+            "location": "/Reference/overview/", 
+            "text": "MATRIX Creator\n\n\n\n\nTechnical Datasheets:\n\n\n\n\n\n\nAtmel 32 bits Cortex M3 SAM3S2\n\n\n\n\n\n\nXilinx Spartan 6S XC6SLX4 FPGA\n\n\n\n\n\n\n8 MEMS audio sensor digital microphones\n\n\n\n\n\n\nST LSM9DS1 3D accelerometer, 3D gyroscope, 3D magnetometer\n\n\n\n\n\n\nST HTS221 digital sensor for relative humidity and temperature\n\n\n\n\n\n\nNXP PN512 NFC reader\n\n\n\n\n\n\nNXP MPL3115A2 Altimeter\n\n\n\n\n\n\nVishay VEML6070 UV Light Sensor\n\n\n\n\n\n\nVishay INFRARED Receptor\n\n\n\n\n\n\nRGBW everloop LED", 
+            "title": "Overview"
+        }, 
+        {
+            "location": "/Reference/overview/#matrix-creator", 
+            "text": "", 
+            "title": "MATRIX Creator"
+        }, 
+        {
+            "location": "/Reference/overview/#technical-datasheets", 
+            "text": "Atmel 32 bits Cortex M3 SAM3S2    Xilinx Spartan 6S XC6SLX4 FPGA    8 MEMS audio sensor digital microphones    ST LSM9DS1 3D accelerometer, 3D gyroscope, 3D magnetometer    ST HTS221 digital sensor for relative humidity and temperature    NXP PN512 NFC reader    NXP MPL3115A2 Altimeter    Vishay VEML6070 UV Light Sensor    Vishay INFRARED Receptor    RGBW everloop LED", 
+            "title": "Technical Datasheets:"
+        }, 
+        {
+            "location": "/Reference/pinout/", 
+            "text": "Expansion pinout\n\n\n\n\nExpansion location\n\n\n\n\nFPGA's UCF definition\n\n\nNET \nDF\n16\n LOC=\nP106\n;\nNET \nDF\n15\n LOC=\nP102\n;\nNET \nDF\n14\n LOC=\nP101\n;\nNET \nDF\n13\n LOC=\nP99\n;\nNET \nDF\n12\n LOC=\nP98\n;\nNET \nDF\n11\n LOC=\nP95\n;\nNET \nDF\n10\n LOC=\nP94\n;\nNET \nDF\n9\n LOC=\nP93\n;\nNET \nDF\n8\n LOC=\nP92\n;\nNET \nDF\n7\n LOC=\nP88\n;\nNET \nDF\n6\n LOC=\nP85\n;\nNET \nDF\n5\n LOC=\nP83\n;\nNET \nDF\n4\n LOC=\nP82\n;\nNET \nDF\n3\n LOC=\nP81\n;\nNET \nDF\n2\n LOC=\nP80\n;\nNET \nDF\n1\n LOC=\nP79\n;\nNET \nDF\n0\n LOC=\nP78\n;", 
+            "title": "Pinout"
+        }, 
+        {
+            "location": "/Reference/pinout/#expansion-pinout", 
+            "text": "", 
+            "title": "Expansion pinout"
+        }, 
+        {
+            "location": "/Reference/pinout/#expansion-location", 
+            "text": "", 
+            "title": "Expansion location"
+        }, 
+        {
+            "location": "/Reference/pinout/#fpgas-ucf-definition", 
+            "text": "NET  DF 16  LOC= P106 ;\nNET  DF 15  LOC= P102 ;\nNET  DF 14  LOC= P101 ;\nNET  DF 13  LOC= P99 ;\nNET  DF 12  LOC= P98 ;\nNET  DF 11  LOC= P95 ;\nNET  DF 10  LOC= P94 ;\nNET  DF 9  LOC= P93 ;\nNET  DF 8  LOC= P92 ;\nNET  DF 7  LOC= P88 ;\nNET  DF 6  LOC= P85 ;\nNET  DF 5  LOC= P83 ;\nNET  DF 4  LOC= P82 ;\nNET  DF 3  LOC= P81 ;\nNET  DF 2  LOC= P80 ;\nNET  DF 1  LOC= P79 ;\nNET  DF 0  LOC= P78 ;", 
+            "title": "FPGA's UCF definition"
         }, 
         {
             "location": "/Hardware/fpga/", 
@@ -1046,99 +1241,54 @@
             "title": "SPI"
         }, 
         {
-            "location": "/intro/hal/", 
-            "text": "Hardware Abstraction Layer\n\n\nWith the following instructions you will be able to run demos for the Everloop LED Array and for the IMU. These demos make use of the \nhardware abstraction layer\n.\n\n\n\n\nIf you followed the \ngetting started\n steps the \nFPGA\n and the \nSAM3 MCU\n should be programmed and ready. Also, \nSPI should have been enabled for you\n.\n\n\nThus you can just get the required source code and build it:\n\n\ngit clone https://github.com/matrix-io/matrix-creator-hal.git\ncd matrix-creator-hal\nmkdir build \n cd build\ncmake .. \n make\n\n\n\nIf the project built with no issues you can run the demos. The demos run for ever, you can terminate them with Control+C.\n\n\nSpinning leds ( \nvideo\n ):\n\n\ndemos/everloop_demo\n\n\n\nArc demo ( \nvideo\n ) :\n\n\ndemos/arc_demo\n\n\n\nCompass demo:\n\n\ndemos/compass_demo\n\nyaw = -116.006  roll = 3.19588  pitch = 0.370596\nyaw = -116.577  roll = 3.61794  pitch = 0.210613\nyaw = -115.649  roll = 3.64227  pitch = 0.334733\nyaw = -115.468  roll = 3.34762  pitch = 0.42658\nyaw = -116.423  roll = 3.49536  pitch = 0.566351\n\n\n\nMicrophones:\n\n\ndemos/mic_demo\n\n52  29  54  74  74  49  39  60\n60  31  52  46  41  55  68  70\n60  44  55  43  53  68  62  62\n45  17  69  54  18  38  74  67\n\n(You get one value for each microphone)\n\n\n\nQuestions? Post them on \nraspberrypi.stackexchange.com\n! Use the tag #matrix-creator", 
-            "title": "HAL"
+            "location": "/dictionary/", 
+            "text": "Glossary\n\n\nThe dictionary will describe all components of the system.\n\n\nMATRIX Open Source (MATRIX OS)\n\n\nTop-level application layer which integrates into the MATRIX Creator hardware, and Raspberry Pi. \n\n\nMATRIX Command Line Interface (MATRIX CLI)\n\n\nCommand Line Interface that integrates into the top-level MATRIX OS. Built to allow quick application development and application management on the Raspberry Pi.\n\n\nMALOS\n\n\nC++ abstraction layer for HAL. Hosts the ZeroMQ communication layer which makes the sensors accessible via high-level interfaces. \n\n\nMALOS Eye\n\n\nC++ Computer Vision Framework.\n\n\nHardware Abstraction Layer (HAL)\n\n\nC++ drivers for sensors and available components.\n\n\nApplications\n\n\nAn application is a service running inside of a container on a physical or simulated instance of a device. Driven by MATRIX OS.\n\n\nDevices\n\n\nA device is a physical or simulated instance of the hardware. Determined by the MATRIX OS.\n\n\nCross-Talk\n\n\nEvent-based triggers that can occur across applications, and/or devices.", 
+            "title": "Dictionary"
         }, 
         {
-            "location": "/intro/hal/#hardware-abstraction-layer", 
-            "text": "With the following instructions you will be able to run demos for the Everloop LED Array and for the IMU. These demos make use of the  hardware abstraction layer .   If you followed the  getting started  steps the  FPGA  and the  SAM3 MCU  should be programmed and ready. Also,  SPI should have been enabled for you .  Thus you can just get the required source code and build it:  git clone https://github.com/matrix-io/matrix-creator-hal.git\ncd matrix-creator-hal\nmkdir build   cd build\ncmake ..   make  If the project built with no issues you can run the demos. The demos run for ever, you can terminate them with Control+C.  Spinning leds (  video  ):  demos/everloop_demo  Arc demo (  video  ) :  demos/arc_demo  Compass demo:  demos/compass_demo\n\nyaw = -116.006  roll = 3.19588  pitch = 0.370596\nyaw = -116.577  roll = 3.61794  pitch = 0.210613\nyaw = -115.649  roll = 3.64227  pitch = 0.334733\nyaw = -115.468  roll = 3.34762  pitch = 0.42658\nyaw = -116.423  roll = 3.49536  pitch = 0.566351  Microphones:  demos/mic_demo\n\n52  29  54  74  74  49  39  60\n60  31  52  46  41  55  68  70\n60  44  55  43  53  68  62  62\n45  17  69  54  18  38  74  67\n\n(You get one value for each microphone)  Questions? Post them on  raspberrypi.stackexchange.com ! Use the tag #matrix-creator", 
-            "title": "Hardware Abstraction Layer"
+            "location": "/dictionary/#glossary", 
+            "text": "The dictionary will describe all components of the system.", 
+            "title": "Glossary"
         }, 
         {
-            "location": "/intro/malos/", 
-            "text": "Matrix Abstraction Layer for OS\n\n\nMALOS provides a \nZeroMQ\n messaging layer. An intended target for this layer is \nMatrixOS\n.\n\n\nInstall MALOS\n\n\nsudo apt-get install matrix-creator-init matrix-creator-malos cmake g++ git\nsudo shutdown -r now\n\n\n\n\nUpgrade MALOS\n\n\nsudo apt-get update \n sudo apt-get upgrade\nsudo shutdown -r now\n\n\n\n\nTest MALOS\n\n\nStart it as a background process.\n\n\nmalos \n /dev/null 2\n1 \n\n\n\n\n\nInstall the most recent version\n\n\nTo use it make sure that you have the most recent version installed:\n\n\napt-get update\napt-get install matrix-creator-malos\n\n\n\nRunning malos\n\n\nAnd then run it. You should see an output like the following one:\n\n\n$ malos\n**************\nMALOS starting\n**************\n\nYou can query specific driver info using port 20012.\nRegistered driver IMU with port 20013.\nRegistered driver Humidity with port 20017.\nRegistered driver Everloop with port 20021.\n\n\n\nDetails\n\n\nMALOS gives you direct access to the hardware devices, and each device has four ZeroMQ (ZMQ) sockets:\n\n\n\n\nBase port (for instance 20013). ZMQ PULL channel used for device configuration (if configuration is required, most devices have a default configuration).\n\n\n(base_port + 1) is used as a keep-alive channel. This channel is used to tell the driver that it should keep sending updates to MATRIX OS. Each driver has a configurable time interval that tells it how often it should expect keep-alive messages. If an amount of time bigger than the interval elapses without keepalives, the driver will stop sending updates.\n\n\n(base_port + 2) is used as error channel. ZMQ PUSH. If an error occurs, it will be sent in this channel.\n\n\n(base_port + 3) is used to send device updates. ZMQ PUSH. Clients will normally listen on this port for updates.\n\n\n\n\nIt's important to note that \nmore than one program\n can subscribe to the \nerror channel\n and the \ndevice updates channel\n. This is achieved thanks to the PUB/SUB model of ZMQ.\n\n\nIn this \nNode.js example\n you can see all the channels used. If you want to run it you need to edit the IP address (and maybe the port depending on the device base-port mapping.\n\n\nExample - Query device list\n\n\nThis \nNode.js example\n shows how you can query the device list and some capabilities. This program uses a ZMQ RPC call.\n\n\nTo run the file, you need to edit the \ncreator_ip\n to match the IP of the Raspberry PI and the first port printed when the command malos is started (20012 in the sample session shown above).\n\n\nThis is what the output looks like:\n\n\n$ nodejs test_driver_info.js\n{ info:\n   [ { driver_name: 'IMU',\n       base_port: 20013,\n       provides_updates: true,\n       delay_between_updates: 1000,\n       needs_pings: true,\n       timeout_after_last_ping: 5000,\n       notes_for_human: 'Provides yaw/pitch/roll. Check Imu message (protocol buffer)' },\n     { driver_name: 'Humidity',\n       base_port: 20017,\n       provides_updates: true,\n       delay_between_updates: 1000,\n       needs_pings: true,\n       timeout_after_last_ping: 5000,\n       notes_for_human: 'Provides humidity and temperature. Check Humidity message (protocol buffer)' },\n     { driver_name: 'Everloop',\n       base_port: 20021,\n       provides_updates: false,\n       delay_between_updates: 1000,\n       needs_pings: false,\n       timeout_after_last_ping: 5000,\n       notes_for_human: 'Write-only. There are 35 leds. Values range from 0 to 255. Check message EverloopImage (protocol buffer)' } ] }\n\n\n\nEverloop demo\n\n\nOnce MALOS is operational, you can run the \nEverloop LED array demo\n. Remember to edit the IP address of your Raspberry PI.\n\n\nFor the impatient, here is a video of what this demo does: \nhttps://youtu.be/b0n2-hzFgcY\n.", 
+            "location": "/dictionary/#matrix-open-source-matrix-os", 
+            "text": "Top-level application layer which integrates into the MATRIX Creator hardware, and Raspberry Pi.", 
+            "title": "MATRIX Open Source (MATRIX OS)"
+        }, 
+        {
+            "location": "/dictionary/#matrix-command-line-interface-matrix-cli", 
+            "text": "Command Line Interface that integrates into the top-level MATRIX OS. Built to allow quick application development and application management on the Raspberry Pi.", 
+            "title": "MATRIX Command Line Interface (MATRIX CLI)"
+        }, 
+        {
+            "location": "/dictionary/#malos", 
+            "text": "C++ abstraction layer for HAL. Hosts the ZeroMQ communication layer which makes the sensors accessible via high-level interfaces.", 
             "title": "MALOS"
         }, 
         {
-            "location": "/intro/malos/#matrix-abstraction-layer-for-os", 
-            "text": "MALOS provides a  ZeroMQ  messaging layer. An intended target for this layer is  MatrixOS .", 
-            "title": "Matrix Abstraction Layer for OS"
+            "location": "/dictionary/#malos-eye", 
+            "text": "C++ Computer Vision Framework.", 
+            "title": "MALOS Eye"
         }, 
         {
-            "location": "/intro/malos/#install-malos", 
-            "text": "sudo apt-get install matrix-creator-init matrix-creator-malos cmake g++ git\nsudo shutdown -r now", 
-            "title": "Install MALOS"
+            "location": "/dictionary/#hardware-abstraction-layer-hal", 
+            "text": "C++ drivers for sensors and available components.", 
+            "title": "Hardware Abstraction Layer (HAL)"
         }, 
         {
-            "location": "/intro/malos/#upgrade-malos", 
-            "text": "sudo apt-get update   sudo apt-get upgrade\nsudo shutdown -r now", 
-            "title": "Upgrade MALOS"
+            "location": "/dictionary/#applications", 
+            "text": "An application is a service running inside of a container on a physical or simulated instance of a device. Driven by MATRIX OS.", 
+            "title": "Applications"
         }, 
         {
-            "location": "/intro/malos/#test-malos", 
-            "text": "Start it as a background process.  malos   /dev/null 2 1", 
-            "title": "Test MALOS"
+            "location": "/dictionary/#devices", 
+            "text": "A device is a physical or simulated instance of the hardware. Determined by the MATRIX OS.", 
+            "title": "Devices"
         }, 
         {
-            "location": "/intro/malos/#install-the-most-recent-version", 
-            "text": "To use it make sure that you have the most recent version installed:  apt-get update\napt-get install matrix-creator-malos", 
-            "title": "Install the most recent version"
-        }, 
-        {
-            "location": "/intro/malos/#running-malos", 
-            "text": "And then run it. You should see an output like the following one:  $ malos\n**************\nMALOS starting\n**************\n\nYou can query specific driver info using port 20012.\nRegistered driver IMU with port 20013.\nRegistered driver Humidity with port 20017.\nRegistered driver Everloop with port 20021.", 
-            "title": "Running malos"
-        }, 
-        {
-            "location": "/intro/malos/#details", 
-            "text": "MALOS gives you direct access to the hardware devices, and each device has four ZeroMQ (ZMQ) sockets:   Base port (for instance 20013). ZMQ PULL channel used for device configuration (if configuration is required, most devices have a default configuration).  (base_port + 1) is used as a keep-alive channel. This channel is used to tell the driver that it should keep sending updates to MATRIX OS. Each driver has a configurable time interval that tells it how often it should expect keep-alive messages. If an amount of time bigger than the interval elapses without keepalives, the driver will stop sending updates.  (base_port + 2) is used as error channel. ZMQ PUSH. If an error occurs, it will be sent in this channel.  (base_port + 3) is used to send device updates. ZMQ PUSH. Clients will normally listen on this port for updates.   It's important to note that  more than one program  can subscribe to the  error channel  and the  device updates channel . This is achieved thanks to the PUB/SUB model of ZMQ.  In this  Node.js example  you can see all the channels used. If you want to run it you need to edit the IP address (and maybe the port depending on the device base-port mapping.", 
-            "title": "Details"
-        }, 
-        {
-            "location": "/intro/malos/#example-query-device-list", 
-            "text": "This  Node.js example  shows how you can query the device list and some capabilities. This program uses a ZMQ RPC call.  To run the file, you need to edit the  creator_ip  to match the IP of the Raspberry PI and the first port printed when the command malos is started (20012 in the sample session shown above).  This is what the output looks like:  $ nodejs test_driver_info.js\n{ info:\n   [ { driver_name: 'IMU',\n       base_port: 20013,\n       provides_updates: true,\n       delay_between_updates: 1000,\n       needs_pings: true,\n       timeout_after_last_ping: 5000,\n       notes_for_human: 'Provides yaw/pitch/roll. Check Imu message (protocol buffer)' },\n     { driver_name: 'Humidity',\n       base_port: 20017,\n       provides_updates: true,\n       delay_between_updates: 1000,\n       needs_pings: true,\n       timeout_after_last_ping: 5000,\n       notes_for_human: 'Provides humidity and temperature. Check Humidity message (protocol buffer)' },\n     { driver_name: 'Everloop',\n       base_port: 20021,\n       provides_updates: false,\n       delay_between_updates: 1000,\n       needs_pings: false,\n       timeout_after_last_ping: 5000,\n       notes_for_human: 'Write-only. There are 35 leds. Values range from 0 to 255. Check message EverloopImage (protocol buffer)' } ] }", 
-            "title": "Example - Query device list"
-        }, 
-        {
-            "location": "/intro/malos/#everloop-demo", 
-            "text": "Once MALOS is operational, you can run the  Everloop LED array demo . Remember to edit the IP address of your Raspberry PI.  For the impatient, here is a video of what this demo does:  https://youtu.be/b0n2-hzFgcY .", 
-            "title": "Everloop demo"
-        }, 
-        {
-            "location": "/Reference/overview/", 
-            "text": "MATRIX Creator\n\n\n\n\nTechnical Datasheets:\n\n\n\n\n\n\nAtmel 32 bits Cortex M3 SAM3S2\n\n\n\n\n\n\nXilinx Spartan 6S XC6SLX4 FPGA\n\n\n\n\n\n\n8 MEMS audio sensor digital microphones\n\n\n\n\n\n\nST LSM9DS1 3D accelerometer, 3D gyroscope, 3D magnetometer\n\n\n\n\n\n\nST HTS221 digital sensor for relative humidity and temperature\n\n\n\n\n\n\nNXP PN512 NFC reader\n\n\n\n\n\n\nNXP MPL3115A2 Altimeter\n\n\n\n\n\n\nVishay VEML6070 UV Light Sensor\n\n\n\n\n\n\nVishay INFRARED Receptor\n\n\n\n\n\n\nRGBW everloop LED", 
-            "title": "Overview"
-        }, 
-        {
-            "location": "/Reference/overview/#matrix-creator", 
-            "text": "", 
-            "title": "MATRIX Creator"
-        }, 
-        {
-            "location": "/Reference/overview/#technical-datasheets", 
-            "text": "Atmel 32 bits Cortex M3 SAM3S2    Xilinx Spartan 6S XC6SLX4 FPGA    8 MEMS audio sensor digital microphones    ST LSM9DS1 3D accelerometer, 3D gyroscope, 3D magnetometer    ST HTS221 digital sensor for relative humidity and temperature    NXP PN512 NFC reader    NXP MPL3115A2 Altimeter    Vishay VEML6070 UV Light Sensor    Vishay INFRARED Receptor    RGBW everloop LED", 
-            "title": "Technical Datasheets:"
-        }, 
-        {
-            "location": "/Reference/pinout/", 
-            "text": "Expansion pinout\n\n\n\n\nExpansion location\n\n\n\n\nFPGA's UCF definition\n\n\nNET \nDF\n16\n LOC=\nP106\n;\nNET \nDF\n15\n LOC=\nP102\n;\nNET \nDF\n14\n LOC=\nP101\n;\nNET \nDF\n13\n LOC=\nP99\n;\nNET \nDF\n12\n LOC=\nP98\n;\nNET \nDF\n11\n LOC=\nP95\n;\nNET \nDF\n10\n LOC=\nP94\n;\nNET \nDF\n9\n LOC=\nP93\n;\nNET \nDF\n8\n LOC=\nP92\n;\nNET \nDF\n7\n LOC=\nP88\n;\nNET \nDF\n6\n LOC=\nP85\n;\nNET \nDF\n5\n LOC=\nP83\n;\nNET \nDF\n4\n LOC=\nP82\n;\nNET \nDF\n3\n LOC=\nP81\n;\nNET \nDF\n2\n LOC=\nP80\n;\nNET \nDF\n1\n LOC=\nP79\n;\nNET \nDF\n0\n LOC=\nP78\n;", 
-            "title": "Pinout"
-        }, 
-        {
-            "location": "/Reference/pinout/#expansion-pinout", 
-            "text": "", 
-            "title": "Expansion pinout"
-        }, 
-        {
-            "location": "/Reference/pinout/#expansion-location", 
-            "text": "", 
-            "title": "Expansion location"
-        }, 
-        {
-            "location": "/Reference/pinout/#fpgas-ucf-definition", 
-            "text": "NET  DF 16  LOC= P106 ;\nNET  DF 15  LOC= P102 ;\nNET  DF 14  LOC= P101 ;\nNET  DF 13  LOC= P99 ;\nNET  DF 12  LOC= P98 ;\nNET  DF 11  LOC= P95 ;\nNET  DF 10  LOC= P94 ;\nNET  DF 9  LOC= P93 ;\nNET  DF 8  LOC= P92 ;\nNET  DF 7  LOC= P88 ;\nNET  DF 6  LOC= P85 ;\nNET  DF 5  LOC= P83 ;\nNET  DF 4  LOC= P82 ;\nNET  DF 3  LOC= P81 ;\nNET  DF 2  LOC= P80 ;\nNET  DF 1  LOC= P79 ;\nNET  DF 0  LOC= P78 ;", 
-            "title": "FPGA's UCF definition"
+            "location": "/dictionary/#cross-talk", 
+            "text": "Event-based triggers that can occur across applications, and/or devices.", 
+            "title": "Cross-Talk"
         }
     ]
 }

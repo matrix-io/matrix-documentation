@@ -1,678 +1,539 @@
 <!DOCTYPE html>
-<!--[if lt IE 7 ]><html class="no-js ie6"><![endif]-->
-<!--[if IE 7 ]><html class="no-js ie7"><![endif]-->
-<!--[if IE 8 ]><html class="no-js ie8"><![endif]-->
-<!--[if IE 9 ]><html class="no-js ie9"><![endif]-->
-<!--[if (gt IE 9)|!(IE)]><!--> <html class="no-js"> <!--<![endif]-->
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
-    
-      
-        <title>Overview - MATRIX</title>
-      
-      
-      
-      
-    
-    <meta property="og:url" content="None">
-    <meta property="og:title" content="MATRIX">
-    <meta property="og:image" content="None/../../">
-    <meta name="apple-mobile-web-app-title" content="MATRIX">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    
-    
-    <link rel="shortcut icon" type="image/x-icon" href="../../assets/images/favicon-e565ddfa3b.ico">
-    <link rel="icon" type="image/x-icon" href="../../assets/images/favicon-e565ddfa3b.ico">
-    <style>
-      @font-face {
-      	font-family: 'Icon';
-      	src: url('../../assets/fonts/icon.eot?52m981');
-      	src: url('../../assets/fonts/icon.eot?#iefix52m981')
-               format('embedded-opentype'),
-      		   url('../../assets/fonts/icon.woff?52m981')
-               format('woff'),
-      		   url('../../assets/fonts/icon.ttf?52m981')
-               format('truetype'),
-      		   url('../../assets/fonts/icon.svg?52m981#icon')
-               format('svg');
-      	font-weight: normal;
-      	font-style: normal;
-      }
-    </style>
-    <link rel="stylesheet" href="../../assets/stylesheets/application-a422ff04cc.css">
-    
-    
-      
-      
-      
-      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:400,700|Ubuntu+Mono">
-      <style>
-        body, input {
-          font-family: 'Ubuntu', Helvetica, Arial, sans-serif;
-        }
-        pre, code {
-          font-family: 'Ubuntu Mono', 'Courier New', 'Courier', monospace;
-        }
-      </style>
-    
-    
-      <link rel="stylesheet" href="../../styles.css">
-    
-    <script src="../../assets/javascripts/modernizr-4ab42b99fd.js"></script>
-    
-  </head>
-  
-  
-  
-  <body class=" ">
-    
-    <div class="backdrop">
-      <div class="backdrop-paper"></div>
-    </div>
-    <input class="toggle" type="checkbox" id="toggle-drawer">
-    <input class="toggle" type="checkbox" id="toggle-search">
-    <label class="toggle-button overlay" for="toggle-drawer"></label>
-    <header class="header">
-      <nav aria-label="Header">
-  <div class="bar default">
-    <div class="button button-menu" role="button" aria-label="Menu">
-      <label class="toggle-button icon icon-menu" for="toggle-drawer">
-        <span></span>
-      </label>
-    </div>
-    <div class="stretch">
-      <div class="title">
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         
-          <span class="path">
+        
+        
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+
+	<title>Overview - MATRIX</title>
+
+        <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome-4.5.0.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="../../css/highlight.css">
+        <link href="../../styles.css" rel="stylesheet">
+
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+
+        
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
             
-              
-                OS <i class="icon icon-link"></i>
-              
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
             
-              
-                App API <i class="icon icon-link"></i>
-              
-            
-          </span>
-        
-        Overview
-      </div>
-    </div>
-    
-    
-    <div class="button button-search" role="button" aria-label="Search">
-      <label class="toggle-button icon icon-search" title="Search" for="toggle-search"></label>
-    </div>
-  </div>
-  <div class="bar search">
-    <div class="button button-close" role="button" aria-label="Close">
-      <label class="toggle-button icon icon-back" for="toggle-search"></label>
-    </div>
-    <div class="stretch">
-      <div class="field">
-        <input class="query" type="text" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck>
-      </div>
-    </div>
-    <div class="button button-reset" role="button" aria-label="Search">
-      <button class="toggle-button icon icon-close" id="reset-search"></button>
-    </div>
-  </div>
-</nav>
-    </header>
-    <main class="main">
-      
-      <div class="drawer">
-        <nav aria-label="Navigation">
-  
-  <a href="/" class="project">
-    <div class="banner">
-      
-      <div class="name">
-        <strong>
-          MATRIX
-          <span class="version">
-            
-          </span>
-        </strong>
-        
-      </div>
-    </div>
-  </a>
-  <div class="scrollable">
-    <div class="wrapper">
-      
-      <div class="toc">
-        <ul>
-          
-            
-  <li>
-    <a class="" title="Home" href="../..">
-      Home
-    </a>
-    
-  </li>
 
-          
-            
-  <li>
-    <a class="" title="Intro - MATRIX OS" href="../../intro/matrix/">
-      Intro - MATRIX OS
-    </a>
-    
-  </li>
-
-          
-            
-  <li>
-    <a class="" title="Intro - MATRIX CLI" href="../../CLI/overview/">
-      Intro - MATRIX CLI
-    </a>
-    
-  </li>
-
-          
-            
-  <li>
-    <a class="" title="Intro - Low Level Interfaces" href="../../intro/interfaces/">
-      Intro - Low Level Interfaces
-    </a>
-    
-  </li>
-
-          
-            
-  <li>
-    <span class="section">OS</span>
-    <ul>
-      
-        
-  <li>
-    <span class="section">App API</span>
-    <ul>
-      
-        
-  <li>
-    <a class="current" title="Overview" href="./">
-      Overview
-    </a>
-    
-      
-      
-        <ul>
-          
-            <li class="anchor">
-              <a title="Installation" href="#installation">
-                Installation
-              </a>
-            </li>
-          
-            <li class="anchor">
-              <a title="Thinking in Events" href="#thinking-in-events">
-                Thinking in Events
-              </a>
-            </li>
-          
-            <li class="anchor">
-              <a title="Heed Warning" href="#heed-warning">
-                Heed Warning
-              </a>
-            </li>
-          
-        </ul>
-      
-    
-  </li>
-
-      
-        
-  <li>
-    <a class="" title="Computer Vision" href="../computer-vision/">
-      Computer Vision
-    </a>
-    
-  </li>
-
-      
-        
-  <li>
-    <a class="" title="Crosstalk" href="../crosstalk/">
-      Crosstalk
-    </a>
-    
-  </li>
-
-      
-        
-  <li>
-    <a class="" title="Type" href="../typesend/">
-      Type
-    </a>
-    
-  </li>
-
-      
-        
-  <li>
-    <a class="" title="GPIO" href="../GPIO/">
-      GPIO
-    </a>
-    
-  </li>
-
-      
-        
-  <li>
-    <a class="" title="Sensors" href="../sensors/">
-      Sensors
-    </a>
-    
-  </li>
-
-      
-        
-  <li>
-    <a class="" title="Filters" href="../filter/">
-      Filters
-    </a>
-    
-  </li>
-
-      
-        
-  <li>
-    <a class="" title="Microphone" href="../microphone/">
-      Microphone
-    </a>
-    
-  </li>
-
-      
-        
-  <li>
-    <a class="" title="IR TX/RX" href="../ir/">
-      IR TX/RX
-    </a>
-    
-  </li>
-
-      
-        
-  <li>
-    <a class="" title="Everloop" href="../everloop/">
-      Everloop
-    </a>
-    
-  </li>
-
-      
-        
-  <li>
-    <a class="" title="NFC" href="../nfc/">
-      NFC
-    </a>
-    
-  </li>
-
-      
-        
-  <li>
-    <a class="" title="Z-wave" href="../zwave/">
-      Z-wave
-    </a>
-    
-  </li>
-
-      
-        
-  <li>
-    <a class="" title="Zigbee" href="../zigbee/">
-      Zigbee
-    </a>
-    
-  </li>
-
-      
-    </ul>
-  </li>
-
-      
-        
-  <li>
-    <span class="section">Config</span>
-    <ul>
-      
-        
-  <li>
-    <a class="" title="Overview" href="../../Configuration/overview/">
-      Overview
-    </a>
-    
-  </li>
-
-      
-        
-  <li>
-    <a class="" title="Datatypes" href="../../Configuration/datatypes/">
-      Datatypes
-    </a>
-    
-  </li>
-
-      
-        
-  <li>
-    <a class="" title="Screens" href="../../Configuration/screens/">
-      Screens
-    </a>
-    
-  </li>
-
-      
-        
-  <li>
-    <a class="" title="Filters" href="../../Configuration/filters/">
-      Filters
-    </a>
-    
-  </li>
-
-      
-        
-  <li>
-    <a class="" title="Widgets" href="../../Configuration/widgets/">
-      Widgets
-    </a>
-    
-  </li>
-
-      
-        
-  <li>
-    <a class="" title="Services" href="../../Configuration/services/">
-      Services
-    </a>
-    
-  </li>
-
-      
-        
-  <li>
-    <a class="" title="Examples" href="../../Configuration/examples/">
-      Examples
-    </a>
-    
-  </li>
-
-      
-    </ul>
-  </li>
-
-      
-        
-  <li>
-    <a class="" title="Troubleshooting" href="../../intro/matrix-troubleshooting/">
-      Troubleshooting
-    </a>
-    
-  </li>
-
-      
-    </ul>
-  </li>
-
-          
-            
-  <li>
-    <span class="section">CLI</span>
-    <ul>
-      
-        
-  <li>
-    <a class="" title="Overview" href="../../CLI/overview/">
-      Overview
-    </a>
-    
-  </li>
-
-      
-        
-  <li>
-    <a class="" title="Apps" href="../../CLI/apps/">
-      Apps
-    </a>
-    
-  </li>
-
-      
-        
-  <li>
-    <a class="" title="Examples" href="../../CLI/example/">
-      Examples
-    </a>
-    
-  </li>
-
-      
-        
-  <li>
-    <a class="" title="Troubleshooting" href="../../CLI/troubleshooting/">
-      Troubleshooting
-    </a>
-    
-  </li>
-
-      
-    </ul>
-  </li>
-
-          
-            
-  <li>
-    <span class="section">Hardware</span>
-    <ul>
-      
-        
-  <li>
-    <a class="" title="FPGA" href="../../Hardware/fpga/">
-      FPGA
-    </a>
-    
-  </li>
-
-      
-        
-  <li>
-    <a class="" title="SAM3" href="../../Hardware/Sam3/">
-      SAM3
-    </a>
-    
-  </li>
-
-      
-        
-  <li>
-    <a class="" title="SAM3MCU" href="../../Hardware/sam3mcu-programming/">
-      SAM3MCU
-    </a>
-    
-  </li>
-
-      
-        
-  <li>
-    <a class="" title="Microphone" href="../../Hardware/microphone/">
-      Microphone
-    </a>
-    
-  </li>
-
-      
-        
-  <li>
-    <a class="" title="SPI" href="../../Hardware/SPI/">
-      SPI
-    </a>
-    
-  </li>
-
-      
-    </ul>
-  </li>
-
-          
-            
-  <li>
-    <span class="section">Supporting Libraries</span>
-    <ul>
-      
-        
-  <li>
-    <a class="" title="HAL" href="../../intro/hal/">
-      HAL
-    </a>
-    
-  </li>
-
-      
-        
-  <li>
-    <a class="" title="MALOS" href="../../intro/malos/">
-      MALOS
-    </a>
-    
-  </li>
-
-      
-    </ul>
-  </li>
-
-          
-            
-  <li>
-    <span class="section">Reference</span>
-    <ul>
-      
-        
-  <li>
-    <a class="" title="Overview" href="../../Reference/overview/">
-      Overview
-    </a>
-    
-  </li>
-
-      
-        
-  <li>
-    <a class="" title="Pinout" href="../../Reference/pinout/">
-      Pinout
-    </a>
-    
-  </li>
-
-      
-    </ul>
-  </li>
-
-          
-        </ul>
-        
-      </div>
-    </div>
-  </div>
-</nav>
-      </div>
-      <article class="article">
-        <div class="wrapper">
-          
-            <h1>Overview</h1>
-          
-          <h3 id="installation">Installation</h3>
-<p>MATRIX OS applications are an independent process running on a device. They communicate with the MatrixOS core via IPC which is largely event driven. This makes sense for sensors, because just like a REST call, we are waiting for a data point.</p>
-<p>The approach we have chosen for this is to use JavaScript callbacks which look like this.</p>
-<pre><code>someFunction(function callback(data){})
-</code></pre>
-
-<p>What this means is that we execute <code>function callback()</code> at a determined time inside of <code>someFunction()</code>.</p>
-<p>This permits MatrixOS applications to respond to events, such as sensor information, CV detection, or external events as they happen.</p>
-<h3 id="thinking-in-events">Thinking in Events</h3>
-<p>While you can write a <code>main()</code> and <code>setInterval</code> it's execution, most of the power in the MatrixOS is in listening for certain conditions to be met, and then performing an action.</p>
-<h3 id="heed-warning">Heed Warning</h3>
-<p>Not all of this API is built and functional yet. We have endeavored to supply warning messages where there are implementation gaps. Use <code>matrix log</code> for more info about your running apps.</p>
-          <aside class="copyright" role="note">
-            
-            Documentation built with
-            <a href="http://www.mkdocs.org" target="_blank">MkDocs</a>
-            using the
-            <a href="http://squidfunk.github.io/mkdocs-material/" target="_blank">
-              Material
-            </a>
-            theme.
-          </aside>
-          
-            <footer class="footer">
-              
-  <nav class="pagination" aria-label="Footer">
-    <div class="previous">
-      
-        <a href="../../intro/interfaces/" title="Intro - Low Level Interfaces">
-          <span class="direction">
-            Previous
-          </span>
-          <div class="page">
-            <div class="button button-previous" role="button" aria-label="Previous">
-              <i class="icon icon-back"></i>
-            </div>
-            <div class="stretch">
-              <div class="title">
-                Intro - Low Level Interfaces
-              </div>
-            </div>
-          </div>
-        </a>
-      
-    </div>
-    <div class="next">
-      
-        <a href="../computer-vision/" title="Computer Vision">
-          <span class="direction">
-            Next
-          </span>
-          <div class="page">
-            <div class="stretch">
-              <div class="title">
-                Computer Vision
-              </div>
-            </div>
-            <div class="button button-next" role="button" aria-label="Next">
-              <i class="icon icon-forward"></i>
-            </div>
-          </div>
-        </a>
-      
-    </div>
-  </nav>
-
-            </footer>
-          
+            <!-- Main title -->
+            <a class="navbar-brand" href="../..">MATRIX</a>
         </div>
-      </article>
-      <div class="results" role="status" aria-live="polite">
-        <div class="scrollable">
-          <div class="wrapper">
-            <div class="meta"></div>
-            <div class="list"></div>
-          </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+            
+                <!-- Main navigation -->
+                <ul class="nav navbar-nav">
+                
+                
+                    <li >
+                        <a href="../..">Installation</a>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">MATRIX CLI <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../../CLI/overview/">Overview</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../CLI/installation/">Installation</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../CLI/apps/">Apps</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../CLI/device/">Devices</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../CLI/example/">Examples</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../intro/cli-troubleshooting/">Troubleshooting</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown active">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">MATRIX OS <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li class="active">
+    <a href="./">Overview</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../..">Installation</a>
+</li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">App API</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../sensors/">Sensors</a>
+</li>
+
+        
+            
+<li >
+    <a href="../everloop/">Everloop</a>
+</li>
+
+        
+            
+<li >
+    <a href="../filter/">Filters</a>
+</li>
+
+        
+            
+<li >
+    <a href="../computer-vision/">Computer Vision</a>
+</li>
+
+        
+            
+<li >
+    <a href="../microphone/">Microphone</a>
+</li>
+
+        
+            
+<li >
+    <a href="../crosstalk/">Cross-Talk</a>
+</li>
+
+        
+            
+<li >
+    <a href="../typesend/">Type</a>
+</li>
+
+        
+            
+<li >
+    <a href="../GPIO/">GPIO</a>
+</li>
+
+        
+            
+<li >
+    <a href="../ir/">IR TX/RX</a>
+</li>
+
+        
+            
+<li >
+    <a href="../nfc/">NFC</a>
+</li>
+
+        
+            
+<li >
+    <a href="../zwave/">Z-wave</a>
+</li>
+
+        
+            
+<li >
+    <a href="../zigbee/">Zigbee</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Configuration</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../Configuration/overview/">Overview</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../Configuration/datatypes/">Datatypes</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../Configuration/screens/">Screens</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../Configuration/filters/">Filters</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../Configuration/widgets/">Widgets</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../Configuration/services/">Services</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../Configuration/examples/">Examples</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+<li >
+    <a href="../../intro/matrix-troubleshooting/">Troubleshooting</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">HAL <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../../HAL/overview/">Overview</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../HAL/example/">Examples</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../HAL/troubleshooting/">Troubleshooting</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">MALOS <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../../MALOS/overview/">Overview</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../MALOS/example/">Examples</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../MALOS/troubleshooting/">Troubleshooting</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Hardware <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../../Reference/overview/">Overview</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Reference/pinout/">Pinout</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Hardware/fpga/">FPGA</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Hardware/Sam3/">SAM3</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Hardware/sam3mcu-programming/">SAM3MCU</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Hardware/microphone/">Microphone</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Hardware/SPI/">SPI</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../../dictionary/">Dictionary</a>
+                    </li>
+                
+                
+                </ul>
+            
+
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                        <i class="fa fa-search"></i> Search
+                    </a>
+                </li>
+                
+                    <li >
+                        <a rel="next" href="../../intro/cli-troubleshooting/">
+                            <i class="fa fa-arrow-left"></i> Previous
+                        </a>
+                    </li>
+                    <li >
+                        <a rel="prev" href="../..">
+                            Next <i class="fa fa-arrow-right"></i>
+                        </a>
+                    </li>
+                
+                
+            </ul>
         </div>
-      </div>
-    </main>
-    <script>
-      var base_url = '../..';
-      var repo_id  = '';
-    </script>
-    <script src="../../assets/javascripts/application-997097ee0c.js"></script>
+    </div>
+</div>
+
+        <div class="container">
+            
+                <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
     
+        <li class="main active"><a href="#overview">Overview</a></li>
+        
+            <li><a href="#installation">Installation</a></li>
+        
     
-  </body>
+        <li class="main "><a href="#app-api">App API</a></li>
+        
+            <li><a href="#sensors">Sensors</a></li>
+        
+            <li><a href="#everloop">Everloop</a></li>
+        
+            <li><a href="#filters">Filters</a></li>
+        
+            <li><a href="#computer-vision">Computer Vision</a></li>
+        
+            <li><a href="#microphones">Microphones</a></li>
+        
+            <li><a href="#ir-txrx">IR TX/RX</a></li>
+        
+            <li><a href="#gpio">GPIO</a></li>
+        
+            <li><a href="#servos">Servos</a></li>
+        
+            <li><a href="#nfc">NFC</a></li>
+        
+            <li><a href="#zigbee">Zigbee</a></li>
+        
+            <li><a href="#z-wave">Z-wave</a></li>
+        
+    
+        <li class="main "><a href="#configuration">Configuration</a></li>
+        
+            <li><a href="#data-types">Data Types</a></li>
+        
+            <li><a href="#screens">Screens</a></li>
+        
+            <li><a href="#filters_1">Filters</a></li>
+        
+            <li><a href="#widgets">Widgets</a></li>
+        
+            <li><a href="#services">Services</a></li>
+        
+            <li><a href="#troubleshooting">Troubleshooting</a></li>
+        
+    
+    </ul>
+</div></div>
+                <div class="col-md-9" role="main">
+
+<h2 id="overview">Overview</h2>
+<h4 id="installation"><a href="index.md">Installation</a></h4>
+<p>Raspberry Pi, Core Dependencies, MATRIX OS Setup.</p>
+<h2 id="app-api">App API</h2>
+<h4 id="sensors"><a href="../sensors/">Sensors</a></h4>
+<p>Sensor interfaces and data structures.</p>
+<h4 id="everloop"><a href="../everloop/">Everloop</a></h4>
+<p>Everloop interface.</p>
+<h4 id="filters"><a href="../filter/">Filters</a></h4>
+<p>Filters interface for Sensors, Computer Vision, etc...</p>
+<h4 id="computer-vision"><a href="../computer-vision/">Computer Vision</a></h4>
+<p>Computer Vision services.</p>
+<h4 id="microphones"><a href="../microphone/">Microphones</a></h4>
+<p>Microphone Services.</p>
+<h4 id="ir-txrx"><a href="../ir/">IR TX/RX</a></h4>
+<p>IR receiving and transmitter services.</p>
+<h4 id="gpio"><a href="../GPIO/">GPIO</a></h4>
+<p>GPIO interfaces.</p>
+<h4 id="servos"><a href="servos.md">Servos</a></h4>
+<p>Servo interfaces.</p>
+<h4 id="nfc"><a href="../nfc/">NFC</a></h4>
+<p>NFC interfaces.</p>
+<h4 id="zigbee"><a href="../zigbee/">Zigbee</a></h4>
+<p>Zigbee interfaces.</p>
+<h4 id="z-wave"><a href="../zwave/">Z-wave</a></h4>
+<p>Z-wave interfaces.</p>
+<h2 id="configuration">Configuration</h2>
+<h4 id="data-types"><a href="../sensors/">Data Types</a></h4>
+<p>Data structures and how to save to the infrastructure.</p>
+<h4 id="screens"><a href="../everloop/">Screens</a></h4>
+<p>Dashboard creation and how to structure your widgets.</p>
+<h4 id="filters_1"><a href="../filter/">Filters</a></h4>
+<p>Dashboard filter configuration.</p>
+<h4 id="widgets"><a href="../computer-vision/">Widgets</a></h4>
+<p>Dashboard widget configuration.</p>
+<h4 id="services"><a href="../microphone/">Services</a></h4>
+<p>Available infrastructure services.</p>
+<h4 id="troubleshooting"><a href="../../intro/cli-troubleshooting/">Troubleshooting</a></h4>
+<p>Troubleshooting</p></div>
+            
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            
+            <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+
+        <script src="../../js/jquery-1.10.2.min.js"></script>
+        <script src="../../js/bootstrap-3.0.3.min.js"></script>
+        <script src="../../js/highlight.pack.js"></script>
+        <script>var base_url = '../..';</script>
+        <script data-main="../../mkdocs/js/search.js" src="../../mkdocs/js/require.js"></script>
+        <script src="../../js/base.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                        <h4 class="modal-title" id="exampleModalLabel">Search</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>
+                            From here you can search these documents. Enter
+                            your search terms below.
+                        </p>
+                        <form role="form">
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query">
+                            </div>
+                        </form>
+                        <div id="mkdocs-search-results"></div>
+                    </div>
+                    <div class="modal-footer">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </body>
 </html>
