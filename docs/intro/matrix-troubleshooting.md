@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ## Matrix OS Troubleshooting
 
 If you are running Matrix OS from your device, you will have access to more error messages.
@@ -12,3 +13,6 @@ Solution. Run again with environment set.
 ```
 NODE_ENV=rc node index.js
 ```
+=======
+## Troubleshooting
+>>>>>>> major reorganization
