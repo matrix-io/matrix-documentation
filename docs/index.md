@@ -44,9 +44,25 @@ This completes the Creator hardware setup. This is all you need to begin using [
 #### MATRIX OS Setup
 
 ##### Installation
-**NOTE:** MATRIX OS has a NodeJS dependency. Please Install NodeJS before installing MATRIX OS. For installation instructions you can go to the [NodeJS downloads page](https://nodejs.org/en/download/package-manager/#debian-and-ubuntu-based-linux-distributions)
-If the NodeJS installation fails,you might want to try a [Manual Installation](https://github.com/nodesource/distributions#debmanual) instead.
+**NOTE:** MATRIX OS has a NodeJS dependency. Please Install NodeJS before installing MATRIX OS.
 
+###### Node Installation Manual
+Go to the [NodeJS downloads page](https://nodejs.org/en/download/package-manager/#debian-and-ubuntu-based-linux-distributions)
+If the NodeJS installation fails, you might want to try a [Manual Installation](https://github.com/nodesource/distributions#debmanual) instead.
+
+###### Node Installation Easy
+```
+# Install npm (doesn't really matter what version, apt-get node is v0.10...)
+sudo apt-get install npm
+
+# n is a node version manager
+sudo npm install -g n
+
+# node 6.5 is the latest target node version, also installs new npm
+n 6.5
+```
+
+###### MatrixOS Installation
 ```
 git clone https://github.com/matrix-io/matrix-os.git;
 cd matrix-os;
