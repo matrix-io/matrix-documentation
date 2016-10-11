@@ -1,4 +1,4 @@
-## Dictionary
+## Glossary
 The dictionary will describe all components of the system.
 
 #### MATRIX Open Source (MATRIX OS)
@@ -15,3 +15,13 @@ C++ Computer Vision Framework.
 
 #### Hardware Abstraction Layer (HAL)
 C++ drivers for sensors and available components.
+
+#### Applications
+An application is a service running inside of a container on a physical or simulated instance of a device. Driven by MATRIX OS.
+
+#### Devices
+A device is a physical or simulated instance of the hardware. Determined by the MATRIX OS.
+
+#### Cross-Talk
+Event-based triggers that can occur across applications, and/or devices.
+

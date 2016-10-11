@@ -38,7 +38,8 @@ sudo raspi-config;
 sudo reboot;
 ```
 
-This completes the Creator hardware setup. *Note*: You can now explore the [Hardware Interfaces](intro/interfaces.md).
+This completes the Creator hardware setup. This is all you need to begin using [MALOS](MALOS/overview.md) and [HAL](HAL/overview.md).
+**Note**: You can also explore the [Hardware Interfaces](intro/interfaces.md).
 
 #### MATRIX OS Setup
 
