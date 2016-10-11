@@ -1,4 +1,3 @@
-# widgets
+# Widgets
 
-A comprehensive overview coming soon
-see [Examples](examples.md) for now
+A comprehensive overview coming soon. See [examples](examples.md) for now.

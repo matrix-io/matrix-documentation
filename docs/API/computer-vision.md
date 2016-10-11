@@ -1,9 +1,7 @@
-```
-matrix.init( algorithm, options )
-```
-
+## Computer Vision
+We've build computer vision algorithms in the API inteface to add another level of experiential IoT applications. We've also made it extremely simple to get started.
 ## Detection Algorithms
-`face`
+Available algorithms: `face`
 <!-- `thumb-up`
 `palm-open`
 `palm-closed`
@@ -11,7 +9,17 @@ matrix.init( algorithm, options )
 `vehicle-count`
 `person-count` -->
 
-## Base Options
+## Initialization
+```
+var algorithm = 'face';
+var options   = {};
+matrix.init( algorithm, options ).then(function( data ){
+  // some callback
+  console.log( data );
+});
+```
+
+<!--## Base Options
 These are applicable to all algorithms.
 
 - `zone` - a nested array of x,y, width and height
@@ -25,7 +33,7 @@ var zone2 =  [ 50, 50, 250, 300 ];
   zone: zone1,
   zones: [zone1, zone2]
 }
-```
+``` -->
 
 <!-- ## Gesture
 ```
@@ -56,6 +64,7 @@ matrix.init('face').then(function(data){})
 ```  
 `then` will call when any face is detected
 
+<!--
 ### Face Detection Options
 To only detect particular characteristics pass an array of the desired values as `options.detect`.
 
@@ -64,6 +73,7 @@ To only detect particular characteristics pass an array of the desired values as
 var options = { detect: ['AGE', 'EMOTION','GENDER','FACE_ID','HEAD_POSE','FACE_FEATURES'] };
 matrix.init('gesture', options);
 ```
+-->
 
 #### emotions
 `HAPPY`
@@ -73,7 +83,6 @@ matrix.init('gesture', options);
 `CALM`
 `SURPRISED`
 `DISGUST`
-`DWELL`
 <!--
 ## Face Recognition
 ```

@@ -1,30 +1,34 @@
 site_name: MATRIX
-theme: material
 site_description: MATRIX OS Documentation
 docs_dir: docs
 extra_css: ['styles.css']
 
 pages:
-- Home: 'index.md'
-- Intro - MATRIX OS: 'intro/matrix.md'
-- Intro - MATRIX CLI: 'CLI/overview.md'
-- Intro - Low Level Interfaces: 'intro/interfaces.md'
-- OS:
+- Installation: 'index.md'
+- MATRIX CLI: 
+  - 'Overview': 'CLI/overview.md'
+  - 'Installation': 'CLI/installation.md'
+  - 'Apps': 'CLI/apps.md'
+  - 'Devices': 'CLI/device.md'
+  - 'Examples': 'CLI/example.md'
+  - 'Troubleshooting': 'intro/cli-troubleshooting.md'
+- MATRIX OS:
+  - Overview: 'API/overview.md'
+  - Installation: 'index.md'
   - App API:
-    - 'Overview': 'API/overview.md'
+    - 'Sensors': 'API/sensors.md'
+    - 'Everloop': 'API/everloop.md'
+    - 'Filters': 'API/filter.md'
     - 'Computer Vision': 'API/computer-vision.md'
-    - 'Crosstalk': 'API/crosstalk.md'
+    - 'Microphone': 'API/microphone.md'
+    - 'Cross-Talk': 'API/crosstalk.md'
     - 'Type': 'API/typesend.md'
     - 'GPIO': 'API/GPIO.md'
-    - 'Sensors': 'API/sensors.md'
-    - 'Filters': 'API/filter.md'
-    - 'Microphone': 'API/microphone.md'
     - 'IR TX/RX': 'API/ir.md'
-    - 'Everloop': 'API/everloop.md'
     - 'NFC': 'API/nfc.md'
     - 'Z-wave': 'API/zwave.md'
     - 'Zigbee': 'API/zigbee.md'
-  - Config:
+  - Configuration:
     - 'Overview': 'Configuration/overview.md'
     - 'Datatypes': 'Configuration/datatypes.md'
     - 'Screens': 'Configuration/screens.md'
@@ -33,20 +37,20 @@ pages:
     - 'Services': 'Configuration/services.md'
     - 'Examples': 'Configuration/examples.md'
   - Troubleshooting: 'intro/matrix-troubleshooting.md'
-- CLI:
-  - 'Overview': 'CLI/overview.md'
-  - 'Apps': 'CLI/apps.md'
-  - 'Examples': 'CLI/example.md'
-  - 'Troubleshooting': 'CLI/troubleshooting.md'
+- HAL:
+  - 'Overview': 'HAL/overview.md'
+  - 'Examples': 'HAL/example.md'
+  - 'Troubleshooting': 'HAL/troubleshooting.md'
+- MALOS:
+  - 'Overview': 'MALOS/overview.md'
+  - 'Examples': 'MALOS/example.md'
+  - 'Troubleshooting': 'MALOS/troubleshooting.md'
 - Hardware:
+  - 'Overview': 'Reference/overview.md'
+  - 'Pinout': 'Reference/pinout.md'
   - 'FPGA': 'Hardware/fpga.md'
   - 'SAM3': 'Hardware/Sam3.md'
   - 'SAM3MCU': 'Hardware/sam3mcu-programming.md'
   - 'Microphone': 'Hardware/microphone.md'
   - 'SPI': 'Hardware/SPI.md'
-- Supporting Libraries:
-  - 'HAL': 'intro/hal.md'
-  - 'MALOS': 'intro/malos.md'
-- Reference:
-  - 'Overview': 'Reference/overview.md'
-  - 'Pinout': 'Reference/pinout.md'
+- Dictionary: 'dictionary.md'

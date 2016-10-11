@@ -1,18 +1,43 @@
-### Installation
+## Overview
 
-MATRIX OS applications are an independent process running on a device. They communicate with the MatrixOS core via IPC which is largely event driven. This makes sense for sensors, because just like a REST call, we are waiting for a data point.
+####[Installation](index.md)
+Raspberry Pi, Core Dependencies, MATRIX OS Setup.
 
-The approach we have chosen for this is to use JavaScript callbacks which look like this.
+## App API
+####[Sensors](sensors.md)
+Sensor interfaces and data structures.
+####[Everloop](everloop.md)
+Everloop interface.
+####[Filters](filter.md)
+Filters interface for Sensors, Computer Vision, etc...
+####[Computer Vision](computer-vision.md)
+Computer Vision services.
+####[Microphones](microphone.md)
+Microphone Services.
+####[IR TX/RX](ir.md)
+IR receiving and transmitter services.
+####[GPIO](GPIO.md)
+GPIO interfaces.
+####[Servos](servos.md)
+Servo interfaces.
+####[NFC](nfc.md)
+NFC interfaces.
+####[Zigbee](zigbee.md)
+Zigbee interfaces.
+####[Z-wave](zwave.md)
+Z-wave interfaces.
 
-```
-someFunction(function callback(data){})
-```
-What this means is that we execute `function callback()` at a determined time inside of `someFunction()`.
+## Configuration
+####[Data Types](sensors.md)
+Data structures and how to save to the infrastructure.
+####[Screens](everloop.md)
+Dashboard creation and how to structure your widgets.
+####[Filters](filter.md)
+Dashboard filter configuration.
+####[Widgets](computer-vision.md)
+Dashboard widget configuration.
+####[Services](microphone.md)
+Available infrastructure services.
 
-This permits MatrixOS applications to respond to events, such as sensor information, CV detection, or external events as they happen.
-
-### Thinking in Events
-While you can write a `main()` and `setInterval` it's execution, most of the power in the MatrixOS is in listening for certain conditions to be met, and then performing an action.
-
-### Heed Warning
-Not all of this API is built and functional yet. We have endeavored to supply warning messages where there are implementation gaps. Use `matrix log` for more info about your running apps.
+####[Troubleshooting](../intro/cli-troubleshooting.md)
+Troubleshooting

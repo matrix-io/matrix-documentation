@@ -1,4 +1,6 @@
 ## Applications
+Applications are how the MATRIX OS interfaces with the MATRIX Creator hardware. Applications are a top-level abstraction of MALOS interface. Applications are developed primarly in Javascript (supported), and can leverage other languages (like Python) with non-standard implementations.
+
 
 ### Search
 
