@@ -469,8 +469,22 @@ sudo reboot;
 <strong>Note</strong>: You can also explore the <a href="intro/interfaces.md">Hardware Interfaces</a>.</p>
 <h4 id="matrix-os-setup">MATRIX OS Setup</h4>
 <h5 id="installation_1">Installation</h5>
-<p><strong>NOTE:</strong> MATRIX OS has a NodeJS dependency. Please Install NodeJS before installing MATRIX OS. For installation instructions you can go to the <a href="https://nodejs.org/en/download/package-manager/#debian-and-ubuntu-based-linux-distributions">NodeJS downloads page</a>
-If the NodeJS installation fails,you might want to try a <a href="https://github.com/nodesource/distributions#debmanual">Manual Installation</a> instead.</p>
+<p><strong>NOTE:</strong> MATRIX OS has a NodeJS dependency. Please Install NodeJS before installing MATRIX OS.</p>
+<h6 id="node-installation-manual">Node Installation Manual</h6>
+<p>Go to the <a href="https://nodejs.org/en/download/package-manager/#debian-and-ubuntu-based-linux-distributions">NodeJS downloads page</a>
+If the NodeJS installation fails, you might want to try a <a href="https://github.com/nodesource/distributions#debmanual">Manual Installation</a> instead.</p>
+<h6 id="node-installation-easy">Node Installation Easy</h6>
+<pre><code># Install npm (doesn't really matter what version, apt-get node is v0.10...)
+sudo apt-get install npm
+
+# n is a node version manager
+sudo npm install -g n
+
+# node 6.5 is the latest target node version, also installs new npm
+n 6.5
+</code></pre>
+
+<h6 id="matrixos-installation">MatrixOS Installation</h6>
 <pre><code>git clone https://github.com/matrix-io/matrix-os.git;
 cd matrix-os;
 git submodule update --init;
@@ -544,5 +558,5 @@ malos_eye &amp; malos 2&gt;&amp;1
 
 <!--
 MkDocs version : 0.15.3
-Build Date UTC : 2016-10-11 18:17:03.465517
+Build Date UTC : 2016-10-11 18:23:09.032848
 -->
