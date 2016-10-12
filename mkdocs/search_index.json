@@ -142,7 +142,7 @@
         }, 
         {
             "location": "/CLI/apps/", 
-            "text": "Applications\n\n\nApplications are how the MATRIX OS interfaces with the MATRIX Creator hardware. Applications are a top-level abstraction of MALOS interface. Applications are developed primarly in Javascript (supported), and can leverage other languages (like Python) with non-standard implementations.\n\n\nSearch\n\n\n# Find MatrixOS apps for a keyword\nmatrix search keyword\n\n\n\n\nAll the following commands require an active MatrixOS to be specified with \nmatrix use\n.\n\n\nInstall\n\n\n# Install an app from the store to MatrixOS\nmatrix install appName\n\n\n\n\nUninstall\n\n\n# Uninstall an app from your device\nmatrix uninstall appName\n\n\n\n\nCreate\n\n\n#creates a folder with a base matrix app template\nmatrix create appName\n\n\n\n\nSee \ndocs/api\n for more information about writing MatrixOS apps.\n\n\nDeploy\n\n\n# uploads app folder to MatrixOS\nmatrix deploy appName\n\n\n\n\nRun\n\n\nmatrix start appName\n\n\n\n\nStop\n\n\nmatrix stop appName\n\n\n\n\nRestart\n\n\nmatrix restart appName", 
+            "text": "Applications\n\n\nApplications are how the MATRIX OS interfaces with the MATRIX Creator hardware. Applications are a top-level abstraction of MALOS interface. Applications are developed primarly in Javascript (supported), and can leverage other languages (like Python) with non-standard implementations.\n\n\nSearch\n\n\n# Find MatrixOS apps for a keyword\nmatrix search keyword\n\n\n\n\nAll the following commands require an active MatrixOS to be specified with \nmatrix use\n.\n\n\nInstall\n\n\n# Install an app from the store to MatrixOS\nmatrix install appName\n\n\n\n\nUninstall\n\n\n# Uninstall an app from your device\nmatrix uninstall appName\n\n\n\n\nCreate\n\n\n#creates a folder with a base matrix app template\nmatrix create appName\n\n\n\n\nSee \nMatrix OS \n API\n for more information about writing MatrixOS apps.\n\n\nDeploy\n\n\n# uploads app folder to MatrixOS\nmatrix deploy appName\n\n\n\n\nRun\n\n\nmatrix start appName\n\n\n\n\nStop\n\n\nmatrix stop appName\n\n\n\n\nRestart\n\n\nmatrix restart appName", 
             "title": "Apps"
         }, 
         {
@@ -167,7 +167,7 @@
         }, 
         {
             "location": "/CLI/apps/#create", 
-            "text": "#creates a folder with a base matrix app template\nmatrix create appName  See  docs/api  for more information about writing MatrixOS apps.", 
+            "text": "#creates a folder with a base matrix app template\nmatrix create appName  See  Matrix OS   API  for more information about writing MatrixOS apps.", 
             "title": "Create"
         }, 
         {
