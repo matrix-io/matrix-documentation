@@ -70,7 +70,7 @@ info:
 buttonTest:
   label: Hacking Buttons
   control: button
-  trigger: buttonInfo
+  event: buttonInfo
   value: Get Secret Information
 ```
 ###### Handling Code
@@ -79,8 +79,56 @@ matrix.on('buttonInfo', function(){
   // ...
 })
 ```
-`trigger` in the config file, is the event name (`buttonInfo`) handled.
+`event` in the config file, is the event name (`buttonInfo`) handled.
 
+
+### Map Notation
+Multiple events are supported in a widget through the use of the `map` property.
+
+This has two valid expressions. Key / Value and Collection
+
+#### Simple Form - Key, Value
+```
+buttons:
+  control: button
+  map:
+    'label' : eventName
+    'label2': event2Name
+```
+
+### Sorts
+Examples to display buttons in a particular order.
+
+#### Simple Form - mapSort
+
+```
+map:
+  'label' : eventName
+  'label2': event2Name
+mapSort: ['label', 'label2']
+```
+
+#### Normal Form - Multiple
+```
+buttons:
+  control: button
+  map:
+   - value: seven
+     event: event7
+   - value: eight
+     event: event8
+   - value: nine
+     event: event9
+```
+
+#### Normal Form Overview
+```
+map:
+  - value: foo    # button label
+    event: e     # event name emitted for app to listen for
+    <!-- data: 1      # what data to send with this button -->
+    <!-- color: 'red' # what color to tint this button -->
+```
 
 ### Multiple
 ![Multi Button](img/nbut.png)
@@ -132,6 +180,10 @@ matrix.on('doTest2', function(){
  //...
 })
 ```
+
+###### Handling Data
+To group your apps
+
 # Responsive Data Flow
 ```
 matrix.on('buttonInfo', function(){
@@ -147,7 +199,8 @@ When `buttonInfo` is triggered, respond with information with a type `device`.
 
 The list looks for
 ```
-list:
-  type: device
+widgets:
+  list:
+    type: device
 ```
-which tells it to display information with type `device`.
+The `list` widget displays information of type `device`.
