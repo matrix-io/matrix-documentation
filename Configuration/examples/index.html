@@ -523,11 +523,13 @@
 </code></pre>
 
 <h4 id="simple-form-mapsort">Simple Form - mapSort</h4>
-<p>Use <code>mapSort</code> to display buttons in a particular order.</p>
+<p>Use <code>order</code> to display buttons in a particular order.</p>
 <pre><code>map:
   'label' : eventName
   'label2': event2Name
-mapSort: ['label', 'label2']
+order:
+  - 'label'
+  - 'label2'
 </code></pre>
 
 <h4 id="normal-form-multiple">Normal Form - Multiple</h4>
