@@ -30,7 +30,7 @@ matrix uninstall appName
 #creates a folder with a base matrix app template
 matrix create appName
 ```
-See [docs/api](../API/overview.md) for more information about writing MatrixOS apps.
+See [Matrix OS > API](../API/overview.md) for more information about writing MatrixOS apps.
 
 ### Deploy
 ```
