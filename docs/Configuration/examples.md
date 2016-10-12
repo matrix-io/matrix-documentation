@@ -96,16 +96,17 @@ buttons:
     'label2': event2Name
 ```
 
-### Sorts
-Examples to display buttons in a particular order.
 
 #### Simple Form - mapSort
+Use `order` to display buttons in a particular order.
 
 ```
 map:
   'label' : eventName
   'label2': event2Name
-mapSort: ['label', 'label2']
+order:
+  - 'label'
+  - 'label2'
 ```
 
 #### Normal Form - Multiple
