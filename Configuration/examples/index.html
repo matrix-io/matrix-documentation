@@ -500,7 +500,7 @@
 <pre><code>buttonTest:
   label: Hacking Buttons
   control: button
-  trigger: buttonInfo
+  event: buttonInfo
   value: Get Secret Information
 </code></pre>
 
@@ -510,7 +510,47 @@
 })
 </code></pre>
 
-<p><code>trigger</code> in the config file, is the event name (<code>buttonInfo</code>) handled.</p>
+<p><code>event</code> in the config file, is the event name (<code>buttonInfo</code>) handled.</p>
+<h3 id="map-notation">Map Notation</h3>
+<p>Multiple events are supported in a widget through the use of the <code>map</code> property.</p>
+<p>This has two valid expressions. Key / Value and Collection</p>
+<h4 id="simple-form-key-value">Simple Form - Key, Value</h4>
+<pre><code>buttons:
+  control: button
+  map:
+    'label' : eventName
+    'label2': event2Name
+</code></pre>
+
+<h3 id="sorts">Sorts</h3>
+<p>Examples to display buttons in a particular order.</p>
+<h4 id="simple-form-mapsort">Simple Form - mapSort</h4>
+<pre><code>map:
+  'label' : eventName
+  'label2': event2Name
+mapSort: ['label', 'label2']
+</code></pre>
+
+<h4 id="normal-form-multiple">Normal Form - Multiple</h4>
+<pre><code>buttons:
+  control: button
+  map:
+   - value: seven
+     event: event7
+   - value: eight
+     event: event8
+   - value: nine
+     event: event9
+</code></pre>
+
+<h4 id="normal-form-overview">Normal Form Overview</h4>
+<pre><code>map:
+  - value: foo    # button label
+    event: e     # event name emitted for app to listen for
+    &lt;!-- data: 1      # what data to send with this button --&gt;
+    &lt;!-- color: 'red' # what color to tint this button --&gt;
+</code></pre>
+
 <h3 id="multiple">Multiple</h3>
 <p><img alt="Multi Button" src="../img/nbut.png" /></p>
 <pre><code>buttonsTest:
@@ -561,6 +601,8 @@ matrix.on('doTest2', function(){
 })
 </code></pre>
 
+<h6 id="handling-data">Handling Data</h6>
+<p>To group your apps</p>
 <h1 id="responsive-data-flow">Responsive Data Flow</h1>
 <pre><code>matrix.on('buttonInfo', function(){
   matrix.type('device').send({
@@ -574,11 +616,12 @@ matrix.on('doTest2', function(){
 
 <p>When <code>buttonInfo</code> is triggered, respond with information with a type <code>device</code>.</p>
 <p>The list looks for</p>
-<pre><code>list:
-  type: device
+<pre><code>widgets:
+  list:
+    type: device
 </code></pre>
 
-<p>which tells it to display information with type <code>device</code>.</p></div>
+<p>The <code>list</code> widget displays information of type <code>device</code>.</p></div>
             
         </div>
 
