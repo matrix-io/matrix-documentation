@@ -442,12 +442,12 @@
 <li>Enter a <code>device name</code> and (optional) <code>device description</code>.</li>
 <li>After a few moments you will be provided with a <code>MATRIX_DEVICE_ID</code> and <code>MATRIX_DEVICE_SECRET</code>.</li>
 </ol>
-<pre><code># example variables generated via registration, you'll get your own
-# save your variables for later, you'll need them
-MATRIX_DEVICE_ID=dc7a1a71be2d
-MATRIX_DEVICE_SECRET=08629018e9d793a7a10ea823ad15894da0c3616dec7aab85b4ecf1774505f0c665b29c660f06cd4f7e5544272b
+<pre><code># example variables generated via registration, yours will be different
+export MATRIX_DEVICE_ID=dc7a1a71be2d
+export MATRIX_DEVICE_SECRET=08629018e9d77h15i5n0t4r3alz0f06cd4f7e5544272b
 </code></pre>
 
+<p>Save these for the Configure ENV Variables step, near the end.</p>
 <h4 id="raspberry-pi-setup">Raspberry Pi Setup</h4>
 <ol>
 <li>To enjoy your new board you’ll need to set it up. First, you need to have Raspbian installed on your Raspberry Pi. If you don’t have it, you can <a href="https://www.raspberrypi.org/downloads/raspbian/">download</a> it and <a href="https://www.raspberrypi.org/documentation/installation/installing-images/README.md">follow the instructions</a>.</li>
@@ -501,14 +501,19 @@ malos_eye &amp; malos 2&gt;&amp;1
 
 <h5 id="configure-env-variables">Configure ENV variables</h5>
 <ol>
-<li>Add the above variables you generated via CLI as environment variables via a shell script or command line on the Raspberry Pi.</li>
-<li>(optional) We export envs via an <code>.env</code> file which can be processed using <code>source .env</code></li>
-<li>To begin targeting this device with the CLI, enter the <code>matrix use</code> command provided</li>
+<li>On the Pi, inside your <code>~</code> folder, create a file named <code>.envrc</code> with the variables from the Matrix CLI Setup above.  </li>
+<li><code>source .envrc</code> from <code>~</code> to make the variables available to the shell.</li>
+<li>To begin targeting this device with the CLI, enter the <code>matrix use</code> command provided. <code>matrix use $deviceId</code></li>
+<li>If you <code>matrix</code>, you should see your deviceId selected.</li>
 </ol>
 <h4 id="run-matrix-os">Run MATRIX OS</h4>
 <ol>
-<li>From the <code>matrix-os</code> folder. <code>NODE_ENV=rc node index.js</code></li>
-<li>Now you can issue commands and deploy apps to your MATRIX OS from the <a href="CLI/overview/">MATRIX CLI</a>.</li>
+<li>
+<p>From the <code>matrix-os</code> folder. <code>NODE_ENV=rc node index.js</code>. While in alpha, we are running in our Release Candidate environment.</p>
+</li>
+<li>
+<p>You can issue commands and deploy apps to your MATRIX OS from the <a href="CLI/overview/">MATRIX CLI</a>.</p>
+</li>
 </ol>
 <h2 id="custom-raspbian-package">Custom Raspbian Package</h2>
 <p>We'll be making a custom raspbian package available for download very soon!</p></div>
@@ -558,5 +563,5 @@ malos_eye &amp; malos 2&gt;&amp;1
 
 <!--
 MkDocs version : 0.15.3
-Build Date UTC : 2016-10-12 20:02:54.600303
+Build Date UTC : 2016-10-17 21:30:33.244728
 -->
