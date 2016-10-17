@@ -502,6 +502,13 @@ malos_eye &amp; malos 2&gt;&amp;1
 <h5 id="configure-env-variables">Configure ENV variables</h5>
 <ol>
 <li>On the Pi, inside your <code>~</code> folder, create a file named <code>.envrc</code> with the variables from the Matrix CLI Setup above.  </li>
+</ol>
+<pre><code># in .envrc file
+export MATRIX_DEVICE_ID=dc7a1a71be2d
+export MATRIX_DEVICE_SECRET=08629018e9d77h15i5n0t4r3alz0f06cd4f7e5544272b
+</code></pre>
+
+<ol>
 <li><code>source .envrc</code> from <code>~</code> to make the variables available to the shell.</li>
 <li>To begin targeting this device with the CLI, enter the <code>matrix use</code> command provided. <code>matrix use $deviceId</code></li>
 <li>If you <code>matrix</code>, you should see your deviceId selected.</li>
@@ -563,5 +570,5 @@ malos_eye &amp; malos 2&gt;&amp;1
 
 <!--
 MkDocs version : 0.15.3
-Build Date UTC : 2016-10-17 21:30:33.244728
+Build Date UTC : 2016-10-17 21:37:17.664359
 -->
