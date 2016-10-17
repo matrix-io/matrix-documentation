@@ -8,6 +8,7 @@
 **Note:** Pre-requisite of [NodeJS](https://nodejs.org/en/download) on the client computer.
 
 1. Install [MATRIX CLI](../CLI/overview.md) via npm `npm install -g matrix-cli`.
+1. Target the proper environment `matrix set env rc`.
 1. With MATRIX CLI installed on your computer, register an account with MATRIX via `matrix register`.
 1. Once registered an account, run `matrix register device`.
 1. Enter a `device name` and (optional) `device description`.
@@ -84,6 +85,11 @@ malos_eye & malos 2>&1
 ##### Configure ENV variables
 
 1. On the Pi, inside your `~` folder, create a file named `.envrc` with the variables from the Matrix CLI Setup above.  
+```
+# in .envrc file
+export MATRIX_DEVICE_ID=dc7a1a71be2d
+export MATRIX_DEVICE_SECRET=08629018e9d77h15i5n0t4r3alz0f06cd4f7e5544272b
+```
 1. `source .envrc` from `~` to make the variables available to the shell.
 1. To begin targeting this device with the CLI, enter the `matrix use` command provided. `matrix use $deviceId`
 1. If you `matrix`, you should see your deviceId selected.
