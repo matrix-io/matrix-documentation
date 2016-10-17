@@ -14,11 +14,12 @@
 1. After a few moments you will be provided with a `MATRIX_DEVICE_ID` and `MATRIX_DEVICE_SECRET`.
 
 ```
-# example variables generated via registration, you'll get your own
-# save your variables for later, you'll need them
-MATRIX_DEVICE_ID=dc7a1a71be2d
-MATRIX_DEVICE_SECRET=08629018e9d793a7a10ea823ad15894da0c3616dec7aab85b4ecf1774505f0c665b29c660f06cd4f7e5544272b
+# example variables generated via registration, yours will be different
+export MATRIX_DEVICE_ID=dc7a1a71be2d
+export MATRIX_DEVICE_SECRET=08629018e9d77h15i5n0t4r3alz0f06cd4f7e5544272b
 ```
+
+Save these for the Configure ENV Variables step, near the end.
 
 #### Raspberry Pi Setup
 
@@ -82,15 +83,15 @@ malos_eye & malos 2>&1
 
 ##### Configure ENV variables
 
-1. Add the above variables you generated via CLI as environment variables via a shell script or command line on the Raspberry Pi.
-1. (optional) We export envs via an `.env` file which can be processed using `source .env`
-1. To begin targeting this device with the CLI, enter the `matrix use` command provided
+1. On the Pi, inside your `~` folder, create a file named `.envrc` with the variables from the Matrix CLI Setup above.  
+1. `source .envrc` from `~` to make the variables available to the shell.
+1. To begin targeting this device with the CLI, enter the `matrix use` command provided. `matrix use $deviceId`
+1. If you `matrix`, you should see your deviceId selected.
 
 #### Run MATRIX OS
+1. From the `matrix-os` folder. `NODE_ENV=rc node index.js`. While in alpha, we are running in our Release Candidate environment.
 
-
-1. From the `matrix-os` folder. `NODE_ENV=rc node index.js`
-1. Now you can issue commands and deploy apps to your MATRIX OS from the [MATRIX CLI](CLI/overview.md).
+1. You can issue commands and deploy apps to your MATRIX OS from the [MATRIX CLI](CLI/overview.md).
 
 ## Custom Raspbian Package
 We'll be making a custom raspbian package available for download very soon!
