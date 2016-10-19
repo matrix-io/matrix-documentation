@@ -25,7 +25,7 @@ matrix.led('green').render()
 matrix.led('red')
 
 // interleave two colors
-matrix.led([ '#bada55, '#e1337e'])
+matrix.led([ '#bada55', '#e1337e'])
 
 // support opacity
 matrix.led('rgba(255, 0, 100, 0.6)')
