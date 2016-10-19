@@ -422,22 +422,6 @@
         <li class="main "><a href="#generate-shapes">Generate Shapes</a></li>
         
     
-        <li class="main "><a href="#manipulate-colors">Manipulate colors</a></li>
-        
-    
-        <li class="main "><a href="#manipulate-position">Manipulate position</a></li>
-        
-    
-        <li class="main "><a href="#composition">Composition</a></li>
-        
-            <li><a href="#shape-objects">Shape Objects</a></li>
-        
-            <li><a href="#direct-pixel-manipulation">Direct Pixel Manipulation</a></li>
-        
-    
-        <li class="main "><a href="#example-clock">Example clock</a></li>
-        
-    
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
@@ -445,9 +429,9 @@
 <h2 id="everloop">Everloop</h2>
 <p>A powerful tool for communicating with end users is the EverLoop LED circle.</p>
 <h2 id="rendering">Rendering</h2>
-<p>MatrixOS is an attempt at abstracting out the complexity of hardware to make it very accessible for end users. At the same time, one also wants to support those who might want to perform more complex operations. When designing a language, sometimes compromises between ease of use and features must be made. </p>
+<p>MatrixOS is an attempt at abstracting out the complexity of hardware to make it very accessible for end users. At the same time, one also wants to support those who might want to perform more complex operations. When designing a language, sometimes compromises between ease of use and features must be made.</p>
 <h4 id="the-problem">The problem</h4>
-<p>Many things might want to write to the LED. We can leave it up to chance as to which gets to write, or we can approach it intelligently to optimize the aesthetics and performance. This requires a more complex notation. </p>
+<p>Many things might want to write to the LED. We can leave it up to chance as to which gets to write, or we can approach it intelligently to optimize the aesthetics and performance. This requires a more complex notation.</p>
 <h4 id="the-solution">The Solution</h4>
 <pre><code>matrix.led('blue')
 //does nothing
@@ -495,25 +479,16 @@ matrix.led({
 // support multiple shapes
 </code></pre>
 
-<h2 id="manipulate-colors">Manipulate colors</h2>
-<pre><code>//retrieves the current color state of the LED
-matrix.led()
+<!-- ## Manipulate colors
 
-// lighten all colors 0 - 100
-matrix.led().brighten(10)
+wzxhzdk:3
 
-// darken all colors 0 - 100
-matrix.led().darken(10)
-</code></pre>
-
-<h2 id="manipulate-position">Manipulate position</h2>
-<pre><code>// rotate the lights clockwise by a specified angle
+// rotate the lights clockwise by a specified angle
 matrix.led().rotate(90)
-</code></pre>
 
-<h2 id="composition">Composition</h2>
-<h3 id="shape-objects">Shape Objects</h3>
-<pre><code>// make a smiley face
+wzxhzdk:4
+
+// make a smiley face
 matrix.led([
   {
     angle: 45,
@@ -529,19 +504,18 @@ matrix.led([
     start: 225
   }
 ]).darken(90).render();
-</code></pre>
 
-<h3 id="direct-pixel-manipulation">Direct Pixel Manipulation</h3>
-<p>Array index = led to change</p>
-<pre><code>matrix.led([0, 0, 0, 0, 'yellow', 0,
+wzxhzdk:5
+
+matrix.led([0, 0, 0, 0, 'yellow', 0,
 0, 0, 0, 0, 0, 0, 0, 'yellow', 0, 0,
 0, 0, 0, 0, 0, 0, 'yellow', 'yellow',
 'yellow', 'yellow', 'yellow', 'yellow',
 'yellow', 'yellow', 'yellow' ]).render();
-</code></pre>
 
-<h2 id="example-clock">Example clock</h2>
-<pre><code>setInterval(function(){
+wzxhzdk:6
+
+setInterval(function(){
   var time = new Date();
   var h = time.getHours();
   var m = time.getMinutes();
@@ -570,7 +544,7 @@ matrix.led([
   matrix.led([hourLED, minuteLED]).render();
 
 }, 1000)
-</code></pre></div>
+```</div>
             
         </div>
 
