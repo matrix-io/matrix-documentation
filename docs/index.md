@@ -72,6 +72,12 @@ git submodule update --init;
 npm install;
 ```
 
+###### MatrixOS Dependency upgrade
+Run this if needed. Should be automatically upgraded.
+```
+npm upgrade matrix-firebase matrix-node-sdk matrix-app-config-helper
+```
+
 ##### Run Services
 
 ```

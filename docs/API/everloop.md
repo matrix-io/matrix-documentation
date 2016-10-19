@@ -4,10 +4,10 @@ A powerful tool for communicating with end users is the EverLoop LED circle.
 
 ## Rendering
 
-MatrixOS is an attempt at abstracting out the complexity of hardware to make it very accessible for end users. At the same time, one also wants to support those who might want to perform more complex operations. When designing a language, sometimes compromises between ease of use and features must be made. 
+MatrixOS is an attempt at abstracting out the complexity of hardware to make it very accessible for end users. At the same time, one also wants to support those who might want to perform more complex operations. When designing a language, sometimes compromises between ease of use and features must be made.
 
 #### The problem
-Many things might want to write to the LED. We can leave it up to chance as to which gets to write, or we can approach it intelligently to optimize the aesthetics and performance. This requires a more complex notation. 
+Many things might want to write to the LED. We can leave it up to chance as to which gets to write, or we can approach it intelligently to optimize the aesthetics and performance. This requires a more complex notation.
 
 #### The Solution
 ```
@@ -59,7 +59,7 @@ matrix.led({
 
 // support multiple shapes
 ```
-## Manipulate colors
+<!-- ## Manipulate colors
 
 ```
 //retrieves the current color state of the LED
@@ -70,7 +70,7 @@ matrix.led().brighten(10)
 
 // darken all colors 0 - 100
 matrix.led().darken(10)
-```
+``` -->
 
 ## Manipulate position
 
