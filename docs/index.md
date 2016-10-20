@@ -35,8 +35,7 @@ sudo apt-get update;
 sudo apt-get upgrade;
 sudo apt-get install -y libzmq3-dev xc3sprog malos-eye matrix-creator-malos matrix-creator-openocd wiringpi matrix-creator-init cmake g++ git --force-yes;
 
-# Enable your camera on your Pi.
-sudo raspi-config;
+# Reboot!
 sudo reboot;
 ```
 
@@ -76,16 +75,6 @@ npm install;
 Run this if needed. Should be automatically upgraded.
 ```
 npm upgrade matrix-firebase matrix-node-sdk matrix-app-config-helper
-```
-
-##### Run Services
-
-```
-# currently needs to be run on every restart
-sudo modprobe bcm2835-v4l2;
-
-# before you run
-malos_eye & malos 2>&1
 ```
 
 ##### Configure ENV variables
