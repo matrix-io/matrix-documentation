@@ -10,7 +10,7 @@ MatrixOS is an attempt at abstracting out the complexity of hardware to make it 
 Many things might want to write to the LED. We can leave it up to chance as to which gets to write, or we can approach it intelligently to optimize the aesthetics and performance. This requires a more complex notation.
 
 #### The Solution
-```
+```js
 matrix.led('blue')
 //does nothing
 
@@ -20,7 +20,7 @@ matrix.led('green').render()
 ```
 
 ## Set Colors
-```
+```js
 // set an initial color
 matrix.led('red')
 
@@ -33,10 +33,10 @@ matrix.led('rgba(255, 0, 100, 0.6)')
 
 
 ## Generate Shapes
-```
+```js
 matrix.led({
-  // number of lights to use [ 90° = 9 ]   
-  arc: 9,
+  // degrees of arc [ 90° = quadrant ]   
+  arc: 90,
 
   color: 'green',
 
@@ -74,7 +74,7 @@ matrix.led().darken(10)
 
 ## Manipulate position
 
-```
+```js
 // rotate the lights clockwise by a specified angle
 matrix.led().rotate(90)
 ```
@@ -82,7 +82,7 @@ matrix.led().rotate(90)
 ## Composition
 
 ### Shape Objects
-```
+```js
 // make a smiley face
 matrix.led([
   {
@@ -98,11 +98,11 @@ matrix.led([
     color: 'yellow',
     start: 225
   }
-]).darken(90).render();
+]).render();
 ```
 ### Direct Pixel Manipulation
 Array index = led to change
-```
+```js
 matrix.led([0, 0, 0, 0, 'yellow', 0,
 0, 0, 0, 0, 0, 0, 0, 'yellow', 0, 0,
 0, 0, 0, 0, 0, 0, 'yellow', 'yellow',
