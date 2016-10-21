@@ -422,6 +422,19 @@
         <li class="main "><a href="#generate-shapes">Generate Shapes</a></li>
         
     
+        <li class="main "><a href="#manipulate-position">Manipulate position</a></li>
+        
+    
+        <li class="main "><a href="#composition">Composition</a></li>
+        
+            <li><a href="#shape-objects">Shape Objects</a></li>
+        
+            <li><a href="#direct-pixel-manipulation">Direct Pixel Manipulation</a></li>
+        
+    
+        <li class="main "><a href="#example-clock">Example clock</a></li>
+        
+    
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
@@ -441,6 +454,7 @@ matrix.led('green').render()
 //lights change
 </code></pre>
 
+<p>Further examples omit the <code>render</code> for readability.</p>
 <h2 id="set-colors">Set Colors</h2>
 <pre><code class="js">// set an initial color
 matrix.led('red')
@@ -475,31 +489,73 @@ matrix.led({
   // blends interlight space if true, solid lights if false, default false
   blend: true
 })
-
-// support multiple shapes
 </code></pre>
 
-<!-- ## Manipulate colors
+<h2 id="manipulate-position">Manipulate position</h2>
+<pre><code class="js">// rotate the lights clockwise by a specified angle
+matrix.led().rotate(90)
+</code></pre>
 
-wzxhzdk:3
+<h2 id="composition">Composition</h2>
+<h3 id="shape-objects">Shape Objects</h3>
+<pre><code class="js">// make a smiley face
+matrix.led([
+  {
+    angle: 45,
+    color: 'yellow'
+  },
+  {
+    angle: 135,
+    color: 'yellow'
+  },
+  {
+    arc: 90,
+    color: 'yellow',
+    start: 225
+  }
+]);
+</code></pre>
 
+<h3 id="direct-pixel-manipulation">Direct Pixel Manipulation</h3>
+<p>Array index = led to change</p>
+<pre><code class="js">matrix.led([0, 0, 0, 0, 'yellow', 0,
+0, 0, 0, 0, 0, 0, 0, 'yellow', 0, 0,
+0, 0, 0, 0, 0, 0, 'yellow', 'yellow',
+'yellow', 'yellow', 'yellow', 'yellow',
+'yellow', 'yellow', 'yellow' ]);
+</code></pre>
 
-## Composition
+<h2 id="example-clock">Example clock</h2>
+<pre><code class="js">setInterval(function(){
+  var time = new Date();
+  var h = time.getHours();
+  var m = time.getMinutes();
+  var s = time.getSeconds();
 
-### Shape Objects
+  var hourLED = {
+    // translate hours (12) to angle (360)
+    arc: h * 3,
+    color: 'blue',
+    darken: 50
+  };
 
-wzxhzdk:4
+  var minuteLED = {
+    // translate minutes ( 60 ) to angle ( 360 )
+    angle: m * 6,
+    color: 'green'
+  };
 
-### Direct Pixel Manipulation
-Array index = led to change
+  var secondLED = {
+    // translate seconds (60) to angle (360)
+    angle: s * 6,
+    color: yellow,
+    blend: true
+  };
 
-wzxhzdk:5
+  matrix.led([hourLED, minuteLED]).render();
 
-
-
-## Example clock
-
-wzxhzdk:6</div>
+}, 1000)
+</code></pre></div>
             
         </div>
 
