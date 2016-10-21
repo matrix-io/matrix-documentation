@@ -10,6 +10,7 @@ MatrixOS is an attempt at abstracting out the complexity of hardware to make it 
 Many things might want to write to the LED. We can leave it up to chance as to which gets to write, or we can approach it intelligently to optimize the aesthetics and performance. This requires a more complex notation.
 
 #### The Solution
+
 ```js
 matrix.led('blue')
 //does nothing
@@ -19,7 +20,10 @@ matrix.led('green').render()
 //lights change
 ```
 
+Further examples omit the `render` for readability.
+
 ## Set Colors
+
 ```js
 // set an initial color
 matrix.led('red')
@@ -33,6 +37,7 @@ matrix.led('rgba(255, 0, 100, 0.6)')
 
 
 ## Generate Shapes
+
 ```js
 matrix.led({
   // degrees of arc [ 90° = quadrant ]   
@@ -56,21 +61,7 @@ matrix.led({
   // blends interlight space if true, solid lights if false, default false
   blend: true
 })
-
-// support multiple shapes
 ```
-<!-- ## Manipulate colors
-
-```
-//retrieves the current color state of the LED
-matrix.led()
-
-// lighten all colors 0 - 100
-matrix.led().brighten(10)
-
-// darken all colors 0 - 100
-matrix.led().darken(10)
-``` -->
 
 ## Manipulate position
 
@@ -98,7 +89,7 @@ matrix.led([
     color: 'yellow',
     start: 225
   }
-]).render();
+]);
 ```
 ### Direct Pixel Manipulation
 Array index = led to change
@@ -107,12 +98,12 @@ matrix.led([0, 0, 0, 0, 'yellow', 0,
 0, 0, 0, 0, 0, 0, 0, 'yellow', 0, 0,
 0, 0, 0, 0, 0, 0, 'yellow', 'yellow',
 'yellow', 'yellow', 'yellow', 'yellow',
-'yellow', 'yellow', 'yellow' ]).render();
+'yellow', 'yellow', 'yellow' ]);
 ```
 
 
 ## Example clock
-```
+```js
 setInterval(function(){
   var time = new Date();
   var h = time.getHours();
