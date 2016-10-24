@@ -461,8 +461,7 @@ sudo apt-get update;
 sudo apt-get upgrade;
 sudo apt-get install -y libzmq3-dev xc3sprog malos-eye matrix-creator-malos matrix-creator-openocd wiringpi matrix-creator-init cmake g++ git --force-yes;
 
-# Enable your camera on your Pi.
-sudo raspi-config;
+# Reboot!
 sudo reboot;
 </code></pre>
 
@@ -495,14 +494,6 @@ npm install;
 <h6 id="matrixos-dependency-upgrade">MatrixOS Dependency upgrade</h6>
 <p>Run this if needed. Should be automatically upgraded.</p>
 <pre><code>npm upgrade matrix-firebase matrix-node-sdk matrix-app-config-helper
-</code></pre>
-
-<h5 id="run-services">Run Services</h5>
-<pre><code># currently needs to be run on every restart
-sudo modprobe bcm2835-v4l2;
-
-# before you run
-malos_eye &amp; malos 2&gt;&amp;1
 </code></pre>
 
 <h5 id="configure-env-variables">Configure ENV variables</h5>
@@ -576,5 +567,5 @@ export MATRIX_DEVICE_SECRET=08629018e9d77h15i5n0t4r3alz0f06cd4f7e5544272b
 
 <!--
 MkDocs version : 0.15.3
-Build Date UTC : 2016-10-21 16:44:22.293257
+Build Date UTC : 2016-10-24 16:53:28.979436
 -->

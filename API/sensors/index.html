@@ -442,13 +442,13 @@
 <li><code>options</code>: The options for that sensor. By default, all sensors have a <code>refresh</code> and <code>timeout</code> property.</li>
 </ul>
 <pre><code>var options = { 
-  refresh: 1000 //milliseconds
+  refresh: 1000, //milliseconds
   timeout: 1000 //milliseconds
 };
 
 matrix.init('temperature', options).then(function(data){
   //see below for data formats
-})it
+});
 </code></pre>
 
 <h2 id="outputs">Outputs</h2>
