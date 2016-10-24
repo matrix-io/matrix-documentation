@@ -7,7 +7,7 @@ All sensors are initialized using the `init` method.
 
 ```
 var options = { 
-  refresh: 1000 //milliseconds,
+  refresh: 1000, //milliseconds
   timeout: 1000 //milliseconds
 };
 

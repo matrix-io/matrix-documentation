@@ -9,7 +9,7 @@ matrix.init('temperature')
 .then(function(data){
   // see CrossTalk documentation for more information about matrix.emit
   matrix.emit('ac-control', 'turnOn');
-})
+});
 ```
 
 Filtering decides whether or not a data point is passed to the `then()`, it does not change the data in any way.
