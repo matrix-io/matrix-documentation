@@ -421,8 +421,6 @@
         
             <li><a href="#pressure">Pressure</a></li>
         
-            <li><a href="#altitude">Altitude</a></li>
-        
             <li><a href="#uv">UV</a></li>
         
             <li><a href="#gyroscope">Gyroscope</a></li>
@@ -449,7 +447,7 @@
 <h3 id="init">.init</h3>
 <p>All sensors are initialized using the <code>init</code> method.</p>
 <ul>
-<li><code>sensorType</code>: Type of sensor you are initializing <code>temperature</code>, <code>humidity</code>, <code>pressure</code>, <code>uv</code>, <code>altitude</code>, <code>gyro</code>, <code>accel</code>.</li>
+<li><code>sensorType</code>: Type of sensor you are initializing <code>temperature</code>, <code>humidity</code>, <code>pressure</code>, <code>uv</code>, <code>gyroscope</code>, <code>accelerometer</code>.</li>
 <li><code>options</code>: The options for that sensor. By default, all sensors have a <code>refresh</code> and <code>timeout</code> property.</li>
 </ul>
 <pre><code>var options = {
@@ -474,12 +472,10 @@ matrix.init('temperature', options).then(function(data){
 <p>Output for <code>humidity</code>.</p>
 <h3 id="pressure">Pressure</h3>
 <p>Output for <code>pressure</code>.</p>
-<h3 id="altitude">Altitude</h3>
-<p>Output for <code>altitude</code>.</p>
 <h3 id="uv">UV</h3>
 <p>Output for <code>temperature</code>.</p>
 <h3 id="gyroscope">Gyroscope</h3>
-<p>Output for <code>gyro</code>.</p>
+<p>Output for <code>gyroscope</code>.</p>
 <pre><code>{
   yaw: 82.06211853027344,
   pitch: -7.972985744476318,
@@ -488,7 +484,7 @@ matrix.init('temperature', options).then(function(data){
 </code></pre>
 
 <h3 id="accelerometer">Accelerometer</h3>
-<p>Output for <code>accel</code></p>
+<p>Output for <code>accelerometer</code></p>
 <pre><code>{
   x: 0.1,
   y: 0.23,

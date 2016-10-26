@@ -447,7 +447,7 @@
         }, 
         {
             "location": "/API/sensors/", 
-            "text": "Sensors\n\n\nSensors and Configuration\n\n\nEnd users must explicitly authorize MOS applications to utilize\u00a0hardware sensors and computer vision algorithms.\n\n\nThis requires that each application identify required sensors in \nconfig.yaml\n.\n\n\nsensors:\n  - temperature\n  - uv\n\n\n\n\nOtherwise sensors will not work.\n\n\n.init\n\n\nAll sensors are initialized using the \ninit\n method.\n\n\n\n\nsensorType\n: Type of sensor you are initializing \ntemperature\n, \nhumidity\n, \npressure\n, \nuv\n, \naltitude\n, \ngyro\n, \naccel\n.\n\n\noptions\n: The options for that sensor. By default, all sensors have a \nrefresh\n and \ntimeout\n property.\n\n\n\n\nvar options = {\n  refresh: 1000, //milliseconds\n  timeout: 1000 //milliseconds\n};\n\nmatrix.init('temperature', options).then(function(data){\n  //see below for data formats\n});\n\n\n\n\nOutputs\n\n\nTemperature\n\n\nOutput for \ntemperature\n (in \n).\n\n\n{\n  value: 28.0\n}\n\n\n\n\nHumidity\n\n\nOutput for \nhumidity\n.\n\n\nPressure\n\n\nOutput for \npressure\n.\n\n\nAltitude\n\n\nOutput for \naltitude\n.\n\n\nUV\n\n\nOutput for \ntemperature\n.\n\n\nGyroscope\n\n\nOutput for \ngyro\n.\n\n\n{\n  yaw: 82.06211853027344,\n  pitch: -7.972985744476318,\n  roll: 1.0514432191848755\n}\n\n\n\n\nAccelerometer\n\n\nOutput for \naccel\n\n\n{\n  x: 0.1,\n  y: 0.23,\n  z: 0.224\n}\n\n\n\n\nFiltering Sensor Data\n\n\nSee \nAPI \n Filter", 
+            "text": "Sensors\n\n\nSensors and Configuration\n\n\nEnd users must explicitly authorize MOS applications to utilize\u00a0hardware sensors and computer vision algorithms.\n\n\nThis requires that each application identify required sensors in \nconfig.yaml\n.\n\n\nsensors:\n  - temperature\n  - uv\n\n\n\n\nOtherwise sensors will not work.\n\n\n.init\n\n\nAll sensors are initialized using the \ninit\n method.\n\n\n\n\nsensorType\n: Type of sensor you are initializing \ntemperature\n, \nhumidity\n, \npressure\n, \nuv\n, \ngyroscope\n, \naccelerometer\n.\n\n\noptions\n: The options for that sensor. By default, all sensors have a \nrefresh\n and \ntimeout\n property.\n\n\n\n\nvar options = {\n  refresh: 1000, //milliseconds\n  timeout: 1000 //milliseconds\n};\n\nmatrix.init('temperature', options).then(function(data){\n  //see below for data formats\n});\n\n\n\n\nOutputs\n\n\nTemperature\n\n\nOutput for \ntemperature\n (in \n).\n\n\n{\n  value: 28.0\n}\n\n\n\n\nHumidity\n\n\nOutput for \nhumidity\n.\n\n\nPressure\n\n\nOutput for \npressure\n.\n\n\nUV\n\n\nOutput for \ntemperature\n.\n\n\nGyroscope\n\n\nOutput for \ngyroscope\n.\n\n\n{\n  yaw: 82.06211853027344,\n  pitch: -7.972985744476318,\n  roll: 1.0514432191848755\n}\n\n\n\n\nAccelerometer\n\n\nOutput for \naccelerometer\n\n\n{\n  x: 0.1,\n  y: 0.23,\n  z: 0.224\n}\n\n\n\n\nFiltering Sensor Data\n\n\nSee \nAPI \n Filter", 
             "title": "Sensors"
         }, 
         {
@@ -462,7 +462,7 @@
         }, 
         {
             "location": "/API/sensors/#init", 
-            "text": "All sensors are initialized using the  init  method.   sensorType : Type of sensor you are initializing  temperature ,  humidity ,  pressure ,  uv ,  altitude ,  gyro ,  accel .  options : The options for that sensor. By default, all sensors have a  refresh  and  timeout  property.   var options = {\n  refresh: 1000, //milliseconds\n  timeout: 1000 //milliseconds\n};\n\nmatrix.init('temperature', options).then(function(data){\n  //see below for data formats\n});", 
+            "text": "All sensors are initialized using the  init  method.   sensorType : Type of sensor you are initializing  temperature ,  humidity ,  pressure ,  uv ,  gyroscope ,  accelerometer .  options : The options for that sensor. By default, all sensors have a  refresh  and  timeout  property.   var options = {\n  refresh: 1000, //milliseconds\n  timeout: 1000 //milliseconds\n};\n\nmatrix.init('temperature', options).then(function(data){\n  //see below for data formats\n});", 
             "title": ".init"
         }, 
         {
@@ -486,23 +486,18 @@
             "title": "Pressure"
         }, 
         {
-            "location": "/API/sensors/#altitude", 
-            "text": "Output for  altitude .", 
-            "title": "Altitude"
-        }, 
-        {
             "location": "/API/sensors/#uv", 
             "text": "Output for  temperature .", 
             "title": "UV"
         }, 
         {
             "location": "/API/sensors/#gyroscope", 
-            "text": "Output for  gyro .  {\n  yaw: 82.06211853027344,\n  pitch: -7.972985744476318,\n  roll: 1.0514432191848755\n}", 
+            "text": "Output for  gyroscope .  {\n  yaw: 82.06211853027344,\n  pitch: -7.972985744476318,\n  roll: 1.0514432191848755\n}", 
             "title": "Gyroscope"
         }, 
         {
             "location": "/API/sensors/#accelerometer", 
-            "text": "Output for  accel  {\n  x: 0.1,\n  y: 0.23,\n  z: 0.224\n}", 
+            "text": "Output for  accelerometer  {\n  x: 0.1,\n  y: 0.23,\n  z: 0.224\n}", 
             "title": "Accelerometer"
         }, 
         {
