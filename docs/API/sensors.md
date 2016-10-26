@@ -16,7 +16,7 @@ Otherwise sensors will not work.
 ### .init
 All sensors are initialized using the `init` method.
 
-* `sensorType`: Type of sensor you are initializing `temperature`, `humidity`, `pressure`, `uv`, `altitude`, `gyro`, `accel`.
+* `sensorType`: Type of sensor you are initializing `temperature`, `humidity`, `pressure`, `uv`, `gyroscope`, `accelerometer`.
 * `options`: The options for that sensor. By default, all sensors have a `refresh` and `timeout` property.
 
 ```
@@ -45,14 +45,11 @@ Output for `humidity`.
 ### Pressure
 Output for `pressure`.
 
-### Altitude
-Output for `altitude`.
-
 ### UV
 Output for `temperature`.
 
 ### Gyroscope
-Output for `gyro`.
+Output for `gyroscope`.
 ```
 {
   yaw: 82.06211853027344,
@@ -61,7 +58,7 @@ Output for `gyro`.
 }
 ```
 ### Accelerometer
-Output for `accel`
+Output for `accelerometer`
 ```
 {
   x: 0.1,
