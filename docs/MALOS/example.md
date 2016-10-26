@@ -1,6 +1,7 @@
 ## Getting Started
 ```
 git clone https://github.com/matrix-io/matrix-creator-malos;
+git submodule update --init;
 cd src/js_test;
 npm install;
 ```
