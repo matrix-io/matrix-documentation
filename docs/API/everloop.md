@@ -126,11 +126,11 @@ setInterval(function(){
   var secondLED = {
     // translate seconds (60) to angle (360)
     angle: s * 6,
-    color: yellow,
+    color: 'yellow',
     blend: true
   };
 
   matrix.led([hourLED, minuteLED]).render();
 
-}, 1000)
+}, 1000);
 ```
