@@ -1,12 +1,26 @@
 ## Sensors
+
+### Sensors and Configuration
+End users must explicitly authorize MOS applications to utilize hardware sensors and computer vision algorithms.
+
+This requires that each application identify required sensors in `config.yaml`.
+
+```
+sensors:
+  - temperature
+  - uv
+```
+
+Otherwise sensors will not work.
+
 ### .init
-All sensors are initialized using the `init` method. 
+All sensors are initialized using the `init` method.
 
 * `sensorType`: Type of sensor you are initializing `temperature`, `humidity`, `pressure`, `uv`, `altitude`, `gyro`, `accel`.
 * `options`: The options for that sensor. By default, all sensors have a `refresh` and `timeout` property.
 
 ```
-var options = { 
+var options = {
   refresh: 1000 //milliseconds
   timeout: 1000 //milliseconds
 };
@@ -47,6 +61,7 @@ Output for `gyro`.
 }
 ```
 ### Accelerometer
+Output for `accel`
 ```
 {
   x: 0.1,
