@@ -408,6 +408,8 @@
     
         <li class="main active"><a href="#sensors">Sensors</a></li>
         
+            <li><a href="#sensors-and-configuration">Sensors and Configuration</a></li>
+        
             <li><a href="#init">.init</a></li>
         
     
@@ -435,13 +437,22 @@
                 <div class="col-md-9" role="main">
 
 <h2 id="sensors">Sensors</h2>
+<h3 id="sensors-and-configuration">Sensors and Configuration</h3>
+<p>End users must explicitly authorize MOS applications to utilize hardware sensors and computer vision algorithms.</p>
+<p>This requires that each application identify required sensors in <code>config.yaml</code>.</p>
+<pre><code>sensors:
+  - temperature
+  - uv
+</code></pre>
+
+<p>Otherwise sensors will not work.</p>
 <h3 id="init">.init</h3>
-<p>All sensors are initialized using the <code>init</code> method. </p>
+<p>All sensors are initialized using the <code>init</code> method.</p>
 <ul>
 <li><code>sensorType</code>: Type of sensor you are initializing <code>temperature</code>, <code>humidity</code>, <code>pressure</code>, <code>uv</code>, <code>altitude</code>, <code>gyro</code>, <code>accel</code>.</li>
 <li><code>options</code>: The options for that sensor. By default, all sensors have a <code>refresh</code> and <code>timeout</code> property.</li>
 </ul>
-<pre><code>var options = { 
+<pre><code>var options = {
   refresh: 1000, //milliseconds
   timeout: 1000 //milliseconds
 };
@@ -477,6 +488,7 @@ matrix.init('temperature', options).then(function(data){
 </code></pre>
 
 <h3 id="accelerometer">Accelerometer</h3>
+<p>Output for <code>accel</code></p>
 <pre><code>{
   x: 0.1,
   y: 0.23,

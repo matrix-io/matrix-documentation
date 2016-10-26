@@ -406,21 +406,22 @@
                 <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
-        <li class="main active"><a href="#matrix-os-troubleshooting">Matrix OS Troubleshooting</a></li>
+        <li class="main active"><a href="#troubleshooting">Troubleshooting</a></li>
+        
+            <li><a href="#test-apps">Test apps</a></li>
         
             <li><a href="#lights-are-spinning-but-dont-stop">Lights are spinning, but don't stop</a></li>
-        
-    
-        <li class="main "><a href="#troubleshooting">Troubleshooting</a></li>
         
     
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
 
-<p>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</p>
-<h2 id="matrix-os-troubleshooting">Matrix OS Troubleshooting</h2>
-<p>If you are running Matrix OS from your device, you will have access to more error messages.</p>
+<h2 id="troubleshooting">Troubleshooting</h2>
+<p>Starting MOS from your device, you will have access to more error messages with <code>DEBUG=*,-engine*,-Component*</code> prepended to the commands presented below. <code>engine</code>, refers to <code>engine.io</code>, sockets, and <code>Component</code>, is very verbose hardware communications, disable these filters as necessary.</p>
+<h3 id="test-apps">Test apps</h3>
+<p><code>sensorTest</code> - tests all sensors
+<code>ledTest</code> - tests the led</p>
 <h3 id="lights-are-spinning-but-dont-stop">Lights are spinning, but don't stop</h3>
 <p>Exits with message</p>
 <pre><code>Device Error undefined
@@ -428,25 +429,7 @@
 
 <p>Solution. Run again with environment set.</p>
 <pre><code>NODE_ENV=rc node index.js
-</code></pre>
-
-<p>=======</p>
-<h2 id="troubleshooting">Troubleshooting</h2>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<p>major reorganization</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote></div>
+</code></pre></div>
             
         </div>
 

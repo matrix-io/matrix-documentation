@@ -447,7 +447,7 @@
         }, 
         {
             "location": "/API/sensors/", 
-            "text": "Sensors\n\n\n.init\n\n\nAll sensors are initialized using the \ninit\n method. \n\n\n\n\nsensorType\n: Type of sensor you are initializing \ntemperature\n, \nhumidity\n, \npressure\n, \nuv\n, \naltitude\n, \ngyro\n, \naccel\n.\n\n\noptions\n: The options for that sensor. By default, all sensors have a \nrefresh\n and \ntimeout\n property.\n\n\n\n\nvar options = { \n  refresh: 1000, //milliseconds\n  timeout: 1000 //milliseconds\n};\n\nmatrix.init('temperature', options).then(function(data){\n  //see below for data formats\n});\n\n\n\n\nOutputs\n\n\nTemperature\n\n\nOutput for \ntemperature\n (in \n).\n\n\n{\n  value: 28.0\n}\n\n\n\n\nHumidity\n\n\nOutput for \nhumidity\n.\n\n\nPressure\n\n\nOutput for \npressure\n.\n\n\nAltitude\n\n\nOutput for \naltitude\n.\n\n\nUV\n\n\nOutput for \ntemperature\n.\n\n\nGyroscope\n\n\nOutput for \ngyro\n.\n\n\n{\n  yaw: 82.06211853027344,\n  pitch: -7.972985744476318,\n  roll: 1.0514432191848755\n}\n\n\n\n\nAccelerometer\n\n\n{\n  x: 0.1,\n  y: 0.23,\n  z: 0.224\n}\n\n\n\n\nFiltering Sensor Data\n\n\nSee \nAPI \n Filter", 
+            "text": "Sensors\n\n\nSensors and Configuration\n\n\nEnd users must explicitly authorize MOS applications to utilize\u00a0hardware sensors and computer vision algorithms.\n\n\nThis requires that each application identify required sensors in \nconfig.yaml\n.\n\n\nsensors:\n  - temperature\n  - uv\n\n\n\n\nOtherwise sensors will not work.\n\n\n.init\n\n\nAll sensors are initialized using the \ninit\n method.\n\n\n\n\nsensorType\n: Type of sensor you are initializing \ntemperature\n, \nhumidity\n, \npressure\n, \nuv\n, \naltitude\n, \ngyro\n, \naccel\n.\n\n\noptions\n: The options for that sensor. By default, all sensors have a \nrefresh\n and \ntimeout\n property.\n\n\n\n\nvar options = {\n  refresh: 1000, //milliseconds\n  timeout: 1000 //milliseconds\n};\n\nmatrix.init('temperature', options).then(function(data){\n  //see below for data formats\n});\n\n\n\n\nOutputs\n\n\nTemperature\n\n\nOutput for \ntemperature\n (in \n).\n\n\n{\n  value: 28.0\n}\n\n\n\n\nHumidity\n\n\nOutput for \nhumidity\n.\n\n\nPressure\n\n\nOutput for \npressure\n.\n\n\nAltitude\n\n\nOutput for \naltitude\n.\n\n\nUV\n\n\nOutput for \ntemperature\n.\n\n\nGyroscope\n\n\nOutput for \ngyro\n.\n\n\n{\n  yaw: 82.06211853027344,\n  pitch: -7.972985744476318,\n  roll: 1.0514432191848755\n}\n\n\n\n\nAccelerometer\n\n\nOutput for \naccel\n\n\n{\n  x: 0.1,\n  y: 0.23,\n  z: 0.224\n}\n\n\n\n\nFiltering Sensor Data\n\n\nSee \nAPI \n Filter", 
             "title": "Sensors"
         }, 
         {
@@ -456,8 +456,13 @@
             "title": "Sensors"
         }, 
         {
+            "location": "/API/sensors/#sensors-and-configuration", 
+            "text": "End users must explicitly authorize MOS applications to utilize\u00a0hardware sensors and computer vision algorithms.  This requires that each application identify required sensors in  config.yaml .  sensors:\n  - temperature\n  - uv  Otherwise sensors will not work.", 
+            "title": "Sensors and Configuration"
+        }, 
+        {
             "location": "/API/sensors/#init", 
-            "text": "All sensors are initialized using the  init  method.    sensorType : Type of sensor you are initializing  temperature ,  humidity ,  pressure ,  uv ,  altitude ,  gyro ,  accel .  options : The options for that sensor. By default, all sensors have a  refresh  and  timeout  property.   var options = { \n  refresh: 1000, //milliseconds\n  timeout: 1000 //milliseconds\n};\n\nmatrix.init('temperature', options).then(function(data){\n  //see below for data formats\n});", 
+            "text": "All sensors are initialized using the  init  method.   sensorType : Type of sensor you are initializing  temperature ,  humidity ,  pressure ,  uv ,  altitude ,  gyro ,  accel .  options : The options for that sensor. By default, all sensors have a  refresh  and  timeout  property.   var options = {\n  refresh: 1000, //milliseconds\n  timeout: 1000 //milliseconds\n};\n\nmatrix.init('temperature', options).then(function(data){\n  //see below for data formats\n});", 
             "title": ".init"
         }, 
         {
@@ -497,7 +502,7 @@
         }, 
         {
             "location": "/API/sensors/#accelerometer", 
-            "text": "{\n  x: 0.1,\n  y: 0.23,\n  z: 0.224\n}", 
+            "text": "Output for  accel  {\n  x: 0.1,\n  y: 0.23,\n  z: 0.224\n}", 
             "title": "Accelerometer"
         }, 
         {
@@ -507,7 +512,7 @@
         }, 
         {
             "location": "/API/everloop/", 
-            "text": "Everloop\n\n\nA powerful tool for communicating with end users is the EverLoop LED circle.\n\n\nRendering\n\n\nMatrixOS is an attempt at abstracting out the complexity of hardware to make it very accessible for end users. At the same time, one also wants to support those who might want to perform more complex operations. When designing a language, sometimes compromises between ease of use and features must be made.\n\n\nThe problem\n\n\nMany things might want to write to the LED. We can leave it up to chance as to which gets to write, or we can approach it intelligently to optimize the aesthetics and performance. This requires a more complex notation.\n\n\nThe Solution\n\n\nmatrix.led('blue')\n//does nothing\n\n\nmatrix.led('green').render()\n//lights change\n\n\n\n\nSet Colors\n\n\n// set an initial color\nmatrix.led('red')\n\n// interleave two colors\nmatrix.led([ '#bada55', '#e1337e'])\n\n// support opacity\nmatrix.led('rgba(255, 0, 100, 0.6)')\n\n\n\n\nGenerate Shapes\n\n\nmatrix.led({\n  // degrees of arc [ 90\u00b0 = quadrant ]   \n  arc: 90,\n\n  color: 'green',\n\n  // index to start drawing arc\n  start: 12\n});\n\n//no color assumes off\nmatrix.led({\n  arc: 360\n})\n\n// draw a point\nmatrix.led({\n  angle: 245,\n  color: 'white',\n  // blends interlight space if true, solid lights if false, default false\n  blend: true\n})\n\n// support multiple shapes", 
+            "text": "Everloop\n\n\nA powerful tool for communicating with end users is the EverLoop LED circle.\n\n\nRendering\n\n\nMatrixOS is an attempt at abstracting out the complexity of hardware to make it very accessible for end users. At the same time, one also wants to support those who might want to perform more complex operations. When designing a language, sometimes compromises between ease of use and features must be made.\n\n\nThe problem\n\n\nMany things might want to write to the LED. We can leave it up to chance as to which gets to write, or we can approach it intelligently to optimize the aesthetics and performance. This requires a more complex notation.\n\n\nThe Solution\n\n\nmatrix.led('blue')\n//does nothing\n\n\nmatrix.led('green').render()\n//lights change\n\n\n\n\nFurther examples omit the \nrender\n for readability.\n\n\nSet Colors\n\n\n// set an initial color\nmatrix.led('red')\n\n// interleave two colors\nmatrix.led([ '#bada55', '#e1337e'])\n\n// support opacity\nmatrix.led('rgba(255, 0, 100, 0.6)')\n\n\n\n\nGenerate Shapes\n\n\nmatrix.led({\n  // degrees of arc [ 90\u00b0 = quadrant ]   \n  arc: 90,\n\n  color: 'green',\n\n  // index to start drawing arc\n  start: 12\n});\n\n//no color assumes off\nmatrix.led({\n  arc: 360\n})\n\n// draw a point\nmatrix.led({\n  angle: 245,\n  color: 'white',\n  // blends interlight space if true, solid lights if false, default false\n  blend: true\n})\n\n\n\n\nManipulate position\n\n\n// rotate the lights clockwise by a specified angle\nmatrix.led().rotate(90)\n\n\n\n\nComposition\n\n\nShape Objects\n\n\n// make a smiley face\nmatrix.led([\n  {\n    angle: 45,\n    color: 'yellow'\n  },\n  {\n    angle: 135,\n    color: 'yellow'\n  },\n  {\n    arc: 90,\n    color: 'yellow',\n    start: 225\n  }\n]);\n\n\n\n\nDirect Pixel Manipulation\n\n\nArray index = led to change\n\n\nmatrix.led([0, 0, 0, 0, 'yellow', 0,\n0, 0, 0, 0, 0, 0, 0, 'yellow', 0, 0,\n0, 0, 0, 0, 0, 0, 'yellow', 'yellow',\n'yellow', 'yellow', 'yellow', 'yellow',\n'yellow', 'yellow', 'yellow' ]);\n\n\n\n\nExample clock\n\n\nsetInterval(function(){\n  var time = new Date();\n  var h = time.getHours();\n  var m = time.getMinutes();\n  var s = time.getSeconds();\n\n  var hourLED = {\n    // translate hours (12) to angle (360)\n    arc: h * 3,\n    color: 'blue',\n    darken: 50\n  };\n\n  var minuteLED = {\n    // translate minutes ( 60 ) to angle ( 360 )\n    angle: m * 6,\n    color: 'green'\n  };\n\n  var secondLED = {\n    // translate seconds (60) to angle (360)\n    angle: s * 6,\n    color: yellow,\n    blend: true\n  };\n\n  matrix.led([hourLED, minuteLED]).render();\n\n}, 1000)", 
             "title": "Everloop"
         }, 
         {
@@ -527,7 +532,7 @@
         }, 
         {
             "location": "/API/everloop/#the-solution", 
-            "text": "matrix.led('blue')\n//does nothing\n\n\nmatrix.led('green').render()\n//lights change", 
+            "text": "matrix.led('blue')\n//does nothing\n\n\nmatrix.led('green').render()\n//lights change  Further examples omit the  render  for readability.", 
             "title": "The Solution"
         }, 
         {
@@ -537,8 +542,33 @@
         }, 
         {
             "location": "/API/everloop/#generate-shapes", 
-            "text": "matrix.led({\n  // degrees of arc [ 90\u00b0 = quadrant ]   \n  arc: 90,\n\n  color: 'green',\n\n  // index to start drawing arc\n  start: 12\n});\n\n//no color assumes off\nmatrix.led({\n  arc: 360\n})\n\n// draw a point\nmatrix.led({\n  angle: 245,\n  color: 'white',\n  // blends interlight space if true, solid lights if false, default false\n  blend: true\n})\n\n// support multiple shapes  < !-- ## Manipulate colors\n\n\u0002wzxhzdk:3\u0003\n\n\n## Composition\n\n### Shape Objects\n\n\u0002wzxhzdk:4\u0003\n\n### Direct Pixel Manipulation\nArray index = led to change\n\n\u0002wzxhzdk:5\u0003\n\n\n\n## Example clock\n\n\u0002wzxhzdk:6\u0003", 
+            "text": "matrix.led({\n  // degrees of arc [ 90\u00b0 = quadrant ]   \n  arc: 90,\n\n  color: 'green',\n\n  // index to start drawing arc\n  start: 12\n});\n\n//no color assumes off\nmatrix.led({\n  arc: 360\n})\n\n// draw a point\nmatrix.led({\n  angle: 245,\n  color: 'white',\n  // blends interlight space if true, solid lights if false, default false\n  blend: true\n})", 
             "title": "Generate Shapes"
+        }, 
+        {
+            "location": "/API/everloop/#manipulate-position", 
+            "text": "// rotate the lights clockwise by a specified angle\nmatrix.led().rotate(90)", 
+            "title": "Manipulate position"
+        }, 
+        {
+            "location": "/API/everloop/#composition", 
+            "text": "", 
+            "title": "Composition"
+        }, 
+        {
+            "location": "/API/everloop/#shape-objects", 
+            "text": "// make a smiley face\nmatrix.led([\n  {\n    angle: 45,\n    color: 'yellow'\n  },\n  {\n    angle: 135,\n    color: 'yellow'\n  },\n  {\n    arc: 90,\n    color: 'yellow',\n    start: 225\n  }\n]);", 
+            "title": "Shape Objects"
+        }, 
+        {
+            "location": "/API/everloop/#direct-pixel-manipulation", 
+            "text": "Array index = led to change  matrix.led([0, 0, 0, 0, 'yellow', 0,\n0, 0, 0, 0, 0, 0, 0, 'yellow', 0, 0,\n0, 0, 0, 0, 0, 0, 'yellow', 'yellow',\n'yellow', 'yellow', 'yellow', 'yellow',\n'yellow', 'yellow', 'yellow' ]);", 
+            "title": "Direct Pixel Manipulation"
+        }, 
+        {
+            "location": "/API/everloop/#example-clock", 
+            "text": "setInterval(function(){\n  var time = new Date();\n  var h = time.getHours();\n  var m = time.getMinutes();\n  var s = time.getSeconds();\n\n  var hourLED = {\n    // translate hours (12) to angle (360)\n    arc: h * 3,\n    color: 'blue',\n    darken: 50\n  };\n\n  var minuteLED = {\n    // translate minutes ( 60 ) to angle ( 360 )\n    angle: m * 6,\n    color: 'green'\n  };\n\n  var secondLED = {\n    // translate seconds (60) to angle (360)\n    angle: s * 6,\n    color: yellow,\n    blend: true\n  };\n\n  matrix.led([hourLED, minuteLED]).render();\n\n}, 1000)", 
+            "title": "Example clock"
         }, 
         {
             "location": "/API/filter/", 
@@ -1042,23 +1072,23 @@
         }, 
         {
             "location": "/intro/matrix-troubleshooting/", 
-            "text": "HEAD\n\n\nMatrix OS Troubleshooting\n\n\nIf you are running Matrix OS from your device, you will have access to more error messages.\n\n\nLights are spinning, but don't stop\n\n\nExits with message\n\n\nDevice Error undefined\n\n\n\n\nSolution. Run again with environment set.\n\n\nNODE_ENV=rc node index.js\n\n\n\n\n=======\n\n\nTroubleshooting\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nmajor reorganization", 
+            "text": "Troubleshooting\n\n\nStarting MOS from your device, you will have access to more error messages with \nDEBUG=*,-engine*,-Component*\n prepended to the commands presented below. \nengine\n, refers to \nengine.io\n, sockets, and \nComponent\n, is very verbose hardware communications, disable these filters as necessary.\n\n\nTest apps\n\n\nsensorTest\n - tests all sensors\n\nledTest\n - tests the led\n\n\nLights are spinning, but don't stop\n\n\nExits with message\n\n\nDevice Error undefined\n\n\n\n\nSolution. Run again with environment set.\n\n\nNODE_ENV=rc node index.js", 
             "title": "Troubleshooting"
-        }, 
-        {
-            "location": "/intro/matrix-troubleshooting/#matrix-os-troubleshooting", 
-            "text": "If you are running Matrix OS from your device, you will have access to more error messages.", 
-            "title": "Matrix OS Troubleshooting"
-        }, 
-        {
-            "location": "/intro/matrix-troubleshooting/#lights-are-spinning-but-dont-stop", 
-            "text": "Exits with message  Device Error undefined  Solution. Run again with environment set.  NODE_ENV=rc node index.js  =======", 
-            "title": "Lights are spinning, but don't stop"
         }, 
         {
             "location": "/intro/matrix-troubleshooting/#troubleshooting", 
-            "text": "major reorganization", 
+            "text": "Starting MOS from your device, you will have access to more error messages with  DEBUG=*,-engine*,-Component*  prepended to the commands presented below.  engine , refers to  engine.io , sockets, and  Component , is very verbose hardware communications, disable these filters as necessary.", 
             "title": "Troubleshooting"
+        }, 
+        {
+            "location": "/intro/matrix-troubleshooting/#test-apps", 
+            "text": "sensorTest  - tests all sensors ledTest  - tests the led", 
+            "title": "Test apps"
+        }, 
+        {
+            "location": "/intro/matrix-troubleshooting/#lights-are-spinning-but-dont-stop", 
+            "text": "Exits with message  Device Error undefined  Solution. Run again with environment set.  NODE_ENV=rc node index.js", 
+            "title": "Lights are spinning, but don't stop"
         }, 
         {
             "location": "/HAL/overview/", 
@@ -1112,12 +1142,12 @@
         }, 
         {
             "location": "/MALOS/example/", 
-            "text": "Getting Started\n\n\ngit clone https://github.com/matrix-io/matrix-creator-malos;\ncd src/js_test;\nnpm install;\n\n\n\n\nExamples\n\n\nMALOS is the program that sits between the low level hardware layer and MATRIX OS. This program allows MATRIX OS to access the board hardware via ZeroMQ sockets. You can also use it directly, as it is done with the examples below. The The IPs used in the examples are 127.0.0.1. Remember to edit them if you're accessing the Creator from another host and not from the Raspberry itself.\n\n\nNote:\n Pre-requisite of \nNodeJS\n on the client computer.\n\n\nDrivers\n\n\nnode test_driver_info.js\n\n\n\n\nEverloop\n\n\nnode test_everloop.js\n\n\n\n\nHumidity\n\n\nnode test_humidity.js\n\n\n\n\nIMU\n\n\nnode test_imu.js\n\n\n\n\nIR Remote\n\n\nnode test_ir_remote.js\n\n\n\n\nPressure\n\n\nnode test_pressure.js\n\n\n\n\nUV\n\n\nnode test_uv.js\n\n\n\n\nZigbee Bulb On/Off\n\n\nnode test_zigbee_bulb.js\n\n\n\n\nZigbee Bulb Color\n\n\nnode test_zigbee_color.js\n\n\n\n\nZigbee Bulb Brightness\n\n\nnode test_zigbee_level.js", 
+            "text": "Getting Started\n\n\ngit clone https://github.com/matrix-io/matrix-creator-malos;\ngit submodule update --init;\ncd src/js_test;\nnpm install;\n\n\n\n\nExamples\n\n\nMALOS is the program that sits between the low level hardware layer and MATRIX OS. This program allows MATRIX OS to access the board hardware via ZeroMQ sockets. You can also use it directly, as it is done with the examples below. The The IPs used in the examples are 127.0.0.1. Remember to edit them if you're accessing the Creator from another host and not from the Raspberry itself.\n\n\nNote:\n Pre-requisite of \nNodeJS\n on the client computer.\n\n\nDrivers\n\n\nnode test_driver_info.js\n\n\n\n\nEverloop\n\n\nnode test_everloop.js\n\n\n\n\nHumidity\n\n\nnode test_humidity.js\n\n\n\n\nIMU\n\n\nnode test_imu.js\n\n\n\n\nIR Remote\n\n\nnode test_ir_remote.js\n\n\n\n\nPressure\n\n\nnode test_pressure.js\n\n\n\n\nUV\n\n\nnode test_uv.js\n\n\n\n\nZigbee Bulb On/Off\n\n\nnode test_zigbee_bulb.js\n\n\n\n\nZigbee Bulb Color\n\n\nnode test_zigbee_color.js\n\n\n\n\nZigbee Bulb Brightness\n\n\nnode test_zigbee_level.js", 
             "title": "Examples"
         }, 
         {
             "location": "/MALOS/example/#getting-started", 
-            "text": "git clone https://github.com/matrix-io/matrix-creator-malos;\ncd src/js_test;\nnpm install;", 
+            "text": "git clone https://github.com/matrix-io/matrix-creator-malos;\ngit submodule update --init;\ncd src/js_test;\nnpm install;", 
             "title": "Getting Started"
         }, 
         {
