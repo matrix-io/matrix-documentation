@@ -447,7 +447,7 @@
         }, 
         {
             "location": "/API/sensors/", 
-            "text": "Sensors\n\n\nSensors and Configuration\n\n\nEnd users must explicitly authorize MOS applications to utilize\u00a0hardware sensors and computer vision algorithms.\n\n\nThis requires that each application identify required sensors in \nconfig.yaml\n.\n\n\nsensors:\n  - temperature\n  - uv\n\n\n\n\nOtherwise sensors will not work.\n\n\n.init\n\n\nAll sensors are initialized using the \ninit\n method.\n\n\n\n\nsensorType\n: Type of sensor you are initializing \ntemperature\n, \nhumidity\n, \npressure\n, \nuv\n, \ngyroscope\n, \naccelerometer\n.\n\n\noptions\n: The options for that sensor. By default, all sensors have a \nrefresh\n and \ntimeout\n property.\n\n\n\n\nvar options = {\n  refresh: 1000, //milliseconds\n  timeout: 1000 //milliseconds\n};\n\nmatrix.init('temperature', options).then(function(data){\n  //see below for data formats\n});\n\n\n\n\nOutputs\n\n\nTemperature\n\n\nOutput for \ntemperature\n (in \n).\n\n\n{\n  value: 28.0\n}\n\n\n\n\nHumidity\n\n\nOutput for \nhumidity\n.\n\n\nPressure\n\n\nOutput for \npressure\n.\n\n\nUV\n\n\nOutput for \ntemperature\n.\n\n\nGyroscope\n\n\nOutput for \ngyroscope\n.\n\n\n{\n  yaw: 82.06211853027344,\n  pitch: -7.972985744476318,\n  roll: 1.0514432191848755\n}\n\n\n\n\nAccelerometer\n\n\nOutput for \naccelerometer\n\n\n{\n  x: 0.1,\n  y: 0.23,\n  z: 0.224\n}\n\n\n\n\nFiltering Sensor Data\n\n\nSee \nAPI \n Filter", 
+            "text": "Sensors\n\n\nSensors and Configuration\n\n\nEnd users must explicitly authorize MOS applications to utilize\u00a0hardware sensors and computer vision algorithms.\n\n\nThis requires that each application identify required sensors in \nconfig.yaml\n.\n\n\nsensors:\n  - temperature\n  - uv\n\n\n\n\nOtherwise sensors will not work.\n\n\n.init\n\n\nAll sensors are initialized using the \ninit\n method.\n\n\n\n\nsensorType\n: Type of sensor you are initializing \ntemperature\n, \nhumidity\n, \npressure\n, \nuv\n, \ngyroscope\n, \naccelerometer\n.\n\n\noptions\n: The options for that sensor. By default, all sensors have a \nrefresh\n and \ntimeout\n property.\n\n\n\n\nvar options = {\n  refresh: 1000, //milliseconds\n  timeout: 1000 //milliseconds\n};\n\nmatrix.init('temperature', options).then(function(data){\n  //see below for data formats\n});\n\n\n\n\nOutputs\n\n\nTemperature\n\n\nOutput for \ntemperature\n (in \n).\n\n\n{ \n  value: 36.95899963378906, \n  type: 'temperature' \n}\n\n\n\n\nHumidity\n\n\nOutput for \nhumidity\n.\n\n\n{ \n  value: 30.409704208374023, \n  type: 'humidity' \n}\n\n\n\n\nPressure\n\n\nOutput for \npressure\n (in mbars).\n\n\n{ \n  value: 101692, \n  type: 'pressure' \n}\n\n\n\n\nUV\n\n\nOutput for \nUV\n.\n\n\n{ \n   value: 0.0053547522984445095, \n   risk: 'Low' \n}\n\n\n\n\nGyroscope\n\n\nOutput for \ngyroscope\n.\n\n\n{\n  yaw: 144.78964233398438,\n  pitch: 2.112252950668335,\n  roll: -92.0414810180664,\n  type: 'gyroscope' \n}\n\n\n\n\n\nAccelerometer\n\n\nOutput for \naccelerometer\n\n\n{\n  x: 0.1,\n  y: 0.23,\n  z: 0.224\n}\n\n\n\n\nFiltering Sensor Data\n\n\nSee \nAPI \n Filter", 
             "title": "Sensors"
         }, 
         {
@@ -472,27 +472,27 @@
         }, 
         {
             "location": "/API/sensors/#temperature", 
-            "text": "Output for  temperature  (in  ).  {\n  value: 28.0\n}", 
+            "text": "Output for  temperature  (in  ).  { \n  value: 36.95899963378906, \n  type: 'temperature' \n}", 
             "title": "Temperature"
         }, 
         {
             "location": "/API/sensors/#humidity", 
-            "text": "Output for  humidity .", 
+            "text": "Output for  humidity .  { \n  value: 30.409704208374023, \n  type: 'humidity' \n}", 
             "title": "Humidity"
         }, 
         {
             "location": "/API/sensors/#pressure", 
-            "text": "Output for  pressure .", 
+            "text": "Output for  pressure  (in mbars).  { \n  value: 101692, \n  type: 'pressure' \n}", 
             "title": "Pressure"
         }, 
         {
             "location": "/API/sensors/#uv", 
-            "text": "Output for  temperature .", 
+            "text": "Output for  UV .  { \n   value: 0.0053547522984445095, \n   risk: 'Low' \n}", 
             "title": "UV"
         }, 
         {
             "location": "/API/sensors/#gyroscope", 
-            "text": "Output for  gyroscope .  {\n  yaw: 82.06211853027344,\n  pitch: -7.972985744476318,\n  roll: 1.0514432191848755\n}", 
+            "text": "Output for  gyroscope .  {\n  yaw: 144.78964233398438,\n  pitch: 2.112252950668335,\n  roll: -92.0414810180664,\n  type: 'gyroscope' \n}", 
             "title": "Gyroscope"
         }, 
         {
@@ -507,7 +507,7 @@
         }, 
         {
             "location": "/API/everloop/", 
-            "text": "Everloop\n\n\nA powerful tool for communicating with end users is the EverLoop LED circle.\n\n\nRendering\n\n\nMatrixOS is an attempt at abstracting out the complexity of hardware to make it very accessible for end users. At the same time, one also wants to support those who might want to perform more complex operations. When designing a language, sometimes compromises between ease of use and features must be made.\n\n\nThe problem\n\n\nMany things might want to write to the LED. We can leave it up to chance as to which gets to write, or we can approach it intelligently to optimize the aesthetics and performance. This requires a more complex notation.\n\n\nThe Solution\n\n\nmatrix.led('blue')\n//does nothing\n\n\nmatrix.led('green').render()\n//lights change\n\n\n\n\nFurther examples omit the \nrender\n for readability.\n\n\nSet Colors\n\n\n// set an initial color\nmatrix.led('red')\n\n// interleave two colors\nmatrix.led([ '#bada55', '#e1337e'])\n\n// support opacity\nmatrix.led('rgba(255, 0, 100, 0.6)')\n\n\n\n\nGenerate Shapes\n\n\nmatrix.led({\n  // degrees of arc [ 90\u00b0 = quadrant ]   \n  arc: 90,\n\n  color: 'green',\n\n  // index to start drawing arc\n  start: 12\n});\n\n//no color assumes off\nmatrix.led({\n  arc: 360\n})\n\n// draw a point\nmatrix.led({\n  angle: 245,\n  color: 'white',\n  // blends interlight space if true, solid lights if false, default false\n  blend: true\n})\n\n\n\n\nManipulate position\n\n\n// rotate the lights clockwise by a specified angle\nmatrix.led().rotate(90)\n\n\n\n\nComposition\n\n\nShape Objects\n\n\n// make a smiley face\nmatrix.led([\n  {\n    angle: 45,\n    color: 'yellow'\n  },\n  {\n    angle: 135,\n    color: 'yellow'\n  },\n  {\n    arc: 90,\n    color: 'yellow',\n    start: 225\n  }\n]);\n\n\n\n\nDirect Pixel Manipulation\n\n\nArray index = led to change\n\n\nmatrix.led([0, 0, 0, 0, 'yellow', 0,\n0, 0, 0, 0, 0, 0, 0, 'yellow', 0, 0,\n0, 0, 0, 0, 0, 0, 'yellow', 'yellow',\n'yellow', 'yellow', 'yellow', 'yellow',\n'yellow', 'yellow', 'yellow' ]);\n\n\n\n\nExample clock\n\n\nsetInterval(function(){\n  var time = new Date();\n  var h = time.getHours();\n  var m = time.getMinutes();\n  var s = time.getSeconds();\n\n  var hourLED = {\n    // translate hours (12) to angle (360)\n    arc: h * 3,\n    color: 'blue',\n    darken: 50\n  };\n\n  var minuteLED = {\n    // translate minutes ( 60 ) to angle ( 360 )\n    angle: m * 6,\n    color: 'green'\n  };\n\n  var secondLED = {\n    // translate seconds (60) to angle (360)\n    angle: s * 6,\n    color: yellow,\n    blend: true\n  };\n\n  matrix.led([hourLED, minuteLED]).render();\n\n}, 1000)", 
+            "text": "Everloop\n\n\nA powerful tool for communicating with end users is the EverLoop LED circle.\n\n\nRendering\n\n\nMatrixOS is an attempt at abstracting out the complexity of hardware to make it very accessible for end users. At the same time, one also wants to support those who might want to perform more complex operations. When designing a language, sometimes compromises between ease of use and features must be made.\n\n\nThe problem\n\n\nMany things might want to write to the LED. We can leave it up to chance as to which gets to write, or we can approach it intelligently to optimize the aesthetics and performance. This requires a more complex notation.\n\n\nThe Solution\n\n\nmatrix.led('blue')\n//does nothing\n\n\nmatrix.led('green').render()\n//lights change\n\n\n\n\nFurther examples omit the \nrender\n for readability.\n\n\nSet Colors\n\n\n// set an initial color\nmatrix.led('red')\n\n// interleave two colors\nmatrix.led([ '#bada55', '#e1337e'])\n\n// support opacity\nmatrix.led('rgba(255, 0, 100, 0.6)')\n\n\n\n\nGenerate Shapes\n\n\nmatrix.led({\n  // degrees of arc [ 90\u00b0 = quadrant ]   \n  arc: 90,\n\n  color: 'green',\n\n  // index to start drawing arc\n  start: 12\n});\n\n//no color assumes off\nmatrix.led({\n  arc: 360\n})\n\n// draw a point\nmatrix.led({\n  angle: 245,\n  color: 'white',\n  // blends interlight space if true, solid lights if false, default false\n  blend: true\n})\n\n\n\n\nManipulate position\n\n\n// rotate the lights clockwise by a specified angle\nmatrix.led().rotate(90)\n\n\n\n\nComposition\n\n\nShape Objects\n\n\n// make a smiley face\nmatrix.led([\n  {\n    angle: 45,\n    color: 'yellow'\n  },\n  {\n    angle: 135,\n    color: 'yellow'\n  },\n  {\n    arc: 90,\n    color: 'yellow',\n    start: 225\n  }\n]);\n\n\n\n\nDirect Pixel Manipulation\n\n\nArray index = led to change\n\n\nmatrix.led([0, 0, 0, 0, 'yellow', 0,\n0, 0, 0, 0, 0, 0, 0, 'yellow', 0, 0,\n0, 0, 0, 0, 0, 0, 'yellow', 'yellow',\n'yellow', 'yellow', 'yellow', 'yellow',\n'yellow', 'yellow', 'yellow' ]);\n\n\n\n\nExample clock\n\n\nsetInterval(function(){\n  var time = new Date();\n  var h = time.getHours();\n  var m = time.getMinutes();\n  var s = time.getSeconds();\n\n  var hourLED = {\n    // translate hours (12) to angle (360)\n    arc: h * 3,\n    color: 'blue',\n    darken: 50\n  };\n\n  var minuteLED = {\n    // translate minutes ( 60 ) to angle ( 360 )\n    angle: m * 6,\n    color: 'green'\n  };\n\n  var secondLED = {\n    // translate seconds (60) to angle (360)\n    angle: s * 6,\n    color: 'yellow',\n    blend: true\n  };\n\n  matrix.led([hourLED, minuteLED]).render();\n\n}, 1000);", 
             "title": "Everloop"
         }, 
         {
@@ -562,7 +562,7 @@
         }, 
         {
             "location": "/API/everloop/#example-clock", 
-            "text": "setInterval(function(){\n  var time = new Date();\n  var h = time.getHours();\n  var m = time.getMinutes();\n  var s = time.getSeconds();\n\n  var hourLED = {\n    // translate hours (12) to angle (360)\n    arc: h * 3,\n    color: 'blue',\n    darken: 50\n  };\n\n  var minuteLED = {\n    // translate minutes ( 60 ) to angle ( 360 )\n    angle: m * 6,\n    color: 'green'\n  };\n\n  var secondLED = {\n    // translate seconds (60) to angle (360)\n    angle: s * 6,\n    color: yellow,\n    blend: true\n  };\n\n  matrix.led([hourLED, minuteLED]).render();\n\n}, 1000)", 
+            "text": "setInterval(function(){\n  var time = new Date();\n  var h = time.getHours();\n  var m = time.getMinutes();\n  var s = time.getSeconds();\n\n  var hourLED = {\n    // translate hours (12) to angle (360)\n    arc: h * 3,\n    color: 'blue',\n    darken: 50\n  };\n\n  var minuteLED = {\n    // translate minutes ( 60 ) to angle ( 360 )\n    angle: m * 6,\n    color: 'green'\n  };\n\n  var secondLED = {\n    // translate seconds (60) to angle (360)\n    angle: s * 6,\n    color: 'yellow',\n    blend: true\n  };\n\n  matrix.led([hourLED, minuteLED]).render();\n\n}, 1000);", 
             "title": "Example clock"
         }, 
         {
