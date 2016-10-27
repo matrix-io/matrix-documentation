@@ -34,28 +34,49 @@ matrix.init('temperature', options).then(function(data){
 ### Temperature
 Output for `temperature` (in &#8451;).
 ```
-{
-  value: 28.0
+{ 
+  value: 36.95899963378906, 
+  type: 'temperature' 
 }
 ```
 
 ### Humidity
 Output for `humidity`.
+```
+{ 
+  value: 30.409704208374023, 
+  type: 'humidity' 
+}
+```
 
 ### Pressure
-Output for `pressure`.
+Output for `pressure` (in mbars).
+```
+{ 
+  value: 101692, 
+  type: 'pressure' 
+}
+```
 
 ### UV
-Output for `temperature`.
+Output for `UV`.
+```
+{ 
+   value: 0.0053547522984445095, 
+   risk: 'Low' 
+}
+```
 
 ### Gyroscope
 Output for `gyroscope`.
 ```
 {
-  yaw: 82.06211853027344,
-  pitch: -7.972985744476318,
-  roll: 1.0514432191848755
+  yaw: 144.78964233398438,
+  pitch: 2.112252950668335,
+  roll: -92.0414810180664,
+  type: 'gyroscope' 
 }
+
 ```
 ### Accelerometer
 Output for `accelerometer`
