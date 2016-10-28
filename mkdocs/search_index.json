@@ -1086,26 +1086,6 @@
             "title": "Lights are spinning, but don't stop"
         }, 
         {
-            "location": "/HAL/overview/", 
-            "text": "", 
-            "title": "Overview"
-        }, 
-        {
-            "location": "/HAL/example/", 
-            "text": "", 
-            "title": "Examples"
-        }, 
-        {
-            "location": "/HAL/troubleshooting/", 
-            "text": "Troubleshooting", 
-            "title": "Troubleshooting"
-        }, 
-        {
-            "location": "/HAL/troubleshooting/#troubleshooting", 
-            "text": "", 
-            "title": "Troubleshooting"
-        }, 
-        {
             "location": "/MALOS/overview/", 
             "text": "Matrix Abstraction Layer for OS\n\n\nMALOS provides a \nZeroMQ\n messaging layer. An intended target for this layer is \nMATRIX OS\n.\n\n\nInstallation\n\n\n# setup \n installation\necho \ndeb http://packages.matrix.one/matrix-creator/ ./\n | sudo tee --append /etc/apt/sources.list;\nsudo apt-get update;\nsudo apt-get upgrade;\nsudo apt-get install -y libzmq3-dev xc3sprog malos-eye matrix-creator-malos matrix-creator-openocd wiringpi matrix-creator-init cmake g++ git --force-yes;\n\n\n\n\nUpgrades\n\n\nIf you need to upgrade your \nmalos\n package at any time, please run the following commands and restart.\n\n\nsudo apt-get update;\nsudo apt-get upgrade;\nsudo shutdown -r now;\n\n\n\n\nYou should something similar to this if everything is OK.\n\n\n$ malos\n\n**************\nMALOS starting\n**************\n\nYou can query specific driver info using port 20012.\nRegistered driver IMU with port 20013.\nRegistered driver Humidity with port 20017.\nRegistered driver Everloop with port 20021.\nRegistered driver Pressure with port 20025.\nRegistered driver UV with port 20029.\nRegistered driver ZigbeeBulb with port 20033.\nRegistered driver MicArray_Alsa with port 20037.\nRegistered driver Lirc with port 20041.\n\n\n\n\nRunning MALOS as a background process.\n\n\n$ malos \n /dev/null 2\n1 \n\n\n\n\n\nDemos\n\n\nSee \nMALOS \n Demos", 
             "title": "Overview"

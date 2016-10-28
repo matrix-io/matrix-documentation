@@ -4,7 +4,7 @@
     
     <url>
      <loc>None/</loc>
-     <lastmod>2016-10-27</lastmod>
+     <lastmod>2016-10-28</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -13,37 +13,37 @@
         
     <url>
      <loc>None/CLI/overview/</loc>
-     <lastmod>2016-10-27</lastmod>
+     <lastmod>2016-10-28</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>None/CLI/installation/</loc>
-     <lastmod>2016-10-27</lastmod>
+     <lastmod>2016-10-28</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>None/CLI/apps/</loc>
-     <lastmod>2016-10-27</lastmod>
+     <lastmod>2016-10-28</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>None/CLI/device/</loc>
-     <lastmod>2016-10-27</lastmod>
+     <lastmod>2016-10-28</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>None/CLI/example/</loc>
-     <lastmod>2016-10-27</lastmod>
+     <lastmod>2016-10-28</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>None/intro/cli-troubleshooting/</loc>
-     <lastmod>2016-10-27</lastmod>
+     <lastmod>2016-10-28</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -53,13 +53,13 @@
         
     <url>
      <loc>None/API/overview/</loc>
-     <lastmod>2016-10-27</lastmod>
+     <lastmod>2016-10-28</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>None/</loc>
-     <lastmod>2016-10-27</lastmod>
+     <lastmod>2016-10-28</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -77,29 +77,7 @@
         
     <url>
      <loc>None/intro/matrix-troubleshooting/</loc>
-     <lastmod>2016-10-27</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    
-
-    
-        
-    <url>
-     <loc>None/HAL/overview/</loc>
-     <lastmod>2016-10-27</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>None/HAL/example/</loc>
-     <lastmod>2016-10-27</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>None/HAL/troubleshooting/</loc>
-     <lastmod>2016-10-27</lastmod>
+     <lastmod>2016-10-28</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -109,19 +87,19 @@
         
     <url>
      <loc>None/MALOS/overview/</loc>
-     <lastmod>2016-10-27</lastmod>
+     <lastmod>2016-10-28</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>None/MALOS/example/</loc>
-     <lastmod>2016-10-27</lastmod>
+     <lastmod>2016-10-28</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>None/MALOS/troubleshooting/</loc>
-     <lastmod>2016-10-27</lastmod>
+     <lastmod>2016-10-28</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -131,43 +109,43 @@
         
     <url>
      <loc>None/Reference/overview/</loc>
-     <lastmod>2016-10-27</lastmod>
+     <lastmod>2016-10-28</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>None/Reference/pinout/</loc>
-     <lastmod>2016-10-27</lastmod>
+     <lastmod>2016-10-28</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>None/Hardware/fpga/</loc>
-     <lastmod>2016-10-27</lastmod>
+     <lastmod>2016-10-28</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>None/Hardware/Sam3/</loc>
-     <lastmod>2016-10-27</lastmod>
+     <lastmod>2016-10-28</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>None/Hardware/sam3mcu-programming/</loc>
-     <lastmod>2016-10-27</lastmod>
+     <lastmod>2016-10-28</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>None/Hardware/microphone/</loc>
-     <lastmod>2016-10-27</lastmod>
+     <lastmod>2016-10-28</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>None/Hardware/SPI/</loc>
-     <lastmod>2016-10-27</lastmod>
+     <lastmod>2016-10-28</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -176,7 +154,7 @@
     
     <url>
      <loc>None/dictionary/</loc>
-     <lastmod>2016-10-27</lastmod>
+     <lastmod>2016-10-28</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
