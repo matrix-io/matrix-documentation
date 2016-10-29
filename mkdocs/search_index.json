@@ -637,23 +637,43 @@
         }, 
         {
             "location": "/API/computer-vision/", 
-            "text": "Computer Vision\n\n\nWe've build computer vision algorithms in the API inteface to add another level of experiential IoT applications. We've also made it extremely simple to get started.\n\n\nDetection Algorithms\n\n\nAvailable algorithms: \nface\n\n\n\n\nInitialization\n\n\nvar algorithm = 'face';\nvar options   = {};\nmatrix.init( algorithm, options ).then(function( data ){\n  // some callback\n  console.log( data );\n});", 
+            "text": "Computer Vision\n\n\nPart of the vision for MATRIX OS is to provide computer vision in an easy to access format.\n\n\nConfiguration\n\n\nTo facilitate communication with the hardware, it is required to define CV services in \nconfig.yaml\n before they will be available to your application.\n\n\nSee \nConfiguration \n Services\n for more information\n\n\nDetection Algorithms\n\n\nAvailable algorithms: \nface\n, \ndemographics\n\n\n\n\n\nInitialization\n\n\nvar algorithm = 'face';\nvar options   = {};\nmatrix.init( algorithm, options ).then(function( data ){\n  // your CV detection data will be available here\n  console.log( data );\n});\n\n\n\n\nBasic Face Data Format\n\n\nface\n output - \nmatrix.init('face')\n\n\n{\n  location: { x: 333, y: 237, width: 55, height: 55 },\n  tag: 'FACE'\n}\n\n\n\n\nExtended Face Data Format\n\n\ndemographics\n output - - \nmatrix.init('demographics')\n\n\n{ location: { x: 213, y: 221, width: 55, height: 55 },\n tag: 'FACE',\n demographics:\n  { gender: 'MALE',\n    emotion: 'CALM',\n    age: 35,\n    pose:\n     { yaw: -0.24303536117076874,\n       roll: 0.04344254732131958,\n       pitch: -0.10279278457164764 },\n    face_id: '4' } }\n\n\n\n\nemotions\n\n\nHAPPY\n\n\nSAD\n\n\nCONFUSED\n\n\nANGRY\n\n\nCALM\n\n\nSURPRISED\n\n\nDISGUST", 
             "title": "Computer Vision"
         }, 
         {
             "location": "/API/computer-vision/#computer-vision", 
-            "text": "We've build computer vision algorithms in the API inteface to add another level of experiential IoT applications. We've also made it extremely simple to get started.", 
+            "text": "Part of the vision for MATRIX OS is to provide computer vision in an easy to access format.", 
             "title": "Computer Vision"
         }, 
         {
+            "location": "/API/computer-vision/#configuration", 
+            "text": "To facilitate communication with the hardware, it is required to define CV services in  config.yaml  before they will be available to your application.  See  Configuration   Services  for more information", 
+            "title": "Configuration"
+        }, 
+        {
             "location": "/API/computer-vision/#detection-algorithms", 
-            "text": "Available algorithms:  face", 
+            "text": "Available algorithms:  face ,  demographics", 
             "title": "Detection Algorithms"
         }, 
         {
             "location": "/API/computer-vision/#initialization", 
-            "text": "var algorithm = 'face';\nvar options   = {};\nmatrix.init( algorithm, options ).then(function( data ){\n  // some callback\n  console.log( data );\n});", 
+            "text": "var algorithm = 'face';\nvar options   = {};\nmatrix.init( algorithm, options ).then(function( data ){\n  // your CV detection data will be available here\n  console.log( data );\n});", 
             "title": "Initialization"
+        }, 
+        {
+            "location": "/API/computer-vision/#basic-face-data-format", 
+            "text": "face  output -  matrix.init('face')  {\n  location: { x: 333, y: 237, width: 55, height: 55 },\n  tag: 'FACE'\n}", 
+            "title": "Basic Face Data Format"
+        }, 
+        {
+            "location": "/API/computer-vision/#extended-face-data-format", 
+            "text": "demographics  output - -  matrix.init('demographics')  { location: { x: 213, y: 221, width: 55, height: 55 },\n tag: 'FACE',\n demographics:\n  { gender: 'MALE',\n    emotion: 'CALM',\n    age: 35,\n    pose:\n     { yaw: -0.24303536117076874,\n       roll: 0.04344254732131958,\n       pitch: -0.10279278457164764 },\n    face_id: '4' } }", 
+            "title": "Extended Face Data Format"
+        }, 
+        {
+            "location": "/API/computer-vision/#emotions", 
+            "text": "HAPPY  SAD  CONFUSED  ANGRY  CALM  SURPRISED  DISGUST", 
+            "title": "emotions"
         }, 
         {
             "location": "/API/microphone/", 
@@ -942,8 +962,43 @@
         }, 
         {
             "location": "/Configuration/services/", 
-            "text": "Services overview coming soon", 
+            "text": "Services\n\n\nServices are used to define:\n\n\n\n\nComputer Vision\n\n\nIntegrations\n\n\n\n\nComputer Vision\n\n\nComputer vision is configured in \nconfig.yaml\n and called from \nmatrix.init()\n.\n\n\nAn \nengine\n and a \ntype\n are required in the \nconfig.yaml\n for a CV service to operate.\n\n\nInside an app, use \nmatrix.init\n to refer to a \ntype\n in a config file.\n\n\nEngines - Types\n\n\ndetection\n - \nface\n, \ndemographics\n\n\ngesture\n - \nthumb-up\n, \npalm\n, \nfist\n, \npinch\n\n\nSimple face detection\n\n\n// config.yaml\nservices:\n  faceTest:\n    engine: detection\n    type: face\n\n// app.js\nmatrix.init('face')\n\n\n\n\nFace demographic detection\n\n\n// config.yaml\nservices:\n  demoTest:\n    engine: detection\n    type: demographics\n\n// app.js\nmatrix.init('demographics')\n\n\n\n\nGesture recognition\n\n\n// config.yaml\nservices:\n  palmTest:\n    engine: gesture\n    type: palm\n\n// app.js\nmatrix.init('palm')\n\n\n\n\n\n\n\nIntegrations\n\n\nComing soon", 
             "title": "Services"
+        }, 
+        {
+            "location": "/Configuration/services/#services", 
+            "text": "Services are used to define:   Computer Vision  Integrations", 
+            "title": "Services"
+        }, 
+        {
+            "location": "/Configuration/services/#computer-vision", 
+            "text": "Computer vision is configured in  config.yaml  and called from  matrix.init() .  An  engine  and a  type  are required in the  config.yaml  for a CV service to operate.  Inside an app, use  matrix.init  to refer to a  type  in a config file.", 
+            "title": "Computer Vision"
+        }, 
+        {
+            "location": "/Configuration/services/#engines-types", 
+            "text": "detection  -  face ,  demographics  gesture  -  thumb-up ,  palm ,  fist ,  pinch", 
+            "title": "Engines - Types"
+        }, 
+        {
+            "location": "/Configuration/services/#simple-face-detection", 
+            "text": "// config.yaml\nservices:\n  faceTest:\n    engine: detection\n    type: face\n\n// app.js\nmatrix.init('face')", 
+            "title": "Simple face detection"
+        }, 
+        {
+            "location": "/Configuration/services/#face-demographic-detection", 
+            "text": "// config.yaml\nservices:\n  demoTest:\n    engine: detection\n    type: demographics\n\n// app.js\nmatrix.init('demographics')", 
+            "title": "Face demographic detection"
+        }, 
+        {
+            "location": "/Configuration/services/#gesture-recognition", 
+            "text": "// config.yaml\nservices:\n  palmTest:\n    engine: gesture\n    type: palm\n\n// app.js\nmatrix.init('palm')", 
+            "title": "Gesture recognition"
+        }, 
+        {
+            "location": "/Configuration/services/#integrations", 
+            "text": "Coming soon", 
+            "title": "Integrations"
         }, 
         {
             "location": "/Configuration/examples/", 
@@ -1084,6 +1139,26 @@
             "location": "/intro/matrix-troubleshooting/#lights-are-spinning-but-dont-stop", 
             "text": "Exits with message  Device Error undefined  Solution. Run again with environment set.  NODE_ENV=rc node index.js", 
             "title": "Lights are spinning, but don't stop"
+        }, 
+        {
+            "location": "/HAL/overview/", 
+            "text": "", 
+            "title": "Overview"
+        }, 
+        {
+            "location": "/HAL/example/", 
+            "text": "", 
+            "title": "Examples"
+        }, 
+        {
+            "location": "/HAL/troubleshooting/", 
+            "text": "Troubleshooting", 
+            "title": "Troubleshooting"
+        }, 
+        {
+            "location": "/HAL/troubleshooting/#troubleshooting", 
+            "text": "", 
+            "title": "Troubleshooting"
         }, 
         {
             "location": "/MALOS/overview/", 

@@ -86,6 +86,28 @@
     
         
     <url>
+     <loc>None/HAL/overview/</loc>
+     <lastmod>2016-10-28</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>None/HAL/example/</loc>
+     <lastmod>2016-10-28</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>None/HAL/troubleshooting/</loc>
+     <lastmod>2016-10-28</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    
+
+    
+        
+    <url>
      <loc>None/MALOS/overview/</loc>
      <lastmod>2016-10-28</lastmod>
      <changefreq>daily</changefreq>

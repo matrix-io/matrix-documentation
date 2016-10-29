@@ -265,6 +265,33 @@
                 
                 
                     <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">HAL <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../../HAL/overview/">Overview</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../HAL/example/">Examples</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../HAL/troubleshooting/">Troubleshooting</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">MALOS <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                         
@@ -379,11 +406,79 @@
                 <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
+        <li class="main active"><a href="#services">Services</a></li>
+        
+            <li><a href="#computer-vision">Computer Vision</a></li>
+        
+            <li><a href="#integrations">Integrations</a></li>
+        
+    
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
 
-<p>Services overview coming soon</p></div>
+<h1 id="services">Services</h1>
+<p>Services are used to define:</p>
+<ul>
+<li>Computer Vision</li>
+<li>Integrations</li>
+</ul>
+<h2 id="computer-vision">Computer Vision</h2>
+<p>Computer vision is configured in <code>config.yaml</code> and called from <code>matrix.init()</code>.</p>
+<p>An <code>engine</code> and a <code>type</code> are required in the <code>config.yaml</code> for a CV service to operate.</p>
+<p>Inside an app, use <code>matrix.init</code> to refer to a <code>type</code> in a config file.</p>
+<h3 id="engines-types">Engines - Types</h3>
+<p><code>detection</code> - <code>face</code>, <code>demographics</code>
+<code>gesture</code> - <code>thumb-up</code>, <code>palm</code>, <code>fist</code>, <code>pinch</code></p>
+<h3 id="simple-face-detection">Simple face detection</h3>
+<pre><code>// config.yaml
+services:
+  faceTest:
+    engine: detection
+    type: face
+
+// app.js
+matrix.init('face')
+</code></pre>
+
+<h3 id="face-demographic-detection">Face demographic detection</h3>
+<pre><code>// config.yaml
+services:
+  demoTest:
+    engine: detection
+    type: demographics
+
+// app.js
+matrix.init('demographics')
+</code></pre>
+
+<h3 id="gesture-recognition">Gesture recognition</h3>
+<pre><code>// config.yaml
+services:
+  palmTest:
+    engine: gesture
+    type: palm
+
+// app.js
+matrix.init('palm')
+</code></pre>
+
+<!-- Not  
+You can also use the keyed name of a service to refer to it in `matrix.init()`.
+### Custom Named service
+```
+// config.yaml
+services:
+  fooBar:
+    engine: detection
+    type: face
+
+// app.js
+matrix.init('fooBar')
+``` -->
+
+<h2 id="integrations">Integrations</h2>
+<p>Coming soon</p></div>
             
         </div>
 
