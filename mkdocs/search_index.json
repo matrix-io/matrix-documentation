@@ -637,43 +637,23 @@
         }, 
         {
             "location": "/API/computer-vision/", 
-            "text": "Computer Vision\n\n\nPart of the vision for MATRIX OS is to provide computer vision in an easy to access format.\n\n\nConfiguration\n\n\nTo facilitate communication with the hardware, it is required to define CV services in \nconfig.yaml\n before they will be available to your application.\n\n\nSee \nConfiguration \n Services\n for more information\n\n\nDetection Algorithms\n\n\nAvailable algorithms: \nface\n, \ndemographics\n\n\n\n\n\nInitialization\n\n\nvar algorithm = 'face';\nvar options   = {};\nmatrix.init( algorithm, options ).then(function( data ){\n  // your CV detection data will be available here\n  console.log( data );\n});\n\n\n\n\n\n\n\nBasic Face Data Format\n\n\nface\n output - \nmatrix.init('face')\n\n\n{\n  location: { x: 333, y: 237, width: 55, height: 55 },\n  tag: 'FACE'\n}\n\n\n\n\nExtended Face Data Format\n\n\ndemographics\n output - - \nmatrix.init('demographics')\n\n\n{ location: { x: 213, y: 221, width: 55, height: 55 },\n tag: 'FACE',\n demographics:\n  { gender: 'MALE',\n    emotion: 'CALM',\n    age: 35,\n    pose:\n     { yaw: -0.24303536117076874,\n       roll: 0.04344254732131958,\n       pitch: -0.10279278457164764 },\n    face_id: '4' } }\n\n\n\n\nemotions\n\n\nHAPPY\n\n\nSAD\n\n\nCONFUSED\n\n\nANGRY\n\n\nCALM\n\n\nSURPRISED\n\n\nDISGUST", 
+            "text": "Computer Vision\n\n\nWe've build computer vision algorithms in the API inteface to add another level of experiential IoT applications. We've also made it extremely simple to get started.\n\n\nDetection Algorithms\n\n\nAvailable algorithms: \nface\n\n\n\n\nInitialization\n\n\nvar algorithm = 'face';\nvar options   = {};\nmatrix.init( algorithm, options ).then(function( data ){\n  // some callback\n  console.log( data );\n});", 
             "title": "Computer Vision"
         }, 
         {
             "location": "/API/computer-vision/#computer-vision", 
-            "text": "Part of the vision for MATRIX OS is to provide computer vision in an easy to access format.", 
+            "text": "We've build computer vision algorithms in the API inteface to add another level of experiential IoT applications. We've also made it extremely simple to get started.", 
             "title": "Computer Vision"
         }, 
         {
-            "location": "/API/computer-vision/#configuration", 
-            "text": "To facilitate communication with the hardware, it is required to define CV services in  config.yaml  before they will be available to your application.  See  Configuration   Services  for more information", 
-            "title": "Configuration"
-        }, 
-        {
             "location": "/API/computer-vision/#detection-algorithms", 
-            "text": "Available algorithms:  face ,  demographics", 
+            "text": "Available algorithms:  face", 
             "title": "Detection Algorithms"
         }, 
         {
             "location": "/API/computer-vision/#initialization", 
-            "text": "var algorithm = 'face';\nvar options   = {};\nmatrix.init( algorithm, options ).then(function( data ){\n  // your CV detection data will be available here\n  console.log( data );\n});", 
+            "text": "var algorithm = 'face';\nvar options   = {};\nmatrix.init( algorithm, options ).then(function( data ){\n  // some callback\n  console.log( data );\n});", 
             "title": "Initialization"
-        }, 
-        {
-            "location": "/API/computer-vision/#basic-face-data-format", 
-            "text": "face  output -  matrix.init('face')  {\n  location: { x: 333, y: 237, width: 55, height: 55 },\n  tag: 'FACE'\n}", 
-            "title": "Basic Face Data Format"
-        }, 
-        {
-            "location": "/API/computer-vision/#extended-face-data-format", 
-            "text": "demographics  output - -  matrix.init('demographics')  { location: { x: 213, y: 221, width: 55, height: 55 },\n tag: 'FACE',\n demographics:\n  { gender: 'MALE',\n    emotion: 'CALM',\n    age: 35,\n    pose:\n     { yaw: -0.24303536117076874,\n       roll: 0.04344254732131958,\n       pitch: -0.10279278457164764 },\n    face_id: '4' } }", 
-            "title": "Extended Face Data Format"
-        }, 
-        {
-            "location": "/API/computer-vision/#emotions", 
-            "text": "HAPPY  SAD  CONFUSED  ANGRY  CALM  SURPRISED  DISGUST", 
-            "title": "emotions"
         }, 
         {
             "location": "/API/microphone/", 
@@ -952,7 +932,7 @@
         }, 
         {
             "location": "/Configuration/widgets/", 
-            "text": "Widgets\n\n\nA comprehensive overview coming soon. See \nexamples\n for now.", 
+            "text": "Widgets\n\n\nA comprehensive overview coming soon. See \nexamples\n for now.\n\n\nLayout\n\n\nWidgets are defined in the \nwidgets\n key of an app config file. This is a collection where each Widget has a keyed name which is associated with an entry in \nscreens\n to determine it's location on the dashboard.\n\n\nscreens:\n  - leftWidget\n  - rightWidget\n\nwidgets:\n  leftWidget: ...\n  rightWidget: ...\n\n\n\n\nThis way we can easily distinguish between layout and functionality.\n\n\nData Handling\n\n\nThe dashboard holds a central data store which the widgets receive or request data from.\n\n\nDefault operation is for a widget to be updated with data in real time.\n\n\nThis is represented with an option, \npush\n.\n\n\n//to disable realtime updates\nwidgets:\n  testWidget:\n     push: false\n\n\n\n\nThe alternative is to have a widget manually refresh it's data on an interval, if you wanted to refresh a graph every minute\n\n\n//to disable realtime updates\nwidgets:\n  testWidget:\n     push: false\n     pull: true\n     refresh: 60\n\n\n\n\nDisplay widgets\n\n\nIndicated via a \ndisplay\n option.\n\n\nbar\n - bar chart\n\ndigit\n - numerical\n\nradar\n - polar chart\n\nline\n - line chart\n\nlist-group\n - data table\n\n\nInteractive Widgets\n\n\nIndicated via a \ncontrol\n option.\n\n\nbutton\n - button, single or multiple\n\ndropdown\n - dropdown menu\n\nrange\n - range slider", 
             "title": "Widgets"
         }, 
         {
@@ -961,48 +941,33 @@
             "title": "Widgets"
         }, 
         {
+            "location": "/Configuration/widgets/#layout", 
+            "text": "Widgets are defined in the  widgets  key of an app config file. This is a collection where each Widget has a keyed name which is associated with an entry in  screens  to determine it's location on the dashboard.  screens:\n  - leftWidget\n  - rightWidget\n\nwidgets:\n  leftWidget: ...\n  rightWidget: ...  This way we can easily distinguish between layout and functionality.", 
+            "title": "Layout"
+        }, 
+        {
+            "location": "/Configuration/widgets/#data-handling", 
+            "text": "The dashboard holds a central data store which the widgets receive or request data from.  Default operation is for a widget to be updated with data in real time.  This is represented with an option,  push .  //to disable realtime updates\nwidgets:\n  testWidget:\n     push: false  The alternative is to have a widget manually refresh it's data on an interval, if you wanted to refresh a graph every minute  //to disable realtime updates\nwidgets:\n  testWidget:\n     push: false\n     pull: true\n     refresh: 60", 
+            "title": "Data Handling"
+        }, 
+        {
+            "location": "/Configuration/widgets/#display-widgets", 
+            "text": "Indicated via a  display  option.  bar  - bar chart digit  - numerical radar  - polar chart line  - line chart list-group  - data table", 
+            "title": "Display widgets"
+        }, 
+        {
+            "location": "/Configuration/widgets/#interactive-widgets", 
+            "text": "Indicated via a  control  option.  button  - button, single or multiple dropdown  - dropdown menu range  - range slider", 
+            "title": "Interactive Widgets"
+        }, 
+        {
             "location": "/Configuration/services/", 
-            "text": "Services\n\n\nServices are used to define:\n\n\n\n\nComputer Vision\n\n\nIntegrations\n\n\n\n\nComputer Vision\n\n\nComputer vision is configured in \nconfig.yaml\n and called from \nmatrix.init()\n.\n\n\nAn \nengine\n and a \ntype\n are required in the \nconfig.yaml\n for a CV service to operate.\n\n\nInside an app, use \nmatrix.init\n to refer to a \ntype\n in a config file.\n\n\nEngines - Types\n\n\ndetection\n - \nface\n, \ndemographics\n\n\ngesture\n - \nthumb-up\n, \npalm\n, \nfist\n, \npinch\n\n\nSimple face detection\n\n\n// config.yaml\nservices:\n  faceTest:\n    engine: detection\n    type: face\n\n// app.js\nmatrix.init('face')\n\n\n\n\nFace demographic detection\n\n\n// config.yaml\nservices:\n  demoTest:\n    engine: detection\n    type: demographics\n\n// app.js\nmatrix.init('demographics')\n\n\n\n\nGesture recognition\n\n\n// config.yaml\nservices:\n  palmTest:\n    engine: gesture\n    type: palm\n\n// app.js\nmatrix.init('palm')\n\n\n\n\n\n\n\nIntegrations\n\n\nComing soon", 
+            "text": "Services overview coming soon", 
             "title": "Services"
-        }, 
-        {
-            "location": "/Configuration/services/#services", 
-            "text": "Services are used to define:   Computer Vision  Integrations", 
-            "title": "Services"
-        }, 
-        {
-            "location": "/Configuration/services/#computer-vision", 
-            "text": "Computer vision is configured in  config.yaml  and called from  matrix.init() .  An  engine  and a  type  are required in the  config.yaml  for a CV service to operate.  Inside an app, use  matrix.init  to refer to a  type  in a config file.", 
-            "title": "Computer Vision"
-        }, 
-        {
-            "location": "/Configuration/services/#engines-types", 
-            "text": "detection  -  face ,  demographics  gesture  -  thumb-up ,  palm ,  fist ,  pinch", 
-            "title": "Engines - Types"
-        }, 
-        {
-            "location": "/Configuration/services/#simple-face-detection", 
-            "text": "// config.yaml\nservices:\n  faceTest:\n    engine: detection\n    type: face\n\n// app.js\nmatrix.init('face')", 
-            "title": "Simple face detection"
-        }, 
-        {
-            "location": "/Configuration/services/#face-demographic-detection", 
-            "text": "// config.yaml\nservices:\n  demoTest:\n    engine: detection\n    type: demographics\n\n// app.js\nmatrix.init('demographics')", 
-            "title": "Face demographic detection"
-        }, 
-        {
-            "location": "/Configuration/services/#gesture-recognition", 
-            "text": "// config.yaml\nservices:\n  palmTest:\n    engine: gesture\n    type: palm\n\n// app.js\nmatrix.init('palm')", 
-            "title": "Gesture recognition"
-        }, 
-        {
-            "location": "/Configuration/services/#integrations", 
-            "text": "Coming soon", 
-            "title": "Integrations"
         }, 
         {
             "location": "/Configuration/examples/", 
-            "text": "MatrixOS Config Widget examples\n\n\nLayout\n\n\n\n\nscreens:\n  - - cpu\n    - memory\n\n\n\n\nDisplays\n\n\nValue\n\n\n\n\ncpu:\n  type: monitor\n  key: cpu\n  display: digit\n  format: round\n  label: cpu\n\n\n\n\nBar Chart\n\n\n\n\nbarChart:\n  type: monitor\n  keys: cpu, memory\n  display: bar\n  label: Bar Chart\n\n\n\n\nRadar Chart\n\n\n\n\nradarTest:\n  type: monitor\n  keys: cpu,memory\n  display: radar\n  label: radarTest\n\n\n\n\nLine Chart\n\n\n\n\ncpuChart:\n  type: monitor\n  keys: cpu,memory\n  display: line\n  label: CPU Chart\n\n\n\n\nLists\n\n\n\n\ninfo:\n  type: device\n  display: list-group\n  label: Secret Information\n\n\n\n\nInteractive\n\n\nButtons\n\n\nSingle\n\n\n\n\nbuttonTest:\n  label: Hacking Buttons\n  control: button\n  event: buttonInfo\n  value: Get Secret Information\n\n\n\n\nHandling Code\n\n\nmatrix.on('buttonInfo', function(){\n  // ...\n})\n\n\n\n\nevent\n in the config file, is the event name (\nbuttonInfo\n) handled.\n\n\nMap Notation\n\n\nMultiple events are supported in a widget through the use of the \nmap\n property.\n\n\nThis has two valid expressions. Key / Value and Collection\n\n\nSimple Form - Key, Value\n\n\nbuttons:\n  control: button\n  map:\n    'label' : eventName\n    'label2': event2Name\n\n\n\n\nSimple Form - mapSort\n\n\nUse \norder\n to display buttons in a particular order.\n\n\nmap:\n  'label' : eventName\n  'label2': event2Name\norder:\n  - 'label'\n  - 'label2'\n\n\n\n\nNormal Form - Multiple\n\n\nbuttons:\n  control: button\n  map:\n   - value: seven\n     event: event7\n   - value: eight\n     event: event8\n   - value: nine\n     event: event9\n\n\n\n\nNormal Form Overview\n\n\nmap:\n  - value: foo    # button label\n    event: e     # event name emitted for app to listen for\n    \n!-- data: 1      # what data to send with this button --\n\n    \n!-- color: 'red' # what color to tint this button --\n\n\n\n\n\nMultiple\n\n\n\n\nbuttonsTest:\n  label: Matrix Activation Buttons\n  control: button\n  map:\n    'amps+': buttonUp\n    'amps-': buttonDown\n    begin : buttonStart\n    end : buttonStop\n    capture : buttonSample\n    'refresh+' : buttonSlow\n    'refresh-' : buttonFast\n\n\n\n\nHandling Code\n\n\n matrix.on('buttonStop', function(){\n   //...\n})\n\n matrix.on('buttonStart', function(){\n   //...\n })\n\n matrix.on('buttonSample', function () {\n   //...\n })\n\n\n\n\nDrop Downs\n\n\n\n\ndropDown:\n  control: dropdown\n  map:\n    test1: doTest1\n    test2: doTest2\n  label: dropdown test\n\n\n\n\nHandling Code\n\n\nmatrix.on('doTest1', function(){\n //...\n})\n\n\nmatrix.on('doTest2', function(){\n //...\n})\n\n\n\n\nHandling Data\n\n\nTo group your apps\n\n\nResponsive Data Flow\n\n\nmatrix.on('buttonInfo', function(){\n  matrix.type('device').send({\n    'os_hostname': os.hostname(),\n    'os_type': os.type(),\n    'os_platform': os.platform(),\n    'os_arch': os.arch()\n  });\n})\n\n\n\n\nWhen \nbuttonInfo\n is triggered, respond with information with a type \ndevice\n.\n\n\nThe list looks for\n\n\nwidgets:\n  list:\n    type: device\n\n\n\n\nThe \nlist\n widget displays information of type \ndevice\n.", 
+            "text": "MatrixOS Config Widget examples\n\n\nLayout\n\n\n\n\nscreens:\n  - - cpu\n    - memory\n\n\n\n\nDisplays\n\n\nValue\n\n\n\n\ncpu:\n  type: monitor\n  key: cpu\n  display: digit\n  format: round\n  label: cpu\n\n\n\n\nBar Chart\n\n\n\n\nbarChart:\n  type: monitor\n  keys: cpu, memory\n  display: bar\n  label: Bar Chart\n\n\n\n\nRadar Chart\n\n\n\n\nradarTest:\n  type: monitor\n  keys: cpu,memory\n  display: radar\n  label: radarTest\n\n\n\n\nLine Chart\n\n\n\n\ncpuChart:\n  type: monitor\n  keys: cpu,memory\n  display: line\n  label: CPU Chart\n\n\n\n\nLists\n\n\n\n\ninfo:\n  type: device\n  display: list-group\n  label: Secret Information\n\n\n\n\nInteractive\n\n\nButtons\n\n\nSingle\n\n\n\n\nbuttonTest:\n  label: Hacking Buttons\n  control: button\n  event: buttonInfo\n  value: Get Secret Information\n\n\n\n\nHandling Code\n\n\nmatrix.on('buttonInfo', function(){\n  // ...\n})\n\n\n\n\nevent\n in the config file, is the event name (\nbuttonInfo\n) handled.\n\n\nMap Notation\n\n\nMultiple events are supported in a widget through the use of the \nmap\n property.\n\n\nThis has two valid expressions. Key / Value and Collection\n\n\nSimple Form - Key, Value\n\n\nbuttons:\n  control: button\n  map:\n    'label' : eventName\n    'label2': event2Name\n\n\n\n\nSimple Form - mapSort\n\n\nUse \norder\n to display buttons in a particular order.\n\n\nmap:\n  'label' : eventName\n  'label2': event2Name\norder:\n  - 'label'\n  - 'label2'\n\n\n\n\nNormal Form - Multiple\n\n\nbuttons:\n  control: button\n  map:\n   - value: seven\n     event: event7\n   - value: eight\n     event: event8\n   - value: nine\n     event: event9\n\n\n\n\nNormal Form Overview\n\n\nmap:\n  - value: foo    # button label\n    event: e     # event name emitted for app to listen for\n    \n!-- data: 1      # what data to send with this button --\n\n    \n!-- color: 'red' # what color to tint this button --\n\n\n\n\n\nMultiple\n\n\n\n\nbuttonsTest:\n  label: Matrix Activation Buttons\n  control: button\n  map:\n    'amps+': buttonUp\n    'amps-': buttonDown\n    begin : buttonStart\n    end : buttonStop\n    capture : buttonSample\n    'refresh+' : buttonSlow\n    'refresh-' : buttonFast\n\n\n\n\nHandling Code\n\n\n matrix.on('buttonStop', function(){\n   //...\n})\n\n matrix.on('buttonStart', function(){\n   //...\n })\n\n matrix.on('buttonSample', function () {\n   //...\n })\n\n\n\n\nDrop Downs\n\n\n\n\ndropDown:\n  control: dropdown\n  map:\n    test1: doTest1\n    test2: doTest2\n  label: dropdown test\n\n\n\n\nSimple form and normal form from above also work for drop downs.\n\n\nHandling Code\n\n\nmatrix.on('doTest1', function(){\n //...\n})\n\n\nmatrix.on('doTest2', function(){\n //...\n})\n\n\n\n\nRange\n\n\ncontrol: range\nmin: 0\nmax: 255\nevent: setRange\n\n\n\n\nHandling Data\n\n\nTo group your apps\n\n\nResponsive Data Flow\n\n\nmatrix.on('buttonInfo', function(){\n  matrix.type('device').send({\n    'os_hostname': os.hostname(),\n    'os_type': os.type(),\n    'os_platform': os.platform(),\n    'os_arch': os.arch()\n  });\n})\n\n\n\n\nWhen \nbuttonInfo\n is triggered, respond with information with a type \ndevice\n.\n\n\nThe list looks for\n\n\nwidgets:\n  list:\n    type: device\n\n\n\n\nThe \nlist\n widget displays information of type \ndevice\n.", 
             "title": "Examples"
         }, 
         {
@@ -1102,13 +1067,18 @@
         }, 
         {
             "location": "/Configuration/examples/#drop-downs", 
-            "text": "dropDown:\n  control: dropdown\n  map:\n    test1: doTest1\n    test2: doTest2\n  label: dropdown test", 
+            "text": "dropDown:\n  control: dropdown\n  map:\n    test1: doTest1\n    test2: doTest2\n  label: dropdown test  Simple form and normal form from above also work for drop downs.", 
             "title": "Drop Downs"
         }, 
         {
             "location": "/Configuration/examples/#handling-code_2", 
             "text": "matrix.on('doTest1', function(){\n //...\n})\n\n\nmatrix.on('doTest2', function(){\n //...\n})", 
             "title": "Handling Code"
+        }, 
+        {
+            "location": "/Configuration/examples/#range", 
+            "text": "control: range\nmin: 0\nmax: 255\nevent: setRange", 
+            "title": "Range"
         }, 
         {
             "location": "/Configuration/examples/#handling-data", 

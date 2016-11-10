@@ -431,6 +431,8 @@
         
             <li><a href="#drop-downs">Drop Downs</a></li>
         
+            <li><a href="#range">Range</a></li>
+        
     
         <li class="main "><a href="#responsive-data-flow">Responsive Data Flow</a></li>
         
@@ -591,6 +593,7 @@ order:
   label: dropdown test
 </code></pre>
 
+<p>Simple form and normal form from above also work for drop downs.</p>
 <h6 id="handling-code_2">Handling Code</h6>
 <pre><code>matrix.on('doTest1', function(){
  //...
@@ -600,6 +603,13 @@ order:
 matrix.on('doTest2', function(){
  //...
 })
+</code></pre>
+
+<h2 id="range">Range</h2>
+<pre><code>control: range
+min: 0
+max: 255
+event: setRange
 </code></pre>
 
 <h6 id="handling-data">Handling Data</h6>
