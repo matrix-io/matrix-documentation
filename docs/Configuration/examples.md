@@ -170,6 +170,8 @@ dropDown:
     test2: doTest2
   label: dropdown test
 ```
+Simple form and normal form from above also work for drop downs.
+
 ###### Handling Code
 ```
 matrix.on('doTest1', function(){
@@ -180,6 +182,14 @@ matrix.on('doTest1', function(){
 matrix.on('doTest2', function(){
  //...
 })
+```
+
+## Range
+```
+control: range
+min: 0
+max: 255
+event: setRange
 ```
 
 ###### Handling Data
