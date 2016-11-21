@@ -419,6 +419,8 @@
         
             <li><a href="#run-matrix-os">Run MATRIX OS</a></li>
         
+            <li><a href="#returning-to-local-computer">Returning to local computer</a></li>
+        
     
         <li class="main "><a href="#custom-raspbian-package">Custom Raspbian Package</a></li>
         
@@ -439,9 +441,11 @@
 <li>Install <a href="../CLI/overview.md">MATRIX CLI</a> via npm <code>npm install -g matrix-cli</code>.</li>
 <li>Target the proper environment <code>matrix set env rc</code>.</li>
 <li>With MATRIX CLI installed on your computer, register an account with MATRIX via <code>matrix register</code>.</li>
+<li>Login to your account using <code>matrix login</code>.</li>
 <li>Once registered an account, run <code>matrix register device</code>.</li>
 <li>Enter a <code>device name</code> and (optional) <code>device description</code>.</li>
 <li>After a few moments you will be provided with a <code>MATRIX_DEVICE_ID</code> and <code>MATRIX_DEVICE_SECRET</code>.</li>
+<li>Select your device using <code>matrix use</code>, and enter your device ID. Command examples will be provided for easy copy paste.</li>
 </ol>
 <pre><code># example variables generated via registration, yours will be different
 export MATRIX_DEVICE_ID=dc7a1a71be2d
@@ -469,7 +473,7 @@ sudo reboot;
 <strong>Note</strong>: You can also explore the <a href="intro/interfaces.md">Hardware Interfaces</a>.</p>
 <h4 id="matrix-os-setup">MATRIX OS Setup</h4>
 <h5 id="installation_1">Installation</h5>
-<p><strong>NOTE:</strong> MATRIX OS has a NodeJS dependency. Please Install NodeJS before installing MATRIX OS.</p>
+<p><strong>NOTE:</strong> MATRIX OS has a NodeJS dependency. Please Install NodeJS on your Pi before installing MATRIX OS.</p>
 <h6 id="node-installation-manual">Node Installation Manual</h6>
 <p>Go to the <a href="https://nodejs.org/en/download/package-manager/#debian-and-ubuntu-based-linux-distributions">NodeJS downloads page</a>
 If the NodeJS installation fails, you might want to try a <a href="https://github.com/nodesource/distributions#debmanual">Manual Installation</a> instead.</p>
@@ -491,33 +495,27 @@ git submodule update --init;
 npm install;
 </code></pre>
 
-<h6 id="matrixos-dependency-upgrade">MatrixOS Dependency upgrade</h6>
-<p>Run this if needed. Should be automatically upgraded.</p>
-<pre><code>npm upgrade matrix-firebase matrix-node-sdk matrix-app-config-helper
-</code></pre>
-
 <h5 id="configure-env-variables">Configure ENV variables</h5>
 <ol>
 <li>On the Pi, inside your <code>~</code> folder, create a file named <code>.envrc</code> with the variables from the Matrix CLI Setup above.  </li>
 </ol>
-<pre><code># in .envrc file
+<pre><code># in .envrc file or place in ~/.bash_profile to auto configure
 export MATRIX_DEVICE_ID=dc7a1a71be2d
 export MATRIX_DEVICE_SECRET=08629018e9d77h15i5n0t4r3alz0f06cd4f7e5544272b
 </code></pre>
 
 <ol>
 <li><code>source .envrc</code> from <code>~</code> to make the variables available to the shell.</li>
-<li>To begin targeting this device with the CLI, enter the <code>matrix use</code> command provided. <code>matrix use $deviceId</code></li>
-<li>If you <code>matrix</code>, you should see your deviceId selected.</li>
 </ol>
 <h4 id="run-matrix-os">Run MATRIX OS</h4>
 <ol>
-<li>
-<p>From the <code>matrix-os</code> folder. <code>NODE_ENV=rc node index.js</code>. While in alpha, we are running in our Release Candidate environment.</p>
-</li>
-<li>
-<p>You can issue commands and deploy apps to your MATRIX OS from the <a href="CLI/overview/">MATRIX CLI</a>.</p>
-</li>
+<li>From the <code>matrix-os</code> folder. <code>NODE_ENV=rc node index.js</code>. While in alpha, we are running in our Release Candidate environment.</li>
+</ol>
+<h4 id="returning-to-local-computer">Returning to local computer</h4>
+<ol>
+<li>If you didn't do it earlier, <code>matrix use $deviceId</code></li>
+<li>Run <code>matrix</code>, verify you are on <code>rc</code> environment, your user is correct, and your selected device is correct.</li>
+<li>Now you can issue commands and deploy apps to your MATRIX OS from the <a href="CLI/overview/">MATRIX CLI</a>.</li>
 </ol>
 <h2 id="custom-raspbian-package">Custom Raspbian Package</h2>
 <p>We'll be making a custom raspbian package available for download very soon!</p></div>
@@ -567,5 +565,5 @@ export MATRIX_DEVICE_SECRET=08629018e9d77h15i5n0t4r3alz0f06cd4f7e5544272b
 
 <!--
 MkDocs version : 0.15.3
-Build Date UTC : 2016-11-10 18:07:57.143167
+Build Date UTC : 2016-11-21 18:30:50.319626
 -->
