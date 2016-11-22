@@ -637,23 +637,53 @@
         }, 
         {
             "location": "/API/computer-vision/", 
-            "text": "Computer Vision\n\n\nWe've build computer vision algorithms in the API inteface to add another level of experiential IoT applications. We've also made it extremely simple to get started.\n\n\nDetection Algorithms\n\n\nAvailable algorithms: \nface\n\n\n\n\nInitialization\n\n\nvar algorithm = 'face';\nvar options   = {};\nmatrix.init( algorithm, options ).then(function( data ){\n  // some callback\n  console.log( data );\n});", 
+            "text": "Computer Vision\n\n\nPart of the vision for MATRIX OS is to provide computer vision in an easy to access format.\n\n\nConfiguration\n\n\nTo facilitate communication with the hardware, it is required to define CV services in \nconfig.yaml\n before they will be available to your application.\n\n\nSee \nServices\n for more information\n\n\nInitialization\n\n\n# app.js\nvar algorithm = 'face';\nvar options   = {};\nmatrix.init( algorithm, options ).then(function( data ){\n  // your CV detection data will be available here\n  console.log( data );\n});\n\n\n\n\noptions\n\n\nrefresh\n - how many seconds before restarting the detection, default: 3\n\ntimeout\n - if there is no detection, stop after this many seconds, default: none\n\n\nAlgorithms\n\n\nBasic\n\n\nface\n,\nfist\n,\npalm\n\n\n\n\n\nBasic Data Format\n\n\npalm\n output - \nmatrix.init('palm')\n\n\n{\n  location: { x: 333, y: 237, width: 55, height: 55 },\n  tag: 'HAND_PALM'\n}\n\n\n\n\nExtended Face Data Format\n\n\ndemographics\n output - - \nmatrix.init('demographics')\n\n\n{ location: { x: 213, y: 221, width: 55, height: 55 },\n tag: 'FACE',\n demographics:\n  { gender: 'MALE',\n    emotion: 'CALM',\n    age: 35,\n    pose:\n     { yaw: -0.24303536117076874,\n       roll: 0.04344254732131958,\n       pitch: -0.10279278457164764 },\n    face_id: '4' } }\n\n\n\n\nemotions\n\n\nHAPPY\n\n\nSAD\n\n\nCONFUSED\n\n\nANGRY\n\n\nCALM\n\n\nSURPRISED\n\n\nDISGUST", 
             "title": "Computer Vision"
         }, 
         {
             "location": "/API/computer-vision/#computer-vision", 
-            "text": "We've build computer vision algorithms in the API inteface to add another level of experiential IoT applications. We've also made it extremely simple to get started.", 
+            "text": "Part of the vision for MATRIX OS is to provide computer vision in an easy to access format.", 
             "title": "Computer Vision"
         }, 
         {
-            "location": "/API/computer-vision/#detection-algorithms", 
-            "text": "Available algorithms:  face", 
-            "title": "Detection Algorithms"
+            "location": "/API/computer-vision/#configuration", 
+            "text": "To facilitate communication with the hardware, it is required to define CV services in  config.yaml  before they will be available to your application.  See  Services  for more information", 
+            "title": "Configuration"
         }, 
         {
             "location": "/API/computer-vision/#initialization", 
-            "text": "var algorithm = 'face';\nvar options   = {};\nmatrix.init( algorithm, options ).then(function( data ){\n  // some callback\n  console.log( data );\n});", 
+            "text": "# app.js\nvar algorithm = 'face';\nvar options   = {};\nmatrix.init( algorithm, options ).then(function( data ){\n  // your CV detection data will be available here\n  console.log( data );\n});", 
             "title": "Initialization"
+        }, 
+        {
+            "location": "/API/computer-vision/#options", 
+            "text": "refresh  - how many seconds before restarting the detection, default: 3 timeout  - if there is no detection, stop after this many seconds, default: none", 
+            "title": "options"
+        }, 
+        {
+            "location": "/API/computer-vision/#algorithms", 
+            "text": "", 
+            "title": "Algorithms"
+        }, 
+        {
+            "location": "/API/computer-vision/#basic", 
+            "text": "face , fist , palm", 
+            "title": "Basic"
+        }, 
+        {
+            "location": "/API/computer-vision/#basic-data-format", 
+            "text": "palm  output -  matrix.init('palm')  {\n  location: { x: 333, y: 237, width: 55, height: 55 },\n  tag: 'HAND_PALM'\n}", 
+            "title": "Basic Data Format"
+        }, 
+        {
+            "location": "/API/computer-vision/#extended-face-data-format", 
+            "text": "demographics  output - -  matrix.init('demographics')  { location: { x: 213, y: 221, width: 55, height: 55 },\n tag: 'FACE',\n demographics:\n  { gender: 'MALE',\n    emotion: 'CALM',\n    age: 35,\n    pose:\n     { yaw: -0.24303536117076874,\n       roll: 0.04344254732131958,\n       pitch: -0.10279278457164764 },\n    face_id: '4' } }", 
+            "title": "Extended Face Data Format"
+        }, 
+        {
+            "location": "/API/computer-vision/#emotions", 
+            "text": "HAPPY  SAD  CONFUSED  ANGRY  CALM  SURPRISED  DISGUST", 
+            "title": "emotions"
         }, 
         {
             "location": "/API/microphone/", 
@@ -962,8 +992,33 @@
         }, 
         {
             "location": "/Configuration/services/", 
-            "text": "Services overview coming soon", 
+            "text": "Services\n\n\nServices are used to indicate which computer vision libraries a given application will request to utilize.\n\n\nExample Service Definition \n Usage\n\n\n# config.yaml\n\nservices:\n  faceTest:\n    engine: detection\n    type: face\n\n# app.js\nmatrix.init('face')\n\n\n\n\nFor the data formats of the payloads returned, refer to \nComputer Vision\n\n\nEngines \n Types\n\n\ndetection\n\n\nface\n - returns basic face detection information\n\ndemographics\n - returns advanced demographic information\n\n\ngesture\n\n\npalm\n - looks for open palm\n\nfist\n - looks for closed fist\n\nthumb-up\n - looks for thumb up sign", 
             "title": "Services"
+        }, 
+        {
+            "location": "/Configuration/services/#services", 
+            "text": "Services are used to indicate which computer vision libraries a given application will request to utilize.", 
+            "title": "Services"
+        }, 
+        {
+            "location": "/Configuration/services/#example-service-definition-usage", 
+            "text": "# config.yaml\n\nservices:\n  faceTest:\n    engine: detection\n    type: face\n\n# app.js\nmatrix.init('face')  For the data formats of the payloads returned, refer to  Computer Vision", 
+            "title": "Example Service Definition &amp; Usage"
+        }, 
+        {
+            "location": "/Configuration/services/#engines-types", 
+            "text": "", 
+            "title": "Engines &amp; Types"
+        }, 
+        {
+            "location": "/Configuration/services/#detection", 
+            "text": "face  - returns basic face detection information demographics  - returns advanced demographic information", 
+            "title": "detection"
+        }, 
+        {
+            "location": "/Configuration/services/#gesture", 
+            "text": "palm  - looks for open palm fist  - looks for closed fist thumb-up  - looks for thumb up sign", 
+            "title": "gesture"
         }, 
         {
             "location": "/Configuration/examples/", 
