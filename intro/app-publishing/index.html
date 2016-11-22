@@ -9,7 +9,7 @@
         
         <link rel="shortcut icon" href="../../img/favicon.ico">
 
-	<title>Troubleshooting - MATRIX</title>
+	<title>App Publishing - MATRIX</title>
 
         <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
         <link href="../../css/font-awesome-4.5.0.css" rel="stylesheet">
@@ -96,7 +96,7 @@
                         
                             
 <li >
-    <a href="../../intro/cli-troubleshooting/">Troubleshooting</a>
+    <a href="../cli-troubleshooting/">Troubleshooting</a>
 </li>
 
                         
@@ -105,7 +105,7 @@
                 
                 
                 
-                    <li class="dropdown">
+                    <li class="dropdown active">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">MATRIX OS <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                         
@@ -122,8 +122,8 @@
 
                         
                             
-<li >
-    <a href="../../intro/app-publishing/">App Publishing</a>
+<li class="active">
+    <a href="./">App Publishing</a>
 </li>
 
                         
@@ -261,7 +261,7 @@
                         
                             
 <li >
-    <a href="../../intro/matrix-troubleshooting/">Troubleshooting</a>
+    <a href="../matrix-troubleshooting/">Troubleshooting</a>
 </li>
 
                         
@@ -297,25 +297,25 @@
                 
                 
                 
-                    <li class="dropdown active">
+                    <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">MALOS <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                         
                             
 <li >
-    <a href="../overview/">Overview</a>
+    <a href="../../MALOS/overview/">Overview</a>
 </li>
 
                         
                             
 <li >
-    <a href="../example/">Examples</a>
+    <a href="../../MALOS/example/">Examples</a>
 </li>
 
                         
                             
-<li class="active">
-    <a href="./">Troubleshooting</a>
+<li >
+    <a href="../../MALOS/troubleshooting/">Troubleshooting</a>
 </li>
 
                         
@@ -391,12 +391,12 @@
                 </li>
                 
                     <li >
-                        <a rel="next" href="../example/">
+                        <a rel="next" href="../..">
                             <i class="fa fa-arrow-left"></i> Previous
                         </a>
                     </li>
                     <li >
-                        <a rel="prev" href="../../Reference/overview/">
+                        <a rel="prev" href="../../API/sensors/">
                             Next <i class="fa fa-arrow-right"></i>
                         </a>
                     </li>
@@ -412,14 +412,84 @@
                 <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
-        <li class="main active"><a href="#troubleshooting">Troubleshooting</a></li>
+        <li class="main active"><a href="#publishing-your-application">Publishing your Application</a></li>
+        
+            <li><a href="#app-store">App Store</a></li>
+        
+            <li><a href="#three-steps-to-distribution">Three Steps to Distribution</a></li>
+        
+            <li><a href="#guidelines">Guidelines</a></li>
+        
+            <li><a href="#before-publishing-an-application">Before publishing an application.</a></li>
         
     
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
 
-<h2 id="troubleshooting">Troubleshooting</h2></div>
+<h1 id="publishing-your-application">Publishing your Application</h1>
+<h2 id="app-store">App Store</h2>
+<p>http://apps.matrix.one</p>
+<h2 id="three-steps-to-distribution">Three Steps to Distribution</h2>
+<p><code>matrix create</code> - Make your application
+<code>matrix deploy</code> - Test your application
+<code>matrix publish</code> - Publish on the app Store</p>
+<h2 id="guidelines">Guidelines</h2>
+<p>Your application must do only what it claims to do with the name, description and README.md.</p>
+<p>All sensors, integrations and computer vision usage must be registered in the <code>config.yaml</code>, and will be authorized by users on install.</p>
+<p>All applications will be code-reviewed and are subject to removal at any time.</p>
+<h2 id="before-publishing-an-application">Before publishing an application.</h2>
+<h3 id="ensure-meta-information-is-accurate">Ensure Meta Information is Accurate</h3>
+<p><code>name</code> and <code>description</code> must be included in your config.yaml. If you want to use a multiword application name, provide a <code>displayName</code> with a correlating <code>name</code>. Users will use <code>name</code> when <code>matrix install</code>ing.</p>
+<p>The contents of <code>README.md</code> will be shown on the app detail page, along with images provided
+<code>imageUrls</code> will be used on the detail page</p>
+<p><code>galleryUrl</code> will be used on the main App Store page, or the first item in <code>imageUrls</code> will be used</p>
+<p><code>keywords</code> are used to tag your application and will be used to return your application on searches for these keywords.</p>
+<p><code>categories</code> are not yet formalized, but will divide the store listings. Submitting proposed app categories will inform this process.</p>
+<pre><code>example config.yaml
+
+name: example-app
+displayName: The Example App
+description: An example application config.yaml.
+
+imageUrls:
+  - http://image.com/1
+  - http://image.com/2
+
+galleryUrl: http://image.com/3
+
+keywords:
+  - example
+  - configuration
+
+categories:
+  - entertainment
+  - development
+</code></pre>
+
+<h3 id="policies">Policies</h3>
+<p>All applications which use events, CV or sensors, must register these in the config file.</p>
+<p><code>events</code> are registered as follows:</p>
+<h4 id="events">Events</h4>
+<pre><code>events:
+  - face-recognized
+  - locked-door
+</code></pre>
+
+<h4 id="sensors">Sensors</h4>
+<pre><code>sensors:
+  - temperature
+  - uv
+</code></pre>
+
+<h4 id="computer-vision">Computer Vision</h4>
+<pre><code>services:
+  faceService:
+    engine: detection
+    type: face
+</code></pre>
+
+<p>A user will be required to grant an application permissions before installing. A user may install an app with any or all permissions enabled.</p></div>
             
         </div>
 

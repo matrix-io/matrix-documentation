@@ -446,6 +446,61 @@
             "title": "Custom Raspbian Package"
         }, 
         {
+            "location": "/intro/app-publishing/", 
+            "text": "Publishing your Application\n\n\nApp Store\n\n\nhttp://apps.matrix.one\n\n\nThree Steps to Distribution\n\n\nmatrix create\n - Make your application\n\nmatrix deploy\n - Test your application\n\nmatrix publish\n - Publish on the app Store\n\n\nGuidelines\n\n\nYour application must do only what it claims to do with the name, description and README.md.\n\n\nAll sensors, integrations and computer vision usage must be registered in the \nconfig.yaml\n, and will be authorized by users on install.\n\n\nAll applications will be code-reviewed and are subject to removal at any time.\n\n\nBefore publishing an application.\n\n\nEnsure Meta Information is Accurate\n\n\nname\n and \ndescription\n must be included in your config.yaml. If you want to use a multiword application name, provide a \ndisplayName\n with a correlating \nname\n. Users will use \nname\n when \nmatrix install\ning.\n\n\nThe contents of \nREADME.md\n will be shown on the app detail page, along with images provided\n\nimageUrls\n will be used on the detail page\n\n\ngalleryUrl\n will be used on the main App Store page, or the first item in \nimageUrls\n will be used\n\n\nkeywords\n are used to tag your application and will be used to return your application on searches for these keywords.\n\n\ncategories\n are not yet formalized, but will divide the store listings. Submitting proposed app categories will inform this process.\n\n\nexample config.yaml\n\nname: example-app\ndisplayName: The Example App\ndescription: An example application config.yaml.\n\nimageUrls:\n  - http://image.com/1\n  - http://image.com/2\n\ngalleryUrl: http://image.com/3\n\nkeywords:\n  - example\n  - configuration\n\ncategories:\n  - entertainment\n  - development\n\n\n\n\nPolicies\n\n\nAll applications which use events, CV or sensors, must register these in the config file.\n\n\nevents\n are registered as follows:\n\n\nEvents\n\n\nevents:\n  - face-recognized\n  - locked-door\n\n\n\n\nSensors\n\n\nsensors:\n  - temperature\n  - uv\n\n\n\n\nComputer Vision\n\n\nservices:\n  faceService:\n    engine: detection\n    type: face\n\n\n\n\nA user will be required to grant an application permissions before installing. A user may install an app with any or all permissions enabled.", 
+            "title": "App Publishing"
+        }, 
+        {
+            "location": "/intro/app-publishing/#publishing-your-application", 
+            "text": "", 
+            "title": "Publishing your Application"
+        }, 
+        {
+            "location": "/intro/app-publishing/#app-store", 
+            "text": "http://apps.matrix.one", 
+            "title": "App Store"
+        }, 
+        {
+            "location": "/intro/app-publishing/#three-steps-to-distribution", 
+            "text": "matrix create  - Make your application matrix deploy  - Test your application matrix publish  - Publish on the app Store", 
+            "title": "Three Steps to Distribution"
+        }, 
+        {
+            "location": "/intro/app-publishing/#guidelines", 
+            "text": "Your application must do only what it claims to do with the name, description and README.md.  All sensors, integrations and computer vision usage must be registered in the  config.yaml , and will be authorized by users on install.  All applications will be code-reviewed and are subject to removal at any time.", 
+            "title": "Guidelines"
+        }, 
+        {
+            "location": "/intro/app-publishing/#before-publishing-an-application", 
+            "text": "", 
+            "title": "Before publishing an application."
+        }, 
+        {
+            "location": "/intro/app-publishing/#ensure-meta-information-is-accurate", 
+            "text": "name  and  description  must be included in your config.yaml. If you want to use a multiword application name, provide a  displayName  with a correlating  name . Users will use  name  when  matrix install ing.  The contents of  README.md  will be shown on the app detail page, along with images provided imageUrls  will be used on the detail page  galleryUrl  will be used on the main App Store page, or the first item in  imageUrls  will be used  keywords  are used to tag your application and will be used to return your application on searches for these keywords.  categories  are not yet formalized, but will divide the store listings. Submitting proposed app categories will inform this process.  example config.yaml\n\nname: example-app\ndisplayName: The Example App\ndescription: An example application config.yaml.\n\nimageUrls:\n  - http://image.com/1\n  - http://image.com/2\n\ngalleryUrl: http://image.com/3\n\nkeywords:\n  - example\n  - configuration\n\ncategories:\n  - entertainment\n  - development", 
+            "title": "Ensure Meta Information is Accurate"
+        }, 
+        {
+            "location": "/intro/app-publishing/#policies", 
+            "text": "All applications which use events, CV or sensors, must register these in the config file.  events  are registered as follows:", 
+            "title": "Policies"
+        }, 
+        {
+            "location": "/intro/app-publishing/#events", 
+            "text": "events:\n  - face-recognized\n  - locked-door", 
+            "title": "Events"
+        }, 
+        {
+            "location": "/intro/app-publishing/#sensors", 
+            "text": "sensors:\n  - temperature\n  - uv", 
+            "title": "Sensors"
+        }, 
+        {
+            "location": "/intro/app-publishing/#computer-vision", 
+            "text": "services:\n  faceService:\n    engine: detection\n    type: face  A user will be required to grant an application permissions before installing. A user may install an app with any or all permissions enabled.", 
+            "title": "Computer Vision"
+        }, 
+        {
             "location": "/API/sensors/", 
             "text": "Sensors\n\n\nSensors and Configuration\n\n\nEnd users must explicitly authorize MOS applications to utilize\u00a0hardware sensors and computer vision algorithms.\n\n\nThis requires that each application identify required sensors in \nconfig.yaml\n.\n\n\nsensors:\n  - temperature\n  - uv\n\n\n\n\nOtherwise sensors will not work.\n\n\n.init\n\n\nAll sensors are initialized using the \ninit\n method.\n\n\n\n\nsensorType\n: Type of sensor you are initializing \ntemperature\n, \nhumidity\n, \npressure\n, \nuv\n, \ngyroscope\n, \naccelerometer\n.\n\n\noptions\n: The options for that sensor. By default, all sensors have a \nrefresh\n and \ntimeout\n property.\n\n\n\n\nvar options = {\n  refresh: 1000, //milliseconds\n  timeout: 1000 //milliseconds\n};\n\nmatrix.init('temperature', options).then(function(data){\n  //see below for data formats\n});\n\n\n\n\nOutputs\n\n\nTemperature\n\n\nOutput for \ntemperature\n (in \n).\n\n\n{ \n  value: 36.95899963378906, \n  type: 'temperature' \n}\n\n\n\n\nHumidity\n\n\nOutput for \nhumidity\n.\n\n\n{ \n  value: 30.409704208374023, \n  type: 'humidity' \n}\n\n\n\n\nPressure\n\n\nOutput for \npressure\n (in mbars).\n\n\n{ \n  value: 101692, \n  type: 'pressure' \n}\n\n\n\n\nUV\n\n\nOutput for \nUV\n.\n\n\n{ \n   value: 0.0053547522984445095, \n   risk: 'Low' \n}\n\n\n\n\nGyroscope\n\n\nOutput for \ngyroscope\n.\n\n\n{\n  yaw: 144.78964233398438,\n  pitch: 2.112252950668335,\n  roll: -92.0414810180664,\n  type: 'gyroscope' \n}\n\n\n\n\n\nAccelerometer\n\n\nOutput for \naccelerometer\n\n\n{\n  x: 0.1,\n  y: 0.23,\n  z: 0.224\n}\n\n\n\n\nFiltering Sensor Data\n\n\nSee \nAPI \n Filter", 
             "title": "Sensors"
@@ -637,7 +692,7 @@
         }, 
         {
             "location": "/API/computer-vision/", 
-            "text": "Computer Vision\n\n\nPart of the vision for MATRIX OS is to provide computer vision in an easy to access format.\n\n\nConfiguration\n\n\nTo facilitate communication with the hardware, it is required to define CV services in \nconfig.yaml\n before they will be available to your application.\n\n\nSee \nServices\n for more information\n\n\nInitialization\n\n\n# app.js\nvar algorithm = 'face';\nvar options   = {};\nmatrix.init( algorithm, options ).then(function( data ){\n  // your CV detection data will be available here\n  console.log( data );\n});\n\n\n\n\noptions\n\n\nrefresh\n - how many seconds before restarting the detection, default: 3\n\ntimeout\n - if there is no detection, stop after this many seconds, default: none\n\n\nAlgorithms\n\n\nBasic\n\n\nface\n,\nfist\n,\npalm\n\n\n\n\n\nBasic Data Format\n\n\npalm\n output - \nmatrix.init('palm')\n\n\n{\n  location: { x: 333, y: 237, width: 55, height: 55 },\n  tag: 'HAND_PALM'\n}\n\n\n\n\nExtended Face Data Format\n\n\ndemographics\n output - - \nmatrix.init('demographics')\n\n\n{ location: { x: 213, y: 221, width: 55, height: 55 },\n tag: 'FACE',\n demographics:\n  { gender: 'MALE',\n    emotion: 'CALM',\n    age: 35,\n    pose:\n     { yaw: -0.24303536117076874,\n       roll: 0.04344254732131958,\n       pitch: -0.10279278457164764 },\n    face_id: '4' } }\n\n\n\n\nemotions\n\n\nHAPPY\n\n\nSAD\n\n\nCONFUSED\n\n\nANGRY\n\n\nCALM\n\n\nSURPRISED\n\n\nDISGUST", 
+            "text": "Computer Vision\n\n\nPart of the vision for MATRIX OS is to provide computer vision in an easy to access format.\n\n\nConfiguration\n\n\nTo facilitate communication with the hardware, it is required to define CV services in \nconfig.yaml\n before they will be available to your application.\n\n\nSee \nServices\n for more information\n\n\nInitialization\n\n\n# app.js\nvar algorithm = 'face';\nvar options   = {};\nmatrix.init( algorithm, options ).then(function( data ){\n  // your CV detection data will be available here\n  console.log( data );\n});\n\n\n\n\noptions\n\n\nrefresh\n - how many seconds before restarting the detection, default: 3\n\n\ntimeout\n - if there is no detection, stop after this many seconds, default: none\n\n\nAlgorithms\n\n\nBasic\n\n\nface\n,\nfist\n,\npalm\n\n\n\n\n\nBasic Data Format\n\n\npalm\n output - \nmatrix.init('palm')\n\n\n{\n  location: { x: 333, y: 237, width: 55, height: 55 },\n  tag: 'HAND_PALM'\n}\n\n\n\n\nExtended Face Data Format\n\n\ndemographics\n output - - \nmatrix.init('demographics')\n\n\n{ location: { x: 213, y: 221, width: 55, height: 55 },\n tag: 'FACE',\n demographics:\n  { gender: 'MALE',\n    emotion: 'CALM',\n    age: 35,\n    pose:\n     { yaw: -0.24303536117076874,\n       roll: 0.04344254732131958,\n       pitch: -0.10279278457164764 },\n    face_id: '4' } }\n\n\n\n\nemotions\n\n\nHAPPY\n\n\nSAD\n\n\nCONFUSED\n\n\nANGRY\n\n\nCALM\n\n\nSURPRISED\n\n\nDISGUST", 
             "title": "Computer Vision"
         }, 
         {
@@ -657,7 +712,7 @@
         }, 
         {
             "location": "/API/computer-vision/#options", 
-            "text": "refresh  - how many seconds before restarting the detection, default: 3 timeout  - if there is no detection, stop after this many seconds, default: none", 
+            "text": "refresh  - how many seconds before restarting the detection, default: 3  timeout  - if there is no detection, stop after this many seconds, default: none", 
             "title": "options"
         }, 
         {
