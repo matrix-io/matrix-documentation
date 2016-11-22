@@ -1,7 +1,7 @@
 ## Computer Vision
 We've build computer vision algorithms in the API inteface to add another level of experiential IoT applications. We've also made it extremely simple to get started.
 ## Detection Algorithms
-Available algorithms: `face`
+Available algorithms: `face` `detection`
 <!-- `thumb-up`
 `palm-open`
 `palm-closed`
@@ -9,7 +9,7 @@ Available algorithms: `face`
 `vehicle-count`
 `person-count` -->
 
-## Initialization
+## Initialization Example
 ```
 var algorithm = 'face';
 var options   = {};
@@ -19,7 +19,8 @@ matrix.init( algorithm, options ).then(function( data ){
 });
 ```
 
-<!--## Base Options
+<!--
+## Base Options
 These are applicable to all algorithms.
 
 - `zone` - a nested array of x,y, width and height
@@ -56,7 +57,8 @@ matrix.init('gesture', options);
 `PALM_CLOSED`
 
 ### Data Format
-// TODO -->
+// TODO
+-->
 
 ## Face Detection
 ```
