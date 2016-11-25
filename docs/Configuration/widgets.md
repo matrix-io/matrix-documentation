@@ -23,25 +23,22 @@ This way we can easily distinguish between layout and functionality.
 ## Data Handling
 The dashboard holds a central data store which the widgets receive or request data from.
 
-Default operation is for a widget to be updated with data in real time.
-
-This is represented with an option, `push`.
+Default operation is for a widget to be updated with data in real time. This is represented by enabling the option `realtime`:
 
 ```
-//to disable realtime updates
+// To enable realtime updates
 widgets:
   testWidget:
-     push: false
+     realtime: true
 ```
 
-The alternative is to have a widget manually refresh it's data on an interval, if you wanted to refresh a graph every minute
+The alternative is to have a widget manually refresh it's data on an interval by disabling `realtime`. Default `refresh` is 5 seconds. If you wanted to refresh a graph every minute:
 
 ```
-//to disable realtime updates
+// To disable realtime updates
 widgets:
   testWidget:
-     push: false
-     pull: true
+     realtime: false
      refresh: 60
 ```
 
@@ -58,7 +55,7 @@ Indicated via a `display` option.
 
 `list` - data table
 
-`list-group` - gruped data table
+`list-group` - grouped data table
 
 ## Interactive Widgets
 Indicated via a `control` option.
