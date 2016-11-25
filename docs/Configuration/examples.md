@@ -4,63 +4,105 @@
 ![Screens](img/screens.png)
 ```
 screens:
-  - - cpu
-    - memory
+  - - digitTest
+    - labelTest
+  - - barChartTest
+    - lineChartTest
+  - - radarChartTest
+    - gaugeTest
+  - - listTest
 ```
 
 # Displays
 
-## Value
-![Value](img/value.png)
+## Digit
+![Digit](img/ios/digit.png)
 ```
-cpu:
+digitTest:
+  display: digit
   type: monitor
   key: cpu
-  display: digit
   format: round
   label: cpu
 ```
 
-## Bar Chart
-![Bar Chart](img/bar.png)
+## Label
+![Label](img/ios/label.png)
 ```
-barChart:
+labelTest:
+  display: label
+  type: uv
+  key: risk
+  label: UV Risk
+```
+
+## Bar Chart
+![Bar Chart](img/ios/bar.png)
+```
+barChartTest:
+  display: bar
   type: monitor
   keys: cpu, memory
-  display: bar
   label: Bar Chart
 ```
 
-## Radar Chart
-![Radar Chart](img/radar.png)
+## Line Chart
+![Line Chart](img/ios/line.png)
 ```
-radarTest:
+lineChartTest:
+  display: line
   type: monitor
-  keys: cpu,memory
+  keys: cpu, memory
+  label: Line Chart
+```
+
+## Radar Chart
+![Radar Chart](img/ios/radar.png)
+```
+radarTestTest:
   display: radar
+  type: emotions
+  keys: happy,sad,disgust,surprised,confused,calm,angry
   label: radarTest
 ```
 
-## Line Chart
-![Line Chart](img/line.png)
+## Gauge
+![Gauge](img/ios/gauge.png)
 ```
-cpuChart:
-  type: monitor
-  keys: cpu,memory
-  display: line
-  label: CPU Chart
+gaugeTest:
+  display: gauge
+  type: face
+  keys: views
+  label: 'Views'
 ```
 
 ## Lists
-![List](img/secret.png)
+![List](img/ios/list.png)
 ```
-info:
+listTest:
   type: device
-  display: list-group
+  keys: Hostname,Type,Platform,Arch
+  display: list
   label: Secret Information
 ```
 
 # Interactive
+
+## Input
+
+### Single
+```
+control: input
+event: testInput
+value: 'type text'
+```
+
+###### Handling Data
+```
+matrix.on('testInput', function(p){
+ var text = p.value;
+})
+```
 
 ## Buttons
 
@@ -160,6 +202,23 @@ buttonsTest:
    //...
  })
 ```
+
+## Switch
+
+### Single
+```
+control: switch
+event: switchChanged
+value: 'Leds Enabled'
+```
+
+###### Handling Data
+```
+matrix.on('switchChanged', function(p){
+ var isOn = p.value;
+})
+```
+
 ## Drop Downs
 ![DropDown](img/drop.png)
 ```
@@ -193,7 +252,45 @@ event: setRange
 ```
 
 ###### Handling Data
-To group your apps
+```
+matrix.on('setRange', function(p){
+ var value = p.value;
+})
+```
+
+## XY
+
+### Single
+```
+control: xy
+event: xyChanging
+xMax: 100
+yMax: 50
+```
+
+###### Handling Data
+```
+matrix.on('xyChanging', function(p){
+ var x = p.value.x;
+ var y = p.value.y;
+})
+```
+
+## Radial
+
+### Single
+```
+control: radial
+event: radialChanging
+```
+
+###### Handling Data
+```
+matrix.on('radialChanging', function(p){
+ var x = p.value.x; //from -1 to 1
+ var y = p.value.y; //from -1 to 1
+})
+```
 
 # Responsive Data Flow
 ```
