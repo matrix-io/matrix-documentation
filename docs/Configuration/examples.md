@@ -51,13 +51,38 @@ cpuChart:
   label: CPU Chart
 ```
 
-## Lists
+## List
 ![List](img/secret.png)
 ```
 info:
   type: device
-  display: list-group
+  display: list
   label: Secret Information
+```
+
+## List Group
+
+### Simple Group
+![List Group](img/listgroup.png)
+```
+info:
+  type: device
+  keys: count
+  display: list-group
+  format: count
+  label: Total
+```
+
+### Group by Key
+![List Group](img/listgroupby.png)
+```
+info:
+  type: device
+  keys: zone, count
+  groupby: zone
+  format: count
+  display: list-group
+  label: Total
 ```
 
 # Interactive

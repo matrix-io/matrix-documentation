@@ -49,14 +49,22 @@ widgets:
 Indicated via a `display` option.
 
 `bar` - bar chart
+
 `digit` - numerical
+
 `radar` - polar chart
+
 `line` - line chart
-`list-group` - data table
+
+`list` - data table
+
+`list-group` - gruped data table
 
 ## Interactive Widgets
 Indicated via a `control` option.
 
 `button` - button, single or multiple
+
 `dropdown` - dropdown menu
+
 `range` - range slider
