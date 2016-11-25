@@ -14,8 +14,8 @@ pages:
   - 'Troubleshooting': 'intro/cli-troubleshooting.md'
 - MATRIX OS:
   - Overview: 'API/overview.md'
-  - Installation: 'index.md'
   - App Publishing: 'intro/app-publishing.md'
+  - Installation: 'API/installation.md'
   - App API:
     - 'Sensors': 'API/sensors.md'
     - 'Everloop': 'API/everloop.md'

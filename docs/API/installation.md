@@ -1,29 +1,3 @@
-## Support
-* Post questions or comments on [community.matrix.one](http://community.matrix.one/)
-* Post package issues on github under [matrix-io](https://github.com/matrix-io)
-
-## Installation
-
-#### MATRIX CLI Setup
-**Note:** Pre-requisite of [NodeJS](https://nodejs.org/en/download) on the client computer.
-
-1. Install [MATRIX CLI](../CLI/overview.md) via npm `npm install -g matrix-cli`.
-1. Target the proper environment `matrix set env rc`.
-1. With MATRIX CLI installed on your computer, register an account with MATRIX via `matrix register`.
-1. Log into your account using `matrix login`.
-1. Once registered an account, run `matrix register device`.
-1. Enter a `device name` and (optional) `device description`.
-1. After a few moments you will be provided with a `MATRIX_DEVICE_ID` and `MATRIX_DEVICE_SECRET`.
-1. Select your device using `matrix use `, and enter your device ID. Command examples will be provided for easy copy paste.
-
-```
-# example variables generated via registration, yours will be different
-export MATRIX_DEVICE_ID=dc7a1a71be2d
-export MATRIX_DEVICE_SECRET=08629018e9d77h15i5n0t4r3alz0f06cd4f7e5544272b
-```
-
-Save these for the Configure ENV Variables step, near the end.
-
 #### Raspberry Pi Setup
 
 1. To enjoy your new board you’ll need to set it up. First, you need to have Raspbian installed on your Raspberry Pi. If you don’t have it, you can [download](https://www.raspberrypi.org/downloads/raspbian/) it and [follow the instructions](https://www.raspberrypi.org/documentation/installation/installing-images/README.md).
@@ -40,9 +14,6 @@ sudo apt-get install -y libzmq3-dev xc3sprog malos-eye matrix-creator-malos matr
 # Reboot!
 sudo reboot;
 ```
-
-This completes the Creator hardware setup. This is all you need to begin using [MALOS](MALOS/overview.md) and [HAL](HAL/overview.md).
-**Note**: You can also explore the [Hardware Interfaces](intro/interfaces.md).
 
 #### MATRIX OS Setup
 
@@ -90,6 +61,3 @@ export MATRIX_DEVICE_SECRET=08629018e9d77h15i5n0t4r3alz0f06cd4f7e5544272b
 1. If you didn't do it earlier, `matrix use $deviceId`
 1. Run `matrix`, verify you are on `rc` environment, your user is correct, and your selected device is correct.
 1. Now you can issue commands and deploy apps to your MATRIX OS from the [MATRIX CLI](CLI/overview.md).
-
-## Custom Raspbian Package
-We'll be making a custom raspbian package available for download very soon!

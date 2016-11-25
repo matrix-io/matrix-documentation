@@ -1,11 +1,22 @@
 ## Computer Vision
-
 Part of the vision for MATRIX OS is to provide computer vision in an easy to access format.
 
 ## Configuration
 To facilitate communication with the hardware, it is required to define CV services in `config.yaml` before they will be available to your application.
 
 See [Services](../Configuration/services.md) for more information
+
+We've build computer vision algorithms in the API inteface to add another level of experiential IoT applications. We've also made it extremely simple to get started.
+
+## Detection Algorithms
+Available algorithms: `face`, `palm`, `fist`
+
+<!-- `thumb-up`
+`palm-open`
+`palm-closed`
+`face-id`
+`vehicle-count`
+`person-count` -->
 
 ## Initialization
 ```
