@@ -5,7 +5,7 @@ extra_css: ['styles.css']
 
 pages:
 - Installation: 'index.md'
-- MATRIX CLI: 
+- MATRIX CLI:
   - 'Overview': 'CLI/overview.md'
   - 'Installation': 'CLI/installation.md'
   - 'Apps': 'CLI/apps.md'
@@ -15,6 +15,7 @@ pages:
 - MATRIX OS:
   - Overview: 'API/overview.md'
   - Installation: 'index.md'
+  - App Publishing: 'intro/app-publishing.md'
   - App API:
     - 'Sensors': 'API/sensors.md'
     - 'Everloop': 'API/everloop.md'

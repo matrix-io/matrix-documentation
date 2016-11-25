@@ -1,7 +1,34 @@
 ## Computer Vision
-We've build computer vision algorithms in the API inteface to add another level of experiential IoT applications. We've also made it extremely simple to get started.
-## Detection Algorithms
-Available algorithms: `face` `detection`
+
+Part of the vision for MATRIX OS is to provide computer vision in an easy to access format.
+
+## Configuration
+To facilitate communication with the hardware, it is required to define CV services in `config.yaml` before they will be available to your application.
+
+See [Services](../Configuration/services.md) for more information
+
+## Initialization
+```
+# app.js
+var algorithm = 'face';
+var options   = {};
+matrix.init( algorithm, options ).then(function( data ){
+  // your CV detection data will be available here
+  console.log( data );
+});
+```
+
+### options
+
+`refresh` - how many seconds before restarting the detection, default: 3
+
+`timeout` - if there is no detection, stop after this many seconds, default: none
+
+## Algorithms
+
+### Basic
+`face`,`fist`,`palm`
+
 <!-- `thumb-up`
 `palm-open`
 `palm-closed`
@@ -9,18 +36,43 @@ Available algorithms: `face` `detection`
 `vehicle-count`
 `person-count` -->
 
-## Initialization Example
+
+### Basic Data Format
+`palm` output - `matrix.init('palm')`
 ```
-var algorithm = 'face';
-var options   = {};
-matrix.init( algorithm, options ).then(function( data ){
-  // some callback
-  console.log( data );
-});
+{
+  location: { x: 333, y: 237, width: 55, height: 55 },
+  tag: 'HAND_PALM'
+}
 ```
 
-<!--
-## Base Options
+### Extended Face Data Format
+`demographics` output - - `matrix.init('demographics')`
+```
+{ location: { x: 213, y: 221, width: 55, height: 55 },
+ tag: 'FACE',
+ demographics:
+  { gender: 'MALE',
+    emotion: 'CALM',
+    age: 35,
+    pose:
+     { yaw: -0.24303536117076874,
+       roll: 0.04344254732131958,
+       pitch: -0.10279278457164764 },
+    face_id: '4' } }
+```
+
+#### emotions
+`HAPPY`
+`SAD`
+`CONFUSED`
+`ANGRY`
+`CALM`
+`SURPRISED`
+`DISGUST`
+
+
+<!--## Base Options
 These are applicable to all algorithms.
 
 - `zone` - a nested array of x,y, width and height
@@ -57,14 +109,7 @@ matrix.init('gesture', options);
 `PALM_CLOSED`
 
 ### Data Format
-// TODO
--->
-
-## Face Detection
-```
-matrix.init('face').then(function(data){})
-```  
-`then` will call when any face is detected
+// TODO -->
 
 <!--
 ### Face Detection Options
@@ -77,14 +122,6 @@ matrix.init('gesture', options);
 ```
 -->
 
-#### emotions
-`HAPPY`
-`SAD`
-`CONFUSED`
-`ANGRY`
-`CALM`
-`SURPRISED`
-`DISGUST`
 <!--
 ## Face Recognition
 ```
