@@ -117,13 +117,7 @@
                         
                             
 <li >
-    <a href="../..">Installation</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../../intro/app-publishing/">App Publishing</a>
+    <a href="../installation/">Installation</a>
 </li>
 
                         
@@ -414,8 +408,6 @@
     
         <li class="main active"><a href="#gpio">GPIO</a></li>
         
-            <li><a href="#configuration">Configuration</a></li>
-        
             <li><a href="#open">.open</a></li>
         
             <li><a href="#read">.read</a></li>
@@ -434,12 +426,6 @@
 
 <h2 id="gpio">GPIO</h2>
 <p>[WIP] GPIO can be used to communicate or receive input from analog and digital components through the MATRIX Creator, or any other sensor leveraging Raspberry Pi's GPIOs.</p>
-<h3 id="configuration">Configuration</h3>
-<p>Make sure to add the following to your <code>config.yaml</code> to enable GPIO's/</p>
-<pre><code>integrations:
-  - gpio
-</code></pre>
-
 <h3 id="open">.open</h3>
 <pre><code>matrix.gpio.open(16, &quot;output&quot;, function(err){
     // read or write
@@ -453,7 +439,7 @@
 </ul>
 <pre><code>matrix.gpio.read(16, function(err, value) {
   if(err) throw err;
-  console.log(value);   // The current state of the pin
+  console.log(value);   // The current state of the pin 
 });
 </code></pre>
 

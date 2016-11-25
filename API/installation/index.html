@@ -9,7 +9,7 @@
         
         <link rel="shortcut icon" href="../../img/favicon.ico">
 
-	<title>App Publishing - MATRIX</title>
+	<title>Installation - MATRIX</title>
 
         <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
         <link href="../../css/font-awesome-4.5.0.css" rel="stylesheet">
@@ -96,7 +96,7 @@
                         
                             
 <li >
-    <a href="../cli-troubleshooting/">Troubleshooting</a>
+    <a href="../../intro/cli-troubleshooting/">Troubleshooting</a>
 </li>
 
                         
@@ -111,19 +111,13 @@
                         
                             
 <li >
-    <a href="../../API/overview/">Overview</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../..">Installation</a>
+    <a href="../overview/">Overview</a>
 </li>
 
                         
                             
 <li class="active">
-    <a href="./">App Publishing</a>
+    <a href="./">Installation</a>
 </li>
 
                         
@@ -134,73 +128,73 @@
         
             
 <li >
-    <a href="../../API/sensors/">Sensors</a>
+    <a href="../sensors/">Sensors</a>
 </li>
 
         
             
 <li >
-    <a href="../../API/everloop/">Everloop</a>
+    <a href="../everloop/">Everloop</a>
 </li>
 
         
             
 <li >
-    <a href="../../API/filter/">Filters</a>
+    <a href="../filter/">Filters</a>
 </li>
 
         
             
 <li >
-    <a href="../../API/computer-vision/">Computer Vision</a>
+    <a href="../computer-vision/">Computer Vision</a>
 </li>
 
         
             
 <li >
-    <a href="../../API/microphone/">Microphone</a>
+    <a href="../microphone/">Microphone</a>
 </li>
 
         
             
 <li >
-    <a href="../../API/crosstalk/">Cross-Talk</a>
+    <a href="../crosstalk/">Cross-Talk</a>
 </li>
 
         
             
 <li >
-    <a href="../../API/typesend/">Type</a>
+    <a href="../typesend/">Type</a>
 </li>
 
         
             
 <li >
-    <a href="../../API/GPIO/">GPIO</a>
+    <a href="../GPIO/">GPIO</a>
 </li>
 
         
             
 <li >
-    <a href="../../API/ir/">IR TX/RX</a>
+    <a href="../ir/">IR TX/RX</a>
 </li>
 
         
             
 <li >
-    <a href="../../API/nfc/">NFC</a>
+    <a href="../nfc/">NFC</a>
 </li>
 
         
             
 <li >
-    <a href="../../API/zwave/">Z-wave</a>
+    <a href="../zwave/">Z-wave</a>
 </li>
 
         
             
 <li >
-    <a href="../../API/zigbee/">Zigbee</a>
+    <a href="../zigbee/">Zigbee</a>
 </li>
 
         
@@ -261,7 +255,7 @@
                         
                             
 <li >
-    <a href="../matrix-troubleshooting/">Troubleshooting</a>
+    <a href="../../intro/matrix-troubleshooting/">Troubleshooting</a>
 </li>
 
                         
@@ -391,12 +385,12 @@
                 </li>
                 
                     <li >
-                        <a rel="next" href="../..">
+                        <a rel="next" href="../overview/">
                             <i class="fa fa-arrow-left"></i> Previous
                         </a>
                     </li>
                     <li >
-                        <a rel="prev" href="../../API/sensors/">
+                        <a rel="prev" href="../sensors/">
                             Next <i class="fa fa-arrow-right"></i>
                         </a>
                     </li>
@@ -412,88 +406,88 @@
                 <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
-        <li class="main active"><a href="#publishing-your-application">Publishing your Application</a></li>
+        <li class="main active"><a href="#raspberry-pi-setup">Raspberry Pi Setup</a></li>
         
-            <li><a href="#app-store">App Store</a></li>
+    
+        <li class="main "><a href="#matrix-os-setup">MATRIX OS Setup</a></li>
         
-            <li><a href="#three-steps-to-distribution">Three Steps to Distribution</a></li>
+            <li><a href="#installation">Installation</a></li>
         
-            <li><a href="#guidelines">Guidelines</a></li>
+            <li><a href="#configure-env-variables">Configure ENV variables</a></li>
         
-            <li><a href="#before-publishing-an-application">Before publishing an application.</a></li>
+    
+        <li class="main "><a href="#run-matrix-os">Run MATRIX OS</a></li>
+        
+    
+        <li class="main "><a href="#returning-to-local-computer">Returning to local computer</a></li>
         
     
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
 
-<h1 id="publishing-your-application">Publishing your Application</h1>
-<h2 id="app-store">App Store</h2>
-<p><a href="">http://apps.matrix.one</a></p>
-<h2 id="three-steps-to-distribution">Three Steps to Distribution</h2>
+<h4 id="raspberry-pi-setup">Raspberry Pi Setup</h4>
 <ol>
-<li><code>matrix create</code> - Make your application</li>
-<li><code>matrix deploy</code> - Test your application</li>
-<li><code>matrix publish</code> - Publish on the app Store</li>
+<li>To enjoy your new board you’ll need to set it up. First, you need to have Raspbian installed on your Raspberry Pi. If you don’t have it, you can <a href="https://www.raspberrypi.org/downloads/raspbian/">download</a> it and <a href="https://www.raspberrypi.org/documentation/installation/installing-images/README.md">follow the instructions</a>.</li>
+<li>You'll also need to install <a href="https://nodejs.org/en/download/package-manager/#debian-and-ubuntu-based-linux-distributions">NodeJS</a> on your Raspberry Pi before you get started.</li>
+<li>Basic understanding of Terminal. Via terminal, discover your Pi's address with <code>arp -na | grep -i b8:27:eb</code>. In our case, our IP for this example is <code>192.168.0.15</code>, yours may be different.</li>
 </ol>
-<h2 id="guidelines">Guidelines</h2>
-<p>Your application must do only what it claims to do with the name, description and README.md.</p>
-<p>All sensors, integrations and computer vision usage must be registered in the <code>config.yaml</code>, and will be authorized by users on install.</p>
-<p>All applications will be code-reviewed and are subject to removal at any time.</p>
-<h2 id="before-publishing-an-application">Before publishing an application.</h2>
-<h3 id="ensure-meta-information-is-accurate">Ensure Meta Information is Accurate</h3>
-<p><code>name</code> and <code>description</code> must be included in your config.yaml. If you want to use a multiword application name, provide a <code>displayName</code> with a correlating <code>name</code>. Users will use <code>name</code> when <code>matrix install</code>ing.</p>
-<p>The contents of <code>README.md</code> will be shown on the app detail page, along with images provided
-<code>imageUrls</code> will be used on the detail page</p>
-<p><code>galleryUrl</code> will be used on the main App Store page, or the first item in <code>imageUrls</code> will be used</p>
-<p><code>keywords</code> are used to tag your application and will be used to return your application on searches for these keywords.</p>
-<p><code>categories</code> are not yet formalized, but will divide the store listings. Submitting proposed app categories will inform this process.</p>
-<pre><code>example config.yaml
+<pre><code># setup &amp; installation
+echo &quot;deb http://packages.matrix.one/matrix-creator/ ./&quot; | sudo tee --append /etc/apt/sources.list;
+sudo apt-get update;
+sudo apt-get upgrade;
+sudo apt-get install -y libzmq3-dev xc3sprog malos-eye matrix-creator-malos matrix-creator-openocd wiringpi matrix-creator-init cmake g++ git --force-yes;
 
-name: example-app
-displayName: The Example App
-description: An example application config.yaml.
-
-imageUrls:
-  - http://image.com/1
-  - http://image.com/2
-
-galleryUrl: http://image.com/3
-
-keywords:
-  - example
-  - configuration
-
-categories:
-  - entertainment
-  - development
+# Reboot!
+sudo reboot;
 </code></pre>
 
-<h3 id="ensure-components-are-setup">Ensure Components are Setup</h3>
-<p>All applications which use events, CV or sensors, must register these in the config file.</p>
-<p><code>events</code> are registered as follows:</p>
-<h4 id="events">Events</h4>
-<pre><code>events:
-  - face-recognized
-  - locked-door
+<h4 id="matrix-os-setup">MATRIX OS Setup</h4>
+<h5 id="installation">Installation</h5>
+<p><strong>NOTE:</strong> MATRIX OS has a NodeJS dependency. Please Install NodeJS on your Pi before installing MATRIX OS.</p>
+<h6 id="node-installation-manual">Node Installation Manual</h6>
+<p>Go to the <a href="https://nodejs.org/en/download/package-manager/#debian-and-ubuntu-based-linux-distributions">NodeJS downloads page</a>
+If the NodeJS installation fails, you might want to try a <a href="https://github.com/nodesource/distributions#debmanual">Manual Installation</a> instead.</p>
+<h6 id="node-installation-easy">Node Installation Easy</h6>
+<pre><code># Install npm (doesn't really matter what version, apt-get node is v0.10...)
+sudo apt-get install npm
+
+# n is a node version manager
+sudo npm install -g n
+
+# node 6.5 is the latest target node version, also installs new npm
+n 6.5
 </code></pre>
 
-<h4 id="sensors">Sensors</h4>
-<pre><code>sensors:
-  - temperature
-  - uv
+<h6 id="matrixos-installation">MatrixOS Installation</h6>
+<pre><code>git clone https://github.com/matrix-io/matrix-os.git;
+cd matrix-os;
+git submodule update --init;
+npm install;
 </code></pre>
 
-<h4 id="computer-vision">Computer Vision</h4>
-<pre><code>services:
-  faceService:
-    engine: detection
-    type: face
+<h5 id="configure-env-variables">Configure ENV variables</h5>
+<ol>
+<li>On the Pi, inside your <code>~</code> folder, create a file named <code>.envrc</code> with the variables from the Matrix CLI Setup above.  </li>
+</ol>
+<pre><code># in .envrc file or place in ~/.bash_profile to auto configure
+export MATRIX_DEVICE_ID=dc7a1a71be2d
+export MATRIX_DEVICE_SECRET=08629018e9d77h15i5n0t4r3alz0f06cd4f7e5544272b
 </code></pre>
 
-<p>A user will be required to grant an application permissions before installing. A user may install an app with any or all permissions enabled.</p>
-<h3 id="test-your-application">Test your Application</h3>
-<p>Use <code>matrix deploy</code> to test your application before publishing. Make sure it functions as intended. Share a video of your creation with us!</p></div>
+<ol>
+<li><code>source .envrc</code> from <code>~</code> to make the variables available to the shell.</li>
+</ol>
+<h4 id="run-matrix-os">Run MATRIX OS</h4>
+<ol>
+<li>From the <code>matrix-os</code> folder. <code>NODE_ENV=rc node index.js</code>. While in alpha, we are running in our Release Candidate environment.</li>
+</ol>
+<h4 id="returning-to-local-computer">Returning to local computer</h4>
+<ol>
+<li>If you didn't do it earlier, <code>matrix use $deviceId</code></li>
+<li>Run <code>matrix</code>, verify you are on <code>rc</code> environment, your user is correct, and your selected device is correct.</li>
+<li>Now you can issue commands and deploy apps to your MATRIX OS from the <a href="CLI/overview.md">MATRIX CLI</a>.</li>
+</ol></div>
             
         </div>
 

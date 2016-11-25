@@ -117,13 +117,7 @@
                         
                             
 <li >
-    <a href="../..">Installation</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../../intro/app-publishing/">App Publishing</a>
+    <a href="../../API/installation/">Installation</a>
 </li>
 
                         
@@ -412,11 +406,85 @@
                 <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
+        <li class="main active"><a href="#getting-started">Getting Started</a></li>
+        
+    
+        <li class="main "><a href="#examples">Examples</a></li>
+        
+            <li><a href="#drivers">Drivers</a></li>
+        
+            <li><a href="#everloop">Everloop</a></li>
+        
+            <li><a href="#humidity">Humidity</a></li>
+        
+            <li><a href="#imu">IMU</a></li>
+        
+            <li><a href="#ir-remote">IR Remote</a></li>
+        
+            <li><a href="#pressure">Pressure</a></li>
+        
+            <li><a href="#uv">UV</a></li>
+        
+            <li><a href="#zigbee-bulb-onoff">Zigbee Bulb On/Off</a></li>
+        
+            <li><a href="#zigbee-bulb-color">Zigbee Bulb Color</a></li>
+        
+            <li><a href="#zigbee-bulb-brightness">Zigbee Bulb Brightness</a></li>
+        
+    
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
 
-</div>
+<h2 id="getting-started">Getting Started</h2>
+<pre><code>git clone https://github.com/matrix-io/matrix-creator-hal;
+git submodule update --init;
+cd src/js_test;
+npm install;
+</code></pre>
+
+<h2 id="examples">Examples</h2>
+<p>MALOS is the program that sits between the low level hardware layer and MATRIX OS. This program allows MATRIX OS to access the board hardware via ZeroMQ sockets. You can also use it directly, as it is done with the examples below. The The IPs used in the examples are 127.0.0.1. Remember to edit them if you're accessing the Creator from another host and not from the Raspberry itself.</p>
+<p><strong>Note:</strong> Pre-requisite of <a href="https://nodejs.org/en/download">NodeJS</a> on the client computer.</p>
+<h3 id="drivers">Drivers</h3>
+<pre><code>node test_driver_info.js
+</code></pre>
+
+<h3 id="everloop">Everloop</h3>
+<pre><code>node test_everloop.js
+</code></pre>
+
+<h3 id="humidity">Humidity</h3>
+<pre><code>node test_humidity.js
+</code></pre>
+
+<h3 id="imu">IMU</h3>
+<pre><code>node test_imu.js
+</code></pre>
+
+<h3 id="ir-remote">IR Remote</h3>
+<pre><code>node test_ir_remote.js
+</code></pre>
+
+<h3 id="pressure">Pressure</h3>
+<pre><code>node test_pressure.js
+</code></pre>
+
+<h3 id="uv">UV</h3>
+<pre><code>node test_uv.js
+</code></pre>
+
+<h3 id="zigbee-bulb-onoff">Zigbee Bulb On/Off</h3>
+<pre><code>node test_zigbee_bulb.js
+</code></pre>
+
+<h3 id="zigbee-bulb-color">Zigbee Bulb Color</h3>
+<pre><code>node test_zigbee_color.js
+</code></pre>
+
+<h3 id="zigbee-bulb-brightness">Zigbee Bulb Brightness</h3>
+<pre><code>node test_zigbee_level.js
+</code></pre></div>
             
         </div>
 
