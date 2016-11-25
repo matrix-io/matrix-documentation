@@ -117,6 +117,12 @@
                         
                             
 <li >
+    <a href="../../intro/app-publishing/">App Publishing</a>
+</li>
+
+                        
+                            
+<li >
     <a href="../installation/">Installation</a>
 </li>
 
@@ -409,10 +415,24 @@
         <li class="main active"><a href="#computer-vision">Computer Vision</a></li>
         
     
+        <li class="main "><a href="#configuration">Configuration</a></li>
+        
+    
         <li class="main "><a href="#detection-algorithms">Detection Algorithms</a></li>
         
     
         <li class="main "><a href="#initialization">Initialization</a></li>
+        
+            <li><a href="#options">options</a></li>
+        
+    
+        <li class="main "><a href="#algorithms">Algorithms</a></li>
+        
+            <li><a href="#basic">Basic</a></li>
+        
+            <li><a href="#basic-data-format">Basic Data Format</a></li>
+        
+            <li><a href="#extended-face-data-format">Extended Face Data Format</a></li>
         
     
     </ul>
@@ -420,24 +440,74 @@
                 <div class="col-md-9" role="main">
 
 <h2 id="computer-vision">Computer Vision</h2>
+<p>Part of the vision for MATRIX OS is to provide computer vision in an easy to access format.</p>
+<h2 id="configuration">Configuration</h2>
+<p>To facilitate communication with the hardware, it is required to define CV services in <code>config.yaml</code> before they will be available to your application.</p>
+<p>See <a href="../../Configuration/services/">Services</a> for more information</p>
 <p>We've build computer vision algorithms in the API inteface to add another level of experiential IoT applications. We've also made it extremely simple to get started.</p>
 <h2 id="detection-algorithms">Detection Algorithms</h2>
-<p>Available algorithms: <code>face</code>, <code>palm</code>
-<!-- <code>thumb-up</code>
-<code>palm-open</code>
-<code>palm-closed</code>
-<code>face-id</code>
-<code>vehicle-count</code>
-<code>person-count</code> --></p>
+<p>Available algorithms: <code>face</code>, <code>palm</code>, <code>fist</code></p>
+<!-- `thumb-up`
+`palm-open`
+`palm-closed`
+`face-id`
+`vehicle-count`
+`person-count` -->
+
 <h2 id="initialization">Initialization</h2>
-<pre><code>var algorithm = 'face';
+<pre><code># app.js
+var algorithm = 'face';
 var options   = {};
 matrix.init( algorithm, options ).then(function( data ){
-  // some callback
+  // your CV detection data will be available here
   console.log( data );
 });
 </code></pre>
 
+<h3 id="options">options</h3>
+<p><code>refresh</code> - how many seconds before restarting the detection, default: 3</p>
+<p><code>timeout</code> - if there is no detection, stop after this many seconds, default: none</p>
+<h2 id="algorithms">Algorithms</h2>
+<h3 id="basic">Basic</h3>
+<p><code>face</code>,<code>fist</code>,<code>palm</code></p>
+<!-- `thumb-up`
+`palm-open`
+`palm-closed`
+`face-id`
+`vehicle-count`
+`person-count` -->
+
+<h3 id="basic-data-format">Basic Data Format</h3>
+<p><code>palm</code> output - <code>matrix.init('palm')</code></p>
+<pre><code>{
+  location: { x: 333, y: 237, width: 55, height: 55 },
+  tag: 'HAND_PALM'
+}
+</code></pre>
+
+<h3 id="extended-face-data-format">Extended Face Data Format</h3>
+<p><code>demographics</code> output - - <code>matrix.init('demographics')</code></p>
+<pre><code>{ location: { x: 213, y: 221, width: 55, height: 55 },
+ tag: 'FACE',
+ demographics:
+  { gender: 'MALE',
+    emotion: 'CALM',
+    age: 35,
+    pose:
+     { yaw: -0.24303536117076874,
+       roll: 0.04344254732131958,
+       pitch: -0.10279278457164764 },
+    face_id: '4' } }
+</code></pre>
+
+<h4 id="emotions">emotions</h4>
+<p><code>HAPPY</code>
+<code>SAD</code>
+<code>CONFUSED</code>
+<code>ANGRY</code>
+<code>CALM</code>
+<code>SURPRISED</code>
+<code>DISGUST</code></p>
 <!--## Base Options
 These are applicable to all algorithms.
 
@@ -446,34 +516,30 @@ These are applicable to all algorithms.
 
 ### Example
 
-wzxhzdk:1
+wzxhzdk:3
 
 matrix.init('gesture', options).then(function(data){})
 
-wzxhzdk:2
+wzxhzdk:4
 
 var options = { detect: ['THUMB_UP'] };
 matrix.init('gesture', options);
 
-wzxhzdk:3
-
-matrix.init('face').then(function(data){})
-
-wzxhzdk:4
+wzxhzdk:5
 
 var options = { detect: ['AGE', 'EMOTION','GENDER','FACE_ID','HEAD_POSE','FACE_FEATURES'] };
 matrix.init('gesture', options);
 
-wzxhzdk:5
+wzxhzdk:6
 
 matrix.init('face-id').then(function(data){})
 
-wzxhzdk:6
+wzxhzdk:7
 
 // preuploaded Example - myFace.jpg
 matrix.init('face-id', { match: 'myFace' })
 
-wzxhzdk:7
+wzxhzdk:8
 
 // dynamic faces from dashboard / mobile app / cli
 matrix.on('faceUpload', function(data){
@@ -496,11 +562,11 @@ matrix.on('faceUpload', function(data){
 // use configuration for recognition
 matrix.init('face', { match: matrix.faces })
 
-wzxhzdk:8
+wzxhzdk:9
 
 matrix.init('vehicle-count').then(function(data){})
 
-wzxhzdk:9
+wzxhzdk:10
 
 matrix.init('people-count').then(function(data){})
 ```

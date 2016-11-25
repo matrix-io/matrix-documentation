@@ -117,6 +117,12 @@
                         
                             
 <li >
+    <a href="../../intro/app-publishing/">App Publishing</a>
+</li>
+
+                        
+                            
+<li >
     <a href="../../API/installation/">Installation</a>
 </li>
 
@@ -406,11 +412,40 @@
                 <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
+        <li class="main active"><a href="#services">Services</a></li>
+        
+            <li><a href="#example-service-definition-usage">Example Service Definition &amp; Usage</a></li>
+        
+            <li><a href="#engines-types">Engines &amp; Types</a></li>
+        
+    
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
 
-<p>Services overview coming soon</p></div>
+<h2 id="services">Services</h2>
+<p>Services are used to indicate which computer vision libraries a given application will request to utilize.</p>
+<h3 id="example-service-definition-usage">Example Service Definition &amp; Usage</h3>
+<pre><code># config.yaml
+
+services:
+  faceTest:
+    engine: detection
+    type: face
+
+# app.js
+matrix.init('face')
+</code></pre>
+
+<p>For the data formats of the payloads returned, refer to <a href="../../API/computer-vision/">Computer Vision</a></p>
+<h3 id="engines-types">Engines &amp; Types</h3>
+<h4 id="detection"><code>detection</code></h4>
+<p><code>face</code> - returns basic face detection information
+<code>demographics</code> - returns advanced demographic information</p>
+<h4 id="gesture"><code>gesture</code></h4>
+<p><code>palm</code> - looks for open palm
+<code>fist</code> - looks for closed fist
+<code>thumb-up</code> - looks for thumb up sign</p></div>
             
         </div>
 

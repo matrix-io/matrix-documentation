@@ -117,6 +117,12 @@
                         
                             
 <li >
+    <a href="../../intro/app-publishing/">App Publishing</a>
+</li>
+
+                        
+                            
+<li >
     <a href="../../API/installation/">Installation</a>
 </li>
 
@@ -437,35 +443,34 @@ widgets:
 <p>This way we can easily distinguish between layout and functionality.</p>
 <h2 id="data-handling">Data Handling</h2>
 <p>The dashboard holds a central data store which the widgets receive or request data from.</p>
-<p>Default operation is for a widget to be updated with data in real time.</p>
-<p>This is represented with an option, <code>push</code>.</p>
-<pre><code>//to disable realtime updates
+<p>Default operation is for a widget to be updated with data in real time. This is represented by enabling the option <code>realtime</code>:</p>
+<pre><code>// To enable realtime updates
 widgets:
   testWidget:
-     push: false
+     realtime: true
 </code></pre>
 
-<p>The alternative is to have a widget manually refresh it's data on an interval, if you wanted to refresh a graph every minute</p>
-<pre><code>//to disable realtime updates
+<p>The alternative is to have a widget manually refresh it's data on an interval by disabling <code>realtime</code>. Default <code>refresh</code> is 5 seconds. If you wanted to refresh a graph every minute:</p>
+<pre><code>// To disable realtime updates
 widgets:
   testWidget:
-     push: false
-     pull: true
+     realtime: false
      refresh: 60
 </code></pre>
 
 <h2 id="display-widgets">Display widgets</h2>
 <p>Indicated via a <code>display</code> option.</p>
-<p><code>bar</code> - bar chart
-<code>digit</code> - numerical
-<code>radar</code> - polar chart
-<code>line</code> - line chart
-<code>list-group</code> - data table</p>
+<p><code>bar</code> - bar chart</p>
+<p><code>digit</code> - numerical</p>
+<p><code>radar</code> - polar chart</p>
+<p><code>line</code> - line chart</p>
+<p><code>list</code> - data table</p>
+<p><code>list-group</code> - grouped data table</p>
 <h2 id="interactive-widgets">Interactive Widgets</h2>
 <p>Indicated via a <code>control</code> option.</p>
-<p><code>button</code> - button, single or multiple
-<code>dropdown</code> - dropdown menu
-<code>range</code> - range slider</p></div>
+<p><code>button</code> - button, single or multiple</p>
+<p><code>dropdown</code> - dropdown menu</p>
+<p><code>range</code> - range slider</p></div>
             
         </div>
 

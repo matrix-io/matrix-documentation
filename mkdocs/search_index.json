@@ -376,6 +376,66 @@
             "title": "Troubleshooting"
         }, 
         {
+            "location": "/intro/app-publishing/", 
+            "text": "Publishing your Application\n\n\nApp Store\n\n\nhttp://apps.matrix.one\n\n\nThree Steps to Distribution\n\n\n\n\nmatrix create\n - Make your application\n\n\nmatrix deploy\n - Test your application\n\n\nmatrix publish\n - Publish on the app Store\n\n\n\n\nGuidelines\n\n\nYour application must do only what it claims to do with the name, description and README.md.\n\n\nAll sensors, integrations and computer vision usage must be registered in the \nconfig.yaml\n, and will be authorized by users on install.\n\n\nAll applications will be code-reviewed and are subject to removal at any time.\n\n\nBefore publishing an application.\n\n\nEnsure Meta Information is Accurate\n\n\nname\n and \ndescription\n must be included in your config.yaml. If you want to use a multiword application name, provide a \ndisplayName\n with a correlating \nname\n. Users will use \nname\n when \nmatrix install\ning.\n\n\nThe contents of \nREADME.md\n will be shown on the app detail page, along with images provided\n\nimageUrls\n will be used on the detail page\n\n\ngalleryUrl\n will be used on the main App Store page, or the first item in \nimageUrls\n will be used\n\n\nkeywords\n are used to tag your application and will be used to return your application on searches for these keywords.\n\n\ncategories\n are not yet formalized, but will divide the store listings. Submitting proposed app categories will inform this process.\n\n\nexample config.yaml\n\nname: example-app\ndisplayName: The Example App\ndescription: An example application config.yaml.\n\nimageUrls:\n  - http://image.com/1\n  - http://image.com/2\n\ngalleryUrl: http://image.com/3\n\nkeywords:\n  - example\n  - configuration\n\ncategories:\n  - entertainment\n  - development\n\n\n\n\nEnsure Components are Setup\n\n\nAll applications which use events, CV or sensors, must register these in the config file.\n\n\nevents\n are registered as follows:\n\n\nEvents\n\n\nevents:\n  - face-recognized\n  - locked-door\n\n\n\n\nSensors\n\n\nsensors:\n  - temperature\n  - uv\n\n\n\n\nComputer Vision\n\n\nservices:\n  faceService:\n    engine: detection\n    type: face\n\n\n\n\nA user will be required to grant an application permissions before installing. A user may install an app with any or all permissions enabled.\n\n\nTest your Application\n\n\nUse \nmatrix deploy\n to test your application before publishing. Make sure it functions as intended. Share a video of your creation with us!", 
+            "title": "App Publishing"
+        }, 
+        {
+            "location": "/intro/app-publishing/#publishing-your-application", 
+            "text": "", 
+            "title": "Publishing your Application"
+        }, 
+        {
+            "location": "/intro/app-publishing/#app-store", 
+            "text": "http://apps.matrix.one", 
+            "title": "App Store"
+        }, 
+        {
+            "location": "/intro/app-publishing/#three-steps-to-distribution", 
+            "text": "matrix create  - Make your application  matrix deploy  - Test your application  matrix publish  - Publish on the app Store", 
+            "title": "Three Steps to Distribution"
+        }, 
+        {
+            "location": "/intro/app-publishing/#guidelines", 
+            "text": "Your application must do only what it claims to do with the name, description and README.md.  All sensors, integrations and computer vision usage must be registered in the  config.yaml , and will be authorized by users on install.  All applications will be code-reviewed and are subject to removal at any time.", 
+            "title": "Guidelines"
+        }, 
+        {
+            "location": "/intro/app-publishing/#before-publishing-an-application", 
+            "text": "", 
+            "title": "Before publishing an application."
+        }, 
+        {
+            "location": "/intro/app-publishing/#ensure-meta-information-is-accurate", 
+            "text": "name  and  description  must be included in your config.yaml. If you want to use a multiword application name, provide a  displayName  with a correlating  name . Users will use  name  when  matrix install ing.  The contents of  README.md  will be shown on the app detail page, along with images provided imageUrls  will be used on the detail page  galleryUrl  will be used on the main App Store page, or the first item in  imageUrls  will be used  keywords  are used to tag your application and will be used to return your application on searches for these keywords.  categories  are not yet formalized, but will divide the store listings. Submitting proposed app categories will inform this process.  example config.yaml\n\nname: example-app\ndisplayName: The Example App\ndescription: An example application config.yaml.\n\nimageUrls:\n  - http://image.com/1\n  - http://image.com/2\n\ngalleryUrl: http://image.com/3\n\nkeywords:\n  - example\n  - configuration\n\ncategories:\n  - entertainment\n  - development", 
+            "title": "Ensure Meta Information is Accurate"
+        }, 
+        {
+            "location": "/intro/app-publishing/#ensure-components-are-setup", 
+            "text": "All applications which use events, CV or sensors, must register these in the config file.  events  are registered as follows:", 
+            "title": "Ensure Components are Setup"
+        }, 
+        {
+            "location": "/intro/app-publishing/#events", 
+            "text": "events:\n  - face-recognized\n  - locked-door", 
+            "title": "Events"
+        }, 
+        {
+            "location": "/intro/app-publishing/#sensors", 
+            "text": "sensors:\n  - temperature\n  - uv", 
+            "title": "Sensors"
+        }, 
+        {
+            "location": "/intro/app-publishing/#computer-vision", 
+            "text": "services:\n  faceService:\n    engine: detection\n    type: face  A user will be required to grant an application permissions before installing. A user may install an app with any or all permissions enabled.", 
+            "title": "Computer Vision"
+        }, 
+        {
+            "location": "/intro/app-publishing/#test-your-application", 
+            "text": "Use  matrix deploy  to test your application before publishing. Make sure it functions as intended. Share a video of your creation with us!", 
+            "title": "Test your Application"
+        }, 
+        {
             "location": "/API/installation/", 
             "text": "Raspberry Pi Setup\n\n\n\n\nTo enjoy your new board you\u2019ll need to set it up. First, you need to have Raspbian installed on your Raspberry Pi. If you don\u2019t have it, you can \ndownload\n it and \nfollow the instructions\n.\n\n\nYou'll also need to install \nNodeJS\n on your Raspberry Pi before you get started.\n\n\nBasic understanding of Terminal. Via terminal, discover your Pi's address with \narp -na | grep -i b8:27:eb\n. In our case, our IP for this example is \n192.168.0.15\n, yours may be different.\n\n\n\n\n# setup \n installation\necho \ndeb http://packages.matrix.one/matrix-creator/ ./\n | sudo tee --append /etc/apt/sources.list;\nsudo apt-get update;\nsudo apt-get upgrade;\nsudo apt-get install -y libzmq3-dev xc3sprog malos-eye matrix-creator-malos matrix-creator-openocd wiringpi matrix-creator-init cmake g++ git --force-yes;\n\n# Reboot!\nsudo reboot;\n\n\n\n\nMATRIX OS Setup\n\n\nInstallation\n\n\nNOTE:\n MATRIX OS has a NodeJS dependency. Please Install NodeJS on your Pi before installing MATRIX OS.\n\n\nNode Installation Manual\n\n\nGo to the \nNodeJS downloads page\n\nIf the NodeJS installation fails, you might want to try a \nManual Installation\n instead.\n\n\nNode Installation Easy\n\n\n# Install npm (doesn't really matter what version, apt-get node is v0.10...)\nsudo apt-get install npm\n\n# n is a node version manager\nsudo npm install -g n\n\n# node 6.5 is the latest target node version, also installs new npm\nn 6.5\n\n\n\n\nMatrixOS Installation\n\n\ngit clone https://github.com/matrix-io/matrix-os.git;\ncd matrix-os;\ngit submodule update --init;\nnpm install;\n\n\n\n\nConfigure ENV variables\n\n\n\n\nOn the Pi, inside your \n~\n folder, create a file named \n.envrc\n with the variables from the Matrix CLI Setup above.  \n\n\n\n\n# in .envrc file or place in ~/.bash_profile to auto configure\nexport MATRIX_DEVICE_ID=dc7a1a71be2d\nexport MATRIX_DEVICE_SECRET=08629018e9d77h15i5n0t4r3alz0f06cd4f7e5544272b\n\n\n\n\n\n\nsource .envrc\n from \n~\n to make the variables available to the shell.\n\n\n\n\nRun MATRIX OS\n\n\n\n\nFrom the \nmatrix-os\n folder. \nNODE_ENV=rc node index.js\n. While in alpha, we are running in our Release Candidate environment.\n\n\n\n\nReturning to local computer\n\n\n\n\nIf you didn't do it earlier, \nmatrix use $deviceId\n\n\nRun \nmatrix\n, verify you are on \nrc\n environment, your user is correct, and your selected device is correct.\n\n\nNow you can issue commands and deploy apps to your MATRIX OS from the \nMATRIX CLI\n.", 
             "title": "Installation"
@@ -617,23 +677,58 @@
         }, 
         {
             "location": "/API/computer-vision/", 
-            "text": "Computer Vision\n\n\nWe've build computer vision algorithms in the API inteface to add another level of experiential IoT applications. We've also made it extremely simple to get started.\n\n\nDetection Algorithms\n\n\nAvailable algorithms: \nface\n, \npalm\n\n\n\n\nInitialization\n\n\nvar algorithm = 'face';\nvar options   = {};\nmatrix.init( algorithm, options ).then(function( data ){\n  // some callback\n  console.log( data );\n});", 
+            "text": "Computer Vision\n\n\nPart of the vision for MATRIX OS is to provide computer vision in an easy to access format.\n\n\nConfiguration\n\n\nTo facilitate communication with the hardware, it is required to define CV services in \nconfig.yaml\n before they will be available to your application.\n\n\nSee \nServices\n for more information\n\n\nWe've build computer vision algorithms in the API inteface to add another level of experiential IoT applications. We've also made it extremely simple to get started.\n\n\nDetection Algorithms\n\n\nAvailable algorithms: \nface\n, \npalm\n, \nfist\n\n\n\n\n\nInitialization\n\n\n# app.js\nvar algorithm = 'face';\nvar options   = {};\nmatrix.init( algorithm, options ).then(function( data ){\n  // your CV detection data will be available here\n  console.log( data );\n});\n\n\n\n\noptions\n\n\nrefresh\n - how many seconds before restarting the detection, default: 3\n\n\ntimeout\n - if there is no detection, stop after this many seconds, default: none\n\n\nAlgorithms\n\n\nBasic\n\n\nface\n,\nfist\n,\npalm\n\n\n\n\n\nBasic Data Format\n\n\npalm\n output - \nmatrix.init('palm')\n\n\n{\n  location: { x: 333, y: 237, width: 55, height: 55 },\n  tag: 'HAND_PALM'\n}\n\n\n\n\nExtended Face Data Format\n\n\ndemographics\n output - - \nmatrix.init('demographics')\n\n\n{ location: { x: 213, y: 221, width: 55, height: 55 },\n tag: 'FACE',\n demographics:\n  { gender: 'MALE',\n    emotion: 'CALM',\n    age: 35,\n    pose:\n     { yaw: -0.24303536117076874,\n       roll: 0.04344254732131958,\n       pitch: -0.10279278457164764 },\n    face_id: '4' } }\n\n\n\n\nemotions\n\n\nHAPPY\n\n\nSAD\n\n\nCONFUSED\n\n\nANGRY\n\n\nCALM\n\n\nSURPRISED\n\n\nDISGUST", 
             "title": "Computer Vision"
         }, 
         {
             "location": "/API/computer-vision/#computer-vision", 
-            "text": "We've build computer vision algorithms in the API inteface to add another level of experiential IoT applications. We've also made it extremely simple to get started.", 
+            "text": "Part of the vision for MATRIX OS is to provide computer vision in an easy to access format.", 
             "title": "Computer Vision"
         }, 
         {
+            "location": "/API/computer-vision/#configuration", 
+            "text": "To facilitate communication with the hardware, it is required to define CV services in  config.yaml  before they will be available to your application.  See  Services  for more information  We've build computer vision algorithms in the API inteface to add another level of experiential IoT applications. We've also made it extremely simple to get started.", 
+            "title": "Configuration"
+        }, 
+        {
             "location": "/API/computer-vision/#detection-algorithms", 
-            "text": "Available algorithms:  face ,  palm", 
+            "text": "Available algorithms:  face ,  palm ,  fist", 
             "title": "Detection Algorithms"
         }, 
         {
             "location": "/API/computer-vision/#initialization", 
-            "text": "var algorithm = 'face';\nvar options   = {};\nmatrix.init( algorithm, options ).then(function( data ){\n  // some callback\n  console.log( data );\n});", 
+            "text": "# app.js\nvar algorithm = 'face';\nvar options   = {};\nmatrix.init( algorithm, options ).then(function( data ){\n  // your CV detection data will be available here\n  console.log( data );\n});", 
             "title": "Initialization"
+        }, 
+        {
+            "location": "/API/computer-vision/#options", 
+            "text": "refresh  - how many seconds before restarting the detection, default: 3  timeout  - if there is no detection, stop after this many seconds, default: none", 
+            "title": "options"
+        }, 
+        {
+            "location": "/API/computer-vision/#algorithms", 
+            "text": "", 
+            "title": "Algorithms"
+        }, 
+        {
+            "location": "/API/computer-vision/#basic", 
+            "text": "face , fist , palm", 
+            "title": "Basic"
+        }, 
+        {
+            "location": "/API/computer-vision/#basic-data-format", 
+            "text": "palm  output -  matrix.init('palm')  {\n  location: { x: 333, y: 237, width: 55, height: 55 },\n  tag: 'HAND_PALM'\n}", 
+            "title": "Basic Data Format"
+        }, 
+        {
+            "location": "/API/computer-vision/#extended-face-data-format", 
+            "text": "demographics  output - -  matrix.init('demographics')  { location: { x: 213, y: 221, width: 55, height: 55 },\n tag: 'FACE',\n demographics:\n  { gender: 'MALE',\n    emotion: 'CALM',\n    age: 35,\n    pose:\n     { yaw: -0.24303536117076874,\n       roll: 0.04344254732131958,\n       pitch: -0.10279278457164764 },\n    face_id: '4' } }", 
+            "title": "Extended Face Data Format"
+        }, 
+        {
+            "location": "/API/computer-vision/#emotions", 
+            "text": "HAPPY  SAD  CONFUSED  ANGRY  CALM  SURPRISED  DISGUST", 
+            "title": "emotions"
         }, 
         {
             "location": "/API/microphone/", 
@@ -722,7 +817,7 @@
         }, 
         {
             "location": "/API/GPIO/", 
-            "text": "GPIO\n\n\n[WIP] GPIO can be used to communicate or receive input from analog and digital components through the MATRIX Creator, or any other sensor leveraging Raspberry Pi's GPIOs.\n\n\n.open\n\n\nmatrix.gpio.open(16, \noutput\n, function(err){\n    // read or write\n});\n\n\n\n\n.read\n\n\n\n\npinNumber\n: The GPIO you are reading from.\n\n\ncallback\n: Returns \nerr\n, \nvalue\n.\n\n\n\n\nmatrix.gpio.read(16, function(err, value) {\n  if(err) throw err;\n  console.log(value);   // The current state of the pin \n});\n\n\n\n\n.write\n\n\n\n\npinNumber\n: The GPIO you are reading from.\n\n\nvalue\n: The value you would like to update the GPIO with.\n\n\ncallback\n: Returns \nerr\n, \nvalue\n.\n\n\n\n\nmatrix.gpio.write(16, 1, function(err) {\n    if(err) throw err;\n});\n\n\n\n\n.close\n\n\n\n\npinNumber\n: The GPIO you would like to close.\n\n\n\n\nmatrix.gpio.close(16);\n\n\n\n\nExample\n\n\nmatrix.gpio.open(16, \noutput\n, function(err) {\n    matrix.gpio.write(16, 1, function() {\n        matrix.gpio.close(16);\n    });\n});", 
+            "text": "GPIO\n\n\n[WIP] GPIO can be used to communicate or receive input from analog and digital components through the MATRIX Creator, or any other sensor leveraging Raspberry Pi's GPIOs.\n\n\nConfiguration\n\n\nMake sure to add the following to your \nconfig.yaml\n to enable GPIO's/\n\n\nintegrations:\n  - gpio\n\n\n\n\n.open\n\n\nmatrix.gpio.open(16, \noutput\n, function(err){\n    // read or write\n});\n\n\n\n\n.read\n\n\n\n\npinNumber\n: The GPIO you are reading from.\n\n\ncallback\n: Returns \nerr\n, \nvalue\n.\n\n\n\n\nmatrix.gpio.read(16, function(err, value) {\n  if(err) throw err;\n  console.log(value);   // The current state of the pin\n});\n\n\n\n\n.write\n\n\n\n\npinNumber\n: The GPIO you are reading from.\n\n\nvalue\n: The value you would like to update the GPIO with.\n\n\ncallback\n: Returns \nerr\n, \nvalue\n.\n\n\n\n\nmatrix.gpio.write(16, 1, function(err) {\n    if(err) throw err;\n});\n\n\n\n\n.close\n\n\n\n\npinNumber\n: The GPIO you would like to close.\n\n\n\n\nmatrix.gpio.close(16);\n\n\n\n\nExample\n\n\nmatrix.gpio.open(16, \noutput\n, function(err) {\n    matrix.gpio.write(16, 1, function() {\n        matrix.gpio.close(16);\n    });\n});", 
             "title": "GPIO"
         }, 
         {
@@ -731,13 +826,18 @@
             "title": "GPIO"
         }, 
         {
+            "location": "/API/GPIO/#configuration", 
+            "text": "Make sure to add the following to your  config.yaml  to enable GPIO's/  integrations:\n  - gpio", 
+            "title": "Configuration"
+        }, 
+        {
             "location": "/API/GPIO/#open", 
             "text": "matrix.gpio.open(16,  output , function(err){\n    // read or write\n});", 
             "title": ".open"
         }, 
         {
             "location": "/API/GPIO/#read", 
-            "text": "pinNumber : The GPIO you are reading from.  callback : Returns  err ,  value .   matrix.gpio.read(16, function(err, value) {\n  if(err) throw err;\n  console.log(value);   // The current state of the pin \n});", 
+            "text": "pinNumber : The GPIO you are reading from.  callback : Returns  err ,  value .   matrix.gpio.read(16, function(err, value) {\n  if(err) throw err;\n  console.log(value);   // The current state of the pin\n});", 
             "title": ".read"
         }, 
         {
@@ -912,7 +1012,7 @@
         }, 
         {
             "location": "/Configuration/widgets/", 
-            "text": "Widgets\n\n\nA comprehensive overview coming soon. See \nexamples\n for now.\n\n\nLayout\n\n\nWidgets are defined in the \nwidgets\n key of an app config file. This is a collection where each Widget has a keyed name which is associated with an entry in \nscreens\n to determine it's location on the dashboard.\n\n\nscreens:\n  - leftWidget\n  - rightWidget\n\nwidgets:\n  leftWidget: ...\n  rightWidget: ...\n\n\n\n\nThis way we can easily distinguish between layout and functionality.\n\n\nData Handling\n\n\nThe dashboard holds a central data store which the widgets receive or request data from.\n\n\nDefault operation is for a widget to be updated with data in real time.\n\n\nThis is represented with an option, \npush\n.\n\n\n//to disable realtime updates\nwidgets:\n  testWidget:\n     push: false\n\n\n\n\nThe alternative is to have a widget manually refresh it's data on an interval, if you wanted to refresh a graph every minute\n\n\n//to disable realtime updates\nwidgets:\n  testWidget:\n     push: false\n     pull: true\n     refresh: 60\n\n\n\n\nDisplay widgets\n\n\nIndicated via a \ndisplay\n option.\n\n\nbar\n - bar chart\n\ndigit\n - numerical\n\nradar\n - polar chart\n\nline\n - line chart\n\nlist-group\n - data table\n\n\nInteractive Widgets\n\n\nIndicated via a \ncontrol\n option.\n\n\nbutton\n - button, single or multiple\n\ndropdown\n - dropdown menu\n\nrange\n - range slider", 
+            "text": "Widgets\n\n\nA comprehensive overview coming soon. See \nexamples\n for now.\n\n\nLayout\n\n\nWidgets are defined in the \nwidgets\n key of an app config file. This is a collection where each Widget has a keyed name which is associated with an entry in \nscreens\n to determine it's location on the dashboard.\n\n\nscreens:\n  - leftWidget\n  - rightWidget\n\nwidgets:\n  leftWidget: ...\n  rightWidget: ...\n\n\n\n\nThis way we can easily distinguish between layout and functionality.\n\n\nData Handling\n\n\nThe dashboard holds a central data store which the widgets receive or request data from.\n\n\nDefault operation is for a widget to be updated with data in real time. This is represented by enabling the option \nrealtime\n:\n\n\n// To enable realtime updates\nwidgets:\n  testWidget:\n     realtime: true\n\n\n\n\nThe alternative is to have a widget manually refresh it's data on an interval by disabling \nrealtime\n. Default \nrefresh\n is 5 seconds. If you wanted to refresh a graph every minute:\n\n\n// To disable realtime updates\nwidgets:\n  testWidget:\n     realtime: false\n     refresh: 60\n\n\n\n\nDisplay widgets\n\n\nIndicated via a \ndisplay\n option.\n\n\nbar\n - bar chart\n\n\ndigit\n - numerical\n\n\nradar\n - polar chart\n\n\nline\n - line chart\n\n\nlist\n - data table\n\n\nlist-group\n - grouped data table\n\n\nInteractive Widgets\n\n\nIndicated via a \ncontrol\n option.\n\n\nbutton\n - button, single or multiple\n\n\ndropdown\n - dropdown menu\n\n\nrange\n - range slider", 
             "title": "Widgets"
         }, 
         {
@@ -927,27 +1027,52 @@
         }, 
         {
             "location": "/Configuration/widgets/#data-handling", 
-            "text": "The dashboard holds a central data store which the widgets receive or request data from.  Default operation is for a widget to be updated with data in real time.  This is represented with an option,  push .  //to disable realtime updates\nwidgets:\n  testWidget:\n     push: false  The alternative is to have a widget manually refresh it's data on an interval, if you wanted to refresh a graph every minute  //to disable realtime updates\nwidgets:\n  testWidget:\n     push: false\n     pull: true\n     refresh: 60", 
+            "text": "The dashboard holds a central data store which the widgets receive or request data from.  Default operation is for a widget to be updated with data in real time. This is represented by enabling the option  realtime :  // To enable realtime updates\nwidgets:\n  testWidget:\n     realtime: true  The alternative is to have a widget manually refresh it's data on an interval by disabling  realtime . Default  refresh  is 5 seconds. If you wanted to refresh a graph every minute:  // To disable realtime updates\nwidgets:\n  testWidget:\n     realtime: false\n     refresh: 60", 
             "title": "Data Handling"
         }, 
         {
             "location": "/Configuration/widgets/#display-widgets", 
-            "text": "Indicated via a  display  option.  bar  - bar chart digit  - numerical radar  - polar chart line  - line chart list-group  - data table", 
+            "text": "Indicated via a  display  option.  bar  - bar chart  digit  - numerical  radar  - polar chart  line  - line chart  list  - data table  list-group  - grouped data table", 
             "title": "Display widgets"
         }, 
         {
             "location": "/Configuration/widgets/#interactive-widgets", 
-            "text": "Indicated via a  control  option.  button  - button, single or multiple dropdown  - dropdown menu range  - range slider", 
+            "text": "Indicated via a  control  option.  button  - button, single or multiple  dropdown  - dropdown menu  range  - range slider", 
             "title": "Interactive Widgets"
         }, 
         {
             "location": "/Configuration/services/", 
-            "text": "Services overview coming soon", 
+            "text": "Services\n\n\nServices are used to indicate which computer vision libraries a given application will request to utilize.\n\n\nExample Service Definition \n Usage\n\n\n# config.yaml\n\nservices:\n  faceTest:\n    engine: detection\n    type: face\n\n# app.js\nmatrix.init('face')\n\n\n\n\nFor the data formats of the payloads returned, refer to \nComputer Vision\n\n\nEngines \n Types\n\n\ndetection\n\n\nface\n - returns basic face detection information\n\ndemographics\n - returns advanced demographic information\n\n\ngesture\n\n\npalm\n - looks for open palm\n\nfist\n - looks for closed fist\n\nthumb-up\n - looks for thumb up sign", 
             "title": "Services"
         }, 
         {
+            "location": "/Configuration/services/#services", 
+            "text": "Services are used to indicate which computer vision libraries a given application will request to utilize.", 
+            "title": "Services"
+        }, 
+        {
+            "location": "/Configuration/services/#example-service-definition-usage", 
+            "text": "# config.yaml\n\nservices:\n  faceTest:\n    engine: detection\n    type: face\n\n# app.js\nmatrix.init('face')  For the data formats of the payloads returned, refer to  Computer Vision", 
+            "title": "Example Service Definition &amp; Usage"
+        }, 
+        {
+            "location": "/Configuration/services/#engines-types", 
+            "text": "", 
+            "title": "Engines &amp; Types"
+        }, 
+        {
+            "location": "/Configuration/services/#detection", 
+            "text": "face  - returns basic face detection information demographics  - returns advanced demographic information", 
+            "title": "detection"
+        }, 
+        {
+            "location": "/Configuration/services/#gesture", 
+            "text": "palm  - looks for open palm fist  - looks for closed fist thumb-up  - looks for thumb up sign", 
+            "title": "gesture"
+        }, 
+        {
             "location": "/Configuration/examples/", 
-            "text": "MatrixOS Config Widget examples\n\n\nLayout\n\n\n\n\nscreens:\n  - - cpu\n    - memory\n\n\n\n\nDisplays\n\n\nValue\n\n\n\n\ncpu:\n  type: monitor\n  key: cpu\n  display: digit\n  format: round\n  label: cpu\n\n\n\n\nBar Chart\n\n\n\n\nbarChart:\n  type: monitor\n  keys: cpu, memory\n  display: bar\n  label: Bar Chart\n\n\n\n\nRadar Chart\n\n\n\n\nradarTest:\n  type: monitor\n  keys: cpu,memory\n  display: radar\n  label: radarTest\n\n\n\n\nLine Chart\n\n\n\n\ncpuChart:\n  type: monitor\n  keys: cpu,memory\n  display: line\n  label: CPU Chart\n\n\n\n\nLists\n\n\n\n\ninfo:\n  type: device\n  display: list-group\n  label: Secret Information\n\n\n\n\nInteractive\n\n\nButtons\n\n\nSingle\n\n\n\n\nbuttonTest:\n  label: Hacking Buttons\n  control: button\n  event: buttonInfo\n  value: Get Secret Information\n\n\n\n\nHandling Code\n\n\nmatrix.on('buttonInfo', function(){\n  // ...\n})\n\n\n\n\nevent\n in the config file, is the event name (\nbuttonInfo\n) handled.\n\n\nMap Notation\n\n\nMultiple events are supported in a widget through the use of the \nmap\n property.\n\n\nThis has two valid expressions. Key / Value and Collection\n\n\nSimple Form - Key, Value\n\n\nbuttons:\n  control: button\n  map:\n    'label' : eventName\n    'label2': event2Name\n\n\n\n\nSimple Form - mapSort\n\n\nUse \norder\n to display buttons in a particular order.\n\n\nmap:\n  'label' : eventName\n  'label2': event2Name\norder:\n  - 'label'\n  - 'label2'\n\n\n\n\nNormal Form - Multiple\n\n\nbuttons:\n  control: button\n  map:\n   - value: seven\n     event: event7\n   - value: eight\n     event: event8\n   - value: nine\n     event: event9\n\n\n\n\nNormal Form Overview\n\n\nmap:\n  - value: foo    # button label\n    event: e     # event name emitted for app to listen for\n    \n!-- data: 1      # what data to send with this button --\n\n    \n!-- color: 'red' # what color to tint this button --\n\n\n\n\n\nMultiple\n\n\n\n\nbuttonsTest:\n  label: Matrix Activation Buttons\n  control: button\n  map:\n    'amps+': buttonUp\n    'amps-': buttonDown\n    begin : buttonStart\n    end : buttonStop\n    capture : buttonSample\n    'refresh+' : buttonSlow\n    'refresh-' : buttonFast\n\n\n\n\nHandling Code\n\n\n matrix.on('buttonStop', function(){\n   //...\n})\n\n matrix.on('buttonStart', function(){\n   //...\n })\n\n matrix.on('buttonSample', function () {\n   //...\n })\n\n\n\n\nDrop Downs\n\n\n\n\ndropDown:\n  control: dropdown\n  map:\n    test1: doTest1\n    test2: doTest2\n  label: dropdown test\n\n\n\n\nSimple form and normal form from above also work for drop downs.\n\n\nHandling Code\n\n\nmatrix.on('doTest1', function(){\n //...\n})\n\n\nmatrix.on('doTest2', function(){\n //...\n})\n\n\n\n\nRange\n\n\ncontrol: range\nmin: 0\nmax: 255\nevent: setRange\n\n\n\n\nHandling Data\n\n\nTo group your apps\n\n\nResponsive Data Flow\n\n\nmatrix.on('buttonInfo', function(){\n  matrix.type('device').send({\n    'os_hostname': os.hostname(),\n    'os_type': os.type(),\n    'os_platform': os.platform(),\n    'os_arch': os.arch()\n  });\n})\n\n\n\n\nWhen \nbuttonInfo\n is triggered, respond with information with a type \ndevice\n.\n\n\nThe list looks for\n\n\nwidgets:\n  list:\n    type: device\n\n\n\n\nThe \nlist\n widget displays information of type \ndevice\n.", 
+            "text": "MatrixOS Config Widget examples\n\n\nLayout\n\n\n\n\nscreens:\n  - - digitTest\n    - labelTest\n  - - barChartTest\n    - lineChartTest\n  - - radarChartTest\n    - gaugeTest\n  - - listTest\n\n\n\n\nDisplays\n\n\nDigit\n\n\n\n\ndigitTest:\n  display: digit\n  type: monitor\n  key: cpu\n  format: round\n  label: cpu\n\n\n\n\nLabel\n\n\n\n\nlabelTest:\n  display: label\n  type: uv\n  key: risk\n  label: UV Risk\n\n\n\n\nBar Chart\n\n\n\n\nbarChartTest:\n  display: bar\n  type: monitor\n  format: avg\n  keys: cpu, memory\n  realtime: false\n  refresh 60\n  label: Bar Chart\n\n\n\n\nLine Chart\n\n\n\n\nlineChartTest:\n  display: line\n  type: monitor\n  format: avg\n  keys: cpu, memory\n  realtime: true\n  label: Line Chart\n\n\n\n\nRadar Chart\n\n\n\n\nradarTest:\n  display: radar\n  type: emotions\n  keys: happy,sad,disgust,surprised,confused,calm,angry\n  label: Emotions\n\n\n\n\nPie Chart\n\n\n\n\npieChartTest:\n  display: pie-chart\n  type: gender\n  keys: women,men\n  label: Gender\n\n\n\n\nPolar Chart\n\n\n\n\npolarTest:\n  display: polar\n  type: emotions\n  keys: happy,sad,disgust,surprised,confused,calm,angry\n  label: Emotions\n\n\n\n\nGauge\n\n\n\n\ngaugeTest:\n  display: gauge\n  type: face\n  keys: views\n  label: 'Views'\n\n\n\n\nIndicator\n\n\n\n\nindicatorTest:\n  display: indicator\n  type: system\n  keys: isOn\n  label: 'Indicator Test'\n\n\n\n\nMap\n\n\n\n\nmapTest:\n  display: map\n  label: 'Map Test'\n  type: locations\n\n\n\n\nLists\n\n\n\n\nlistTest:\n  type: device\n  keys: Hostname,Type,Platform,Arch\n  display: list\n  label: Secret Information\n\n\n\n\nList Group\n\n\nSimple Group\n\n\n\n\ninfo:\n  type: device\n  keys: count\n  display: list-group\n  format: count\n  label: Total\n\n\n\n\nGroup by Key\n\n\n\n\ninfo:\n  type: device\n  keys: zone, count\n  groupby: zone\n  format: count\n  display: list-group\n  label: Total\n\n\n\n\nInteractive\n\n\nInput\n\n\nSingle\n\n\n\n\nlabel: 'Test Input'\ncontrol: input\nevent: testInput\nvalue: 'type text'\n\n\n\n\nHandling Data\n\n\nmatrix.on('testInput', function(p){\n var text = p.value;\n})\n\n\n\n\nMultiple\n\n\n\n\n  inputMapTest:\n    label: Test Input Map\n    control: input\n    map:\n      - event: testInput1\n        value: first type text\n      - event: testInput2\n        value: second type text\n\n\n\n\nHandling Data\n\n\nmatrix.on('testInput1', function(p){\n var text = p.value;\n})\n\nmatrix.on('testInput2', function(p){\n var text = p.value;\n})\n\n\n\n\n\nButtons\n\n\nSingle\n\n\n\n\n  buttonTest:\n    label: Hacking Buttons\n    control: button\n    event: buttonInfo\n    value: Get Secret Information\n\n\n\n\nHandling Code\n\n\nmatrix.on('buttonInfo', function(){\n  // ...\n})\n\n\n\n\nMultiple\n\n\n\n\n  buttonMapTest:\n    label: Matrix Activation Buttons\n    control: button\n    map:\n      - event: buttonUp\n        value: amps+\n      - event: buttonDown\n        value: amps-\n      - event: buttonStart\n        value: begin\n      - event: buttonStop\n        value: end\n      - event: buttonCapture\n        value: capture\n      - event: buttonSlow\n        value: refresh+\n      - event: buttonFast\n        value: refresh-\n\n\n\n\nHandling Code\n\n\nmatrix.on('buttonUp', function(){\n  // ...\n})\n\nmatrix.on('buttonDown', function(){\n  // ...\n})\n\nmatrix.on('buttonStart', function(){\n  // ...\n})\n\nmatrix.on('buttonStop', function(){\n  // ...\n})\n\nmatrix.on('buttonCapture', function(){\n  // ...\n})\n\nmatrix.on('buttonSlow', function(){\n  // ...\n})\n\nmatrix.on('buttonFast', function(){\n  // ...\n})\n\n\n\n\nSwitch\n\n\nSingle\n\n\n\n\n  switchTest:\n    label: Switch Test\n    control: switch\n    event: ledEnabledChanged\n    value: Leds enabled\n\n\n\n\nHandling Data\n\n\nmatrix.on('ledEnabledChanged', function(p){\n var isOn = p.value;\n})\n\n\n\n\nMultiple\n\n\n\n\n  switchMapTest:\n    label: Switch Map Test\n    control: switch\n    map:\n      - event: ledEnabledChanged\n        value: Leds enabled\n      - event: detectionEnabledChanged\n        value: Detection Enabled\n\n\n\n\nHandling Data\n\n\nmatrix.on('ledEnabledChanged', function(p){\n var isOn = p.value;\n})\n\nmatrix.on('detectionEnabledChanged', function(p){\n var isOn = p.value;\n})\n\n\n\n\nRadio\n\n\n\n\n  radioTest:\n    label: Radio Test\n    control: radio\n    map:\n      - event: optionOneSelected\n        value: Option One\n      - event: optionTwoSelected\n        value: Option Two\n\n\n\n\nHandling Data\n\n\nmatrix.on('optionOneSelected', function(p){\n  // ...\n})\n\nmatrix.on('optionTwoSelected', function(p){\n  // ...\n})\n\n\n\n\nDrop Downs\n\n\n\n\n  dropDownTest:\n    label: Dropdown Test\n    control: dropdown\n    map:\n      - event: optionOneSelected\n        value: Option One\n      - event: optionTwoSelected\n        value: Option Two\n\n\n\n\nHandling Code\n\n\nmatrix.on('optionOneSelected', function(){\n //...\n})\n\nmatrix.on('optionTwoSelected', function(){\n //...\n})\n\n\n\n\nRange\n\n\n\n\n  rangeTest:\n    label: Range Test\n    control: range\n    event: rangeChanged\n    min: 0\n    max: 35\n\n\n\n\nHandling Data\n\n\nmatrix.on('rangeChanged', function(p){\n var value = p.value;\n})\n\n\n\n\nXY\n\n\n\n\n  xyTest:\n    control: xy\n    label: Test XY\n    trigger: xyChanging\n    value: 'xy'\n    xMax: 100\n    yMax: 50\n\n\n\n\nHandling Data\n\n\nmatrix.on('xyChanging', function(p){\n var x = p.value.x;\n var y = p.value.y;\n})\n\n\n\n\nRadial\n\n\nSingle\n\n\n\n\n  radial:\n    control: radial\n    label: Radial Test\n    event: radialChanging\n\n\n\n\nHandling Data\n\n\nmatrix.on('radialChanging', function(p){\n var x = p.value.x; //from -1 to 1\n var y = p.value.y; //from -1 to 1\n})\n\n\n\n\nMultiple\n\n\n\n\n  radialMap:\n    control: radial\n    label: Radial Map Test\n    map:\n    - event: radialRChanging\n      value: right\n    - event: radialLChanging\n      value: left\n\n\n\n\nHandling Data\n\n\nmatrix.on('radialRChanging', function(p){\n var x = p.value.x; //from -1 to 1\n var y = p.value.y; //from -1 to 1\n})\n\nmatrix.on('radialLChanging', function(p){\n var x = p.value.x; //from -1 to 1\n var y = p.value.y; //from -1 to 1\n})\n\n\n\n\nResponsive Data Flow\n\n\nmatrix.on('buttonInfo', function(){\n  matrix.type('device').send({\n    'os_hostname': os.hostname(),\n    'os_type': os.type(),\n    'os_platform': os.platform(),\n    'os_arch': os.arch()\n  });\n})\n\n\n\n\nWhen \nbuttonInfo\n is triggered, respond with information with a type \ndevice\n.\n\n\nThe list looks for\n\n\nwidgets:\n  list:\n    type: device\n\n\n\n\nThe \nlist\n widget displays information of type \ndevice\n.", 
             "title": "Examples"
         }, 
         {
@@ -957,7 +1082,7 @@
         }, 
         {
             "location": "/Configuration/examples/#layout", 
-            "text": "screens:\n  - - cpu\n    - memory", 
+            "text": "screens:\n  - - digitTest\n    - labelTest\n  - - barChartTest\n    - lineChartTest\n  - - radarChartTest\n    - gaugeTest\n  - - listTest", 
             "title": "Layout"
         }, 
         {
@@ -966,29 +1091,74 @@
             "title": "Displays"
         }, 
         {
-            "location": "/Configuration/examples/#value", 
-            "text": "cpu:\n  type: monitor\n  key: cpu\n  display: digit\n  format: round\n  label: cpu", 
-            "title": "Value"
+            "location": "/Configuration/examples/#digit", 
+            "text": "digitTest:\n  display: digit\n  type: monitor\n  key: cpu\n  format: round\n  label: cpu", 
+            "title": "Digit"
+        }, 
+        {
+            "location": "/Configuration/examples/#label", 
+            "text": "labelTest:\n  display: label\n  type: uv\n  key: risk\n  label: UV Risk", 
+            "title": "Label"
         }, 
         {
             "location": "/Configuration/examples/#bar-chart", 
-            "text": "barChart:\n  type: monitor\n  keys: cpu, memory\n  display: bar\n  label: Bar Chart", 
+            "text": "barChartTest:\n  display: bar\n  type: monitor\n  format: avg\n  keys: cpu, memory\n  realtime: false\n  refresh 60\n  label: Bar Chart", 
             "title": "Bar Chart"
         }, 
         {
-            "location": "/Configuration/examples/#radar-chart", 
-            "text": "radarTest:\n  type: monitor\n  keys: cpu,memory\n  display: radar\n  label: radarTest", 
-            "title": "Radar Chart"
-        }, 
-        {
             "location": "/Configuration/examples/#line-chart", 
-            "text": "cpuChart:\n  type: monitor\n  keys: cpu,memory\n  display: line\n  label: CPU Chart", 
+            "text": "lineChartTest:\n  display: line\n  type: monitor\n  format: avg\n  keys: cpu, memory\n  realtime: true\n  label: Line Chart", 
             "title": "Line Chart"
         }, 
         {
+            "location": "/Configuration/examples/#radar-chart", 
+            "text": "radarTest:\n  display: radar\n  type: emotions\n  keys: happy,sad,disgust,surprised,confused,calm,angry\n  label: Emotions", 
+            "title": "Radar Chart"
+        }, 
+        {
+            "location": "/Configuration/examples/#pie-chart", 
+            "text": "pieChartTest:\n  display: pie-chart\n  type: gender\n  keys: women,men\n  label: Gender", 
+            "title": "Pie Chart"
+        }, 
+        {
+            "location": "/Configuration/examples/#polar-chart", 
+            "text": "polarTest:\n  display: polar\n  type: emotions\n  keys: happy,sad,disgust,surprised,confused,calm,angry\n  label: Emotions", 
+            "title": "Polar Chart"
+        }, 
+        {
+            "location": "/Configuration/examples/#gauge", 
+            "text": "gaugeTest:\n  display: gauge\n  type: face\n  keys: views\n  label: 'Views'", 
+            "title": "Gauge"
+        }, 
+        {
+            "location": "/Configuration/examples/#indicator", 
+            "text": "indicatorTest:\n  display: indicator\n  type: system\n  keys: isOn\n  label: 'Indicator Test'", 
+            "title": "Indicator"
+        }, 
+        {
+            "location": "/Configuration/examples/#map", 
+            "text": "mapTest:\n  display: map\n  label: 'Map Test'\n  type: locations", 
+            "title": "Map"
+        }, 
+        {
             "location": "/Configuration/examples/#lists", 
-            "text": "info:\n  type: device\n  display: list-group\n  label: Secret Information", 
+            "text": "listTest:\n  type: device\n  keys: Hostname,Type,Platform,Arch\n  display: list\n  label: Secret Information", 
             "title": "Lists"
+        }, 
+        {
+            "location": "/Configuration/examples/#list-group", 
+            "text": "", 
+            "title": "List Group"
+        }, 
+        {
+            "location": "/Configuration/examples/#simple-group", 
+            "text": "info:\n  type: device\n  keys: count\n  display: list-group\n  format: count\n  label: Total", 
+            "title": "Simple Group"
+        }, 
+        {
+            "location": "/Configuration/examples/#group-by-key", 
+            "text": "info:\n  type: device\n  keys: zone, count\n  groupby: zone\n  format: count\n  display: list-group\n  label: Total", 
+            "title": "Group by Key"
         }, 
         {
             "location": "/Configuration/examples/#interactive", 
@@ -996,73 +1166,143 @@
             "title": "Interactive"
         }, 
         {
+            "location": "/Configuration/examples/#input", 
+            "text": "", 
+            "title": "Input"
+        }, 
+        {
+            "location": "/Configuration/examples/#single", 
+            "text": "label: 'Test Input'\ncontrol: input\nevent: testInput\nvalue: 'type text'", 
+            "title": "Single"
+        }, 
+        {
+            "location": "/Configuration/examples/#handling-data", 
+            "text": "matrix.on('testInput', function(p){\n var text = p.value;\n})", 
+            "title": "Handling Data"
+        }, 
+        {
+            "location": "/Configuration/examples/#multiple", 
+            "text": "inputMapTest:\n    label: Test Input Map\n    control: input\n    map:\n      - event: testInput1\n        value: first type text\n      - event: testInput2\n        value: second type text", 
+            "title": "Multiple"
+        }, 
+        {
+            "location": "/Configuration/examples/#handling-data_1", 
+            "text": "matrix.on('testInput1', function(p){\n var text = p.value;\n})\n\nmatrix.on('testInput2', function(p){\n var text = p.value;\n})", 
+            "title": "Handling Data"
+        }, 
+        {
             "location": "/Configuration/examples/#buttons", 
             "text": "", 
             "title": "Buttons"
         }, 
         {
-            "location": "/Configuration/examples/#single", 
-            "text": "buttonTest:\n  label: Hacking Buttons\n  control: button\n  event: buttonInfo\n  value: Get Secret Information", 
+            "location": "/Configuration/examples/#single_1", 
+            "text": "buttonTest:\n    label: Hacking Buttons\n    control: button\n    event: buttonInfo\n    value: Get Secret Information", 
             "title": "Single"
         }, 
         {
             "location": "/Configuration/examples/#handling-code", 
-            "text": "matrix.on('buttonInfo', function(){\n  // ...\n})  event  in the config file, is the event name ( buttonInfo ) handled.", 
+            "text": "matrix.on('buttonInfo', function(){\n  // ...\n})", 
             "title": "Handling Code"
         }, 
         {
-            "location": "/Configuration/examples/#map-notation", 
-            "text": "Multiple events are supported in a widget through the use of the  map  property.  This has two valid expressions. Key / Value and Collection", 
-            "title": "Map Notation"
-        }, 
-        {
-            "location": "/Configuration/examples/#simple-form-key-value", 
-            "text": "buttons:\n  control: button\n  map:\n    'label' : eventName\n    'label2': event2Name", 
-            "title": "Simple Form - Key, Value"
-        }, 
-        {
-            "location": "/Configuration/examples/#simple-form-mapsort", 
-            "text": "Use  order  to display buttons in a particular order.  map:\n  'label' : eventName\n  'label2': event2Name\norder:\n  - 'label'\n  - 'label2'", 
-            "title": "Simple Form - mapSort"
-        }, 
-        {
-            "location": "/Configuration/examples/#normal-form-multiple", 
-            "text": "buttons:\n  control: button\n  map:\n   - value: seven\n     event: event7\n   - value: eight\n     event: event8\n   - value: nine\n     event: event9", 
-            "title": "Normal Form - Multiple"
-        }, 
-        {
-            "location": "/Configuration/examples/#normal-form-overview", 
-            "text": "map:\n  - value: foo    # button label\n    event: e     # event name emitted for app to listen for\n     !-- data: 1      # what data to send with this button -- \n     !-- color: 'red' # what color to tint this button --", 
-            "title": "Normal Form Overview"
-        }, 
-        {
-            "location": "/Configuration/examples/#multiple", 
-            "text": "buttonsTest:\n  label: Matrix Activation Buttons\n  control: button\n  map:\n    'amps+': buttonUp\n    'amps-': buttonDown\n    begin : buttonStart\n    end : buttonStop\n    capture : buttonSample\n    'refresh+' : buttonSlow\n    'refresh-' : buttonFast", 
+            "location": "/Configuration/examples/#multiple_1", 
+            "text": "buttonMapTest:\n    label: Matrix Activation Buttons\n    control: button\n    map:\n      - event: buttonUp\n        value: amps+\n      - event: buttonDown\n        value: amps-\n      - event: buttonStart\n        value: begin\n      - event: buttonStop\n        value: end\n      - event: buttonCapture\n        value: capture\n      - event: buttonSlow\n        value: refresh+\n      - event: buttonFast\n        value: refresh-", 
             "title": "Multiple"
         }, 
         {
             "location": "/Configuration/examples/#handling-code_1", 
-            "text": "matrix.on('buttonStop', function(){\n   //...\n})\n\n matrix.on('buttonStart', function(){\n   //...\n })\n\n matrix.on('buttonSample', function () {\n   //...\n })", 
+            "text": "matrix.on('buttonUp', function(){\n  // ...\n})\n\nmatrix.on('buttonDown', function(){\n  // ...\n})\n\nmatrix.on('buttonStart', function(){\n  // ...\n})\n\nmatrix.on('buttonStop', function(){\n  // ...\n})\n\nmatrix.on('buttonCapture', function(){\n  // ...\n})\n\nmatrix.on('buttonSlow', function(){\n  // ...\n})\n\nmatrix.on('buttonFast', function(){\n  // ...\n})", 
             "title": "Handling Code"
         }, 
         {
+            "location": "/Configuration/examples/#switch", 
+            "text": "", 
+            "title": "Switch"
+        }, 
+        {
+            "location": "/Configuration/examples/#single_2", 
+            "text": "switchTest:\n    label: Switch Test\n    control: switch\n    event: ledEnabledChanged\n    value: Leds enabled", 
+            "title": "Single"
+        }, 
+        {
+            "location": "/Configuration/examples/#handling-data_2", 
+            "text": "matrix.on('ledEnabledChanged', function(p){\n var isOn = p.value;\n})", 
+            "title": "Handling Data"
+        }, 
+        {
+            "location": "/Configuration/examples/#multiple_2", 
+            "text": "switchMapTest:\n    label: Switch Map Test\n    control: switch\n    map:\n      - event: ledEnabledChanged\n        value: Leds enabled\n      - event: detectionEnabledChanged\n        value: Detection Enabled", 
+            "title": "Multiple"
+        }, 
+        {
+            "location": "/Configuration/examples/#handling-data_3", 
+            "text": "matrix.on('ledEnabledChanged', function(p){\n var isOn = p.value;\n})\n\nmatrix.on('detectionEnabledChanged', function(p){\n var isOn = p.value;\n})", 
+            "title": "Handling Data"
+        }, 
+        {
+            "location": "/Configuration/examples/#radio", 
+            "text": "radioTest:\n    label: Radio Test\n    control: radio\n    map:\n      - event: optionOneSelected\n        value: Option One\n      - event: optionTwoSelected\n        value: Option Two", 
+            "title": "Radio"
+        }, 
+        {
+            "location": "/Configuration/examples/#handling-data_4", 
+            "text": "matrix.on('optionOneSelected', function(p){\n  // ...\n})\n\nmatrix.on('optionTwoSelected', function(p){\n  // ...\n})", 
+            "title": "Handling Data"
+        }, 
+        {
             "location": "/Configuration/examples/#drop-downs", 
-            "text": "dropDown:\n  control: dropdown\n  map:\n    test1: doTest1\n    test2: doTest2\n  label: dropdown test  Simple form and normal form from above also work for drop downs.", 
+            "text": "dropDownTest:\n    label: Dropdown Test\n    control: dropdown\n    map:\n      - event: optionOneSelected\n        value: Option One\n      - event: optionTwoSelected\n        value: Option Two", 
             "title": "Drop Downs"
         }, 
         {
             "location": "/Configuration/examples/#handling-code_2", 
-            "text": "matrix.on('doTest1', function(){\n //...\n})\n\n\nmatrix.on('doTest2', function(){\n //...\n})", 
+            "text": "matrix.on('optionOneSelected', function(){\n //...\n})\n\nmatrix.on('optionTwoSelected', function(){\n //...\n})", 
             "title": "Handling Code"
         }, 
         {
             "location": "/Configuration/examples/#range", 
-            "text": "control: range\nmin: 0\nmax: 255\nevent: setRange", 
+            "text": "rangeTest:\n    label: Range Test\n    control: range\n    event: rangeChanged\n    min: 0\n    max: 35", 
             "title": "Range"
         }, 
         {
-            "location": "/Configuration/examples/#handling-data", 
-            "text": "To group your apps", 
+            "location": "/Configuration/examples/#handling-data_5", 
+            "text": "matrix.on('rangeChanged', function(p){\n var value = p.value;\n})", 
+            "title": "Handling Data"
+        }, 
+        {
+            "location": "/Configuration/examples/#xy", 
+            "text": "xyTest:\n    control: xy\n    label: Test XY\n    trigger: xyChanging\n    value: 'xy'\n    xMax: 100\n    yMax: 50", 
+            "title": "XY"
+        }, 
+        {
+            "location": "/Configuration/examples/#handling-data_6", 
+            "text": "matrix.on('xyChanging', function(p){\n var x = p.value.x;\n var y = p.value.y;\n})", 
+            "title": "Handling Data"
+        }, 
+        {
+            "location": "/Configuration/examples/#radial", 
+            "text": "", 
+            "title": "Radial"
+        }, 
+        {
+            "location": "/Configuration/examples/#single_3", 
+            "text": "radial:\n    control: radial\n    label: Radial Test\n    event: radialChanging", 
+            "title": "Single"
+        }, 
+        {
+            "location": "/Configuration/examples/#handling-data_7", 
+            "text": "matrix.on('radialChanging', function(p){\n var x = p.value.x; //from -1 to 1\n var y = p.value.y; //from -1 to 1\n})", 
+            "title": "Handling Data"
+        }, 
+        {
+            "location": "/Configuration/examples/#multiple_3", 
+            "text": "radialMap:\n    control: radial\n    label: Radial Map Test\n    map:\n    - event: radialRChanging\n      value: right\n    - event: radialLChanging\n      value: left", 
+            "title": "Multiple"
+        }, 
+        {
+            "location": "/Configuration/examples/#handling-data_8", 
+            "text": "matrix.on('radialRChanging', function(p){\n var x = p.value.x; //from -1 to 1\n var y = p.value.y; //from -1 to 1\n})\n\nmatrix.on('radialLChanging', function(p){\n var x = p.value.x; //from -1 to 1\n var y = p.value.y; //from -1 to 1\n})", 
             "title": "Handling Data"
         }, 
         {

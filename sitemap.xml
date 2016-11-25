@@ -58,6 +58,12 @@
     </url>
         
     <url>
+     <loc>None/intro/app-publishing/</loc>
+     <lastmod>2016-11-25</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
      <loc>None/API/installation/</loc>
      <lastmod>2016-11-25</lastmod>
      <changefreq>daily</changefreq>
