@@ -1,6 +1,6 @@
 ## Overview
 
-####[Installation](index.md)
+####[Installation](installation.md)
 Raspberry Pi, Core Dependencies, MATRIX OS Setup.
 
 ## App API

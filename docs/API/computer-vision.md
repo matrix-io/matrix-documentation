@@ -1,7 +1,7 @@
 ## Computer Vision
 We've build computer vision algorithms in the API inteface to add another level of experiential IoT applications. We've also made it extremely simple to get started.
 ## Detection Algorithms
-Available algorithms: `face`
+Available algorithms: `face`, `palm`
 <!-- `thumb-up`
 `palm-open`
 `palm-closed`
