@@ -447,7 +447,7 @@
         }, 
         {
             "location": "/intro/app-publishing/", 
-            "text": "Publishing your Application\n\n\nApp Store\n\n\nhttp://apps.matrix.one\n\n\nThree Steps to Distribution\n\n\n\n\nmatrix create\n - Make your application \n\n\nmatrix deploy\n - Test your application\n\n\nmatrix publish\n - Publish on the app Store\n\n\n\n\nGuidelines\n\n\nYour application must do only what it claims to do with the name, description and README.md.\n\n\nAll sensors, integrations and computer vision usage must be registered in the \nconfig.yaml\n, and will be authorized by users on install.\n\n\nAll applications will be code-reviewed and are subject to removal at any time.\n\n\nBefore publishing an application.\n\n\nEnsure Meta Information is Accurate\n\n\nname\n and \ndescription\n must be included in your config.yaml. If you want to use a multiword application name, provide a \ndisplayName\n with a correlating \nname\n. Users will use \nname\n when \nmatrix install\ning.\n\n\nThe contents of \nREADME.md\n will be shown on the app detail page, along with images provided\n\nimageUrls\n will be used on the detail page\n\n\ngalleryUrl\n will be used on the main App Store page, or the first item in \nimageUrls\n will be used\n\n\nkeywords\n are used to tag your application and will be used to return your application on searches for these keywords.\n\n\ncategories\n are not yet formalized, but will divide the store listings. Submitting proposed app categories will inform this process.\n\n\nexample config.yaml\n\nname: example-app\ndisplayName: The Example App\ndescription: An example application config.yaml.\n\nimageUrls:\n  - http://image.com/1\n  - http://image.com/2\n\ngalleryUrl: http://image.com/3\n\nkeywords:\n  - example\n  - configuration\n\ncategories:\n  - entertainment\n  - development\n\n\n\n\nPolicies\n\n\nAll applications which use events, CV or sensors, must register these in the config file.\n\n\nevents\n are registered as follows:\n\n\nEvents\n\n\nevents:\n  - face-recognized\n  - locked-door\n\n\n\n\nSensors\n\n\nsensors:\n  - temperature\n  - uv\n\n\n\n\nComputer Vision\n\n\nservices:\n  faceService:\n    engine: detection\n    type: face\n\n\n\n\nA user will be required to grant an application permissions before installing. A user may install an app with any or all permissions enabled.", 
+            "text": "Publishing your Application\n\n\nApp Store\n\n\nhttp://apps.matrix.one\n\n\nThree Steps to Distribution\n\n\n\n\nmatrix create\n - Make your application\n\n\nmatrix deploy\n - Test your application\n\n\nmatrix publish\n - Publish on the app Store\n\n\n\n\nGuidelines\n\n\nYour application must do only what it claims to do with the name, description and README.md.\n\n\nAll sensors, integrations and computer vision usage must be registered in the \nconfig.yaml\n, and will be authorized by users on install.\n\n\nAll applications will be code-reviewed and are subject to removal at any time.\n\n\nBefore publishing an application.\n\n\nEnsure Meta Information is Accurate\n\n\nname\n and \ndescription\n must be included in your config.yaml. If you want to use a multiword application name, provide a \ndisplayName\n with a correlating \nname\n. Users will use \nname\n when \nmatrix install\ning.\n\n\nThe contents of \nREADME.md\n will be shown on the app detail page, along with images provided\n\nimageUrls\n will be used on the detail page\n\n\ngalleryUrl\n will be used on the main App Store page, or the first item in \nimageUrls\n will be used\n\n\nkeywords\n are used to tag your application and will be used to return your application on searches for these keywords.\n\n\ncategories\n are not yet formalized, but will divide the store listings. Submitting proposed app categories will inform this process.\n\n\nexample config.yaml\n\nname: example-app\ndisplayName: The Example App\ndescription: An example application config.yaml.\n\nimageUrls:\n  - http://image.com/1\n  - http://image.com/2\n\ngalleryUrl: http://image.com/3\n\nkeywords:\n  - example\n  - configuration\n\ncategories:\n  - entertainment\n  - development\n\n\n\n\nEnsure Components are Setup\n\n\nAll applications which use events, CV or sensors, must register these in the config file.\n\n\nevents\n are registered as follows:\n\n\nEvents\n\n\nevents:\n  - face-recognized\n  - locked-door\n\n\n\n\nSensors\n\n\nsensors:\n  - temperature\n  - uv\n\n\n\n\nComputer Vision\n\n\nservices:\n  faceService:\n    engine: detection\n    type: face\n\n\n\n\nA user will be required to grant an application permissions before installing. A user may install an app with any or all permissions enabled.\n\n\nTest your Application\n\n\nUse \nmatrix deploy\n to test your application before publishing. Make sure it functions as intended. Share a video of your creation with us!", 
             "title": "App Publishing"
         }, 
         {
@@ -462,7 +462,7 @@
         }, 
         {
             "location": "/intro/app-publishing/#three-steps-to-distribution", 
-            "text": "matrix create  - Make your application   matrix deploy  - Test your application  matrix publish  - Publish on the app Store", 
+            "text": "matrix create  - Make your application  matrix deploy  - Test your application  matrix publish  - Publish on the app Store", 
             "title": "Three Steps to Distribution"
         }, 
         {
@@ -481,9 +481,9 @@
             "title": "Ensure Meta Information is Accurate"
         }, 
         {
-            "location": "/intro/app-publishing/#policies", 
+            "location": "/intro/app-publishing/#ensure-components-are-setup", 
             "text": "All applications which use events, CV or sensors, must register these in the config file.  events  are registered as follows:", 
-            "title": "Policies"
+            "title": "Ensure Components are Setup"
         }, 
         {
             "location": "/intro/app-publishing/#events", 
@@ -499,6 +499,11 @@
             "location": "/intro/app-publishing/#computer-vision", 
             "text": "services:\n  faceService:\n    engine: detection\n    type: face  A user will be required to grant an application permissions before installing. A user may install an app with any or all permissions enabled.", 
             "title": "Computer Vision"
+        }, 
+        {
+            "location": "/intro/app-publishing/#test-your-application", 
+            "text": "Use  matrix deploy  to test your application before publishing. Make sure it functions as intended. Share a video of your creation with us!", 
+            "title": "Test your Application"
         }, 
         {
             "location": "/API/sensors/", 
@@ -827,7 +832,7 @@
         }, 
         {
             "location": "/API/GPIO/", 
-            "text": "GPIO\n\n\n[WIP] GPIO can be used to communicate or receive input from analog and digital components through the MATRIX Creator, or any other sensor leveraging Raspberry Pi's GPIOs.\n\n\n.open\n\n\nmatrix.gpio.open(16, \noutput\n, function(err){\n    // read or write\n});\n\n\n\n\n.read\n\n\n\n\npinNumber\n: The GPIO you are reading from.\n\n\ncallback\n: Returns \nerr\n, \nvalue\n.\n\n\n\n\nmatrix.gpio.read(16, function(err, value) {\n  if(err) throw err;\n  console.log(value);   // The current state of the pin \n});\n\n\n\n\n.write\n\n\n\n\npinNumber\n: The GPIO you are reading from.\n\n\nvalue\n: The value you would like to update the GPIO with.\n\n\ncallback\n: Returns \nerr\n, \nvalue\n.\n\n\n\n\nmatrix.gpio.write(16, 1, function(err) {\n    if(err) throw err;\n});\n\n\n\n\n.close\n\n\n\n\npinNumber\n: The GPIO you would like to close.\n\n\n\n\nmatrix.gpio.close(16);\n\n\n\n\nExample\n\n\nmatrix.gpio.open(16, \noutput\n, function(err) {\n    matrix.gpio.write(16, 1, function() {\n        matrix.gpio.close(16);\n    });\n});", 
+            "text": "GPIO\n\n\n[WIP] GPIO can be used to communicate or receive input from analog and digital components through the MATRIX Creator, or any other sensor leveraging Raspberry Pi's GPIOs.\n\n\nConfiguration\n\n\nMake sure to add the following to your \nconfig.yaml\n to enable GPIO's/\n\n\nintegrations:\n  - gpio\n\n\n\n\n.open\n\n\nmatrix.gpio.open(16, \noutput\n, function(err){\n    // read or write\n});\n\n\n\n\n.read\n\n\n\n\npinNumber\n: The GPIO you are reading from.\n\n\ncallback\n: Returns \nerr\n, \nvalue\n.\n\n\n\n\nmatrix.gpio.read(16, function(err, value) {\n  if(err) throw err;\n  console.log(value);   // The current state of the pin\n});\n\n\n\n\n.write\n\n\n\n\npinNumber\n: The GPIO you are reading from.\n\n\nvalue\n: The value you would like to update the GPIO with.\n\n\ncallback\n: Returns \nerr\n, \nvalue\n.\n\n\n\n\nmatrix.gpio.write(16, 1, function(err) {\n    if(err) throw err;\n});\n\n\n\n\n.close\n\n\n\n\npinNumber\n: The GPIO you would like to close.\n\n\n\n\nmatrix.gpio.close(16);\n\n\n\n\nExample\n\n\nmatrix.gpio.open(16, \noutput\n, function(err) {\n    matrix.gpio.write(16, 1, function() {\n        matrix.gpio.close(16);\n    });\n});", 
             "title": "GPIO"
         }, 
         {
@@ -836,13 +841,18 @@
             "title": "GPIO"
         }, 
         {
+            "location": "/API/GPIO/#configuration", 
+            "text": "Make sure to add the following to your  config.yaml  to enable GPIO's/  integrations:\n  - gpio", 
+            "title": "Configuration"
+        }, 
+        {
             "location": "/API/GPIO/#open", 
             "text": "matrix.gpio.open(16,  output , function(err){\n    // read or write\n});", 
             "title": ".open"
         }, 
         {
             "location": "/API/GPIO/#read", 
-            "text": "pinNumber : The GPIO you are reading from.  callback : Returns  err ,  value .   matrix.gpio.read(16, function(err, value) {\n  if(err) throw err;\n  console.log(value);   // The current state of the pin \n});", 
+            "text": "pinNumber : The GPIO you are reading from.  callback : Returns  err ,  value .   matrix.gpio.read(16, function(err, value) {\n  if(err) throw err;\n  console.log(value);   // The current state of the pin\n});", 
             "title": ".read"
         }, 
         {
