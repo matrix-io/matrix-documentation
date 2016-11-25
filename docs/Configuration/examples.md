@@ -4,196 +4,451 @@
 ![Screens](img/screens.png)
 ```
 screens:
-  - - cpu
-    - memory
+  - - digitTest
+    - labelTest
+  - - barChartTest
+    - lineChartTest
+  - - radarChartTest
+    - gaugeTest
+  - - listTest
 ```
 
 # Displays
 
-## Value
-![Value](img/value.png)
+## Digit
+![Digit](img/ios/digit.png)
 ```
-cpu:
+digitTest:
+  display: digit
   type: monitor
   key: cpu
-  display: digit
   format: round
   label: cpu
 ```
 
-## Bar Chart
-![Bar Chart](img/bar.png)
+## Label
+![Label](img/ios/label.png)
 ```
-barChart:
-  type: monitor
-  keys: cpu, memory
+labelTest:
+  display: label
+  type: uv
+  key: risk
+  label: UV Risk
+```
+
+## Bar Chart
+![Bar Chart](img/ios/bar.png)
+```
+barChartTest:
   display: bar
+  type: monitor
+  format: avg
+  keys: cpu, memory
+  realtime: false
+  refresh 60
   label: Bar Chart
 ```
 
-## Radar Chart
-![Radar Chart](img/radar.png)
+## Line Chart
+![Line Chart](img/ios/line.png)
 ```
-radarTest:
+lineChartTest:
+  display: line
   type: monitor
-  keys: cpu,memory
-  display: radar
-  label: radarTest
+  format: avg
+  keys: cpu, memory
+  realtime: true
+  label: Line Chart
 ```
 
-## Line Chart
-![Line Chart](img/line.png)
+## Radar Chart
+![Radar Chart](img/ios/radar.png)
 ```
-cpuChart:
-  type: monitor
-  keys: cpu,memory
-  display: line
-  label: CPU Chart
+radarTest:
+  display: radar
+  type: emotions
+  keys: happy,sad,disgust,surprised,confused,calm,angry
+  label: Emotions
+```
+
+## Pie Chart
+![Radar Chart](img/ios/pie.png)
+```
+pieChartTest:
+  display: pie-chart
+  type: gender
+  keys: women,men
+  label: Gender
+```
+
+## Polar Chart
+![Polar Chart](img/ios/polar.png)
+```
+polarTest:
+  display: polar
+  type: emotions
+  keys: happy,sad,disgust,surprised,confused,calm,angry
+  label: Emotions
+```
+
+## Gauge
+![Gauge](img/ios/gauge.png)
+```
+gaugeTest:
+  display: gauge
+  type: face
+  keys: views
+  label: 'Views'
+```
+
+## Indicator
+![Indicator](img/ios/indicator.png)
+```
+indicatorTest:
+  display: indicator
+  type: system
+  keys: isOn
+  label: 'Indicator Test'
+```
+
+## Map
+![Map](img/ios/map.png)
+```
+mapTest:
+  display: map
+  label: 'Map Test'
+  type: locations
 ```
 
 ## Lists
-![List](img/secret.png)
+![List](img/ios/list.png)
+```
+listTest:
+  type: device
+  keys: Hostname,Type,Platform,Arch
+  display: list
+  label: Secret Information
+```
+## List Group
+
+### Simple Group
+![List Group](img/listgroup.png)
 ```
 info:
   type: device
+  keys: count
   display: list-group
-  label: Secret Information
+  format: count
+  label: Total
+```
+
+### Group by Key
+![List Group](img/listgroupby.png)
+```
+info:
+  type: device
+  keys: zone, count
+  groupby: zone
+  format: count
+  display: list-group
+  label: Total
 ```
 
 # Interactive
 
+## Input
+### Single
+![input](img/ios/input.png)
+
+```
+label: 'Test Input'
+control: input
+event: testInput
+value: 'type text'
+```
+
+###### Handling Data
+```
+matrix.on('testInput', function(p){
+ var text = p.value;
+})
+```
+
+### Multiple
+![button Map](img/ios/inputMap.png)
+
+```
+  inputMapTest:
+    label: Test Input Map
+    control: input
+    map:
+      - event: testInput1
+        value: first type text
+      - event: testInput2
+        value: second type text
+```
+
+###### Handling Data
+```
+matrix.on('testInput1', function(p){
+ var text = p.value;
+})
+
+matrix.on('testInput2', function(p){
+ var text = p.value;
+})
+
+```
+
 ## Buttons
 
 ### Single
-![1 Button](img/1but.png)
+![button](img/ios/button.png)
+
 ```
-buttonTest:
-  label: Hacking Buttons
-  control: button
-  event: buttonInfo
-  value: Get Secret Information
+  buttonTest:
+    label: Hacking Buttons
+    control: button
+    event: buttonInfo
+    value: Get Secret Information
 ```
+
 ###### Handling Code
 ```
 matrix.on('buttonInfo', function(){
   // ...
 })
 ```
-`event` in the config file, is the event name (`buttonInfo`) handled.
 
-
-### Map Notation
-Multiple events are supported in a widget through the use of the `map` property.
-
-This has two valid expressions. Key / Value and Collection
-
-#### Simple Form - Key, Value
-```
-buttons:
-  control: button
-  map:
-    'label' : eventName
-    'label2': event2Name
-```
-
-
-#### Simple Form - mapSort
-Use `order` to display buttons in a particular order.
+### Multiple
+![button Map](img/ios/buttonMap.png)
 
 ```
-map:
-  'label' : eventName
-  'label2': event2Name
-order:
-  - 'label'
-  - 'label2'
+  buttonMapTest:
+    label: Matrix Activation Buttons
+    control: button
+    map:
+      - event: buttonUp
+        value: amps+
+      - event: buttonDown
+        value: amps-
+      - event: buttonStart
+        value: begin
+      - event: buttonStop
+        value: end
+      - event: buttonCapture
+        value: capture
+      - event: buttonSlow
+        value: refresh+
+      - event: buttonFast
+        value: refresh-
 ```
 
-#### Normal Form - Multiple
+###### Handling Code
 ```
-buttons:
-  control: button
-  map:
-   - value: seven
-     event: event7
-   - value: eight
-     event: event8
-   - value: nine
-     event: event9
+matrix.on('buttonUp', function(){
+  // ...
+})
+
+matrix.on('buttonDown', function(){
+  // ...
+})
+
+matrix.on('buttonStart', function(){
+  // ...
+})
+
+matrix.on('buttonStop', function(){
+  // ...
+})
+
+matrix.on('buttonCapture', function(){
+  // ...
+})
+
+matrix.on('buttonSlow', function(){
+  // ...
+})
+
+matrix.on('buttonFast', function(){
+  // ...
+})
 ```
 
-#### Normal Form Overview
+## Switch
+
+### Single
+![switch](img/ios/switch.png)
 ```
-map:
-  - value: foo    # button label
-    event: e     # event name emitted for app to listen for
-    <!-- data: 1      # what data to send with this button -->
-    <!-- color: 'red' # what color to tint this button -->
+  switchTest:
+    label: Switch Test
+    control: switch
+    event: ledEnabledChanged
+    value: Leds enabled
+```
+
+###### Handling Data
+```
+matrix.on('ledEnabledChanged', function(p){
+ var isOn = p.value;
+})
 ```
 
 ### Multiple
-![Multi Button](img/nbut.png)
+![switch](img/ios/switchMap.png)
 ```
-buttonsTest:
-  label: Matrix Activation Buttons
-  control: button
-  map:
-    'amps+': buttonUp
-    'amps-': buttonDown
-    begin : buttonStart
-    end : buttonStop
-    capture : buttonSample
-    'refresh+' : buttonSlow
-    'refresh-' : buttonFast
+  switchMapTest:
+    label: Switch Map Test
+    control: switch
+    map:
+      - event: ledEnabledChanged
+        value: Leds enabled
+      - event: detectionEnabledChanged
+        value: Detection Enabled
 ```
-###### Handling Code
+
+###### Handling Data
 ```
- matrix.on('buttonStop', function(){
-   //...
+matrix.on('ledEnabledChanged', function(p){
+ var isOn = p.value;
 })
 
- matrix.on('buttonStart', function(){
-   //...
- })
+matrix.on('detectionEnabledChanged', function(p){
+ var isOn = p.value;
+})
+```
 
- matrix.on('buttonSample', function () {
-   //...
- })
+## Radio
+![radio](img/ios/radio.png)
 ```
+  radioTest:
+    label: Radio Test
+    control: radio
+    map:
+      - event: optionOneSelected
+        value: Option One
+      - event: optionTwoSelected
+        value: Option Two
+```
+
+###### Handling Data
+```
+matrix.on('optionOneSelected', function(p){
+  // ...
+})
+
+matrix.on('optionTwoSelected', function(p){
+  // ...
+})
+```
+
 ## Drop Downs
-![DropDown](img/drop.png)
+![DropDown](img/ios/dropdown.png)
 ```
-dropDown:
-  control: dropdown
-  map:
-    test1: doTest1
-    test2: doTest2
-  label: dropdown test
+  dropDownTest:
+    label: Dropdown Test
+    control: dropdown
+    map:
+      - event: optionOneSelected
+        value: Option One
+      - event: optionTwoSelected
+        value: Option Two
 ```
-Simple form and normal form from above also work for drop downs.
 
 ###### Handling Code
 ```
-matrix.on('doTest1', function(){
+matrix.on('optionOneSelected', function(){
  //...
 })
 
-
-matrix.on('doTest2', function(){
+matrix.on('optionTwoSelected', function(){
  //...
 })
 ```
 
 ## Range
+![range](img/ios/range.png)
 ```
-control: range
-min: 0
-max: 255
-event: setRange
+  rangeTest:
+    label: Range Test
+    control: range
+    event: rangeChanged
+    min: 0
+    max: 35
 ```
 
 ###### Handling Data
-To group your apps
+```
+matrix.on('rangeChanged', function(p){
+ var value = p.value;
+})
+```
+
+## XY
+![xy](img/ios/xy.png)
+```
+  xyTest:
+    control: xy
+    label: Test XY
+    trigger: xyChanging
+    value: 'xy'
+    xMax: 100
+    yMax: 50
+```
+
+###### Handling Data
+```
+matrix.on('xyChanging', function(p){
+ var x = p.value.x;
+ var y = p.value.y;
+})
+```
+
+## Radial
+### Single
+![radial](img/ios/radial.png)
+
+```
+  radial:
+    control: radial
+    label: Radial Test
+    event: radialChanging
+```
+
+###### Handling Data
+```
+matrix.on('radialChanging', function(p){
+ var x = p.value.x; //from -1 to 1
+ var y = p.value.y; //from -1 to 1
+})
+```
+
+### Multiple
+![radial](img/ios/radialMap.png)
+
+```
+  radialMap:
+    control: radial
+    label: Radial Map Test
+    map:
+    - event: radialRChanging
+      value: right
+    - event: radialLChanging
+      value: left
+```
+
+###### Handling Data
+```
+matrix.on('radialRChanging', function(p){
+ var x = p.value.x; //from -1 to 1
+ var y = p.value.y; //from -1 to 1
+})
+
+matrix.on('radialLChanging', function(p){
+ var x = p.value.x; //from -1 to 1
+ var y = p.value.y; //from -1 to 1
+})
+```
 
 # Responsive Data Flow
 ```
