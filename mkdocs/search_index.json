@@ -1072,7 +1072,7 @@
         }, 
         {
             "location": "/Configuration/examples/", 
-            "text": "MatrixOS Config Widget examples\n\n\nLayout\n\n\n\n\nscreens:\n  - - digitTest\n    - labelTest\n  - - barChartTest\n    - lineChartTest\n  - - radarChartTest\n    - gaugeTest\n  - - listTest\n\n\n\n\nDisplays\n\n\nDigit\n\n\n\n\ndigitTest:\n  display: digit\n  type: monitor\n  key: cpu\n  format: round\n  label: cpu\n\n\n\n\nLabel\n\n\n\n\nlabelTest:\n  display: label\n  type: uv\n  key: risk\n  label: UV Risk\n\n\n\n\nBar Chart\n\n\n\n\nbarChartTest:\n  display: bar\n  type: monitor\n  format: avg\n  keys: cpu, memory\n  realtime: false\n  refresh 60\n  label: Bar Chart\n\n\n\n\nLine Chart\n\n\n\n\nlineChartTest:\n  display: line\n  type: monitor\n  format: avg\n  keys: cpu, memory\n  realtime: true\n  label: Line Chart\n\n\n\n\nRadar Chart\n\n\n\n\nradarTest:\n  display: radar\n  type: emotions\n  keys: happy,sad,disgust,surprised,confused,calm,angry\n  label: Emotions\n\n\n\n\nPie Chart\n\n\n\n\npieChartTest:\n  display: pie-chart\n  type: gender\n  keys: women,men\n  label: Gender\n\n\n\n\nPolar Chart\n\n\n\n\npolarTest:\n  display: polar\n  type: emotions\n  keys: happy,sad,disgust,surprised,confused,calm,angry\n  label: Emotions\n\n\n\n\nGauge\n\n\n\n\ngaugeTest:\n  display: gauge\n  type: face\n  keys: views\n  label: 'Views'\n\n\n\n\nIndicator\n\n\n\n\nindicatorTest:\n  display: indicator\n  type: system\n  keys: isOn\n  label: 'Indicator Test'\n\n\n\n\nMap\n\n\n\n\nmapTest:\n  display: map\n  label: 'Map Test'\n  type: locations\n\n\n\n\nLists\n\n\n\n\nlistTest:\n  type: device\n  keys: Hostname,Type,Platform,Arch\n  display: list\n  label: Secret Information\n\n\n\n\nList Group\n\n\nSimple Group\n\n\n\n\ninfo:\n  type: device\n  keys: count\n  display: list-group\n  format: count\n  label: Total\n\n\n\n\nGroup by Key\n\n\n\n\ninfo:\n  type: device\n  keys: zone, count\n  groupby: zone\n  format: count\n  display: list-group\n  label: Total\n\n\n\n\nInteractive\n\n\nInput\n\n\nSingle\n\n\n\n\nlabel: 'Test Input'\ncontrol: input\nevent: testInput\nvalue: 'type text'\n\n\n\n\nHandling Data\n\n\nmatrix.on('testInput', function(p){\n var text = p.value;\n})\n\n\n\n\nMultiple\n\n\n\n\n  inputMapTest:\n    label: Test Input Map\n    control: input\n    map:\n      - event: testInput1\n        value: first type text\n      - event: testInput2\n        value: second type text\n\n\n\n\nHandling Data\n\n\nmatrix.on('testInput1', function(p){\n var text = p.value;\n})\n\nmatrix.on('testInput2', function(p){\n var text = p.value;\n})\n\n\n\n\n\nButtons\n\n\nSingle\n\n\n\n\n  buttonTest:\n    label: Hacking Buttons\n    control: button\n    event: buttonInfo\n    value: Get Secret Information\n\n\n\n\nHandling Code\n\n\nmatrix.on('buttonInfo', function(){\n  // ...\n})\n\n\n\n\nMultiple\n\n\n\n\n  buttonMapTest:\n    label: Matrix Activation Buttons\n    control: button\n    map:\n      - event: buttonUp\n        value: amps+\n      - event: buttonDown\n        value: amps-\n      - event: buttonStart\n        value: begin\n      - event: buttonStop\n        value: end\n      - event: buttonCapture\n        value: capture\n      - event: buttonSlow\n        value: refresh+\n      - event: buttonFast\n        value: refresh-\n\n\n\n\nHandling Code\n\n\nmatrix.on('buttonUp', function(){\n  // ...\n})\n\nmatrix.on('buttonDown', function(){\n  // ...\n})\n\nmatrix.on('buttonStart', function(){\n  // ...\n})\n\nmatrix.on('buttonStop', function(){\n  // ...\n})\n\nmatrix.on('buttonCapture', function(){\n  // ...\n})\n\nmatrix.on('buttonSlow', function(){\n  // ...\n})\n\nmatrix.on('buttonFast', function(){\n  // ...\n})\n\n\n\n\nSwitch\n\n\nSingle\n\n\n\n\n  switchTest:\n    label: Switch Test\n    control: switch\n    event: ledEnabledChanged\n    value: Leds enabled\n\n\n\n\nHandling Data\n\n\nmatrix.on('ledEnabledChanged', function(p){\n var isOn = p.value;\n})\n\n\n\n\nMultiple\n\n\n\n\n  switchMapTest:\n    label: Switch Map Test\n    control: switch\n    map:\n      - event: ledEnabledChanged\n        value: Leds enabled\n      - event: detectionEnabledChanged\n        value: Detection Enabled\n\n\n\n\nHandling Data\n\n\nmatrix.on('ledEnabledChanged', function(p){\n var isOn = p.value;\n})\n\nmatrix.on('detectionEnabledChanged', function(p){\n var isOn = p.value;\n})\n\n\n\n\nRadio\n\n\n\n\n  radioTest:\n    label: Radio Test\n    control: radio\n    map:\n      - event: optionOneSelected\n        value: Option One\n      - event: optionTwoSelected\n        value: Option Two\n\n\n\n\nHandling Data\n\n\nmatrix.on('optionOneSelected', function(p){\n  // ...\n})\n\nmatrix.on('optionTwoSelected', function(p){\n  // ...\n})\n\n\n\n\nDrop Downs\n\n\n\n\n  dropDownTest:\n    label: Dropdown Test\n    control: dropdown\n    map:\n      - event: optionOneSelected\n        value: Option One\n      - event: optionTwoSelected\n        value: Option Two\n\n\n\n\nHandling Code\n\n\nmatrix.on('optionOneSelected', function(){\n //...\n})\n\nmatrix.on('optionTwoSelected', function(){\n //...\n})\n\n\n\n\nRange\n\n\n\n\n  rangeTest:\n    label: Range Test\n    control: range\n    event: rangeChanged\n    min: 0\n    max: 35\n\n\n\n\nHandling Data\n\n\nmatrix.on('rangeChanged', function(p){\n var value = p.value;\n})\n\n\n\n\nXY\n\n\n\n\n  xyTest:\n    control: xy\n    label: Test XY\n    trigger: xyChanging\n    value: 'xy'\n    xMax: 100\n    yMax: 50\n\n\n\n\nHandling Data\n\n\nmatrix.on('xyChanging', function(p){\n var x = p.value.x;\n var y = p.value.y;\n})\n\n\n\n\nRadial\n\n\nSingle\n\n\n\n\n  radial:\n    control: radial\n    label: Radial Test\n    event: radialChanging\n\n\n\n\nHandling Data\n\n\nmatrix.on('radialChanging', function(p){\n var x = p.value.x; //from -1 to 1\n var y = p.value.y; //from -1 to 1\n})\n\n\n\n\nMultiple\n\n\n\n\n  radialMap:\n    control: radial\n    label: Radial Map Test\n    map:\n    - event: radialRChanging\n      value: right\n    - event: radialLChanging\n      value: left\n\n\n\n\nHandling Data\n\n\nmatrix.on('radialRChanging', function(p){\n var x = p.value.x; //from -1 to 1\n var y = p.value.y; //from -1 to 1\n})\n\nmatrix.on('radialLChanging', function(p){\n var x = p.value.x; //from -1 to 1\n var y = p.value.y; //from -1 to 1\n})\n\n\n\n\nResponsive Data Flow\n\n\nmatrix.on('buttonInfo', function(){\n  matrix.type('device').send({\n    'os_hostname': os.hostname(),\n    'os_type': os.type(),\n    'os_platform': os.platform(),\n    'os_arch': os.arch()\n  });\n})\n\n\n\n\nWhen \nbuttonInfo\n is triggered, respond with information with a type \ndevice\n.\n\n\nThe list looks for\n\n\nwidgets:\n  list:\n    type: device\n\n\n\n\nThe \nlist\n widget displays information of type \ndevice\n.", 
+            "text": "MatrixOS Config Widget examples\n\n\nDataTypes\n\n\nmonitor:\n  cpu: float\n  memory: float\n\n\n\n\nlocation:\n  latitude: float\n  longitude: float\n  label: string\n\n\n\n\nLayout\n\n\n\n\nscreens:\n  - - digitTest\n    - labelTest\n  - - barChartTest\n    - lineChartTest\n\n\n\n\nDisplays\n\n\nDigit\n\n\n\n\ndigitTest:\n  display: digit\n  type: monitor\n  key: cpu\n  format: round\n  label: cpu\n\n\n\n\nHandling Code\n\n\nmatrix.type('monitor').send({\n  'cpu': 2.4,\n  'memory': 5.4 }\n);  \n\n\n\n\nLabel\n\n\n\n\nlabelTest:\n  display: label\n  type: uv\n  key: risk\n  label: UV Risk\n\n\n\n\nHandling Code\n\n\nmatrix.type('uv').send({\n  'value': 0.56773,\n  'risk': 'Low' }\n);  \n\n\n\n\nBar Chart\n\n\n\n\nbarChartTest:\n  display: bar\n  type: monitor\n  keys: cpu, memory\n  format: avg\n  realtime: false\n  refresh: 60\n  label: Bar Chart\n\n\n\n\nHandling Code\n\n\nmatrix.type('monitor').send({\n  'cpu': 7.03,\n  'memory': 2.30 }\n);  \n\n\n\n\nLine Chart\n\n\n\n\nlineChartTest:\n  display: line\n  type: monitor\n  format: avg\n  keys: cpu, memory\n  realtime: true\n  label: Line Chart\n\n\n\n\nHandling Code\n\n\nmatrix.type('monitor').send({\n  'cpu': 7.03,\n  'memory': 2.30 }\n);  \n\n\n\n\nRadar Chart\n\n\n\n\nradarTest:\n  display: radar\n  type: emotions\n  keys: happy,sad,disgust,surprised,confused,calm,angry\n  label: Emotions\n\n\n\n\nHandling Code\n\n\nmatrix.type('emotions').send({\n  'happy': 67,\n  'sad': 50,\n  'disgust': 78,\n  'surprised': 56,\n  'confused': 86,\n  'calm': 70,\n  'angry': 60 }\n);  \n\n\n\n\nPie Chart\n\n\n\n\npieChartTest:\n  display: pie-chart\n  type: gender\n  keys: women,men\n  label: Gender\n\n\n\n\nHandling Code\n\n\nmatrix.type('gender').send({\n  'women': 76,\n  'men': 45 }\n);  \n\n\n\n\nPolar Chart\n\n\n\n\npolarTest:\n  display: polar\n  type: emotions\n  keys: happy,sad,disgust,surprised,confused,calm,angry\n  label: Emotions\n\n\n\n\nHandling Code\n\n\nmatrix.type('emotions').send({\n  'happy': 67,\n  'sad': 50,\n  'disgust': 78,\n  'surprised': 56,\n  'confused': 86,\n  'calm': 70,\n  'angry': 60 }\n);  \n\n\n\n\nGauge\n\n\n\n\ngaugeTest:\n  display: gauge\n  type: detection\n  keys: views\n  min: 0\n  max: 100\n  label: 'Views'\n\n\n\n\nHandling Code\n\n\nmatrix.type('detection').send({\n  'views': 60,\n  'impressions': 100 }\n);  \n\n\n\n\nIndicator\n\n\n\n\nindicatorTest:\n  display: indicator\n  type: system\n  keys: isOn\n  label: 'Indicator Test'\n\n\n\n\nHandling Code\n\n\nmatrix.type('system').send({\n  'isOn': true}\n);  \n\n\n\n\nMap\n\n\n\n\nmapTest:\n  display: map\n  type: location\n  label: 'Map Test'\n\n\n\n\nHandling Code\n\n\nmatrix.type('location').send({\n  'latitude': 25.791632,\n  'longitude': -80.1414447,\n  'label': 'AdMobilize'}\n);  \n\n\n\n\nLists\n\n\n\n\nlistTest:\n  display: list\n  type: device\n  keys: Hostname,Type,Platform,Arch\n  label: Secret Information\n\n\n\n\nHandling Code\n\n\nmatrix.type('device').send({\n  'Hostname': 'h7n.domain',\n  'Type': 'Darwin',\n  'Platform': 'darwin',\n  'Arch': 'x64'}\n);  \n\n\n\n\nList Group\n\n\nSimple Group\n\n\n\n\ninfo:\n  display: list-group\n  type: vehicleDetection\n  keys: count\n  format: count\n  label: Total\n\n\n\n\nHandling Code\n\n\nmatrix.type('vehicleDetection').send({\n  'zoneId': 'zone1',\n  'count': '4',\n  'speed': '56'}\n);  \n\n\n\n\nGroup by Key\n\n\n\n\ninfo:\n  display: list-group\n  type: device\n  keys: zone, count\n  format: count\n  groupby: zone\n  label: Total\n\n\n\n\nHandling Code\n\n\nmatrix.type('vehicleDetection').send({\n  'zoneId': 'zone1',\n  'count': '4',\n  'speed': '56'}\n);  \n\n\n\n\nInteractive\n\n\nInput\n\n\nSingle\n\n\n\n\n  inputTest:\n    control: input\n    event: testInput\n    value: 'type text'\n    label: 'Test Input'\n\n\n\n\nHandling Code\n\n\nmatrix.on('testInput', function(p){\n var text = p.value;\n})\n\n\n\n\nMultiple\n\n\n\n\n  inputMapTest:\n    control: input\n    map:\n      - event: testInput1\n        value: first type text\n      - event: testInput2\n        value: second type text\n    label: Test Input Map\n\n\n\n\nHandling Code\n\n\nmatrix.on('testInput1', function(p){\n var text = p.value;\n})\n\nmatrix.on('testInput2', function(p){\n var text = p.value;\n})\n\n\n\n\n\nButtons\n\n\nSingle\n\n\n\n\n  buttonTest:\n    control: button\n    event: buttonInfo\n    value: Get Secret Information\n    label: Hacking Buttons\n\n\n\n\nHandling Code\n\n\nmatrix.on('buttonInfo', function(){\n  // ...\n})\n\n\n\n\nMultiple\n\n\n\n\n  buttonMapTest:\n    control: button\n    map:\n      - event: buttonUp\n        value: amps+\n      - event: buttonDown\n        value: amps-\n      - event: buttonStart\n        value: begin\n      - event: buttonStop\n        value: end\n      - event: buttonCapture\n        value: capture\n      - event: buttonSlow\n        value: refresh+\n      - event: buttonFast\n        value: refresh-\n    label: Matrix Activation Buttons\n\n\n\n\nHandling Code\n\n\nmatrix.on('buttonUp', function(){\n  // ...\n})\n\nmatrix.on('buttonDown', function(){\n  // ...\n})\n\nmatrix.on('buttonStart', function(){\n  // ...\n})\n\nmatrix.on('buttonStop', function(){\n  // ...\n})\n\nmatrix.on('buttonCapture', function(){\n  // ...\n})\n\nmatrix.on('buttonSlow', function(){\n  // ...\n})\n\nmatrix.on('buttonFast', function(){\n  // ...\n})\n\n\n\n\nSwitch\n\n\nSingle\n\n\n\n\n  switchTest:\n    control: switch\n    event: ledEnabledChanged\n    value: Leds enabled\n    label: Switch Test\n\n\n\n\nHandling Code\n\n\nmatrix.on('ledEnabledChanged', function(p){\n var isOn = p.value;\n})\n\n\n\n\nMultiple\n\n\n\n\n  switchMapTest:\n    control: switch\n    map:\n      - event: ledEnabledChanged\n        value: Leds enabled\n      - event: detectionEnabledChanged\n        value: Detection Enabled\n    label: Switch Map Test\n\n\n\n\nHandling Code\n\n\nmatrix.on('ledEnabledChanged', function(p){\n var isOn = p.value;\n})\n\nmatrix.on('detectionEnabledChanged', function(p){\n var isOn = p.value;\n})\n\n\n\n\nRadio\n\n\n\n\n  radioTest:\n    control: radio\n    map:\n      - event: optionOneSelected\n        value: Option One\n      - event: optionTwoSelected\n        value: Option Two\n    label: Radio Test\n\n\n\n\nHandling Code\n\n\nmatrix.on('optionOneSelected', function(p){\n  // ...\n})\n\nmatrix.on('optionTwoSelected', function(p){\n  // ...\n})\n\n\n\n\nDrop Downs\n\n\n\n\n  dropDownTest:\n    control: dropdown\n    map:\n      - event: optionOneSelected\n        value: Option One\n      - event: optionTwoSelected\n        value: Option Two\n    label: Dropdown Test\n\n\n\n\nHandling Code\n\n\nmatrix.on('optionOneSelected', function(){\n //...\n})\n\nmatrix.on('optionTwoSelected', function(){\n //...\n})\n\n\n\n\nRange\n\n\n\n\n  rangeTest:\n    control: range\n    event: rangeChanged\n    min: 0\n    max: 35\n    label: Range Test\n\n\n\n\nHandling Code\n\n\nmatrix.on('rangeChanged', function(p){\n var value = p.value;\n})\n\n\n\n\nXY\n\n\n\n\n  xyTest:\n    control: xy\n    event: xyChanging\n    value: 'xy'\n    xMax: 100\n    yMax: 50\n    label: Test XY\n\n\n\n\nHandling Code\n\n\nmatrix.on('xyChanging', function(p){\n var x = p.value.x;\n var y = p.value.y;\n})\n\n\n\n\nRadial\n\n\nSingle\n\n\n\n\n  radial:\n    control: radial\n    event: radialChanging\n    label: Radial Test\n\n\n\n\nHandling Code\n\n\nmatrix.on('radialChanging', function(p){\n var x = p.value.x; //from -1 to 1\n var y = p.value.y; //from -1 to 1\n})\n\n\n\n\nMultiple\n\n\n\n\n  radialMap:\n    control: radial\n    map:\n    - event: radialRChanging\n      value: right\n    - event: radialLChanging\n      value: left\n    label: Radial Map Test\n\n\n\n\nHandling Code\n\n\nmatrix.on('radialRChanging', function(p){\n var x = p.value.x; //from -1 to 1\n var y = p.value.y; //from -1 to 1\n})\n\nmatrix.on('radialLChanging', function(p){\n var x = p.value.x; //from -1 to 1\n var y = p.value.y; //from -1 to 1\n})\n\n\n\n\nResponsive Data Flow\n\n\nmatrix.on('buttonInfo', function(){\n  matrix.type('device').send({\n    'os_hostname': os.hostname(),\n    'os_type': os.type(),\n    'os_platform': os.platform(),\n    'os_arch': os.arch()\n  });\n})\n\n\n\n\nWhen \nbuttonInfo\n is triggered, respond with information with a type \ndevice\n.\n\n\nThe list looks for\n\n\nwidgets:\n  list:\n    type: device\n\n\n\n\nThe \nlist\n widget displays information of type \ndevice\n.", 
             "title": "Examples"
         }, 
         {
@@ -1081,8 +1081,13 @@
             "title": "MatrixOS Config Widget examples"
         }, 
         {
+            "location": "/Configuration/examples/#datatypes", 
+            "text": "monitor:\n  cpu: float\n  memory: float  location:\n  latitude: float\n  longitude: float\n  label: string", 
+            "title": "DataTypes"
+        }, 
+        {
             "location": "/Configuration/examples/#layout", 
-            "text": "screens:\n  - - digitTest\n    - labelTest\n  - - barChartTest\n    - lineChartTest\n  - - radarChartTest\n    - gaugeTest\n  - - listTest", 
+            "text": "screens:\n  - - digitTest\n    - labelTest\n  - - barChartTest\n    - lineChartTest", 
             "title": "Layout"
         }, 
         {
@@ -1096,14 +1101,29 @@
             "title": "Digit"
         }, 
         {
+            "location": "/Configuration/examples/#handling-code", 
+            "text": "matrix.type('monitor').send({\n  'cpu': 2.4,\n  'memory': 5.4 }\n);", 
+            "title": "Handling Code"
+        }, 
+        {
             "location": "/Configuration/examples/#label", 
             "text": "labelTest:\n  display: label\n  type: uv\n  key: risk\n  label: UV Risk", 
             "title": "Label"
         }, 
         {
+            "location": "/Configuration/examples/#handling-code_1", 
+            "text": "matrix.type('uv').send({\n  'value': 0.56773,\n  'risk': 'Low' }\n);", 
+            "title": "Handling Code"
+        }, 
+        {
             "location": "/Configuration/examples/#bar-chart", 
-            "text": "barChartTest:\n  display: bar\n  type: monitor\n  format: avg\n  keys: cpu, memory\n  realtime: false\n  refresh 60\n  label: Bar Chart", 
+            "text": "barChartTest:\n  display: bar\n  type: monitor\n  keys: cpu, memory\n  format: avg\n  realtime: false\n  refresh: 60\n  label: Bar Chart", 
             "title": "Bar Chart"
+        }, 
+        {
+            "location": "/Configuration/examples/#handling-code_2", 
+            "text": "matrix.type('monitor').send({\n  'cpu': 7.03,\n  'memory': 2.30 }\n);", 
+            "title": "Handling Code"
         }, 
         {
             "location": "/Configuration/examples/#line-chart", 
@@ -1111,9 +1131,19 @@
             "title": "Line Chart"
         }, 
         {
+            "location": "/Configuration/examples/#handling-code_3", 
+            "text": "matrix.type('monitor').send({\n  'cpu': 7.03,\n  'memory': 2.30 }\n);", 
+            "title": "Handling Code"
+        }, 
+        {
             "location": "/Configuration/examples/#radar-chart", 
             "text": "radarTest:\n  display: radar\n  type: emotions\n  keys: happy,sad,disgust,surprised,confused,calm,angry\n  label: Emotions", 
             "title": "Radar Chart"
+        }, 
+        {
+            "location": "/Configuration/examples/#handling-code_4", 
+            "text": "matrix.type('emotions').send({\n  'happy': 67,\n  'sad': 50,\n  'disgust': 78,\n  'surprised': 56,\n  'confused': 86,\n  'calm': 70,\n  'angry': 60 }\n);", 
+            "title": "Handling Code"
         }, 
         {
             "location": "/Configuration/examples/#pie-chart", 
@@ -1121,14 +1151,29 @@
             "title": "Pie Chart"
         }, 
         {
+            "location": "/Configuration/examples/#handling-code_5", 
+            "text": "matrix.type('gender').send({\n  'women': 76,\n  'men': 45 }\n);", 
+            "title": "Handling Code"
+        }, 
+        {
             "location": "/Configuration/examples/#polar-chart", 
             "text": "polarTest:\n  display: polar\n  type: emotions\n  keys: happy,sad,disgust,surprised,confused,calm,angry\n  label: Emotions", 
             "title": "Polar Chart"
         }, 
         {
+            "location": "/Configuration/examples/#handling-code_6", 
+            "text": "matrix.type('emotions').send({\n  'happy': 67,\n  'sad': 50,\n  'disgust': 78,\n  'surprised': 56,\n  'confused': 86,\n  'calm': 70,\n  'angry': 60 }\n);", 
+            "title": "Handling Code"
+        }, 
+        {
             "location": "/Configuration/examples/#gauge", 
-            "text": "gaugeTest:\n  display: gauge\n  type: face\n  keys: views\n  label: 'Views'", 
+            "text": "gaugeTest:\n  display: gauge\n  type: detection\n  keys: views\n  min: 0\n  max: 100\n  label: 'Views'", 
             "title": "Gauge"
+        }, 
+        {
+            "location": "/Configuration/examples/#handling-code_7", 
+            "text": "matrix.type('detection').send({\n  'views': 60,\n  'impressions': 100 }\n);", 
+            "title": "Handling Code"
         }, 
         {
             "location": "/Configuration/examples/#indicator", 
@@ -1136,14 +1181,29 @@
             "title": "Indicator"
         }, 
         {
+            "location": "/Configuration/examples/#handling-code_8", 
+            "text": "matrix.type('system').send({\n  'isOn': true}\n);", 
+            "title": "Handling Code"
+        }, 
+        {
             "location": "/Configuration/examples/#map", 
-            "text": "mapTest:\n  display: map\n  label: 'Map Test'\n  type: locations", 
+            "text": "mapTest:\n  display: map\n  type: location\n  label: 'Map Test'", 
             "title": "Map"
         }, 
         {
+            "location": "/Configuration/examples/#handling-code_9", 
+            "text": "matrix.type('location').send({\n  'latitude': 25.791632,\n  'longitude': -80.1414447,\n  'label': 'AdMobilize'}\n);", 
+            "title": "Handling Code"
+        }, 
+        {
             "location": "/Configuration/examples/#lists", 
-            "text": "listTest:\n  type: device\n  keys: Hostname,Type,Platform,Arch\n  display: list\n  label: Secret Information", 
+            "text": "listTest:\n  display: list\n  type: device\n  keys: Hostname,Type,Platform,Arch\n  label: Secret Information", 
             "title": "Lists"
+        }, 
+        {
+            "location": "/Configuration/examples/#handling-code_10", 
+            "text": "matrix.type('device').send({\n  'Hostname': 'h7n.domain',\n  'Type': 'Darwin',\n  'Platform': 'darwin',\n  'Arch': 'x64'}\n);", 
+            "title": "Handling Code"
         }, 
         {
             "location": "/Configuration/examples/#list-group", 
@@ -1152,13 +1212,23 @@
         }, 
         {
             "location": "/Configuration/examples/#simple-group", 
-            "text": "info:\n  type: device\n  keys: count\n  display: list-group\n  format: count\n  label: Total", 
+            "text": "info:\n  display: list-group\n  type: vehicleDetection\n  keys: count\n  format: count\n  label: Total", 
             "title": "Simple Group"
         }, 
         {
+            "location": "/Configuration/examples/#handling-code_11", 
+            "text": "matrix.type('vehicleDetection').send({\n  'zoneId': 'zone1',\n  'count': '4',\n  'speed': '56'}\n);", 
+            "title": "Handling Code"
+        }, 
+        {
             "location": "/Configuration/examples/#group-by-key", 
-            "text": "info:\n  type: device\n  keys: zone, count\n  groupby: zone\n  format: count\n  display: list-group\n  label: Total", 
+            "text": "info:\n  display: list-group\n  type: device\n  keys: zone, count\n  format: count\n  groupby: zone\n  label: Total", 
             "title": "Group by Key"
+        }, 
+        {
+            "location": "/Configuration/examples/#handling-code_12", 
+            "text": "matrix.type('vehicleDetection').send({\n  'zoneId': 'zone1',\n  'count': '4',\n  'speed': '56'}\n);", 
+            "title": "Handling Code"
         }, 
         {
             "location": "/Configuration/examples/#interactive", 
@@ -1172,23 +1242,23 @@
         }, 
         {
             "location": "/Configuration/examples/#single", 
-            "text": "label: 'Test Input'\ncontrol: input\nevent: testInput\nvalue: 'type text'", 
+            "text": "inputTest:\n    control: input\n    event: testInput\n    value: 'type text'\n    label: 'Test Input'", 
             "title": "Single"
         }, 
         {
-            "location": "/Configuration/examples/#handling-data", 
+            "location": "/Configuration/examples/#handling-code_13", 
             "text": "matrix.on('testInput', function(p){\n var text = p.value;\n})", 
-            "title": "Handling Data"
+            "title": "Handling Code"
         }, 
         {
             "location": "/Configuration/examples/#multiple", 
-            "text": "inputMapTest:\n    label: Test Input Map\n    control: input\n    map:\n      - event: testInput1\n        value: first type text\n      - event: testInput2\n        value: second type text", 
+            "text": "inputMapTest:\n    control: input\n    map:\n      - event: testInput1\n        value: first type text\n      - event: testInput2\n        value: second type text\n    label: Test Input Map", 
             "title": "Multiple"
         }, 
         {
-            "location": "/Configuration/examples/#handling-data_1", 
+            "location": "/Configuration/examples/#handling-code_14", 
             "text": "matrix.on('testInput1', function(p){\n var text = p.value;\n})\n\nmatrix.on('testInput2', function(p){\n var text = p.value;\n})", 
-            "title": "Handling Data"
+            "title": "Handling Code"
         }, 
         {
             "location": "/Configuration/examples/#buttons", 
@@ -1197,21 +1267,21 @@
         }, 
         {
             "location": "/Configuration/examples/#single_1", 
-            "text": "buttonTest:\n    label: Hacking Buttons\n    control: button\n    event: buttonInfo\n    value: Get Secret Information", 
+            "text": "buttonTest:\n    control: button\n    event: buttonInfo\n    value: Get Secret Information\n    label: Hacking Buttons", 
             "title": "Single"
         }, 
         {
-            "location": "/Configuration/examples/#handling-code", 
+            "location": "/Configuration/examples/#handling-code_15", 
             "text": "matrix.on('buttonInfo', function(){\n  // ...\n})", 
             "title": "Handling Code"
         }, 
         {
             "location": "/Configuration/examples/#multiple_1", 
-            "text": "buttonMapTest:\n    label: Matrix Activation Buttons\n    control: button\n    map:\n      - event: buttonUp\n        value: amps+\n      - event: buttonDown\n        value: amps-\n      - event: buttonStart\n        value: begin\n      - event: buttonStop\n        value: end\n      - event: buttonCapture\n        value: capture\n      - event: buttonSlow\n        value: refresh+\n      - event: buttonFast\n        value: refresh-", 
+            "text": "buttonMapTest:\n    control: button\n    map:\n      - event: buttonUp\n        value: amps+\n      - event: buttonDown\n        value: amps-\n      - event: buttonStart\n        value: begin\n      - event: buttonStop\n        value: end\n      - event: buttonCapture\n        value: capture\n      - event: buttonSlow\n        value: refresh+\n      - event: buttonFast\n        value: refresh-\n    label: Matrix Activation Buttons", 
             "title": "Multiple"
         }, 
         {
-            "location": "/Configuration/examples/#handling-code_1", 
+            "location": "/Configuration/examples/#handling-code_16", 
             "text": "matrix.on('buttonUp', function(){\n  // ...\n})\n\nmatrix.on('buttonDown', function(){\n  // ...\n})\n\nmatrix.on('buttonStart', function(){\n  // ...\n})\n\nmatrix.on('buttonStop', function(){\n  // ...\n})\n\nmatrix.on('buttonCapture', function(){\n  // ...\n})\n\nmatrix.on('buttonSlow', function(){\n  // ...\n})\n\nmatrix.on('buttonFast', function(){\n  // ...\n})", 
             "title": "Handling Code"
         }, 
@@ -1222,63 +1292,63 @@
         }, 
         {
             "location": "/Configuration/examples/#single_2", 
-            "text": "switchTest:\n    label: Switch Test\n    control: switch\n    event: ledEnabledChanged\n    value: Leds enabled", 
+            "text": "switchTest:\n    control: switch\n    event: ledEnabledChanged\n    value: Leds enabled\n    label: Switch Test", 
             "title": "Single"
         }, 
         {
-            "location": "/Configuration/examples/#handling-data_2", 
+            "location": "/Configuration/examples/#handling-code_17", 
             "text": "matrix.on('ledEnabledChanged', function(p){\n var isOn = p.value;\n})", 
-            "title": "Handling Data"
+            "title": "Handling Code"
         }, 
         {
             "location": "/Configuration/examples/#multiple_2", 
-            "text": "switchMapTest:\n    label: Switch Map Test\n    control: switch\n    map:\n      - event: ledEnabledChanged\n        value: Leds enabled\n      - event: detectionEnabledChanged\n        value: Detection Enabled", 
+            "text": "switchMapTest:\n    control: switch\n    map:\n      - event: ledEnabledChanged\n        value: Leds enabled\n      - event: detectionEnabledChanged\n        value: Detection Enabled\n    label: Switch Map Test", 
             "title": "Multiple"
         }, 
         {
-            "location": "/Configuration/examples/#handling-data_3", 
+            "location": "/Configuration/examples/#handling-code_18", 
             "text": "matrix.on('ledEnabledChanged', function(p){\n var isOn = p.value;\n})\n\nmatrix.on('detectionEnabledChanged', function(p){\n var isOn = p.value;\n})", 
-            "title": "Handling Data"
+            "title": "Handling Code"
         }, 
         {
             "location": "/Configuration/examples/#radio", 
-            "text": "radioTest:\n    label: Radio Test\n    control: radio\n    map:\n      - event: optionOneSelected\n        value: Option One\n      - event: optionTwoSelected\n        value: Option Two", 
+            "text": "radioTest:\n    control: radio\n    map:\n      - event: optionOneSelected\n        value: Option One\n      - event: optionTwoSelected\n        value: Option Two\n    label: Radio Test", 
             "title": "Radio"
         }, 
         {
-            "location": "/Configuration/examples/#handling-data_4", 
+            "location": "/Configuration/examples/#handling-code_19", 
             "text": "matrix.on('optionOneSelected', function(p){\n  // ...\n})\n\nmatrix.on('optionTwoSelected', function(p){\n  // ...\n})", 
-            "title": "Handling Data"
+            "title": "Handling Code"
         }, 
         {
             "location": "/Configuration/examples/#drop-downs", 
-            "text": "dropDownTest:\n    label: Dropdown Test\n    control: dropdown\n    map:\n      - event: optionOneSelected\n        value: Option One\n      - event: optionTwoSelected\n        value: Option Two", 
+            "text": "dropDownTest:\n    control: dropdown\n    map:\n      - event: optionOneSelected\n        value: Option One\n      - event: optionTwoSelected\n        value: Option Two\n    label: Dropdown Test", 
             "title": "Drop Downs"
         }, 
         {
-            "location": "/Configuration/examples/#handling-code_2", 
+            "location": "/Configuration/examples/#handling-code_20", 
             "text": "matrix.on('optionOneSelected', function(){\n //...\n})\n\nmatrix.on('optionTwoSelected', function(){\n //...\n})", 
             "title": "Handling Code"
         }, 
         {
             "location": "/Configuration/examples/#range", 
-            "text": "rangeTest:\n    label: Range Test\n    control: range\n    event: rangeChanged\n    min: 0\n    max: 35", 
+            "text": "rangeTest:\n    control: range\n    event: rangeChanged\n    min: 0\n    max: 35\n    label: Range Test", 
             "title": "Range"
         }, 
         {
-            "location": "/Configuration/examples/#handling-data_5", 
+            "location": "/Configuration/examples/#handling-code_21", 
             "text": "matrix.on('rangeChanged', function(p){\n var value = p.value;\n})", 
-            "title": "Handling Data"
+            "title": "Handling Code"
         }, 
         {
             "location": "/Configuration/examples/#xy", 
-            "text": "xyTest:\n    control: xy\n    label: Test XY\n    trigger: xyChanging\n    value: 'xy'\n    xMax: 100\n    yMax: 50", 
+            "text": "xyTest:\n    control: xy\n    event: xyChanging\n    value: 'xy'\n    xMax: 100\n    yMax: 50\n    label: Test XY", 
             "title": "XY"
         }, 
         {
-            "location": "/Configuration/examples/#handling-data_6", 
+            "location": "/Configuration/examples/#handling-code_22", 
             "text": "matrix.on('xyChanging', function(p){\n var x = p.value.x;\n var y = p.value.y;\n})", 
-            "title": "Handling Data"
+            "title": "Handling Code"
         }, 
         {
             "location": "/Configuration/examples/#radial", 
@@ -1287,23 +1357,23 @@
         }, 
         {
             "location": "/Configuration/examples/#single_3", 
-            "text": "radial:\n    control: radial\n    label: Radial Test\n    event: radialChanging", 
+            "text": "radial:\n    control: radial\n    event: radialChanging\n    label: Radial Test", 
             "title": "Single"
         }, 
         {
-            "location": "/Configuration/examples/#handling-data_7", 
+            "location": "/Configuration/examples/#handling-code_23", 
             "text": "matrix.on('radialChanging', function(p){\n var x = p.value.x; //from -1 to 1\n var y = p.value.y; //from -1 to 1\n})", 
-            "title": "Handling Data"
+            "title": "Handling Code"
         }, 
         {
             "location": "/Configuration/examples/#multiple_3", 
-            "text": "radialMap:\n    control: radial\n    label: Radial Map Test\n    map:\n    - event: radialRChanging\n      value: right\n    - event: radialLChanging\n      value: left", 
+            "text": "radialMap:\n    control: radial\n    map:\n    - event: radialRChanging\n      value: right\n    - event: radialLChanging\n      value: left\n    label: Radial Map Test", 
             "title": "Multiple"
         }, 
         {
-            "location": "/Configuration/examples/#handling-data_8", 
+            "location": "/Configuration/examples/#handling-code_24", 
             "text": "matrix.on('radialRChanging', function(p){\n var x = p.value.x; //from -1 to 1\n var y = p.value.y; //from -1 to 1\n})\n\nmatrix.on('radialLChanging', function(p){\n var x = p.value.x; //from -1 to 1\n var y = p.value.y; //from -1 to 1\n})", 
-            "title": "Handling Data"
+            "title": "Handling Code"
         }, 
         {
             "location": "/Configuration/examples/#responsive-data-flow", 
