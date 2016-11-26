@@ -96,7 +96,7 @@ matrix.type('monitor').send({
 ```
 
 ## Label
-![Label](img/ios/label.png)
+![Label](img/ios/label.PNG)
 ```
 labelTest:
   display: label
