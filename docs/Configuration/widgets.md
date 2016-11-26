@@ -49,13 +49,27 @@ Indicated via a `display` option.
 
 `digit` - numerical
 
-`radar` - polar chart
+`radar` - radar chart
 
 `line` - line chart
 
 `list` - data table
 
 `list-group` - grouped data table
+
+`pie-chart` - pie chart
+
+`polar` - polar area chart
+
+`label` - string display
+
+`gauge` - gauge
+
+`indicator` -  light indicator on/off
+
+`map` - map
+
+``
 
 ## Interactive Widgets
 Indicated via a `control` option.
