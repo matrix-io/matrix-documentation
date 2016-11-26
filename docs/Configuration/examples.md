@@ -8,60 +8,10 @@ monitor:
 ```
 
 ```
-uv:
-  value: float
-  risk: string
-```
-
-```
-emotions:
-  happy: integer
-  sad: integer
-  disgust: integer
-  surprised: integer
-  confused: integer
-  calm: integer
-  angry: integer
-```
-
-```
-gender:
-  women: integer
-  men: integer
-```
-
-```
-detection:
-  views: integer
-  impressions: integer
-```
-
-```
-system:
-  isOn: bool
-```
-
-```
 location:
   latitude: float
   longitude: float
   label: string
-```
-
-```
-device:
-  Hostname: string
-  Type: string
-  Platform: string
-  Arch: string
-```
-
-```
-vehicleDetection:
-  zoneId : string
-  count: integer
-  speed: float
-);  
 ```
 
 # Layout
