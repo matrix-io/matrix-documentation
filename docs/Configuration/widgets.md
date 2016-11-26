@@ -69,13 +69,22 @@ Indicated via a `display` option.
 
 `map` - map
 
-``
 
 ## Interactive Widgets
 Indicated via a `control` option.
 
+`input` - input field, single or multiple
+
 `button` - button, single or multiple
+
+`switch` - switch, single or multiple
+
+`radio` - radio, single or multiple
 
 `dropdown` - dropdown menu
 
 `range` - range slider
+
+`xy` - track pad
+
+`radial` - joystick, single or multiple
