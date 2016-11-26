@@ -1,16 +1,27 @@
 # MatrixOS Config Widget examples
 
+# DataTypes
+```
+monitor:
+  cpu: float
+  memory: float
+```
+
+```
+location:
+  latitude: float
+  longitude: float
+  label: string
+```
+
 # Layout
-![Screens](img/screens.png)
+![Screens](img/ios/screens.png)
 ```
 screens:
   - - digitTest
     - labelTest
   - - barChartTest
     - lineChartTest
-  - - radarChartTest
-    - gaugeTest
-  - - listTest
 ```
 
 # Displays
@@ -26,8 +37,16 @@ digitTest:
   label: cpu
 ```
 
+###### Handling Code
+```
+matrix.type('monitor').send({
+  'cpu': 2.4,
+  'memory': 5.4 }
+);  
+```
+
 ## Label
-![Label](img/ios/label.png)
+![Label](img/ios/label.PNG)
 ```
 labelTest:
   display: label
@@ -36,17 +55,33 @@ labelTest:
   label: UV Risk
 ```
 
+###### Handling Code
+```
+matrix.type('uv').send({
+  'value': 0.56773,
+  'risk': 'Low' }
+);  
+```
+
 ## Bar Chart
 ![Bar Chart](img/ios/bar.png)
 ```
 barChartTest:
   display: bar
   type: monitor
-  format: avg
   keys: cpu, memory
+  format: avg
   realtime: false
-  refresh 60
+  refresh: 60
   label: Bar Chart
+```
+
+###### Handling Code
+```
+matrix.type('monitor').send({
+  'cpu': 7.03,
+  'memory': 2.30 }
+);  
 ```
 
 ## Line Chart
@@ -61,6 +96,14 @@ lineChartTest:
   label: Line Chart
 ```
 
+###### Handling Code
+```
+matrix.type('monitor').send({
+  'cpu': 7.03,
+  'memory': 2.30 }
+);  
+```
+
 ## Radar Chart
 ![Radar Chart](img/ios/radar.png)
 ```
@@ -69,6 +112,19 @@ radarTest:
   type: emotions
   keys: happy,sad,disgust,surprised,confused,calm,angry
   label: Emotions
+```
+
+###### Handling Code
+```
+matrix.type('emotions').send({
+  'happy': 67,
+  'sad': 50,
+  'disgust': 78,
+  'surprised': 56,
+  'confused': 86,
+  'calm': 70,
+  'angry': 60 }
+);  
 ```
 
 ## Pie Chart
@@ -81,6 +137,14 @@ pieChartTest:
   label: Gender
 ```
 
+###### Handling Code
+```
+matrix.type('gender').send({
+  'women': 76,
+  'men': 45 }
+);  
+```
+
 ## Polar Chart
 ![Polar Chart](img/ios/polar.png)
 ```
@@ -91,14 +155,37 @@ polarTest:
   label: Emotions
 ```
 
+###### Handling Code
+```
+matrix.type('emotions').send({
+  'happy': 67,
+  'sad': 50,
+  'disgust': 78,
+  'surprised': 56,
+  'confused': 86,
+  'calm': 70,
+  'angry': 60 }
+);  
+```
+
 ## Gauge
 ![Gauge](img/ios/gauge.png)
 ```
 gaugeTest:
   display: gauge
-  type: face
+  type: detection
   keys: views
+  min: 0
+  max: 100
   label: 'Views'
+```
+
+###### Handling Code
+```
+matrix.type('detection').send({
+  'views': 60,
+  'impressions': 100 }
+);  
 ```
 
 ## Indicator
@@ -111,47 +198,92 @@ indicatorTest:
   label: 'Indicator Test'
 ```
 
+###### Handling Code
+```
+matrix.type('system').send({
+  'isOn': true}
+);  
+```
+
 ## Map
 ![Map](img/ios/map.png)
 ```
 mapTest:
   display: map
+  type: location
   label: 'Map Test'
-  type: locations
+```
+
+###### Handling Code
+```
+matrix.type('location').send({
+  'latitude': 25.791632,
+  'longitude': -80.1414447,
+  'label': 'AdMobilize'}
+);  
 ```
 
 ## Lists
 ![List](img/ios/list.png)
 ```
 listTest:
+  display: list
   type: device
   keys: Hostname,Type,Platform,Arch
-  display: list
   label: Secret Information
 ```
+
+###### Handling Code
+```
+matrix.type('device').send({
+  'Hostname': 'h7n.domain',
+  'Type': 'Darwin',
+  'Platform': 'darwin',
+  'Arch': 'x64'}
+);  
+```
+
 ## List Group
 
 ### Simple Group
 ![List Group](img/listgroup.png)
 ```
 info:
-  type: device
-  keys: count
   display: list-group
+  type: vehicleDetection
+  keys: count
   format: count
   label: Total
+```
+
+###### Handling Code
+```
+matrix.type('vehicleDetection').send({
+  'zoneId': 'zone1',
+  'count': '4',
+  'speed': '56'}
+);  
 ```
 
 ### Group by Key
 ![List Group](img/listgroupby.png)
 ```
 info:
+  display: list-group
   type: device
   keys: zone, count
-  groupby: zone
   format: count
-  display: list-group
+  groupby: zone
   label: Total
+```
+
+###### Handling Code
+```
+matrix.type('vehicleDetection').send({
+  'zoneId': 'zone1',
+  'count': '4',
+  'speed': '56'}
+);  
 ```
 
 # Interactive
@@ -161,13 +293,14 @@ info:
 ![input](img/ios/input.png)
 
 ```
-label: 'Test Input'
-control: input
-event: testInput
-value: 'type text'
+  inputTest:
+    control: input
+    event: testInput
+    value: 'type text'
+    label: 'Test Input'
 ```
 
-###### Handling Data
+###### Handling Code
 ```
 matrix.on('testInput', function(p){
  var text = p.value;
@@ -179,16 +312,16 @@ matrix.on('testInput', function(p){
 
 ```
   inputMapTest:
-    label: Test Input Map
     control: input
     map:
       - event: testInput1
         value: first type text
       - event: testInput2
         value: second type text
+    label: Test Input Map
 ```
 
-###### Handling Data
+###### Handling Code
 ```
 matrix.on('testInput1', function(p){
  var text = p.value;
@@ -207,10 +340,10 @@ matrix.on('testInput2', function(p){
 
 ```
   buttonTest:
-    label: Hacking Buttons
     control: button
     event: buttonInfo
     value: Get Secret Information
+    label: Hacking Buttons
 ```
 
 ###### Handling Code
@@ -225,7 +358,6 @@ matrix.on('buttonInfo', function(){
 
 ```
   buttonMapTest:
-    label: Matrix Activation Buttons
     control: button
     map:
       - event: buttonUp
@@ -242,6 +374,7 @@ matrix.on('buttonInfo', function(){
         value: refresh+
       - event: buttonFast
         value: refresh-
+    label: Matrix Activation Buttons
 ```
 
 ###### Handling Code
@@ -281,13 +414,13 @@ matrix.on('buttonFast', function(){
 ![switch](img/ios/switch.png)
 ```
   switchTest:
-    label: Switch Test
     control: switch
     event: ledEnabledChanged
     value: Leds enabled
+    label: Switch Test
 ```
 
-###### Handling Data
+###### Handling Code
 ```
 matrix.on('ledEnabledChanged', function(p){
  var isOn = p.value;
@@ -298,16 +431,16 @@ matrix.on('ledEnabledChanged', function(p){
 ![switch](img/ios/switchMap.png)
 ```
   switchMapTest:
-    label: Switch Map Test
     control: switch
     map:
       - event: ledEnabledChanged
         value: Leds enabled
       - event: detectionEnabledChanged
         value: Detection Enabled
+    label: Switch Map Test
 ```
 
-###### Handling Data
+###### Handling Code
 ```
 matrix.on('ledEnabledChanged', function(p){
  var isOn = p.value;
@@ -322,16 +455,16 @@ matrix.on('detectionEnabledChanged', function(p){
 ![radio](img/ios/radio.png)
 ```
   radioTest:
-    label: Radio Test
     control: radio
     map:
       - event: optionOneSelected
         value: Option One
       - event: optionTwoSelected
         value: Option Two
+    label: Radio Test
 ```
 
-###### Handling Data
+###### Handling Code
 ```
 matrix.on('optionOneSelected', function(p){
   // ...
@@ -346,13 +479,13 @@ matrix.on('optionTwoSelected', function(p){
 ![DropDown](img/ios/dropdown.png)
 ```
   dropDownTest:
-    label: Dropdown Test
     control: dropdown
     map:
       - event: optionOneSelected
         value: Option One
       - event: optionTwoSelected
         value: Option Two
+    label: Dropdown Test
 ```
 
 ###### Handling Code
@@ -370,14 +503,14 @@ matrix.on('optionTwoSelected', function(){
 ![range](img/ios/range.png)
 ```
   rangeTest:
-    label: Range Test
     control: range
     event: rangeChanged
     min: 0
     max: 35
+    label: Range Test
 ```
 
-###### Handling Data
+###### Handling Code
 ```
 matrix.on('rangeChanged', function(p){
  var value = p.value;
@@ -389,14 +522,14 @@ matrix.on('rangeChanged', function(p){
 ```
   xyTest:
     control: xy
-    label: Test XY
-    trigger: xyChanging
+    event: xyChanging
     value: 'xy'
     xMax: 100
     yMax: 50
+    label: Test XY
 ```
 
-###### Handling Data
+###### Handling Code
 ```
 matrix.on('xyChanging', function(p){
  var x = p.value.x;
@@ -411,11 +544,11 @@ matrix.on('xyChanging', function(p){
 ```
   radial:
     control: radial
-    label: Radial Test
     event: radialChanging
+    label: Radial Test
 ```
 
-###### Handling Data
+###### Handling Code
 ```
 matrix.on('radialChanging', function(p){
  var x = p.value.x; //from -1 to 1
@@ -429,15 +562,15 @@ matrix.on('radialChanging', function(p){
 ```
   radialMap:
     control: radial
-    label: Radial Map Test
     map:
     - event: radialRChanging
       value: right
     - event: radialLChanging
       value: left
+    label: Radial Map Test
 ```
 
-###### Handling Data
+###### Handling Code
 ```
 matrix.on('radialRChanging', function(p){
  var x = p.value.x; //from -1 to 1
