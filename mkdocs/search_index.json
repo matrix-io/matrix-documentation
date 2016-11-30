@@ -1402,8 +1402,13 @@
         }, 
         {
             "location": "/HAL/overview/", 
-            "text": "", 
+            "text": "HAL Overview\n\n\nComing soon", 
             "title": "Overview"
+        }, 
+        {
+            "location": "/HAL/overview/#hal-overview", 
+            "text": "Coming soon", 
+            "title": "HAL Overview"
         }, 
         {
             "location": "/HAL/example/", 
