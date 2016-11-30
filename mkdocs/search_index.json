@@ -1477,12 +1477,12 @@
         }, 
         {
             "location": "/HAL/troubleshooting/", 
-            "text": "Troubleshooting", 
+            "text": "Troubleshooting\n\n\nPlease visit our community support forums at:\n\ncommunity.matrix.one", 
             "title": "Troubleshooting"
         }, 
         {
             "location": "/HAL/troubleshooting/#troubleshooting", 
-            "text": "", 
+            "text": "Please visit our community support forums at: community.matrix.one", 
             "title": "Troubleshooting"
         }, 
         {
