@@ -39,6 +39,7 @@ pages:
     - 'Examples': 'Configuration/examples.md'
   - Troubleshooting: 'intro/matrix-troubleshooting.md'
 - HAL:
+  - 'Overview': 'HAL/overview.md'
   - 'Examples': 'HAL/example.md'
   - 'Troubleshooting': 'HAL/troubleshooting.md'
 - MALOS:
