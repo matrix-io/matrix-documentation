@@ -4,7 +4,7 @@
 
 ## Installation
 
-#### MATRIX CLI Setup
+#### Local Machine Setup
 **Note:** Pre-requisite of [NodeJS](https://nodejs.org/en/download) on the client computer.
 
 1. Install [MATRIX CLI](../CLI/overview.md) via npm `npm install -g matrix-cli`.
@@ -26,51 +26,11 @@ Save these for the Configure ENV Variables step, near the end.
 
 #### Raspberry Pi Setup
 
-1. To enjoy your new board you’ll need to set it up. First, you need to have Raspbian installed on your Raspberry Pi. If you don’t have it, you can [download](https://www.raspberrypi.org/downloads/raspbian/) it and [follow the instructions](https://www.raspberrypi.org/documentation/installation/installing-images/README.md).
-1. You'll also need to install [NodeJS](https://nodejs.org/en/download/package-manager/#debian-and-ubuntu-based-linux-distributions) on your Raspberry Pi before you get started.
-1. Basic understanding of Terminal. Via terminal, discover your Pi's address with `arp -na | grep -i b8:27:eb`. In our case, our IP for this example is `192.168.0.15`, yours may be different.
+The following installation configures the MATRIX Creator, as well as installs the MATRIX Open Source platform.
 
 ```
-# setup & installation
-echo "deb http://packages.matrix.one/matrix-creator/ ./" | sudo tee --append /etc/apt/sources.list;
-sudo apt-get update;
-sudo apt-get upgrade;
-sudo apt-get install -y libzmq3-dev xc3sprog malos-eye matrix-creator-malos matrix-creator-openocd wiringpi matrix-creator-init cmake g++ git --force-yes;
-
-# Reboot!
-sudo reboot;
-```
-
-This completes the Creator hardware setup. This is all you need to begin using [MALOS](MALOS/overview.md) and [HAL](HAL/overview.md).
-**Note**: You can also explore the [Hardware Interfaces](intro/interfaces.md).
-
-#### MATRIX OS Setup
-
-##### Installation
-**NOTE:** MATRIX OS has a NodeJS dependency. Please Install NodeJS on your Pi before installing MATRIX OS.
-
-###### Node Installation Manual
-Go to the [NodeJS downloads page](https://nodejs.org/en/download/package-manager/#debian-and-ubuntu-based-linux-distributions)
-If the NodeJS installation fails, you might want to try a [Manual Installation](https://github.com/nodesource/distributions#debmanual) instead.
-
-###### Node Installation Easy
-```
-# Install npm (doesn't really matter what version, apt-get node is v0.10...)
-sudo apt-get install npm
-
-# n is a node version manager
-sudo npm install -g n
-
-# node 6.5 is the latest target node version, also installs new npm
-n 6.5
-```
-
-###### MatrixOS Installation
-```
-git clone https://github.com/matrix-io/matrix-os.git;
-cd matrix-os;
-git submodule update --init;
-npm install;
+# Does everything including reboot.
+curl https://raw.githubusercontent.com/matrix-io/matrix-creator-quickstart/master/install.sh | sh
 ```
 
 ##### Configure ENV variables
