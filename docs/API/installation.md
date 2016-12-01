@@ -60,4 +60,4 @@ export MATRIX_DEVICE_SECRET=08629018e9d77h15i5n0t4r3alz0f06cd4f7e5544272b
 #### Returning to local computer
 1. If you didn't do it earlier, `matrix use $deviceId`
 1. Run `matrix`, verify you are on `rc` environment, your user is correct, and your selected device is correct.
-1. Now you can issue commands and deploy apps to your MATRIX OS from the [MATRIX CLI](CLI/overview.md).
+1. Now you can issue commands and deploy apps to your MATRIX OS from the [MATRIX CLI](/CLI/overview.md).
