@@ -1,15 +1,16 @@
-# MATRIX Hardware Abstraction Layer (HAL)
+## Overview
 
 HAL is the lowest-level abstraction for the MATRIX Creator drivers. You can interface directly with HAL, or use the higher level components like MALOS, and the MATRIX OS itself.
 
-### Pre-Requisites
+## Pre-Requisites
 It does have some package dependencies, so please make sure to install the pre-requisites.
 
 ```
-$ sudo apt-get install cmake g++ git
+sudo apt-get install cmake g++ git
+git clone https://github.com/matrix-io/matrix-creator-hal.git
 ```
 
-### Build
+## Build
 To start working with HAL directly, you'll need to run `sudo make install` to get the build running. 
 ```
 $ mkdir build
@@ -35,4 +36,17 @@ Install the project...
 -- Installing: /usr/local/include/matrix_hal/imu_data.h
 -- Installing: /usr/local/include/matrix_hal/microphone_array.h
 -- Installing: /usr/local/include/matrix_hal/wishbone_bus.h
+```
+
+## Examples
+Run some of the examples below.
+```
+# should already be in ~/matrix-creator-hal/build directory.
+cd demos
+
+# run the everloop demo
+./everloop_demo
+
+# see the rest of the examples
+ls -l
 ```
