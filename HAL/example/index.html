@@ -275,6 +275,12 @@
                         <ul class="dropdown-menu">
                         
                             
+<li >
+    <a href="../overview/">Overview</a>
+</li>
+
+                        
+                            
 <li class="active">
     <a href="./">Examples</a>
 </li>
@@ -385,7 +391,7 @@
                 </li>
                 
                     <li >
-                        <a rel="next" href="../../intro/matrix-troubleshooting/">
+                        <a rel="next" href="../overview/">
                             <i class="fa fa-arrow-left"></i> Previous
                         </a>
                     </li>
@@ -406,31 +412,22 @@
                 <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
-        <li class="main active"><a href="#getting-started">Getting Started</a></li>
+        <li class="main active"><a href="#examples">Examples</a></li>
         
     
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
 
-<h2 id="getting-started">Getting Started</h2>
-<p>HAL is the lowest-level abstraction for the MATRIX Creator drivers. You can interface directly with HAL, or use the higher level components like MALOS, and the MATRIX OS itself.</p>
-<pre><code># pre-requisites
-sudo apt-get install cmake g++ git
-
-# clone examples
-git clone https://github.com/matrix-io/matrix-creator-hal
-cd matrix-creator-hal
-mkdir build
-cd build
-cmake ..
-make &amp;&amp; sudo make install
+<h3 id="examples">Examples</h3>
+<p>Run some of the examples below.</p>
+<pre><code># should already be in ~/matrix-creator-hal/build directory.
 cd demos
 
-# run an example
+# run the everloop demo
 ./everloop_demo
 
-# check out the rest of the examples
+# see the rest of the examples
 ls -l
 </code></pre></div>
             

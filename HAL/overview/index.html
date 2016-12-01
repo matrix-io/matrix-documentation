@@ -9,7 +9,7 @@
         
         <link rel="shortcut icon" href="../../img/favicon.ico">
 
-	<title>Filters - MATRIX</title>
+	<title>Overview - MATRIX</title>
 
         <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
         <link href="../../css/font-awesome-4.5.0.css" rel="stylesheet">
@@ -105,13 +105,13 @@
                 
                 
                 
-                    <li class="dropdown active">
+                    <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">MATRIX OS <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                         
                             
 <li >
-    <a href="../overview/">Overview</a>
+    <a href="../../API/overview/">Overview</a>
 </li>
 
                         
@@ -123,7 +123,7 @@
                         
                             
 <li >
-    <a href="../installation/">Installation</a>
+    <a href="../../API/installation/">Installation</a>
 </li>
 
                         
@@ -134,73 +134,73 @@
         
             
 <li >
-    <a href="../sensors/">Sensors</a>
+    <a href="../../API/sensors/">Sensors</a>
 </li>
 
         
             
 <li >
-    <a href="../everloop/">Everloop</a>
-</li>
-
-        
-            
-<li class="active">
-    <a href="./">Filters</a>
+    <a href="../../API/everloop/">Everloop</a>
 </li>
 
         
             
 <li >
-    <a href="../computer-vision/">Computer Vision</a>
+    <a href="../../API/filter/">Filters</a>
 </li>
 
         
             
 <li >
-    <a href="../microphone/">Microphone</a>
+    <a href="../../API/computer-vision/">Computer Vision</a>
 </li>
 
         
             
 <li >
-    <a href="../crosstalk/">Cross-Talk</a>
+    <a href="../../API/microphone/">Microphone</a>
 </li>
 
         
             
 <li >
-    <a href="../typesend/">Type</a>
+    <a href="../../API/crosstalk/">Cross-Talk</a>
 </li>
 
         
             
 <li >
-    <a href="../GPIO/">GPIO</a>
+    <a href="../../API/typesend/">Type</a>
 </li>
 
         
             
 <li >
-    <a href="../ir/">IR TX/RX</a>
+    <a href="../../API/GPIO/">GPIO</a>
 </li>
 
         
             
 <li >
-    <a href="../nfc/">NFC</a>
+    <a href="../../API/ir/">IR TX/RX</a>
 </li>
 
         
             
 <li >
-    <a href="../zwave/">Z-wave</a>
+    <a href="../../API/nfc/">NFC</a>
 </li>
 
         
             
 <li >
-    <a href="../zigbee/">Zigbee</a>
+    <a href="../../API/zwave/">Z-wave</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../API/zigbee/">Zigbee</a>
 </li>
 
         
@@ -270,25 +270,25 @@
                 
                 
                 
-                    <li class="dropdown">
+                    <li class="dropdown active">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">HAL <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                         
                             
-<li >
-    <a href="../../HAL/overview/">Overview</a>
+<li class="active">
+    <a href="./">Overview</a>
 </li>
 
                         
                             
 <li >
-    <a href="../../HAL/example/">Examples</a>
+    <a href="../example/">Examples</a>
 </li>
 
                         
                             
 <li >
-    <a href="../../HAL/troubleshooting/">Troubleshooting</a>
+    <a href="../troubleshooting/">Troubleshooting</a>
 </li>
 
                         
@@ -391,12 +391,12 @@
                 </li>
                 
                     <li >
-                        <a rel="next" href="../everloop/">
+                        <a rel="next" href="../../intro/matrix-troubleshooting/">
                             <i class="fa fa-arrow-left"></i> Previous
                         </a>
                     </li>
                     <li >
-                        <a rel="prev" href="../computer-vision/">
+                        <a rel="prev" href="../example/">
                             Next <i class="fa fa-arrow-right"></i>
                         </a>
                     </li>
@@ -412,90 +412,49 @@
                 <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
-        <li class="main active"><a href="#filters">Filters</a></li>
+        <li class="main active"><a href="#matrix-hardware-abstraction-layer-hal">MATRIX Hardware Abstraction Layer (HAL)</a></li>
         
-    
-        <li class="main "><a href="#simple-filtering-methods">Simple Filtering methods</a></li>
+            <li><a href="#pre-requisites">Pre-Requisites</a></li>
         
-            <li><a href="#equality">equality</a></li>
-        
-            <li><a href="#negation">negation</a></li>
-        
-            <li><a href="#proximity">proximity</a></li>
-        
-    
-        <li class="main "><a href="#complex-filtering">Complex Filtering</a></li>
-        
-            <li><a href="#has">has</a></li>
-        
-            <li><a href="#bounds">bounds</a></li>
+            <li><a href="#build">Build</a></li>
         
     
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
 
-<h2 id="filters">Filters</h2>
-<p>MatrixOS sensors and computer vision algorithms provide data which can be filtered between the <code>init</code>, which can be regarded as the data source, and the <code>then</code>, which can be regarded as the data receiver. Between the two, we can use chaining methods to easily filter what data is received.</p>
-<pre><code>// filtering in a simple application
-matrix.init('temperature')
-.above(80)
-.then(function(data){
-  // see CrossTalk documentation for more information about matrix.emit
-  matrix.emit('ac-control', 'turnOn');
-});
+<h1 id="matrix-hardware-abstraction-layer-hal">MATRIX Hardware Abstraction Layer (HAL)</h1>
+<p>HAL is the lowest-level abstraction for the MATRIX Creator drivers. You can interface directly with HAL, or use the higher level components like MALOS, and the MATRIX OS itself.</p>
+<h3 id="pre-requisites">Pre-Requisites</h3>
+<p>It does have some package dependencies, so please make sure to install the pre-requisites.</p>
+<pre><code>$ sudo apt-get install cmake g++ git
 </code></pre>
 
-<p>Filtering decides whether or not a data point is passed to the <code>then()</code>, it does not change the data in any way.</p>
-<h2 id="simple-filtering-methods">Simple Filtering methods</h2>
-<h3 id="equality">equality</h3>
-<h6 id="numeric">Numeric</h6>
-<p><code>is()</code> <code>like()</code></p>
-<pre><code>matrix.init('temperature').is(72)
-</code></pre>
-
-<h6 id="string">String</h6>
-<pre><code>matrix.init('microphone').contains('hello world')
-</code></pre>
-
-<h3 id="negation">negation</h3>
-<p><code>not()</code></p>
-<pre><code>matrix.init('temperature').not(72)
-</code></pre>
-
-<h3 id="proximity">proximity</h3>
-<p><code>near()</code></p>
-<pre><code>matrix.init('gps').near([39.0432661,117.7249414])
-</code></pre>
-
-<h2 id="complex-filtering">Complex Filtering</h2>
-<h3 id="has">has</h3>
-<p><code>has()</code> is used to refine a data source by additional criteria and keys.</p>
-<pre><code>// for simple sensors
-matrix.init('temperature').has('value')
-// equivalent to
-matrix.init('temperature').has()
-
-// for complex sensors
-matrix.init('gyro').has('x')
-
-// for detections
-matrix.init('face').has('age')
-</code></pre>
-
-<h3 id="bounds">bounds</h3>
-<h6 id="greater-then">&gt; greater then</h6>
-<p><code>above</code>, <code>over</code>, 'after'</p>
-<pre><code>matrix.init('temperature').has().above(72)
-</code></pre>
-
-<h6 id="less-then">&lt; less then</h6>
-<p><code>below</code>, <code>under</code>, 'before'</p>
-<pre><code>matrix.init('temperature').has().below(32)
-</code></pre>
-
-<h6 id="between">between</h6>
-<pre><code>matrix.init('face').has('happy').between(50,100)
+<h3 id="build">Build</h3>
+<p>To start working with HAL directly, you'll need to run <code>sudo make install</code> to get the build running. </p>
+<pre><code>$ mkdir build
+$ cd build
+$ cmake ..
+$ make &amp;&amp; sudo make install
+[100%] Built target matrix_creator_hal
+Install the project...
+-- Install configuration: &quot;&quot;
+-- Up-to-date: /usr/local/lib/libmatrix_creator_hal.a
+-- Installing: /usr/local/include/matrix_hal/creator_memory_map.h
+-- Installing: /usr/local/include/matrix_hal/everloop.h
+-- Installing: /usr/local/include/matrix_hal/humidity_data.h
+-- Installing: /usr/local/include/matrix_hal/imu_sensor.h
+-- Installing: /usr/local/include/matrix_hal/pressure_data.h
+-- Installing: /usr/local/include/matrix_hal/dummy_data.h
+-- Installing: /usr/local/include/matrix_hal/everloop_image.h
+-- Installing: /usr/local/include/matrix_hal/humidity_sensor.h
+-- Installing: /usr/local/include/matrix_hal/matrix_driver.h
+-- Installing: /usr/local/include/matrix_hal/pressure_sensor.h
+-- Installing: /usr/local/include/matrix_hal/dummy_sensor.h
+-- Installing: /usr/local/include/matrix_hal/gpio_control.h
+-- Installing: /usr/local/include/matrix_hal/imu_data.h
+-- Installing: /usr/local/include/matrix_hal/microphone_array.h
+-- Installing: /usr/local/include/matrix_hal/wishbone_bus.h
 </code></pre></div>
             
         </div>
