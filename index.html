@@ -417,11 +417,9 @@
     
         <li class="main "><a href="#installation">Installation</a></li>
         
-            <li><a href="#matrix-cli-setup">MATRIX CLI Setup</a></li>
+            <li><a href="#local-machine-setup">Local Machine Setup</a></li>
         
             <li><a href="#raspberry-pi-setup">Raspberry Pi Setup</a></li>
-        
-            <li><a href="#matrix-os-setup">MATRIX OS Setup</a></li>
         
             <li><a href="#run-matrix-os">Run MATRIX OS</a></li>
         
@@ -441,7 +439,7 @@
 <li>Post package issues on github under <a href="https://github.com/matrix-io">matrix-io</a></li>
 </ul>
 <h2 id="installation">Installation</h2>
-<h4 id="matrix-cli-setup">MATRIX CLI Setup</h4>
+<h4 id="local-machine-setup">Local Machine Setup</h4>
 <p><strong>Note:</strong> Pre-requisite of <a href="https://nodejs.org/en/download">NodeJS</a> on the client computer.</p>
 <ol>
 <li>Install <a href="../CLI/overview.md">MATRIX CLI</a> via npm <code>npm install -g matrix-cli</code>.</li>
@@ -460,45 +458,9 @@ export MATRIX_DEVICE_SECRET=08629018e9d77h15i5n0t4r3alz0f06cd4f7e5544272b
 
 <p>Save these for the Configure ENV Variables step, near the end.</p>
 <h4 id="raspberry-pi-setup">Raspberry Pi Setup</h4>
-<ol>
-<li>To enjoy your new board you’ll need to set it up. First, you need to have Raspbian installed on your Raspberry Pi. If you don’t have it, you can <a href="https://www.raspberrypi.org/downloads/raspbian/">download</a> it and <a href="https://www.raspberrypi.org/documentation/installation/installing-images/README.md">follow the instructions</a>.</li>
-<li>You'll also need to install <a href="https://nodejs.org/en/download/package-manager/#debian-and-ubuntu-based-linux-distributions">NodeJS</a> on your Raspberry Pi before you get started.</li>
-<li>Basic understanding of Terminal. Via terminal, discover your Pi's address with <code>arp -na | grep -i b8:27:eb</code>. In our case, our IP for this example is <code>192.168.0.15</code>, yours may be different.</li>
-</ol>
-<pre><code># setup &amp; installation
-echo &quot;deb http://packages.matrix.one/matrix-creator/ ./&quot; | sudo tee --append /etc/apt/sources.list;
-sudo apt-get update;
-sudo apt-get upgrade;
-sudo apt-get install -y libzmq3-dev xc3sprog malos-eye matrix-creator-malos matrix-creator-openocd wiringpi matrix-creator-init cmake g++ git --force-yes;
-
-# Reboot!
-sudo reboot;
-</code></pre>
-
-<p>This completes the Creator hardware setup. This is all you need to begin using <a href="MALOS/overview/">MALOS</a> and <a href="HAL/overview/">HAL</a>.
-<strong>Note</strong>: You can also explore the <a href="intro/interfaces.md">Hardware Interfaces</a>.</p>
-<h4 id="matrix-os-setup">MATRIX OS Setup</h4>
-<h5 id="installation_1">Installation</h5>
-<p><strong>NOTE:</strong> MATRIX OS has a NodeJS dependency. Please Install NodeJS on your Pi before installing MATRIX OS.</p>
-<h6 id="node-installation-manual">Node Installation Manual</h6>
-<p>Go to the <a href="https://nodejs.org/en/download/package-manager/#debian-and-ubuntu-based-linux-distributions">NodeJS downloads page</a>
-If the NodeJS installation fails, you might want to try a <a href="https://github.com/nodesource/distributions#debmanual">Manual Installation</a> instead.</p>
-<h6 id="node-installation-easy">Node Installation Easy</h6>
-<pre><code># Install npm (doesn't really matter what version, apt-get node is v0.10...)
-sudo apt-get install npm
-
-# n is a node version manager
-sudo npm install -g n
-
-# node 6.5 is the latest target node version, also installs new npm
-n 6.5
-</code></pre>
-
-<h6 id="matrixos-installation">MatrixOS Installation</h6>
-<pre><code>git clone https://github.com/matrix-io/matrix-os.git;
-cd matrix-os;
-git submodule update --init;
-npm install;
+<p>The following installation configures the MATRIX Creator, as well as installs the MATRIX Open Source platform.</p>
+<pre><code># Does everything including reboot.
+curl https://raw.githubusercontent.com/matrix-io/matrix-creator-quickstart/master/install.sh | sh
 </code></pre>
 
 <h5 id="configure-env-variables">Configure ENV variables</h5>
@@ -571,5 +533,5 @@ export MATRIX_DEVICE_SECRET=08629018e9d77h15i5n0t4r3alz0f06cd4f7e5544272b
 
 <!--
 MkDocs version : 0.15.3
-Build Date UTC : 2016-11-30 17:32:17.131321
+Build Date UTC : 2016-12-01 00:30:25.041606
 -->
