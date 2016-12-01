@@ -1377,17 +1377,17 @@
         }, 
         {
             "location": "/HAL/overview/", 
-            "text": "MATRIX Hardware Abstraction Layer (HAL)\n\n\nHAL is the lowest-level abstraction for the MATRIX Creator drivers. You can interface directly with HAL, or use the higher level components like MALOS, and the MATRIX OS itself.\n\n\nPre-Requisites\n\n\nIt does have some package dependencies, so please make sure to install the pre-requisites.\n\n\n$ sudo apt-get install cmake g++ git\n\n\n\n\nBuild\n\n\nTo start working with HAL directly, you'll need to run \nsudo make install\n to get the build running. \n\n\n$ mkdir build\n$ cd build\n$ cmake ..\n$ make \n sudo make install\n[100%] Built target matrix_creator_hal\nInstall the project...\n-- Install configuration: \n\n-- Up-to-date: /usr/local/lib/libmatrix_creator_hal.a\n-- Installing: /usr/local/include/matrix_hal/creator_memory_map.h\n-- Installing: /usr/local/include/matrix_hal/everloop.h\n-- Installing: /usr/local/include/matrix_hal/humidity_data.h\n-- Installing: /usr/local/include/matrix_hal/imu_sensor.h\n-- Installing: /usr/local/include/matrix_hal/pressure_data.h\n-- Installing: /usr/local/include/matrix_hal/dummy_data.h\n-- Installing: /usr/local/include/matrix_hal/everloop_image.h\n-- Installing: /usr/local/include/matrix_hal/humidity_sensor.h\n-- Installing: /usr/local/include/matrix_hal/matrix_driver.h\n-- Installing: /usr/local/include/matrix_hal/pressure_sensor.h\n-- Installing: /usr/local/include/matrix_hal/dummy_sensor.h\n-- Installing: /usr/local/include/matrix_hal/gpio_control.h\n-- Installing: /usr/local/include/matrix_hal/imu_data.h\n-- Installing: /usr/local/include/matrix_hal/microphone_array.h\n-- Installing: /usr/local/include/matrix_hal/wishbone_bus.h", 
+            "text": "Overview\n\n\nHAL is the lowest-level abstraction for the MATRIX Creator drivers. You can interface directly with HAL, or use the higher level components like MALOS, and the MATRIX OS itself.\n\n\nPre-Requisites\n\n\nIt does have some package dependencies, so please make sure to install the pre-requisites.\n\n\nsudo apt-get install cmake g++ git\ngit clone https://github.com/matrix-io/matrix-creator-hal.git\n\n\n\n\nBuild\n\n\nTo start working with HAL directly, you'll need to run \nsudo make install\n to get the build running. \n\n\n$ mkdir build\n$ cd build\n$ cmake ..\n$ make \n sudo make install\n[100%] Built target matrix_creator_hal\nInstall the project...\n-- Install configuration: \n\n-- Up-to-date: /usr/local/lib/libmatrix_creator_hal.a\n-- Installing: /usr/local/include/matrix_hal/creator_memory_map.h\n-- Installing: /usr/local/include/matrix_hal/everloop.h\n-- Installing: /usr/local/include/matrix_hal/humidity_data.h\n-- Installing: /usr/local/include/matrix_hal/imu_sensor.h\n-- Installing: /usr/local/include/matrix_hal/pressure_data.h\n-- Installing: /usr/local/include/matrix_hal/dummy_data.h\n-- Installing: /usr/local/include/matrix_hal/everloop_image.h\n-- Installing: /usr/local/include/matrix_hal/humidity_sensor.h\n-- Installing: /usr/local/include/matrix_hal/matrix_driver.h\n-- Installing: /usr/local/include/matrix_hal/pressure_sensor.h\n-- Installing: /usr/local/include/matrix_hal/dummy_sensor.h\n-- Installing: /usr/local/include/matrix_hal/gpio_control.h\n-- Installing: /usr/local/include/matrix_hal/imu_data.h\n-- Installing: /usr/local/include/matrix_hal/microphone_array.h\n-- Installing: /usr/local/include/matrix_hal/wishbone_bus.h\n\n\n\n\nExamples\n\n\nRun some of the examples below.\n\n\n# should already be in ~/matrix-creator-hal/build directory.\ncd demos\n\n# run the everloop demo\n./everloop_demo\n\n# see the rest of the examples\nls -l", 
             "title": "Overview"
         }, 
         {
-            "location": "/HAL/overview/#matrix-hardware-abstraction-layer-hal", 
+            "location": "/HAL/overview/#overview", 
             "text": "HAL is the lowest-level abstraction for the MATRIX Creator drivers. You can interface directly with HAL, or use the higher level components like MALOS, and the MATRIX OS itself.", 
-            "title": "MATRIX Hardware Abstraction Layer (HAL)"
+            "title": "Overview"
         }, 
         {
             "location": "/HAL/overview/#pre-requisites", 
-            "text": "It does have some package dependencies, so please make sure to install the pre-requisites.  $ sudo apt-get install cmake g++ git", 
+            "text": "It does have some package dependencies, so please make sure to install the pre-requisites.  sudo apt-get install cmake g++ git\ngit clone https://github.com/matrix-io/matrix-creator-hal.git", 
             "title": "Pre-Requisites"
         }, 
         {
@@ -1396,12 +1396,32 @@
             "title": "Build"
         }, 
         {
-            "location": "/HAL/example/", 
-            "text": "Examples\n\n\nRun some of the examples below.\n\n\n# should already be in ~/matrix-creator-hal/build directory.\ncd demos\n\n# run the everloop demo\n./everloop_demo\n\n# see the rest of the examples\nls -l", 
+            "location": "/HAL/overview/#examples", 
+            "text": "Run some of the examples below.  # should already be in ~/matrix-creator-hal/build directory.\ncd demos\n\n# run the everloop demo\n./everloop_demo\n\n# see the rest of the examples\nls -l", 
             "title": "Examples"
         }, 
         {
-            "location": "/HAL/example/#examples", 
+            "location": "/HAL/overview/", 
+            "text": "Overview\n\n\nHAL is the lowest-level abstraction for the MATRIX Creator drivers. You can interface directly with HAL, or use the higher level components like MALOS, and the MATRIX OS itself.\n\n\nPre-Requisites\n\n\nIt does have some package dependencies, so please make sure to install the pre-requisites.\n\n\nsudo apt-get install cmake g++ git\ngit clone https://github.com/matrix-io/matrix-creator-hal.git\n\n\n\n\nBuild\n\n\nTo start working with HAL directly, you'll need to run \nsudo make install\n to get the build running. \n\n\n$ mkdir build\n$ cd build\n$ cmake ..\n$ make \n sudo make install\n[100%] Built target matrix_creator_hal\nInstall the project...\n-- Install configuration: \n\n-- Up-to-date: /usr/local/lib/libmatrix_creator_hal.a\n-- Installing: /usr/local/include/matrix_hal/creator_memory_map.h\n-- Installing: /usr/local/include/matrix_hal/everloop.h\n-- Installing: /usr/local/include/matrix_hal/humidity_data.h\n-- Installing: /usr/local/include/matrix_hal/imu_sensor.h\n-- Installing: /usr/local/include/matrix_hal/pressure_data.h\n-- Installing: /usr/local/include/matrix_hal/dummy_data.h\n-- Installing: /usr/local/include/matrix_hal/everloop_image.h\n-- Installing: /usr/local/include/matrix_hal/humidity_sensor.h\n-- Installing: /usr/local/include/matrix_hal/matrix_driver.h\n-- Installing: /usr/local/include/matrix_hal/pressure_sensor.h\n-- Installing: /usr/local/include/matrix_hal/dummy_sensor.h\n-- Installing: /usr/local/include/matrix_hal/gpio_control.h\n-- Installing: /usr/local/include/matrix_hal/imu_data.h\n-- Installing: /usr/local/include/matrix_hal/microphone_array.h\n-- Installing: /usr/local/include/matrix_hal/wishbone_bus.h\n\n\n\n\nExamples\n\n\nRun some of the examples below.\n\n\n# should already be in ~/matrix-creator-hal/build directory.\ncd demos\n\n# run the everloop demo\n./everloop_demo\n\n# see the rest of the examples\nls -l", 
+            "title": "Examples"
+        }, 
+        {
+            "location": "/HAL/overview/#overview", 
+            "text": "HAL is the lowest-level abstraction for the MATRIX Creator drivers. You can interface directly with HAL, or use the higher level components like MALOS, and the MATRIX OS itself.", 
+            "title": "Overview"
+        }, 
+        {
+            "location": "/HAL/overview/#pre-requisites", 
+            "text": "It does have some package dependencies, so please make sure to install the pre-requisites.  sudo apt-get install cmake g++ git\ngit clone https://github.com/matrix-io/matrix-creator-hal.git", 
+            "title": "Pre-Requisites"
+        }, 
+        {
+            "location": "/HAL/overview/#build", 
+            "text": "To start working with HAL directly, you'll need to run  sudo make install  to get the build running.   $ mkdir build\n$ cd build\n$ cmake ..\n$ make   sudo make install\n[100%] Built target matrix_creator_hal\nInstall the project...\n-- Install configuration:  \n-- Up-to-date: /usr/local/lib/libmatrix_creator_hal.a\n-- Installing: /usr/local/include/matrix_hal/creator_memory_map.h\n-- Installing: /usr/local/include/matrix_hal/everloop.h\n-- Installing: /usr/local/include/matrix_hal/humidity_data.h\n-- Installing: /usr/local/include/matrix_hal/imu_sensor.h\n-- Installing: /usr/local/include/matrix_hal/pressure_data.h\n-- Installing: /usr/local/include/matrix_hal/dummy_data.h\n-- Installing: /usr/local/include/matrix_hal/everloop_image.h\n-- Installing: /usr/local/include/matrix_hal/humidity_sensor.h\n-- Installing: /usr/local/include/matrix_hal/matrix_driver.h\n-- Installing: /usr/local/include/matrix_hal/pressure_sensor.h\n-- Installing: /usr/local/include/matrix_hal/dummy_sensor.h\n-- Installing: /usr/local/include/matrix_hal/gpio_control.h\n-- Installing: /usr/local/include/matrix_hal/imu_data.h\n-- Installing: /usr/local/include/matrix_hal/microphone_array.h\n-- Installing: /usr/local/include/matrix_hal/wishbone_bus.h", 
+            "title": "Build"
+        }, 
+        {
+            "location": "/HAL/overview/#examples", 
             "text": "Run some of the examples below.  # should already be in ~/matrix-creator-hal/build directory.\ncd demos\n\n# run the everloop demo\n./everloop_demo\n\n# see the rest of the examples\nls -l", 
             "title": "Examples"
         }, 

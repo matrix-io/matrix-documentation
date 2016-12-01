@@ -9,7 +9,7 @@
         
         <link rel="shortcut icon" href="../../img/favicon.ico">
 
-	<title>Overview - MATRIX</title>
+	<title>Examples - MATRIX</title>
 
         <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
         <link href="../../css/font-awesome-4.5.0.css" rel="stylesheet">
@@ -275,14 +275,14 @@
                         <ul class="dropdown-menu">
                         
                             
-<li class="active">
+<li >
     <a href="./">Overview</a>
 </li>
 
                         
                             
-<li >
-    <a href="../example/">Examples</a>
+<li class="active">
+    <a href="./">Examples</a>
 </li>
 
                         
@@ -391,12 +391,12 @@
                 </li>
                 
                     <li >
-                        <a rel="next" href="../../intro/matrix-troubleshooting/">
+                        <a rel="next" href="./">
                             <i class="fa fa-arrow-left"></i> Previous
                         </a>
                     </li>
                     <li >
-                        <a rel="prev" href="../example/">
+                        <a rel="prev" href="../troubleshooting/">
                             Next <i class="fa fa-arrow-right"></i>
                         </a>
                     </li>
@@ -412,25 +412,31 @@
                 <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
-        <li class="main active"><a href="#matrix-hardware-abstraction-layer-hal">MATRIX Hardware Abstraction Layer (HAL)</a></li>
+        <li class="main active"><a href="#overview">Overview</a></li>
         
-            <li><a href="#pre-requisites">Pre-Requisites</a></li>
+    
+        <li class="main "><a href="#pre-requisites">Pre-Requisites</a></li>
         
-            <li><a href="#build">Build</a></li>
+    
+        <li class="main "><a href="#build">Build</a></li>
+        
+    
+        <li class="main "><a href="#examples">Examples</a></li>
         
     
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
 
-<h1 id="matrix-hardware-abstraction-layer-hal">MATRIX Hardware Abstraction Layer (HAL)</h1>
+<h2 id="overview">Overview</h2>
 <p>HAL is the lowest-level abstraction for the MATRIX Creator drivers. You can interface directly with HAL, or use the higher level components like MALOS, and the MATRIX OS itself.</p>
-<h3 id="pre-requisites">Pre-Requisites</h3>
+<h2 id="pre-requisites">Pre-Requisites</h2>
 <p>It does have some package dependencies, so please make sure to install the pre-requisites.</p>
-<pre><code>$ sudo apt-get install cmake g++ git
+<pre><code>sudo apt-get install cmake g++ git
+git clone https://github.com/matrix-io/matrix-creator-hal.git
 </code></pre>
 
-<h3 id="build">Build</h3>
+<h2 id="build">Build</h2>
 <p>To start working with HAL directly, you'll need to run <code>sudo make install</code> to get the build running. </p>
 <pre><code>$ mkdir build
 $ cd build
@@ -455,6 +461,18 @@ Install the project...
 -- Installing: /usr/local/include/matrix_hal/imu_data.h
 -- Installing: /usr/local/include/matrix_hal/microphone_array.h
 -- Installing: /usr/local/include/matrix_hal/wishbone_bus.h
+</code></pre>
+
+<h2 id="examples">Examples</h2>
+<p>Run some of the examples below.</p>
+<pre><code># should already be in ~/matrix-creator-hal/build directory.
+cd demos
+
+# run the everloop demo
+./everloop_demo
+
+# see the rest of the examples
+ls -l
 </code></pre></div>
             
         </div>
