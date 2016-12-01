@@ -1376,79 +1376,14 @@
             "title": "Lights are spinning, but don't stop"
         }, 
         {
-            "location": "/HAL/overview/", 
-            "text": "HAL Overview\n\n\nComing soon", 
-            "title": "Overview"
-        }, 
-        {
-            "location": "/HAL/overview/#hal-overview", 
-            "text": "Coming soon", 
-            "title": "HAL Overview"
-        }, 
-        {
             "location": "/HAL/example/", 
-            "text": "Getting Started\n\n\ngit clone https://github.com/matrix-io/matrix-creator-hal;\ngit submodule update --init;\ncd src/js_test;\nnpm install;\n\n\n\n\nExamples\n\n\nMALOS is the program that sits between the low level hardware layer and MATRIX OS. This program allows MATRIX OS to access the board hardware via ZeroMQ sockets. You can also use it directly, as it is done with the examples below. The The IPs used in the examples are 127.0.0.1. Remember to edit them if you're accessing the Creator from another host and not from the Raspberry itself.\n\n\nNote:\n Pre-requisite of \nNodeJS\n on the client computer.\n\n\nDrivers\n\n\nnode test_driver_info.js\n\n\n\n\nEverloop\n\n\nnode test_everloop.js\n\n\n\n\nHumidity\n\n\nnode test_humidity.js\n\n\n\n\nIMU\n\n\nnode test_imu.js\n\n\n\n\nIR Remote\n\n\nnode test_ir_remote.js\n\n\n\n\nPressure\n\n\nnode test_pressure.js\n\n\n\n\nUV\n\n\nnode test_uv.js\n\n\n\n\nZigbee Bulb On/Off\n\n\nnode test_zigbee_bulb.js\n\n\n\n\nZigbee Bulb Color\n\n\nnode test_zigbee_color.js\n\n\n\n\nZigbee Bulb Brightness\n\n\nnode test_zigbee_level.js", 
+            "text": "Getting Started\n\n\nHAL is the lowest-level abstraction for the MATRIX Creator drivers. You can interface directly with HAL, or use the higher level components like MALOS, and the MATRIX OS itself.\n\n\n# pre-requisites\nsudo apt-get install cmake g++ git\n\n# clone examples\ngit clone https://github.com/matrix-io/matrix-creator-hal\ncd matrix-creator-hal\nmkdir build\ncd build\ncmake ..\nmake \n sudo make install\ncd demos\n\n# run an example\n./everloop_demo\n\n# check out the rest of the examples\nls -l", 
             "title": "Examples"
         }, 
         {
             "location": "/HAL/example/#getting-started", 
-            "text": "git clone https://github.com/matrix-io/matrix-creator-hal;\ngit submodule update --init;\ncd src/js_test;\nnpm install;", 
+            "text": "HAL is the lowest-level abstraction for the MATRIX Creator drivers. You can interface directly with HAL, or use the higher level components like MALOS, and the MATRIX OS itself.  # pre-requisites\nsudo apt-get install cmake g++ git\n\n# clone examples\ngit clone https://github.com/matrix-io/matrix-creator-hal\ncd matrix-creator-hal\nmkdir build\ncd build\ncmake ..\nmake   sudo make install\ncd demos\n\n# run an example\n./everloop_demo\n\n# check out the rest of the examples\nls -l", 
             "title": "Getting Started"
-        }, 
-        {
-            "location": "/HAL/example/#examples", 
-            "text": "MALOS is the program that sits between the low level hardware layer and MATRIX OS. This program allows MATRIX OS to access the board hardware via ZeroMQ sockets. You can also use it directly, as it is done with the examples below. The The IPs used in the examples are 127.0.0.1. Remember to edit them if you're accessing the Creator from another host and not from the Raspberry itself.  Note:  Pre-requisite of  NodeJS  on the client computer.", 
-            "title": "Examples"
-        }, 
-        {
-            "location": "/HAL/example/#drivers", 
-            "text": "node test_driver_info.js", 
-            "title": "Drivers"
-        }, 
-        {
-            "location": "/HAL/example/#everloop", 
-            "text": "node test_everloop.js", 
-            "title": "Everloop"
-        }, 
-        {
-            "location": "/HAL/example/#humidity", 
-            "text": "node test_humidity.js", 
-            "title": "Humidity"
-        }, 
-        {
-            "location": "/HAL/example/#imu", 
-            "text": "node test_imu.js", 
-            "title": "IMU"
-        }, 
-        {
-            "location": "/HAL/example/#ir-remote", 
-            "text": "node test_ir_remote.js", 
-            "title": "IR Remote"
-        }, 
-        {
-            "location": "/HAL/example/#pressure", 
-            "text": "node test_pressure.js", 
-            "title": "Pressure"
-        }, 
-        {
-            "location": "/HAL/example/#uv", 
-            "text": "node test_uv.js", 
-            "title": "UV"
-        }, 
-        {
-            "location": "/HAL/example/#zigbee-bulb-onoff", 
-            "text": "node test_zigbee_bulb.js", 
-            "title": "Zigbee Bulb On/Off"
-        }, 
-        {
-            "location": "/HAL/example/#zigbee-bulb-color", 
-            "text": "node test_zigbee_color.js", 
-            "title": "Zigbee Bulb Color"
-        }, 
-        {
-            "location": "/HAL/example/#zigbee-bulb-brightness", 
-            "text": "node test_zigbee_level.js", 
-            "title": "Zigbee Bulb Brightness"
         }, 
         {
             "location": "/HAL/troubleshooting/", 
