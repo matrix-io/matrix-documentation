@@ -7,7 +7,7 @@
 #### Local Machine Setup
 **Note:** Pre-requisite of [NodeJS](https://nodejs.org/en/download) on the client computer.
 
-1. Install [MATRIX CLI](../CLI/overview.md) via npm `npm install -g matrix-cli`.
+1. Install [MATRIX CLI](../CLI/overview/) via npm `npm install -g matrix-cli`.
 1. Target the proper environment `matrix set env rc`.
 1. With MATRIX CLI installed on your computer, register an account with MATRIX via `matrix register`.
 1. Log into your account using `matrix login`.
