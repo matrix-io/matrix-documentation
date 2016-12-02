@@ -1,5 +1,5 @@
 ## GPIO
-[WIP] GPIO can be used to communicate or receive input from analog and digital components through the MATRIX Creator, or any other sensor leveraging Raspberry Pi's GPIOs.
+GPIO can be used to communicate or receive input from analog and digital components through the MATRIX Creator, or any other sensor leveraging Raspberry Pi's GPIOs.
 
 ### Configuration
 Make sure to add the following to your `config.yaml` to enable GPIO's/
@@ -9,12 +9,6 @@ integrations:
   - gpio
 ```
 
-### .open
-```
-matrix.gpio.open(16, "output", function(err){
-	// read or write
-});
-```
 
 ### .read
 * `pinNumber`: The GPIO you are reading from.
@@ -34,20 +28,5 @@ matrix.gpio.read(16, function(err, value) {
 ```
 matrix.gpio.write(16, 1, function(err) {
 	if(err) throw err;
-});
-```
-
-### .close
-* `pinNumber`: The GPIO you would like to close.
-```
-matrix.gpio.close(16);
-```
-
-## Example
-```
-matrix.gpio.open(16, "output", function(err) {
-    matrix.gpio.write(16, 1, function() {
-        matrix.gpio.close(16);
-    });
 });
 ```
