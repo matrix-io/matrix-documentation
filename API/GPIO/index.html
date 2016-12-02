@@ -416,16 +416,9 @@
         
             <li><a href="#configuration">Configuration</a></li>
         
-            <li><a href="#open">.open</a></li>
-        
             <li><a href="#read">.read</a></li>
         
             <li><a href="#write">.write</a></li>
-        
-            <li><a href="#close">.close</a></li>
-        
-    
-        <li class="main "><a href="#example">Example</a></li>
         
     
     </ul>
@@ -433,17 +426,11 @@
                 <div class="col-md-9" role="main">
 
 <h2 id="gpio">GPIO</h2>
-<p>[WIP] GPIO can be used to communicate or receive input from analog and digital components through the MATRIX Creator, or any other sensor leveraging Raspberry Pi's GPIOs.</p>
+<p>GPIO can be used to communicate or receive input from analog and digital components through the MATRIX Creator, or any other sensor leveraging Raspberry Pi's GPIOs.</p>
 <h3 id="configuration">Configuration</h3>
 <p>Make sure to add the following to your <code>config.yaml</code> to enable GPIO's/</p>
 <pre><code>integrations:
   - gpio
-</code></pre>
-
-<h3 id="open">.open</h3>
-<pre><code>matrix.gpio.open(16, &quot;output&quot;, function(err){
-    // read or write
-});
 </code></pre>
 
 <h3 id="read">.read</h3>
@@ -465,21 +452,6 @@
 </ul>
 <pre><code>matrix.gpio.write(16, 1, function(err) {
     if(err) throw err;
-});
-</code></pre>
-
-<h3 id="close">.close</h3>
-<ul>
-<li><code>pinNumber</code>: The GPIO you would like to close.</li>
-</ul>
-<pre><code>matrix.gpio.close(16);
-</code></pre>
-
-<h2 id="example">Example</h2>
-<pre><code>matrix.gpio.open(16, &quot;output&quot;, function(err) {
-    matrix.gpio.write(16, 1, function() {
-        matrix.gpio.close(16);
-    });
 });
 </code></pre></div>
             

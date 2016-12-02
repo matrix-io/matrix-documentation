@@ -792,23 +792,18 @@
         }, 
         {
             "location": "/API/GPIO/", 
-            "text": "GPIO\n\n\n[WIP] GPIO can be used to communicate or receive input from analog and digital components through the MATRIX Creator, or any other sensor leveraging Raspberry Pi's GPIOs.\n\n\nConfiguration\n\n\nMake sure to add the following to your \nconfig.yaml\n to enable GPIO's/\n\n\nintegrations:\n  - gpio\n\n\n\n\n.open\n\n\nmatrix.gpio.open(16, \noutput\n, function(err){\n    // read or write\n});\n\n\n\n\n.read\n\n\n\n\npinNumber\n: The GPIO you are reading from.\n\n\ncallback\n: Returns \nerr\n, \nvalue\n.\n\n\n\n\nmatrix.gpio.read(16, function(err, value) {\n  if(err) throw err;\n  console.log(value);   // The current state of the pin\n});\n\n\n\n\n.write\n\n\n\n\npinNumber\n: The GPIO you are reading from.\n\n\nvalue\n: The value you would like to update the GPIO with.\n\n\ncallback\n: Returns \nerr\n, \nvalue\n.\n\n\n\n\nmatrix.gpio.write(16, 1, function(err) {\n    if(err) throw err;\n});\n\n\n\n\n.close\n\n\n\n\npinNumber\n: The GPIO you would like to close.\n\n\n\n\nmatrix.gpio.close(16);\n\n\n\n\nExample\n\n\nmatrix.gpio.open(16, \noutput\n, function(err) {\n    matrix.gpio.write(16, 1, function() {\n        matrix.gpio.close(16);\n    });\n});", 
+            "text": "GPIO\n\n\nGPIO can be used to communicate or receive input from analog and digital components through the MATRIX Creator, or any other sensor leveraging Raspberry Pi's GPIOs.\n\n\nConfiguration\n\n\nMake sure to add the following to your \nconfig.yaml\n to enable GPIO's/\n\n\nintegrations:\n  - gpio\n\n\n\n\n.read\n\n\n\n\npinNumber\n: The GPIO you are reading from.\n\n\ncallback\n: Returns \nerr\n, \nvalue\n.\n\n\n\n\nmatrix.gpio.read(16, function(err, value) {\n  if(err) throw err;\n  console.log(value);   // The current state of the pin\n});\n\n\n\n\n.write\n\n\n\n\npinNumber\n: The GPIO you are reading from.\n\n\nvalue\n: The value you would like to update the GPIO with.\n\n\ncallback\n: Returns \nerr\n, \nvalue\n.\n\n\n\n\nmatrix.gpio.write(16, 1, function(err) {\n    if(err) throw err;\n});", 
             "title": "GPIO"
         }, 
         {
             "location": "/API/GPIO/#gpio", 
-            "text": "[WIP] GPIO can be used to communicate or receive input from analog and digital components through the MATRIX Creator, or any other sensor leveraging Raspberry Pi's GPIOs.", 
+            "text": "GPIO can be used to communicate or receive input from analog and digital components through the MATRIX Creator, or any other sensor leveraging Raspberry Pi's GPIOs.", 
             "title": "GPIO"
         }, 
         {
             "location": "/API/GPIO/#configuration", 
             "text": "Make sure to add the following to your  config.yaml  to enable GPIO's/  integrations:\n  - gpio", 
             "title": "Configuration"
-        }, 
-        {
-            "location": "/API/GPIO/#open", 
-            "text": "matrix.gpio.open(16,  output , function(err){\n    // read or write\n});", 
-            "title": ".open"
         }, 
         {
             "location": "/API/GPIO/#read", 
@@ -819,16 +814,6 @@
             "location": "/API/GPIO/#write", 
             "text": "pinNumber : The GPIO you are reading from.  value : The value you would like to update the GPIO with.  callback : Returns  err ,  value .   matrix.gpio.write(16, 1, function(err) {\n    if(err) throw err;\n});", 
             "title": ".write"
-        }, 
-        {
-            "location": "/API/GPIO/#close", 
-            "text": "pinNumber : The GPIO you would like to close.   matrix.gpio.close(16);", 
-            "title": ".close"
-        }, 
-        {
-            "location": "/API/GPIO/#example", 
-            "text": "matrix.gpio.open(16,  output , function(err) {\n    matrix.gpio.write(16, 1, function() {\n        matrix.gpio.close(16);\n    });\n});", 
-            "title": "Example"
         }, 
         {
             "location": "/API/ir/", 
