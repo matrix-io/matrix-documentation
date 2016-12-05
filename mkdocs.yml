@@ -29,6 +29,7 @@ pages:
     - 'NFC': 'API/nfc.md'
     - 'Z-wave': 'API/zwave.md'
     - 'Zigbee': 'API/zigbee.md'
+    - 'Servos': 'API/servos.md'
   - Configuration:
     - 'Overview': 'Configuration/overview.md'
     - 'Datatypes': 'Configuration/datatypes.md'
