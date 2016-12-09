@@ -717,68 +717,13 @@
         }, 
         {
             "location": "/API/crosstalk/", 
-            "text": "Cross-Talk\n\n\nCross-Talk is how applications communicate between different devices. Applications can exchange information with other applications, or with other instances of the same application. Cool, right? All messages get sent to all devices, so if you have the same app running on different devices, this is how to communicate between instances of the app. \n\n\nGlobal Emitters \n Listeners\n\n\nGlobal messages that can be received across applications, devices, and clients. e.g. Emit from one device, receive on another.\n\n\n.emit(payload)\n\n\n\n\npayload\n Object or string to pass through to retrieve with the listener.\n\n\n\n\n// Send a payload to all listeners\nmatrix.emit(payload);\n\n\n\n\n.on(cb)\n\n\n\n\ncb\n Callback method with \npayload\n returned.\n\n\n\n\n// Listen for global CrossTalk messages\nmatrix.on(function(payload) { ... });\n\n\n\n\nApp Specific Message\n\n\nMessages that can be shared across applications on a single device.\n\n\n.emit(app, payload)\n\n\n\n\napp\n Label to later listen for.\n\n\npayload\n Object or string to pass through to retrieve with the listener.\n\n\n\n\n// Send a message to a particular application\nmatrix.emit('app', payload);\n\n\n\n\n.on(cb)\n\n\n\n\ncb\n Callback method with payload returned.\n\n\n\n\n// Listen for application specific CrossTalk messages\nmatrix.on(function(payload) { ... });\n\n\n\n\nSpecific Event within App\n\n\nMessages that can be filtered by application, and an event type.\n\n\n.emit(app, event, payload)\n\n\n\n\napp\n Label to later listen for.\n\n\nevent\n Event scope within \napp\n to listen for.\n\n\npayload\n Object or string to pass through to retrieve with the listener.\n\n\n\n\n// Trigger an event in a specific application\nmatrix.emit('app', 'event', payload);\n\n\n\n\n.on(event, cb)\n\n\n\n\nevent\n Event to listen on.\n\n\ncb\n Callback method with payload returned.\n\n\n\n\n// Listen for CrossTalk events sent to this application\nmatrix.on('event', function(payload) { ... });\n\n\n\n\nDashboard\n\n\nReceive events from web or mobile by binding them to widget controls.\n\n\n// Interface elements from Dashboards can also trigger CrossTalk events.\nmatrix.on('buttonClick', function(payload) { ... });\n\n\n\n\nConfiguration-Driven Events\n\n\nSee \nConfiguration \n Widgets", 
+            "text": "Cross-Talk\n\n\nCross-Talk is how applications communicate between different devices. Applications can exchange information with other applications, or with other instances of the same application. Cool, right? All messages get sent to all devices, so if you have the same app running on different devices, this is how to communicate between instances of the app.", 
             "title": "Cross-Talk"
         }, 
         {
             "location": "/API/crosstalk/#cross-talk", 
-            "text": "Cross-Talk is how applications communicate between different devices. Applications can exchange information with other applications, or with other instances of the same application. Cool, right? All messages get sent to all devices, so if you have the same app running on different devices, this is how to communicate between instances of the app.", 
+            "text": "Cross-Talk is how applications communicate between different devices. Applications can exchange information with other applications, or with other instances of the same application. Cool, right? All messages get sent to all devices, so if you have the same app running on different devices, this is how to communicate between instances of the app.  <!-- ## Config Setup\nCrossTalk requires setup in configuration to execute successfully.\n### Global\n\n\u0002wzxhzdk:0\u0003\n\n### App Targeted\n\n\u0002wzxhzdk:1\u0003\n\n### App/Event Targeted\n\n\u0002wzxhzdk:2\u0003\n\n// Send a payload to all listeners\nmatrix.emit(payload);\n\n\u0002wzxhzdk:3\u0003\n\n// Listen for global CrossTalk messages\nmatrix.on(function(payload) { ... });\n\n\u0002wzxhzdk:4\u0003\n\n// Send a message to a particular application\nmatrix.emit('app', payload);\n\n\u0002wzxhzdk:5\u0003\n\n// Listen for application specific CrossTalk messages\nmatrix.on(function(payload) { ... });\n\n\u0002wzxhzdk:6\u0003\n\n// Trigger an event in a specific application\nmatrix.emit('app', 'event', payload);\n\n\u0002wzxhzdk:7\u0003\n\n// Listen for CrossTalk events sent to this application\nmatrix.on('event', function(payload) { ... });\n\n\u0002wzxhzdk:8\u0003\n\n// Interface elements from Dashboards can also trigger CrossTalk events.\nmatrix.on('buttonClick', function(payload) { ... });\n```\n### Configuration-Driven Events\nSee [Configuration >  Widgets](../Configuration/widgets.md)", 
             "title": "Cross-Talk"
-        }, 
-        {
-            "location": "/API/crosstalk/#global-emitters-listeners", 
-            "text": "Global messages that can be received across applications, devices, and clients. e.g. Emit from one device, receive on another.", 
-            "title": "Global Emitters &amp; Listeners"
-        }, 
-        {
-            "location": "/API/crosstalk/#emitpayload", 
-            "text": "payload  Object or string to pass through to retrieve with the listener.   // Send a payload to all listeners\nmatrix.emit(payload);", 
-            "title": ".emit(payload)"
-        }, 
-        {
-            "location": "/API/crosstalk/#oncb", 
-            "text": "cb  Callback method with  payload  returned.   // Listen for global CrossTalk messages\nmatrix.on(function(payload) { ... });", 
-            "title": ".on(cb)"
-        }, 
-        {
-            "location": "/API/crosstalk/#app-specific-message", 
-            "text": "Messages that can be shared across applications on a single device.", 
-            "title": "App Specific Message"
-        }, 
-        {
-            "location": "/API/crosstalk/#emitapp-payload", 
-            "text": "app  Label to later listen for.  payload  Object or string to pass through to retrieve with the listener.   // Send a message to a particular application\nmatrix.emit('app', payload);", 
-            "title": ".emit(app, payload)"
-        }, 
-        {
-            "location": "/API/crosstalk/#oncb_1", 
-            "text": "cb  Callback method with payload returned.   // Listen for application specific CrossTalk messages\nmatrix.on(function(payload) { ... });", 
-            "title": ".on(cb)"
-        }, 
-        {
-            "location": "/API/crosstalk/#specific-event-within-app", 
-            "text": "Messages that can be filtered by application, and an event type.", 
-            "title": "Specific Event within App"
-        }, 
-        {
-            "location": "/API/crosstalk/#emitapp-event-payload", 
-            "text": "app  Label to later listen for.  event  Event scope within  app  to listen for.  payload  Object or string to pass through to retrieve with the listener.   // Trigger an event in a specific application\nmatrix.emit('app', 'event', payload);", 
-            "title": ".emit(app, event, payload)"
-        }, 
-        {
-            "location": "/API/crosstalk/#onevent-cb", 
-            "text": "event  Event to listen on.  cb  Callback method with payload returned.   // Listen for CrossTalk events sent to this application\nmatrix.on('event', function(payload) { ... });", 
-            "title": ".on(event, cb)"
-        }, 
-        {
-            "location": "/API/crosstalk/#dashboard", 
-            "text": "Receive events from web or mobile by binding them to widget controls.  // Interface elements from Dashboards can also trigger CrossTalk events.\nmatrix.on('buttonClick', function(payload) { ... });", 
-            "title": "Dashboard"
-        }, 
-        {
-            "location": "/API/crosstalk/#configuration-driven-events", 
-            "text": "See  Configuration   Widgets", 
-            "title": "Configuration-Driven Events"
         }, 
         {
             "location": "/API/typesend/", 
@@ -1432,7 +1377,7 @@
         }, 
         {
             "location": "/MALOS/overview/", 
-            "text": "Matrix Abstraction Layer for OS\n\n\nMALOS provides a \nZeroMQ\n messaging layer. An intended target for this layer is \nMATRIX OS\n.\n\n\nInstallation\n\n\n# setup \n installation\necho \ndeb http://packages.matrix.one/matrix-creator/ ./\n | sudo tee --append /etc/apt/sources.list;\nsudo apt-get update;\nsudo apt-get upgrade;\nsudo apt-get install -y libzmq3-dev xc3sprog malos-eye matrix-creator-malos matrix-creator-openocd wiringpi matrix-creator-init cmake g++ git --force-yes;\n\n\n\n\nUpgrades\n\n\nIf you need to upgrade your \nmalos\n package at any time, please run the following commands and restart.\n\n\nsudo apt-get update;\nsudo apt-get upgrade;\nsudo shutdown -r now;\n\n\n\n\nYou should something similar to this if everything is OK.\n\n\n$ malos\n\n**************\nMALOS starting\n**************\n\nYou can query specific driver info using port 20012.\nRegistered driver IMU with port 20013.\nRegistered driver Humidity with port 20017.\nRegistered driver Everloop with port 20021.\nRegistered driver Pressure with port 20025.\nRegistered driver UV with port 20029.\nRegistered driver ZigbeeBulb with port 20033.\nRegistered driver MicArray_Alsa with port 20037.\nRegistered driver Lirc with port 20041.\n\n\n\n\nRunning MALOS as a background process.\n\n\n$ malos \n /dev/null 2\n1 \n\n\n\n\n\nDemos\n\n\nSee \nMALOS \n Demos", 
+            "text": "Matrix Abstraction Layer for OS\n\n\nMALOS provides a \nZeroMQ\n messaging layer. An intended target for this layer is \nMATRIX OS\n.\n\n\nInstallation\n\n\n# setup \n installation\necho \ndeb http://packages.matrix.one/matrix-creator/ ./\n | sudo tee --append /etc/apt/sources.list;\nsudo apt-get update;\nsudo apt-get upgrade;\nsudo apt-get install -y libzmq3-dev xc3sprog malos-eye matrix-creator-malos matrix-creator-openocd wiringpi matrix-creator-init cmake g++ git --force-yes;\n\n\n\n\nUpgrades\n\n\nIf you need to upgrade your \nmalos\n package at any time, please run the following commands and restart.\n\n\nsudo apt-get update;\nsudo apt-get upgrade;\nsudo shutdown -r now;\n\n\n\n\nMALOS should be running on next boot.\n\n\nDemos\n\n\nSee \nMALOS \n Demos", 
             "title": "Overview"
         }, 
         {
@@ -1447,13 +1392,8 @@
         }, 
         {
             "location": "/MALOS/overview/#upgrades", 
-            "text": "If you need to upgrade your  malos  package at any time, please run the following commands and restart.  sudo apt-get update;\nsudo apt-get upgrade;\nsudo shutdown -r now;  You should something similar to this if everything is OK.  $ malos\n\n**************\nMALOS starting\n**************\n\nYou can query specific driver info using port 20012.\nRegistered driver IMU with port 20013.\nRegistered driver Humidity with port 20017.\nRegistered driver Everloop with port 20021.\nRegistered driver Pressure with port 20025.\nRegistered driver UV with port 20029.\nRegistered driver ZigbeeBulb with port 20033.\nRegistered driver MicArray_Alsa with port 20037.\nRegistered driver Lirc with port 20041.", 
+            "text": "If you need to upgrade your  malos  package at any time, please run the following commands and restart.  sudo apt-get update;\nsudo apt-get upgrade;\nsudo shutdown -r now;  MALOS should be running on next boot.", 
             "title": "Upgrades"
-        }, 
-        {
-            "location": "/MALOS/overview/#running-malos-as-a-background-process", 
-            "text": "$ malos   /dev/null 2 1", 
-            "title": "Running MALOS as a background process."
         }, 
         {
             "location": "/MALOS/overview/#demos", 
@@ -1462,12 +1402,12 @@
         }, 
         {
             "location": "/MALOS/example/", 
-            "text": "Getting Started\n\n\ngit clone https://github.com/matrix-io/matrix-creator-malos;\ngit submodule update --init;\ncd src/js_test;\nnpm install;\n\n\n\n\nExamples\n\n\nMALOS is the program that sits between the low level hardware layer and MATRIX OS. This program allows MATRIX OS to access the board hardware via ZeroMQ sockets. You can also use it directly, as it is done with the examples below. The The IPs used in the examples are 127.0.0.1. Remember to edit them if you're accessing the Creator from another host and not from the Raspberry itself.\n\n\nNote:\n Pre-requisite of \nNodeJS\n on the client computer.\n\n\nDrivers\n\n\nnode test_driver_info.js\n\n\n\n\nEverloop\n\n\nnode test_everloop.js\n\n\n\n\nHumidity\n\n\nnode test_humidity.js\n\n\n\n\nIMU\n\n\nnode test_imu.js\n\n\n\n\nIR Remote\n\n\nnode test_ir_remote.js\n\n\n\n\nPressure\n\n\nnode test_pressure.js\n\n\n\n\nUV\n\n\nnode test_uv.js\n\n\n\n\nZigbee Bulb On/Off\n\n\nnode test_zigbee_bulb.js\n\n\n\n\nZigbee Bulb Color\n\n\nnode test_zigbee_color.js\n\n\n\n\nZigbee Bulb Brightness\n\n\nnode test_zigbee_level.js", 
+            "text": "Getting Started\n\n\ngit clone https://github.com/matrix-io/matrix-creator-malos;\ncd matrix-creator-malos;\ngit submodule update --init;\ncd src/js_test;\nnpm install;\n\n\n\n\nExamples\n\n\nMALOS is the program that sits between the low level hardware layer and MATRIX OS. This program allows MATRIX OS to access the board hardware via ZeroMQ sockets. You can also use it directly, as it is done with the examples below. The The IPs used in the examples are 127.0.0.1. Remember to edit them if you're accessing the Creator from another host and not from the Raspberry itself.\n\n\nNote:\n Pre-requisite of \nNodeJS\n on the client computer.\n\n\nDrivers\n\n\nnode test_driver_info.js\n\n\n\n\nEverloop\n\n\nnode test_everloop.js\n\n\n\n\nHumidity\n\n\nnode test_humidity.js\n\n\n\n\nIMU\n\n\nnode test_imu.js\n\n\n\n\nIR Remote\n\n\nnode test_ir_remote.js\n\n\n\n\nPressure\n\n\nnode test_pressure.js\n\n\n\n\nUV\n\n\nnode test_uv.js\n\n\n\n\nZigbee Bulb On/Off\n\n\nnode test_zigbee_bulb.js\n\n\n\n\nZigbee Bulb Color\n\n\nnode test_zigbee_color.js\n\n\n\n\nZigbee Bulb Brightness\n\n\nnode test_zigbee_level.js", 
             "title": "Examples"
         }, 
         {
             "location": "/MALOS/example/#getting-started", 
-            "text": "git clone https://github.com/matrix-io/matrix-creator-malos;\ngit submodule update --init;\ncd src/js_test;\nnpm install;", 
+            "text": "git clone https://github.com/matrix-io/matrix-creator-malos;\ncd matrix-creator-malos;\ngit submodule update --init;\ncd src/js_test;\nnpm install;", 
             "title": "Getting Started"
         }, 
         {

@@ -421,104 +421,61 @@
         <li class="main active"><a href="#cross-talk">Cross-Talk</a></li>
         
     
-        <li class="main "><a href="#global-emitters-listeners">Global Emitters &amp; Listeners</a></li>
-        
-            <li><a href="#emitpayload">.emit(payload)</a></li>
-        
-            <li><a href="#oncb">.on(cb)</a></li>
-        
-    
-        <li class="main "><a href="#app-specific-message">App Specific Message</a></li>
-        
-            <li><a href="#emitapp-payload">.emit(app, payload)</a></li>
-        
-            <li><a href="#oncb_1">.on(cb)</a></li>
-        
-    
-        <li class="main "><a href="#specific-event-within-app">Specific Event within App</a></li>
-        
-            <li><a href="#emitapp-event-payload">.emit(app, event, payload)</a></li>
-        
-            <li><a href="#onevent-cb">.on(event, cb)</a></li>
-        
-    
-        <li class="main "><a href="#dashboard">Dashboard</a></li>
-        
-            <li><a href="#configuration-driven-events">Configuration-Driven Events</a></li>
-        
-    
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
 
 <h2 id="cross-talk">Cross-Talk</h2>
-<p>Cross-Talk is how applications communicate between different devices. Applications can exchange information with other applications, or with other instances of the same application. Cool, right? All messages get sent to all devices, so if you have the same app running on different devices, this is how to communicate between instances of the app. </p>
-<h2 id="global-emitters-listeners">Global Emitters &amp; Listeners</h2>
-<p>Global messages that can be received across applications, devices, and clients. e.g. Emit from one device, receive on another.</p>
-<h3 id="emitpayload">.emit(payload)</h3>
-<ul>
-<li><code>payload</code> Object or string to pass through to retrieve with the listener.</li>
-</ul>
-<pre><code>// Send a payload to all listeners
+<p>Cross-Talk is how applications communicate between different devices. Applications can exchange information with other applications, or with other instances of the same application. Cool, right? All messages get sent to all devices, so if you have the same app running on different devices, this is how to communicate between instances of the app.</p>
+<!-- ## Config Setup
+CrossTalk requires setup in configuration to execute successfully.
+### Global
+
+wzxhzdk:0
+
+### App Targeted
+
+wzxhzdk:1
+
+### App/Event Targeted
+
+wzxhzdk:2
+
+// Send a payload to all listeners
 matrix.emit(payload);
-</code></pre>
 
-<h3 id="oncb">.on(cb)</h3>
-<ul>
-<li><code>cb</code> Callback method with <code>payload</code> returned.</li>
-</ul>
-<pre><code>// Listen for global CrossTalk messages
+wzxhzdk:3
+
+// Listen for global CrossTalk messages
 matrix.on(function(payload) { ... });
-</code></pre>
 
-<h2 id="app-specific-message">App Specific Message</h2>
-<p>Messages that can be shared across applications on a single device.</p>
-<h3 id="emitapp-payload">.emit(app, payload)</h3>
-<ul>
-<li><code>app</code> Label to later listen for.</li>
-<li><code>payload</code> Object or string to pass through to retrieve with the listener.</li>
-</ul>
-<pre><code>// Send a message to a particular application
+wzxhzdk:4
+
+// Send a message to a particular application
 matrix.emit('app', payload);
-</code></pre>
 
-<h3 id="oncb_1">.on(cb)</h3>
-<ul>
-<li><code>cb</code> Callback method with payload returned.</li>
-</ul>
-<pre><code>// Listen for application specific CrossTalk messages
+wzxhzdk:5
+
+// Listen for application specific CrossTalk messages
 matrix.on(function(payload) { ... });
-</code></pre>
 
-<h2 id="specific-event-within-app">Specific Event within App</h2>
-<p>Messages that can be filtered by application, and an event type.</p>
-<h3 id="emitapp-event-payload">.emit(app, event, payload)</h3>
-<ul>
-<li><code>app</code> Label to later listen for.</li>
-<li><code>event</code> Event scope within <code>app</code> to listen for.</li>
-<li><code>payload</code> Object or string to pass through to retrieve with the listener.</li>
-</ul>
-<pre><code>// Trigger an event in a specific application
+wzxhzdk:6
+
+// Trigger an event in a specific application
 matrix.emit('app', 'event', payload);
-</code></pre>
 
-<h3 id="onevent-cb">.on(event, cb)</h3>
-<ul>
-<li><code>event</code> Event to listen on.</li>
-<li><code>cb</code> Callback method with payload returned.</li>
-</ul>
-<pre><code>// Listen for CrossTalk events sent to this application
+wzxhzdk:7
+
+// Listen for CrossTalk events sent to this application
 matrix.on('event', function(payload) { ... });
-</code></pre>
 
-<h2 id="dashboard">Dashboard</h2>
-<p>Receive events from web or mobile by binding them to widget controls.</p>
-<pre><code>// Interface elements from Dashboards can also trigger CrossTalk events.
+wzxhzdk:8
+
+// Interface elements from Dashboards can also trigger CrossTalk events.
 matrix.on('buttonClick', function(payload) { ... });
-</code></pre>
-
-<h3 id="configuration-driven-events">Configuration-Driven Events</h3>
-<p>See <a href="../../Configuration/widgets/">Configuration &gt; Widgets</a></p></div>
+```
+### Configuration-Driven Events
+See [Configuration > Widgets](../Configuration/widgets.md)</div>
             
         </div>
 
