@@ -20,28 +20,7 @@ sudo apt-get upgrade;
 sudo shutdown -r now;
 ```
 
-You should something similar to this if everything is OK.
-```
-$ malos
+MALOS should be running on next boot.
 
-**************
-MALOS starting
-**************
-
-You can query specific driver info using port 20012.
-Registered driver IMU with port 20013.
-Registered driver Humidity with port 20017.
-Registered driver Everloop with port 20021.
-Registered driver Pressure with port 20025.
-Registered driver UV with port 20029.
-Registered driver ZigbeeBulb with port 20033.
-Registered driver MicArray_Alsa with port 20037.
-Registered driver Lirc with port 20041.
-```
-
-## Running MALOS as a background process.
-```
-$ malos > /dev/null 2>&1 &
-```
 ### Demos
 See [MALOS > Demos](../MALOS/example.md)
