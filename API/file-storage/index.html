@@ -9,7 +9,7 @@
         
         <link rel="shortcut icon" href="../../img/favicon.ico">
 
-	<title>NFC - MATRIX</title>
+	<title>File Storage - MATRIX</title>
 
         <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
         <link href="../../css/font-awesome-4.5.0.css" rel="stylesheet">
@@ -181,8 +181,8 @@
 
         
             
-<li class="active">
-    <a href="./">NFC</a>
+<li >
+    <a href="../nfc/">NFC</a>
 </li>
 
         
@@ -205,8 +205,8 @@
 
         
             
-<li >
-    <a href="../file-storage/">File Storage</a>
+<li class="active">
+    <a href="./">File Storage</a>
 </li>
 
         
@@ -403,12 +403,12 @@
                 </li>
                 
                     <li >
-                        <a rel="next" href="../ir/">
+                        <a rel="next" href="../servos/">
                             <i class="fa fa-arrow-left"></i> Previous
                         </a>
                     </li>
                     <li >
-                        <a rel="prev" href="../zwave/">
+                        <a rel="prev" href="../db/">
                             Next <i class="fa fa-arrow-right"></i>
                         </a>
                     </li>
@@ -424,12 +424,46 @@
                 <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
+        <li class="main active"><a href="#file-storage">File Storage</a></li>
+        
+            <li><a href="#save">Save</a></li>
+        
+            <li><a href="#load">Load</a></li>
+        
+            <li><a href="#list">List</a></li>
+        
+            <li><a href="#remove">Remove</a></li>
+        
+    
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
 
-<p>Still working out the precise API for this. Stay tuned.</p>
-<pre><code>matrix.init('nfc')...
+<h2 id="file-storage">File Storage</h2>
+<p>MATRIX applications utilize a shared file storage, so files saved with one application are accessible from another.</p>
+<h3 id="save">Save</h3>
+<pre><code>// url - publically accessible url
+// filename - what to save this file as
+// cb - function to call when save is complete
+matrix.file.save( url, filename, cb )
+</code></pre>
+
+<h3 id="load">Load</h3>
+<pre><code>// filename - file to load
+// cb - function to call after file is read, passed (err, data)
+matrix.file.load(filename, cb)
+</code></pre>
+
+<h3 id="list">List</h3>
+<pre><code>matrix.file.list(filename, function(err, files){
+  // files is an array of file names
+})
+</code></pre>
+
+<h3 id="remove">Remove</h3>
+<pre><code>// filename - what file to Remove
+// cb - function to call when remove is complete
+matrix.file.remove( filename, cb )
 </code></pre></div>
             
         </div>

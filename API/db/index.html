@@ -9,7 +9,7 @@
         
         <link rel="shortcut icon" href="../../img/favicon.ico">
 
-	<title>NFC - MATRIX</title>
+	<title>Local Database - MATRIX</title>
 
         <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
         <link href="../../css/font-awesome-4.5.0.css" rel="stylesheet">
@@ -181,8 +181,8 @@
 
         
             
-<li class="active">
-    <a href="./">NFC</a>
+<li >
+    <a href="../nfc/">NFC</a>
 </li>
 
         
@@ -211,8 +211,8 @@
 
         
             
-<li >
-    <a href="../db/">Local Database</a>
+<li class="active">
+    <a href="./">Local Database</a>
 </li>
 
         
@@ -403,12 +403,12 @@
                 </li>
                 
                     <li >
-                        <a rel="next" href="../ir/">
+                        <a rel="next" href="../file-storage/">
                             <i class="fa fa-arrow-left"></i> Previous
                         </a>
                     </li>
                     <li >
-                        <a rel="prev" href="../zwave/">
+                        <a rel="prev" href="../../Configuration/overview/">
                             Next <i class="fa fa-arrow-right"></i>
                         </a>
                     </li>
@@ -424,12 +424,35 @@
                 <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
+        <li class="main active"><a href="#local-database">Local Database</a></li>
+        
+    
+        <li class="main "><a href="#get">Get</a></li>
+        
+    
+        <li class="main "><a href="#set">Set</a></li>
+        
+    
+        <li class="main "><a href="#delete">Delete</a></li>
+        
+    
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
 
-<p>Still working out the precise API for this. Stay tuned.</p>
-<pre><code>matrix.init('nfc')...
+<h2 id="local-database">Local Database</h2>
+<p>MATRIX OS has a local, file-based key-value store for app usage.</p>
+<p>It is not recommended to set end user specific configurations here, and use <code>config.yaml&gt;settings</code> instead.</p>
+<h2 id="get">Get</h2>
+<pre><code>matrix.store.get(key, cb)
+</code></pre>
+
+<h2 id="set">Set</h2>
+<pre><code>matrix.store.set(key, value, cb)
+</code></pre>
+
+<h2 id="delete">Delete</h2>
+<pre><code>matrix.store.delete(key, cb)
 </code></pre></div>
             
         </div>
