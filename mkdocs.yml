@@ -15,7 +15,6 @@ pages:
 - MATRIX OS:
   - Overview: 'API/overview.md'
   - App Publishing: 'intro/app-publishing.md'
-  - Installation: 'API/installation.md'
   - App API:
     - 'Sensors': 'API/sensors.md'
     - 'Everloop': 'API/everloop.md'
@@ -30,6 +29,8 @@ pages:
     - 'Z-wave': 'API/zwave.md'
     - 'Zigbee': 'API/zigbee.md'
     - 'Servos': 'API/servos.md'
+    - 'File Storage': 'API/file-storage.md'
+    - 'Local Database': 'API/db.md'
   - Configuration:
     - 'Overview': 'Configuration/overview.md'
     - 'Datatypes': 'Configuration/datatypes.md'

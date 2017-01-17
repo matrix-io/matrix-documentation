@@ -1,8 +1,9 @@
 ## Cross-Talk
 Cross-Talk is how applications communicate between different devices. Applications can exchange information with other applications, or with other instances of the same application. Cool, right? All messages get sent to all devices, so if you have the same app running on different devices, this is how to communicate between instances of the app.
 
-<!-- ## Config Setup
-CrossTalk requires setup in configuration to execute successfully.
+## Config Setup
+CrossTalk requires setup in configuration to execute successfully. This information is also used in the app store to determine which applications can communicate via events. 
+
 ### Global
 ```
 events:
@@ -16,8 +17,9 @@ events:
 ### App/Event Targeted
 ```
 events:
-  - appname::eventname
-``` -->
+  - appname:
+    - eventname
+```
 
 ## Global Emitters & Listeners
 Global messages that can be received across applications, devices, and clients. e.g. Emit from one device, receive on another.

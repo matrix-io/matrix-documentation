@@ -1,6 +1,19 @@
 ## Computer Vision
 Part of the vision for MATRIX OS is to provide computer vision in an easy to access format.
 
+## Example
+From (faceTest MATRIX App)[http://apps.matrix.one/#!/apps/facetest]
+```
+matrix.led('red').render();
+
+matrix.init('face').then(function(data){
+  matrix.led('green').render();
+  setTimeout(function() {
+    matrix.led('black').render();
+  },2000);
+});
+```
+
 ## Configuration
 To facilitate communication with the hardware, it is required to define CV services in `config.yaml` before they will be available to your application.
 
