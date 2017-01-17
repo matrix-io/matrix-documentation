@@ -421,6 +421,9 @@
         <li class="main active"><a href="#computer-vision">Computer Vision</a></li>
         
     
+        <li class="main "><a href="#example">Example</a></li>
+        
+    
         <li class="main "><a href="#configuration">Configuration</a></li>
         
     
@@ -447,6 +450,18 @@
 
 <h2 id="computer-vision">Computer Vision</h2>
 <p>Part of the vision for MATRIX OS is to provide computer vision in an easy to access format.</p>
+<h2 id="example">Example</h2>
+<p>From (faceTest MATRIX App)[http://apps.matrix.one/#!/apps/facetest]</p>
+<pre><code>matrix.led('red').render();
+
+matrix.init('face').then(function(data){
+  matrix.led('green').render();
+  setTimeout(function() {
+    matrix.led('black').render();
+  },2000);
+});
+</code></pre>
+
 <h2 id="configuration">Configuration</h2>
 <p>To facilitate communication with the hardware, it is required to define CV services in <code>config.yaml</code> before they will be available to your application.</p>
 <p>See <a href="../../Configuration/services/">Services</a> for more information</p>
@@ -522,30 +537,30 @@ These are applicable to all algorithms.
 
 ### Example
 
-wzxhzdk:3
+wzxhzdk:4
 
 matrix.init('gesture', options).then(function(data){})
 
-wzxhzdk:4
+wzxhzdk:5
 
 var options = { detect: ['THUMB_UP'] };
 matrix.init('gesture', options);
 
-wzxhzdk:5
+wzxhzdk:6
 
 var options = { detect: ['AGE', 'EMOTION','GENDER','FACE_ID','HEAD_POSE','FACE_FEATURES'] };
 matrix.init('gesture', options);
 
-wzxhzdk:6
+wzxhzdk:7
 
 matrix.init('face-id').then(function(data){})
 
-wzxhzdk:7
+wzxhzdk:8
 
 // preuploaded Example - myFace.jpg
 matrix.init('face-id', { match: 'myFace' })
 
-wzxhzdk:8
+wzxhzdk:9
 
 // dynamic faces from dashboard / mobile app / cli
 matrix.on('faceUpload', function(data){
@@ -568,11 +583,11 @@ matrix.on('faceUpload', function(data){
 // use configuration for recognition
 matrix.init('face', { match: matrix.faces })
 
-wzxhzdk:9
+wzxhzdk:10
 
 matrix.init('vehicle-count').then(function(data){})
 
-wzxhzdk:10
+wzxhzdk:11
 
 matrix.init('people-count').then(function(data){})
 ```

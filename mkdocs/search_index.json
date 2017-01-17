@@ -652,13 +652,18 @@
         }, 
         {
             "location": "/API/computer-vision/", 
-            "text": "Computer Vision\n\n\nPart of the vision for MATRIX OS is to provide computer vision in an easy to access format.\n\n\nConfiguration\n\n\nTo facilitate communication with the hardware, it is required to define CV services in \nconfig.yaml\n before they will be available to your application.\n\n\nSee \nServices\n for more information\n\n\nWe've build computer vision algorithms in the API inteface to add another level of experiential IoT applications. We've also made it extremely simple to get started.\n\n\nDetection Algorithms\n\n\nAvailable algorithms: \nface\n, \npalm\n, \nfist\n\n\n\n\n\nInitialization\n\n\n# app.js\nvar algorithm = 'face';\nvar options   = {};\nmatrix.init( algorithm, options ).then(function( data ){\n  // your CV detection data will be available here\n  console.log( data );\n});\n\n\n\n\noptions\n\n\nrefresh\n - how many seconds before restarting the detection, default: 3\n\n\ntimeout\n - if there is no detection, stop after this many seconds, default: none\n\n\nAlgorithms\n\n\nBasic\n\n\nface\n,\nfist\n,\npalm\n\n\n\n\n\nBasic Data Format\n\n\npalm\n output - \nmatrix.init('palm')\n\n\n{\n  location: { x: 333, y: 237, width: 55, height: 55 },\n  tag: 'HAND_PALM'\n}\n\n\n\n\nExtended Face Data Format\n\n\ndemographics\n output - - \nmatrix.init('demographics')\n\n\n{ location: { x: 213, y: 221, width: 55, height: 55 },\n tag: 'FACE',\n demographics:\n  { gender: 'MALE',\n    emotion: 'CALM',\n    age: 35,\n    pose:\n     { yaw: -0.24303536117076874,\n       roll: 0.04344254732131958,\n       pitch: -0.10279278457164764 },\n    face_id: '4' } }\n\n\n\n\nemotions\n\n\nHAPPY\n\n\nSAD\n\n\nCONFUSED\n\n\nANGRY\n\n\nCALM\n\n\nSURPRISED\n\n\nDISGUST", 
+            "text": "Computer Vision\n\n\nPart of the vision for MATRIX OS is to provide computer vision in an easy to access format.\n\n\nExample\n\n\nFrom (faceTest MATRIX App)[http://apps.matrix.one/#!/apps/facetest]\n\n\nmatrix.led('red').render();\n\nmatrix.init('face').then(function(data){\n  matrix.led('green').render();\n  setTimeout(function() {\n    matrix.led('black').render();\n  },2000);\n});\n\n\n\n\nConfiguration\n\n\nTo facilitate communication with the hardware, it is required to define CV services in \nconfig.yaml\n before they will be available to your application.\n\n\nSee \nServices\n for more information\n\n\nWe've build computer vision algorithms in the API inteface to add another level of experiential IoT applications. We've also made it extremely simple to get started.\n\n\nDetection Algorithms\n\n\nAvailable algorithms: \nface\n, \npalm\n, \nfist\n\n\n\n\n\nInitialization\n\n\n# app.js\nvar algorithm = 'face';\nvar options   = {};\nmatrix.init( algorithm, options ).then(function( data ){\n  // your CV detection data will be available here\n  console.log( data );\n});\n\n\n\n\noptions\n\n\nrefresh\n - how many seconds before restarting the detection, default: 3\n\n\ntimeout\n - if there is no detection, stop after this many seconds, default: none\n\n\nAlgorithms\n\n\nBasic\n\n\nface\n,\nfist\n,\npalm\n\n\n\n\n\nBasic Data Format\n\n\npalm\n output - \nmatrix.init('palm')\n\n\n{\n  location: { x: 333, y: 237, width: 55, height: 55 },\n  tag: 'HAND_PALM'\n}\n\n\n\n\nExtended Face Data Format\n\n\ndemographics\n output - - \nmatrix.init('demographics')\n\n\n{ location: { x: 213, y: 221, width: 55, height: 55 },\n tag: 'FACE',\n demographics:\n  { gender: 'MALE',\n    emotion: 'CALM',\n    age: 35,\n    pose:\n     { yaw: -0.24303536117076874,\n       roll: 0.04344254732131958,\n       pitch: -0.10279278457164764 },\n    face_id: '4' } }\n\n\n\n\nemotions\n\n\nHAPPY\n\n\nSAD\n\n\nCONFUSED\n\n\nANGRY\n\n\nCALM\n\n\nSURPRISED\n\n\nDISGUST", 
             "title": "Computer Vision"
         }, 
         {
             "location": "/API/computer-vision/#computer-vision", 
             "text": "Part of the vision for MATRIX OS is to provide computer vision in an easy to access format.", 
             "title": "Computer Vision"
+        }, 
+        {
+            "location": "/API/computer-vision/#example", 
+            "text": "From (faceTest MATRIX App)[http://apps.matrix.one/#!/apps/facetest]  matrix.led('red').render();\n\nmatrix.init('face').then(function(data){\n  matrix.led('green').render();\n  setTimeout(function() {\n    matrix.led('black').render();\n  },2000);\n});", 
+            "title": "Example"
         }, 
         {
             "location": "/API/computer-vision/#configuration", 
@@ -717,13 +722,88 @@
         }, 
         {
             "location": "/API/crosstalk/", 
-            "text": "Cross-Talk\n\n\nCross-Talk is how applications communicate between different devices. Applications can exchange information with other applications, or with other instances of the same application. Cool, right? All messages get sent to all devices, so if you have the same app running on different devices, this is how to communicate between instances of the app.", 
+            "text": "Cross-Talk\n\n\nCross-Talk is how applications communicate between different devices. Applications can exchange information with other applications, or with other instances of the same application. Cool, right? All messages get sent to all devices, so if you have the same app running on different devices, this is how to communicate between instances of the app.\n\n\nConfig Setup\n\n\nCrossTalk requires setup in configuration to execute successfully. This information is also used in the app store to determine which applications can communicate via events. \n\n\nGlobal\n\n\nevents:\n  - global\n\n\n\n\nApp Targeted\n\n\nevents:\n  - appname\n\n\n\n\nApp/Event Targeted\n\n\nevents:\n  - appname:\n    - eventname\n\n\n\n\nGlobal Emitters \n Listeners\n\n\nGlobal messages that can be received across applications, devices, and clients. e.g. Emit from one device, receive on another.\n\n\n.emit(payload)\n\n\n\n\npayload\n Object or string to pass through to retrieve with the listener.\n\n\n\n\n// Send a payload to all listeners\nmatrix.emit(payload);\n\n\n\n\n.on(cb)\n\n\n\n\ncb\n Callback method with \npayload\n returned.\n\n\n\n\n// Listen for global CrossTalk messages\nmatrix.on(function(payload) { ... });\n\n\n\n\nApp Specific Message\n\n\nMessages that can be shared across applications on a single device.\n\n\n.emit(app, payload)\n\n\n\n\napp\n Label to later listen for.\n\n\npayload\n Object or string to pass through to retrieve with the listener.\n\n\n\n\n// Send a message to a particular application\nmatrix.emit('app', payload);\n\n\n\n\n.on(cb)\n\n\n\n\ncb\n Callback method with payload returned.\n\n\n\n\n// Listen for application specific CrossTalk messages\nmatrix.on(function(payload) { ... });\n\n\n\n\nSpecific Event within App\n\n\nMessages that can be filtered by application, and an event type.\n\n\n.emit(app, event, payload)\n\n\n\n\napp\n Label to later listen for.\n\n\nevent\n Event scope within \napp\n to listen for.\n\n\npayload\n Object or string to pass through to retrieve with the listener.\n\n\n\n\n// Trigger an event in a specific application\nmatrix.emit('app', 'event', payload);\n\n\n\n\n.on(event, cb)\n\n\n\n\nevent\n Event to listen on.\n\n\ncb\n Callback method with payload returned.\n\n\n\n\n// Listen for CrossTalk events sent to this application\nmatrix.on('event', function(payload) { ... });\n\n\n\n\nDashboard\n\n\nReceive events from web or mobile by binding them to widget controls.\n\n\n// Interface elements from Dashboards can also trigger CrossTalk events.\nmatrix.on('buttonClick', function(payload) { ... });\n\n\n\n\nConfiguration-Driven Events\n\n\nSee \nConfiguration \n Widgets", 
             "title": "Cross-Talk"
         }, 
         {
             "location": "/API/crosstalk/#cross-talk", 
-            "text": "Cross-Talk is how applications communicate between different devices. Applications can exchange information with other applications, or with other instances of the same application. Cool, right? All messages get sent to all devices, so if you have the same app running on different devices, this is how to communicate between instances of the app.  <!-- ## Config Setup\nCrossTalk requires setup in configuration to execute successfully.\n### Global\n\n\u0002wzxhzdk:0\u0003\n\n### App Targeted\n\n\u0002wzxhzdk:1\u0003\n\n### App/Event Targeted\n\n\u0002wzxhzdk:2\u0003\n\n// Send a payload to all listeners\nmatrix.emit(payload);\n\n\u0002wzxhzdk:3\u0003\n\n// Listen for global CrossTalk messages\nmatrix.on(function(payload) { ... });\n\n\u0002wzxhzdk:4\u0003\n\n// Send a message to a particular application\nmatrix.emit('app', payload);\n\n\u0002wzxhzdk:5\u0003\n\n// Listen for application specific CrossTalk messages\nmatrix.on(function(payload) { ... });\n\n\u0002wzxhzdk:6\u0003\n\n// Trigger an event in a specific application\nmatrix.emit('app', 'event', payload);\n\n\u0002wzxhzdk:7\u0003\n\n// Listen for CrossTalk events sent to this application\nmatrix.on('event', function(payload) { ... });\n\n\u0002wzxhzdk:8\u0003\n\n// Interface elements from Dashboards can also trigger CrossTalk events.\nmatrix.on('buttonClick', function(payload) { ... });\n```\n### Configuration-Driven Events\nSee [Configuration >  Widgets](../Configuration/widgets.md)", 
+            "text": "Cross-Talk is how applications communicate between different devices. Applications can exchange information with other applications, or with other instances of the same application. Cool, right? All messages get sent to all devices, so if you have the same app running on different devices, this is how to communicate between instances of the app.", 
             "title": "Cross-Talk"
+        }, 
+        {
+            "location": "/API/crosstalk/#config-setup", 
+            "text": "CrossTalk requires setup in configuration to execute successfully. This information is also used in the app store to determine which applications can communicate via events.", 
+            "title": "Config Setup"
+        }, 
+        {
+            "location": "/API/crosstalk/#global", 
+            "text": "events:\n  - global", 
+            "title": "Global"
+        }, 
+        {
+            "location": "/API/crosstalk/#app-targeted", 
+            "text": "events:\n  - appname", 
+            "title": "App Targeted"
+        }, 
+        {
+            "location": "/API/crosstalk/#appevent-targeted", 
+            "text": "events:\n  - appname:\n    - eventname", 
+            "title": "App/Event Targeted"
+        }, 
+        {
+            "location": "/API/crosstalk/#global-emitters-listeners", 
+            "text": "Global messages that can be received across applications, devices, and clients. e.g. Emit from one device, receive on another.", 
+            "title": "Global Emitters &amp; Listeners"
+        }, 
+        {
+            "location": "/API/crosstalk/#emitpayload", 
+            "text": "payload  Object or string to pass through to retrieve with the listener.   // Send a payload to all listeners\nmatrix.emit(payload);", 
+            "title": ".emit(payload)"
+        }, 
+        {
+            "location": "/API/crosstalk/#oncb", 
+            "text": "cb  Callback method with  payload  returned.   // Listen for global CrossTalk messages\nmatrix.on(function(payload) { ... });", 
+            "title": ".on(cb)"
+        }, 
+        {
+            "location": "/API/crosstalk/#app-specific-message", 
+            "text": "Messages that can be shared across applications on a single device.", 
+            "title": "App Specific Message"
+        }, 
+        {
+            "location": "/API/crosstalk/#emitapp-payload", 
+            "text": "app  Label to later listen for.  payload  Object or string to pass through to retrieve with the listener.   // Send a message to a particular application\nmatrix.emit('app', payload);", 
+            "title": ".emit(app, payload)"
+        }, 
+        {
+            "location": "/API/crosstalk/#oncb_1", 
+            "text": "cb  Callback method with payload returned.   // Listen for application specific CrossTalk messages\nmatrix.on(function(payload) { ... });", 
+            "title": ".on(cb)"
+        }, 
+        {
+            "location": "/API/crosstalk/#specific-event-within-app", 
+            "text": "Messages that can be filtered by application, and an event type.", 
+            "title": "Specific Event within App"
+        }, 
+        {
+            "location": "/API/crosstalk/#emitapp-event-payload", 
+            "text": "app  Label to later listen for.  event  Event scope within  app  to listen for.  payload  Object or string to pass through to retrieve with the listener.   // Trigger an event in a specific application\nmatrix.emit('app', 'event', payload);", 
+            "title": ".emit(app, event, payload)"
+        }, 
+        {
+            "location": "/API/crosstalk/#onevent-cb", 
+            "text": "event  Event to listen on.  cb  Callback method with payload returned.   // Listen for CrossTalk events sent to this application\nmatrix.on('event', function(payload) { ... });", 
+            "title": ".on(event, cb)"
+        }, 
+        {
+            "location": "/API/crosstalk/#dashboard", 
+            "text": "Receive events from web or mobile by binding them to widget controls.  // Interface elements from Dashboards can also trigger CrossTalk events.\nmatrix.on('buttonClick', function(payload) { ... });", 
+            "title": "Dashboard"
+        }, 
+        {
+            "location": "/API/crosstalk/#configuration-driven-events", 
+            "text": "See  Configuration   Widgets", 
+            "title": "Configuration-Driven Events"
         }, 
         {
             "location": "/API/typesend/", 
@@ -822,13 +902,23 @@
         }, 
         {
             "location": "/API/servos/", 
-            "text": "Servo\n\n\nmatrix.servo( pin, angle )", 
+            "text": "Servo\n\n\nUses the GPIO pins in the MATRIX Creator to control Servos.\n\n\nConfiguration\n\n\nMake sure to add the following to your \nconfig.yaml\n to enable Servos/\n\n\nintegrations:\n  - gpio\n\n\n\n\nSet servo angle\n\n\n\n\npin\n: The GPIO pin the servo is connected to.\n\n\nangle\n: Integer specifying the specific angle to set the servo to.\n\n\n\n\nmatrix.servo(pin, angle);", 
             "title": "Servos"
         }, 
         {
             "location": "/API/servos/#servo", 
-            "text": "matrix.servo( pin, angle )", 
+            "text": "Uses the GPIO pins in the MATRIX Creator to control Servos.", 
             "title": "Servo"
+        }, 
+        {
+            "location": "/API/servos/#configuration", 
+            "text": "Make sure to add the following to your  config.yaml  to enable Servos/  integrations:\n  - gpio", 
+            "title": "Configuration"
+        }, 
+        {
+            "location": "/API/servos/#set-servo-angle", 
+            "text": "pin : The GPIO pin the servo is connected to.  angle : Integer specifying the specific angle to set the servo to.   matrix.servo(pin, angle);", 
+            "title": "Set servo angle"
         }, 
         {
             "location": "/Configuration/overview/", 

@@ -420,13 +420,30 @@
     
         <li class="main active"><a href="#servo">Servo</a></li>
         
+            <li><a href="#configuration">Configuration</a></li>
+        
+            <li><a href="#set-servo-angle">Set servo angle</a></li>
+        
     
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
 
 <h2 id="servo">Servo</h2>
-<p><code>matrix.servo( pin, angle )</code></p></div>
+<p>Uses the GPIO pins in the MATRIX Creator to control Servos.</p>
+<h3 id="configuration">Configuration</h3>
+<p>Make sure to add the following to your <code>config.yaml</code> to enable Servos/</p>
+<pre><code>integrations:
+  - gpio
+</code></pre>
+
+<h3 id="set-servo-angle">Set servo angle</h3>
+<ul>
+<li><code>pin</code>: The GPIO pin the servo is connected to.</li>
+<li><code>angle</code>: Integer specifying the specific angle to set the servo to.</li>
+</ul>
+<pre><code>matrix.servo(pin, angle);
+</code></pre></div>
             
         </div>
 
