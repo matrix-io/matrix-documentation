@@ -46,6 +46,46 @@
             "title": "Custom Raspbian Package"
         }, 
         {
+            "location": "/upgrades/", 
+            "text": "Support\n\n\n\n\nPost questions or comments on \ncommunity.matrix.one\n\n\nPost package issues on github under \nmatrix-io\n\n\nSubmit documentation issues or improvements at \nmatrix-io/matrix-documentation\n\n\n\n\nUpgrade\n\n\nBecause we are currently in Alpha stage, we are constantly updating and releasing new versions of our debian packages. To keep up to date, please regularly run:\n\n\nMATRIX Creator Packages\n\n\nsudo apt-get update \n sudo apt-get upgrade\nsudo shutdown -r now //sudo reboot\n\n\n\n\nMATRIX OS\n\n\nBypass Automatic Upgrades\n\n\nThe MATRIX OS upgrades packages, and systems, automagically on initialization. If you would like to bypass this, set the \nNO_UPGRADE\n environment flag to true.\n\n\nNO_UPGRADE=true node index.js\n\n\n\n\nManual Upgrades\n\n\nOn your Raspberry Pi, execute the following commands to make sure your hardware is up to date manually.\n\n\ncd matrix-os\ngit checkout master\ngit pull\nnpm install\nnpm upgrade\ngit submodule update --init\n\n\n\n\nMATRIX CLI\n\n\nOn your PC, Linux, or Mac computer, you can update your Command Line Tools by just making sure you have installed the latest.\n\n\nsudo npm install matrix-cli -g", 
+            "title": "Upgrades"
+        }, 
+        {
+            "location": "/upgrades/#support", 
+            "text": "Post questions or comments on  community.matrix.one  Post package issues on github under  matrix-io  Submit documentation issues or improvements at  matrix-io/matrix-documentation", 
+            "title": "Support"
+        }, 
+        {
+            "location": "/upgrades/#upgrade", 
+            "text": "Because we are currently in Alpha stage, we are constantly updating and releasing new versions of our debian packages. To keep up to date, please regularly run:", 
+            "title": "Upgrade"
+        }, 
+        {
+            "location": "/upgrades/#matrix-creator-packages", 
+            "text": "sudo apt-get update   sudo apt-get upgrade\nsudo shutdown -r now //sudo reboot", 
+            "title": "MATRIX Creator Packages"
+        }, 
+        {
+            "location": "/upgrades/#matrix-os", 
+            "text": "", 
+            "title": "MATRIX OS"
+        }, 
+        {
+            "location": "/upgrades/#bypass-automatic-upgrades", 
+            "text": "The MATRIX OS upgrades packages, and systems, automagically on initialization. If you would like to bypass this, set the  NO_UPGRADE  environment flag to true.  NO_UPGRADE=true node index.js", 
+            "title": "Bypass Automatic Upgrades"
+        }, 
+        {
+            "location": "/upgrades/#manual-upgrades", 
+            "text": "On your Raspberry Pi, execute the following commands to make sure your hardware is up to date manually.  cd matrix-os\ngit checkout master\ngit pull\nnpm install\nnpm upgrade\ngit submodule update --init", 
+            "title": "Manual Upgrades"
+        }, 
+        {
+            "location": "/upgrades/#matrix-cli", 
+            "text": "On your PC, Linux, or Mac computer, you can update your Command Line Tools by just making sure you have installed the latest.  sudo npm install matrix-cli -g", 
+            "title": "MATRIX CLI"
+        }, 
+        {
             "location": "/CLI/overview/", 
             "text": "Overview\n\n\nInstallation\n\n\nInstallation, Registration, Commands\n\n\nApplications\n\n\nApplication Management\n\n\nDevices\n\n\nDevice Management\n\n\nExamples\n\n\nExample Workflows\n\n\nTroubleshooting\n\n\nTroubleshooting", 
             "title": "Overview"
