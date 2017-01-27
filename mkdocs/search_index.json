@@ -1387,7 +1387,7 @@
         }, 
         {
             "location": "/intro/matrix-troubleshooting/", 
-            "text": "Troubleshooting\n\n\nStarting MOS from your device, you will have access to more error messages with \nDEBUG=*,-engine*,-Component*\n prepended to the commands presented below. \nengine\n, refers to \nengine.io\n, sockets, and \nComponent\n, is very verbose hardware communications, disable these filters as necessary.\n\n\nTest apps\n\n\nsensorTest\n - tests all sensors\n\nledTest\n - tests the led\n\n\nLights are spinning, but don't stop\n\n\nExits with message\n\n\nDevice Error undefined\n\n\n\n\nSolution. Run again with environment set.\n\n\nNODE_ENV=rc node index.js", 
+            "text": "Troubleshooting\n\n\nStarting MOS from your device, you will have access to more error messages with \nDEBUG=*,-engine*,-Component*\n prepended to the commands presented below. \nengine\n, refers to \nengine.io\n, sockets, and \nComponent\n, is very verbose hardware communications, disable these filters as necessary.\n\n\nTest apps\n\n\nsensorTest\n - tests all sensors\n\nledTest\n - tests the led\n\n\nLights are spinning, but don't stop\n\n\nExits with message\n\n\nDevice Error undefined\n\n\n\n\nSolution. Run again with environment set.\n\n\nNODE_ENV=rc node index.js\n\n\n\n\nMATRIX Vision Services not working\n\n\nMessages appear when \nmalos_eye\n is running, and hardware is not properly installed. Please shut off device, firmly reconnect the camera connection, and restart.\n\n\nVIDIOC_STREAMON: Invalid argument\nVIDIOC_STREAMON: Invalid argument\n\nMessage received: gesture error: Could not read frame\nMessage received: gesture error: 1, Could not send update for GESTURE driver.\n\nselect timeout\nselect timeout\nselect timeout\nselect timeout", 
             "title": "Troubleshooting"
         }, 
         {
@@ -1404,6 +1404,11 @@
             "location": "/intro/matrix-troubleshooting/#lights-are-spinning-but-dont-stop", 
             "text": "Exits with message  Device Error undefined  Solution. Run again with environment set.  NODE_ENV=rc node index.js", 
             "title": "Lights are spinning, but don't stop"
+        }, 
+        {
+            "location": "/intro/matrix-troubleshooting/#matrix-vision-services-not-working", 
+            "text": "Messages appear when  malos_eye  is running, and hardware is not properly installed. Please shut off device, firmly reconnect the camera connection, and restart.  VIDIOC_STREAMON: Invalid argument\nVIDIOC_STREAMON: Invalid argument\n\nMessage received: gesture error: Could not read frame\nMessage received: gesture error: 1, Could not send update for GESTURE driver.\n\nselect timeout\nselect timeout\nselect timeout\nselect timeout", 
+            "title": "MATRIX Vision Services not working"
         }, 
         {
             "location": "/HAL/overview/", 

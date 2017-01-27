@@ -430,6 +430,8 @@
         
             <li><a href="#lights-are-spinning-but-dont-stop">Lights are spinning, but don't stop</a></li>
         
+            <li><a href="#matrix-vision-services-not-working">MATRIX Vision Services not working</a></li>
+        
     
     </ul>
 </div></div>
@@ -447,6 +449,20 @@
 
 <p>Solution. Run again with environment set.</p>
 <pre><code>NODE_ENV=rc node index.js
+</code></pre>
+
+<h3 id="matrix-vision-services-not-working">MATRIX Vision Services not working</h3>
+<p>Messages appear when <code>malos_eye</code> is running, and hardware is not properly installed. Please shut off device, firmly reconnect the camera connection, and restart.</p>
+<pre><code>VIDIOC_STREAMON: Invalid argument
+VIDIOC_STREAMON: Invalid argument
+
+Message received: gesture error: Could not read frame
+Message received: gesture error: 1, Could not send update for GESTURE driver.
+
+select timeout
+select timeout
+select timeout
+select timeout
 </code></pre></div>
             
         </div>
