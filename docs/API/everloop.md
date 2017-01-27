@@ -113,8 +113,7 @@ setInterval(function(){
   var hourLED = {
     // translate hours (12) to angle (360)
     arc: h * 3,
-    color: 'blue',
-    darken: 50
+    color: 'blue'
   };
 
   var minuteLED = {
