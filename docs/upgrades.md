@@ -28,6 +28,7 @@ cd matrix-os
 git checkout master
 git pull
 npm install
+npm upgrade
 git submodule update --init
 ```
 
