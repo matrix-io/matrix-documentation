@@ -22,7 +22,7 @@ See [Services](../Configuration/services.md) for more information
 We've build computer vision algorithms in the API inteface to add another level of experiential IoT applications. We've also made it extremely simple to get started.
 
 ## Detection Algorithms
-Available algorithms: `face`, `palm`, `fist`
+Available basic algorithms: `face`,
 
 <!-- `thumb-up`
 `palm-open`
@@ -51,9 +51,12 @@ matrix.init( algorithm, options ).then(function( data ){
 ## Algorithms
 
 ### Basic
-`face`,`fist`,`palm`
+`face`,`fist`,`palm`, `fist`
 
-<!-- `thumb-up`
+<!--
+`blob`, `color`
+
+`thumb-up`
 `palm-open`
 `palm-closed`
 `face-id`
@@ -62,13 +65,19 @@ matrix.init( algorithm, options ).then(function( data ){
 
 
 ### Basic Data Format
-`palm` output - `matrix.init('palm')`
+`palm`, `face` and `fist` output - `matrix.init('palm')`
+Returning tags: `HAND_PALM`, `HAND_FIST`, `FADE`
+
 ```
 {
   location: { x: 333, y: 237, width: 55, height: 55 },
   tag: 'HAND_PALM'
 }
 ```
+
+## Extended Algorithms
+`demographics` `matrix.init('demographics')`
+`recognition` `matrix.init('recognition')`
 
 ### Extended Face Data Format
 `demographics` output - - `matrix.init('demographics')`
@@ -84,6 +93,13 @@ matrix.init( algorithm, options ).then(function( data ){
        roll: 0.04344254732131958,
        pitch: -0.10279278457164764 },
     face_id: '4' } }
+```
+
+`recognition` output -
+```
+- face_id
+- confidence
+tbd
 ```
 
 #### emotions
