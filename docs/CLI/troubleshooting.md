@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 ## Troubleshooting
 
 ### Login
@@ -10,6 +9,5 @@ Known issue on token expiration. Reset the environment.
 ```
 matrix set env rc
 ```
-=======
-## Troubleshooting
->>>>>>> major reorganization
+
+

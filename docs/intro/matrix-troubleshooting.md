@@ -17,3 +17,18 @@ Solution. Run again with environment set.
 ```
 NODE_ENV=rc node index.js
 ```
+
+### MATRIX Vision Services not working
+Messages appear when `malos_eye` is running, and hardware is not properly installed. Please shut off device, firmly reconnect the camera connection, and restart.
+```
+VIDIOC_STREAMON: Invalid argument
+VIDIOC_STREAMON: Invalid argument
+
+Message received: gesture error: Could not read frame
+Message received: gesture error: 1, Could not send update for GESTURE driver.
+
+select timeout
+select timeout
+select timeout
+select timeout
+```
