@@ -5,6 +5,7 @@ extra_css: ['styles.css']
 
 pages:
 - Installation: 'index.md'
+- Upgrades: 'upgrades.md'
 - MATRIX CLI:
   - 'Overview': 'CLI/overview.md'
   - 'Installation': 'CLI/installation.md'
