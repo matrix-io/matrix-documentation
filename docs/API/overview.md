@@ -1,8 +1,5 @@
 ## Overview
 
-####[Installation](installation.md)
-Raspberry Pi, Core Dependencies, MATRIX OS Setup.
-
 ## App API
 ####[Sensors](sensors.md)
 Sensor interfaces and data structures.
