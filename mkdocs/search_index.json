@@ -47,7 +47,7 @@
         }, 
         {
             "location": "/upgrades/", 
-            "text": "Support\n\n\n\n\nPost questions or comments on \ncommunity.matrix.one\n\n\nPost package issues on github under \nmatrix-io\n\n\nSubmit documentation issues or improvements at \nmatrix-io/matrix-documentation\n\n\n\n\nUpgrade\n\n\nBecause we are currently in Alpha stage, we are constantly updating and releasing new versions of our debian packages. To keep up to date, please regularly run:\n\n\nMATRIX Creator Packages\n\n\nsudo apt-get update \n sudo apt-get upgrade\nsudo shutdown -r now //sudo reboot\n\n\n\n\nMATRIX OS\n\n\nBypass Automatic Upgrades\n\n\nThe MATRIX OS upgrades packages, and systems, automagically on initialization. If you would like to bypass this, set the \nNO_UPGRADE\n environment flag to true.\n\n\nNO_UPGRADE=true node index.js\n\n\n\n\nManual Upgrades\n\n\nOn your Raspberry Pi, execute the following commands to make sure your hardware is up to date manually.\n\n\ncd matrix-os\ngit checkout master\ngit pull\nnpm install\nnpm upgrade\ngit submodule update --init\n\n\n\n\nMATRIX CLI\n\n\nOn your PC, Linux, or Mac computer, you can update your Command Line Tools by just making sure you have installed the latest.\n\n\nsudo npm install matrix-cli -g", 
+            "text": "Support\n\n\n\n\nPost questions or comments on \ncommunity.matrix.one\n\n\nPost package issues on github under \nmatrix-io\n\n\nSubmit documentation issues or improvements at \nmatrix-io/matrix-documentation\n\n\n\n\nUpgrade\n\n\nBecause we are currently in Alpha stage, we are constantly updating and releasing new versions of our debian packages. To keep up to date, please regularly run:\n\n\nMATRIX Creator Packages\n\n\nsudo apt-get update \n sudo apt-get upgrade\nsudo shutdown -r now //sudo reboot\n\n\n\n\nMATRIX OS\n\n\nBypass Automatic Upgrades\n\n\nThe MATRIX OS upgrades packages, and systems, automagically on initialization. If you would like to bypass this, set the \nNO_UPGRADE\n environment flag to true.\n\n\nNO_UPGRADE=true node index.js\n\n\n\n\nManual Upgrades\n\n\nOn your Raspberry Pi, execute the following commands to make sure your hardware is up to date manually.\n\n\ncd matrix-os\ngit checkout master\ngit pull\nnpm install\nnpm upgrade matrix-app-config-helper matrix-firebase matrix-node-sdk matrix-eventfilter\ngit submodule update --init\n\n\n\n\nMATRIX CLI\n\n\nOn your PC, Linux, or Mac computer, you can update your Command Line Tools by just making sure you have installed the latest.\n\n\nsudo npm install matrix-cli -g", 
             "title": "Upgrades"
         }, 
         {
@@ -77,7 +77,7 @@
         }, 
         {
             "location": "/upgrades/#manual-upgrades", 
-            "text": "On your Raspberry Pi, execute the following commands to make sure your hardware is up to date manually.  cd matrix-os\ngit checkout master\ngit pull\nnpm install\nnpm upgrade\ngit submodule update --init", 
+            "text": "On your Raspberry Pi, execute the following commands to make sure your hardware is up to date manually.  cd matrix-os\ngit checkout master\ngit pull\nnpm install\nnpm upgrade matrix-app-config-helper matrix-firebase matrix-node-sdk matrix-eventfilter\ngit submodule update --init", 
             "title": "Manual Upgrades"
         }, 
         {
@@ -282,7 +282,7 @@
         }, 
         {
             "location": "/API/overview/", 
-            "text": "Overview\n\n\nApp API\n\n\nSensors\n\n\nSensor interfaces and data structures.\n\n\nEverloop\n\n\nEverloop interface.\n\n\nFilters\n\n\nFilters interface for Sensors, Computer Vision, etc...\n\n\nComputer Vision\n\n\nComputer Vision services.\n\n\nMicrophones\n\n\nMicrophone Services.\n\n\nIR TX/RX\n\n\nIR receiving and transmitter services.\n\n\nGPIO\n\n\nGPIO interfaces.\n\n\nServos\n\n\nServo interfaces.\n\n\nNFC\n\n\nNFC interfaces.\n\n\nZigbee\n\n\nZigbee interfaces.\n\n\nZ-wave\n\n\nZ-wave interfaces.\n\n\nConfiguration\n\n\nData Types\n\n\nData structures and how to save to the infrastructure.\n\n\nScreens\n\n\nDashboard creation and how to structure your widgets.\n\n\nFilters\n\n\nDashboard filter configuration.\n\n\nWidgets\n\n\nDashboard widget configuration.\n\n\nServices\n\n\nAvailable infrastructure services.\n\n\nTroubleshooting\n\n\nTroubleshooting", 
+            "text": "Overview\n\n\nApp API\n\n\nSensors\n\n\nSensor interfaces and data structures.\n\n\nEverloop\n\n\nEverloop interface.\n\n\nFilters\n\n\nFilters interface for Sensors, Computer Vision, etc...\n\n\nComputer Vision\n\n\nComputer Vision services.\n\n\nMicrophones\n\n\nMicrophone Services.\n\n\nIR TX/RX\n\n\nIR receiving and transmitter services.\n\n\nGPIO\n\n\nGPIO interfaces.\n\n\nServos\n\n\nServo interfaces.\n\n\nNFC\n\n\nNFC interfaces.\n\n\nZigbee\n\n\nZigbee interfaces.\n\n\nZ-wave\n\n\nZ-wave interfaces.\n\n\nConfiguration\n\n\nData Types\n\n\nData structures and how to save to the infrastructure.\n\n\nScreens\n\n\nDashboard creation and how to structure your widgets.\n\n\nFilters\n\n\nDashboard filter configuration.\n\n\nWidgets\n\n\nDashboard widget configuration.\n\n\nServices\n\n\nAvailable infrastructure services.\n\n\nTroubleshooting\n\n\nTroubleshooting\n\n\nApplications\n\n\nApplications, on a fundamental level, provides logical connections between physical data producers and consumers.  \n\n\nSo it makes sense to think of information as streams and filters instead of objects and trees. JavaScript has an elegant approach to data filtering through callbacks and first-order func", 
             "title": "Overview"
         }, 
         {
@@ -386,6 +386,11 @@
             "title": "Troubleshooting"
         }, 
         {
+            "location": "/API/overview/#applications", 
+            "text": "Applications, on a fundamental level, provides logical connections between physical data producers and consumers.    So it makes sense to think of information as streams and filters instead of objects and trees. JavaScript has an elegant approach to data filtering through callbacks and first-order func", 
+            "title": "Applications"
+        }, 
+        {
             "location": "/intro/app-publishing/", 
             "text": "Publishing your Application\n\n\nApp Store\n\n\nhttp://apps.matrix.one\n\n\nThree Steps to Distribution\n\n\n\n\nmatrix create\n - Make your application\n\n\nmatrix deploy\n - Test your application\n\n\nmatrix publish\n - Publish on the app Store\n\n\n\n\nGuidelines\n\n\nYour application must do only what it claims to do with the name, description and README.md.\n\n\nAll sensors, integrations and computer vision usage must be registered in the \nconfig.yaml\n, and will be authorized by users on install.\n\n\nAll applications will be code-reviewed and are subject to removal at any time.\n\n\nBefore publishing an application.\n\n\nEnsure Meta Information is Accurate\n\n\nname\n and \ndescription\n must be included in your config.yaml. If you want to use a multiword application name, provide a \ndisplayName\n with a correlating \nname\n. Users will use \nname\n when \nmatrix install\ning.\n\n\nThe contents of \nREADME.md\n will be shown on the app detail page, along with images provided\n\nimageUrls\n will be used on the detail page\n\n\ngalleryUrl\n will be used on the main App Store page, or the first item in \nimageUrls\n will be used\n\n\nkeywords\n are used to tag your application and will be used to return your application on searches for these keywords.\n\n\ncategories\n are not yet formalized, but will divide the store listings. Submitting proposed app categories will inform this process.\n\n\nexample config.yaml\n\nname: example-app\ndisplayName: The Example App\ndescription: An example application config.yaml.\n\nimageUrls:\n  - http://image.com/1\n  - http://image.com/2\n\ngalleryUrl: http://image.com/3\n\nkeywords:\n  - example\n  - configuration\n\ncategories:\n  - entertainment\n  - development\n\n\n\n\nEnsure Components are Setup\n\n\nAll applications which use events, CV or sensors, must register these in the config file.\n\n\nevents\n are registered as follows:\n\n\nEvents\n\n\nevents:\n  - face-recognized\n  - locked-door\n\n\n\n\nSensors\n\n\nsensors:\n  - temperature\n  - uv\n\n\n\n\nComputer Vision\n\n\nservices:\n  faceService:\n    engine: detection\n    type: face\n\n\n\n\nA user will be required to grant an application permissions before installing. A user may install an app with any or all permissions enabled.\n\n\nTest your Application\n\n\nUse \nmatrix deploy\n to test your application before publishing. Make sure it functions as intended. Share a video of your creation with us!", 
             "title": "App Publishing"
@@ -447,7 +452,7 @@
         }, 
         {
             "location": "/API/sensors/", 
-            "text": "Sensors\n\n\nSensors and Configuration\n\n\nEnd users must explicitly authorize MOS applications to utilize\u00a0hardware sensors and computer vision algorithms.\n\n\nThis requires that each application identify required sensors in \nconfig.yaml\n.\n\n\nsensors:\n  - temperature\n  - uv\n\n\n\n\nOtherwise sensors will not work.\n\n\n.init\n\n\nAll sensors are initialized using the \ninit\n method.\n\n\n\n\nsensorType\n: Type of sensor you are initializing \ntemperature\n, \nhumidity\n, \npressure\n, \nuv\n, \ngyroscope\n, \naccelerometer\n.\n\n\noptions\n: The options for that sensor. By default, all sensors have a \nrefresh\n and \ntimeout\n property.\n\n\n\n\nvar options = {\n  refresh: 1000, //milliseconds\n  timeout: 1000 //milliseconds\n};\n\nmatrix.init('temperature', options).then(function(data){\n  //see below for data formats\n});\n\n\n\n\nOutputs\n\n\nTemperature\n\n\nOutput for \ntemperature\n (in \n).\n\n\n{ \n  value: 36.95899963378906, \n  type: 'temperature' \n}\n\n\n\n\nHumidity\n\n\nOutput for \nhumidity\n.\n\n\n{ \n  value: 30.409704208374023, \n  type: 'humidity' \n}\n\n\n\n\nPressure\n\n\nOutput for \npressure\n (in mbars).\n\n\n{ \n  value: 101692, \n  type: 'pressure' \n}\n\n\n\n\nUV\n\n\nOutput for \nUV\n.\n\n\n{ \n   value: 0.0053547522984445095, \n   risk: 'Low' \n}\n\n\n\n\nGyroscope\n\n\nOutput for \ngyroscope\n.\n\n\n{\n  yaw: 144.78964233398438,\n  pitch: 2.112252950668335,\n  roll: -92.0414810180664,\n  type: 'gyroscope' \n}\n\n\n\n\n\nAccelerometer\n\n\nOutput for \naccelerometer\n\n\n{\n  x: 0.1,\n  y: 0.23,\n  z: 0.224\n}\n\n\n\n\nFiltering Sensor Data\n\n\nSee \nAPI \n Filter", 
+            "text": "Sensors\n\n\nSensors and Configuration\n\n\nEnd users must explicitly authorize MOS applications to utilize\u00a0hardware sensors and computer vision algorithms.\n\n\nThis requires that each application identify required sensors in \nconfig.yaml\n.\n\n\nsensors:\n  - temperature\n  - uv\n\n\n\n\nOtherwise sensors will not work.\n\n\n.init\n\n\nAll sensors are initialized using the \ninit\n method.\n\n\n\n\nsensorType\n: Type of sensor you are initializing \ntemperature\n, \nhumidity\n, \npressure\n, \nuv\n, \ngyroscope\n, \naccelerometer\n.\n\n\noptions\n: The options for that sensor. By default, all sensors have a \nrefresh\n and \ntimeout\n property.\n\n\n\n\nvar options = {\n  refresh: 1000, //milliseconds\n  timeout: 1000 //milliseconds\n};\n\nmatrix.init('temperature', options).then(function(data){\n  //see below for data formats\n});\n\n\n\n\nOutputs\n\n\nTemperature\n\n\nOutput for \ntemperature\n (in \n).\n\n\n{\n  value: 36.95899963378906,\n  type: 'temperature'\n}\n\n\n\n\nHumidity\n\n\nOutput for \nhumidity\n.\n\n\n{\n  value: 30.409704208374023,\n  type: 'humidity'\n}\n\n\n\n\nPressure\n\n\nOutput for \npressure\n (in mbars).\n\n\n{\n  value: 101692,\n  type: 'pressure'\n}\n\n\n\n\nUV\n\n\nOutput for \nUV\n.\n\n\n{\n   value: 0.0053547522984445095,\n   risk: 'Low'\n}\n\n\n\n\nGyroscope\n\n\nOutput for \ngyroscope\n.\n\n\n{\n  yaw: 144.78964233398438,\n  pitch: 2.112252950668335,\n  roll: -92.0414810180664,\n  x: -10.78155517578125,\n  y: 1.8841552734375,\n  z: 0.441131591796875,\n  type: 'gyroscope'\n}\n\n\n\n\n\nAccelerometer\n\n\nOutput for \naccelerometer\n\n\n{\n  x: 0.1,\n  y: 0.23,\n  z: 0.224,\n  type: 'accelerometer'\n}\n\n\n\n\nMagnetometer\n\n\nOutput for \nmagnetometer\n\n\n{\n  x: 0.51,\n  y: 0.53,\n  z: -0.124,\n  type: 'magnetometer'\n}\n\n\n\n\nFiltering Sensor Data\n\n\nSee \nAPI \n Filter", 
             "title": "Sensors"
         }, 
         {
@@ -472,33 +477,38 @@
         }, 
         {
             "location": "/API/sensors/#temperature", 
-            "text": "Output for  temperature  (in  ).  { \n  value: 36.95899963378906, \n  type: 'temperature' \n}", 
+            "text": "Output for  temperature  (in  ).  {\n  value: 36.95899963378906,\n  type: 'temperature'\n}", 
             "title": "Temperature"
         }, 
         {
             "location": "/API/sensors/#humidity", 
-            "text": "Output for  humidity .  { \n  value: 30.409704208374023, \n  type: 'humidity' \n}", 
+            "text": "Output for  humidity .  {\n  value: 30.409704208374023,\n  type: 'humidity'\n}", 
             "title": "Humidity"
         }, 
         {
             "location": "/API/sensors/#pressure", 
-            "text": "Output for  pressure  (in mbars).  { \n  value: 101692, \n  type: 'pressure' \n}", 
+            "text": "Output for  pressure  (in mbars).  {\n  value: 101692,\n  type: 'pressure'\n}", 
             "title": "Pressure"
         }, 
         {
             "location": "/API/sensors/#uv", 
-            "text": "Output for  UV .  { \n   value: 0.0053547522984445095, \n   risk: 'Low' \n}", 
+            "text": "Output for  UV .  {\n   value: 0.0053547522984445095,\n   risk: 'Low'\n}", 
             "title": "UV"
         }, 
         {
             "location": "/API/sensors/#gyroscope", 
-            "text": "Output for  gyroscope .  {\n  yaw: 144.78964233398438,\n  pitch: 2.112252950668335,\n  roll: -92.0414810180664,\n  type: 'gyroscope' \n}", 
+            "text": "Output for  gyroscope .  {\n  yaw: 144.78964233398438,\n  pitch: 2.112252950668335,\n  roll: -92.0414810180664,\n  x: -10.78155517578125,\n  y: 1.8841552734375,\n  z: 0.441131591796875,\n  type: 'gyroscope'\n}", 
             "title": "Gyroscope"
         }, 
         {
             "location": "/API/sensors/#accelerometer", 
-            "text": "Output for  accelerometer  {\n  x: 0.1,\n  y: 0.23,\n  z: 0.224\n}", 
+            "text": "Output for  accelerometer  {\n  x: 0.1,\n  y: 0.23,\n  z: 0.224,\n  type: 'accelerometer'\n}", 
             "title": "Accelerometer"
+        }, 
+        {
+            "location": "/API/sensors/#magnetometer", 
+            "text": "Output for  magnetometer  {\n  x: 0.51,\n  y: 0.53,\n  z: -0.124,\n  type: 'magnetometer'\n}", 
+            "title": "Magnetometer"
         }, 
         {
             "location": "/API/sensors/#filtering-sensor-data", 
@@ -637,7 +647,7 @@
         }, 
         {
             "location": "/API/computer-vision/", 
-            "text": "Computer Vision\n\n\nPart of the vision for MATRIX OS is to provide computer vision in an easy to access format.\n\n\nExample\n\n\nFrom (faceTest MATRIX App)[http://apps.matrix.one/#!/apps/facetest]\n\n\nmatrix.led('red').render();\n\nmatrix.init('face').then(function(data){\n  matrix.led('green').render();\n  setTimeout(function() {\n    matrix.led('black').render();\n  },2000);\n});\n\n\n\n\nConfiguration\n\n\nTo facilitate communication with the hardware, it is required to define CV services in \nconfig.yaml\n before they will be available to your application.\n\n\nSee \nServices\n for more information\n\n\nWe've build computer vision algorithms in the API inteface to add another level of experiential IoT applications. We've also made it extremely simple to get started.\n\n\nDetection Algorithms\n\n\nAvailable algorithms: \nface\n, \npalm\n, \nfist\n\n\n\n\n\nInitialization\n\n\n# app.js\nvar algorithm = 'face';\nvar options   = {};\nmatrix.init( algorithm, options ).then(function( data ){\n  // your CV detection data will be available here\n  console.log( data );\n});\n\n\n\n\noptions\n\n\nrefresh\n - how many seconds before restarting the detection, default: 3\n\n\ntimeout\n - if there is no detection, stop after this many seconds, default: none\n\n\nAlgorithms\n\n\nBasic\n\n\nface\n,\nfist\n,\npalm\n\n\n\n\n\nBasic Data Format\n\n\npalm\n output - \nmatrix.init('palm')\n\n\n{\n  location: { x: 333, y: 237, width: 55, height: 55 },\n  tag: 'HAND_PALM'\n}\n\n\n\n\nExtended Face Data Format\n\n\ndemographics\n output - - \nmatrix.init('demographics')\n\n\n{ location: { x: 213, y: 221, width: 55, height: 55 },\n tag: 'FACE',\n demographics:\n  { gender: 'MALE',\n    emotion: 'CALM',\n    age: 35,\n    pose:\n     { yaw: -0.24303536117076874,\n       roll: 0.04344254732131958,\n       pitch: -0.10279278457164764 },\n    face_id: '4' } }\n\n\n\n\nemotions\n\n\nHAPPY\n\n\nSAD\n\n\nCONFUSED\n\n\nANGRY\n\n\nCALM\n\n\nSURPRISED\n\n\nDISGUST", 
+            "text": "Computer Vision\n\n\nPart of the vision for MATRIX OS is to provide computer vision in an easy to access format.\n\n\nExample\n\n\nFrom (faceTest MATRIX App)[http://apps.matrix.one/#!/apps/facetest]\n\n\nmatrix.led('red').render();\n\nmatrix.init('face').then(function(data){\n  matrix.led('green').render();\n  setTimeout(function() {\n    matrix.led('black').render();\n  },2000);\n});\n\n\n\n\nConfiguration\n\n\nTo facilitate communication with the hardware, it is required to define CV services in \nconfig.yaml\n before they will be available to your application.\n\n\nSee \nServices\n for more information\n\n\nWe've build computer vision algorithms in the API inteface to add another level of experiential IoT applications. We've also made it extremely simple to get started.\n\n\nDetection Algorithms\n\n\nAvailable basic algorithms: \nface\n,\n\n\n\n\n\nInitialization\n\n\n# app.js\nvar algorithm = 'face';\nvar options   = {};\nmatrix.init( algorithm, options ).then(function( data ){\n  // your CV detection data will be available here\n  console.log( data );\n});\n\n\n\n\noptions\n\n\nrefresh\n - how many seconds before restarting the detection, default: 3\n\n\ntimeout\n - if there is no detection, stop after this many seconds, default: none\n\n\nAlgorithms\n\n\nBasic\n\n\nface\n,\nfist\n,\npalm\n, \nfist\n\n\n\n\n\nBasic Data Format\n\n\npalm\n, \nface\n and \nfist\n output - \nmatrix.init('palm')\n\nReturning tags: \nHAND_PALM\n, \nHAND_FIST\n, \nFADE\n\n\n{\n  location: { x: 333, y: 237, width: 55, height: 55 },\n  tag: 'HAND_PALM'\n}\n\n\n\n\nExtended Algorithms\n\n\ndemographics\n \nmatrix.init('demographics')\n\n\nrecognition\n \nmatrix.init('recognition')\n\n\nExtended Face Data Format\n\n\ndemographics\n output - - \nmatrix.init('demographics')\n\n\n{ location: { x: 213, y: 221, width: 55, height: 55 },\n tag: 'FACE',\n demographics:\n  { gender: 'MALE',\n    emotion: 'CALM',\n    age: 35,\n    pose:\n     { yaw: -0.24303536117076874,\n       roll: 0.04344254732131958,\n       pitch: -0.10279278457164764 },\n    face_id: '4' } }\n\n\n\n\nrecognition\n output -\n\n\n- face_id\n- confidence\ntbd\n\n\n\n\nemotions\n\n\nHAPPY\n\n\nSAD\n\n\nCONFUSED\n\n\nANGRY\n\n\nCALM\n\n\nSURPRISED\n\n\nDISGUST", 
             "title": "Computer Vision"
         }, 
         {
@@ -657,7 +667,7 @@
         }, 
         {
             "location": "/API/computer-vision/#detection-algorithms", 
-            "text": "Available algorithms:  face ,  palm ,  fist", 
+            "text": "Available basic algorithms:  face ,", 
             "title": "Detection Algorithms"
         }, 
         {
@@ -677,17 +687,22 @@
         }, 
         {
             "location": "/API/computer-vision/#basic", 
-            "text": "face , fist , palm", 
+            "text": "face , fist , palm ,  fist", 
             "title": "Basic"
         }, 
         {
             "location": "/API/computer-vision/#basic-data-format", 
-            "text": "palm  output -  matrix.init('palm')  {\n  location: { x: 333, y: 237, width: 55, height: 55 },\n  tag: 'HAND_PALM'\n}", 
+            "text": "palm ,  face  and  fist  output -  matrix.init('palm') \nReturning tags:  HAND_PALM ,  HAND_FIST ,  FADE  {\n  location: { x: 333, y: 237, width: 55, height: 55 },\n  tag: 'HAND_PALM'\n}", 
             "title": "Basic Data Format"
         }, 
         {
+            "location": "/API/computer-vision/#extended-algorithms", 
+            "text": "demographics   matrix.init('demographics')  recognition   matrix.init('recognition')", 
+            "title": "Extended Algorithms"
+        }, 
+        {
             "location": "/API/computer-vision/#extended-face-data-format", 
-            "text": "demographics  output - -  matrix.init('demographics')  { location: { x: 213, y: 221, width: 55, height: 55 },\n tag: 'FACE',\n demographics:\n  { gender: 'MALE',\n    emotion: 'CALM',\n    age: 35,\n    pose:\n     { yaw: -0.24303536117076874,\n       roll: 0.04344254732131958,\n       pitch: -0.10279278457164764 },\n    face_id: '4' } }", 
+            "text": "demographics  output - -  matrix.init('demographics')  { location: { x: 213, y: 221, width: 55, height: 55 },\n tag: 'FACE',\n demographics:\n  { gender: 'MALE',\n    emotion: 'CALM',\n    age: 35,\n    pose:\n     { yaw: -0.24303536117076874,\n       roll: 0.04344254732131958,\n       pitch: -0.10279278457164764 },\n    face_id: '4' } }  recognition  output -  - face_id\n- confidence\ntbd", 
             "title": "Extended Face Data Format"
         }, 
         {
@@ -827,7 +842,7 @@
         }, 
         {
             "location": "/API/ir/", 
-            "text": "Still working out the precise API for this. Stay tuned.\n\n\nmatrix.init('ir')...", 
+            "text": "Still working out the precise API for this. Stay tuned.\n\n\nmatrix.init('ir', device, command ).send( device, command ).then(function( device, command ) {})...", 
             "title": "IR TX/RX"
         }, 
         {
@@ -842,7 +857,7 @@
         }, 
         {
             "location": "/API/zigbee/", 
-            "text": "Still working out the precise API for this. Stay tuned.\n\n\nmatrix.init('zigbee')...\n\n\n\n\nList Networks\n\n\nList the networks available to connect to.\n\n\nList Appliances\n\n\nList the appliances available on the network.\n\n\nList Objects\n\n\nList the available objects within the appliance.\n\n\nObject Status\n\n\nList the current status of an object.\n\n\nObject Properties\n\n\nUpdate\n\n\nUpdate an object property.\n\n\nRetrieve\n\n\nRetrieve an object property.\n\n\nInject", 
+            "text": "Still working out the precise API for this. Stay tuned.\n\n\nmatrix.zigbee.light(1).color(hue, time)\n\n\nmatrix.zigbee.light(1).colorSpin(hue, time, direction)\n\n\nmatrix.zigbee.light(1).colorMove(hueDelta, time, direction)\n\n\nmatrix.zigbee.light(1).off()\n\n\nmatrix.zigbee.light(1).on()\n\n\nmatrix.zigbee.light(1).saturation()\n\n\nmatrix.zigbee.light(1).level()\n\n\ncompose your objects\n\n\nvar frontDoor = matrix.zigbee.light( lights[1].id );\nfrontDoor.color('blue', 100);\n\n\n\n\nList Networks\n\n\nList the networks available to connect to.\n\n\nList Appliances\n\n\nList the appliances available on the network.\n\n\nList Objects\n\n\nList the available objects within the appliance.\n\n\nObject Status\n\n\nList the current status of an object.\n\n\nObject Properties\n\n\nUpdate\n\n\nUpdate an object property.\n\n\nRetrieve\n\n\nRetrieve an object property.\n\n\nInject", 
             "title": "Zigbee"
         }, 
         {

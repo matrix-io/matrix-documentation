@@ -3,7 +3,7 @@
 
     
     <url>
-     <loc>None/</loc>
+     <loc>/</loc>
      <lastmod>2017-01-27</lastmod>
      <changefreq>daily</changefreq>
     </url>
@@ -11,7 +11,7 @@
 
     
     <url>
-     <loc>None/upgrades/</loc>
+     <loc>/upgrades/</loc>
      <lastmod>2017-01-27</lastmod>
      <changefreq>daily</changefreq>
     </url>
@@ -20,37 +20,37 @@
     
         
     <url>
-     <loc>None/CLI/overview/</loc>
+     <loc>/CLI/overview/</loc>
      <lastmod>2017-01-27</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>None/CLI/installation/</loc>
+     <loc>/CLI/installation/</loc>
      <lastmod>2017-01-27</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>None/CLI/apps/</loc>
+     <loc>/CLI/apps/</loc>
      <lastmod>2017-01-27</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>None/CLI/device/</loc>
+     <loc>/CLI/device/</loc>
      <lastmod>2017-01-27</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>None/CLI/example/</loc>
+     <loc>/CLI/example/</loc>
      <lastmod>2017-01-27</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>None/intro/cli-troubleshooting/</loc>
+     <loc>/intro/cli-troubleshooting/</loc>
      <lastmod>2017-01-27</lastmod>
      <changefreq>daily</changefreq>
     </url>
@@ -60,31 +60,31 @@
     
         
     <url>
-     <loc>None/API/overview/</loc>
+     <loc>/API/overview/</loc>
      <lastmod>2017-01-27</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>None/intro/app-publishing/</loc>
+     <loc>/intro/app-publishing/</loc>
      <lastmod>2017-01-27</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>None</loc>
+     <loc></loc>
      <lastmod></lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>None</loc>
+     <loc></loc>
      <lastmod></lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>None/intro/matrix-troubleshooting/</loc>
+     <loc>/intro/matrix-troubleshooting/</loc>
      <lastmod>2017-01-27</lastmod>
      <changefreq>daily</changefreq>
     </url>
@@ -94,41 +94,19 @@
     
         
     <url>
-     <loc>None/HAL/overview/</loc>
+     <loc>/HAL/overview/</loc>
      <lastmod>2017-01-27</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>None/HAL/overview/</loc>
+     <loc>/HAL/overview/</loc>
      <lastmod>2017-01-27</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>None/HAL/troubleshooting/</loc>
-     <lastmod>2017-01-27</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    
-
-    
-        
-    <url>
-     <loc>None/MALOS/overview/</loc>
-     <lastmod>2017-01-27</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>None/MALOS/example/</loc>
-     <lastmod>2017-01-27</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>None/MALOS/troubleshooting/</loc>
+     <loc>/HAL/troubleshooting/</loc>
      <lastmod>2017-01-27</lastmod>
      <changefreq>daily</changefreq>
     </url>
@@ -138,43 +116,65 @@
     
         
     <url>
-     <loc>None/Reference/overview/</loc>
+     <loc>/MALOS/overview/</loc>
      <lastmod>2017-01-27</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>None/Reference/pinout/</loc>
+     <loc>/MALOS/example/</loc>
      <lastmod>2017-01-27</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>None/Hardware/fpga/</loc>
+     <loc>/MALOS/troubleshooting/</loc>
+     <lastmod>2017-01-27</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    
+
+    
+        
+    <url>
+     <loc>/Reference/overview/</loc>
      <lastmod>2017-01-27</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>None/Hardware/Sam3/</loc>
+     <loc>/Reference/pinout/</loc>
      <lastmod>2017-01-27</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>None/Hardware/sam3mcu-programming/</loc>
+     <loc>/Hardware/fpga/</loc>
      <lastmod>2017-01-27</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>None/Hardware/microphone/</loc>
+     <loc>/Hardware/Sam3/</loc>
      <lastmod>2017-01-27</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>None/Hardware/SPI/</loc>
+     <loc>/Hardware/sam3mcu-programming/</loc>
+     <lastmod>2017-01-27</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/Hardware/microphone/</loc>
+     <lastmod>2017-01-27</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/Hardware/SPI/</loc>
      <lastmod>2017-01-27</lastmod>
      <changefreq>daily</changefreq>
     </url>
@@ -183,7 +183,7 @@
 
     
     <url>
-     <loc>None/dictionary/</loc>
+     <loc>/dictionary/</loc>
      <lastmod>2017-01-27</lastmod>
      <changefreq>daily</changefreq>
     </url>
