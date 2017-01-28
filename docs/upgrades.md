@@ -28,7 +28,7 @@ cd matrix-os
 git checkout master
 git pull
 npm install
-npm upgrade
+npm upgrade matrix-app-config-helper matrix-firebase matrix-node-sdk matrix-eventfilter
 git submodule update --init
 ```
 
