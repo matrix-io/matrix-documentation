@@ -1,5 +1,6 @@
 ## Installation
 Installing MATRIX CLI is quite easy. However, you do need to have a couple of other things installed first:
+
 * [Node.js](https://nodejs.org/en/)
 * [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
 
