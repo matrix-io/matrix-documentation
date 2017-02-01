@@ -8,7 +8,7 @@
 
 ## Overview
 
-![](assets/matrix-creator-alexa.png)
+![](/matrix-creator-alexa.png)
 
 This guide provides step-by-step instructions for setting up AVS on a **Raspberry Pi** with a [MATRIX Creator](https://creator.matrix.one/) hat. It demonstrates how to access and test AVS using our Java sample app (running on a Raspberry Pi), a Node.js server, and a third-party wake word engine using MATRIX mic array. You will use the Node.js server to obtain a Login with Amazon (LWA) authorization code by visiting a website using your Raspberry Pi's web browser.
 
@@ -76,7 +76,7 @@ sudo reboot
 ---
 
 ### Step 4: Run your web service, sample app and wake word engine
-Return to [Raspberry Pi](Raspberry-Pi) documentation and execute **Step 7** but in the last terminal only choose `sensory` wake word engine with:
+Return to [Raspberry Pi][2] documentation and execute **Step 7** but in the last terminal only choose `sensory` wake word engine with:
 ``` bash
 cd ~/Desktop/alexa-avs-sample-app/samples
 cd wakeWordAgent/src && ./wakeWordAgent -e sensory
