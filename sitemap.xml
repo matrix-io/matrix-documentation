@@ -94,16 +94,6 @@
     
         
     <url>
-     <loc>/Demos/Alexa/</loc>
-     <lastmod>2017-02-01</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    
-
-    
-        
-    <url>
      <loc></loc>
      <lastmod></lastmod>
      <changefreq>daily</changefreq>
@@ -153,6 +143,16 @@
         
     <url>
      <loc>/Hardware/SPI/</loc>
+     <lastmod>2017-02-01</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    
+
+    
+        
+    <url>
+     <loc>/Demos/Alexa/</loc>
      <lastmod>2017-02-01</lastmod>
      <changefreq>daily</changefreq>
     </url>
