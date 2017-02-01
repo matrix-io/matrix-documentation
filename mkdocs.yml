@@ -41,15 +41,15 @@ pages:
     - 'Services': 'Configuration/services.md'
     - 'Examples': 'Configuration/examples.md'
   - Troubleshooting: 'intro/matrix-troubleshooting.md'
-- HAL:
-  - 'Overview': 'HAL/overview.md'
-  - 'Examples': 'HAL/overview.md'
-  - 'Troubleshooting': 'HAL/troubleshooting.md'
-- MALOS:
-  - 'Overview': 'MALOS/overview.md'
-  - 'Examples': 'MALOS/example.md'
-  - 'Troubleshooting': 'MALOS/troubleshooting.md'
 - Hardware:
+  - HAL:
+    - 'Overview': 'HAL/overview.md'
+    - 'Examples': 'HAL/overview.md'
+    - 'Troubleshooting': 'HAL/troubleshooting.md'
+  - MALOS:
+    - 'Overview': 'MALOS/overview.md'
+    - 'Examples': 'MALOS/example.md'
+    - 'Troubleshooting': 'MALOS/troubleshooting.md'
   - 'Overview': 'Reference/overview.md'
   - 'Pinout': 'Reference/pinout.md'
   - 'FPGA': 'Hardware/fpga.md'
@@ -57,4 +57,6 @@ pages:
   - 'SAM3MCU': 'Hardware/sam3mcu-programming.md'
   - 'Microphone': 'Hardware/microphone.md'
   - 'SPI': 'Hardware/SPI.md'
+- Demos:
+  - 'Alexa on Creator': 'Demos/Alexa.md'
 - Dictionary: 'dictionary.md'
