@@ -1,5 +1,9 @@
 ## Installation
-This will make the `matrix` command available in your terminal.
+Installing MATRIX CLI is quite easy. However, you do need to have a couple of other things installed first:
+* [Node.js](https://nodejs.org/en/)
+* [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
+
+If your computer already has these, congratulations! This will make the `matrix` command available in your terminal. Just install MATRIX CLI with `npm` and you're good to go.
 ```
 npm install -g matrix-cli
 ```
