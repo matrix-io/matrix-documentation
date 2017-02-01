@@ -17,7 +17,7 @@ This guide provides step-by-step instructions for setting up AVS on a **Raspberr
 Before you get started, let's review what you'll need.
 
 1. **Raspberry Pi 3** (Recommended) or **Pi 2 Model B** (Supported)  - Buy at Amazon - [Pi 3](https://amzn.com/B01CD5VC92) or [Pi 2](http://amzn.com/B00T2U7R7I).
-2. **MATRIX Creator** - Raspberry Pi does not have a built-in microphone, with MATRIX Creator mic array your obtain 8 mic for Alexa - [Buy MATRIX Creator](https://creator.matrix.one/#!/buy)
+2. **MATRIX Creator** - Raspberry Pi does not have a built-in microphone, the MATRIX Creator has an 8 mic array for Alexa - [Buy MATRIX Creator](https://creator.matrix.one/#!/buy)
 3. **Micro-USB power cable** for Raspberry Pi.
 4. **Micro SD Card** (Minimum 8 GB) - You need an operating system to get started. NOOBS (New Out of the Box Software) is an easy-to-use operating system install manager for Raspberry Pi. The simplest way to get NOOBS is to buy an SD card with NOOBS pre-installed - [Raspberry Pi 8GB Preloaded (NOOBS) Micro SD Card](https://www.amazon.com/gp/product/B00ENPQ1GK/ref=oh_aui_detailpage_o01_s00?ie=UTF8&psc=1). Alternatively, you can download and install it on your SD card.
 5. **External Speaker** with 3.5mm audio cable - [Buy on Amazon](http://amzn.com/B007OYAVLI)
@@ -39,7 +39,8 @@ Configure your RaspberryPi like a original Alexa documentation, for this please 
 ---
 
 ### Step 2: Override ALSA configuration
-On your RaspberryPi home: `/home/pi` edit `.asoundrc` file and put this (If your prefer, make a backup):
+Matrix creator has 8 individual channels and one more with delay and sum algorithm. You can configure one mic on your RaspberryPi home: `/home/pi` editing `.asoundrc` file and put this (If your prefer, make a backup):
+
 ``` javascript
 pcm.!default
 {
