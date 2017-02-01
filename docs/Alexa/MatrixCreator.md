@@ -12,8 +12,6 @@
 
 This guide provides step-by-step instructions for setting up AVS on a **Raspberry Pi** with a [MATRIX Creator](https://creator.matrix.one/) hat. It demonstrates how to access and test AVS using our Java sample app (running on a Raspberry Pi), a Node.js server, and a third-party wake word engine using MATRIX mic array. You will use the Node.js server to obtain a Login with Amazon (LWA) authorization code by visiting a website using your Raspberry Pi's web browser.
 
-For instructions on how to set it up on [Mac](Mac), [Linux](Linux) or [Windows](Windows), please see our [wiki]().
-
 ## Required hardware
 
 Before you get started, let's review what you'll need.
@@ -23,7 +21,7 @@ Before you get started, let's review what you'll need.
 3. **Micro-USB power cable** for Raspberry Pi.
 4. **Micro SD Card** (Minimum 8 GB) - You need an operating system to get started. NOOBS (New Out of the Box Software) is an easy-to-use operating system install manager for Raspberry Pi. The simplest way to get NOOBS is to buy an SD card with NOOBS pre-installed - [Raspberry Pi 8GB Preloaded (NOOBS) Micro SD Card](https://www.amazon.com/gp/product/B00ENPQ1GK/ref=oh_aui_detailpage_o01_s00?ie=UTF8&psc=1). Alternatively, you can download and install it on your SD card (follow instructions [here](#step-1-setting-up-your-pi)).
 5. **External Speaker** with 3.5mm audio cable - [Buy on Amazon](http://amzn.com/B007OYAVLI)
-6. A **USB Keyboard & Mouse**, and an external **HDMI Monitor** - we also recommend having a USB keyboard and mouse as well as an HDMI monitor handy if you're unable to [remote(SSH)](Setup-SSH-&-VNC) into your Pi.
+6. A **USB Keyboard & Mouse**, and an external **HDMI Monitor** - we also recommend having a USB keyboard and mouse as well as an HDMI monitor handy if you're unable to [remote(SSH)](https://github.com/alexa/alexa-avs-sample-app/wiki/Setup-SSH-&-VNC) into your Pi.
 7. Internet connection (Ethernet or WiFi)
 8. (Optional) WiFi Wireless Adapter for Pi 2 ([Buy on Amazon](http://www.amazon.com/CanaKit-Raspberry-Wireless-Adapter-Dongle/dp/B00GFAN498/)).
    **Note:** Pi 3 has built-in WiFi.
