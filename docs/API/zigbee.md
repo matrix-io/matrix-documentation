@@ -1,8 +1,21 @@
 Still working out the precise API for this. Stay tuned.
 
+
+`matrix.zigbee.light(1).color(hue, time)`
+`matrix.zigbee.light(1).colorSpin(hue, time, direction)`
+`matrix.zigbee.light(1).colorMove(hueDelta, time, direction)`
+`matrix.zigbee.light(1).off()`
+`matrix.zigbee.light(1).on()`
+`matrix.zigbee.light(1).saturation()`
+`matrix.zigbee.light(1).level()`
+
+compose your objects
 ```
-matrix.init('zigbee')...
+var frontDoor = matrix.zigbee.light( lights[1].id );
+frontDoor.color('blue', 100);
 ```
+
+
 
 ### List Networks
 List the networks available to connect to.

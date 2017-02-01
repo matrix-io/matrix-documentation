@@ -38,3 +38,8 @@ Available infrastructure services.
 
 ####[Troubleshooting](../intro/cli-troubleshooting.md)
 Troubleshooting
+
+## Applications
+Applications, on a fundamental level, provides logical connections between physical data producers and consumers.  
+
+So it makes sense to think of information as streams and filters instead of objects and trees. JavaScript has an elegant approach to data filtering through callbacks and first-order func 
