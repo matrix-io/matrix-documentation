@@ -10,7 +10,7 @@
 
 ![](/docs/Alexa/matrix-creator-alexa.png)
 
-This guide provides step-by-step instructions for setting up AVS on a **Raspberry Pi** with a [MATRIX Creator](https://creator.matrix.one/) hat. It demonstrates how to access and test AVS using our Java sample app (running on a Raspberry Pi), a Node.js server, and a third-party wake word engine using MATRIX mic array. You will use the Node.js server to obtain a Login with Amazon (LWA) authorization code by visiting a website using your Raspberry Pi's web browser.
+This guide provides step-by-step instructions for setting up AVS on a **Raspberry Pi** with a [MATRIX Creator](https://creator.matrix.one/). It demonstrates how to access and test AVS using our Java sample app (running on a Raspberry Pi), a Node.js server, and a third-party wake word engine using MATRIX mic array. You will use the Node.js server to obtain a Login with Amazon (LWA) authorization code by visiting a website using your Raspberry Pi's web browser.
 
 ## Required hardware
 
@@ -26,12 +26,12 @@ Before you get started, let's review what you'll need.
 8. (Optional) WiFi Wireless Adapter for Pi 2 ([Buy on Amazon](http://www.amazon.com/CanaKit-Raspberry-Wireless-Adapter-Dongle/dp/B00GFAN498/)).
    **Note:** Pi 3 has built-in WiFi.
 
-For extra credit, enable [remote(SSH)][1] into your device, eliminating the need for a monitor, keyboard and mouse - and how to tail logs for troubleshooting.
+For extra credit, enable [remote(SSH)][1] into your device, eliminating the need for a monitor, keyboard and mouse - and learn how to tail logs for troubleshooting.
 
 ---
 
 ## Let's get started
-The original Alexa on a Pi project required manual download of libraries/dependencies and updating a series of configuration files that were prone to human error. To make the process faster and easier, we’ve included an install script with the project that will take care of all the heavy lifting. Not only does this reduce setup time to less than an hour on a Raspberry Pi 3, it only requires developers to adjust three variables in a single install script -
+The original Alexa on a Pi project required manual download of libraries/dependencies and updating configuration files, which is prone to human error. To make the process faster and easier, we've included an install script with the project that will take care of all the heavy lifting. Not only does this reduce setup time to less than an hour on a Raspberry Pi 3, it only requires developers to adjust three variables in a single install script.
 
 ### Step 1: Setting up your Pi
 Configure your RaspberryPi like a original Alexa documentation, for this please completing steps: **1,2,3,4,5 and 6** from original documentation: [Raspberry Pi][2]
@@ -40,7 +40,7 @@ Configure your RaspberryPi like a original Alexa documentation, for this please 
 
 ### Step 2: Override ALSA configuration
 
-MATRIX Creator has 8 physical microphone channels and an additional virtual beam formed channel that combines the physical ones. You can configure one mic on your RaspberryPi home: `/home/pi` editing `.asoundrc` file and put next content: (If your prefer, make a backup)
+MATRIX Creator has 8 physical microphone channels and an additional virtual beam formed channel that combines the physical ones. Utilize the beam formed channel by placing the following in `/home/pi/.asoundrc`.
 
 ``` javascript
 pcm.!default
@@ -78,11 +78,11 @@ sudo reboot
 ---
 
 ### Step 4: Run your web service, sample app and wake word engine
-Return to [Raspberry Pi][2] documentation and execute **Step 7** but in the last terminal only choose `sensory` wake word engine with:
+Return to [Raspberry Pi][2] documentation and execute **Step 7** but in the last terminal select the `sensory` wake word engine with:
 ``` bash
 cd ~/Desktop/alexa-avs-sample-app/samples
 cd wakeWordAgent/src && ./wakeWordAgent -e sensory
-``` 
+```
 
 ---
 
@@ -97,5 +97,5 @@ If you prefer, you can also click on the "Listen" button, instead of using the w
 
 ---
 
-[1]: https://github.com/alexa/alexa-avs-sample-app/wiki/Setup-SSH-&-VNC 
-[2]: https://github.com/alexa/alexa-avs-sample-app/wiki/Raspberry-Pi#step-1-setting-up-your-pi 
+[1]: https://github.com/alexa/alexa-avs-sample-app/wiki/Setup-SSH-&-VNC
+[2]: https://github.com/alexa/alexa-avs-sample-app/wiki/Raspberry-Pi#step-1-setting-up-your-pi
