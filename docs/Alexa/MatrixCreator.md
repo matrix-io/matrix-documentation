@@ -40,7 +40,7 @@ Configure your RaspberryPi like a original Alexa documentation, for this please 
 
 ### Step 2: Override ALSA configuration
 
-MATRIX Creator has 8 physical microphone channels and an additional virtual beam formed channel that combines the physical ones. Utilize the beam formed channel by placing the following in `/home/pi/.asoundrc`.
+MATRIX Creator has 8 physical microphone channels and an additional virtual beam formed channel that combines the physical ones. Utilize a microphone channel by placing the following in `/home/pi/.asoundrc`.
 
 ``` javascript
 pcm.!default
