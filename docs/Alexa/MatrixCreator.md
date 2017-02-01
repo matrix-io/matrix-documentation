@@ -39,7 +39,8 @@ Configure your RaspberryPi like a original Alexa documentation, for this please 
 ---
 
 ### Step 2: Override ALSA configuration
-Matrix creator has 8 individual channels and one more with delay and sum algorithm. You can configure one mic on your RaspberryPi home: `/home/pi` editing `.asoundrc` file and put this (If your prefer, make a backup):
+
+MATRIX Creator has 8 physical microphone channels and an additional virtual beam formed channel that combines the physical ones. You can configure one mic on your RaspberryPi home: `/home/pi` editing `.asoundrc` file and put next content: (If your prefer, make a backup)
 
 ``` javascript
 pcm.!default
