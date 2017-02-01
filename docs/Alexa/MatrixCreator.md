@@ -26,7 +26,7 @@ Before you get started, let's review what you'll need.
 8. (Optional) WiFi Wireless Adapter for Pi 2 ([Buy on Amazon](http://www.amazon.com/CanaKit-Raspberry-Wireless-Adapter-Dongle/dp/B00GFAN498/)).
    **Note:** Pi 3 has built-in WiFi.
 
-For extra credit, we'll show you how to [remote(SSH)][1] into your device, eliminating the need for a monitor, keyboard and mouse - and how to tail logs for troubleshooting.
+For extra credit, enable [remote(SSH)][1] into your device, eliminating the need for a monitor, keyboard and mouse - and how to tail logs for troubleshooting.
 
 ---
 
