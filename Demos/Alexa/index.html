@@ -8,7 +8,7 @@
         
         
         <link rel="shortcut icon" href="../../img/favicon.ico">
-        <title>Microphone - MATRIX</title>
+        <title>Alexa on Creator - MATRIX</title>
         <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
         <link href="../../css/font-awesome-4.5.0.css" rel="stylesheet">
         <link href="../../css/base.css" rel="stylesheet">
@@ -198,16 +198,16 @@
 </li>
                         </ul>
                     </li>
-                    <li class="dropdown">
+                    <li class="dropdown active">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Demos <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             
-<li >
-    <a href="../../Demos/Alexa/">Alexa on Creator</a>
+<li class="active">
+    <a href="./">Alexa on Creator</a>
 </li>
                         </ul>
                     </li>
-                    <li class="dropdown active">
+                    <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Hardware <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             
@@ -256,23 +256,23 @@
 </li>
                             
 <li >
-    <a href="../fpga/">FPGA</a>
+    <a href="../../Hardware/fpga/">FPGA</a>
 </li>
                             
 <li >
-    <a href="../Sam3/">SAM3</a>
+    <a href="../../Hardware/Sam3/">SAM3</a>
 </li>
                             
 <li >
-    <a href="../sam3mcu-programming/">SAM3MCU</a>
-</li>
-                            
-<li class="active">
-    <a href="./">Microphone</a>
+    <a href="../../Hardware/sam3mcu-programming/">SAM3MCU</a>
 </li>
                             
 <li >
-    <a href="../SPI/">SPI</a>
+    <a href="../../Hardware/microphone/">Microphone</a>
+</li>
+                            
+<li >
+    <a href="../../Hardware/SPI/">SPI</a>
 </li>
                         </ul>
                     </li>
@@ -288,12 +288,12 @@
                     </a>
                 </li>
                     <li >
-                        <a rel="next" href="../sam3mcu-programming/">
+                        <a rel="next" href="../../intro/matrix-troubleshooting/">
                             <i class="fa fa-arrow-left"></i> Previous
                         </a>
                     </li>
                     <li >
-                        <a rel="prev" href="../SPI/">
+                        <a rel="prev" href="../../HAL/overview/">
                             Next <i class="fa fa-arrow-right"></i>
                         </a>
                     </li>
@@ -305,47 +305,95 @@
         <div class="container">
                 <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
-        <li class="main active"><a href="#microphone">Microphone</a></li>
+        <li class="main active"><a href="#on-this-page">On this page</a></li>
+        <li class="main "><a href="#overview">Overview</a></li>
+        <li class="main "><a href="#required-hardware">Required hardware</a></li>
+        <li class="main "><a href="#lets-get-started">Let's get started</a></li>
+            <li><a href="#step-1-setting-up-your-pi">Step 1: Setting up your Pi</a></li>
+            <li><a href="#step-2-override-alsa-configuration">Step 2: Override ALSA configuration</a></li>
+            <li><a href="#step-3-install-matrix-software-and-reboot">Step 3: Install MATRIX software and reboot</a></li>
+            <li><a href="#step-4-run-your-web-service-sample-app-and-wake-word-engine">Step 4: Run your web service, sample app and wake word engine</a></li>
+            <li><a href="#step-5-talk-to-alexa">Step 5: Talk to Alexa</a></li>
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
 
-<h3 id="microphone">Microphone</h3>
-<p>First check the <a href="../Getting-Started">Getting started</a></p>
-<p>Update and upgrade the raspbian</p>
-<pre><code>sudo apt-get update
-sudo apt-get upgrade
+<h2 id="on-this-page">On this page</h2>
+<ul>
+<li><a href="#overview">Overview</a></li>
+<li><a href="#required-hardware">Required Hardware</a></li>
+<li><a href="#lets-get-started">Step-by-step Guide</a></li>
+</ul>
+<hr />
+<h2 id="overview">Overview</h2>
+<p><img alt="" src="../matrix-creator-alexa.png" /></p>
+<p>This guide provides step-by-step instructions for setting up AVS on a <strong>Raspberry Pi</strong> with a <a href="https://creator.matrix.one/">MATRIX Creator</a>. It demonstrates how to access and test AVS using our Java sample app (running on a Raspberry Pi), a Node.js server, and a third-party wake word engine using MATRIX mic array. You will use the Node.js server to obtain a Login with Amazon (LWA) authorization code by visiting a website using your Raspberry Pi's web browser.</p>
+<h2 id="required-hardware">Required hardware</h2>
+<p>Before you get started, let's review what you'll need.</p>
+<ol>
+<li><strong>Raspberry Pi 3</strong> (Recommended) or <strong>Pi 2 Model B</strong> (Supported)  - Buy at Amazon - <a href="https://amzn.com/B01CD5VC92">Pi 3</a> or <a href="http://amzn.com/B00T2U7R7I">Pi 2</a>.</li>
+<li><strong>MATRIX Creator</strong> - Raspberry Pi does not have a built-in microphone, the MATRIX Creator has an 8 mic array for Alexa - <a href="https://creator.matrix.one/#!/buy">Buy MATRIX Creator</a></li>
+<li><strong>Micro-USB power cable</strong> for Raspberry Pi.</li>
+<li><strong>Micro SD Card</strong> (Minimum 8 GB) - You need an operating system to get started. NOOBS (New Out of the Box Software) is an easy-to-use operating system install manager for Raspberry Pi. The simplest way to get NOOBS is to buy an SD card with NOOBS pre-installed - <a href="https://www.amazon.com/gp/product/B00ENPQ1GK/ref=oh_aui_detailpage_o01_s00?ie=UTF8&amp;psc=1">Raspberry Pi 8GB Preloaded (NOOBS) Micro SD Card</a>. Alternatively, you can download and install it on your SD card.</li>
+<li><strong>External Speaker</strong> with 3.5mm audio cable - <a href="http://amzn.com/B007OYAVLI">Buy on Amazon</a></li>
+<li>A <strong>USB Keyboard &amp; Mouse</strong>, and an external <strong>HDMI Monitor</strong> - we also recommend having a USB keyboard and mouse as well as an HDMI monitor handy if you're unable to <a href="https://github.com/alexa/alexa-avs-sample-app/wiki/Setup-SSH-&amp;-VNC">remote(SSH)</a> into your Pi.</li>
+<li>Internet connection (Ethernet or WiFi)</li>
+<li>(Optional) WiFi Wireless Adapter for Pi 2 (<a href="http://www.amazon.com/CanaKit-Raspberry-Wireless-Adapter-Dongle/dp/B00GFAN498/">Buy on Amazon</a>).
+   <strong>Note:</strong> Pi 3 has built-in WiFi.</li>
+</ol>
+<p>For extra credit, enable <a href="https://github.com/alexa/alexa-avs-sample-app/wiki/Setup-SSH-&amp;-VNC">remote(SSH)</a> into your device, eliminating the need for a monitor, keyboard and mouse - and learn how to tail logs for troubleshooting.</p>
+<hr />
+<h2 id="lets-get-started">Let's get started</h2>
+<p>The original Alexa on a Pi project required manual download of libraries/dependencies and updating configuration files, which is prone to human error. To make the process faster and easier, we've included an install script with the project that will take care of all the heavy lifting. Not only does this reduce setup time to less than an hour on a Raspberry Pi 3, it only requires developers to adjust three variables in a single install script.</p>
+<h3 id="step-1-setting-up-your-pi">Step 1: Setting up your Pi</h3>
+<p>Configure your RaspberryPi like a original Alexa documentation, for this please completing steps: <strong>1,2,3,4,5 and 6</strong> from original documentation: <a href="https://github.com/alexa/alexa-avs-sample-app/wiki/Raspberry-Pi#step-1-setting-up-your-pi">Raspberry Pi</a></p>
+<hr />
+<h3 id="step-2-override-alsa-configuration">Step 2: Override ALSA configuration</h3>
+<p>MATRIX Creator has 8 physical microphone channels and an additional virtual beam formed channel that combines the physical ones. Utilize a microphone channel by placing the following in <code>/home/pi/.asoundrc</code>.</p>
+<pre><code class="javascript">pcm.!default
+{
+  type asym
+  playback.pcm {
+    type hw
+    card 0
+    device 0
+  }
+  capture.pcm {
+    type file
+    file &quot;/tmp/matrix_micarray_channel_0&quot;
+    infile &quot;/tmp/matrix_micarray_channel_0&quot;
+    format &quot;raw&quot;
+    slave {
+        pcm sc
+    }
+  }
+}
 </code></pre>
-<p>Install <em>Alsa tools</em> and the <em>sox</em> utility</p>
-<pre><code>sudo apt-get install sox alsa-utils
+
+<hr />
+<h3 id="step-3-install-matrix-software-and-reboot">Step 3: Install MATRIX software and reboot</h3>
+<pre><code class="bash">echo &quot;deb http://packages.matrix.one/matrix-creator/ ./&quot; | sudo tee --append /etc/apt/sources.list;
+sudo apt-get update;
+sudo apt-get upgrade;
+sudo apt-get install libzmq3-dev xc3sprog matrix-creator-openocd wiringpi cmake g++ git;
+sudo apt-get install matrix-creator-init matrix-creator-malos
+sudo reboot
 </code></pre>
-<p>Run the volumen control</p>
-<pre><code>alsamixer
+
+<hr />
+<h3 id="step-4-run-your-web-service-sample-app-and-wake-word-engine">Step 4: Run your web service, sample app and wake word engine</h3>
+<p>Return to <a href="https://github.com/alexa/alexa-avs-sample-app/wiki/Raspberry-Pi#step-1-setting-up-your-pi">Raspberry Pi</a> documentation and execute <strong>Step 7</strong> but in the last terminal select the <code>sensory</code> wake word engine with:</p>
+<pre><code class="bash">cd ~/Desktop/alexa-avs-sample-app/samples
+cd wakeWordAgent/src &amp;&amp; ./wakeWordAgent -e sensory
 </code></pre>
-<p>Install and compile the MATRIX Creator's hardware abstraction layer</p>
-<pre><code>git clone https://github.com/matrix-io/matrix-creator-hal.git
-cd matrix-creator-hal 
-mkdir build &amp;&amp; cd build
-cmake ..
-make
-</code></pre>
-<p>Run capture and check the recorded files
-    cd demos
-    ./micarray_recorder
-    ls -1 *raw</p>
-<p>Convert the audio</p>
-<pre><code>sox -r 16000 -c 1 -e signed -c 1 -e signed -b 16 mic_16000_s16le_channel_0.raw channel_0.wav
-sox -r 16000 -c 1 -e signed -c 1 -e signed -b 16 mic_16000_s16le_channel_1.raw channel_1.wav
-sox -r 16000 -c 1 -e signed -c 1 -e signed -b 16 mic_16000_s16le_channel_2.raw channel_2.wav
-sox -r 16000 -c 1 -e signed -c 1 -e signed -b 16 mic_16000_s16le_channel_3.raw channel_3.wav
-sox -r 16000 -c 1 -e signed -c 1 -e signed -b 16 mic_16000_s16le_channel_4.raw channel_4.wav
-sox -r 16000 -c 1 -e signed -c 1 -e signed -b 16 mic_16000_s16le_channel_5.raw channel_5.wav
-sox -r 16000 -c 1 -e signed -c 1 -e signed -b 16 mic_16000_s16le_channel_6.raw channel_6.wav
-sox -r 16000 -c 1 -e signed -c 1 -e signed -b 16 mic_16000_s16le_channel_7.raw channel_7.wav
-</code></pre>
-<p>Play the wave file (i.e. audio from channel 0)</p>
-<pre><code>aplay channel_0.wav
-</code></pre></div>
+
+<hr />
+<h3 id="step-5-talk-to-alexa">Step 5: Talk to Alexa</h3>
+<p>You can now talk to Alexa by simply using the wake word "Alexa". Try the following -</p>
+<p>Say "Alexa", then wait for the beep. Now say "what's the time?"</p>
+<p>Say "Alexa", then wait for the beep. Now say "what's the weather in Seattle?"</p>
+<p>If you prefer, you can also click on the "Listen" button, instead of using the wake word. Click the "Listen" button and wait for the audio cue before beginning to speak. It may take a second or two before you hear the audio cue.</p>
+<hr /></div>
         </div>
 
         <footer class="col-md-12">

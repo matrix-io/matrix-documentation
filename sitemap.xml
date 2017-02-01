@@ -94,19 +94,7 @@
     
         
     <url>
-     <loc>/HAL/overview/</loc>
-     <lastmod>2017-02-01</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>/HAL/overview/</loc>
-     <lastmod>2017-02-01</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>/HAL/troubleshooting/</loc>
+     <loc>/Demos/Alexa/</loc>
      <lastmod>2017-02-01</lastmod>
      <changefreq>daily</changefreq>
     </url>
@@ -116,26 +104,16 @@
     
         
     <url>
-     <loc>/MALOS/overview/</loc>
-     <lastmod>2017-02-01</lastmod>
+     <loc></loc>
+     <lastmod></lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>/MALOS/example/</loc>
-     <lastmod>2017-02-01</lastmod>
+     <loc></loc>
+     <lastmod></lastmod>
      <changefreq>daily</changefreq>
     </url>
-        
-    <url>
-     <loc>/MALOS/troubleshooting/</loc>
-     <lastmod>2017-02-01</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    
-
-    
         
     <url>
      <loc>/Reference/overview/</loc>
