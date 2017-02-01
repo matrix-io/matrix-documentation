@@ -122,12 +122,12 @@
         }, 
         {
             "location": "/CLI/installation/", 
-            "text": "Installation\n\n\nThis will make the \nmatrix\n command available in your terminal.\n\n\nnpm install -g matrix-cli\n\n\n\n\nEnvironment Configuration\n\n\nPoints the CLI to the right servers. If you have errors right off the bat, try this first.\n\n\nmatrix set env rc\n\n\n\n\nRegistration\n\n\nUser registration\n\n\nIf you do not have an AdMobilize MATRIX account, use:\n\n\nmatrix register\n\n\n\n\nCheck your email to confirm the account then you can login.\n\n\nDevice registration\n\n\nIn order to set up your device, use:\n\n\nmatrix register device\n\n\n\n\nThis will ask for your device details and then provide you with an id and a secret, you need to set those ENV vars in your device to link it to our platform.  \n\n\nHelp\n\n\nFor a list of all the available options, use:\n\n\nmatrix", 
+            "text": "Installation\n\n\nInstalling MATRIX CLI is quite easy. However, you do need to have a couple of other things installed first:\n\n\n\n\nNode.js\n\n\nGit\n\n\n\n\nIf your computer already has these, congratulations! This will make the \nmatrix\n command available in your terminal. Just install MATRIX CLI with \nnpm\n and you're good to go.\n\n\nnpm install -g matrix-cli\n\n\n\n\nEnvironment Configuration\n\n\nPoints the CLI to the right servers. If you have errors right off the bat, try this first.\n\n\nmatrix set env rc\n\n\n\n\nRegistration\n\n\nUser registration\n\n\nIf you do not have an AdMobilize MATRIX account, use:\n\n\nmatrix register\n\n\n\n\nCheck your email to confirm the account then you can login.\n\n\nDevice registration\n\n\nIn order to set up your device, use:\n\n\nmatrix register device\n\n\n\n\nThis will ask for your device details and then provide you with an id and a secret, you need to set those ENV vars in your device to link it to our platform.  \n\n\nHelp\n\n\nFor a list of all the available options, use:\n\n\nmatrix", 
             "title": "Installation"
         }, 
         {
             "location": "/CLI/installation/#installation", 
-            "text": "This will make the  matrix  command available in your terminal.  npm install -g matrix-cli", 
+            "text": "Installing MATRIX CLI is quite easy. However, you do need to have a couple of other things installed first:   Node.js  Git   If your computer already has these, congratulations! This will make the  matrix  command available in your terminal. Just install MATRIX CLI with  npm  and you're good to go.  npm install -g matrix-cli", 
             "title": "Installation"
         }, 
         {
