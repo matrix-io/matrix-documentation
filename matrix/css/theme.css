@@ -1,0 +1,26 @@
+.active a {
+    color: red;
+    font-weight: bold;
+}
+
+.jumbotron, .navbar {
+  border-radius: 0px;
+  -webkit-border-radius: 0px;
+  -moz-border-radius: 0px;
+  -o-border-radius: 0px;
+  margin: 0px;
+}
+
+.navbar-brand > img {
+  height: 20px;
+}
+
+.dropdown-submenu {
+    position: relative;
+}
+
+.dropdown-submenu .dropdown-menu {
+    top: 0;
+    left: 100%;
+    margin-top: -1px;
+}

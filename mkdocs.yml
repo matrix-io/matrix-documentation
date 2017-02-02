@@ -1,8 +1,7 @@
 site_name: MATRIX
 site_description: MATRIX OS Documentation
 docs_dir: docs
-extra_css: ['styles.css']
-
+theme_dir: matrix
 pages:
 - Installation: 'index.md'
 - Upgrades: 'upgrades.md'
