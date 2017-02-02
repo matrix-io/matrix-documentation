@@ -2,10 +2,12 @@
 
 Starting MOS from your device, you will have access to more error messages with `DEBUG=*,-engine*,-Component*` prepended to the commands presented below. `engine`, refers to `engine.io`, sockets, and `Component`, is very verbose hardware communications, disable these filters as necessary.
 
-### Test apps
+### Test applications
+Several applications are available in the [MATRIX App Store](https://apps.matrix.one).
 
-`sensorTest` - tests all sensors
-`ledTest` - tests the led
+* `sensorTest` - Tests all sensors
+* `clock` - Runs a clock which tests the LEDs
+* `faceTest - Face detection services via `malos-eye`.
 
 ### Lights are spinning, but don't stop
 
