@@ -1,0 +1,18 @@
+<!--
+
+-->
+{% if not nav_item.children %}
+<li {% if nav_item.active %}class="active"{% endif %}>
+    <a href="{{ nav_item.url }}">{{ nav_item.title }}</a>
+</li>
+{% else %}
+  {% set nav_level = nav_level + 1 %}
+  <li class="{% if nav_level == 1 %}dropdown{% else %}dropdown-submenu{% endif %}">
+    <a href="#" class="dropdown-toggle submenu" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{ nav_item.title }} <span class="caret"></span></a>
+    <ul class="{% if nav_level/2 > 0 %}dropdown-menu{% else %}dropdown-submenu{% endif %}">
+        {% for nav_item in nav_item.children %}
+            {% include "nav.html" %}
+        {% endfor %}
+    </ul>
+  </li>
+{% endif %}
