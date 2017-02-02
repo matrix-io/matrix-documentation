@@ -1,11 +1,3 @@
-## On this page
-
-* [Overview](#overview)
-* [Required Hardware](#required-hardware)
-* [Step-by-step Guide](#lets-get-started)
-
----
-
 ## Overview
 
 ![](matrix-creator-alexa.png)
