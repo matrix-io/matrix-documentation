@@ -110,7 +110,11 @@
   </div>
 </nav>
   <div class="jumbotron">
+    {% if page_title|string() == 'None' %}
+    <h1 class="text-center">Installation</h1>
+    {% else %}
     <h1 class="text-center">{{ page_title }}</h1>
+    {% endif %}
   </div>
   <div class="container-fluid">
     <div class="row">
