@@ -11,8 +11,16 @@
   margin: 0px;
 }
 
+h1,h2,h3,h4,h5,h6 {
+  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+}
+
+.navbar-brand {
+  padding: 7px !important;
+}
+
 .navbar-brand > img {
-  height: 20px;
+  height: 35px;
 }
 
 .dropdown-submenu {
