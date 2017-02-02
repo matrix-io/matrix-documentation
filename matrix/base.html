@@ -97,7 +97,7 @@
     See the nav.html file for more details about how this works.
   -->
 <nav class="navbar navbar-default">
-  <div class="container-fluid">
+  <div class="container">
     <a class="navbar-brand" href="#">
       <img alt="MATRIX Labs" src="{{ base_url }}/img/matrix.png">
     </a>
@@ -106,6 +106,9 @@
     {% for nav_item in nav %}
       {% include "nav.html" %}
     {% endfor %}
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <li><a class="order" href="https://creator.matrix.one" target="_blank">Order Dev Kit</a></li>
     </ul>
   </div>
 </nav>
@@ -116,7 +119,7 @@
     <h1 class="text-center">{{ page_title }}</h1>
     {% endif %}
   </div>
-  <div class="container-fluid">
+  <div class="container">
     <div class="row">
       <div class="col-md-2">
         

@@ -9,10 +9,15 @@
   -moz-border-radius: 0px;
   -o-border-radius: 0px;
   margin: 0px;
+  background: #09488f;
 }
 
-h1,h2,h3,h4,h5,h6 {
-  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+.jumbotron h1 {
+  color: #FFFFFF;
+}
+
+h1,h2,h3,h4,h5,h6,p,label,div,a {
+  font-family: 'PT Sans',sans-serif !important;
 }
 
 .navbar-brand {
@@ -22,6 +27,66 @@ h1,h2,h3,h4,h5,h6 {
 .navbar-brand > img {
   height: 35px;
 }
+
+
+
+.navbar.navbar-default {
+  padding: 20px;
+  border: 0px !important;
+}
+
+.navbar-default .navbar-nav>li>a {
+  color: #FFFFFF;
+  display: inline-block;
+  line-height: 1.25;
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+  user-select: none;
+  border: 1px solid transparent;
+  border-radius: .25rem;
+}
+
+.order {
+  background: #2065ab !important;
+  border-radius: .25rem;
+}
+
+.order:hover {
+  background: #72c01e !important;
+  opacity: 1 !important;
+  border-radius: 5px;
+  -o-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: .25rem;
+}
+
+.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover {
+  border-radius: .25rem;
+  background: #2065ab !important;
+  opacity: .8;
+  color: #FFFFFF !important;
+  font-weight: normal;
+
+}
+
+.nav .open>a, .nav .open>a:focus, .nav .open>a:hover {
+  border-radius: .25rem;
+  background: #2065ab !important;
+  opacity: .8;
+  color: #FFFFFF !important;
+  font-weight: normal;
+}
+
+.navbar-nav>li>.dropdown-menu {
+  border-radius: 4px !important;
+}
+
+.navbar-default .navbar-nav>li>a:hover {
+  opacity: .8;
+  color: #FFFFFF !important;
+} 
 
 .dropdown-submenu {
     position: relative;
