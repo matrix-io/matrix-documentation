@@ -6,7 +6,7 @@
 ## Installation
 
 #### Local Machine Setup
-**Note:** Pre-requisite of [NodeJS](https://nodejs.org/en/download) on the client computer.
+**Note 1:** Pre-requisite of [NodeJS](https://nodejs.org/en/download) on the client computer.
 
 1. Install [MATRIX CLI](CLI/overview.md) via npm `sudo npm install -g matrix-cli`.
 1. Target the proper environment `matrix set env rc`.
@@ -24,7 +24,8 @@ export MATRIX_DEVICE_SECRET=08629018e9d77h15i5n0t4r3alz0f06cd4f7e5544272b
 ```
 
 Save these for the Configure ENV Variables step, near the end.
-**Note 2** Getting Started, Registration and Installation of MATRIX OS and MATRIX CLI  : https://www.youtube.com/watch?v=ckDD6HEjfAY
+
+**Note 2:** Getting Started, Registration and Installation of MATRIX OS and MATRIX CLI  : https://www.youtube.com/watch?v=ckDD6HEjfAY
 #### Raspberry Pi Setup
 
 The following installation configures the MATRIX Creator, as well as installs the MATRIX Open Source platform.
