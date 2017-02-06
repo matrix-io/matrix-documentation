@@ -88,3 +88,21 @@ Indicated via a `control` option.
 `xy` - track pad
 
 `radial` - joystick, single or multiple
+
+## Widget Size
+
+Widgets can be resized horizontally with the `size` attribute.
+
+Size is simply the percentage width you would like the widget to take. If size is not specified, then the widget will take up a equal proportion of the remaining width.
+
+### Example
+```
+widgets:
+  halfWidth:
+    size: 50
+  quarterWidth:
+    size: 25
+    # size doesn't need to be specified
+  quarterWidth2:
+    # size doesn't need to be specified
+```

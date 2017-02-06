@@ -1,5 +1,5 @@
 ## Computer Vision
-Part of the vision for MATRIX OS is to provide computer vision in an easy to access format.
+MATRIX OS is designed to integrate with computer vision in a powerful and robust way. You can use computer vision output to drive hardware behavior, or capture the data for further analysis.
 
 ## Example
 From (faceTest MATRIX App)[http://apps.matrix.one/#!/apps/facetest]
@@ -15,21 +15,9 @@ matrix.init('face').then(function(data){
 ```
 
 ## Configuration
-To facilitate communication with the hardware, it is required to define CV services in `config.yaml` before they will be available to your application.
+To facilitate communication with the hardware, define CV services must be defined in `config.yaml` before they will be available to your application.
 
 See [Services](../Configuration/services.md) for more information
-
-We've build computer vision algorithms in the API inteface to add another level of experiential IoT applications. We've also made it extremely simple to get started.
-
-## Detection Algorithms
-Available basic algorithms: `face`,
-
-<!-- `thumb-up`
-`palm-open`
-`palm-closed`
-`face-id`
-`vehicle-count`
-`person-count` -->
 
 ## Initialization
 ```
@@ -76,11 +64,11 @@ Returning tags: `HAND_PALM`, `HAND_FIST`, `FADE`
 ```
 
 ## Extended Algorithms
-`demographics` `matrix.init('demographics')`
-`recognition` `matrix.init('recognition')`
+`demographics` - `matrix.init('demographics')`
+`recognition` - `matrix.init('recognition')`
 
 ### Extended Face Data Format
-`demographics` output - - `matrix.init('demographics')`
+#### Demographics Output
 ```
 { location: { x: 213, y: 221, width: 55, height: 55 },
  tag: 'FACE',
@@ -95,13 +83,6 @@ Returning tags: `HAND_PALM`, `HAND_FIST`, `FADE`
     face_id: '4' } }
 ```
 
-`recognition` output -
-```
-- face_id
-- confidence
-tbd
-```
-
 #### emotions
 `HAPPY`
 `SAD`
@@ -110,6 +91,14 @@ tbd
 `CALM`
 `SURPRISED`
 `DISGUST`
+
+
+### Recognition output
+```
+- face_id
+- confidence
+tbd
+```
 
 
 <!--## Base Options

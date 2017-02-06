@@ -2,6 +2,7 @@
 
 MALOS provides a [ZeroMQ](http://zeromq.org/) messaging layer. An intended target for this layer is [MATRIX OS](http://github.com/matrix-io/matrix-os).
 
+Documentation in progress can be found on [MALOS GitHub](https://github.com/matrix-io/matrix-creator-malos/tree/master/docs)
 
 ## Installation
 ```
