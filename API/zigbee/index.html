@@ -84,7 +84,7 @@
   -->
 <nav class="navbar navbar-default">
   <div class="container">
-    <a class="navbar-brand" href="#">
+    <a class="navbar-brand" href="../..">
       <img alt="MATRIX Labs" src="../../img/matrix.png">
     </a>
     <ul class="nav navbar-nav">
@@ -681,26 +681,16 @@
           <h3>Contents</h3>
           <ul class="list-group">
           
-              <li class="list-group-item"><a href="#list-networks">List Networks</a></li>
+              <li class="list-group-item"><a href="#base">Base</a></li>
               
           
-              <li class="list-group-item"><a href="#list-appliances">List Appliances</a></li>
+              <li class="list-group-item"><a href="#network">Network</a></li>
               
           
-              <li class="list-group-item"><a href="#list-objects">List Objects</a></li>
+              <li class="list-group-item"><a href="#lights">Lights</a></li>
               
           
-              <li class="list-group-item"><a href="#object-status">Object Status</a></li>
-              
-          
-              <li class="list-group-item"><a href="#object-properties">Object Properties</a></li>
-              
-                  <li class="list-group-item"><a href="#update">Update</a></li>
-              
-                  <li class="list-group-item"><a href="#retrieve">Retrieve</a></li>
-              
-          
-              <li class="list-group-item"><a href="#inject">Inject</a></li>
+              <li class="list-group-item"><a href="#example">Example</a></li>
               
           
           </ul>
@@ -710,41 +700,92 @@
       </div>
       <div class="col-md-10">
         
-          <p>Still working out the precise API for this. Stay tuned.</p>
-<p><code>matrix.zigbee.light(1).color(hue, time)</code>
-<code>matrix.zigbee.light(1).colorSpin(hue, time, direction)</code>
-<code>matrix.zigbee.light(1).colorMove(hueDelta, time, direction)</code>
-<code>matrix.zigbee.light(1).off()</code>
-<code>matrix.zigbee.light(1).on()</code>
-<code>matrix.zigbee.light(1).saturation()</code>
-<code>matrix.zigbee.light(1).level()</code></p>
-<p>compose your objects</p>
-<pre><code>var frontDoor = matrix.zigbee.light( lights[1].id );
-frontDoor.color('blue', 100);
+          <p>Alpha API, subject to deprecation</p>
+<p>Version Introduced: 0.9.0</p>
+<h2 id="base">Base</h2>
+<p><code>matrix.zigbee()</code> - activates the zigbee network and sees if any of the remembered devices are available</p>
+<p>Returns an object which is used to activate other zigbee commands</p>
+<pre><code>var zb = matrix.zigbee();
 </code></pre>
 
-<h3 id="list-networks">List Networks</h3>
-<p>List the networks available to connect to.</p>
-<h3 id="list-appliances">List Appliances</h3>
-<p>List the appliances available on the network.</p>
-<h3 id="list-objects">List Objects</h3>
-<p>List the available objects within the appliance.</p>
-<h3 id="object-status">Object Status</h3>
-<p>List the current status of an object.</p>
-<h3 id="object-properties">Object Properties</h3>
-<h4 id="update">Update</h4>
-<p>Update an object property.</p>
-<h4 id="retrieve">Retrieve</h4>
-<p>Retrieve an object property.</p>
-<h3 id="inject">Inject</h3>
+<h2 id="network">Network</h2>
+<p><code>zb.discover()</code> - put zigbee into discover mode for 60 seconds. power on your zigbee device to have it be found</p>
+<p><code>zb.reset()</code> - if you get into problems, issue a reset command</p>
+<h2 id="lights">Lights</h2>
+<p>currently, only zigbee lights are supported
+<code>zb.light(n)</code> - address found lights. <code>n</code> indicates the number of the light, in order of which it was added, default to the first.</p>
+<p><code>zb.light().on()</code> - turns on the light
+<code>zb.light().off()</code> - turns off the light
+<code>zb.light().toggle()</code> - turns the light on or off</p>
+<p><code>zb.light().fadeIn(time)</code> - slowly turn a light over <code>time</code> seconds
+<code>zb.light().fadeOut(time)</code> - slowly turn off a light over <code>time</code> seconds</p>
+<p><code>zb.light().color(hue, time)</code> - sets the light to <code>hue</code> color, over <code>time</code> seconds, defaulting to 3 seconds. <code>hue</code> accepts 0-360 hue values, in addition any <code>color</code> value which would be passed to the Everloop, like <code>'blue'</code> or <code>'#0000FF'</code>. see <a href="../everloop/">Everloop</a></p>
+<p><code>zb.light().level(level, time)</code> - sets the light level to <code>level</code> 0-100 over <code>time</code> seconds, defaults to 3</p>
+<h2 id="example">Example</h2>
+<p>Use events to have precise control over your zigbee devices.</p>
+<pre><code>matrix.on('discover', function(){
+  matrix.zigbee().discover();
+});
+
+matrix.on('reset', function(){
+  matrix.zigbee().reset();
+});
+
+matrix.on('toggle', function(){
+  matrix.zigbee().light().toggle();
+});
+
+matrix.on('off', function(){
+  matrix.zigbee().light().fadeOut(10);
+});
+
+matrix.on('on', function(){
+  matrix.zigbee().light().fadeIn(10);
+});
+
+matrix.on('dim', function(){
+  matrix.zigbee().light().level(10, 5);
+});
+
+var spin;
+matrix.on('spin', function(){
+  var hue = 0;
+  var i = 0;
+  setInterval( function(){
+    spin = matrix.led({
+        h: hue++,
+        s: 1,
+        l: 0.5
+      }).render();
+
+    if ( i &gt; 35 ){
+      i = 0;
+    }
+
+    if ( hue &gt; 360){
+      hue = 0;
+    }
+
+    if ( hue % 10 === 0){
+      matrix.zigbee().light().color(hue, 1);
+    }
+  }, 50);
+});
+
+matrix.on('stop', function(){
+  clearInterval(spin);
+});
+</code></pre>
+
+<p>Issue a <code>spin</code> event against the above application to cycle colors on the Everloop and set the zigbee light to the same color.</p>
         
       </div>
     </div>
   </div>
 
   <!--
-  MkDocs version      : 0.15.3
-  Docs Build Date UTC : 2017-02-02 16:35:46.865391
+  MkDocs version      : 0.16.1
+  Docs Build Date UTC : 2017-02-06 19:10:31
   -->
 
 </body>

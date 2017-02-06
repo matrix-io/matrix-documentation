@@ -84,7 +84,7 @@
   -->
 <nav class="navbar navbar-default">
   <div class="container">
-    <a class="navbar-brand" href="#">
+    <a class="navbar-brand" href="../..">
       <img alt="MATRIX Labs" src="../../img/matrix.png">
     </a>
     <ul class="nav navbar-nav">
@@ -727,17 +727,17 @@
       <div class="col-md-10">
         
           <h2 id="cross-talk">Cross-Talk</h2>
-<p>Cross-Talk is how applications communicate between different devices. Applications can exchange information with other applications, or with other instances of the same application. Cool, right? All messages get sent to all devices, so if you have the same app running on different devices, this is how to communicate between instances of the app.</p>
+<p>Cross-Talk is a mechanism for applications to communicate, whether on the same device, or on different devices. Applications can exchange information with other applications, or with other instances of the same application. All messages get sent to all devices, so if you have the same app running on different devices, this is how to communicate between installations of the same app.</p>
 <h2 id="config-setup">Config Setup</h2>
-<p>CrossTalk requires setup in configuration to execute successfully. This information is also used in the app store to determine which applications can communicate via events. </p>
+<p>CrossTalk requires setup in configuration to execute successfully. This information is also used in the app store to determine which applications can communicate via events.</p>
 <h3 id="global">Global</h3>
 <pre><code>events:
-  - global
+  - globalEvent
 </code></pre>
 
 <h3 id="app-targeted">App Targeted</h3>
 <pre><code>events:
-  - appname
+  - appName
 </code></pre>
 
 <h3 id="appevent-targeted">App/Event Targeted</h3>
@@ -818,8 +818,8 @@ matrix.on('buttonClick', function(payload) { ... });
   </div>
 
   <!--
-  MkDocs version      : 0.15.3
-  Docs Build Date UTC : 2017-02-02 16:35:46.822375
+  MkDocs version      : 0.16.1
+  Docs Build Date UTC : 2017-02-06 19:10:31
   -->
 
 </body>

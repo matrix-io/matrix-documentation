@@ -84,7 +84,7 @@
   -->
 <nav class="navbar navbar-default">
   <div class="container">
-    <a class="navbar-brand" href="#">
+    <a class="navbar-brand" href="../..">
       <img alt="MATRIX Labs" src="../../img/matrix.png">
     </a>
     <ul class="nav navbar-nav">
@@ -690,9 +690,6 @@
               <li class="list-group-item"><a href="#configuration">Configuration</a></li>
               
           
-              <li class="list-group-item"><a href="#detection-algorithms">Detection Algorithms</a></li>
-              
-          
               <li class="list-group-item"><a href="#initialization">Initialization</a></li>
               
                   <li class="list-group-item"><a href="#options">options</a></li>
@@ -709,6 +706,8 @@
               
                   <li class="list-group-item"><a href="#extended-face-data-format">Extended Face Data Format</a></li>
               
+                  <li class="list-group-item"><a href="#recognition-output">Recognition output</a></li>
+              
           
           </ul>
 
@@ -718,7 +717,7 @@
       <div class="col-md-10">
         
           <h2 id="computer-vision">Computer Vision</h2>
-<p>Part of the vision for MATRIX OS is to provide computer vision in an easy to access format.</p>
+<p>MATRIX OS is designed to integrate with computer vision in a powerful and robust way. You can use computer vision output to drive hardware behavior, or capture the data for further analysis.</p>
 <h2 id="example">Example</h2>
 <p>From (faceTest MATRIX App)[http://apps.matrix.one/#!/apps/facetest]</p>
 <pre><code>matrix.led('red').render();
@@ -732,18 +731,8 @@ matrix.init('face').then(function(data){
 </code></pre>
 
 <h2 id="configuration">Configuration</h2>
-<p>To facilitate communication with the hardware, it is required to define CV services in <code>config.yaml</code> before they will be available to your application.</p>
+<p>To facilitate communication with the hardware, define CV services must be defined in <code>config.yaml</code> before they will be available to your application.</p>
 <p>See <a href="../../Configuration/services/">Services</a> for more information</p>
-<p>We've build computer vision algorithms in the API inteface to add another level of experiential IoT applications. We've also made it extremely simple to get started.</p>
-<h2 id="detection-algorithms">Detection Algorithms</h2>
-<p>Available basic algorithms: <code>face</code>,</p>
-<!-- `thumb-up`
-`palm-open`
-`palm-closed`
-`face-id`
-`vehicle-count`
-`person-count` -->
-
 <h2 id="initialization">Initialization</h2>
 <pre><code># app.js
 var algorithm = 'face';
@@ -780,10 +769,10 @@ Returning tags: <code>HAND_PALM</code>, <code>HAND_FIST</code>, <code>FADE</code
 </code></pre>
 
 <h2 id="extended-algorithms">Extended Algorithms</h2>
-<p><code>demographics</code> <code>matrix.init('demographics')</code>
-<code>recognition</code> <code>matrix.init('recognition')</code></p>
+<p><code>demographics</code> - <code>matrix.init('demographics')</code>
+<code>recognition</code> - <code>matrix.init('recognition')</code></p>
 <h3 id="extended-face-data-format">Extended Face Data Format</h3>
-<p><code>demographics</code> output - - <code>matrix.init('demographics')</code></p>
+<h4 id="demographics-output">Demographics Output</h4>
 <pre><code>{ location: { x: 213, y: 221, width: 55, height: 55 },
  tag: 'FACE',
  demographics:
@@ -797,12 +786,6 @@ Returning tags: <code>HAND_PALM</code>, <code>HAND_FIST</code>, <code>FADE</code
     face_id: '4' } }
 </code></pre>
 
-<p><code>recognition</code> output -</p>
-<pre><code>- face_id
-- confidence
-tbd
-</code></pre>
-
 <h4 id="emotions">emotions</h4>
 <p><code>HAPPY</code>
 <code>SAD</code>
@@ -811,6 +794,12 @@ tbd
 <code>CALM</code>
 <code>SURPRISED</code>
 <code>DISGUST</code></p>
+<h3 id="recognition-output">Recognition output</h3>
+<pre><code>- face_id
+- confidence
+tbd
+</code></pre>
+
 <!--## Base Options
 These are applicable to all algorithms.
 
@@ -881,8 +870,8 @@ matrix.init('people-count').then(function(data){})
   </div>
 
   <!--
-  MkDocs version      : 0.15.3
-  Docs Build Date UTC : 2017-02-02 16:35:46.800287
+  MkDocs version      : 0.16.1
+  Docs Build Date UTC : 2017-02-06 19:10:31
   -->
 
 </body>

@@ -84,7 +84,7 @@
   -->
 <nav class="navbar navbar-default">
   <div class="container">
-    <a class="navbar-brand" href="#">
+    <a class="navbar-brand" href="../..">
       <img alt="MATRIX Labs" src="../../img/matrix.png">
     </a>
     <ul class="nav navbar-nav">
@@ -691,6 +691,8 @@
               
                   <li class="list-group-item"><a href="#interactive-widgets">Interactive Widgets</a></li>
               
+                  <li class="list-group-item"><a href="#widget-size">Widget Size</a></li>
+              
           
           </ul>
 
@@ -754,14 +756,27 @@ widgets:
 <p><code>range</code> - range slider</p>
 <p><code>xy</code> - track pad</p>
 <p><code>radial</code> - joystick, single or multiple</p>
+<h2 id="widget-size">Widget Size</h2>
+<p>Widgets can be resized horizontally with the <code>size</code> attribute.</p>
+<p>Size is simply the percentage width you would like the widget to take. If size is not specified, then the widget will take up a equal proportion of the remaining width.</p>
+<h3 id="example">Example</h3>
+<pre><code>widgets:
+  halfWidth:
+    size: 50
+  quarterWidth:
+    size: 25
+    # size doesn't need to be specified
+  quarterWidth2:
+    # size doesn't need to be specified
+</code></pre>
         
       </div>
     </div>
   </div>
 
   <!--
-  MkDocs version      : 0.15.3
-  Docs Build Date UTC : 2017-02-02 16:35:46.933805
+  MkDocs version      : 0.16.1
+  Docs Build Date UTC : 2017-02-06 19:10:31
   -->
 
 </body>

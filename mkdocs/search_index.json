@@ -647,12 +647,12 @@
         }, 
         {
             "location": "/API/computer-vision/", 
-            "text": "Computer Vision\n\n\nPart of the vision for MATRIX OS is to provide computer vision in an easy to access format.\n\n\nExample\n\n\nFrom (faceTest MATRIX App)[http://apps.matrix.one/#!/apps/facetest]\n\n\nmatrix.led('red').render();\n\nmatrix.init('face').then(function(data){\n  matrix.led('green').render();\n  setTimeout(function() {\n    matrix.led('black').render();\n  },2000);\n});\n\n\n\n\nConfiguration\n\n\nTo facilitate communication with the hardware, it is required to define CV services in \nconfig.yaml\n before they will be available to your application.\n\n\nSee \nServices\n for more information\n\n\nWe've build computer vision algorithms in the API inteface to add another level of experiential IoT applications. We've also made it extremely simple to get started.\n\n\nDetection Algorithms\n\n\nAvailable basic algorithms: \nface\n,\n\n\n\n\n\nInitialization\n\n\n# app.js\nvar algorithm = 'face';\nvar options   = {};\nmatrix.init( algorithm, options ).then(function( data ){\n  // your CV detection data will be available here\n  console.log( data );\n});\n\n\n\n\noptions\n\n\nrefresh\n - how many seconds before restarting the detection, default: 3\n\n\ntimeout\n - if there is no detection, stop after this many seconds, default: none\n\n\nAlgorithms\n\n\nBasic\n\n\nface\n,\nfist\n,\npalm\n, \nfist\n\n\n\n\n\nBasic Data Format\n\n\npalm\n, \nface\n and \nfist\n output - \nmatrix.init('palm')\n\nReturning tags: \nHAND_PALM\n, \nHAND_FIST\n, \nFADE\n\n\n{\n  location: { x: 333, y: 237, width: 55, height: 55 },\n  tag: 'HAND_PALM'\n}\n\n\n\n\nExtended Algorithms\n\n\ndemographics\n \nmatrix.init('demographics')\n\n\nrecognition\n \nmatrix.init('recognition')\n\n\nExtended Face Data Format\n\n\ndemographics\n output - - \nmatrix.init('demographics')\n\n\n{ location: { x: 213, y: 221, width: 55, height: 55 },\n tag: 'FACE',\n demographics:\n  { gender: 'MALE',\n    emotion: 'CALM',\n    age: 35,\n    pose:\n     { yaw: -0.24303536117076874,\n       roll: 0.04344254732131958,\n       pitch: -0.10279278457164764 },\n    face_id: '4' } }\n\n\n\n\nrecognition\n output -\n\n\n- face_id\n- confidence\ntbd\n\n\n\n\nemotions\n\n\nHAPPY\n\n\nSAD\n\n\nCONFUSED\n\n\nANGRY\n\n\nCALM\n\n\nSURPRISED\n\n\nDISGUST", 
+            "text": "Computer Vision\n\n\nMATRIX OS is designed to integrate with computer vision in a powerful and robust way. You can use computer vision output to drive hardware behavior, or capture the data for further analysis.\n\n\nExample\n\n\nFrom (faceTest MATRIX App)[http://apps.matrix.one/#!/apps/facetest]\n\n\nmatrix.led('red').render();\n\nmatrix.init('face').then(function(data){\n  matrix.led('green').render();\n  setTimeout(function() {\n    matrix.led('black').render();\n  },2000);\n});\n\n\n\n\nConfiguration\n\n\nTo facilitate communication with the hardware, define CV services must be defined in \nconfig.yaml\n before they will be available to your application.\n\n\nSee \nServices\n for more information\n\n\nInitialization\n\n\n# app.js\nvar algorithm = 'face';\nvar options   = {};\nmatrix.init( algorithm, options ).then(function( data ){\n  // your CV detection data will be available here\n  console.log( data );\n});\n\n\n\n\noptions\n\n\nrefresh\n - how many seconds before restarting the detection, default: 3\n\n\ntimeout\n - if there is no detection, stop after this many seconds, default: none\n\n\nAlgorithms\n\n\nBasic\n\n\nface\n,\nfist\n,\npalm\n, \nfist\n\n\n\n\n\nBasic Data Format\n\n\npalm\n, \nface\n and \nfist\n output - \nmatrix.init('palm')\n\nReturning tags: \nHAND_PALM\n, \nHAND_FIST\n, \nFADE\n\n\n{\n  location: { x: 333, y: 237, width: 55, height: 55 },\n  tag: 'HAND_PALM'\n}\n\n\n\n\nExtended Algorithms\n\n\ndemographics\n - \nmatrix.init('demographics')\n\n\nrecognition\n - \nmatrix.init('recognition')\n\n\nExtended Face Data Format\n\n\nDemographics Output\n\n\n{ location: { x: 213, y: 221, width: 55, height: 55 },\n tag: 'FACE',\n demographics:\n  { gender: 'MALE',\n    emotion: 'CALM',\n    age: 35,\n    pose:\n     { yaw: -0.24303536117076874,\n       roll: 0.04344254732131958,\n       pitch: -0.10279278457164764 },\n    face_id: '4' } }\n\n\n\n\nemotions\n\n\nHAPPY\n\n\nSAD\n\n\nCONFUSED\n\n\nANGRY\n\n\nCALM\n\n\nSURPRISED\n\n\nDISGUST\n\n\nRecognition output\n\n\n- face_id\n- confidence\ntbd", 
             "title": "Computer Vision"
         }, 
         {
             "location": "/API/computer-vision/#computer-vision", 
-            "text": "Part of the vision for MATRIX OS is to provide computer vision in an easy to access format.", 
+            "text": "MATRIX OS is designed to integrate with computer vision in a powerful and robust way. You can use computer vision output to drive hardware behavior, or capture the data for further analysis.", 
             "title": "Computer Vision"
         }, 
         {
@@ -662,13 +662,8 @@
         }, 
         {
             "location": "/API/computer-vision/#configuration", 
-            "text": "To facilitate communication with the hardware, it is required to define CV services in  config.yaml  before they will be available to your application.  See  Services  for more information  We've build computer vision algorithms in the API inteface to add another level of experiential IoT applications. We've also made it extremely simple to get started.", 
+            "text": "To facilitate communication with the hardware, define CV services must be defined in  config.yaml  before they will be available to your application.  See  Services  for more information", 
             "title": "Configuration"
-        }, 
-        {
-            "location": "/API/computer-vision/#detection-algorithms", 
-            "text": "Available basic algorithms:  face ,", 
-            "title": "Detection Algorithms"
         }, 
         {
             "location": "/API/computer-vision/#initialization", 
@@ -697,18 +692,28 @@
         }, 
         {
             "location": "/API/computer-vision/#extended-algorithms", 
-            "text": "demographics   matrix.init('demographics')  recognition   matrix.init('recognition')", 
+            "text": "demographics  -  matrix.init('demographics')  recognition  -  matrix.init('recognition')", 
             "title": "Extended Algorithms"
         }, 
         {
             "location": "/API/computer-vision/#extended-face-data-format", 
-            "text": "demographics  output - -  matrix.init('demographics')  { location: { x: 213, y: 221, width: 55, height: 55 },\n tag: 'FACE',\n demographics:\n  { gender: 'MALE',\n    emotion: 'CALM',\n    age: 35,\n    pose:\n     { yaw: -0.24303536117076874,\n       roll: 0.04344254732131958,\n       pitch: -0.10279278457164764 },\n    face_id: '4' } }  recognition  output -  - face_id\n- confidence\ntbd", 
+            "text": "", 
             "title": "Extended Face Data Format"
+        }, 
+        {
+            "location": "/API/computer-vision/#demographics-output", 
+            "text": "{ location: { x: 213, y: 221, width: 55, height: 55 },\n tag: 'FACE',\n demographics:\n  { gender: 'MALE',\n    emotion: 'CALM',\n    age: 35,\n    pose:\n     { yaw: -0.24303536117076874,\n       roll: 0.04344254732131958,\n       pitch: -0.10279278457164764 },\n    face_id: '4' } }", 
+            "title": "Demographics Output"
         }, 
         {
             "location": "/API/computer-vision/#emotions", 
             "text": "HAPPY  SAD  CONFUSED  ANGRY  CALM  SURPRISED  DISGUST", 
             "title": "emotions"
+        }, 
+        {
+            "location": "/API/computer-vision/#recognition-output", 
+            "text": "- face_id\n- confidence\ntbd", 
+            "title": "Recognition output"
         }, 
         {
             "location": "/API/microphone/", 
@@ -722,12 +727,12 @@
         }, 
         {
             "location": "/API/crosstalk/", 
-            "text": "Cross-Talk\n\n\nCross-Talk is how applications communicate between different devices. Applications can exchange information with other applications, or with other instances of the same application. Cool, right? All messages get sent to all devices, so if you have the same app running on different devices, this is how to communicate between instances of the app.\n\n\nConfig Setup\n\n\nCrossTalk requires setup in configuration to execute successfully. This information is also used in the app store to determine which applications can communicate via events. \n\n\nGlobal\n\n\nevents:\n  - global\n\n\n\n\nApp Targeted\n\n\nevents:\n  - appname\n\n\n\n\nApp/Event Targeted\n\n\nevents:\n  - appname:\n    - eventname\n\n\n\n\nGlobal Emitters \n Listeners\n\n\nGlobal messages that can be received across applications, devices, and clients. e.g. Emit from one device, receive on another.\n\n\n.emit(payload)\n\n\n\n\npayload\n Object or string to pass through to retrieve with the listener.\n\n\n\n\n// Send a payload to all listeners\nmatrix.emit(payload);\n\n\n\n\n.on(cb)\n\n\n\n\ncb\n Callback method with \npayload\n returned.\n\n\n\n\n// Listen for global CrossTalk messages\nmatrix.on(function(payload) { ... });\n\n\n\n\nApp Specific Message\n\n\nMessages that can be shared across applications on a single device.\n\n\n.emit(app, payload)\n\n\n\n\napp\n Label to later listen for.\n\n\npayload\n Object or string to pass through to retrieve with the listener.\n\n\n\n\n// Send a message to a particular application\nmatrix.emit('app', payload);\n\n\n\n\n.on(cb)\n\n\n\n\ncb\n Callback method with payload returned.\n\n\n\n\n// Listen for application specific CrossTalk messages\nmatrix.on(function(payload) { ... });\n\n\n\n\nSpecific Event within App\n\n\nMessages that can be filtered by application, and an event type.\n\n\n.emit(app, event, payload)\n\n\n\n\napp\n Label to later listen for.\n\n\nevent\n Event scope within \napp\n to listen for.\n\n\npayload\n Object or string to pass through to retrieve with the listener.\n\n\n\n\n// Trigger an event in a specific application\nmatrix.emit('app', 'event', payload);\n\n\n\n\n.on(event, cb)\n\n\n\n\nevent\n Event to listen on.\n\n\ncb\n Callback method with payload returned.\n\n\n\n\n// Listen for CrossTalk events sent to this application\nmatrix.on('event', function(payload) { ... });\n\n\n\n\nDashboard\n\n\nReceive events from web or mobile by binding them to widget controls.\n\n\n// Interface elements from Dashboards can also trigger CrossTalk events.\nmatrix.on('buttonClick', function(payload) { ... });\n\n\n\n\nConfiguration-Driven Events\n\n\nSee \nConfiguration \n Widgets", 
+            "text": "Cross-Talk\n\n\nCross-Talk is a mechanism for applications to communicate, whether on the same device, or on different devices. Applications can exchange information with other applications, or with other instances of the same application. All messages get sent to all devices, so if you have the same app running on different devices, this is how to communicate between installations of the\u00a0same app.\n\n\nConfig Setup\n\n\nCrossTalk requires setup in configuration to execute successfully. This information is also used in the app store to determine which applications can communicate via events.\n\n\nGlobal\n\n\nevents:\n  - globalEvent\n\n\n\n\nApp Targeted\n\n\nevents:\n  - appName\n\n\n\n\nApp/Event Targeted\n\n\nevents:\n  - appname:\n    - eventname\n\n\n\n\nGlobal Emitters \n Listeners\n\n\nGlobal messages that can be received across applications, devices, and clients. e.g. Emit from one device, receive on another.\n\n\n.emit(payload)\n\n\n\n\npayload\n Object or string to pass through to retrieve with the listener.\n\n\n\n\n// Send a payload to all listeners\nmatrix.emit(payload);\n\n\n\n\n.on(cb)\n\n\n\n\ncb\n Callback method with \npayload\n returned.\n\n\n\n\n// Listen for global CrossTalk messages\nmatrix.on(function(payload) { ... });\n\n\n\n\nApp Specific Message\n\n\nMessages that can be shared across applications on a single device.\n\n\n.emit(app, payload)\n\n\n\n\napp\n Label to later listen for.\n\n\npayload\n Object or string to pass through to retrieve with the listener.\n\n\n\n\n// Send a message to a particular application\nmatrix.emit('app', payload);\n\n\n\n\n.on(cb)\n\n\n\n\ncb\n Callback method with payload returned.\n\n\n\n\n// Listen for application specific CrossTalk messages\nmatrix.on(function(payload) { ... });\n\n\n\n\nSpecific Event within App\n\n\nMessages that can be filtered by application, and an event type.\n\n\n.emit(app, event, payload)\n\n\n\n\napp\n Label to later listen for.\n\n\nevent\n Event scope within \napp\n to listen for.\n\n\npayload\n Object or string to pass through to retrieve with the listener.\n\n\n\n\n// Trigger an event in a specific application\nmatrix.emit('app', 'event', payload);\n\n\n\n\n.on(event, cb)\n\n\n\n\nevent\n Event to listen on.\n\n\ncb\n Callback method with payload returned.\n\n\n\n\n// Listen for CrossTalk events sent to this application\nmatrix.on('event', function(payload) { ... });\n\n\n\n\nDashboard\n\n\nReceive events from web or mobile by binding them to widget controls.\n\n\n// Interface elements from Dashboards can also trigger CrossTalk events.\nmatrix.on('buttonClick', function(payload) { ... });\n\n\n\n\nConfiguration-Driven Events\n\n\nSee \nConfiguration \n Widgets", 
             "title": "Cross-Talk"
         }, 
         {
             "location": "/API/crosstalk/#cross-talk", 
-            "text": "Cross-Talk is how applications communicate between different devices. Applications can exchange information with other applications, or with other instances of the same application. Cool, right? All messages get sent to all devices, so if you have the same app running on different devices, this is how to communicate between instances of the app.", 
+            "text": "Cross-Talk is a mechanism for applications to communicate, whether on the same device, or on different devices. Applications can exchange information with other applications, or with other instances of the same application. All messages get sent to all devices, so if you have the same app running on different devices, this is how to communicate between installations of the\u00a0same app.", 
             "title": "Cross-Talk"
         }, 
         {
@@ -737,12 +742,12 @@
         }, 
         {
             "location": "/API/crosstalk/#global", 
-            "text": "events:\n  - global", 
+            "text": "events:\n  - globalEvent", 
             "title": "Global"
         }, 
         {
             "location": "/API/crosstalk/#app-targeted", 
-            "text": "events:\n  - appname", 
+            "text": "events:\n  - appName", 
             "title": "App Targeted"
         }, 
         {
@@ -857,48 +862,28 @@
         }, 
         {
             "location": "/API/zigbee/", 
-            "text": "Still working out the precise API for this. Stay tuned.\n\n\nmatrix.zigbee.light(1).color(hue, time)\n\n\nmatrix.zigbee.light(1).colorSpin(hue, time, direction)\n\n\nmatrix.zigbee.light(1).colorMove(hueDelta, time, direction)\n\n\nmatrix.zigbee.light(1).off()\n\n\nmatrix.zigbee.light(1).on()\n\n\nmatrix.zigbee.light(1).saturation()\n\n\nmatrix.zigbee.light(1).level()\n\n\ncompose your objects\n\n\nvar frontDoor = matrix.zigbee.light( lights[1].id );\nfrontDoor.color('blue', 100);\n\n\n\n\nList Networks\n\n\nList the networks available to connect to.\n\n\nList Appliances\n\n\nList the appliances available on the network.\n\n\nList Objects\n\n\nList the available objects within the appliance.\n\n\nObject Status\n\n\nList the current status of an object.\n\n\nObject Properties\n\n\nUpdate\n\n\nUpdate an object property.\n\n\nRetrieve\n\n\nRetrieve an object property.\n\n\nInject", 
+            "text": "Alpha API, subject to deprecation\n\n\nVersion Introduced: 0.9.0\n\n\nBase\n\n\nmatrix.zigbee()\n - activates the zigbee network and sees if any of the remembered devices are available\n\n\nReturns an object which is used to activate other zigbee commands\n\n\nvar zb = matrix.zigbee();\n\n\n\n\nNetwork\n\n\nzb.discover()\n - put zigbee into discover mode for 60 seconds. power on your zigbee device to have it be found\n\n\nzb.reset()\n - if you get into problems, issue a reset command\n\n\nLights\n\n\ncurrently, only zigbee lights are supported\n\nzb.light(n)\n - address found lights. \nn\n indicates the number of the light, in order of which it was added, default to the first.\n\n\nzb.light().on()\n - turns on the light\n\nzb.light().off()\n - turns off the light\n\nzb.light().toggle()\n - turns the light\u00a0on or off\n\n\nzb.light().fadeIn(time)\n - slowly turn a light over \ntime\n seconds\n\nzb.light().fadeOut(time)\n - slowly turn off a light over \ntime\n seconds\n\n\nzb.light().color(hue, time)\n - sets the light to \nhue\n color, over \ntime\n seconds, defaulting to 3 seconds. \nhue\n accepts 0-360 hue values, in addition any \ncolor\n value which would be passed to the Everloop, like \n'blue'\n or \n'#0000FF'\n. see \nEverloop\n\n\nzb.light().level(level, time)\n - sets the light level to \nlevel\n 0-100 over \ntime\n seconds, defaults to 3\n\n\nExample\n\n\nUse events to have precise control over your zigbee devices.\n\n\nmatrix.on('discover', function(){\n  matrix.zigbee().discover();\n});\n\nmatrix.on('reset', function(){\n  matrix.zigbee().reset();\n});\n\nmatrix.on('toggle', function(){\n  matrix.zigbee().light().toggle();\n});\n\nmatrix.on('off', function(){\n  matrix.zigbee().light().fadeOut(10);\n});\n\nmatrix.on('on', function(){\n  matrix.zigbee().light().fadeIn(10);\n});\n\nmatrix.on('dim', function(){\n  matrix.zigbee().light().level(10, 5);\n});\n\nvar spin;\nmatrix.on('spin', function(){\n  var hue = 0;\n  var i = 0;\n  setInterval( function(){\n    spin = matrix.led({\n        h: hue++,\n        s: 1,\n        l: 0.5\n      }).render();\n\n    if ( i \n 35 ){\n      i = 0;\n    }\n\n    if ( hue \n 360){\n      hue = 0;\n    }\n\n    if ( hue % 10 === 0){\n      matrix.zigbee().light().color(hue, 1);\n    }\n  }, 50);\n});\n\nmatrix.on('stop', function(){\n  clearInterval(spin);\n});\n\n\n\n\nIssue a \nspin\n event against the above application to cycle colors on the Everloop and set the zigbee light to the same color.", 
             "title": "Zigbee"
         }, 
         {
-            "location": "/API/zigbee/#list-networks", 
-            "text": "List the networks available to connect to.", 
-            "title": "List Networks"
+            "location": "/API/zigbee/#base", 
+            "text": "matrix.zigbee()  - activates the zigbee network and sees if any of the remembered devices are available  Returns an object which is used to activate other zigbee commands  var zb = matrix.zigbee();", 
+            "title": "Base"
         }, 
         {
-            "location": "/API/zigbee/#list-appliances", 
-            "text": "List the appliances available on the network.", 
-            "title": "List Appliances"
+            "location": "/API/zigbee/#network", 
+            "text": "zb.discover()  - put zigbee into discover mode for 60 seconds. power on your zigbee device to have it be found  zb.reset()  - if you get into problems, issue a reset command", 
+            "title": "Network"
         }, 
         {
-            "location": "/API/zigbee/#list-objects", 
-            "text": "List the available objects within the appliance.", 
-            "title": "List Objects"
+            "location": "/API/zigbee/#lights", 
+            "text": "currently, only zigbee lights are supported zb.light(n)  - address found lights.  n  indicates the number of the light, in order of which it was added, default to the first.  zb.light().on()  - turns on the light zb.light().off()  - turns off the light zb.light().toggle()  - turns the light\u00a0on or off  zb.light().fadeIn(time)  - slowly turn a light over  time  seconds zb.light().fadeOut(time)  - slowly turn off a light over  time  seconds  zb.light().color(hue, time)  - sets the light to  hue  color, over  time  seconds, defaulting to 3 seconds.  hue  accepts 0-360 hue values, in addition any  color  value which would be passed to the Everloop, like  'blue'  or  '#0000FF' . see  Everloop  zb.light().level(level, time)  - sets the light level to  level  0-100 over  time  seconds, defaults to 3", 
+            "title": "Lights"
         }, 
         {
-            "location": "/API/zigbee/#object-status", 
-            "text": "List the current status of an object.", 
-            "title": "Object Status"
-        }, 
-        {
-            "location": "/API/zigbee/#object-properties", 
-            "text": "", 
-            "title": "Object Properties"
-        }, 
-        {
-            "location": "/API/zigbee/#update", 
-            "text": "Update an object property.", 
-            "title": "Update"
-        }, 
-        {
-            "location": "/API/zigbee/#retrieve", 
-            "text": "Retrieve an object property.", 
-            "title": "Retrieve"
-        }, 
-        {
-            "location": "/API/zigbee/#inject", 
-            "text": "", 
-            "title": "Inject"
+            "location": "/API/zigbee/#example", 
+            "text": "Use events to have precise control over your zigbee devices.  matrix.on('discover', function(){\n  matrix.zigbee().discover();\n});\n\nmatrix.on('reset', function(){\n  matrix.zigbee().reset();\n});\n\nmatrix.on('toggle', function(){\n  matrix.zigbee().light().toggle();\n});\n\nmatrix.on('off', function(){\n  matrix.zigbee().light().fadeOut(10);\n});\n\nmatrix.on('on', function(){\n  matrix.zigbee().light().fadeIn(10);\n});\n\nmatrix.on('dim', function(){\n  matrix.zigbee().light().level(10, 5);\n});\n\nvar spin;\nmatrix.on('spin', function(){\n  var hue = 0;\n  var i = 0;\n  setInterval( function(){\n    spin = matrix.led({\n        h: hue++,\n        s: 1,\n        l: 0.5\n      }).render();\n\n    if ( i   35 ){\n      i = 0;\n    }\n\n    if ( hue   360){\n      hue = 0;\n    }\n\n    if ( hue % 10 === 0){\n      matrix.zigbee().light().color(hue, 1);\n    }\n  }, 50);\n});\n\nmatrix.on('stop', function(){\n  clearInterval(spin);\n});  Issue a  spin  event against the above application to cycle colors on the Everloop and set the zigbee light to the same color.", 
+            "title": "Example"
         }, 
         {
             "location": "/API/servos/", 
@@ -1072,7 +1057,7 @@
         }, 
         {
             "location": "/Configuration/widgets/", 
-            "text": "Widgets\n\n\nA comprehensive overview coming soon. See \nexamples\n for now.\n\n\nLayout\n\n\nWidgets are defined in the \nwidgets\n key of an app config file. This is a collection where each Widget has a keyed name which is associated with an entry in \nscreens\n to determine it's location on the dashboard.\n\n\nscreens:\n  - leftWidget\n  - rightWidget\n\nwidgets:\n  leftWidget: ...\n  rightWidget: ...\n\n\n\n\nThis way we can easily distinguish between layout and functionality.\n\n\nData Handling\n\n\nThe dashboard holds a central data store which the widgets receive or request data from.\n\n\nDefault operation is for a widget to be updated with data in real time. This is represented by enabling the option \nrealtime\n:\n\n\n// To enable realtime updates\nwidgets:\n  testWidget:\n     realtime: true\n\n\n\n\nThe alternative is to have a widget manually refresh it's data on an interval by disabling \nrealtime\n. Default \nrefresh\n is 5 seconds. If you wanted to refresh a graph every minute:\n\n\n// To disable realtime updates\nwidgets:\n  testWidget:\n     realtime: false\n     refresh: 60\n\n\n\n\nDisplay widgets\n\n\nIndicated via a \ndisplay\n option.\n\n\nbar\n - bar chart\n\n\ndigit\n - numerical\n\n\nradar\n - radar chart\n\n\nline\n - line chart\n\n\nlist\n - data table\n\n\nlist-group\n - grouped data table\n\n\npie-chart\n - pie chart\n\n\npolar\n - polar area chart\n\n\nlabel\n - string display\n\n\ngauge\n - gauge\n\n\nindicator\n -  light indicator on/off\n\n\nmap\n - map\n\n\nInteractive Widgets\n\n\nIndicated via a \ncontrol\n option.\n\n\ninput\n - input field, single or multiple\n\n\nbutton\n - button, single or multiple\n\n\nswitch\n - switch, single or multiple\n\n\nradio\n - radio, single or multiple\n\n\ndropdown\n - dropdown menu\n\n\nrange\n - range slider\n\n\nxy\n - track pad\n\n\nradial\n - joystick, single or multiple", 
+            "text": "Widgets\n\n\nA comprehensive overview coming soon. See \nexamples\n for now.\n\n\nLayout\n\n\nWidgets are defined in the \nwidgets\n key of an app config file. This is a collection where each Widget has a keyed name which is associated with an entry in \nscreens\n to determine it's location on the dashboard.\n\n\nscreens:\n  - leftWidget\n  - rightWidget\n\nwidgets:\n  leftWidget: ...\n  rightWidget: ...\n\n\n\n\nThis way we can easily distinguish between layout and functionality.\n\n\nData Handling\n\n\nThe dashboard holds a central data store which the widgets receive or request data from.\n\n\nDefault operation is for a widget to be updated with data in real time. This is represented by enabling the option \nrealtime\n:\n\n\n// To enable realtime updates\nwidgets:\n  testWidget:\n     realtime: true\n\n\n\n\nThe alternative is to have a widget manually refresh it's data on an interval by disabling \nrealtime\n. Default \nrefresh\n is 5 seconds. If you wanted to refresh a graph every minute:\n\n\n// To disable realtime updates\nwidgets:\n  testWidget:\n     realtime: false\n     refresh: 60\n\n\n\n\nDisplay widgets\n\n\nIndicated via a \ndisplay\n option.\n\n\nbar\n - bar chart\n\n\ndigit\n - numerical\n\n\nradar\n - radar chart\n\n\nline\n - line chart\n\n\nlist\n - data table\n\n\nlist-group\n - grouped data table\n\n\npie-chart\n - pie chart\n\n\npolar\n - polar area chart\n\n\nlabel\n - string display\n\n\ngauge\n - gauge\n\n\nindicator\n -  light indicator on/off\n\n\nmap\n - map\n\n\nInteractive Widgets\n\n\nIndicated via a \ncontrol\n option.\n\n\ninput\n - input field, single or multiple\n\n\nbutton\n - button, single or multiple\n\n\nswitch\n - switch, single or multiple\n\n\nradio\n - radio, single or multiple\n\n\ndropdown\n - dropdown menu\n\n\nrange\n - range slider\n\n\nxy\n - track pad\n\n\nradial\n - joystick, single or multiple\n\n\nWidget Size\n\n\nWidgets can be resized horizontally with the \nsize\n attribute.\n\n\nSize is simply the percentage width you would like the widget to take. If size is not specified, then the widget will take up a equal proportion of the remaining width.\n\n\nExample\n\n\nwidgets:\n  halfWidth:\n    size: 50\n  quarterWidth:\n    size: 25\n    # size doesn't need to be specified\n  quarterWidth2:\n    # size doesn't need to be specified", 
             "title": "Widgets"
         }, 
         {
@@ -1099,6 +1084,16 @@
             "location": "/Configuration/widgets/#interactive-widgets", 
             "text": "Indicated via a  control  option.  input  - input field, single or multiple  button  - button, single or multiple  switch  - switch, single or multiple  radio  - radio, single or multiple  dropdown  - dropdown menu  range  - range slider  xy  - track pad  radial  - joystick, single or multiple", 
             "title": "Interactive Widgets"
+        }, 
+        {
+            "location": "/Configuration/widgets/#widget-size", 
+            "text": "Widgets can be resized horizontally with the  size  attribute.  Size is simply the percentage width you would like the widget to take. If size is not specified, then the widget will take up a equal proportion of the remaining width.", 
+            "title": "Widget Size"
+        }, 
+        {
+            "location": "/Configuration/widgets/#example", 
+            "text": "widgets:\n  halfWidth:\n    size: 50\n  quarterWidth:\n    size: 25\n    # size doesn't need to be specified\n  quarterWidth2:\n    # size doesn't need to be specified", 
+            "title": "Example"
         }, 
         {
             "location": "/Configuration/services/", 
