@@ -5,7 +5,8 @@
 
 ## Installation
 
-#### Local Machine Setup
+#### Local Machine Setup 
+##### Important:    `Keep in mind that MATRIX CLI is intended to run on your host computer, not directly on the Pi running MOS.` 
 **Note 1:** Pre-requisite of [NodeJS](https://nodejs.org/en/download) on the client computer.
 
 1. Install [MATRIX CLI](CLI/overview.md) via npm `sudo npm install -g matrix-cli`.
