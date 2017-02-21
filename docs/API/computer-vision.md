@@ -94,6 +94,7 @@ Returning tags: `HAND_PALM`, `HAND_FIST`, `FADE`
 
 
 ### Recognition output
+Recognition only works from > 4 ft away.
 ```
 - face_id
 - confidence

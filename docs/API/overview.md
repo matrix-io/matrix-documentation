@@ -1,5 +1,14 @@
 ## Overview
 
+## MATRIX OS
+
+MATRIX OS is an open source operating system for hosting IoT applications. MATRIX OS runs on node.js, but applications will be language-agnostic, as we finish writing an API and SDK for different languages. Fundamentally, MATRIX OS applications logically connect hardware and machine learning abstractions. In this way, you can connect the output from a computer vision system to drive real-world behavior in the form of hardware signaling.
+
+## Applications
+Applications, on a fundamental level, provides logical connections between physical data producers and consumers.  
+
+So it makes sense to think of information as streams and filters instead of objects and trees. JavaScript has an elegant approach to data filtering through callbacks and first-order func 
+
 ## App API
 ####[Sensors](sensors.md)
 Sensor interfaces and data structures.
@@ -38,8 +47,3 @@ Available infrastructure services.
 
 ####[Troubleshooting](../intro/cli-troubleshooting.md)
 Troubleshooting
-
-## Applications
-Applications, on a fundamental level, provides logical connections between physical data producers and consumers.  
-
-So it makes sense to think of information as streams and filters instead of objects and trees. JavaScript has an elegant approach to data filtering through callbacks and first-order func 

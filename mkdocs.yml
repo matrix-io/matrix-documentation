@@ -41,6 +41,8 @@ pages:
     - 'Examples': 'Configuration/examples.md'
   - Troubleshooting: 'intro/matrix-troubleshooting.md'
 - Hardware:
+  - 'Creator': 'Reference/creator.md'
+  - 'Voice': 'Reference/voice.md'
   - HAL:
     - 'Overview': 'HAL/overview.md'
     - 'Examples': 'HAL/overview.md'
@@ -49,7 +51,6 @@ pages:
     - 'Overview': 'MALOS/overview.md'
     - 'Examples': 'MALOS/example.md'
     - 'Troubleshooting': 'MALOS/troubleshooting.md'
-  - 'Overview': 'Reference/overview.md'
   - 'Pinout': 'Reference/pinout.md'
   - 'FPGA': 'Hardware/fpga.md'
   - 'SAM3': 'Hardware/Sam3.md'
