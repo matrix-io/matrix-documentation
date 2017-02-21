@@ -1491,6 +1491,46 @@
             "title": "Technical Datasheets:"
         }, 
         {
+            "location": "/Reference/voice/", 
+            "text": "MATRIX Voice\n\n\nMATRIX Voice is an open-source VOICE RECOGNITION platform consisting of a 3.14-inches in diameter dev board, with a radial array of 7 MEMS microphones connected to a Xilinx Spartan6 FPGA \n 64 Mbit SDRAM with 18 RGBW LED\u2019s \n 64 GPIO pins. \n\n\nSystem Architecture\n\n\n\n\nHarware Integrations\n\n\n\n\nFPGA\n\n\nHAL\n\n\nMALOS\n\n\nMicrophone\n\n\n\n\nVoice Engine Integrations\n\n\n\n\nAlexa\n \n\n\n\n\nComing Soon:\n\n\n\n\nWit.ai\n\n\nMicrosoft Cognitive Service\n\n\nGoogle Speech API\n\n\nHoundify \n\n\n\n\nSoftware Integrations\n\n\n\n\nGetting Started with MATRIX OS\n\n\nMATRIX OS\n\n\nMATRIX CLI\n\n\n\n\nTechnical Datasheets:\n\n\n\n\n\n\nAtmel 32 bits Cortex M3 SAM3S2\n\n\n\n\n\n\nXilinx Spartan 6S XC6SLX4 FPGA\n\n\n\n\n\n\n7 MEMS audio sensor digital microphones\n\n\n\n\n\n\nRGBW everloop LED", 
+            "title": "Voice"
+        }, 
+        {
+            "location": "/Reference/voice/#matrix-voice", 
+            "text": "MATRIX Voice is an open-source VOICE RECOGNITION platform consisting of a 3.14-inches in diameter dev board, with a radial array of 7 MEMS microphones connected to a Xilinx Spartan6 FPGA   64 Mbit SDRAM with 18 RGBW LED\u2019s   64 GPIO pins.", 
+            "title": "MATRIX Voice"
+        }, 
+        {
+            "location": "/Reference/voice/#system-architecture", 
+            "text": "", 
+            "title": "System Architecture"
+        }, 
+        {
+            "location": "/Reference/voice/#harware-integrations", 
+            "text": "FPGA  HAL  MALOS  Microphone", 
+            "title": "Harware Integrations"
+        }, 
+        {
+            "location": "/Reference/voice/#voice-engine-integrations", 
+            "text": "Alexa", 
+            "title": "Voice Engine Integrations"
+        }, 
+        {
+            "location": "/Reference/voice/#coming-soon", 
+            "text": "Wit.ai  Microsoft Cognitive Service  Google Speech API  Houndify", 
+            "title": "Coming Soon:"
+        }, 
+        {
+            "location": "/Reference/voice/#software-integrations", 
+            "text": "Getting Started with MATRIX OS  MATRIX OS  MATRIX CLI", 
+            "title": "Software Integrations"
+        }, 
+        {
+            "location": "/Reference/voice/#technical-datasheets", 
+            "text": "Atmel 32 bits Cortex M3 SAM3S2    Xilinx Spartan 6S XC6SLX4 FPGA    7 MEMS audio sensor digital microphones    RGBW everloop LED", 
+            "title": "Technical Datasheets:"
+        }, 
+        {
             "location": "/HAL/overview/", 
             "text": "Overview\n\n\nHAL is the lowest-level abstraction for the MATRIX Creator drivers. You can interface directly with HAL, or use the higher level components like MALOS, and the MATRIX OS itself.\n\n\nPre-Requisites\n\n\nIt does have some package dependencies, so please make sure to install the pre-requisites.\n\n\nsudo apt-get install cmake g++ git\ngit clone https://github.com/matrix-io/matrix-creator-hal.git\n\n\n\n\nBuild\n\n\nTo start working with HAL directly, you'll need to run \nsudo make install\n to get the build running. \n\n\n$ mkdir build\n$ cd build\n$ cmake ..\n$ make \n sudo make install\n[100%] Built target matrix_creator_hal\nInstall the project...\n-- Install configuration: \n\n-- Up-to-date: /usr/local/lib/libmatrix_creator_hal.a\n-- Installing: /usr/local/include/matrix_hal/creator_memory_map.h\n-- Installing: /usr/local/include/matrix_hal/everloop.h\n-- Installing: /usr/local/include/matrix_hal/humidity_data.h\n-- Installing: /usr/local/include/matrix_hal/imu_sensor.h\n-- Installing: /usr/local/include/matrix_hal/pressure_data.h\n-- Installing: /usr/local/include/matrix_hal/dummy_data.h\n-- Installing: /usr/local/include/matrix_hal/everloop_image.h\n-- Installing: /usr/local/include/matrix_hal/humidity_sensor.h\n-- Installing: /usr/local/include/matrix_hal/matrix_driver.h\n-- Installing: /usr/local/include/matrix_hal/pressure_sensor.h\n-- Installing: /usr/local/include/matrix_hal/dummy_sensor.h\n-- Installing: /usr/local/include/matrix_hal/gpio_control.h\n-- Installing: /usr/local/include/matrix_hal/imu_data.h\n-- Installing: /usr/local/include/matrix_hal/microphone_array.h\n-- Installing: /usr/local/include/matrix_hal/wishbone_bus.h\n\n\n\n\nExamples\n\n\nRun some of the examples below.\n\n\n# should already be in ~/matrix-creator-hal/build directory.\ncd demos\n\n# run the everloop demo\n./everloop_demo\n\n# see the rest of the examples\nls -l", 
             "title": "Overview"
