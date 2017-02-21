@@ -14,7 +14,8 @@ MATRIX Voice is an open-source VOICE RECOGNITION platform consisting of a 3.14-i
 ## Voice Engine Integrations
 
 - [Alexa](../demos/Alexa.md) 
-Coming Soon:
+
+### Coming Soon:
 - Wit.ai
 - Microsoft Cognitive Service
 - Google Speech API
