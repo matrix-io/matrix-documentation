@@ -2,7 +2,7 @@
     "docs": [
         {
             "location": "/", 
-            "text": "Support\n\n\n\n\nPost questions or comments on \ncommunity.matrix.one\n\n\nPost package issues on github under \nmatrix-io\n\n\nSubmit documentation issues or improvements at \nmatrix-io/matrix-documentation\n\n\n\n\nInstallation\n\n\nLocal Machine Setup\n\n\nNote 1:\n Pre-requisite of \nNodeJS\n on the client computer.\n\n\n\n\nInstall \nMATRIX CLI\n via npm \nsudo npm install -g matrix-cli\n.\n\n\nTarget the proper environment \nmatrix set env rc\n.\n\n\nWith MATRIX CLI installed on your computer, register an account with MATRIX via \nmatrix register\n.\n\n\nLog into your account using \nmatrix login\n.\n\n\nOnce registered an account, run \nmatrix register device\n.\n\n\nEnter a \ndevice name\n and (optional) \ndevice description\n.\n\n\nAfter a few moments you will be provided with a \nMATRIX_DEVICE_ID\n and \nMATRIX_DEVICE_SECRET\n.\n\n\nSelect your device using \nmatrix use\n, and enter your device ID. Command examples will be provided for easy copy paste.\n\n\n\n\n# example variables generated via registration, yours will be different\nexport MATRIX_DEVICE_ID=dc7a1a71be2d\nexport MATRIX_DEVICE_SECRET=08629018e9d77h15i5n0t4r3alz0f06cd4f7e5544272b\n\n\n\n\nSave these for the Configure ENV Variables step, near the end.\n\n\nNote 2:\n Watch \nGetting Started\n, \nRegistration\n and \nInstallation\n of MATRIX OS and MATRIX CLI on Youtube. \nWatch now\n.\n\n\nRaspberry Pi Setup\n\n\nThe following installation configures the MATRIX Creator, as well as installs the MATRIX Open Source platform.\n\n\n# Does everything including reboot.\ncurl https://raw.githubusercontent.com/matrix-io/matrix-creator-quickstart/master/install.sh | sh\n\n\n\n\nConfigure ENV variables\n\n\n\n\nOn the Pi, inside your \n~\n folder, create a file named \n.envrc\n with the variables from the Matrix CLI Setup above.  \n\n\n\n\n# in .envrc file or place in ~/.bash_profile to auto configure\nexport MATRIX_DEVICE_ID=dc7a1a71be2d\nexport MATRIX_DEVICE_SECRET=08629018e9d77h15i5n0t4r3alz0f06cd4f7e5544272b\n\n\n\n\n\n\nsource .envrc\n from \n~\n to make the variables available to the shell.\n\n\n\n\nRun MATRIX OS\n\n\n\n\nFrom the \nmatrix-os\n folder. \nNODE_ENV=rc node index.js\n. While in alpha, we are running in our Release Candidate environment.\n\n\n\n\nReturning to local computer\n\n\n\n\nIf you didn't do it earlier, \nmatrix use $deviceId\n\n\nRun \nmatrix\n, verify you are on \nrc\n environment, your user is correct, and your selected device is correct.\n\n\nNow you can issue commands and deploy apps to your MATRIX OS from the \nMATRIX CLI\n.\n\n\n\n\nCustom Raspbian Package\n\n\nWe'll be making a custom raspbian package available for download very soon!", 
+            "text": "Support\n\n\n\n\nPost questions or comments on \ncommunity.matrix.one\n\n\nPost package issues on github under \nmatrix-io\n\n\nSubmit documentation issues or improvements at \nmatrix-io/matrix-documentation\n\n\n\n\nInstallation\n\n\nLocal Machine Setup\n\n\nImportant:    \nKeep in mind that MATRIX CLI is intended to run on your host computer, not directly on the Pi running MOS.\n\n\nNote 1:\n Pre-requisite of \nNodeJS\n on the client computer.\n\n\n\n\nInstall \nMATRIX CLI\n via npm \nsudo npm install -g matrix-cli\n.\n\n\nTarget the proper environment \nmatrix set env rc\n.\n\n\nWith MATRIX CLI installed on your computer, register an account with MATRIX via \nmatrix register\n.\n\n\nLog into your account using \nmatrix login\n.\n\n\nOnce registered an account, run \nmatrix register device\n.\n\n\nEnter a \ndevice name\n and (optional) \ndevice description\n.\n\n\nAfter a few moments you will be provided with a \nMATRIX_DEVICE_ID\n and \nMATRIX_DEVICE_SECRET\n.\n\n\nSelect your device using \nmatrix use\n, and enter your device ID. Command examples will be provided for easy copy paste.\n\n\n\n\n# example variables generated via registration, yours will be different\nexport MATRIX_DEVICE_ID=dc7a1a71be2d\nexport MATRIX_DEVICE_SECRET=08629018e9d77h15i5n0t4r3alz0f06cd4f7e5544272b\n\n\n\n\nSave these for the Configure ENV Variables step, near the end.\n\n\nNote 2:\n Watch \nGetting Started\n, \nRegistration\n and \nInstallation\n of MATRIX OS and MATRIX CLI on Youtube. \nWatch now\n.\n\n\nRaspberry Pi Setup\n\n\nThe following installation configures the MATRIX Creator, as well as installs the MATRIX Open Source platform.\n\n\n# Does everything including reboot.\ncurl https://raw.githubusercontent.com/matrix-io/matrix-creator-quickstart/master/install.sh | sh\n\n\n\n\nConfigure ENV variables\n\n\n\n\nOn the Pi, inside your \n~\n folder, create a file named \n.envrc\n with the variables from the Matrix CLI Setup above.  \n\n\n\n\n# in .envrc file or place in ~/.bash_profile to auto configure\nexport MATRIX_DEVICE_ID=dc7a1a71be2d\nexport MATRIX_DEVICE_SECRET=08629018e9d77h15i5n0t4r3alz0f06cd4f7e5544272b\n\n\n\n\n\n\nsource .envrc\n from \n~\n to make the variables available to the shell.\n\n\n\n\nRun MATRIX OS\n\n\n\n\nFrom the \nmatrix-os\n folder. \nNODE_ENV=rc node index.js\n. While in alpha, we are running in our Release Candidate environment.\n\n\n\n\nReturning to local computer\n\n\n\n\nIf you didn't do it earlier, \nmatrix use $deviceId\n\n\nRun \nmatrix\n, verify you are on \nrc\n environment, your user is correct, and your selected device is correct.\n\n\nNow you can issue commands and deploy apps to your MATRIX OS from the \nMATRIX CLI\n.\n\n\n\n\nCustom Raspbian Package\n\n\nWe'll be making a custom raspbian package available for download very soon!", 
             "title": "Installation"
         }, 
         {
@@ -17,8 +17,13 @@
         }, 
         {
             "location": "/#local-machine-setup", 
-            "text": "Note 1:  Pre-requisite of  NodeJS  on the client computer.   Install  MATRIX CLI  via npm  sudo npm install -g matrix-cli .  Target the proper environment  matrix set env rc .  With MATRIX CLI installed on your computer, register an account with MATRIX via  matrix register .  Log into your account using  matrix login .  Once registered an account, run  matrix register device .  Enter a  device name  and (optional)  device description .  After a few moments you will be provided with a  MATRIX_DEVICE_ID  and  MATRIX_DEVICE_SECRET .  Select your device using  matrix use , and enter your device ID. Command examples will be provided for easy copy paste.   # example variables generated via registration, yours will be different\nexport MATRIX_DEVICE_ID=dc7a1a71be2d\nexport MATRIX_DEVICE_SECRET=08629018e9d77h15i5n0t4r3alz0f06cd4f7e5544272b  Save these for the Configure ENV Variables step, near the end.  Note 2:  Watch  Getting Started ,  Registration  and  Installation  of MATRIX OS and MATRIX CLI on Youtube.  Watch now .", 
+            "text": "", 
             "title": "Local Machine Setup"
+        }, 
+        {
+            "location": "/#important-keep-in-mind-that-matrix-cli-is-intended-to-run-on-your-host-computer-not-directly-on-the-pi-running-mos", 
+            "text": "Note 1:  Pre-requisite of  NodeJS  on the client computer.   Install  MATRIX CLI  via npm  sudo npm install -g matrix-cli .  Target the proper environment  matrix set env rc .  With MATRIX CLI installed on your computer, register an account with MATRIX via  matrix register .  Log into your account using  matrix login .  Once registered an account, run  matrix register device .  Enter a  device name  and (optional)  device description .  After a few moments you will be provided with a  MATRIX_DEVICE_ID  and  MATRIX_DEVICE_SECRET .  Select your device using  matrix use , and enter your device ID. Command examples will be provided for easy copy paste.   # example variables generated via registration, yours will be different\nexport MATRIX_DEVICE_ID=dc7a1a71be2d\nexport MATRIX_DEVICE_SECRET=08629018e9d77h15i5n0t4r3alz0f06cd4f7e5544272b  Save these for the Configure ENV Variables step, near the end.  Note 2:  Watch  Getting Started ,  Registration  and  Installation  of MATRIX OS and MATRIX CLI on Youtube.  Watch now .", 
+            "title": "Important:    Keep in mind that MATRIX CLI is intended to run on your host computer, not directly on the Pi running MOS."
         }, 
         {
             "location": "/#raspberry-pi-setup", 
@@ -122,12 +127,12 @@
         }, 
         {
             "location": "/CLI/installation/", 
-            "text": "Installation\n\n\nInstalling MATRIX CLI is quite easy. However, you do need to have a couple of other things installed first:\n\n\n\n\nNode.js\n\n\nGit\n\n\n\n\nIf your computer already has these, congratulations! This will make the \nmatrix\n command available in your terminal. Just install MATRIX CLI with \nnpm\n and you're good to go.\n\n\nnpm install -g matrix-cli\n\n\n\n\nEnvironment Configuration\n\n\nPoints the CLI to the right servers. If you have errors right off the bat, try this first.\n\n\nmatrix set env rc\n\n\n\n\nRegistration\n\n\nUser registration\n\n\nIf you do not have an AdMobilize MATRIX account, use:\n\n\nmatrix register\n\n\n\n\nCheck your email to confirm the account then you can login.\n\n\nDevice registration\n\n\nIn order to set up your device, use:\n\n\nmatrix register device\n\n\n\n\nThis will ask for your device details and then provide you with an id and a secret, you need to set those ENV vars in your device to link it to our platform.  \n\n\nHelp\n\n\nFor a list of all the available options, use:\n\n\nmatrix", 
+            "text": "Installation\n\n\nInstalling MATRIX CLI is quite easy. However, you do need to have a couple of other things installed first:\n\n\n\n\nNode.js\n\n\nGit\n\n\n\n\nIf your computer already has these, congratulations! This will make the \nmatrix\n command available in your terminal. Just install MATRIX CLI with \nnpm\n and you're good to go.\n\n\nRemember not to install MATRIX CLI  on a Raspberry PI\n\n\nnpm install -g matrix-cli\n\n\n\n\nEnvironment Configuration\n\n\nPoints the CLI to the right servers. If you have errors right off the bat, try this first.\n\n\nmatrix set env rc\n\n\n\n\nRegistration\n\n\nUser registration\n\n\nIf you do not have an AdMobilize MATRIX account, use:\n\n\nmatrix register\n\n\n\n\nCheck your email to confirm the account then you can login.\n\n\nDevice registration\n\n\nIn order to set up your device, use:\n\n\nmatrix register device\n\n\n\n\nThis will ask for your device details and then provide you with an id and a secret, you need to set those ENV vars in your device to link it to our platform.  \n\n\nHelp\n\n\nFor a list of all the available options, use:\n\n\nmatrix", 
             "title": "Installation"
         }, 
         {
             "location": "/CLI/installation/#installation", 
-            "text": "Installing MATRIX CLI is quite easy. However, you do need to have a couple of other things installed first:   Node.js  Git   If your computer already has these, congratulations! This will make the  matrix  command available in your terminal. Just install MATRIX CLI with  npm  and you're good to go.  npm install -g matrix-cli", 
+            "text": "Installing MATRIX CLI is quite easy. However, you do need to have a couple of other things installed first:   Node.js  Git   If your computer already has these, congratulations! This will make the  matrix  command available in your terminal. Just install MATRIX CLI with  npm  and you're good to go.  Remember not to install MATRIX CLI  on a Raspberry PI  npm install -g matrix-cli", 
             "title": "Installation"
         }, 
         {
@@ -282,13 +287,23 @@
         }, 
         {
             "location": "/API/overview/", 
-            "text": "Overview\n\n\nApp API\n\n\nSensors\n\n\nSensor interfaces and data structures.\n\n\nEverloop\n\n\nEverloop interface.\n\n\nFilters\n\n\nFilters interface for Sensors, Computer Vision, etc...\n\n\nComputer Vision\n\n\nComputer Vision services.\n\n\nMicrophones\n\n\nMicrophone Services.\n\n\nIR TX/RX\n\n\nIR receiving and transmitter services.\n\n\nGPIO\n\n\nGPIO interfaces.\n\n\nServos\n\n\nServo interfaces.\n\n\nNFC\n\n\nNFC interfaces.\n\n\nZigbee\n\n\nZigbee interfaces.\n\n\nZ-wave\n\n\nZ-wave interfaces.\n\n\nConfiguration\n\n\nData Types\n\n\nData structures and how to save to the infrastructure.\n\n\nScreens\n\n\nDashboard creation and how to structure your widgets.\n\n\nFilters\n\n\nDashboard filter configuration.\n\n\nWidgets\n\n\nDashboard widget configuration.\n\n\nServices\n\n\nAvailable infrastructure services.\n\n\nTroubleshooting\n\n\nTroubleshooting\n\n\nApplications\n\n\nApplications, on a fundamental level, provides logical connections between physical data producers and consumers.  \n\n\nSo it makes sense to think of information as streams and filters instead of objects and trees. JavaScript has an elegant approach to data filtering through callbacks and first-order func", 
+            "text": "Overview\n\n\nMATRIX OS\n\n\nMATRIX OS is an open source operating system for hosting IoT applications. MATRIX OS runs on node.js, but applications will be language-agnostic, as we finish writing an API and SDK for different languages. Fundamentally, MATRIX OS applications logically connect hardware and machine learning abstractions. In this way, you can connect the output from a computer vision system to drive real-world behavior in the form of hardware signaling.\n\n\nApplications\n\n\nApplications, on a fundamental level, provides logical connections between physical data producers and consumers.  \n\n\nSo it makes sense to think of information as streams and filters instead of objects and trees. JavaScript has an elegant approach to data filtering through callbacks and first-order func \n\n\nApp API\n\n\nSensors\n\n\nSensor interfaces and data structures.\n\n\nEverloop\n\n\nEverloop interface.\n\n\nFilters\n\n\nFilters interface for Sensors, Computer Vision, etc...\n\n\nComputer Vision\n\n\nComputer Vision services.\n\n\nMicrophones\n\n\nMicrophone Services.\n\n\nIR TX/RX\n\n\nIR receiving and transmitter services.\n\n\nGPIO\n\n\nGPIO interfaces.\n\n\nServos\n\n\nServo interfaces.\n\n\nNFC\n\n\nNFC interfaces.\n\n\nZigbee\n\n\nZigbee interfaces.\n\n\nZ-wave\n\n\nZ-wave interfaces.\n\n\nConfiguration\n\n\nData Types\n\n\nData structures and how to save to the infrastructure.\n\n\nScreens\n\n\nDashboard creation and how to structure your widgets.\n\n\nFilters\n\n\nDashboard filter configuration.\n\n\nWidgets\n\n\nDashboard widget configuration.\n\n\nServices\n\n\nAvailable infrastructure services.\n\n\nTroubleshooting\n\n\nTroubleshooting", 
             "title": "Overview"
         }, 
         {
             "location": "/API/overview/#overview", 
             "text": "", 
             "title": "Overview"
+        }, 
+        {
+            "location": "/API/overview/#matrix-os", 
+            "text": "MATRIX OS is an open source operating system for hosting IoT applications. MATRIX OS runs on node.js, but applications will be language-agnostic, as we finish writing an API and SDK for different languages. Fundamentally, MATRIX OS applications logically connect hardware and machine learning abstractions. In this way, you can connect the output from a computer vision system to drive real-world behavior in the form of hardware signaling.", 
+            "title": "MATRIX OS"
+        }, 
+        {
+            "location": "/API/overview/#applications", 
+            "text": "Applications, on a fundamental level, provides logical connections between physical data producers and consumers.    So it makes sense to think of information as streams and filters instead of objects and trees. JavaScript has an elegant approach to data filtering through callbacks and first-order func", 
+            "title": "Applications"
         }, 
         {
             "location": "/API/overview/#app-api", 
@@ -384,11 +399,6 @@
             "location": "/API/overview/#troubleshooting", 
             "text": "Troubleshooting", 
             "title": "Troubleshooting"
-        }, 
-        {
-            "location": "/API/overview/#applications", 
-            "text": "Applications, on a fundamental level, provides logical connections between physical data producers and consumers.    So it makes sense to think of information as streams and filters instead of objects and trees. JavaScript has an elegant approach to data filtering through callbacks and first-order func", 
-            "title": "Applications"
         }, 
         {
             "location": "/intro/app-publishing/", 
@@ -647,7 +657,7 @@
         }, 
         {
             "location": "/API/computer-vision/", 
-            "text": "Computer Vision\n\n\nMATRIX OS is designed to integrate with computer vision in a powerful and robust way. You can use computer vision output to drive hardware behavior, or capture the data for further analysis.\n\n\nExample\n\n\nFrom (faceTest MATRIX App)[http://apps.matrix.one/#!/apps/facetest]\n\n\nmatrix.led('red').render();\n\nmatrix.init('face').then(function(data){\n  matrix.led('green').render();\n  setTimeout(function() {\n    matrix.led('black').render();\n  },2000);\n});\n\n\n\n\nConfiguration\n\n\nTo facilitate communication with the hardware, define CV services must be defined in \nconfig.yaml\n before they will be available to your application.\n\n\nSee \nServices\n for more information\n\n\nInitialization\n\n\n# app.js\nvar algorithm = 'face';\nvar options   = {};\nmatrix.init( algorithm, options ).then(function( data ){\n  // your CV detection data will be available here\n  console.log( data );\n});\n\n\n\n\noptions\n\n\nrefresh\n - how many seconds before restarting the detection, default: 3\n\n\ntimeout\n - if there is no detection, stop after this many seconds, default: none\n\n\nAlgorithms\n\n\nBasic\n\n\nface\n,\nfist\n,\npalm\n, \nfist\n\n\n\n\n\nBasic Data Format\n\n\npalm\n, \nface\n and \nfist\n output - \nmatrix.init('palm')\n\nReturning tags: \nHAND_PALM\n, \nHAND_FIST\n, \nFADE\n\n\n{\n  location: { x: 333, y: 237, width: 55, height: 55 },\n  tag: 'HAND_PALM'\n}\n\n\n\n\nExtended Algorithms\n\n\ndemographics\n - \nmatrix.init('demographics')\n\n\nrecognition\n - \nmatrix.init('recognition')\n\n\nExtended Face Data Format\n\n\nDemographics Output\n\n\n{ location: { x: 213, y: 221, width: 55, height: 55 },\n tag: 'FACE',\n demographics:\n  { gender: 'MALE',\n    emotion: 'CALM',\n    age: 35,\n    pose:\n     { yaw: -0.24303536117076874,\n       roll: 0.04344254732131958,\n       pitch: -0.10279278457164764 },\n    face_id: '4' } }\n\n\n\n\nemotions\n\n\nHAPPY\n\n\nSAD\n\n\nCONFUSED\n\n\nANGRY\n\n\nCALM\n\n\nSURPRISED\n\n\nDISGUST\n\n\nRecognition output\n\n\n- face_id\n- confidence\ntbd", 
+            "text": "Computer Vision\n\n\nMATRIX OS is designed to integrate with computer vision in a powerful and robust way. You can use computer vision output to drive hardware behavior, or capture the data for further analysis.\n\n\nExample\n\n\nFrom (faceTest MATRIX App)[http://apps.matrix.one/#!/apps/facetest]\n\n\nmatrix.led('red').render();\n\nmatrix.init('face').then(function(data){\n  matrix.led('green').render();\n  setTimeout(function() {\n    matrix.led('black').render();\n  },2000);\n});\n\n\n\n\nConfiguration\n\n\nTo facilitate communication with the hardware, define CV services must be defined in \nconfig.yaml\n before they will be available to your application.\n\n\nSee \nServices\n for more information\n\n\nInitialization\n\n\n# app.js\nvar algorithm = 'face';\nvar options   = {};\nmatrix.init( algorithm, options ).then(function( data ){\n  // your CV detection data will be available here\n  console.log( data );\n});\n\n\n\n\noptions\n\n\nrefresh\n - how many seconds before restarting the detection, default: 3\n\n\ntimeout\n - if there is no detection, stop after this many seconds, default: none\n\n\nAlgorithms\n\n\nBasic\n\n\nface\n,\nfist\n,\npalm\n, \nfist\n\n\n\n\n\nBasic Data Format\n\n\npalm\n, \nface\n and \nfist\n output - \nmatrix.init('palm')\n\nReturning tags: \nHAND_PALM\n, \nHAND_FIST\n, \nFADE\n\n\n{\n  location: { x: 333, y: 237, width: 55, height: 55 },\n  tag: 'HAND_PALM'\n}\n\n\n\n\nExtended Algorithms\n\n\ndemographics\n - \nmatrix.init('demographics')\n\n\nrecognition\n - \nmatrix.init('recognition')\n\n\nExtended Face Data Format\n\n\nDemographics Output\n\n\n{ location: { x: 213, y: 221, width: 55, height: 55 },\n tag: 'FACE',\n demographics:\n  { gender: 'MALE',\n    emotion: 'CALM',\n    age: 35,\n    pose:\n     { yaw: -0.24303536117076874,\n       roll: 0.04344254732131958,\n       pitch: -0.10279278457164764 },\n    face_id: '4' } }\n\n\n\n\nemotions\n\n\nHAPPY\n\n\nSAD\n\n\nCONFUSED\n\n\nANGRY\n\n\nCALM\n\n\nSURPRISED\n\n\nDISGUST\n\n\nRecognition output\n\n\nRecognition only works from \n 4 ft away.\n\n\n- face_id\n- confidence\ntbd", 
             "title": "Computer Vision"
         }, 
         {
@@ -712,7 +722,7 @@
         }, 
         {
             "location": "/API/computer-vision/#recognition-output", 
-            "text": "- face_id\n- confidence\ntbd", 
+            "text": "Recognition only works from   4 ft away.  - face_id\n- confidence\ntbd", 
             "title": "Recognition output"
         }, 
         {
@@ -1466,6 +1476,56 @@
             "title": "MATRIX Vision Services not working"
         }, 
         {
+            "location": "/Reference/creator/", 
+            "text": "MATRIX Creator\n\n\n\n\nTechnical Datasheets:\n\n\n\n\n\n\nAtmel 32 bits Cortex M3 SAM3S2\n\n\n\n\n\n\nXilinx Spartan 6S XC6SLX4 FPGA\n\n\n\n\n\n\n8 MEMS audio sensor digital microphones\n\n\n\n\n\n\nST LSM9DS1 3D accelerometer, 3D gyroscope, 3D magnetometer\n\n\n\n\n\n\nST HTS221 digital sensor for relative humidity and temperature\n\n\n\n\n\n\nNXP PN512 NFC reader\n\n\n\n\n\n\nNXP MPL3115A2 Altimeter\n\n\n\n\n\n\nVishay VEML6070 UV Light Sensor\n\n\n\n\n\n\nVishay INFRARED Receptor\n\n\n\n\n\n\nRGBW everloop LED", 
+            "title": "Creator"
+        }, 
+        {
+            "location": "/Reference/creator/#matrix-creator", 
+            "text": "", 
+            "title": "MATRIX Creator"
+        }, 
+        {
+            "location": "/Reference/creator/#technical-datasheets", 
+            "text": "Atmel 32 bits Cortex M3 SAM3S2    Xilinx Spartan 6S XC6SLX4 FPGA    8 MEMS audio sensor digital microphones    ST LSM9DS1 3D accelerometer, 3D gyroscope, 3D magnetometer    ST HTS221 digital sensor for relative humidity and temperature    NXP PN512 NFC reader    NXP MPL3115A2 Altimeter    Vishay VEML6070 UV Light Sensor    Vishay INFRARED Receptor    RGBW everloop LED", 
+            "title": "Technical Datasheets:"
+        }, 
+        {
+            "location": "/Reference/voice/", 
+            "text": "MATRIX Voice\n\n\nMATRIX Voice is an open-source VOICE RECOGNITION platform consisting of a 3.14-inches in diameter dev board, with a radial array of 7 MEMS microphones connected to a Xilinx Spartan6 FPGA \n 64 Mbit SDRAM with 18 RGBW LED\u2019s \n 64 GPIO pins. \n\n\nSystem Architecture\n\n\n\n\nHarware Integrations\n\n\n\n\nFPGA\n\n\nHAL\n\n\nMALOS\n\n\nMicrophone\n\n\n\n\nVoice Engine Integrations\n\n\n\n\nAlexa\n \nComing Soon:\n\n\nWit.ai\n\n\nMicrosoft Cognitive Service\n\n\nGoogle Speech API\n\n\nHoundify \n\n\n\n\nSoftware Integrations\n\n\n\n\nGetting Started with MATRIX OS\n\n\nMATRIX OS\n\n\nMATRIX CLI\n\n\n\n\nTechnical Datasheets:\n\n\n\n\n\n\nAtmel 32 bits Cortex M3 SAM3S2\n\n\n\n\n\n\nXilinx Spartan 6S XC6SLX4 FPGA\n\n\n\n\n\n\n7 MEMS audio sensor digital microphones\n\n\n\n\n\n\nRGBW everloop LED", 
+            "title": "Voice"
+        }, 
+        {
+            "location": "/Reference/voice/#matrix-voice", 
+            "text": "MATRIX Voice is an open-source VOICE RECOGNITION platform consisting of a 3.14-inches in diameter dev board, with a radial array of 7 MEMS microphones connected to a Xilinx Spartan6 FPGA   64 Mbit SDRAM with 18 RGBW LED\u2019s   64 GPIO pins.", 
+            "title": "MATRIX Voice"
+        }, 
+        {
+            "location": "/Reference/voice/#system-architecture", 
+            "text": "", 
+            "title": "System Architecture"
+        }, 
+        {
+            "location": "/Reference/voice/#harware-integrations", 
+            "text": "FPGA  HAL  MALOS  Microphone", 
+            "title": "Harware Integrations"
+        }, 
+        {
+            "location": "/Reference/voice/#voice-engine-integrations", 
+            "text": "Alexa  \nComing Soon:  Wit.ai  Microsoft Cognitive Service  Google Speech API  Houndify", 
+            "title": "Voice Engine Integrations"
+        }, 
+        {
+            "location": "/Reference/voice/#software-integrations", 
+            "text": "Getting Started with MATRIX OS  MATRIX OS  MATRIX CLI", 
+            "title": "Software Integrations"
+        }, 
+        {
+            "location": "/Reference/voice/#technical-datasheets", 
+            "text": "Atmel 32 bits Cortex M3 SAM3S2    Xilinx Spartan 6S XC6SLX4 FPGA    7 MEMS audio sensor digital microphones    RGBW everloop LED", 
+            "title": "Technical Datasheets:"
+        }, 
+        {
             "location": "/HAL/overview/", 
             "text": "Overview\n\n\nHAL is the lowest-level abstraction for the MATRIX Creator drivers. You can interface directly with HAL, or use the higher level components like MALOS, and the MATRIX OS itself.\n\n\nPre-Requisites\n\n\nIt does have some package dependencies, so please make sure to install the pre-requisites.\n\n\nsudo apt-get install cmake g++ git\ngit clone https://github.com/matrix-io/matrix-creator-hal.git\n\n\n\n\nBuild\n\n\nTo start working with HAL directly, you'll need to run \nsudo make install\n to get the build running. \n\n\n$ mkdir build\n$ cd build\n$ cmake ..\n$ make \n sudo make install\n[100%] Built target matrix_creator_hal\nInstall the project...\n-- Install configuration: \n\n-- Up-to-date: /usr/local/lib/libmatrix_creator_hal.a\n-- Installing: /usr/local/include/matrix_hal/creator_memory_map.h\n-- Installing: /usr/local/include/matrix_hal/everloop.h\n-- Installing: /usr/local/include/matrix_hal/humidity_data.h\n-- Installing: /usr/local/include/matrix_hal/imu_sensor.h\n-- Installing: /usr/local/include/matrix_hal/pressure_data.h\n-- Installing: /usr/local/include/matrix_hal/dummy_data.h\n-- Installing: /usr/local/include/matrix_hal/everloop_image.h\n-- Installing: /usr/local/include/matrix_hal/humidity_sensor.h\n-- Installing: /usr/local/include/matrix_hal/matrix_driver.h\n-- Installing: /usr/local/include/matrix_hal/pressure_sensor.h\n-- Installing: /usr/local/include/matrix_hal/dummy_sensor.h\n-- Installing: /usr/local/include/matrix_hal/gpio_control.h\n-- Installing: /usr/local/include/matrix_hal/imu_data.h\n-- Installing: /usr/local/include/matrix_hal/microphone_array.h\n-- Installing: /usr/local/include/matrix_hal/wishbone_bus.h\n\n\n\n\nExamples\n\n\nRun some of the examples below.\n\n\n# should already be in ~/matrix-creator-hal/build directory.\ncd demos\n\n# run the everloop demo\n./everloop_demo\n\n# see the rest of the examples\nls -l", 
             "title": "Overview"
@@ -1624,21 +1684,6 @@
             "location": "/MALOS/troubleshooting/#troubleshooting", 
             "text": "", 
             "title": "Troubleshooting"
-        }, 
-        {
-            "location": "/Reference/overview/", 
-            "text": "MATRIX Creator\n\n\n\n\nTechnical Datasheets:\n\n\n\n\n\n\nAtmel 32 bits Cortex M3 SAM3S2\n\n\n\n\n\n\nXilinx Spartan 6S XC6SLX4 FPGA\n\n\n\n\n\n\n8 MEMS audio sensor digital microphones\n\n\n\n\n\n\nST LSM9DS1 3D accelerometer, 3D gyroscope, 3D magnetometer\n\n\n\n\n\n\nST HTS221 digital sensor for relative humidity and temperature\n\n\n\n\n\n\nNXP PN512 NFC reader\n\n\n\n\n\n\nNXP MPL3115A2 Altimeter\n\n\n\n\n\n\nVishay VEML6070 UV Light Sensor\n\n\n\n\n\n\nVishay INFRARED Receptor\n\n\n\n\n\n\nRGBW everloop LED", 
-            "title": "Overview"
-        }, 
-        {
-            "location": "/Reference/overview/#matrix-creator", 
-            "text": "", 
-            "title": "MATRIX Creator"
-        }, 
-        {
-            "location": "/Reference/overview/#technical-datasheets", 
-            "text": "Atmel 32 bits Cortex M3 SAM3S2    Xilinx Spartan 6S XC6SLX4 FPGA    8 MEMS audio sensor digital microphones    ST LSM9DS1 3D accelerometer, 3D gyroscope, 3D magnetometer    ST HTS221 digital sensor for relative humidity and temperature    NXP PN512 NFC reader    NXP MPL3115A2 Altimeter    Vishay VEML6070 UV Light Sensor    Vishay INFRARED Receptor    RGBW everloop LED", 
-            "title": "Technical Datasheets:"
         }, 
         {
             "location": "/Reference/pinout/", 
