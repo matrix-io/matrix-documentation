@@ -34,15 +34,15 @@ Zigbee interfaces.
 Z-wave interfaces.
 
 ## Configuration
-####[Data Types](sensors.md)
+####[Data Types](../Configuration/datatypes.md)
 Data structures and how to save to the infrastructure.
-####[Screens](everloop.md)
+####[Screens](../Configuration/screens.md)
 Dashboard creation and how to structure your widgets.
 ####[Filters](filter.md)
 Dashboard filter configuration.
 ####[Widgets](computer-vision.md)
 Dashboard widget configuration.
-####[Services](microphone.md)
+####[Services](../Configuration/services.md)
 Available infrastructure services.
 
 ####[Troubleshooting](../intro/cli-troubleshooting.md)

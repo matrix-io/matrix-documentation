@@ -1,6 +1,9 @@
+
 # MATRIX Voice
 
 MATRIX Voice is an open-source VOICE RECOGNITION platform consisting of a 3.14-inches in diameter dev board, with a radial array of 7 MEMS microphones connected to a Xilinx Spartan6 FPGA & 64 Mbit SDRAM with 18 RGBW LED’s & 64 GPIO pins. 
+
+### [Back MATRIX Voice on Indiegogo! Click here.](https://www.indiegogo.com/projects/matrix-voice-open-source-voice-platform-for-all)
 
 ## System Architecture
 ![Voice Diagram](voice_arch.png)
