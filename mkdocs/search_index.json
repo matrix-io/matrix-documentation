@@ -1492,18 +1492,18 @@
         }, 
         {
             "location": "/Reference/voice/", 
-            "text": "Back MATRIX Voice on Indiegogo! Click here.\n\n\n\n\nMATRIX Voice\n\n\nMATRIX Voice is an open-source VOICE RECOGNITION platform consisting of a 3.14-inches in diameter dev board, with a radial array of 7 MEMS microphones connected to a Xilinx Spartan6 FPGA \n 64 Mbit SDRAM with 18 RGBW LED\u2019s \n 64 GPIO pins. \n\n\nSystem Architecture\n\n\n\n\nHarware Integrations\n\n\n\n\nFPGA\n\n\nHAL\n\n\nMALOS\n\n\nMicrophone\n\n\n\n\nVoice Engine Integrations\n\n\n\n\nAlexa\n \n\n\n\n\nComing Soon:\n\n\n\n\nWit.ai\n\n\nMicrosoft Cognitive Service\n\n\nGoogle Speech API\n\n\nHoundify \n\n\n\n\nSoftware Integrations\n\n\n\n\nGetting Started with MATRIX OS\n\n\nMATRIX OS\n\n\nMATRIX CLI\n\n\n\n\nTechnical Datasheets:\n\n\n\n\n\n\nAtmel 32 bits Cortex M3 SAM3S2\n\n\n\n\n\n\nXilinx Spartan 6S XC6SLX4 FPGA\n\n\n\n\n\n\n7 MEMS audio sensor digital microphones\n\n\n\n\n\n\nRGBW everloop LED", 
+            "text": "MATRIX Voice\n\n\nMATRIX Voice is an open-source VOICE RECOGNITION platform consisting of a 3.14-inches in diameter dev board, with a radial array of 7 MEMS microphones connected to a Xilinx Spartan6 FPGA \n 64 Mbit SDRAM with 18 RGBW LED\u2019s \n 64 GPIO pins. \n\n\nBack MATRIX Voice on Indiegogo! Click here.\n\n\nSystem Architecture\n\n\n\n\nHarware Integrations\n\n\n\n\nFPGA\n\n\nHAL\n\n\nMALOS\n\n\nMicrophone\n\n\n\n\nVoice Engine Integrations\n\n\n\n\nAlexa\n \n\n\n\n\nComing Soon:\n\n\n\n\nWit.ai\n\n\nMicrosoft Cognitive Service\n\n\nGoogle Speech API\n\n\nHoundify \n\n\n\n\nSoftware Integrations\n\n\n\n\nGetting Started with MATRIX OS\n\n\nMATRIX OS\n\n\nMATRIX CLI\n\n\n\n\nTechnical Datasheets:\n\n\n\n\n\n\nAtmel 32 bits Cortex M3 SAM3S2\n\n\n\n\n\n\nXilinx Spartan 6S XC6SLX4 FPGA\n\n\n\n\n\n\n7 MEMS audio sensor digital microphones\n\n\n\n\n\n\nRGBW everloop LED", 
             "title": "Voice"
-        }, 
-        {
-            "location": "/Reference/voice/#back-matrix-voice-on-indiegogo-click-here", 
-            "text": "", 
-            "title": "Back MATRIX Voice on Indiegogo! Click here."
         }, 
         {
             "location": "/Reference/voice/#matrix-voice", 
             "text": "MATRIX Voice is an open-source VOICE RECOGNITION platform consisting of a 3.14-inches in diameter dev board, with a radial array of 7 MEMS microphones connected to a Xilinx Spartan6 FPGA   64 Mbit SDRAM with 18 RGBW LED\u2019s   64 GPIO pins.", 
             "title": "MATRIX Voice"
+        }, 
+        {
+            "location": "/Reference/voice/#back-matrix-voice-on-indiegogo-click-here", 
+            "text": "", 
+            "title": "Back MATRIX Voice on Indiegogo! Click here."
         }, 
         {
             "location": "/Reference/voice/#system-architecture", 
