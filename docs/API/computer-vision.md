@@ -93,13 +93,36 @@ Returning tags: `HAND_PALM`, `HAND_FIST`, `FADE`
 `DISGUST`
 
 
-### Recognition output
-Recognition only works from > 4 ft away.
+### Recognition
+
+MATRIX OS includes face recognition which turns a face into a series of numbers which can be used to identify the face when it is seen later. We do not store face images, just the numbers.
+
+Recognition only works from > ~4 ft away. Removing hats and glasses will result in more accurate results.
+
+#### Training mode
+By default, `recognition` works in `RECOGNITION` mode. Without training, however, this is not useful. Enable `TRAIN` mode by passing `train: true` as an option.
+
 ```
-- face_id
-- confidence
-tbd
+matrix.init('recognition', { train: true, tag: 'test' }).then(function(data) { ... });
 ```
+This will associate a face with a particular tag. The data which is passed to `then` are uuid's internal to MATRIX and not particularly useful, but you could use the callback for other reasons.
+
+#### Recognition mode
+After training, you can enable normal recognition as follows.
+```
+matrix.init('recognition', {tag: 'test'}).then(function(data){...})
+```
+Inside the `then` function will return with all matched tags, not only the one you specified in the `init` function.
+
+#### Recognition Output
+```
+{
+  tagName: 0.9994,
+  tag2Name: 0.3232
+}
+```
+`tagName` is defined with the `tag` option when you train a face to be recognized. The value after the tagName is the confidence of the match, as measured between 0-1.
+
 
 
 <!--## Base Options
