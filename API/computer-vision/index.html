@@ -715,7 +715,7 @@
               
                   <li class="list-group-item"><a href="#extended-face-data-format">Extended Face Data Format</a></li>
               
-                  <li class="list-group-item"><a href="#recognition-output">Recognition output</a></li>
+                  <li class="list-group-item"><a href="#recognition">Recognition</a></li>
               
           
           </ul>
@@ -803,13 +803,29 @@ Returning tags: <code>HAND_PALM</code>, <code>HAND_FIST</code>, <code>FADE</code
 <code>CALM</code>
 <code>SURPRISED</code>
 <code>DISGUST</code></p>
-<h3 id="recognition-output">Recognition output</h3>
-<p>Recognition only works from &gt; 4 ft away.</p>
-<pre><code>- face_id
-- confidence
-tbd
+<h3 id="recognition">Recognition</h3>
+<p>MATRIX OS includes face recognition which turns a face into a series of numbers which can be used to identify the face when it is seen later. We do not store face images, just the numbers.</p>
+<p>Recognition only works from &gt; ~4 ft away. Removing hats and glasses will result in more accurate results.</p>
+<h4 id="training-mode">Training mode</h4>
+<p>By default, <code>recognition</code> works in <code>RECOGNITION</code> mode. Without training, however, this is not useful. Enable <code>TRAIN</code> mode by passing <code>train: true</code> as an option.</p>
+<pre><code>matrix.init('recognition', { train: true, tag: 'test' }).then(function(data) { ... });
 </code></pre>
 
+<p>This will associate a face with a particular tag. The data which is passed to <code>then</code> are uuid's internal to MATRIX and not particularly useful, but you could use the callback for other reasons.</p>
+<h4 id="recognition-mode">Recognition mode</h4>
+<p>After training, you can enable normal recognition as follows.</p>
+<pre><code>matrix.init('recognition', {tag: 'test'}).then(function(data){...})
+</code></pre>
+
+<p>Inside the <code>then</code> function will return with all matched tags, not only the one you specified in the <code>init</code> function.</p>
+<h4 id="recognition-output">Recognition Output</h4>
+<pre><code>{
+  tagName: 0.9994,
+  tag2Name: 0.3232
+}
+</code></pre>
+
+<p><code>tagName</code> is defined with the <code>tag</code> option when you train a face to be recognized. The value after the tagName is the confidence of the match, as measured between 0-1.</p>
 <!--## Base Options
 These are applicable to all algorithms.
 
@@ -818,30 +834,30 @@ These are applicable to all algorithms.
 
 ### Example
 
-wzxhzdk:5
+wzxhzdk:7
 
 matrix.init('gesture', options).then(function(data){})
 
-wzxhzdk:6
+wzxhzdk:8
 
 var options = { detect: ['THUMB_UP'] };
 matrix.init('gesture', options);
 
-wzxhzdk:7
+wzxhzdk:9
 
 var options = { detect: ['AGE', 'EMOTION','GENDER','FACE_ID','HEAD_POSE','FACE_FEATURES'] };
 matrix.init('gesture', options);
 
-wzxhzdk:8
+wzxhzdk:10
 
 matrix.init('face-id').then(function(data){})
 
-wzxhzdk:9
+wzxhzdk:11
 
 // preuploaded Example - myFace.jpg
 matrix.init('face-id', { match: 'myFace' })
 
-wzxhzdk:10
+wzxhzdk:12
 
 // dynamic faces from dashboard / mobile app / cli
 matrix.on('faceUpload', function(data){
@@ -864,11 +880,11 @@ matrix.on('faceUpload', function(data){
 // use configuration for recognition
 matrix.init('face', { match: matrix.faces })
 
-wzxhzdk:11
+wzxhzdk:13
 
 matrix.init('vehicle-count').then(function(data){})
 
-wzxhzdk:12
+wzxhzdk:14
 
 matrix.init('people-count').then(function(data){})
 ```
@@ -881,7 +897,7 @@ matrix.init('people-count').then(function(data){})
 
   <!--
   MkDocs version      : 0.16.1
-  Docs Build Date UTC : 2017-02-22 22:41:23
+  Docs Build Date UTC : 2017-02-24 17:51:02
   -->
 
 </body>
