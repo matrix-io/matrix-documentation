@@ -731,7 +731,7 @@
 <p>From (faceTest MATRIX App)[http://apps.matrix.one/#!/apps/facetest]</p>
 <pre><code>matrix.led('red').render();
 
-matrix.init('face').then(function(data){
+matrix.service('face').start().then(function(data){
   matrix.led('green').render();
   setTimeout(function() {
     matrix.led('black').render();
@@ -746,7 +746,7 @@ matrix.init('face').then(function(data){
 <pre><code># app.js
 var algorithm = 'face';
 var options   = {};
-matrix.init( algorithm, options ).then(function( data ){
+matrix.service( algorithm, options ).start().then(function( data ){
   // your CV detection data will be available here
   console.log( data );
 });
@@ -769,7 +769,7 @@ matrix.init( algorithm, options ).then(function( data ){
 `person-count` -->
 
 <h3 id="basic-data-format">Basic Data Format</h3>
-<p><code>palm</code>, <code>face</code> and <code>fist</code> output - <code>matrix.init('palm')</code>
+<p><code>palm</code>, <code>face</code> and <code>fist</code> output - <code>matrix.service('palm')</code>
 Returning tags: <code>HAND_PALM</code>, <code>HAND_FIST</code>, <code>FADE</code></p>
 <pre><code>{
   location: { x: 333, y: 237, width: 55, height: 55 },
@@ -778,8 +778,8 @@ Returning tags: <code>HAND_PALM</code>, <code>HAND_FIST</code>, <code>FADE</code
 </code></pre>
 
 <h2 id="extended-algorithms">Extended Algorithms</h2>
-<p><code>demographics</code> - <code>matrix.init('demographics')</code>
-<code>recognition</code> - <code>matrix.init('recognition')</code></p>
+<p><code>demographics</code> - <code>matrix.service('demographics')</code>
+<code>recognition</code> - <code>matrix.service('recognition')</code></p>
 <h3 id="extended-face-data-format">Extended Face Data Format</h3>
 <h4 id="demographics-output">Demographics Output</h4>
 <pre><code>{ location: { x: 213, y: 221, width: 55, height: 55 },
@@ -808,55 +808,20 @@ Returning tags: <code>HAND_PALM</code>, <code>HAND_FIST</code>, <code>FADE</code
 <p>Recognition only works from &gt; ~4 ft away. Removing hats and glasses will result in more accurate results.</p>
 <h4 id="training-mode">Training mode</h4>
 <p>By default, <code>recognition</code> works in <code>RECOGNITION</code> mode. Without training, however, this is not useful. Enable <code>TRAIN</code> mode by passing <code>train: true</code> as an option.</p>
-<pre><code>matrix.service('recognition').train('tagname', function(data){
-  // data = { count: 0, target: 7 }
-})
+<pre><code>matrix.service('recognition').train('test').then(function(data) { ... });
 </code></pre>
 
-<p>This will associate a face with a particular tag. The <code>then</code> function will fire with <code>{ count: n, target: 7 }</code>, where n is the number of descriptors trained, and target is the final amount. On completion, the data which is passed to <code>then</code> is <code>{ uuids: [] }</code>, these are internal to MATRIX and not particularly useful.</p>
+<p>This will associate a face with a particular tag. The data which is passed to <code>then</code> are uuid's internal to MATRIX and not particularly useful, but you could use the callback for other reasons.</p>
 <h4 id="recognition-mode">Recognition mode</h4>
 <p>After training, you can enable normal recognition as follows.</p>
-<pre><code>matrix.service('recognition').start('tagname', function(data){...})
+<pre><code>matrix.service('recognition').start().then(function(data){...})
 </code></pre>
 
-<p>Inside the <code>then</code> function will return with all matched tags, not only the one you specified in the <code>init</code> function.</p>
 <h4 id="recognition-output">Recognition Output</h4>
-<pre><code>{
-  [ tags: ['tagname'], score: 0.9994 ],
-  [ tags: ['tag2Name'], score: 0.6544 ]
-}
+<pre><code>[{ tags : ['tagName'], score: 0.8 }, {...}]
 </code></pre>
 
-<p><code>tagName</code> is defined with the <code>tag</code> option when you train a face to be recognized. The value after the tagName is the confidence of the match, as measured between 0-1.</p>
-<h4 id="example_1">Example</h4>
-<p>This application waits for a <code>train</code> event, then it will start training, updating the LED as it goes. After this is complete, issue a <code>recog</code> event, and it will attempt to recognize the next face it sees.</p>
-<pre><code>matrix.on('train', function(d) {
-  var trained = false;
-  console.log('training started&gt;&gt;&gt;&gt;&gt;', d);
-  matrix.init('recognition', { mode: 'train', tag: 'test' }).then(function(d) {
-    if (!trained &amp;&amp; d.hasOwnProperty('count')) {
-      // means it's partially done
-      matrix.led({
-        arc: Math.round(360 * (d.count / d.target)),
-        color: 'blue'
-      }).render();
-    } else {
-      trained = true;
-      matrix.led('blue');
-      console.log('trained!', d);
-    }
-  });
-});
-
-matrix.on('recog', function(d) {
-  matrix.init('recognition', { tag: 'test' }).then(function(d) {
-    console.log('RECOG&gt;&gt;&gt;!', d);
-    matrix.led('green').render();
-  });
-  console.log('recog!');
-})
-</code></pre>
-
+<p><code>tags</code> are the tags matched with each recognition. <code>score</code> is the measure of a match, lower numbers are better. <code>&lt; 0.8</code> is a good metric to use for recognition.</p>
 <!--## Base Options
 These are applicable to all algorithms.
 
@@ -865,30 +830,30 @@ These are applicable to all algorithms.
 
 ### Example
 
+wzxhzdk:7
+
+matrix.service('gesture', options).then(function(data){})
+
 wzxhzdk:8
 
-matrix.init('gesture', options).then(function(data){})
+var options = { detect: ['THUMB_UP'] };
+matrix.service('gesture', options);
 
 wzxhzdk:9
 
-var options = { detect: ['THUMB_UP'] };
-matrix.init('gesture', options);
+var options = { detect: ['AGE', 'EMOTION','GENDER','FACE_ID','HEAD_POSE','FACE_FEATURES'] };
+matrix.service('gesture', options);
 
 wzxhzdk:10
 
-var options = { detect: ['AGE', 'EMOTION','GENDER','FACE_ID','HEAD_POSE','FACE_FEATURES'] };
-matrix.init('gesture', options);
+matrix.service('face-id').then(function(data){})
 
 wzxhzdk:11
 
-matrix.init('face-id').then(function(data){})
+// preuploaded Example - myFace.jpg
+matrix.service('face-id', { match: 'myFace' })
 
 wzxhzdk:12
-
-// preuploaded Example - myFace.jpg
-matrix.init('face-id', { match: 'myFace' })
-
-wzxhzdk:13
 
 // dynamic faces from dashboard / mobile app / cli
 matrix.on('faceUpload', function(data){
@@ -909,15 +874,15 @@ matrix.on('faceUpload', function(data){
 });
 
 // use configuration for recognition
-matrix.init('face', { match: matrix.faces })
+matrix.service('face', { match: matrix.faces })
+
+wzxhzdk:13
+
+matrix.service('vehicle-count').then(function(data){})
 
 wzxhzdk:14
 
-matrix.init('vehicle-count').then(function(data){})
-
-wzxhzdk:15
-
-matrix.init('people-count').then(function(data){})
+matrix.service('people-count').then(function(data){})
 ```
 ### Options
 ### Example -->
@@ -928,7 +893,7 @@ matrix.init('people-count').then(function(data){})
 
   <!--
   MkDocs version      : 0.16.1
-  Docs Build Date UTC : 2017-03-13 23:59:17
+  Docs Build Date UTC : 2017-03-14 00:04:41
   -->
 
 </body>
