@@ -6,7 +6,7 @@ From (faceTest MATRIX App)[http://apps.matrix.one/#!/apps/facetest]
 ```
 matrix.led('red').render();
 
-matrix.init('face').then(function(data){
+matrix.service('face').start().then(function(data){
   matrix.led('green').render();
   setTimeout(function() {
     matrix.led('black').render();
@@ -24,7 +24,7 @@ See [Services](../Configuration/services.md) for more information
 # app.js
 var algorithm = 'face';
 var options   = {};
-matrix.init( algorithm, options ).then(function( data ){
+matrix.service( algorithm, options ).start().then(function( data ){
   // your CV detection data will be available here
   console.log( data );
 });
@@ -53,7 +53,7 @@ matrix.init( algorithm, options ).then(function( data ){
 
 
 ### Basic Data Format
-`palm`, `face` and `fist` output - `matrix.init('palm')`
+`palm`, `face` and `fist` output - `matrix.service('palm')`
 Returning tags: `HAND_PALM`, `HAND_FIST`, `FADE`
 
 ```
@@ -64,8 +64,8 @@ Returning tags: `HAND_PALM`, `HAND_FIST`, `FADE`
 ```
 
 ## Extended Algorithms
-`demographics` - `matrix.init('demographics')`
-`recognition` - `matrix.init('recognition')`
+`demographics` - `matrix.service('demographics')`
+`recognition` - `matrix.service('recognition')`
 
 ### Extended Face Data Format
 #### Demographics Output
@@ -103,26 +103,21 @@ Recognition only works from > ~4 ft away. Removing hats and glasses will result 
 By default, `recognition` works in `RECOGNITION` mode. Without training, however, this is not useful. Enable `TRAIN` mode by passing `train: true` as an option.
 
 ```
-matrix.init('recognition', { train: true, tag: 'test' }).then(function(data) { ... });
+matrix.service('recognition').train('test').then(function(data) { ... });
 ```
 This will associate a face with a particular tag. The data which is passed to `then` are uuid's internal to MATRIX and not particularly useful, but you could use the callback for other reasons.
 
 #### Recognition mode
 After training, you can enable normal recognition as follows.
 ```
-matrix.init('recognition', {tag: 'test'}).then(function(data){...})
+matrix.service('recognition').start().then(function(data){...})
 ```
-Inside the `then` function will return with all matched tags, not only the one you specified in the `init` function.
 
 #### Recognition Output
 ```
-{
-  tagName: 0.9994,
-  tag2Name: 0.3232
-}
+[{ tags : ['tagName'], score: 0.8 }, {...}]
 ```
-`tagName` is defined with the `tag` option when you train a face to be recognized. The value after the tagName is the confidence of the match, as measured between 0-1.
-
+`tags` are the tags matched with each recognition. `score` is the measure of a match, lower numbers are better. `< 0.8` is a good metric to use for recognition.
 
 
 <!--## Base Options
@@ -143,7 +138,7 @@ var zone2 =  [ 50, 50, 250, 300 ];
 
 <!-- ## Gesture
 ```
-matrix.init('gesture', options).then(function(data){})
+matrix.service('gesture', options).then(function(data){})
 ```
 `then` will call when any gesture is detected.
 
@@ -153,7 +148,7 @@ To trigger on specific gestures pass an array of the desired values as `options.
 ### Example
 ```
 var options = { detect: ['THUMB_UP'] };
-matrix.init('gesture', options);
+matrix.service('gesture', options);
 ```
 
 #### Gestures
@@ -171,14 +166,14 @@ To only detect particular characteristics pass an array of the desired values as
 ### Example
 ```
 var options = { detect: ['AGE', 'EMOTION','GENDER','FACE_ID','HEAD_POSE','FACE_FEATURES'] };
-matrix.init('gesture', options);
+matrix.service('gesture', options);
 ```
 -->
 
 <!--
 ## Face Recognition
 ```
-matrix.init('face-id').then(function(data){})
+matrix.service('face-id').then(function(data){})
 ```  
 Facial recognition requires a target face to be supplied to it first. This can be provided in the application folder or uploaded to the device.
 
@@ -188,7 +183,7 @@ To detect a face, supply it in `options.match`. Use an array to recognize multip
 ### Example
 ```
 // preuploaded Example - myFace.jpg
-matrix.init('face-id', { match: 'myFace' })
+matrix.service('face-id', { match: 'myFace' })
 ```
 ```
 // dynamic faces from dashboard / mobile app / cli
@@ -210,11 +205,11 @@ matrix.on('faceUpload', function(data){
 });
 
 // use configuration for recognition
-matrix.init('face', { match: matrix.faces })
+matrix.service('face', { match: matrix.faces })
 ```
 ## Vehicle Counting
 ```
-matrix.init('vehicle-count').then(function(data){})
+matrix.service('vehicle-count').then(function(data){})
 ```  
 
 ### Options
@@ -225,7 +220,7 @@ Toggle different detection modes depending on circumstances.
 
 ## People Counting
 ```
-matrix.init('people-count').then(function(data){})
+matrix.service('people-count').then(function(data){})
 ```
 ### Options
 ### Example -->
