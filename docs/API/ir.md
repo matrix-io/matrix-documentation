@@ -1,6 +1,9 @@
 Still working out the precise API for this. Stay tuned.
 
+### Sending IR Commands as a remote control
+
+
 ```
-matrix.init('ir', device, command ).send( device, command ).then(function( device, command ) {})...
+matrix.ir(make, model).send( command )
 
 ```
