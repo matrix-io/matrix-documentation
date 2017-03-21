@@ -587,12 +587,12 @@
         }, 
         {
             "location": "/API/filter/", 
-            "text": "Filters\n\n\nMatrixOS sensors and computer vision algorithms provide data which can be filtered between the \ninit\n, which can be regarded as the data source, and the \nthen\n, which can be regarded as the data receiver. Between the two, we can use chaining methods to easily filter what data is received.\n\n\n// filtering in a simple application\nmatrix.init('temperature')\n.above(80)\n.then(function(data){\n  // see CrossTalk documentation for more information about matrix.emit\n  matrix.emit('ac-control', 'turnOn');\n});\n\n\n\n\nFiltering decides whether or not a data point is passed to the \nthen()\n, it does not change the data in any way.\n\n\nSimple Filtering methods\n\n\nequality\n\n\nNumeric\n\n\nis()\n \nlike()\n\n\nmatrix.init('temperature').is(72)\n\n\n\n\nString\n\n\nmatrix.init('microphone').contains('hello world')\n\n\n\n\nnegation\n\n\nnot()\n\n\nmatrix.init('temperature').not(72)\n\n\n\n\nproximity\n\n\nnear()\n\n\nmatrix.init('gps').near([39.0432661,117.7249414])\n\n\n\n\nComplex Filtering\n\n\nhas\n\n\nhas()\n is used to refine a data source by additional criteria and keys.\n\n\n// for simple sensors\nmatrix.init('temperature').has('value')\n// equivalent to\nmatrix.init('temperature').has()\n\n// for complex sensors\nmatrix.init('gyro').has('x')\n\n// for detections\nmatrix.init('face').has('age')\n\n\n\n\nbounds\n\n\n greater then\n\n\nabove\n, \nover\n, 'after'\n\n\nmatrix.init('temperature').has().above(72)\n\n\n\n\n less then\n\n\nbelow\n, \nunder\n, 'before'\n\n\nmatrix.init('temperature').has().below(32)\n\n\n\n\nbetween\n\n\nmatrix.service('face').start().has('happy').between(50,100)", 
+            "text": "Filters\n\n\nMatrixOS sensors and computer vision algorithms provide data which can be filtered between the \nsensor\n, which can be regarded as the data source, and the \nthen\n, which can be regarded as the data receiver. Between the two, we can use chaining methods to easily filter what data is received.\n\n\n// filtering in a simple application\nmatrix.sensor('temperature')\n.above(80)\n.then(function(data){\n  // see CrossTalk documentation for more information about matrix.emit\n  matrix.emit('ac-control', 'turnOn');\n});\n\n\n\n\nFiltering decides whether or not a data point is passed to the \nthen()\n, it does not change the data in any way.\n\n\nSimple Filtering methods\n\n\nequality\n\n\nNumeric\n\n\nis()\n \nlike()\n\n\nmatrix.sensor('temperature').is(72)\n\n\n\n\n\n\n\nhas\n\n\nhas()\n is used to refine a data source by additional criteria and keys.\n\n\n// for simple sensors\nmatrix.sensor('temperature').has('value')\n// equivalent to\nmatrix.sensor('temperature').has()\n\n// for complex sensors\nmatrix.sensor('gyroscope').has('x')\n\n\n\n\n\nbounds\n\n\n greater then\n\n\nabove\n, \nover\n, 'after'\n\n\nmatrix.sensor('temperature').has().above(72)\n\n\n\n\n less then\n\n\nbelow\n, \nunder\n, 'before'\n\n\nmatrix.sensor('temperature').has().below(32)\n\n\n\n\nbetween\n\n\nmatrix.service('face').start().has('happy').between(50,100)", 
             "title": "Filters"
         }, 
         {
             "location": "/API/filter/#filters", 
-            "text": "MatrixOS sensors and computer vision algorithms provide data which can be filtered between the  init , which can be regarded as the data source, and the  then , which can be regarded as the data receiver. Between the two, we can use chaining methods to easily filter what data is received.  // filtering in a simple application\nmatrix.init('temperature')\n.above(80)\n.then(function(data){\n  // see CrossTalk documentation for more information about matrix.emit\n  matrix.emit('ac-control', 'turnOn');\n});  Filtering decides whether or not a data point is passed to the  then() , it does not change the data in any way.", 
+            "text": "MatrixOS sensors and computer vision algorithms provide data which can be filtered between the  sensor , which can be regarded as the data source, and the  then , which can be regarded as the data receiver. Between the two, we can use chaining methods to easily filter what data is received.  // filtering in a simple application\nmatrix.sensor('temperature')\n.above(80)\n.then(function(data){\n  // see CrossTalk documentation for more information about matrix.emit\n  matrix.emit('ac-control', 'turnOn');\n});  Filtering decides whether or not a data point is passed to the  then() , it does not change the data in any way.", 
             "title": "Filters"
         }, 
         {
@@ -607,32 +607,12 @@
         }, 
         {
             "location": "/API/filter/#numeric", 
-            "text": "is()   like()  matrix.init('temperature').is(72)", 
+            "text": "is()   like()  matrix.sensor('temperature').is(72)", 
             "title": "Numeric"
         }, 
         {
-            "location": "/API/filter/#string", 
-            "text": "matrix.init('microphone').contains('hello world')", 
-            "title": "String"
-        }, 
-        {
-            "location": "/API/filter/#negation", 
-            "text": "not()  matrix.init('temperature').not(72)", 
-            "title": "negation"
-        }, 
-        {
-            "location": "/API/filter/#proximity", 
-            "text": "near()  matrix.init('gps').near([39.0432661,117.7249414])", 
-            "title": "proximity"
-        }, 
-        {
-            "location": "/API/filter/#complex-filtering", 
-            "text": "", 
-            "title": "Complex Filtering"
-        }, 
-        {
             "location": "/API/filter/#has", 
-            "text": "has()  is used to refine a data source by additional criteria and keys.  // for simple sensors\nmatrix.init('temperature').has('value')\n// equivalent to\nmatrix.init('temperature').has()\n\n// for complex sensors\nmatrix.init('gyro').has('x')\n\n// for detections\nmatrix.init('face').has('age')", 
+            "text": "has()  is used to refine a data source by additional criteria and keys.  // for simple sensors\nmatrix.sensor('temperature').has('value')\n// equivalent to\nmatrix.sensor('temperature').has()\n\n// for complex sensors\nmatrix.sensor('gyroscope').has('x')", 
             "title": "has"
         }, 
         {
@@ -642,12 +622,12 @@
         }, 
         {
             "location": "/API/filter/#greater-then", 
-            "text": "above ,  over , 'after'  matrix.init('temperature').has().above(72)", 
+            "text": "above ,  over , 'after'  matrix.sensor('temperature').has().above(72)", 
             "title": "&gt; greater then"
         }, 
         {
             "location": "/API/filter/#less-then", 
-            "text": "below ,  under , 'before'  matrix.init('temperature').has().below(32)", 
+            "text": "below ,  under , 'before'  matrix.sensor('temperature').has().below(32)", 
             "title": "&lt; less then"
         }, 
         {
@@ -872,8 +852,13 @@
         }, 
         {
             "location": "/API/ir/", 
-            "text": "Still working out the precise API for this. Stay tuned.\n\n\nmatrix.init('ir', device, command ).send( device, command ).then(function( device, command ) {})...", 
+            "text": "Still working out the precise API for this. Stay tuned.\n\n\nSending IR Commands as a remote control\n\n\nmatrix.ir(make, model).send( command )", 
             "title": "IR TX/RX"
+        }, 
+        {
+            "location": "/API/ir/#sending-ir-commands-as-a-remote-control", 
+            "text": "matrix.ir(make, model).send( command )", 
+            "title": "Sending IR Commands as a remote control"
         }, 
         {
             "location": "/API/nfc/", 

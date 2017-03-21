@@ -697,13 +697,6 @@
               
                   <li class="list-group-item"><a href="#equality">equality</a></li>
               
-                  <li class="list-group-item"><a href="#negation">negation</a></li>
-              
-                  <li class="list-group-item"><a href="#proximity">proximity</a></li>
-              
-          
-              <li class="list-group-item"><a href="#complex-filtering">Complex Filtering</a></li>
-              
                   <li class="list-group-item"><a href="#has">has</a></li>
               
                   <li class="list-group-item"><a href="#bounds">bounds</a></li>
@@ -717,9 +710,9 @@
       <div class="col-md-10">
         
           <h2 id="filters">Filters</h2>
-<p>MatrixOS sensors and computer vision algorithms provide data which can be filtered between the <code>init</code>, which can be regarded as the data source, and the <code>then</code>, which can be regarded as the data receiver. Between the two, we can use chaining methods to easily filter what data is received.</p>
+<p>MatrixOS sensors and computer vision algorithms provide data which can be filtered between the <code>sensor</code>, which can be regarded as the data source, and the <code>then</code>, which can be regarded as the data receiver. Between the two, we can use chaining methods to easily filter what data is received.</p>
 <pre><code>// filtering in a simple application
-matrix.init('temperature')
+matrix.sensor('temperature')
 .above(80)
 .then(function(data){
   // see CrossTalk documentation for more information about matrix.emit
@@ -732,47 +725,42 @@ matrix.init('temperature')
 <h3 id="equality">equality</h3>
 <h6 id="numeric">Numeric</h6>
 <p><code>is()</code> <code>like()</code></p>
-<pre><code>matrix.init('temperature').is(72)
+<pre><code>matrix.sensor('temperature').is(72)
 </code></pre>
 
-<h6 id="string">String</h6>
-<pre><code>matrix.init('microphone').contains('hello world')
-</code></pre>
+<!--
+###### String
 
-<h3 id="negation">negation</h3>
-<p><code>not()</code></p>
-<pre><code>matrix.init('temperature').not(72)
-</code></pre>
+wzxhzdk:2
 
-<h3 id="proximity">proximity</h3>
-<p><code>near()</code></p>
-<pre><code>matrix.init('gps').near([39.0432661,117.7249414])
-</code></pre>
+matrix.sensor('temperature').not(72)
 
-<h2 id="complex-filtering">Complex Filtering</h2>
+wzxhzdk:3
+
+matrix.sensor('gps').near([39.0432661,117.7249414])
+```-->
+
 <h3 id="has">has</h3>
 <p><code>has()</code> is used to refine a data source by additional criteria and keys.</p>
 <pre><code>// for simple sensors
-matrix.init('temperature').has('value')
+matrix.sensor('temperature').has('value')
 // equivalent to
-matrix.init('temperature').has()
+matrix.sensor('temperature').has()
 
 // for complex sensors
-matrix.init('gyro').has('x')
+matrix.sensor('gyroscope').has('x')
 
-// for detections
-matrix.init('face').has('age')
 </code></pre>
 
 <h3 id="bounds">bounds</h3>
 <h6 id="greater-then">&gt; greater then</h6>
 <p><code>above</code>, <code>over</code>, 'after'</p>
-<pre><code>matrix.init('temperature').has().above(72)
+<pre><code>matrix.sensor('temperature').has().above(72)
 </code></pre>
 
 <h6 id="less-then">&lt; less then</h6>
 <p><code>below</code>, <code>under</code>, 'before'</p>
-<pre><code>matrix.init('temperature').has().below(32)
+<pre><code>matrix.sensor('temperature').has().below(32)
 </code></pre>
 
 <h6 id="between">between</h6>
@@ -785,7 +773,7 @@ matrix.init('face').has('age')
 
   <!--
   MkDocs version      : 0.16.1
-  Docs Build Date UTC : 2017-03-14 00:04:41
+  Docs Build Date UTC : 2017-03-21 17:38:08
   -->
 
 </body>

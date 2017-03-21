@@ -690,6 +690,9 @@
           <h3>Contents</h3>
           <ul class="list-group">
           
+              <li class="list-group-item"><a href="#sending-ir-commands-as-a-remote-control">Sending IR Commands as a remote control</a></li>
+              
+          
           </ul>
 
           
@@ -698,7 +701,8 @@
       <div class="col-md-10">
         
           <p>Still working out the precise API for this. Stay tuned.</p>
-<pre><code>matrix.init('ir', device, command ).send( device, command ).then(function( device, command ) {})...
+<h3 id="sending-ir-commands-as-a-remote-control">Sending IR Commands as a remote control</h3>
+<pre><code>matrix.ir(make, model).send( command )
 
 </code></pre>
         
@@ -708,7 +712,7 @@
 
   <!--
   MkDocs version      : 0.16.1
-  Docs Build Date UTC : 2017-03-14 00:04:41
+  Docs Build Date UTC : 2017-03-21 17:38:08
   -->
 
 </body>
