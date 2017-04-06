@@ -1,36 +1,87 @@
-### Microphone
+## Microphone
 
-First check the [Getting started](Getting-Started)
+### Content
 
-Update and upgrade the raspbian
+[1. Using microphones from the Hardware Abstraction Layer (HAL)](#hal)
+[2. Convert and play recorded sounds](#alsa)
 
+<a name="hal"></a>
+### 1. Using microphones from the Hardware Abstraction Layer (HAL) 
+
+
+#### Update and upgrade Raspbian
     sudo apt-get update
     sudo apt-get upgrade
 
-
-Install _Alsa tools_ and the _sox_ utility
-
-    sudo apt-get install sox alsa-utils 
-
-Run the volumen control
-
-    alsamixer
-
-Install and compile the MATRIX Creator's hardware abstraction layer
-
+#### Compiling and installing HAL
     git clone https://github.com/matrix-io/matrix-creator-hal.git
     cd matrix-creator-hal 
     mkdir build && cd build
     cmake ..
     make
+#### Runing demos
 
-Run capture and check the recorded files
+Go to the demo folder and run one of the mic demos, e.g :
+
+    cd build/demos
+    ./mic_demo
+
+#### Available mic demos: 
+##### mic_demo
+This demo maps each mic audio input to one specific led on the Everloop. You can make sounds close to the MATRIX Creator and see how the LEDs turn green when a sound is detected. Also the demo prints in the terminal the audio as numbers, e.g.:
+
+    ...
+    0   0   0   0   0   0   0   0   
+    0   0   0   0   0   0   0   0   
+    6   6   6   6   6   4   5   6   
+    3   6   4   4   2   2   2   2   
+    0   0   0   0   0   0   0   0   
+    0   0   0   0   0   0   0   0   
+    0   0   0   0   0   0   0   0   
+    3   5   5   4   4   4   5   4   
+    5   6   6   6   6   5   6   5   
+    1   0   1   2   2   1   1   1   
+    0   1   1   1   1   1   1   1   
+    0   1   1   0   1   0   0   0   
+    ...
+
+##### mic_energy
+This demo is similar but instead of mapping the mic's audio individually takes all channels and maps the average of all mics. It maps at the same time in all LEDs and creates a very voice responsive red light. This demos does not print anything on the terminal.
+
+##### micarray_recorder
+This demo records audio from all 8 (0-7) channels and the beamforming channel (channel 8) to raw files located in the same folder. After you launching the demo you will have these files:
+    
+    mic_16000_s16le_channel_0.raw
+    mic_16000_s16le_channel_1.raw
+    mic_16000_s16le_channel_2.raw
+    mic_16000_s16le_channel_3.raw
+    mic_16000_s16le_channel_4.raw
+    mic_16000_s16le_channel_5.raw
+    mic_16000_s16le_channel_6.raw
+    mic_16000_s16le_channel_7.raw
+    mic_16000_s16le_channel_8.raw
+
+note: The data in the raw files is writen in `int16_t`. 
+
+##### direction_of_arrival_demo
+This demo shows a first implementation of direction of arrival detection. It shows the direction of arrival using the LEDs and also prints the result angle in the terminal.
+
+<a name="alsa"></a>
+### Convert and play recorded sounds 
+
+
+##### Install _Alsa tools_ and the _sox_ utility
+    sudo apt-get install sox alsa-utils 
+
+##### Run the volumen control
+    alsamixer
+
+##### Run capture and check the recorded files
     cd demos
     ./micarray_recorder
     ls -1 *raw
 
-Convert the audio
-
+##### Convert the audio
     sox -r 16000 -c 1 -e signed -c 1 -e signed -b 16 mic_16000_s16le_channel_0.raw channel_0.wav
     sox -r 16000 -c 1 -e signed -c 1 -e signed -b 16 mic_16000_s16le_channel_1.raw channel_1.wav
     sox -r 16000 -c 1 -e signed -c 1 -e signed -b 16 mic_16000_s16le_channel_2.raw channel_2.wav
@@ -41,7 +92,6 @@ Convert the audio
     sox -r 16000 -c 1 -e signed -c 1 -e signed -b 16 mic_16000_s16le_channel_7.raw channel_7.wav
 
 
-Play the wave file (i.e. audio from channel 0)
-
+##### Play the wave file (i.e. audio from channel 0)
     aplay channel_0.wav
 
