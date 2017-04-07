@@ -1,15 +1,11 @@
-
-# NOTE: When updating this, update config-basic in config-helper repo
+# do not touch this line
+configVersion: 2
 
 # App Information for Store
+description: Monitor app for your MATRIX
+keywords: 'monitor,matrix,cpu,memory,device'
 name: monitor
-version: 1
-configVersion: 2
-description: Matrix stats
-
-# provided to MatrixOS runtime as Matrix.refresh
-configuration:
-  refresh: 1000
+displayName: Monitor
 
 # these are defined for writing data to the data base
 dataTypes:
@@ -24,116 +20,89 @@ dataTypes:
 
 # screens are comprised of widgets
 screens:
-
   # Row 1
-  - - buttonsTest
+  - - buttonsMap
+    - buttonTest
   # Row 2
-  - - buttonTest
-  # Row 3
   - - info
-  # Row
-  - - labelGroup
-    - dropDown
-    - cpuChart
+    - cpu
+    - memory
+  # Row 3
+  - - cpuChart
   # Row 4
   - - gaugeChart
     - radarTest
     - barChart
-  # Row 5
-  - - info
-  # Row 6
-  - - cpu
-    - memory
 
 widgets:
-  dropDown:
-    # loads < dropdown-control > directive
-    control: dropdown
-    # maps to app events
-    map:
-      test1: doTest1
-      test2: doTest2
-    # label on widget
-    label: dropdown test
-  labelGroup:
-    type: device
-    # loads < labeled-group > directive
-    display: labeled-group
-    label: Label Group
-  gaugeChart:
-    type: monitor
-    # loads < gauge-chart-chartjs > directive
-    display: gauge
-    # use this key for this widget data ( monitor.cpu )
-    key: cpu
-    label: Monitoring Gauge
   info:
-    type: device
     display: list-group
     label: Secret Information
+    groupby: 'os_hostname'
+    # Type from dataTypes
+    type: device
   cpuChart:
-    type: monitor
-    keys: cpu,memory
+    # Loads display "line" showing "cpu" & "memory" data
     display: line
+    # multi-series keys
+    keys: cpu,memory
     label: CPU Chart
+    type: monitor
   buttonTest:
-    label: Hacking Buttons
-    # loads < button-control > directive
+    # Loads control "button"
     control: button
+    label: Hacking Buttons
     # Matrix.on('buttonInfo')
     trigger: buttonInfo
     # Button Label
     value: Get Secret Information
-  buttonsTest:
-    label: Matrix Activation Buttons
+    size: 50
+  buttonsMap:
+    # Load group of "buttons" to trigger events
     control: button
-    #loads many buttons, label: eventName
+    label: Matrix Activation Buttons
+    # Many buttons --> label: eventName
     map:
       'amps+': buttonUp
       'amps-': buttonDown
       begin : buttonStart
       end : buttonStop
       capture : buttonSample
-
       'refresh+' : buttonSlow
       'refresh-' : buttonFast
+    # Width of widget is 50% of row
+    size: 50
   barChart:
-    type: monitor
-    # multi-series keys
-    keys: cpu, memory
-    # loads < bar-chart-chartjs >
     display: bar
-    label: Bar CHart
-
-  buttonOut:
-    type: test
-    display: digit
-  switchTest:
-    control: switch
-  polarTest:
+    label: Bar chart
+    keys: cpu, memory
     type: monitor
-    key: cpu
-    display: polar
-    label: polar bears
-  pieTest:
-    type: monitor
-    key: cpu
-    display: pie
-    label: CPU Cycles
+    # Disable realtime and refresh widget every 10 seconds
+    realtime: false
+    refresh: 10
   radarTest:
-    type: monitor
-    keys: cpu,memory
     display: radar
+    keys: cpu,memory
     label: last CPU
-  cpu:
     type: monitor
+  gaugeChart:
+    # Loads display "gauge" showing "cpu" data
+    display: gauge
     key: cpu
-    display: digit
-    format: round
-    label: cpu
-  memory:
+    label: Monitoring Gauge
+    # Type from dataTypes
     type: monitor
-    key: memory
+  cpu:
     display: digit
-    format: round
+    # Format applied to data: Percent
+    format: percent
+    key: cpu
+    label: cpu
+    type: monitor
+  memory:
+    display: digit
+    # Format applied to data: Average
+    format: avg
+    key: memory
     label: memory
+    type: monitor
