@@ -21,7 +21,7 @@ This way we can easily distinguish between layout and functionality.
 
 ## Data Operations
 
-Using `format`, data operations can be applied on each Display depending on how we want to show the information on it. The current widget configuration supports the operations: `count`, `sum`, `avg`, `percent`, `max`, `min`, `fixed`, `round`.
+Using `format`, data operations can be applied to each Display Widget. The current widget configuration supports the operations: `count`, `sum`, `avg`, `percent`, `max`, `min`, `fixed`, `round`. These will be represented as a new field, for example, on a `display:line`, an extra `sum` line could be drawn. 
 
 ## Data Handling
 The dashboard holds a central data store which the widgets receive or request data from.
