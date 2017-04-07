@@ -1,28 +1,8 @@
-# MatrixOS Config Widget examples
+# MatrixOS Widget examples
 
-# DataTypes
-```
-monitor:
-  cpu: float
-  memory: float
-```
+There are many "general setting" to make the configuration for the widgets. Here we show you the most common use for each of them. 
 
-```
-location:
-  latitude: float
-  longitude: float
-  label: string
-```
-
-# Layout
-![Screens](img/ios/screens.png)
-```
-screens:
-  - - digitTest
-    - labelTest
-  - - barChartTest
-    - lineChartTest
-```
+Remember that there are other "optional settings" that can be added for more specific things like Data handling (refresh time), Data format and size. You can refer to [Widgets](widgets.md) for a better explanation on this subjects.
 
 # Displays
 
