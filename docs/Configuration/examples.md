@@ -223,6 +223,26 @@ matrix.type('location').send({
 );  
 ```
 
+## Lists
+![List](img/ios/list.png)
+```
+listTest:
+  display: list
+  type: device
+  keys: Hostname,Type,Platform,Arch
+  label: Secret Information
+```
+
+###### Handling Code
+```
+matrix.type('device').send({
+  'Hostname': 'h7n.domain',
+  'Type': 'Darwin',
+  'Platform': 'darwin',
+  'Arch': 'x64'}
+);  
+```
+
 ## List Group
 
 ### Simple Group
@@ -263,26 +283,6 @@ matrix.type('vehicleDetection').send({
   'zoneId': 'zone1',
   'count': '4',
   'speed': '56'}
-);  
-```
-
-## Lists
-![List](img/ios/list.png)
-```
-listTest:
-  display: list
-  type: device
-  keys: Hostname,Type,Platform,Arch
-  label: Secret Information
-```
-
-###### Handling Code
-```
-matrix.type('device').send({
-  'Hostname': 'h7n.domain',
-  'Type': 'Darwin',
-  'Platform': 'darwin',
-  'Arch': 'x64'}
 );  
 ```
 
