@@ -69,6 +69,7 @@ Indicated via a `display` option.
 
 `map` - map
 
+`link` - link to a destination (URL)
 
 ## Interactive Widgets
 Indicated via a `control` option.
@@ -88,6 +89,8 @@ Indicated via a `control` option.
 `xy` - track pad
 
 `radial` - joystick, single or multiple
+
+`color` - color picker
 
 ## Widget Size
 

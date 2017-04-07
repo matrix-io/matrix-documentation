@@ -223,26 +223,6 @@ matrix.type('location').send({
 );  
 ```
 
-## Lists
-![List](img/ios/list.png)
-```
-listTest:
-  display: list
-  type: device
-  keys: Hostname,Type,Platform,Arch
-  label: Secret Information
-```
-
-###### Handling Code
-```
-matrix.type('device').send({
-  'Hostname': 'h7n.domain',
-  'Type': 'Darwin',
-  'Platform': 'darwin',
-  'Arch': 'x64'}
-);  
-```
-
 ## List Group
 
 ### Simple Group
@@ -286,7 +266,37 @@ matrix.type('vehicleDetection').send({
 );  
 ```
 
-# Interactive
+## Lists
+![List](img/ios/list.png)
+```
+listTest:
+  display: list
+  type: device
+  keys: Hostname,Type,Platform,Arch
+  label: Secret Information
+```
+
+###### Handling Code
+```
+matrix.type('device').send({
+  'Hostname': 'h7n.domain',
+  'Type': 'Darwin',
+  'Platform': 'darwin',
+  'Arch': 'x64'}
+);  
+```
+
+## Links
+![Link](img/link.png)
+```
+link:
+  display: link
+  label: "Link display"
+  title: "Google"
+  url: "https://www.google.com"
+```
+
+# Interactive (Controls)
 
 ## Input
 ### Single
@@ -581,6 +591,30 @@ matrix.on('radialLChanging', function(p){
  var x = p.value.x; //from -1 to 1
  var y = p.value.y; //from -1 to 1
 })
+```
+
+## Color
+![color](img/color.png) ![colorSelector](img/colorSelector.png) 
+```
+  color:
+    control: color
+    event: colorChange
+    value: 'color'
+    label: 'Change MATRIX color'
+```
+
+###### Handling Code
+```
+matrix.on('colorChange', function(color){
+  color = color.value;
+  if(!isRgbColor(color)){
+    color = hexRgb(color);
+    color = 'rgb(' + color[0] + ','+ color[1] + ',' + color [2] + ')';
+  }
+
+  everloopColor = color;
+  renderLeds(everloopColor);
+});
 ```
 
 # Responsive Data Flow
