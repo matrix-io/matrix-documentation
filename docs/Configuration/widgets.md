@@ -64,7 +64,13 @@ widgets:
 ```
 
 ## Display widgets
-Indicated via a `display` option. The required fields this widgets should have are: display, 
+Indicated via a `display` option.
+
+```
+widgets:
+  barChart:
+    display: bar
+```
 
 `bar` - bar chart
 
@@ -94,6 +100,13 @@ Indicated via a `display` option. The required fields this widgets should have a
 
 ## Interactive Widgets
 Indicated via a `control` option.
+
+```
+widgets:
+  controlButton:
+    display: button
+```
+
 
 `input` - input field, single or multiple
 
