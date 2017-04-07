@@ -17,6 +17,13 @@ matrix.service('face').start().then(function(data){
 ## Configuration
 To facilitate communication with the hardware, define CV services must be defined in `config.yaml` before they will be available to your application.
 
+```
+services:
+  faceDetection:
+    engine: detection
+    type: face
+```
+
 See [Services](../Configuration/services.md) for more information
 
 ## Initialization
