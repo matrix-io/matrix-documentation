@@ -104,7 +104,7 @@ Indicated via a `control` option.
 ```
 widgets:
   controlButton:
-    display: button
+    control: button
 ```
 
 
