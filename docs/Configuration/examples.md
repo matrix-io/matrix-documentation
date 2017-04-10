@@ -587,13 +587,7 @@ matrix.on('radialLChanging', function(p){
 ```
 matrix.on('colorChange', function(color){
   color = color.value;
-  if(!isRgbColor(color)){
-    color = hexRgb(color);
-    color = 'rgb(' + color[0] + ','+ color[1] + ',' + color [2] + ')';
-  }
-
-  everloopColor = color;
-  renderLeds(everloopColor);
+  matrix.led(color).render();
 });
 ```
 
