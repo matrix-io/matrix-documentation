@@ -38,7 +38,8 @@ pages:
     - 'Filters': 'Configuration/filters.md'
     - 'Widgets': 'Configuration/widgets.md'
     - 'Services': 'Configuration/services.md'
-    - 'Examples': 'Configuration/examples.md'
+    - 'Config File': 'Configuration/example-config.md'
+    - 'Widget Examples': 'Configuration/examples.md'
   - Troubleshooting: 'intro/matrix-troubleshooting.md'
 - Hardware:
   - 'Creator': 'Reference/creator.md'
