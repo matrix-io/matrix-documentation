@@ -2,7 +2,7 @@
 
 ##### 1. Mic Array Position
 
-<a href="https://github.com/matrix-io/matrix-documentation/docs/Hardware/mic_position.jpg"><img src="https://github.com/matrix-io/matrix-documentation/docs/Hardware/mic_position.jpg" align="right" width="500" ></a>
+<a href="https://github.com/matrix-io/matrix-documentation/blob/yc/improving_mic_doc/docs/Hardware/mic_position.jpg"><img src="https://github.com/matrix-io/matrix-documentation/blob/yc/improving_mic_doc/docs/Hardware/mic_position.jpg" align="right" width="500" ></a>
 
 | Mic  |      X      |      Y      |  
 | ---- | ----------- | ----------- |  
