@@ -718,13 +718,13 @@
               
                   <li class="list-group-item"><a href="#object-notation-shape-generators">Object Notation - Shape Generators</a></li>
               
-                  <li class="list-group-item"><a href="#available-shapes">Available Shapes</a></li>
+                  <li class="list-group-item"><a href="#global-shape-properties">Global Shape Properties</a></li>
               
-                  <li class="list-group-item"><a href="#global-properties">Global Properties</a></li>
+                  <li class="list-group-item"><a href="#available-shapes">Available Shapes</a></li>
               
                   <li class="list-group-item"><a href="#chaining-operations">Chaining Operations</a></li>
               
-                  <li class="list-group-item"><a href="#multiple-shapes-and-colors">Multiple shapes and colors</a></li>
+                  <li class="list-group-item"><a href="#multiple-shapes-and-pixel-drawing">Multiple shapes and pixel drawing</a></li>
               
           
               <li class="list-group-item"><a href="#examples">Examples</a></li>
@@ -774,18 +774,28 @@ matrix.led('rgba(255, 0, 100)').render();
 <p>Further examples omit the <code>render</code> for readability. </p>
 <h2 id="intermediate-operation">Intermediate Operation</h2>
 <h3 id="object-notation-shape-generators">Object Notation - Shape Generators</h3>
-<p>Shapes are the fastest way to get started with Everloop. We are always building, <a href="http://community.matrix.one/">let us know</a> what shapes you want us to work on next!</p>
+<p>Shape objects <code>{Shape}</code> are the fastest way to get started with Everloop. We are always building, <a href="http://community.matrix.one/">let us know</a> what shapes you want us to work on next!</p>
+<p>The object creation is simple, you combine global properties with specific properties into a single object that controls a single generator. To draw multiple shapes, see Multiple Shapes below.</p>
+<h3 id="global-shape-properties">Global Shape Properties</h3>
+<p>Every Shape object must include a <code>color</code> property to render.</p>
+<pre><code>color - color strings, as specified above
+blend - mix lights to make angle positioning more precise
+spin - number of degrees by which to spin the hue ( 0 - 360 )
+start - ( arc only ), start light index
+</code></pre>
+
 <h3 id="available-shapes">Available Shapes</h3>
+<p>Include one of these properties to enable the shape generator.</p>
 <pre><code>arc - number of degrees to draw an arc, important for smile faces, supports negative values
-  arc supports a `start` property to define which light is the start point
 fade - similiar to arc, except lights fade out
 angle - draw a single light at this degree point
 </code></pre>
 
-<h3 id="global-properties">Global Properties</h3>
-<pre><code>color - color strings, as specified above
-blend - mix lights to make angle positioning more precise
-spin - number of degrees by which to spin the hue ( 0 - 360 )
+<h4 id="example-shape-object">Example Shape Object</h4>
+<pre><code>{
+  color: 'red'
+  angle: 90
+}
 </code></pre>
 
 <h3 id="chaining-operations">Chaining Operations</h3>
@@ -796,7 +806,7 @@ darken(steps) - darken light by this many steps ( 0 - 10 )
 // brighten / darken are expensive operations and may not be suitable for rapidly updating displays
 </code></pre>
 
-<h3 id="multiple-shapes-and-colors">Multiple shapes and colors</h3>
+<h3 id="multiple-shapes-and-pixel-drawing">Multiple shapes and pixel drawing</h3>
 <p>Use an array to include multiple shapes. Color strings can also be included and will be drawn as a single light whose index matches the strings index in the array provided.</p>
 <h2 id="examples">Examples</h2>
 <pre><code class="js">var a = matrix.led({
@@ -891,7 +901,7 @@ matrix.led([
 
   <!--
   MkDocs version      : 0.16.1
-  Docs Build Date UTC : 2017-04-11 17:56:44
+  Docs Build Date UTC : 2017-04-11 18:06:31
   -->
 
 </body>
