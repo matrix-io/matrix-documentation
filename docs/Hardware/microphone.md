@@ -3,6 +3,7 @@
 ### Content
 
 [1. Using microphones from the Hardware Abstraction Layer (HAL)](#hal)
+
 [2. Convert and play recorded sounds](#alsa)
 
 <a name="hal"></a>
@@ -19,7 +20,7 @@
     mkdir build && cd build
     cmake ..
     make
-#### Runing demos
+#### Running demos
 
 Go to the demo folder and run one of the mic demos, e.g :
 
@@ -61,7 +62,7 @@ This demo records audio from all 8 (0-7) channels and the beamforming channel (c
     mic_16000_s16le_channel_7.raw
     mic_16000_s16le_channel_8.raw
 
-note: The data in the raw files is writen in `int16_t`. 
+note: The data in the raw files is written in `int16_t`. 
 
 ##### direction_of_arrival_demo
 This demo shows a first implementation of direction of arrival detection. It shows the direction of arrival using the LEDs and also prints the result angle in the terminal.
@@ -73,7 +74,7 @@ This demo shows a first implementation of direction of arrival detection. It sho
 ##### Install _Alsa tools_ and the _sox_ utility
     sudo apt-get install sox alsa-utils 
 
-##### Run the volumen control
+##### Run the volume control
     alsamixer
 
 ##### Run capture and check the recorded files
@@ -92,6 +93,6 @@ This demo shows a first implementation of direction of arrival detection. It sho
     sox -r 16000 -c 1 -e signed -c 1 -e signed -b 16 mic_16000_s16le_channel_7.raw channel_7.wav
 
 
-##### Play the wave file (i.e. audio from channel 0)
+##### Play the wav file (i.e. audio from channel 0)
     aplay channel_0.wav
 
