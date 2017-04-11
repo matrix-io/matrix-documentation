@@ -418,7 +418,16 @@
 -->
 
 <li >
-    <a href="../../Configuration/examples/">Examples</a>
+    <a href="../../Configuration/example-config/">Config File</a>
+</li>
+
+        
+            <!--
+
+-->
+
+<li >
+    <a href="../../Configuration/examples/">Widget Examples</a>
 </li>
 
         
@@ -700,13 +709,25 @@
                   <li class="list-group-item"><a href="#the-solution">The Solution</a></li>
               
           
-              <li class="list-group-item"><a href="#set-colors">Set Colors</a></li>
+              <li class="list-group-item"><a href="#basic-operations">Basic Operations</a></li>
+              
+                  <li class="list-group-item"><a href="#string-notation-render">String Notation &amp; Render</a></li>
               
           
-              <li class="list-group-item"><a href="#generate-shapes">Generate Shapes</a></li>
+              <li class="list-group-item"><a href="#intermediate-operation">Intermediate Operation</a></li>
+              
+                  <li class="list-group-item"><a href="#object-notation-shape-generators">Object Notation - Shape Generators</a></li>
+              
+                  <li class="list-group-item"><a href="#available-shapes">Available Shapes</a></li>
+              
+                  <li class="list-group-item"><a href="#global-properties">Global Properties</a></li>
+              
+                  <li class="list-group-item"><a href="#chaining-operations">Chaining Operations</a></li>
+              
+                  <li class="list-group-item"><a href="#multiple-shapes-and-colors">Multiple shapes and colors</a></li>
               
           
-              <li class="list-group-item"><a href="#manipulate-position">Manipulate position</a></li>
+              <li class="list-group-item"><a href="#examples">Examples</a></li>
               
           
               <li class="list-group-item"><a href="#composition">Composition</a></li>
@@ -717,6 +738,9 @@
               
           
               <li class="list-group-item"><a href="#example-clock">Example clock</a></li>
+              
+          
+              <li class="list-group-item"><a href="#advanced-use">Advanced Use</a></li>
               
           
           </ul>
@@ -731,30 +755,51 @@
 <h2 id="rendering">Rendering</h2>
 <p>MatrixOS is an attempt at abstracting out the complexity of hardware to make it very accessible for end users. At the same time, one also wants to support those who might want to perform more complex operations. When designing a language, sometimes compromises between ease of use and features must be made.</p>
 <h4 id="the-problem">The problem</h4>
-<p>Many things might want to write to the LED. We can leave it up to chance as to which gets to write, or we can approach it intelligently to optimize the aesthetics and performance. This requires a more complex notation.</p>
+<p>Many things might want to write to the LED. We can leave it up to chance as to which gets to write, or we can approach it intelligently to optimize the aesthetics and performance. We also want to be able to manage and optimize LED transformations from a system level. Normally, MATRIX OS enables very fast communication with the hardware and tries to get out of the way as much as possible. For LEDS, we still get out of the way, but we need to blend all the input from different applications, otherwise this creates flicker. So we need a special channel and notation just for leds.</p>
 <h4 id="the-solution">The Solution</h4>
-<pre><code class="js">matrix.led('blue')
-//does nothing
-
-
-matrix.led('green').render()
-//lights change
+<pre><code>matrix.led
 </code></pre>
 
-<p>Further examples omit the <code>render</code> for readability.</p>
-<h2 id="set-colors">Set Colors</h2>
-<pre><code class="js">// set an initial color
-matrix.led('red')
+<h2 id="basic-operations">Basic Operations</h2>
+<h3 id="string-notation-render">String Notation &amp; Render</h3>
+<pre><code class="js">matrix.led('blue'); //does nothing
 
-// interleave two colors
-matrix.led([ '#bada55', '#e1337e'])
+matrix.led('green').render(); //lights change
 
-// support opacity
-matrix.led('rgba(255, 0, 100, 0.6)')
+// supports css
+matrix.led('rgba(255, 0, 100)').render();
 </code></pre>
 
-<h2 id="generate-shapes">Generate Shapes</h2>
-<pre><code class="js">matrix.led({
+<p>You can use any CSS color property, including <a href="../X11 Color Names">https://www.wikiwand.com/en/Web_colors#/X11_color_names</a>. Darker colors on the Everloop generally display with more precision then lighter colors, which tend to get washed out. </p>
+<p>Further examples omit the <code>render</code> for readability. </p>
+<h2 id="intermediate-operation">Intermediate Operation</h2>
+<h3 id="object-notation-shape-generators">Object Notation - Shape Generators</h3>
+<p>Shapes are the fastest way to get started with Everloop. We are always building, <a href="http://community.matrix.one/">let us know</a> what shapes you want us to work on next!</p>
+<h3 id="available-shapes">Available Shapes</h3>
+<pre><code>arc - number of degrees to draw an arc, important for smile faces, supports negative values
+  arc supports a `start` property to define which light is the start point
+fade - similiar to arc, except lights fade out
+angle - draw a single light at this degree point
+</code></pre>
+
+<h3 id="global-properties">Global Properties</h3>
+<pre><code>color - color strings, as specified above
+blend - mix lights to make angle positioning more precise
+spin - number of degrees by which to spin the hue ( 0 - 360 )
+</code></pre>
+
+<h3 id="chaining-operations">Chaining Operations</h3>
+<p>These operate on the shapes and colors defined in the <code>led</code> object.</p>
+<pre><code>rotate(angle) - rotates whole shape by this many degrees 
+brighten(steps) - brighten light by this many steps ( 0 - 10 )
+darken(steps) - darken light by this many steps ( 0 - 10 )
+// brighten / darken are expensive operations and may not be suitable for rapidly updating displays
+</code></pre>
+
+<h3 id="multiple-shapes-and-colors">Multiple shapes and colors</h3>
+<p>Use an array to include multiple shapes. Color strings can also be included and will be drawn as a single light whose index matches the strings index in the array provided.</p>
+<h2 id="examples">Examples</h2>
+<pre><code class="js">var a = matrix.led({
   // degrees of arc [ 90° = quadrant ]   
   arc: 90,
 
@@ -764,23 +809,17 @@ matrix.led('rgba(255, 0, 100, 0.6)')
   start: 12
 });
 
-//no color assumes off
-matrix.led({
-  arc: 360
-})
 
 // draw a point
-matrix.led({
+var b = matrix.led({
   angle: 245,
   color: 'white',
   // blends interlight space if true, solid lights if false, default false
   blend: true
-})
-</code></pre>
+});
 
-<h2 id="manipulate-position">Manipulate position</h2>
-<pre><code class="js">// rotate the lights clockwise by a specified angle
-matrix.led().rotate(90)
+// rotate the lights clockwise by a specified angle
+matrix.led([a, b]).rotate(90);
 </code></pre>
 
 <h2 id="composition">Composition</h2>
@@ -842,6 +881,9 @@ matrix.led([
 
 }, 1000);
 </code></pre>
+
+<h2 id="advanced-use">Advanced Use</h2>
+<p>Enable <code>SUN_MODE=true</code> as a flag when launching MATRIX OS to turn on the white LEDs (and the luminence calculations)</p>
         
       </div>
     </div>
@@ -849,7 +891,7 @@ matrix.led([
 
   <!--
   MkDocs version      : 0.16.1
-  Docs Build Date UTC : 2017-03-21 17:38:08
+  Docs Build Date UTC : 2017-04-11 17:56:44
   -->
 
 </body>

@@ -12,7 +12,7 @@
     The page_title contains the title for a page as shown in the navigation.
     Site name contains the name as defined in the mkdocs.yml
   -->
-  <title>Examples - MATRIX</title>
+  <title>Widget Examples - MATRIX</title>
 
   <!--
     Support custom favicon support.
@@ -417,8 +417,17 @@
 
 -->
 
+<li >
+    <a href="../example-config/">Config File</a>
+</li>
+
+        
+            <!--
+
+-->
+
 <li class="active">
-    <a href="./">Examples</a>
+    <a href="./">Widget Examples</a>
 </li>
 
         
@@ -643,7 +652,7 @@
 </nav>
   <div class="jumbotron">
     
-    <h1 class="text-center">Examples</h1>
+    <h1 class="text-center">Widget Examples</h1>
     
   </div>
   <div class="container">
@@ -676,7 +685,7 @@
           <h3>Navigation</h3>
             <div>
               
-                <a href="../services/" class="btn btn-default" title="Services"><span aria-hidden="true">&laquo;</span> prev.</a>
+                <a href="../example-config/" class="btn btn-default" title="Config File"><span aria-hidden="true">&laquo;</span> prev.</a>
               
               
                 <a href="../../intro/matrix-troubleshooting/" class="btn btn-default" title="Troubleshooting"/> next <span aria-hidden="true">&raquo;</span></a>
@@ -690,13 +699,7 @@
           <h3>Contents</h3>
           <ul class="list-group">
           
-              <li class="list-group-item"><a href="#matrixos-config-widget-examples">MatrixOS Config Widget examples</a></li>
-              
-          
-              <li class="list-group-item"><a href="#datatypes">DataTypes</a></li>
-              
-          
-              <li class="list-group-item"><a href="#layout">Layout</a></li>
+              <li class="list-group-item"><a href="#matrixos-widget-examples">MatrixOS Widget examples</a></li>
               
           
               <li class="list-group-item"><a href="#displays">Displays</a></li>
@@ -725,8 +728,10 @@
               
                   <li class="list-group-item"><a href="#list-group">List Group</a></li>
               
+                  <li class="list-group-item"><a href="#links">Links</a></li>
+              
           
-              <li class="list-group-item"><a href="#interactive">Interactive</a></li>
+              <li class="list-group-item"><a href="#interactive-controls">Interactive (Controls)</a></li>
               
                   <li class="list-group-item"><a href="#input">Input</a></li>
               
@@ -744,6 +749,8 @@
               
                   <li class="list-group-item"><a href="#radial">Radial</a></li>
               
+                  <li class="list-group-item"><a href="#color">Color</a></li>
+              
           
               <li class="list-group-item"><a href="#responsive-data-flow">Responsive Data Flow</a></li>
               
@@ -755,28 +762,9 @@
       </div>
       <div class="col-md-10">
         
-          <h1 id="matrixos-config-widget-examples">MatrixOS Config Widget examples</h1>
-<h1 id="datatypes">DataTypes</h1>
-<pre><code>monitor:
-  cpu: float
-  memory: float
-</code></pre>
-
-<pre><code>location:
-  latitude: float
-  longitude: float
-  label: string
-</code></pre>
-
-<h1 id="layout">Layout</h1>
-<p><img alt="Screens" src="../img/ios/screens.png" /></p>
-<pre><code>screens:
-  - - digitTest
-    - labelTest
-  - - barChartTest
-    - lineChartTest
-</code></pre>
-
+          <h1 id="matrixos-widget-examples">MatrixOS Widget examples</h1>
+<p>There are many "general setting" to make the configuration for the widgets. Here we show you the most common use for each of them. </p>
+<p>Remember that there are other "optional settings" that can be added for more specific things like Data handling (refresh time), Data format and size. You can refer to <a href="../widgets/">Widgets</a> for a better explanation on this subjects.</p>
 <h1 id="displays">Displays</h1>
 <h2 id="digit">Digit</h2>
 <p><img alt="Digit" src="../img/ios/digit.png" /></p>
@@ -1011,7 +999,16 @@
 );  
 </code></pre>
 
-<h1 id="interactive">Interactive</h1>
+<h2 id="links">Links</h2>
+<p><img alt="Link" src="../img/link.png" /></p>
+<pre><code>link:
+  display: link
+  label: &quot;Link display&quot;
+  title: &quot;Google&quot;
+  url: &quot;https://www.google.com&quot;
+</code></pre>
+
+<h1 id="interactive-controls">Interactive (Controls)</h1>
 <h2 id="input">Input</h2>
 <h3 id="single">Single</h3>
 <p><img alt="input" src="../img/ios/input.png" /></p>
@@ -1275,6 +1272,22 @@ matrix.on('radialLChanging', function(p){
 })
 </code></pre>
 
+<h2 id="color">Color</h2>
+<p><img alt="color" src="../img/color.png" /> <img alt="colorSelector" src="../img/colorSelector.png" /> </p>
+<pre><code>  color:
+    control: color
+    event: colorChange
+    value: 'color'
+    label: 'Change MATRIX color'
+</code></pre>
+
+<h6 id="handling-code_25">Handling Code</h6>
+<pre><code>matrix.on('colorChange', function(color){
+  color = color.value;
+  matrix.led(color).render();
+});
+</code></pre>
+
 <h1 id="responsive-data-flow">Responsive Data Flow</h1>
 <pre><code>matrix.on('buttonInfo', function(){
   matrix.type('device').send({
@@ -1301,7 +1314,7 @@ matrix.on('radialLChanging', function(p){
 
   <!--
   MkDocs version      : 0.16.1
-  Docs Build Date UTC : 2017-03-21 17:38:08
+  Docs Build Date UTC : 2017-04-11 17:56:44
   -->
 
 </body>

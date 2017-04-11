@@ -418,7 +418,16 @@
 -->
 
 <li >
-    <a href="../../Configuration/examples/">Examples</a>
+    <a href="../../Configuration/example-config/">Config File</a>
+</li>
+
+        
+            <!--
+
+-->
+
+<li >
+    <a href="../../Configuration/examples/">Widget Examples</a>
 </li>
 
         
@@ -741,6 +750,12 @@ matrix.service('face').start().then(function(data){
 
 <h2 id="configuration">Configuration</h2>
 <p>To facilitate communication with the hardware, define CV services must be defined in <code>config.yaml</code> before they will be available to your application.</p>
+<pre><code>services:
+  faceDetection:
+    engine: detection
+    type: face
+</code></pre>
+
 <p>See <a href="../../Configuration/services/">Services</a> for more information</p>
 <h2 id="initialization">Initialization</h2>
 <pre><code># app.js
@@ -830,30 +845,30 @@ These are applicable to all algorithms.
 
 ### Example
 
-wzxhzdk:7
+wzxhzdk:8
 
 matrix.service('gesture', options).then(function(data){})
 
-wzxhzdk:8
+wzxhzdk:9
 
 var options = { detect: ['THUMB_UP'] };
 matrix.service('gesture', options);
 
-wzxhzdk:9
+wzxhzdk:10
 
 var options = { detect: ['AGE', 'EMOTION','GENDER','FACE_ID','HEAD_POSE','FACE_FEATURES'] };
 matrix.service('gesture', options);
 
-wzxhzdk:10
+wzxhzdk:11
 
 matrix.service('face-id').then(function(data){})
 
-wzxhzdk:11
+wzxhzdk:12
 
 // preuploaded Example - myFace.jpg
 matrix.service('face-id', { match: 'myFace' })
 
-wzxhzdk:12
+wzxhzdk:13
 
 // dynamic faces from dashboard / mobile app / cli
 matrix.on('faceUpload', function(data){
@@ -876,11 +891,11 @@ matrix.on('faceUpload', function(data){
 // use configuration for recognition
 matrix.service('face', { match: matrix.faces })
 
-wzxhzdk:13
+wzxhzdk:14
 
 matrix.service('vehicle-count').then(function(data){})
 
-wzxhzdk:14
+wzxhzdk:15
 
 matrix.service('people-count').then(function(data){})
 ```
@@ -893,7 +908,7 @@ matrix.service('people-count').then(function(data){})
 
   <!--
   MkDocs version      : 0.16.1
-  Docs Build Date UTC : 2017-03-21 17:38:08
+  Docs Build Date UTC : 2017-04-11 17:56:44
   -->
 
 </body>

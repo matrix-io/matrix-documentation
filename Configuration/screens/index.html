@@ -418,7 +418,16 @@
 -->
 
 <li >
-    <a href="../examples/">Examples</a>
+    <a href="../example-config/">Config File</a>
+</li>
+
+        
+            <!--
+
+-->
+
+<li >
+    <a href="../examples/">Widget Examples</a>
 </li>
 
         
@@ -690,6 +699,9 @@
           <h3>Contents</h3>
           <ul class="list-group">
           
+              <li class="list-group-item"><a href="#screens">Screens</a></li>
+              
+          
           </ul>
 
           
@@ -697,7 +709,24 @@
       </div>
       <div class="col-md-10">
         
-          <p>Screens overview coming soon</p>
+          <h1 id="screens">Screens</h1>
+<p>Screens are used to represent the location of the widgets on the dashboard. </p>
+<p>The widgets will be layout on the web Dashboard throughtout the row from left to right, according to the list. <code>- -</code> represent the first widget of the row and <code>-</code> represent each of the following widgets on the same row. On the mobile apps, it will stack all widgets vertically.</p>
+<pre><code>screens:
+  # Row 1
+  - - oneWidget
+  # Row 2 
+  - - firstWidget
+    - secondWidget
+  # Row 3
+  - - leftWidget
+    - middleWidget
+    - otherWidget
+    - rightWidget
+
+</code></pre>
+
+<p>For widgets definition and sizing refer to <a href="../widgets/">Widgets</a>.</p>
         
       </div>
     </div>
@@ -705,7 +734,7 @@
 
   <!--
   MkDocs version      : 0.16.1
-  Docs Build Date UTC : 2017-03-21 17:38:08
+  Docs Build Date UTC : 2017-04-11 17:56:44
   -->
 
 </body>

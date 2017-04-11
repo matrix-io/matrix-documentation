@@ -418,7 +418,16 @@
 -->
 
 <li >
-    <a href="../examples/">Examples</a>
+    <a href="../example-config/">Config File</a>
+</li>
+
+        
+            <!--
+
+-->
+
+<li >
+    <a href="../examples/">Widget Examples</a>
 </li>
 
         
@@ -694,13 +703,15 @@
               
                   <li class="list-group-item"><a href="#layout">Layout</a></li>
               
+                  <li class="list-group-item"><a href="#data-operations">Data Operations</a></li>
+              
                   <li class="list-group-item"><a href="#data-handling">Data Handling</a></li>
+              
+                  <li class="list-group-item"><a href="#widget-size">Widget Size</a></li>
               
                   <li class="list-group-item"><a href="#display-widgets">Display widgets</a></li>
               
                   <li class="list-group-item"><a href="#interactive-widgets">Interactive Widgets</a></li>
-              
-                  <li class="list-group-item"><a href="#widget-size">Widget Size</a></li>
               
           
           </ul>
@@ -713,7 +724,7 @@
           <h1 id="widgets">Widgets</h1>
 <p>A comprehensive overview coming soon. See <a href="../examples/">examples</a> for now.</p>
 <h2 id="layout">Layout</h2>
-<p>Widgets are defined in the <code>widgets</code> key of an app config file. This is a collection where each Widget has a keyed name which is associated with an entry in <code>screens</code> to determine it's location on the dashboard.</p>
+<p>Widgets are defined in the <code>widgets</code> key of an app config file. This is a collection where each Widget has a keyed name which is associated with an entry in <code>screens</code> to determine it's location on the dashboard or the mobile apps.</p>
 <pre><code>screens:
   - leftWidget
   - rightWidget
@@ -724,6 +735,8 @@ widgets:
 </code></pre>
 
 <p>This way we can easily distinguish between layout and functionality.</p>
+<h2 id="data-operations">Data Operations</h2>
+<p>Using <code>format</code>, data operations can be applied to the data for each Display Widget. The current widget configuration supports the operations: <code>count</code>, <code>sum</code>, <code>avg</code>, <code>percent</code>, <code>max</code>, <code>min</code>, <code>fixed</code>, <code>round</code>.</p>
 <h2 id="data-handling">Data Handling</h2>
 <p>The dashboard holds a central data store which the widgets receive or request data from.</p>
 <p>Default operation is for a widget to be updated with data in real time. This is represented by enabling the option <code>realtime</code>:</p>
@@ -741,30 +754,6 @@ widgets:
      refresh: 60
 </code></pre>
 
-<h2 id="display-widgets">Display widgets</h2>
-<p>Indicated via a <code>display</code> option.</p>
-<p><code>bar</code> - bar chart</p>
-<p><code>digit</code> - numerical</p>
-<p><code>radar</code> - radar chart</p>
-<p><code>line</code> - line chart</p>
-<p><code>list</code> - data table</p>
-<p><code>list-group</code> - grouped data table</p>
-<p><code>pie-chart</code> - pie chart</p>
-<p><code>polar</code> - polar area chart</p>
-<p><code>label</code> - string display</p>
-<p><code>gauge</code> - gauge</p>
-<p><code>indicator</code> -  light indicator on/off</p>
-<p><code>map</code> - map</p>
-<h2 id="interactive-widgets">Interactive Widgets</h2>
-<p>Indicated via a <code>control</code> option.</p>
-<p><code>input</code> - input field, single or multiple</p>
-<p><code>button</code> - button, single or multiple</p>
-<p><code>switch</code> - switch, single or multiple</p>
-<p><code>radio</code> - radio, single or multiple</p>
-<p><code>dropdown</code> - dropdown menu</p>
-<p><code>range</code> - range slider</p>
-<p><code>xy</code> - track pad</p>
-<p><code>radial</code> - joystick, single or multiple</p>
 <h2 id="widget-size">Widget Size</h2>
 <p>Widgets can be resized horizontally with the <code>size</code> attribute.</p>
 <p>Size is simply the percentage width you would like the widget to take. If size is not specified, then the widget will take up a equal proportion of the remaining width.</p>
@@ -778,6 +767,43 @@ widgets:
   quarterWidth2:
     # size doesn't need to be specified
 </code></pre>
+
+<h2 id="display-widgets">Display widgets</h2>
+<p>Indicated via a <code>display</code> option.</p>
+<pre><code>widgets:
+  barChart:
+    display: bar
+</code></pre>
+
+<p><code>bar</code> - bar chart</p>
+<p><code>digit</code> - numerical</p>
+<p><code>radar</code> - radar chart</p>
+<p><code>line</code> - line chart</p>
+<p><code>list</code> - data table</p>
+<p><code>list-group</code> - grouped data table</p>
+<p><code>pie-chart</code> - pie chart</p>
+<p><code>polar</code> - polar area chart</p>
+<p><code>label</code> - string display</p>
+<p><code>gauge</code> - gauge</p>
+<p><code>indicator</code> -  light indicator on/off</p>
+<p><code>map</code> - map</p>
+<p><code>link</code> - link to a destination (URL)</p>
+<h2 id="interactive-widgets">Interactive Widgets</h2>
+<p>Indicated via a <code>control</code> option.</p>
+<pre><code>widgets:
+  controlButton:
+    control: button
+</code></pre>
+
+<p><code>input</code> - input field, single or multiple</p>
+<p><code>button</code> - button, single or multiple</p>
+<p><code>switch</code> - switch, single or multiple</p>
+<p><code>radio</code> - radio, single or multiple</p>
+<p><code>dropdown</code> - dropdown menu</p>
+<p><code>range</code> - range slider</p>
+<p><code>xy</code> - track pad</p>
+<p><code>radial</code> - joystick, single or multiple</p>
+<p><code>color</code> - color picker</p>
         
       </div>
     </div>
@@ -785,7 +811,7 @@ widgets:
 
   <!--
   MkDocs version      : 0.16.1
-  Docs Build Date UTC : 2017-03-21 17:38:08
+  Docs Build Date UTC : 2017-04-11 17:56:44
   -->
 
 </body>
