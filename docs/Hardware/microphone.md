@@ -50,9 +50,9 @@ __*Position [x,y] of each mic in the array:*__
 
     aplay channel_0.wav
 
-##### 2. Getting microphones data from C++
+##### 2. How to get microphone data from C++
 
- (description) the Hardware Abstraction Layer (HAL) 
+You can also use our lower layer in C++ called HAL (Hardware Abstraction Layer) to read data from the microphones.
 
 ##### Update and upgrade Raspbian
     sudo apt-get update
