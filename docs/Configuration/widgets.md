@@ -5,7 +5,7 @@ A comprehensive overview coming soon. See [examples](examples.md) for now.
 
 ## Layout
 
-Widgets are defined in the `widgets` key of an app config file. This is a collection where each Widget has a keyed name which is associated with an entry in `screens` to determine it's location on the dashboard.
+Widgets are defined in the `widgets` key of an app config file. This is a collection where each Widget has a keyed name which is associated with an entry in `screens` to determine it's location on the dashboard or the mobile apps.
 
 ```
 screens:
@@ -19,6 +19,9 @@ widgets:
 
 This way we can easily distinguish between layout and functionality.
 
+## Data Operations
+
+Using `format`, data operations can be applied to the data for each Display Widget. The current widget configuration supports the operations: `count`, `sum`, `avg`, `percent`, `max`, `min`, `fixed`, `round`.
 
 ## Data Handling
 The dashboard holds a central data store which the widgets receive or request data from.
@@ -42,8 +45,32 @@ widgets:
      refresh: 60
 ```
 
+## Widget Size
+
+Widgets can be resized horizontally with the `size` attribute.
+
+Size is simply the percentage width you would like the widget to take. If size is not specified, then the widget will take up a equal proportion of the remaining width.
+
+### Example
+```
+widgets:
+  halfWidth:
+    size: 50
+  quarterWidth:
+    size: 25
+    # size doesn't need to be specified
+  quarterWidth2:
+    # size doesn't need to be specified
+```
+
 ## Display widgets
 Indicated via a `display` option.
+
+```
+widgets:
+  barChart:
+    display: bar
+```
 
 `bar` - bar chart
 
@@ -69,9 +96,17 @@ Indicated via a `display` option.
 
 `map` - map
 
+`link` - link to a destination (URL)
 
 ## Interactive Widgets
 Indicated via a `control` option.
+
+```
+widgets:
+  controlButton:
+    control: button
+```
+
 
 `input` - input field, single or multiple
 
@@ -89,20 +124,4 @@ Indicated via a `control` option.
 
 `radial` - joystick, single or multiple
 
-## Widget Size
-
-Widgets can be resized horizontally with the `size` attribute.
-
-Size is simply the percentage width you would like the widget to take. If size is not specified, then the widget will take up a equal proportion of the remaining width.
-
-### Example
-```
-widgets:
-  halfWidth:
-    size: 50
-  quarterWidth:
-    size: 25
-    # size doesn't need to be specified
-  quarterWidth2:
-    # size doesn't need to be specified
-```
+`color` - color picker
