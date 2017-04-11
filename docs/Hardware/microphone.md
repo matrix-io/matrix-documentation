@@ -2,7 +2,9 @@
 
 ##### 1. Mic Array Position
 
-<a href="https://github.com/matrix-io/matrix-documentation/blob/yc/improving_mic_doc/docs/Hardware/mic_position.jpg"><img src="https://github.com/matrix-io/matrix-documentation/blob/yc/improving_mic_doc/docs/Hardware/mic_position.jpg" align="right" width="500" ></a>
+<a href="https://github.com/matrix-io/matrix-documentation/blob/yc/improving_mic_doc/docs/Hardware/mic_position.jpg?raw=true"><img src="https://github.com/matrix-io/matrix-documentation/blob/yc/improving_mic_doc/docs/Hardware/mic_position.jpg?raw=true" align="center" ></a>
+
+__*Positions:*__
 
 | Mic  |      X      |      Y      |  
 | ---- | ----------- | ----------- |  
@@ -14,16 +16,6 @@
 |  M6  |  20.0908795 |  48.5036755 |
 |  M7  |  48.5036755 |  20.0908795 |
 |  M8  |  48.5036755 | -20.0908795 |
-
-
-    {20.0908795, -48.5036755},  /* M1 */
-    {-20.0908795, -48.5036755}, /* M2 */
-    {-48.5036755, -20.0908795}, /* M3 */
-    {-48.5036755, 20.0908795},  /* M4 */
-    {-20.0908795, 48.5036755},  /* M5 */
-    {20.0908795, 48.5036755},   /* M6 */
-    {48.5036755, 20.0908795},   /* M7 */
-    {48.5036755, -20.0908795}   /* M8 */
 
 ##### 2. Using microphones from the Hardware Abstraction Layer (HAL) 
 
