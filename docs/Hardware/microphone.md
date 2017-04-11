@@ -1,10 +1,10 @@
 #### Microphone
 
-##### 1. Mic Array Position
+##### 1. Mic Array on MATRIX Creator
 
-<a href="https://github.com/matrix-io/matrix-documentation/blob/yc/improving_mic_doc/docs/Hardware/mic_position.jpg?raw=true"><img src="https://github.com/matrix-io/matrix-documentation/blob/yc/improving_mic_doc/docs/Hardware/mic_position.jpg?raw=true" align="center" ></a>
+<a href="https://github.com/matrix-io/matrix-documentation/blob/yc/improving_mic_doc/docs/Hardware/mic_position.png?raw=true"><img src="https://github.com/matrix-io/matrix-documentation/blob/yc/improving_mic_doc/docs/Hardware/mic_position.png?raw=true" align="center"  ></a>
 
-__*Positions:*__
+__*Position [x,y] of each mic in the array:*__
 
 | Mic  |      X      |      Y      |  
 | ---- | ----------- | ----------- |  
@@ -17,7 +17,42 @@ __*Positions:*__
 |  M7  |  48.5036755 |  20.0908795 |
 |  M8  |  48.5036755 | -20.0908795 |
 
-##### 2. Using microphones from the Hardware Abstraction Layer (HAL) 
+#### Record, Convert and Play sounds.
+
+
+##### Install _Alsa tools_ and the _sox_ utility
+
+    sudo apt-get install sox alsa-utils 
+
+##### Run the volume control
+
+    alsamixer
+
+##### Run capture and check the recorded files
+
+    cd demos
+    ./micarray_recorder
+    ls -1 *raw
+
+##### Convert the audio
+
+    sox -r 16000 -c 1 -e signed -c 1 -e signed -b 16 mic_16000_s16le_channel_0.raw channel_0.wav
+    sox -r 16000 -c 1 -e signed -c 1 -e signed -b 16 mic_16000_s16le_channel_1.raw channel_1.wav
+    sox -r 16000 -c 1 -e signed -c 1 -e signed -b 16 mic_16000_s16le_channel_2.raw channel_2.wav
+    sox -r 16000 -c 1 -e signed -c 1 -e signed -b 16 mic_16000_s16le_channel_3.raw channel_3.wav
+    sox -r 16000 -c 1 -e signed -c 1 -e signed -b 16 mic_16000_s16le_channel_4.raw channel_4.wav
+    sox -r 16000 -c 1 -e signed -c 1 -e signed -b 16 mic_16000_s16le_channel_5.raw channel_5.wav
+    sox -r 16000 -c 1 -e signed -c 1 -e signed -b 16 mic_16000_s16le_channel_6.raw channel_6.wav
+    sox -r 16000 -c 1 -e signed -c 1 -e signed -b 16 mic_16000_s16le_channel_7.raw channel_7.wav
+
+
+##### Play the wav file (i.e. audio from channel 0)
+
+    aplay channel_0.wav
+
+##### 2. Getting microphones data from C++
+
+ (description) the Hardware Abstraction Layer (HAL) 
 
 ##### Update and upgrade Raspbian
     sudo apt-get update
@@ -78,38 +113,7 @@ __*direction_of_arrival_demo*__
 
 This demo shows a first implementation of direction of arrival detection. It shows the direction of arrival using the LEDs and also prints the result angle in the terminal.
 
-#### Convert and play recorded sounds 
 
-
-##### Install _Alsa tools_ and the _sox_ utility
-
-    sudo apt-get install sox alsa-utils 
-
-##### Run the volume control
-
-    alsamixer
-
-##### Run capture and check the recorded files
-
-    cd demos
-    ./micarray_recorder
-    ls -1 *raw
-
-##### Convert the audio
-
-    sox -r 16000 -c 1 -e signed -c 1 -e signed -b 16 mic_16000_s16le_channel_0.raw channel_0.wav
-    sox -r 16000 -c 1 -e signed -c 1 -e signed -b 16 mic_16000_s16le_channel_1.raw channel_1.wav
-    sox -r 16000 -c 1 -e signed -c 1 -e signed -b 16 mic_16000_s16le_channel_2.raw channel_2.wav
-    sox -r 16000 -c 1 -e signed -c 1 -e signed -b 16 mic_16000_s16le_channel_3.raw channel_3.wav
-    sox -r 16000 -c 1 -e signed -c 1 -e signed -b 16 mic_16000_s16le_channel_4.raw channel_4.wav
-    sox -r 16000 -c 1 -e signed -c 1 -e signed -b 16 mic_16000_s16le_channel_5.raw channel_5.wav
-    sox -r 16000 -c 1 -e signed -c 1 -e signed -b 16 mic_16000_s16le_channel_6.raw channel_6.wav
-    sox -r 16000 -c 1 -e signed -c 1 -e signed -b 16 mic_16000_s16le_channel_7.raw channel_7.wav
-
-
-##### Play the wav file (i.e. audio from channel 0)
-
-    aplay channel_0.wav
 
 
 
