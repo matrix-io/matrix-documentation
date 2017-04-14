@@ -17,7 +17,7 @@
 |  M8  |  48.5036755 | -20.0908795 |
 
 
-##### Connection to the FPGA
+##### Connection to the FPGA 
 
 from the [creator.ucf](https://github.com/matrix-io/matrix-creator-fpga/blob/master/creator_core/creator.ucf) :
 
@@ -33,6 +33,14 @@ from the [creator.ucf](https://github.com/matrix-io/matrix-creator-fpga/blob/mas
 |  M7  |     P65     | pdm_data<6> |
 |  M8  |     P44     | pdm_data<7> |
 |  CLK |     P47     | pdm_clk     |
+
+##### Audio specs:
+
+Sample Rate: 16 kHz
+Bit Depth: 16 bit
+
+**Note**: An option for setting higher sample rates will be released soon.  Please keep in touch in the community annoucements channel http://community.matrix.one/c/announcements.
+
 
 ##### Datasheet:
 
@@ -61,6 +69,7 @@ In the following example gets all the samples collected by the fpga in the buffe
         mics.Setup(&bus);
         std::valarray<float> magnitude(mics.Channels());
 
+        mics.SetGain(8);
         std::cout << "M1\t" << "M2\t" << "M3\t" << "M4\t" << "M5\t" << "M6\t" << "M7\t" << "M8\t" << std::endl;
 
         while (true) {
