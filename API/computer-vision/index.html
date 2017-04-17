@@ -708,23 +708,30 @@
               <li class="list-group-item"><a href="#configuration">Configuration</a></li>
               
           
-              <li class="list-group-item"><a href="#initialization">Initialization</a></li>
+              <li class="list-group-item"><a href="#matrixservice">matrix.service</a></li>
+              
+                  <li class="list-group-item"><a href="#algorithm">algorithm</a></li>
               
                   <li class="list-group-item"><a href="#options">options</a></li>
               
+                  <li class="list-group-item"><a href="#start">start()</a></li>
+              
+                  <li class="list-group-item"><a href="#stop">stop()</a></li>
+              
+                  <li class="list-group-item"><a href="#then">.then()</a></li>
+              
+                  <li class="list-group-item"><a href="#complete-example">Complete Example</a></li>
+              
           
-              <li class="list-group-item"><a href="#algorithms">Algorithms</a></li>
+              <li class="list-group-item"><a href="#extended-face-analytics">Extended Face Analytics</a></li>
               
-                  <li class="list-group-item"><a href="#basic">Basic</a></li>
-              
-                  <li class="list-group-item"><a href="#basic-data-format">Basic Data Format</a></li>
-              
-          
-              <li class="list-group-item"><a href="#extended-algorithms">Extended Algorithms</a></li>
+                  <li class="list-group-item"><a href="#example-configyaml">Example Config.yaml</a></li>
               
                   <li class="list-group-item"><a href="#extended-face-data-format">Extended Face Data Format</a></li>
               
                   <li class="list-group-item"><a href="#recognition">Recognition</a></li>
+              
+                  <li class="list-group-item"><a href="#example-configyaml_1">Example Config.yaml</a></li>
               
           
           </ul>
@@ -735,9 +742,9 @@
       <div class="col-md-10">
         
           <h2 id="computer-vision">Computer Vision</h2>
-<p>MATRIX OS is designed to integrate with computer vision in a powerful and robust way. You can use computer vision output to drive hardware behavior, or capture the data for further analysis.</p>
+<p>MATRIX OS is designed to integrate with computer vision in a powerful and robust way. You can use computer vision output to drive behavior, capture data for further analysis or anything you want!</p>
 <h2 id="example">Example</h2>
-<p>From (faceTest MATRIX App)[http://apps.matrix.one/#!/apps/facetest]</p>
+<p>From <a href="http://apps.matrix.one/#!/apps/facetest">faceTest MATRIX App</a></p>
 <pre><code>matrix.led('red').render();
 
 matrix.service('face').start().then(function(data){
@@ -749,7 +756,7 @@ matrix.service('face').start().then(function(data){
 </code></pre>
 
 <h2 id="configuration">Configuration</h2>
-<p>To facilitate communication with the hardware, define CV services must be defined in <code>config.yaml</code> before they will be available to your application.</p>
+<p>To facilitate communication with the hardware,  CV services must be defined in <code>config.yaml</code> before they will be available to your application.</p>
 <pre><code>services:
   faceDetection:
     engine: detection
@@ -757,22 +764,31 @@ matrix.service('face').start().then(function(data){
 </code></pre>
 
 <p>See <a href="../../Configuration/services/">Services</a> for more information</p>
-<h2 id="initialization">Initialization</h2>
-<pre><code># app.js
-var algorithm = 'face';
-var options   = {};
-matrix.service( algorithm, options ).start().then(function( data ){
-  // your CV detection data will be available here
-  console.log( data );
-});
+<h2 id="matrixservice">matrix.service</h2>
+<pre><code>matrix.service( algorithm, options )
 </code></pre>
 
-<h3 id="options">options</h3>
-<p><code>refresh</code> - how many seconds before restarting the detection, default: 3</p>
-<p><code>timeout</code> - if there is no detection, stop after this many seconds, default: none</p>
-<h2 id="algorithms">Algorithms</h2>
-<h3 id="basic">Basic</h3>
-<p><code>face</code>,<code>fist</code>,<code>palm</code>, <code>fist</code></p>
+<h3 id="algorithm"><code>algorithm</code></h3>
+<p><code>face</code> - triggers when it sees a face shape
+<code>fist</code> - gesture recognition for a closed fist
+<code>palm</code> - gesture recognition for an open palm</p>
+<h3 id="options"><code>options</code></h3>
+<p><code>refresh</code> - how many seconds before restarting the detection, default: 3
+<code>timeout</code> - if there is no detection, stop after this many seconds, default: none</p>
+<h3 id="start">start()</h3>
+<p>Starts a given CV algorithm with provided options.</p>
+<pre><code>matrix.service( algorithm, options ).start()
+</code></pre>
+
+<h3 id="stop">stop()</h3>
+<p>Stops running a CV algorithm.</p>
+<pre><code>var s = matrix.service( algorithm, options ).start();
+s.stop();
+
+//or
+matrix.service(algorithm).stop();
+</code></pre>
+
 <!--
 `blob`, `color`
 
@@ -783,19 +799,51 @@ matrix.service( algorithm, options ).start().then(function( data ){
 `vehicle-count`
 `person-count` -->
 
-<h3 id="basic-data-format">Basic Data Format</h3>
-<p><code>palm</code>, <code>face</code> and <code>fist</code> output - <code>matrix.service('palm')</code>
-Returning tags: <code>HAND_PALM</code>, <code>HAND_FIST</code>, <code>FADE</code></p>
+<h3 id="then">.then()</h3>
+<p>Returns the data, <code>Promise</code> style.</p>
+<p><code>palm</code>, <code>face</code> and <code>fist</code> have associated tags</p>
+<p>Returns <code>tag</code>: <code>HAND_PALM</code>, <code>HAND_FIST</code>, or<code>FACE</code></p>
+<h4 id="example_1">Example</h4>
 <pre><code>{
-  location: { x: 333, y: 237, width: 55, height: 55 },
+  location: {
+   x: 333,
+   y: 237,
+   width: 55,
+   height: 55
+  },
   tag: 'HAND_PALM'
 }
 </code></pre>
 
-<h2 id="extended-algorithms">Extended Algorithms</h2>
-<p><code>demographics</code> - <code>matrix.service('demographics')</code>
-<code>recognition</code> - <code>matrix.service('recognition')</code></p>
+<h3 id="complete-example">Complete Example</h3>
+<pre><code># app.js
+var algorithm = 'face';
+var options   = {};
+matrix.service( algorithm, options ).start().then(function( data ){
+  // your CV detection data will be available here
+  console.log( data );
+});
+</code></pre>
+
+<h2 id="extended-face-analytics">Extended Face Analytics</h2>
+<p>Use <code>demographics</code> for the service call and in <code>config&gt;services&gt;name&gt;engine</code></p>
+<h3 id="example-configyaml">Example Config.yaml</h3>
+<pre><code>services:
+  facelytics:
+    engine: demographics
+    type: face
+</code></pre>
+
+<p><code>demographics</code> - <code>matrix.service('demographics')</code></p>
 <h3 id="extended-face-data-format">Extended Face Data Format</h3>
+<h4 id="emotions">emotions</h4>
+<p><code>HAPPY</code></p>
+<p><code>SAD</code></p>
+<p><code>CONFUSED</code></p>
+<p><code>ANGRY</code></p>
+<p><code>CALM</code></p>
+<p><code>SURPRISED</code></p>
+<p><code>DISGUST</code></p>
 <h4 id="demographics-output">Demographics Output</h4>
 <pre><code>{ location: { x: 213, y: 221, width: 55, height: 55 },
  tag: 'FACE',
@@ -810,29 +858,30 @@ Returning tags: <code>HAND_PALM</code>, <code>HAND_FIST</code>, <code>FADE</code
     face_id: '4' } }
 </code></pre>
 
-<h4 id="emotions">emotions</h4>
-<p><code>HAPPY</code>
-<code>SAD</code>
-<code>CONFUSED</code>
-<code>ANGRY</code>
-<code>CALM</code>
-<code>SURPRISED</code>
-<code>DISGUST</code></p>
 <h3 id="recognition">Recognition</h3>
+<p><code>recognition</code> - <code>matrix.service('recognition')</code></p>
 <p>MATRIX OS includes face recognition which turns a face into a series of numbers which can be used to identify the face when it is seen later. We do not store face images, just the numbers.</p>
 <p>Recognition only works from &gt; ~4 ft away. Removing hats and glasses will result in more accurate results.</p>
-<h4 id="training-mode">Training mode</h4>
-<p>By default, <code>recognition</code> works in <code>RECOGNITION</code> mode. Without training, however, this is not useful. Enable <code>TRAIN</code> mode by passing <code>train: true</code> as an option.</p>
+<h3 id="example-configyaml_1">Example Config.yaml</h3>
+<pre><code>services:
+  faceRecog:
+    engine: recognition
+    type: face
+</code></pre>
+
+<p>By default, <code>recognition</code> works in <code>RECOGNITION</code> mode. Recognition requires training first.</p>
+<h4 id="train">train()</h4>
 <pre><code>matrix.service('recognition').train('test').then(function(data) { ... });
 </code></pre>
 
 <p>This will associate a face with a particular tag. The data which is passed to <code>then</code> are uuid's internal to MATRIX and not particularly useful, but you could use the callback for other reasons.</p>
-<h4 id="recognition-mode">Recognition mode</h4>
+<h4 id="start_1">start()</h4>
 <p>After training, you can enable normal recognition as follows.</p>
 <pre><code>matrix.service('recognition').start().then(function(data){...})
 </code></pre>
 
-<h4 id="recognition-output">Recognition Output</h4>
+<h4 id="then_1">then()</h4>
+<p>Outputs a collection of tags and scores.</p>
 <pre><code>[{ tags : ['tagName'], score: 0.8 }, {...}]
 </code></pre>
 
@@ -845,30 +894,30 @@ These are applicable to all algorithms.
 
 ### Example
 
-wzxhzdk:8
+wzxhzdk:13
 
 matrix.service('gesture', options).then(function(data){})
 
-wzxhzdk:9
+wzxhzdk:14
 
 var options = { detect: ['THUMB_UP'] };
 matrix.service('gesture', options);
 
-wzxhzdk:10
+wzxhzdk:15
 
 var options = { detect: ['AGE', 'EMOTION','GENDER','FACE_ID','HEAD_POSE','FACE_FEATURES'] };
 matrix.service('gesture', options);
 
-wzxhzdk:11
+wzxhzdk:16
 
 matrix.service('face-id').then(function(data){})
 
-wzxhzdk:12
+wzxhzdk:17
 
 // preuploaded Example - myFace.jpg
 matrix.service('face-id', { match: 'myFace' })
 
-wzxhzdk:13
+wzxhzdk:18
 
 // dynamic faces from dashboard / mobile app / cli
 matrix.on('faceUpload', function(data){
@@ -891,11 +940,11 @@ matrix.on('faceUpload', function(data){
 // use configuration for recognition
 matrix.service('face', { match: matrix.faces })
 
-wzxhzdk:14
+wzxhzdk:19
 
 matrix.service('vehicle-count').then(function(data){})
 
-wzxhzdk:15
+wzxhzdk:20
 
 matrix.service('people-count').then(function(data){})
 ```
@@ -908,7 +957,7 @@ matrix.service('people-count').then(function(data){})
 
   <!--
   MkDocs version      : 0.16.1
-  Docs Build Date UTC : 2017-04-11 18:13:23
+  Docs Build Date UTC : 2017-04-17 23:17:18
   -->
 
 </body>

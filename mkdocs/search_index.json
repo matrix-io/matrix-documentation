@@ -527,7 +527,7 @@
         }, 
         {
             "location": "/API/everloop/", 
-            "text": "Everloop\n\n\nA powerful tool for communicating with end users is the EverLoop LED circle.\n\n\nRendering\n\n\nMatrixOS is an attempt at abstracting out the complexity of hardware to make it very accessible for end users. At the same time, one also wants to support those who might want to perform more complex operations. When designing a language, sometimes compromises between ease of use and features must be made.\n\n\nThe problem\n\n\nMany things might want to write to the LED. We can leave it up to chance as to which gets to write, or we can approach it intelligently to optimize the aesthetics and performance. We also want to be able to manage and optimize LED transformations from a system level. Normally, MATRIX OS enables very fast communication with the hardware and tries to get out of the way as much as possible. For LEDS, we still get out of the way, but we need to blend all the input from different applications, otherwise this creates flicker. So we need a special channel and notation just for leds.\n\n\nThe Solution\n\n\nmatrix.led\n\n\n\n\nBasic Operations\n\n\nString Notation \n Render\n\n\nmatrix.led('blue'); //does nothing\n\nmatrix.led('green').render(); //lights change\n\n// supports css\nmatrix.led('rgba(255, 0, 100)').render();\n\n\n\n\nYou can use any CSS color property, including \nhttps://www.wikiwand.com/en/Web_colors#/X11_color_names\n. Darker colors on the Everloop generally display with more precision then lighter colors, which tend to get washed out. \n\n\nFurther examples omit the \nrender\n for readability. \n\n\nIntermediate Operation\n\n\nObject Notation - Shape Generators\n\n\nShape objects \n{Shape}\n are the fastest way to get started with Everloop. We are always building, \nlet us know\n what shapes you want us to work on next!\n\n\nThe object creation is simple, you combine global properties with specific properties into a single object that controls a single generator. To draw multiple shapes, see Multiple Shapes below.\n\n\nGlobal Shape Properties\n\n\nEvery Shape object must include a \ncolor\n property to render.\n\n\ncolor - color strings, as specified above\nblend - mix lights to make angle positioning more precise\nspin - number of degrees by which to spin the hue ( 0 - 360 )\nstart - ( arc only ), start light index\n\n\n\n\nAvailable Shapes\n\n\nInclude one of these properties to enable the shape generator.\n\n\narc - number of degrees to draw an arc, important for smile faces, supports negative values\nfade - similiar to arc, except lights fade out\nangle - draw a single light at this degree point\n\n\n\n\nExample Shape Object\n\n\n{\n  color: 'red'\n  angle: 90\n}\n\n\n\n\nChaining Operations\n\n\nThese operate on the shapes and colors defined in the \nled\n object.\n\n\nrotate(angle) - rotates whole shape by this many degrees \nbrighten(steps) - brighten light by this many steps ( 0 - 10 )\ndarken(steps) - darken light by this many steps ( 0 - 10 )\n// brighten / darken are expensive operations and may not be suitable for rapidly updating displays\n\n\n\n\nMultiple shapes and pixel drawing\n\n\nUse an array to include multiple shapes. Color strings can also be included and will be drawn as a single light whose index matches the strings index in the array provided.\n\n\nExamples\n\n\nvar a = matrix.led({\n  // degrees of arc [ 90\u00b0 = quadrant ]   \n  arc: 90,\n\n  color: 'green',\n\n  // index to start drawing arc\n  start: 12\n});\n\n\n// draw a point\nvar b = matrix.led({\n  angle: 245,\n  color: 'white',\n  // blends interlight space if true, solid lights if false, default false\n  blend: true\n});\n\n// rotate the lights clockwise by a specified angle\nmatrix.led([a, b]).rotate(90);\n\n\n\n\nComposition\n\n\nShape Objects\n\n\n// make a smiley face\nmatrix.led([\n  {\n    angle: 45,\n    color: 'yellow'\n  },\n  {\n    angle: 135,\n    color: 'yellow'\n  },\n  {\n    arc: 90,\n    color: 'yellow',\n    start: 225\n  }\n]);\n\n\n\n\nDirect Pixel Manipulation\n\n\nArray index = led to change\n\n\nmatrix.led([0, 0, 0, 0, 'yellow', 0,\n0, 0, 0, 0, 0, 0, 0, 'yellow', 0, 0,\n0, 0, 0, 0, 0, 0, 'yellow', 'yellow',\n'yellow', 'yellow', 'yellow', 'yellow',\n'yellow', 'yellow', 'yellow' ]);\n\n\n\n\nExample clock\n\n\nsetInterval(function(){\n  var time = new Date();\n  var h = time.getHours();\n  var m = time.getMinutes();\n  var s = time.getSeconds();\n\n  var hourLED = {\n    // translate hours (12) to angle (360)\n    arc: h * 3,\n    color: 'blue'\n  };\n\n  var minuteLED = {\n    // translate minutes ( 60 ) to angle ( 360 )\n    angle: m * 6,\n    color: 'green'\n  };\n\n  var secondLED = {\n    // translate seconds (60) to angle (360)\n    angle: s * 6,\n    color: 'yellow',\n    blend: true\n  };\n\n  matrix.led([hourLED, minuteLED]).render();\n\n}, 1000);\n\n\n\n\nAdvanced Use\n\n\nEnable \nSUN_MODE=true\n as a flag when launching MATRIX OS to turn on the white LEDs (and the luminence calculations). Wear sunglasses or use another mode of protecting your eyes.", 
+            "text": "Everloop\n\n\nA powerful tool for communicating with end users is the EverLoop LED circle.\n\n\nRendering\n\n\nMatrixOS is an attempt at abstracting out the complexity of hardware to make it very accessible for end users. At the same time, one also wants to support those who might want to perform more complex operations. When designing a language, sometimes compromises between ease of use and features must be made.\n\n\nThe problem\n\n\nMany things might want to write to the LED. We can leave it up to chance as to which gets to write, or we can approach it intelligently to optimize the aesthetics and performance. We also want to be able to manage and optimize LED transformations from a system level. Normally, MATRIX OS enables very fast communication with the hardware and tries to get out of the way as much as possible. For LEDS, we still get out of the way, but we need to blend all the input from different applications, otherwise this creates flicker as multiple applications compete for the same light indices. To discretely manage this, we created a special channel and notation just for leds.\n\n\nThe Solution\n\n\nmatrix.led\n\n\n\n\nBasic Operations\n\n\nString Notation \n Render\n\n\nmatrix.led('blue'); //does nothing\n\nmatrix.led('green').render(); //lights change\n\n// supports css\nmatrix.led('rgba(255, 0, 100)').render();\n\n\n\n\nYou can use any CSS color property, including \nhttps://www.wikiwand.com/en/Web_colors#/X11_color_names\n. Darker colors on the Everloop generally display with more precision then lighter colors, which tend to get washed out. \n\n\nFurther examples omit the \nrender\n for readability. \n\n\nIntermediate Operation\n\n\nObject Notation - Shape Generators\n\n\nShape objects \n{Shape}\n are the fastest way to get started with Everloop. We are always building, \nlet us know\n what shapes you want us to work on next!\n\n\nThe object creation is simple, you combine global properties with specific properties into a single object that controls a single generator. To draw multiple shapes, see Multiple Shapes below.\n\n\nGlobal Shape Properties\n\n\nEvery Shape object must include a \ncolor\n property to render.\n\n\ncolor - color strings, as specified above\nblend - mix lights to make angle positioning more precise\nspin - number of degrees by which to spin the hue ( 0 - 360 )\nstart - ( arc only ), start light index\n\n\n\n\nAvailable Shapes\n\n\nInclude one of these properties to enable the shape generator.\n\n\narc - number of degrees to draw an arc, important for smile faces, supports negative values\nfade - similiar to arc, except lights fade out\nangle - draw a single light at this degree point\n\n\n\n\nExample Shape Object\n\n\n{\n  color: 'red'\n  angle: 90\n}\n\n\n\n\nChaining Operations\n\n\nThese operate on the shapes and colors defined in the \nled\n object.\n\n\nrotate(angle) - rotates whole shape by this many degrees \nbrighten(steps) - brighten light by this many steps ( 0 - 10 )\ndarken(steps) - darken light by this many steps ( 0 - 10 )\n// brighten / darken are expensive operations and may not be suitable for rapidly updating displays\n\n\n\n\nMultiple shapes and pixel drawing\n\n\nUse an array to include multiple shapes. Color strings can also be included and will be drawn as a single light whose index matches the strings index in the array provided.\n\n\nExamples\n\n\nvar a = matrix.led({\n  // degrees of arc [ 90\u00b0 = quadrant ]   \n  arc: 90,\n\n  color: 'green',\n\n  // index to start drawing arc\n  start: 12\n});\n\n\n// draw a point\nvar b = matrix.led({\n  angle: 245,\n  color: 'white',\n  // blends interlight space if true, solid lights if false, default false\n  blend: true\n});\n\n// rotate the lights clockwise by a specified angle\nmatrix.led([a, b]).rotate(90);\n\n\n\n\nComposition\n\n\nShape Objects\n\n\n// make a smiley face\nmatrix.led([\n  {\n    angle: 45,\n    color: 'yellow'\n  },\n  {\n    angle: 135,\n    color: 'yellow'\n  },\n  {\n    arc: 90,\n    color: 'yellow',\n    start: 225\n  }\n]);\n\n\n\n\nDirect Pixel Manipulation\n\n\nArray index = led to change\n\n\nmatrix.led([0, 0, 0, 0, 'yellow', 0,\n0, 0, 0, 0, 0, 0, 0, 'yellow', 0, 0,\n0, 0, 0, 0, 0, 0, 'yellow', 'yellow',\n'yellow', 'yellow', 'yellow', 'yellow',\n'yellow', 'yellow', 'yellow' ]);\n\n\n\n\nExample clock\n\n\nsetInterval(function(){\n  var time = new Date();\n  var h = time.getHours();\n  var m = time.getMinutes();\n  var s = time.getSeconds();\n\n  var hourLED = {\n    // translate hours (12) to angle (360)\n    arc: h * 3,\n    color: 'blue'\n  };\n\n  var minuteLED = {\n    // translate minutes ( 60 ) to angle ( 360 )\n    angle: m * 6,\n    color: 'green'\n  };\n\n  var secondLED = {\n    // translate seconds (60) to angle (360)\n    angle: s * 6,\n    color: 'yellow',\n    blend: true\n  };\n\n  matrix.led([hourLED, minuteLED]).render();\n\n}, 1000);\n\n\n\n\nAdvanced Use\n\n\nEnable \nSUN_MODE=true\n as a flag when launching MATRIX OS to turn on the white LEDs (and the luminence calculations). Wear sunglasses or use another mode of protecting your eyes when using this while developing. It is intended for use behind coverings.", 
             "title": "Everloop"
         }, 
         {
@@ -542,7 +542,7 @@
         }, 
         {
             "location": "/API/everloop/#the-problem", 
-            "text": "Many things might want to write to the LED. We can leave it up to chance as to which gets to write, or we can approach it intelligently to optimize the aesthetics and performance. We also want to be able to manage and optimize LED transformations from a system level. Normally, MATRIX OS enables very fast communication with the hardware and tries to get out of the way as much as possible. For LEDS, we still get out of the way, but we need to blend all the input from different applications, otherwise this creates flicker. So we need a special channel and notation just for leds.", 
+            "text": "Many things might want to write to the LED. We can leave it up to chance as to which gets to write, or we can approach it intelligently to optimize the aesthetics and performance. We also want to be able to manage and optimize LED transformations from a system level. Normally, MATRIX OS enables very fast communication with the hardware and tries to get out of the way as much as possible. For LEDS, we still get out of the way, but we need to blend all the input from different applications, otherwise this creates flicker as multiple applications compete for the same light indices. To discretely manage this, we created a special channel and notation just for leds.", 
             "title": "The problem"
         }, 
         {
@@ -622,7 +622,7 @@
         }, 
         {
             "location": "/API/everloop/#advanced-use", 
-            "text": "Enable  SUN_MODE=true  as a flag when launching MATRIX OS to turn on the white LEDs (and the luminence calculations). Wear sunglasses or use another mode of protecting your eyes.", 
+            "text": "Enable  SUN_MODE=true  as a flag when launching MATRIX OS to turn on the white LEDs (and the luminence calculations). Wear sunglasses or use another mode of protecting your eyes when using this while developing. It is intended for use behind coverings.", 
             "title": "Advanced Use"
         }, 
         {
@@ -677,53 +677,73 @@
         }, 
         {
             "location": "/API/computer-vision/", 
-            "text": "Computer Vision\n\n\nMATRIX OS is designed to integrate with computer vision in a powerful and robust way. You can use computer vision output to drive hardware behavior, or capture the data for further analysis.\n\n\nExample\n\n\nFrom (faceTest MATRIX App)[http://apps.matrix.one/#!/apps/facetest]\n\n\nmatrix.led('red').render();\n\nmatrix.service('face').start().then(function(data){\n  matrix.led('green').render();\n  setTimeout(function() {\n    matrix.led('black').render();\n  },2000);\n});\n\n\n\n\nConfiguration\n\n\nTo facilitate communication with the hardware, define CV services must be defined in \nconfig.yaml\n before they will be available to your application.\n\n\nservices:\n  faceDetection:\n    engine: detection\n    type: face\n\n\n\n\nSee \nServices\n for more information\n\n\nInitialization\n\n\n# app.js\nvar algorithm = 'face';\nvar options   = {};\nmatrix.service( algorithm, options ).start().then(function( data ){\n  // your CV detection data will be available here\n  console.log( data );\n});\n\n\n\n\noptions\n\n\nrefresh\n - how many seconds before restarting the detection, default: 3\n\n\ntimeout\n - if there is no detection, stop after this many seconds, default: none\n\n\nAlgorithms\n\n\nBasic\n\n\nface\n,\nfist\n,\npalm\n, \nfist\n\n\n\n\n\nBasic Data Format\n\n\npalm\n, \nface\n and \nfist\n output - \nmatrix.service('palm')\n\nReturning tags: \nHAND_PALM\n, \nHAND_FIST\n, \nFADE\n\n\n{\n  location: { x: 333, y: 237, width: 55, height: 55 },\n  tag: 'HAND_PALM'\n}\n\n\n\n\nExtended Algorithms\n\n\ndemographics\n - \nmatrix.service('demographics')\n\n\nrecognition\n - \nmatrix.service('recognition')\n\n\nExtended Face Data Format\n\n\nDemographics Output\n\n\n{ location: { x: 213, y: 221, width: 55, height: 55 },\n tag: 'FACE',\n demographics:\n  { gender: 'MALE',\n    emotion: 'CALM',\n    age: 35,\n    pose:\n     { yaw: -0.24303536117076874,\n       roll: 0.04344254732131958,\n       pitch: -0.10279278457164764 },\n    face_id: '4' } }\n\n\n\n\nemotions\n\n\nHAPPY\n\n\nSAD\n\n\nCONFUSED\n\n\nANGRY\n\n\nCALM\n\n\nSURPRISED\n\n\nDISGUST\n\n\nRecognition\n\n\nMATRIX OS includes face recognition which turns a face into a series of numbers which can be used to identify the face when it is seen later. We do not store face images, just the numbers.\n\n\nRecognition only works from \n ~4 ft away. Removing hats and glasses will result in more accurate results.\n\n\nTraining mode\n\n\nBy default, \nrecognition\n works in \nRECOGNITION\n mode. Without training, however, this is not useful. Enable \nTRAIN\n mode by passing \ntrain: true\n as an option.\n\n\nmatrix.service('recognition').train('test').then(function(data) { ... });\n\n\n\n\nThis will associate a face with a particular tag. The data which is passed to \nthen\n are uuid's internal to MATRIX and not particularly useful, but you could use the callback for other reasons.\n\n\nRecognition mode\n\n\nAfter training, you can enable normal recognition as follows.\n\n\nmatrix.service('recognition').start().then(function(data){...})\n\n\n\n\nRecognition Output\n\n\n[{ tags : ['tagName'], score: 0.8 }, {...}]\n\n\n\n\ntags\n are the tags matched with each recognition. \nscore\n is the measure of a match, lower numbers are better. \n 0.8\n is a good metric to use for recognition.", 
+            "text": "Computer Vision\n\n\nMATRIX OS is designed to integrate with computer vision in a powerful and robust way. You can use computer vision output to drive behavior, capture data for further analysis or anything you want!\n\n\nExample\n\n\nFrom \nfaceTest MATRIX App\n\n\nmatrix.led('red').render();\n\nmatrix.service('face').start().then(function(data){\n  matrix.led('green').render();\n  setTimeout(function() {\n    matrix.led('black').render();\n  },2000);\n});\n\n\n\n\nConfiguration\n\n\nTo facilitate communication with the hardware,  CV services must be defined in \nconfig.yaml\n before they will be available to your application.\n\n\nservices:\n  faceDetection:\n    engine: detection\n    type: face\n\n\n\n\nSee \nServices\n for more information\n\n\nmatrix.service\n\n\nmatrix.service( algorithm, options )\n\n\n\n\nalgorithm\n\n\nface\n - triggers when it sees a face shape\n\nfist\n - gesture recognition for a closed fist\n\npalm\n - gesture recognition for an open palm\n\n\noptions\n\n\nrefresh\n - how many seconds before restarting the detection, default: 3\n\ntimeout\n - if there is no detection, stop after this many seconds, default: none\n\n\nstart()\n\n\nStarts a given CV algorithm with provided options.\n\n\nmatrix.service( algorithm, options ).start()\n\n\n\n\nstop()\n\n\nStops running a CV algorithm.\n\n\nvar s = matrix.service( algorithm, options ).start();\ns.stop();\n\n//or\nmatrix.service(algorithm).stop();\n\n\n\n\n\n\n\n.then()\n\n\nReturns the data, \nPromise\n style.\n\n\npalm\n, \nface\n and \nfist\n have associated tags\n\n\nReturns \ntag\n: \nHAND_PALM\n, \nHAND_FIST\n, or\nFACE\n\n\nExample\n\n\n{\n  location: {\n   x: 333,\n   y: 237,\n   width: 55,\n   height: 55\n  },\n  tag: 'HAND_PALM'\n}\n\n\n\n\nComplete Example\n\n\n# app.js\nvar algorithm = 'face';\nvar options   = {};\nmatrix.service( algorithm, options ).start().then(function( data ){\n  // your CV detection data will be available here\n  console.log( data );\n});\n\n\n\n\nExtended Face Analytics\n\n\nUse \ndemographics\n for the service call and in \nconfig\nservices\nname\nengine\n\n\nExample Config.yaml\n\n\nservices:\n  facelytics:\n    engine: demographics\n    type: face\n\n\n\n\ndemographics\n - \nmatrix.service('demographics')\n\n\nExtended Face Data Format\n\n\nemotions\n\n\nHAPPY\n\n\nSAD\n\n\nCONFUSED\n\n\nANGRY\n\n\nCALM\n\n\nSURPRISED\n\n\nDISGUST\n\n\nDemographics Output\n\n\n{ location: { x: 213, y: 221, width: 55, height: 55 },\n tag: 'FACE',\n demographics:\n  { gender: 'MALE',\n    emotion: 'CALM',\n    age: 35,\n    pose:\n     { yaw: -0.24303536117076874,\n       roll: 0.04344254732131958,\n       pitch: -0.10279278457164764 },\n    face_id: '4' } }\n\n\n\n\nRecognition\n\n\nrecognition\n - \nmatrix.service('recognition')\n\n\nMATRIX OS includes face recognition which turns a face into a series of numbers which can be used to identify the face when it is seen later. We do not store face images, just the numbers.\n\n\nRecognition only works from \n ~4 ft away. Removing hats and glasses will result in more accurate results.\n\n\nExample Config.yaml\n\n\nservices:\n  faceRecog:\n    engine: recognition\n    type: face\n\n\n\n\nBy default, \nrecognition\n works in \nRECOGNITION\n mode. Recognition requires training first.\n\n\ntrain()\n\n\nmatrix.service('recognition').train('test').then(function(data) { ... });\n\n\n\n\nThis will associate a face with a particular tag. The data which is passed to \nthen\n are uuid's internal to MATRIX and not particularly useful, but you could use the callback for other reasons.\n\n\nstart()\n\n\nAfter training, you can enable normal recognition as follows.\n\n\nmatrix.service('recognition').start().then(function(data){...})\n\n\n\n\nthen()\n\n\nOutputs a collection of tags and scores.\n\n\n[{ tags : ['tagName'], score: 0.8 }, {...}]\n\n\n\n\ntags\n are the tags matched with each recognition. \nscore\n is the measure of a match, lower numbers are better. \n 0.8\n is a good metric to use for recognition.", 
             "title": "Computer Vision"
         }, 
         {
             "location": "/API/computer-vision/#computer-vision", 
-            "text": "MATRIX OS is designed to integrate with computer vision in a powerful and robust way. You can use computer vision output to drive hardware behavior, or capture the data for further analysis.", 
+            "text": "MATRIX OS is designed to integrate with computer vision in a powerful and robust way. You can use computer vision output to drive behavior, capture data for further analysis or anything you want!", 
             "title": "Computer Vision"
         }, 
         {
             "location": "/API/computer-vision/#example", 
-            "text": "From (faceTest MATRIX App)[http://apps.matrix.one/#!/apps/facetest]  matrix.led('red').render();\n\nmatrix.service('face').start().then(function(data){\n  matrix.led('green').render();\n  setTimeout(function() {\n    matrix.led('black').render();\n  },2000);\n});", 
+            "text": "From  faceTest MATRIX App  matrix.led('red').render();\n\nmatrix.service('face').start().then(function(data){\n  matrix.led('green').render();\n  setTimeout(function() {\n    matrix.led('black').render();\n  },2000);\n});", 
             "title": "Example"
         }, 
         {
             "location": "/API/computer-vision/#configuration", 
-            "text": "To facilitate communication with the hardware, define CV services must be defined in  config.yaml  before they will be available to your application.  services:\n  faceDetection:\n    engine: detection\n    type: face  See  Services  for more information", 
+            "text": "To facilitate communication with the hardware,  CV services must be defined in  config.yaml  before they will be available to your application.  services:\n  faceDetection:\n    engine: detection\n    type: face  See  Services  for more information", 
             "title": "Configuration"
         }, 
         {
-            "location": "/API/computer-vision/#initialization", 
-            "text": "# app.js\nvar algorithm = 'face';\nvar options   = {};\nmatrix.service( algorithm, options ).start().then(function( data ){\n  // your CV detection data will be available here\n  console.log( data );\n});", 
-            "title": "Initialization"
+            "location": "/API/computer-vision/#matrixservice", 
+            "text": "matrix.service( algorithm, options )", 
+            "title": "matrix.service"
+        }, 
+        {
+            "location": "/API/computer-vision/#algorithm", 
+            "text": "face  - triggers when it sees a face shape fist  - gesture recognition for a closed fist palm  - gesture recognition for an open palm", 
+            "title": "algorithm"
         }, 
         {
             "location": "/API/computer-vision/#options", 
-            "text": "refresh  - how many seconds before restarting the detection, default: 3  timeout  - if there is no detection, stop after this many seconds, default: none", 
+            "text": "refresh  - how many seconds before restarting the detection, default: 3 timeout  - if there is no detection, stop after this many seconds, default: none", 
             "title": "options"
         }, 
         {
-            "location": "/API/computer-vision/#algorithms", 
-            "text": "", 
-            "title": "Algorithms"
+            "location": "/API/computer-vision/#start", 
+            "text": "Starts a given CV algorithm with provided options.  matrix.service( algorithm, options ).start()", 
+            "title": "start()"
         }, 
         {
-            "location": "/API/computer-vision/#basic", 
-            "text": "face , fist , palm ,  fist", 
-            "title": "Basic"
+            "location": "/API/computer-vision/#stop", 
+            "text": "Stops running a CV algorithm.  var s = matrix.service( algorithm, options ).start();\ns.stop();\n\n//or\nmatrix.service(algorithm).stop();", 
+            "title": "stop()"
         }, 
         {
-            "location": "/API/computer-vision/#basic-data-format", 
-            "text": "palm ,  face  and  fist  output -  matrix.service('palm') \nReturning tags:  HAND_PALM ,  HAND_FIST ,  FADE  {\n  location: { x: 333, y: 237, width: 55, height: 55 },\n  tag: 'HAND_PALM'\n}", 
-            "title": "Basic Data Format"
+            "location": "/API/computer-vision/#then", 
+            "text": "Returns the data,  Promise  style.  palm ,  face  and  fist  have associated tags  Returns  tag :  HAND_PALM ,  HAND_FIST , or FACE", 
+            "title": ".then()"
         }, 
         {
-            "location": "/API/computer-vision/#extended-algorithms", 
-            "text": "demographics  -  matrix.service('demographics')  recognition  -  matrix.service('recognition')", 
-            "title": "Extended Algorithms"
+            "location": "/API/computer-vision/#example_1", 
+            "text": "{\n  location: {\n   x: 333,\n   y: 237,\n   width: 55,\n   height: 55\n  },\n  tag: 'HAND_PALM'\n}", 
+            "title": "Example"
+        }, 
+        {
+            "location": "/API/computer-vision/#complete-example", 
+            "text": "# app.js\nvar algorithm = 'face';\nvar options   = {};\nmatrix.service( algorithm, options ).start().then(function( data ){\n  // your CV detection data will be available here\n  console.log( data );\n});", 
+            "title": "Complete Example"
+        }, 
+        {
+            "location": "/API/computer-vision/#extended-face-analytics", 
+            "text": "Use  demographics  for the service call and in  config services name engine", 
+            "title": "Extended Face Analytics"
+        }, 
+        {
+            "location": "/API/computer-vision/#example-configyaml", 
+            "text": "services:\n  facelytics:\n    engine: demographics\n    type: face  demographics  -  matrix.service('demographics')", 
+            "title": "Example Config.yaml"
         }, 
         {
             "location": "/API/computer-vision/#extended-face-data-format", 
@@ -731,34 +751,39 @@
             "title": "Extended Face Data Format"
         }, 
         {
-            "location": "/API/computer-vision/#demographics-output", 
-            "text": "{ location: { x: 213, y: 221, width: 55, height: 55 },\n tag: 'FACE',\n demographics:\n  { gender: 'MALE',\n    emotion: 'CALM',\n    age: 35,\n    pose:\n     { yaw: -0.24303536117076874,\n       roll: 0.04344254732131958,\n       pitch: -0.10279278457164764 },\n    face_id: '4' } }", 
-            "title": "Demographics Output"
-        }, 
-        {
             "location": "/API/computer-vision/#emotions", 
             "text": "HAPPY  SAD  CONFUSED  ANGRY  CALM  SURPRISED  DISGUST", 
             "title": "emotions"
         }, 
         {
+            "location": "/API/computer-vision/#demographics-output", 
+            "text": "{ location: { x: 213, y: 221, width: 55, height: 55 },\n tag: 'FACE',\n demographics:\n  { gender: 'MALE',\n    emotion: 'CALM',\n    age: 35,\n    pose:\n     { yaw: -0.24303536117076874,\n       roll: 0.04344254732131958,\n       pitch: -0.10279278457164764 },\n    face_id: '4' } }", 
+            "title": "Demographics Output"
+        }, 
+        {
             "location": "/API/computer-vision/#recognition", 
-            "text": "MATRIX OS includes face recognition which turns a face into a series of numbers which can be used to identify the face when it is seen later. We do not store face images, just the numbers.  Recognition only works from   ~4 ft away. Removing hats and glasses will result in more accurate results.", 
+            "text": "recognition  -  matrix.service('recognition')  MATRIX OS includes face recognition which turns a face into a series of numbers which can be used to identify the face when it is seen later. We do not store face images, just the numbers.  Recognition only works from   ~4 ft away. Removing hats and glasses will result in more accurate results.", 
             "title": "Recognition"
         }, 
         {
-            "location": "/API/computer-vision/#training-mode", 
-            "text": "By default,  recognition  works in  RECOGNITION  mode. Without training, however, this is not useful. Enable  TRAIN  mode by passing  train: true  as an option.  matrix.service('recognition').train('test').then(function(data) { ... });  This will associate a face with a particular tag. The data which is passed to  then  are uuid's internal to MATRIX and not particularly useful, but you could use the callback for other reasons.", 
-            "title": "Training mode"
+            "location": "/API/computer-vision/#example-configyaml_1", 
+            "text": "services:\n  faceRecog:\n    engine: recognition\n    type: face  By default,  recognition  works in  RECOGNITION  mode. Recognition requires training first.", 
+            "title": "Example Config.yaml"
         }, 
         {
-            "location": "/API/computer-vision/#recognition-mode", 
+            "location": "/API/computer-vision/#train", 
+            "text": "matrix.service('recognition').train('test').then(function(data) { ... });  This will associate a face with a particular tag. The data which is passed to  then  are uuid's internal to MATRIX and not particularly useful, but you could use the callback for other reasons.", 
+            "title": "train()"
+        }, 
+        {
+            "location": "/API/computer-vision/#start_1", 
             "text": "After training, you can enable normal recognition as follows.  matrix.service('recognition').start().then(function(data){...})", 
-            "title": "Recognition mode"
+            "title": "start()"
         }, 
         {
-            "location": "/API/computer-vision/#recognition-output", 
-            "text": "[{ tags : ['tagName'], score: 0.8 }, {...}]  tags  are the tags matched with each recognition.  score  is the measure of a match, lower numbers are better.   0.8  is a good metric to use for recognition.", 
-            "title": "Recognition Output"
+            "location": "/API/computer-vision/#then_1", 
+            "text": "Outputs a collection of tags and scores.  [{ tags : ['tagName'], score: 0.8 }, {...}]  tags  are the tags matched with each recognition.  score  is the measure of a match, lower numbers are better.   0.8  is a good metric to use for recognition.", 
+            "title": "then()"
         }, 
         {
             "location": "/API/microphone/", 
@@ -1832,13 +1857,113 @@
         }, 
         {
             "location": "/Hardware/microphone/", 
-            "text": "Microphone\n\n\nFirst check the \nGetting started\n\n\nUpdate and upgrade the raspbian\n\n\nsudo apt-get update\nsudo apt-get upgrade\n\n\n\nInstall \nAlsa tools\n and the \nsox\n utility\n\n\nsudo apt-get install sox alsa-utils\n\n\n\nRun the volumen control\n\n\nalsamixer\n\n\n\nInstall and compile the MATRIX Creator's hardware abstraction layer\n\n\ngit clone https://github.com/matrix-io/matrix-creator-hal.git\ncd matrix-creator-hal \nmkdir build \n cd build\ncmake ..\nmake\n\n\n\nRun capture and check the recorded files\n    cd demos\n    ./micarray_recorder\n    ls -1 *raw\n\n\nConvert the audio\n\n\nsox -r 16000 -c 1 -e signed -c 1 -e signed -b 16 mic_16000_s16le_channel_0.raw channel_0.wav\nsox -r 16000 -c 1 -e signed -c 1 -e signed -b 16 mic_16000_s16le_channel_1.raw channel_1.wav\nsox -r 16000 -c 1 -e signed -c 1 -e signed -b 16 mic_16000_s16le_channel_2.raw channel_2.wav\nsox -r 16000 -c 1 -e signed -c 1 -e signed -b 16 mic_16000_s16le_channel_3.raw channel_3.wav\nsox -r 16000 -c 1 -e signed -c 1 -e signed -b 16 mic_16000_s16le_channel_4.raw channel_4.wav\nsox -r 16000 -c 1 -e signed -c 1 -e signed -b 16 mic_16000_s16le_channel_5.raw channel_5.wav\nsox -r 16000 -c 1 -e signed -c 1 -e signed -b 16 mic_16000_s16le_channel_6.raw channel_6.wav\nsox -r 16000 -c 1 -e signed -c 1 -e signed -b 16 mic_16000_s16le_channel_7.raw channel_7.wav\n\n\n\nPlay the wave file (i.e. audio from channel 0)\n\n\naplay channel_0.wav", 
+            "text": "Microphone\n\n\n1. Mic Array on MATRIX Creator\n\n\n\n\nPosition [x,y] of each mic in the array:\n\n\n\n\n\n\n\n\nMic\n\n\nX\n\n\nY\n\n\n\n\n\n\n\n\n\n\nM1\n\n\n20.0908795\n\n\n-48.5036755\n\n\n\n\n\n\nM2\n\n\n-20.0908795\n\n\n-48.5036755\n\n\n\n\n\n\nM3\n\n\n-48.5036755\n\n\n-20.0908795\n\n\n\n\n\n\nM4\n\n\n-48.5036755\n\n\n20.0908795\n\n\n\n\n\n\nM5\n\n\n-20.0908795\n\n\n48.5036755\n\n\n\n\n\n\nM6\n\n\n20.0908795\n\n\n48.5036755\n\n\n\n\n\n\nM7\n\n\n48.5036755\n\n\n20.0908795\n\n\n\n\n\n\nM8\n\n\n48.5036755\n\n\n-20.0908795\n\n\n\n\n\n\n\n\nConnection to the FPGA\n\n\nfrom the \ncreator.ucf\n :\n\n\n\n\n\n\n\n\nMic\n\n\nFPGA pin\n\n\nPDM_Data\n\n\n\n\n\n\n\n\n\n\nM1\n\n\nP45\n\n\npdm_data\n0\n\n\n\n\n\n\nM2\n\n\nP46\n\n\npdm_data\n1\n\n\n\n\n\n\nM3\n\n\nP47\n\n\npdm_data\n2\n\n\n\n\n\n\nM4\n\n\nP58\n\n\npdm_data\n3\n\n\n\n\n\n\nM5\n\n\nP59\n\n\npdm_data\n4\n\n\n\n\n\n\nM6\n\n\nP64\n\n\npdm_data\n5\n\n\n\n\n\n\nM7\n\n\nP65\n\n\npdm_data\n6\n\n\n\n\n\n\nM8\n\n\nP44\n\n\npdm_data\n7\n\n\n\n\n\n\nCLK\n\n\nP47\n\n\npdm_clk\n\n\n\n\n\n\n\n\nAudio specs:\n\n\nSample Rate: 16 kHz\nBit Depth: 16 bit\n\n\nNote\n: An option for setting higher sample rates will be released soon.  Please keep in touch in the community announcements channel http://community.matrix.one/c/announcements.\n\n\nMicrophones Datasheet:\n\n\nMP34DB02 - MEMS audio sensor omnidirectional digital microphone\n \n\n\n2. How to get microphone data from C++\n\n\nYou can use our lower software layer in C++ called HAL () (Hardware Abstraction Layer) to read data from the microphones.\n\n\nGetting and Compiling HAL\n\n\ngit clone https://github.com/matrix-io/matrix-creator-hal.git\ncd matrix-creator-hal \nmkdir build \n cd build\ncmake ..\nmake\n\n\n\nExample code\n\n\nThe following example gets samples from all channels (mics) collected by the fpga.  \n\n\n... \nint main() {\n    hal::WishboneBus bus;\n    bus.SpiInit();\n    hal::MicrophoneArray mics;\n    mics.Setup(\nbus);\n    std::valarray\nfloat\n magnitude(mics.Channels());\n\n    mics.SetGain(8);\n    std::cout \n \"M1\\t\" \n \"M2\\t\" \n \"M3\\t\" \n \"M4\\t\" \n \"M5\\t\" \n \"M6\\t\" \n \"M7\\t\" \n \"M8\\t\" \n std::endl;\n\n    while (true) {\n        mics.Read();\n        magnitude = 0.0;\n        for (unsigned int s = 0; s \n mics.NumberOfSamples(); s++) {\n            for (unsigned int c = 0; c \n mics.Channels(); c++) {\n              magnitude[c] = mics.At(s, c);\n              std::cout \n  magnitude[c] \n \"\\t\";\n            }\n            std::cout \n std::endl;\n        }\n    }\n    return 0;\n}\n\n\n\n3. Example demo apps for mics\n\n\nThe demo apps are in the folder \nmatrix-creator-hal/demos/\n . They are built with HAL. To run them go to the demo folder :\n\n\ncd build/demos\n./mic_demo\n\n\n\nnote: You can play with the demos to learn how to use HAL, and them use them as starting points for your own apps.\n\n\nmic_demo\n\n\nThis demo maps each mic audio input to one specific led on the Everloop. You can make sounds close to the MATRIX Creator and see how the LEDs turn green when a sound is detected. Also the demo prints in the terminal the audio as numbers, e.g.:\n\n\ncd build/demos\n./mic_demo\n0   0   0   0   0   0   0   0   \n0   0   0   0   0   0   0   0   \n6   6   6   6   6   4   5   6   \n3   6   4   4   2   2   2   2   \n0   0   0   0   0   0   0   0   \n0   0   0   0   0   0   0   0   \n0   0   0   0   0   0   0   0   \n3   5   5   4   4   4   5   4   \n5   6   6   6   6   5   6   5   \n1   0   1   2   2   1   1   1   \n0   1   1   1   1   1   1   1   \n0   1   1   0   1   0   0   0   \n...\n\n\n\nmic_energy\n\n\nThis demo is similar but instead of mapping the mic's audio individually takes all channels and maps the average of all mics. It maps at the same time in all LEDs and creates a very voice responsive red light. This demos does not print anything on the terminal.\n\n\ncd build/demos\n./mic_energy\n\n\n\nmicarray_recorder\n\n\nThis demo records audio from all 8 channels (0-7) and the beamforming channel (channel 8) to raw files located in the same folder. After you launching the demo you will have these files:\n\n\ncd build/demos\n./micarray_recorder\n\n\n\nThe default example records audio to raw files for 10 seconds and then stops. After recording the files are on the same folder \n/demos\n :\n\n\ncd build/demos\nls | grep raw\nmic_16000_s16le_channel_0.raw\nmic_16000_s16le_channel_1.raw\nmic_16000_s16le_channel_2.raw\nmic_16000_s16le_channel_3.raw\nmic_16000_s16le_channel_4.raw\nmic_16000_s16le_channel_5.raw\nmic_16000_s16le_channel_6.raw\nmic_16000_s16le_channel_7.raw\nmic_16000_s16le_channel_8.raw\n\n\n\nnote: The data in the raw files is written in \nint16_t\n. \n\n\ndirection_of_arrival_demo\n\n\nThis demo shows a first implementation of direction of arrival detection. It shows the direction of arrival using the LEDs and also prints the result angle in the terminal. To test it run the demo and make sounds from different directions to the MATRIX Creator board to see how. \n\n\n./direction_of_arrival_demo\nazimutal angle = 0, polar angle = 0, mic = 0\nazimutal angle = 0, polar angle = 0, mic = 0\nazimutal angle = -157.5, polar angle = 18, mic = 2\nazimutal angle = -157.5, polar angle = 18, mic = 2\nazimutal angle = -157.5, polar angle = 18, mic = 2\nazimutal angle = 22.5, polar angle = 36, mic = 6\nazimutal angle = -157.5, polar angle = 54, mic = 2\nazimutal angle = -157.5, polar angle = 72, mic = 2\nazimutal angle = -157.5, polar angle = 72, mic = 2\n\n\n\nRecord, Convert and Play sounds.\n\n\nUpdate and upgrade Raspbian\n\n\nsudo apt-get update\nsudo apt-get upgrade\n\n\n\nInstall \nAlsa tools\n and the \nsox\n utility\n\n\nsudo apt-get install sox alsa-utils\n\n\n\nRun the volume control\n\n\nalsamixer\n\n\n\nRun capture and check the recorded files\n\n\ncd demos\n./micarray_recorder\nls -1 *raw\n\n\n\nConvert the audio\n\n\nsox -r 16000 -c 1 -e signed -c 1 -e signed -b 16 mic_16000_s16le_channel_0.raw channel_0.wav\nsox -r 16000 -c 1 -e signed -c 1 -e signed -b 16 mic_16000_s16le_channel_1.raw channel_1.wav\nsox -r 16000 -c 1 -e signed -c 1 -e signed -b 16 mic_16000_s16le_channel_2.raw channel_2.wav\nsox -r 16000 -c 1 -e signed -c 1 -e signed -b 16 mic_16000_s16le_channel_3.raw channel_3.wav\nsox -r 16000 -c 1 -e signed -c 1 -e signed -b 16 mic_16000_s16le_channel_4.raw channel_4.wav\nsox -r 16000 -c 1 -e signed -c 1 -e signed -b 16 mic_16000_s16le_channel_5.raw channel_5.wav\nsox -r 16000 -c 1 -e signed -c 1 -e signed -b 16 mic_16000_s16le_channel_6.raw channel_6.wav\nsox -r 16000 -c 1 -e signed -c 1 -e signed -b 16 mic_16000_s16le_channel_7.raw channel_7.wav\n\n\n\nPlay the wav file (i.e. audio from channel 0)\n\n\naplay channel_0.wav", 
             "title": "Microphone"
         }, 
         {
             "location": "/Hardware/microphone/#microphone", 
-            "text": "First check the  Getting started  Update and upgrade the raspbian  sudo apt-get update\nsudo apt-get upgrade  Install  Alsa tools  and the  sox  utility  sudo apt-get install sox alsa-utils  Run the volumen control  alsamixer  Install and compile the MATRIX Creator's hardware abstraction layer  git clone https://github.com/matrix-io/matrix-creator-hal.git\ncd matrix-creator-hal \nmkdir build   cd build\ncmake ..\nmake  Run capture and check the recorded files\n    cd demos\n    ./micarray_recorder\n    ls -1 *raw  Convert the audio  sox -r 16000 -c 1 -e signed -c 1 -e signed -b 16 mic_16000_s16le_channel_0.raw channel_0.wav\nsox -r 16000 -c 1 -e signed -c 1 -e signed -b 16 mic_16000_s16le_channel_1.raw channel_1.wav\nsox -r 16000 -c 1 -e signed -c 1 -e signed -b 16 mic_16000_s16le_channel_2.raw channel_2.wav\nsox -r 16000 -c 1 -e signed -c 1 -e signed -b 16 mic_16000_s16le_channel_3.raw channel_3.wav\nsox -r 16000 -c 1 -e signed -c 1 -e signed -b 16 mic_16000_s16le_channel_4.raw channel_4.wav\nsox -r 16000 -c 1 -e signed -c 1 -e signed -b 16 mic_16000_s16le_channel_5.raw channel_5.wav\nsox -r 16000 -c 1 -e signed -c 1 -e signed -b 16 mic_16000_s16le_channel_6.raw channel_6.wav\nsox -r 16000 -c 1 -e signed -c 1 -e signed -b 16 mic_16000_s16le_channel_7.raw channel_7.wav  Play the wave file (i.e. audio from channel 0)  aplay channel_0.wav", 
+            "text": "", 
             "title": "Microphone"
+        }, 
+        {
+            "location": "/Hardware/microphone/#1-mic-array-on-matrix-creator", 
+            "text": "", 
+            "title": "1. Mic Array on MATRIX Creator"
+        }, 
+        {
+            "location": "/Hardware/microphone/#position-xy-of-each-mic-in-the-array", 
+            "text": "Mic  X  Y      M1  20.0908795  -48.5036755    M2  -20.0908795  -48.5036755    M3  -48.5036755  -20.0908795    M4  -48.5036755  20.0908795    M5  -20.0908795  48.5036755    M6  20.0908795  48.5036755    M7  48.5036755  20.0908795    M8  48.5036755  -20.0908795", 
+            "title": "Position [x,y] of each mic in the array:"
+        }, 
+        {
+            "location": "/Hardware/microphone/#connection-to-the-fpga", 
+            "text": "from the  creator.ucf  :     Mic  FPGA pin  PDM_Data      M1  P45  pdm_data 0    M2  P46  pdm_data 1    M3  P47  pdm_data 2    M4  P58  pdm_data 3    M5  P59  pdm_data 4    M6  P64  pdm_data 5    M7  P65  pdm_data 6    M8  P44  pdm_data 7    CLK  P47  pdm_clk", 
+            "title": "Connection to the FPGA"
+        }, 
+        {
+            "location": "/Hardware/microphone/#audio-specs", 
+            "text": "Sample Rate: 16 kHz\nBit Depth: 16 bit  Note : An option for setting higher sample rates will be released soon.  Please keep in touch in the community announcements channel http://community.matrix.one/c/announcements.", 
+            "title": "Audio specs:"
+        }, 
+        {
+            "location": "/Hardware/microphone/#microphones-datasheet", 
+            "text": "MP34DB02 - MEMS audio sensor omnidirectional digital microphone", 
+            "title": "Microphones Datasheet:"
+        }, 
+        {
+            "location": "/Hardware/microphone/#2-how-to-get-microphone-data-from-c", 
+            "text": "You can use our lower software layer in C++ called HAL () (Hardware Abstraction Layer) to read data from the microphones.", 
+            "title": "2. How to get microphone data from C++"
+        }, 
+        {
+            "location": "/Hardware/microphone/#getting-and-compiling-hal", 
+            "text": "git clone https://github.com/matrix-io/matrix-creator-hal.git\ncd matrix-creator-hal \nmkdir build   cd build\ncmake ..\nmake", 
+            "title": "Getting and Compiling HAL"
+        }, 
+        {
+            "location": "/Hardware/microphone/#example-code", 
+            "text": "The following example gets samples from all channels (mics) collected by the fpga.    ... \nint main() {\n    hal::WishboneBus bus;\n    bus.SpiInit();\n    hal::MicrophoneArray mics;\n    mics.Setup( bus);\n    std::valarray float  magnitude(mics.Channels());\n\n    mics.SetGain(8);\n    std::cout   \"M1\\t\"   \"M2\\t\"   \"M3\\t\"   \"M4\\t\"   \"M5\\t\"   \"M6\\t\"   \"M7\\t\"   \"M8\\t\"   std::endl;\n\n    while (true) {\n        mics.Read();\n        magnitude = 0.0;\n        for (unsigned int s = 0; s   mics.NumberOfSamples(); s++) {\n            for (unsigned int c = 0; c   mics.Channels(); c++) {\n              magnitude[c] = mics.At(s, c);\n              std::cout    magnitude[c]   \"\\t\";\n            }\n            std::cout   std::endl;\n        }\n    }\n    return 0;\n}", 
+            "title": "Example code"
+        }, 
+        {
+            "location": "/Hardware/microphone/#3-example-demo-apps-for-mics", 
+            "text": "The demo apps are in the folder  matrix-creator-hal/demos/  . They are built with HAL. To run them go to the demo folder :  cd build/demos\n./mic_demo  note: You can play with the demos to learn how to use HAL, and them use them as starting points for your own apps.", 
+            "title": "3. Example demo apps for mics"
+        }, 
+        {
+            "location": "/Hardware/microphone/#mic_demo", 
+            "text": "This demo maps each mic audio input to one specific led on the Everloop. You can make sounds close to the MATRIX Creator and see how the LEDs turn green when a sound is detected. Also the demo prints in the terminal the audio as numbers, e.g.:  cd build/demos\n./mic_demo\n0   0   0   0   0   0   0   0   \n0   0   0   0   0   0   0   0   \n6   6   6   6   6   4   5   6   \n3   6   4   4   2   2   2   2   \n0   0   0   0   0   0   0   0   \n0   0   0   0   0   0   0   0   \n0   0   0   0   0   0   0   0   \n3   5   5   4   4   4   5   4   \n5   6   6   6   6   5   6   5   \n1   0   1   2   2   1   1   1   \n0   1   1   1   1   1   1   1   \n0   1   1   0   1   0   0   0   \n...", 
+            "title": "mic_demo"
+        }, 
+        {
+            "location": "/Hardware/microphone/#mic_energy", 
+            "text": "This demo is similar but instead of mapping the mic's audio individually takes all channels and maps the average of all mics. It maps at the same time in all LEDs and creates a very voice responsive red light. This demos does not print anything on the terminal.  cd build/demos\n./mic_energy", 
+            "title": "mic_energy"
+        }, 
+        {
+            "location": "/Hardware/microphone/#micarray_recorder", 
+            "text": "This demo records audio from all 8 channels (0-7) and the beamforming channel (channel 8) to raw files located in the same folder. After you launching the demo you will have these files:  cd build/demos\n./micarray_recorder  The default example records audio to raw files for 10 seconds and then stops. After recording the files are on the same folder  /demos  :  cd build/demos\nls | grep raw\nmic_16000_s16le_channel_0.raw\nmic_16000_s16le_channel_1.raw\nmic_16000_s16le_channel_2.raw\nmic_16000_s16le_channel_3.raw\nmic_16000_s16le_channel_4.raw\nmic_16000_s16le_channel_5.raw\nmic_16000_s16le_channel_6.raw\nmic_16000_s16le_channel_7.raw\nmic_16000_s16le_channel_8.raw  note: The data in the raw files is written in  int16_t .", 
+            "title": "micarray_recorder"
+        }, 
+        {
+            "location": "/Hardware/microphone/#direction_of_arrival_demo", 
+            "text": "This demo shows a first implementation of direction of arrival detection. It shows the direction of arrival using the LEDs and also prints the result angle in the terminal. To test it run the demo and make sounds from different directions to the MATRIX Creator board to see how.   ./direction_of_arrival_demo\nazimutal angle = 0, polar angle = 0, mic = 0\nazimutal angle = 0, polar angle = 0, mic = 0\nazimutal angle = -157.5, polar angle = 18, mic = 2\nazimutal angle = -157.5, polar angle = 18, mic = 2\nazimutal angle = -157.5, polar angle = 18, mic = 2\nazimutal angle = 22.5, polar angle = 36, mic = 6\nazimutal angle = -157.5, polar angle = 54, mic = 2\nazimutal angle = -157.5, polar angle = 72, mic = 2\nazimutal angle = -157.5, polar angle = 72, mic = 2", 
+            "title": "direction_of_arrival_demo"
+        }, 
+        {
+            "location": "/Hardware/microphone/#record-convert-and-play-sounds", 
+            "text": "", 
+            "title": "Record, Convert and Play sounds."
+        }, 
+        {
+            "location": "/Hardware/microphone/#update-and-upgrade-raspbian", 
+            "text": "sudo apt-get update\nsudo apt-get upgrade", 
+            "title": "Update and upgrade Raspbian"
+        }, 
+        {
+            "location": "/Hardware/microphone/#install-alsa-tools-and-the-sox-utility", 
+            "text": "sudo apt-get install sox alsa-utils", 
+            "title": "Install Alsa tools and the sox utility"
+        }, 
+        {
+            "location": "/Hardware/microphone/#run-the-volume-control", 
+            "text": "alsamixer", 
+            "title": "Run the volume control"
+        }, 
+        {
+            "location": "/Hardware/microphone/#run-capture-and-check-the-recorded-files", 
+            "text": "cd demos\n./micarray_recorder\nls -1 *raw", 
+            "title": "Run capture and check the recorded files"
+        }, 
+        {
+            "location": "/Hardware/microphone/#convert-the-audio", 
+            "text": "sox -r 16000 -c 1 -e signed -c 1 -e signed -b 16 mic_16000_s16le_channel_0.raw channel_0.wav\nsox -r 16000 -c 1 -e signed -c 1 -e signed -b 16 mic_16000_s16le_channel_1.raw channel_1.wav\nsox -r 16000 -c 1 -e signed -c 1 -e signed -b 16 mic_16000_s16le_channel_2.raw channel_2.wav\nsox -r 16000 -c 1 -e signed -c 1 -e signed -b 16 mic_16000_s16le_channel_3.raw channel_3.wav\nsox -r 16000 -c 1 -e signed -c 1 -e signed -b 16 mic_16000_s16le_channel_4.raw channel_4.wav\nsox -r 16000 -c 1 -e signed -c 1 -e signed -b 16 mic_16000_s16le_channel_5.raw channel_5.wav\nsox -r 16000 -c 1 -e signed -c 1 -e signed -b 16 mic_16000_s16le_channel_6.raw channel_6.wav\nsox -r 16000 -c 1 -e signed -c 1 -e signed -b 16 mic_16000_s16le_channel_7.raw channel_7.wav", 
+            "title": "Convert the audio"
+        }, 
+        {
+            "location": "/Hardware/microphone/#play-the-wav-file-ie-audio-from-channel-0", 
+            "text": "aplay channel_0.wav", 
+            "title": "Play the wav file (i.e. audio from channel 0)"
         }, 
         {
             "location": "/Hardware/SPI/", 

@@ -701,6 +701,14 @@
           
               <li class="list-group-item"><a href="#microphone">Microphone</a></li>
               
+                  <li class="list-group-item"><a href="#1-mic-array-on-matrix-creator">1. Mic Array on MATRIX Creator</a></li>
+              
+                  <li class="list-group-item"><a href="#2-how-to-get-microphone-data-from-c">2. How to get microphone data from C++</a></li>
+              
+                  <li class="list-group-item"><a href="#3-example-demo-apps-for-mics">3. Example demo apps for mics</a></li>
+              
+                  <li class="list-group-item"><a href="#record-convert-and-play-sounds">Record, Convert and Play sounds.</a></li>
+              
           
           </ul>
 
@@ -710,29 +718,238 @@
       <div class="col-md-10">
         
           <h3 id="microphone">Microphone</h3>
-<p>First check the <a href="../Getting-Started">Getting started</a></p>
-<p>Update and upgrade the raspbian</p>
-<pre><code>sudo apt-get update
-sudo apt-get upgrade
-</code></pre>
-<p>Install <em>Alsa tools</em> and the <em>sox</em> utility</p>
-<pre><code>sudo apt-get install sox alsa-utils
-</code></pre>
-<p>Run the volumen control</p>
-<pre><code>alsamixer
-</code></pre>
-<p>Install and compile the MATRIX Creator's hardware abstraction layer</p>
+<h4 id="1-mic-array-on-matrix-creator">1. Mic Array on MATRIX Creator</h4>
+<p><a href="https://github.com/matrix-io/matrix-documentation/blob/yc/improving_mic_doc/docs/Hardware/mic_position.png?raw=true"><img src="https://github.com/matrix-io/matrix-documentation/blob/yc/improving_mic_doc/docs/Hardware/mic_position.png?raw=true" align="center"  ></a></p>
+<h5 id="position-xy-of-each-mic-in-the-array">Position [x,y] of each mic in the array:</h5>
+<table>
+<thead>
+<tr>
+<th>Mic</th>
+<th>X</th>
+<th>Y</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>M1</td>
+<td>20.0908795</td>
+<td>-48.5036755</td>
+</tr>
+<tr>
+<td>M2</td>
+<td>-20.0908795</td>
+<td>-48.5036755</td>
+</tr>
+<tr>
+<td>M3</td>
+<td>-48.5036755</td>
+<td>-20.0908795</td>
+</tr>
+<tr>
+<td>M4</td>
+<td>-48.5036755</td>
+<td>20.0908795</td>
+</tr>
+<tr>
+<td>M5</td>
+<td>-20.0908795</td>
+<td>48.5036755</td>
+</tr>
+<tr>
+<td>M6</td>
+<td>20.0908795</td>
+<td>48.5036755</td>
+</tr>
+<tr>
+<td>M7</td>
+<td>48.5036755</td>
+<td>20.0908795</td>
+</tr>
+<tr>
+<td>M8</td>
+<td>48.5036755</td>
+<td>-20.0908795</td>
+</tr>
+</tbody>
+</table>
+<h5 id="connection-to-the-fpga">Connection to the FPGA</h5>
+<p>from the <a href="https://github.com/matrix-io/matrix-creator-fpga/blob/master/creator_core/creator.ucf">creator.ucf</a> :</p>
+<table>
+<thead>
+<tr>
+<th>Mic</th>
+<th>FPGA pin</th>
+<th>PDM_Data</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>M1</td>
+<td>P45</td>
+<td>pdm_data&lt;0&gt;</td>
+</tr>
+<tr>
+<td>M2</td>
+<td>P46</td>
+<td>pdm_data&lt;1&gt;</td>
+</tr>
+<tr>
+<td>M3</td>
+<td>P47</td>
+<td>pdm_data&lt;2&gt;</td>
+</tr>
+<tr>
+<td>M4</td>
+<td>P58</td>
+<td>pdm_data&lt;3&gt;</td>
+</tr>
+<tr>
+<td>M5</td>
+<td>P59</td>
+<td>pdm_data&lt;4&gt;</td>
+</tr>
+<tr>
+<td>M6</td>
+<td>P64</td>
+<td>pdm_data&lt;5&gt;</td>
+</tr>
+<tr>
+<td>M7</td>
+<td>P65</td>
+<td>pdm_data&lt;6&gt;</td>
+</tr>
+<tr>
+<td>M8</td>
+<td>P44</td>
+<td>pdm_data&lt;7&gt;</td>
+</tr>
+<tr>
+<td>CLK</td>
+<td>P47</td>
+<td>pdm_clk</td>
+</tr>
+</tbody>
+</table>
+<h5 id="audio-specs">Audio specs:</h5>
+<p>Sample Rate: 16 kHz
+Bit Depth: 16 bit</p>
+<p><strong>Note</strong>: An option for setting higher sample rates will be released soon.  Please keep in touch in the community announcements channel http://community.matrix.one/c/announcements.</p>
+<h5 id="microphones-datasheet">Microphones Datasheet:</h5>
+<p><a href="http://www.st.com/content/ccc/resource/technical/document/datasheet/57/af/88/31/7b/59/4f/77/DM00111225.pdf/files/DM00111225.pdf/jcr:content/translations/en.DM00111225.pdf">MP34DB02 - MEMS audio sensor omnidirectional digital microphone</a> </p>
+<h4 id="2-how-to-get-microphone-data-from-c">2. How to get microphone data from C++</h4>
+<p>You can use our lower software layer in C++ called HAL () (Hardware Abstraction Layer) to read data from the microphones.</p>
+<h5 id="getting-and-compiling-hal">Getting and Compiling HAL</h5>
 <pre><code>git clone https://github.com/matrix-io/matrix-creator-hal.git
 cd matrix-creator-hal 
 mkdir build &amp;&amp; cd build
 cmake ..
 make
 </code></pre>
-<p>Run capture and check the recorded files
-    cd demos
-    ./micarray_recorder
-    ls -1 *raw</p>
-<p>Convert the audio</p>
+<h5 id="example-code">Example code</h5>
+<p>The following example gets samples from all channels (mics) collected by the fpga.  </p>
+<pre><code>... 
+int main() {
+    hal::WishboneBus bus;
+    bus.SpiInit();
+    hal::MicrophoneArray mics;
+    mics.Setup(&amp;bus);
+    std::valarray&lt;float&gt; magnitude(mics.Channels());
+
+    mics.SetGain(8);
+    std::cout &lt;&lt; "M1\t" &lt;&lt; "M2\t" &lt;&lt; "M3\t" &lt;&lt; "M4\t" &lt;&lt; "M5\t" &lt;&lt; "M6\t" &lt;&lt; "M7\t" &lt;&lt; "M8\t" &lt;&lt; std::endl;
+
+    while (true) {
+        mics.Read();
+        magnitude = 0.0;
+        for (unsigned int s = 0; s &lt; mics.NumberOfSamples(); s++) {
+            for (unsigned int c = 0; c &lt; mics.Channels(); c++) {
+              magnitude[c] = mics.At(s, c);
+              std::cout &lt;&lt;  magnitude[c] &lt;&lt; "\t";
+            }
+            std::cout &lt;&lt; std::endl;
+        }
+    }
+    return 0;
+}
+</code></pre>
+<h4 id="3-example-demo-apps-for-mics">3. Example demo apps for mics</h4>
+<p>The demo apps are in the folder <code>matrix-creator-hal/demos/</code> . They are built with HAL. To run them go to the demo folder :</p>
+<pre><code>cd build/demos
+./mic_demo
+</code></pre>
+<p>note: You can play with the demos to learn how to use HAL, and them use them as starting points for your own apps.</p>
+<h5 id="mic_demo">mic_demo</h5>
+<p>This demo maps each mic audio input to one specific led on the Everloop. You can make sounds close to the MATRIX Creator and see how the LEDs turn green when a sound is detected. Also the demo prints in the terminal the audio as numbers, e.g.:</p>
+<pre><code>cd build/demos
+./mic_demo
+0   0   0   0   0   0   0   0   
+0   0   0   0   0   0   0   0   
+6   6   6   6   6   4   5   6   
+3   6   4   4   2   2   2   2   
+0   0   0   0   0   0   0   0   
+0   0   0   0   0   0   0   0   
+0   0   0   0   0   0   0   0   
+3   5   5   4   4   4   5   4   
+5   6   6   6   6   5   6   5   
+1   0   1   2   2   1   1   1   
+0   1   1   1   1   1   1   1   
+0   1   1   0   1   0   0   0   
+...
+</code></pre>
+<h5 id="mic_energy">mic_energy</h5>
+<p>This demo is similar but instead of mapping the mic's audio individually takes all channels and maps the average of all mics. It maps at the same time in all LEDs and creates a very voice responsive red light. This demos does not print anything on the terminal.</p>
+<pre><code>cd build/demos
+./mic_energy
+</code></pre>
+<h5 id="micarray_recorder">micarray_recorder</h5>
+<p>This demo records audio from all 8 channels (0-7) and the beamforming channel (channel 8) to raw files located in the same folder. After you launching the demo you will have these files:</p>
+<pre><code>cd build/demos
+./micarray_recorder
+</code></pre>
+<p>The default example records audio to raw files for 10 seconds and then stops. After recording the files are on the same folder <code>/demos</code> :</p>
+<pre><code>cd build/demos
+ls | grep raw
+mic_16000_s16le_channel_0.raw
+mic_16000_s16le_channel_1.raw
+mic_16000_s16le_channel_2.raw
+mic_16000_s16le_channel_3.raw
+mic_16000_s16le_channel_4.raw
+mic_16000_s16le_channel_5.raw
+mic_16000_s16le_channel_6.raw
+mic_16000_s16le_channel_7.raw
+mic_16000_s16le_channel_8.raw
+</code></pre>
+<p>note: The data in the raw files is written in <code>int16_t</code>. </p>
+<h5 id="direction_of_arrival_demo">direction_of_arrival_demo</h5>
+<p>This demo shows a first implementation of direction of arrival detection. It shows the direction of arrival using the LEDs and also prints the result angle in the terminal. To test it run the demo and make sounds from different directions to the MATRIX Creator board to see how. </p>
+<pre><code>./direction_of_arrival_demo
+azimutal angle = 0, polar angle = 0, mic = 0
+azimutal angle = 0, polar angle = 0, mic = 0
+azimutal angle = -157.5, polar angle = 18, mic = 2
+azimutal angle = -157.5, polar angle = 18, mic = 2
+azimutal angle = -157.5, polar angle = 18, mic = 2
+azimutal angle = 22.5, polar angle = 36, mic = 6
+azimutal angle = -157.5, polar angle = 54, mic = 2
+azimutal angle = -157.5, polar angle = 72, mic = 2
+azimutal angle = -157.5, polar angle = 72, mic = 2
+</code></pre>
+<h4 id="record-convert-and-play-sounds">Record, Convert and Play sounds.</h4>
+<h5 id="update-and-upgrade-raspbian">Update and upgrade Raspbian</h5>
+<pre><code>sudo apt-get update
+sudo apt-get upgrade
+</code></pre>
+<h5 id="install-alsa-tools-and-the-sox-utility">Install <em>Alsa tools</em> and the <em>sox</em> utility</h5>
+<pre><code>sudo apt-get install sox alsa-utils
+</code></pre>
+<h5 id="run-the-volume-control">Run the volume control</h5>
+<pre><code>alsamixer
+</code></pre>
+<h5 id="run-capture-and-check-the-recorded-files">Run capture and check the recorded files</h5>
+<pre><code>cd demos
+./micarray_recorder
+ls -1 *raw
+</code></pre>
+<h5 id="convert-the-audio">Convert the audio</h5>
 <pre><code>sox -r 16000 -c 1 -e signed -c 1 -e signed -b 16 mic_16000_s16le_channel_0.raw channel_0.wav
 sox -r 16000 -c 1 -e signed -c 1 -e signed -b 16 mic_16000_s16le_channel_1.raw channel_1.wav
 sox -r 16000 -c 1 -e signed -c 1 -e signed -b 16 mic_16000_s16le_channel_2.raw channel_2.wav
@@ -742,7 +959,7 @@ sox -r 16000 -c 1 -e signed -c 1 -e signed -b 16 mic_16000_s16le_channel_5.raw c
 sox -r 16000 -c 1 -e signed -c 1 -e signed -b 16 mic_16000_s16le_channel_6.raw channel_6.wav
 sox -r 16000 -c 1 -e signed -c 1 -e signed -b 16 mic_16000_s16le_channel_7.raw channel_7.wav
 </code></pre>
-<p>Play the wave file (i.e. audio from channel 0)</p>
+<h5 id="play-the-wav-file-ie-audio-from-channel-0">Play the wav file (i.e. audio from channel 0)</h5>
 <pre><code>aplay channel_0.wav
 </code></pre>
         
@@ -752,7 +969,7 @@ sox -r 16000 -c 1 -e signed -c 1 -e signed -b 16 mic_16000_s16le_channel_7.raw c
 
   <!--
   MkDocs version      : 0.16.1
-  Docs Build Date UTC : 2017-04-11 18:13:24
+  Docs Build Date UTC : 2017-04-17 23:17:19
   -->
 
 </body>
