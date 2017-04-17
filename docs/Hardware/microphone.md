@@ -48,7 +48,7 @@ Bit Depth: 16 bit
 
 #### 2. How to get microphone data from C++
 
-You can use our lower software layer in C++ calle HAL () (Hardware Abstraction Layer) to read data from the microphones.
+You can use our lower software layer in C++ called HAL () (Hardware Abstraction Layer) to read data from the microphones.
 
 ##### Getting and Compiling HAL
     git clone https://github.com/matrix-io/matrix-creator-hal.git
