@@ -1,8 +1,8 @@
 ## Computer Vision
-MATRIX OS is designed to integrate with computer vision in a powerful and robust way. You can use computer vision output to drive hardware behavior, or capture the data for further analysis.
+MATRIX OS is designed to integrate with computer vision in a powerful and robust way. You can use computer vision output to drive behavior, capture data for further analysis or anything you want!
 
 ## Example
-From (faceTest MATRIX App)[http://apps.matrix.one/#!/apps/facetest]
+From [faceTest MATRIX App](http://apps.matrix.one/#!/apps/facetest)
 ```
 matrix.led('red').render();
 
@@ -15,7 +15,7 @@ matrix.service('face').start().then(function(data){
 ```
 
 ## Configuration
-To facilitate communication with the hardware, define CV services must be defined in `config.yaml` before they will be available to your application.
+To facilitate communication with the hardware,  CV services must be defined in `config.yaml` before they will be available to your application.
 
 ```
 services:
@@ -26,28 +26,36 @@ services:
 
 See [Services](../Configuration/services.md) for more information
 
-## Initialization
+## matrix.service
 ```
-# app.js
-var algorithm = 'face';
-var options   = {};
-matrix.service( algorithm, options ).start().then(function( data ){
-  // your CV detection data will be available here
-  console.log( data );
-});
+matrix.service( algorithm, options )
 ```
 
-### options
+### `algorithm`
+`face` - triggers when it sees a face shape
+`fist` - gesture recognition for a closed fist
+`palm` - gesture recognition for an open palm
 
+### `options`
 `refresh` - how many seconds before restarting the detection, default: 3
-
 `timeout` - if there is no detection, stop after this many seconds, default: none
 
-## Algorithms
+### start()
+Starts a given CV algorithm with provided options.
+```
+matrix.service( algorithm, options ).start()
+```
 
-### Basic
-`face`,`fist`,`palm`, `fist`
 
+### stop()
+Stops running a CV algorithm.
+```
+var s = matrix.service( algorithm, options ).start();
+s.stop();
+
+//or
+matrix.service(algorithm).stop();
+```
 <!--
 `blob`, `color`
 
@@ -59,22 +67,68 @@ matrix.service( algorithm, options ).start().then(function( data ){
 `person-count` -->
 
 
-### Basic Data Format
-`palm`, `face` and `fist` output - `matrix.service('palm')`
-Returning tags: `HAND_PALM`, `HAND_FIST`, `FADE`
+### .then()
+Returns the data, `Promise` style.
 
+`palm`, `face` and `fist` have associated tags
+
+Returns `tag`: `HAND_PALM`, `HAND_FIST`, or`FACE`
+
+#### Example
 ```
 {
-  location: { x: 333, y: 237, width: 55, height: 55 },
+  location: {
+   x: 333,
+   y: 237,
+   width: 55,
+   height: 55
+  },
   tag: 'HAND_PALM'
 }
 ```
 
-## Extended Algorithms
+### Complete Example
+```
+# app.js
+var algorithm = 'face';
+var options   = {};
+matrix.service( algorithm, options ).start().then(function( data ){
+  // your CV detection data will be available here
+  console.log( data );
+});
+```
+
+## Extended Face Analytics
+Use `demographics` for the service call and in `config>services>name>engine`
+
+### Example Config.yaml
+```
+services:
+  facelytics:
+    engine: demographics
+    type: face
+```
+
 `demographics` - `matrix.service('demographics')`
-`recognition` - `matrix.service('recognition')`
+
 
 ### Extended Face Data Format
+
+#### emotions
+`HAPPY`
+
+`SAD`
+
+`CONFUSED`
+
+`ANGRY`
+
+`CALM`
+
+`SURPRISED`
+
+`DISGUST`
+
 #### Demographics Output
 ```
 { location: { x: 213, y: 221, width: 55, height: 55 },
@@ -90,37 +144,40 @@ Returning tags: `HAND_PALM`, `HAND_FIST`, `FADE`
     face_id: '4' } }
 ```
 
-#### emotions
-`HAPPY`
-`SAD`
-`CONFUSED`
-`ANGRY`
-`CALM`
-`SURPRISED`
-`DISGUST`
 
 
 ### Recognition
+`recognition` - `matrix.service('recognition')`
+
 
 MATRIX OS includes face recognition which turns a face into a series of numbers which can be used to identify the face when it is seen later. We do not store face images, just the numbers.
 
 Recognition only works from > ~4 ft away. Removing hats and glasses will result in more accurate results.
 
-#### Training mode
-By default, `recognition` works in `RECOGNITION` mode. Without training, however, this is not useful. Enable `TRAIN` mode by passing `train: true` as an option.
+### Example Config.yaml
+```
+services:
+  faceRecog:
+    engine: recognition
+    type: face
+```
+
+By default, `recognition` works in `RECOGNITION` mode. Recognition requires training first.
+#### train()
 
 ```
 matrix.service('recognition').train('test').then(function(data) { ... });
 ```
 This will associate a face with a particular tag. The data which is passed to `then` are uuid's internal to MATRIX and not particularly useful, but you could use the callback for other reasons.
 
-#### Recognition mode
+#### start()
 After training, you can enable normal recognition as follows.
 ```
 matrix.service('recognition').start().then(function(data){...})
 ```
 
-#### Recognition Output
+#### then()
+Outputs a collection of tags and scores.
 ```
 [{ tags : ['tagName'], score: 0.8 }, {...}]
 ```

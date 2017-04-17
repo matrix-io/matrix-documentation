@@ -7,7 +7,7 @@ A powerful tool for communicating with end users is the EverLoop LED circle.
 MatrixOS is an attempt at abstracting out the complexity of hardware to make it very accessible for end users. At the same time, one also wants to support those who might want to perform more complex operations. When designing a language, sometimes compromises between ease of use and features must be made.
 
 #### The problem
-Many things might want to write to the LED. We can leave it up to chance as to which gets to write, or we can approach it intelligently to optimize the aesthetics and performance. We also want to be able to manage and optimize LED transformations from a system level. Normally, MATRIX OS enables very fast communication with the hardware and tries to get out of the way as much as possible. For LEDS, we still get out of the way, but we need to blend all the input from different applications, otherwise this creates flicker. So we need a special channel and notation just for leds.
+Many things might want to write to the LED. We can leave it up to chance as to which gets to write, or we can approach it intelligently to optimize the aesthetics and performance. We also want to be able to manage and optimize LED transformations from a system level. Normally, MATRIX OS enables very fast communication with the hardware and tries to get out of the way as much as possible. For LEDS, we still get out of the way, but we need to blend all the input from different applications, otherwise this creates flicker as multiple applications compete for the same light indices. To discretely manage this, we created a special channel and notation just for leds.
 
 #### The Solution
 ```
@@ -34,21 +34,34 @@ Further examples omit the `render` for readability.
 ## Intermediate Operation
 ### Object Notation - Shape Generators
 
-Shapes are the fastest way to get started with Everloop. We are always building, [let us know](http://community.matrix.one/) what shapes you want us to work on next!
+Shape objects `{Shape}` are the fastest way to get started with Everloop. We are always building, [let us know](http://community.matrix.one/) what shapes you want us to work on next!
 
-### Available Shapes
-```
-arc - number of degrees to draw an arc, important for smile faces, supports negative values
-  arc supports a `start` property to define which light is the start point
-fade - similiar to arc, except lights fade out
-angle - draw a single light at this degree point
-```
+The object creation is simple, you combine global properties with specific properties into a single object that controls a single generator. To draw multiple shapes, see Multiple Shapes below.
 
-### Global Properties
+### Global Shape Properties
+Every Shape object must include a `color` property to render.
 ```
 color - color strings, as specified above
 blend - mix lights to make angle positioning more precise
 spin - number of degrees by which to spin the hue ( 0 - 360 )
+start - ( arc only ), start light index
+```
+
+
+### Available Shapes
+Include one of these properties to enable the shape generator.
+```
+arc - number of degrees to draw an arc, important for smile faces, supports negative values
+fade - similiar to arc, except lights fade out
+angle - draw a single light at this degree point
+```
+
+#### Example Shape Object
+```
+{
+  color: 'red'
+  angle: 90
+}
 ```
 
 ### Chaining Operations
@@ -61,7 +74,7 @@ darken(steps) - darken light by this many steps ( 0 - 10 )
 // brighten / darken are expensive operations and may not be suitable for rapidly updating displays
 ```
 
-### Multiple shapes and colors
+### Multiple shapes and pixel drawing
 Use an array to include multiple shapes. Color strings can also be included and will be drawn as a single light whose index matches the strings index in the array provided.
 
 ## Examples
@@ -154,4 +167,4 @@ setInterval(function(){
 ```
 
 ## Advanced Use
-Enable `SUN_MODE=true` as a flag when launching MATRIX OS to turn on the white LEDs (and the luminence calculations)
+Enable `SUN_MODE=true` as a flag when launching MATRIX OS to turn on the white LEDs (and the luminence calculations). Wear sunglasses or use another mode of protecting your eyes when using this while developing. It is intended for use behind coverings.
