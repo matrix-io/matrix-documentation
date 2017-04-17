@@ -59,7 +59,7 @@ You can use our lower software layer in C++ calle HAL () (Hardware Abstraction L
 
 ##### Example code
 
-In the following example gets all the samples collected by the fpga in the buffer.  
+In the following example gets samples from channles (mics) collected by the fpga in the buffer a time.  
 
     ... 
     int main() {
@@ -77,13 +77,10 @@ In the following example gets all the samples collected by the fpga in the buffe
             magnitude = 0.0;
             for (unsigned int s = 0; s < mics.NumberOfSamples(); s++) {
                 for (unsigned int c = 0; c < mics.Channels(); c++) {
-                  magnitude[c] += mics.At(s, c);
+                  magnitude[c] = mics.At(s, c);
+                  std::cout <<  m << "\t";
                 }
-                for (auto& m : magnitude) {
-                  m = m / (float)mics.NumberOfSamples();
-                  std::cout <<  abs(m) << "\t";
-                }
-              std::cout << std::endl;
+                std::cout << std::endl;
             }
         }
         return 0;
