@@ -59,7 +59,7 @@ You can use our lower software layer in C++ calle HAL () (Hardware Abstraction L
 
 ##### Example code
 
-In the following example gets samples from channles (mics) collected by the fpga in the buffer a time.  
+The following example gets samples from all channels (mics) collected by the fpga.  
 
     ... 
     int main() {
