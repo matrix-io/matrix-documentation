@@ -39,10 +39,10 @@ from the [creator.ucf](https://github.com/matrix-io/matrix-creator-fpga/blob/mas
 Sample Rate: 16 kHz
 Bit Depth: 16 bit
 
-**Note**: An option for setting higher sample rates will be released soon.  Please keep in touch in the community annoucements channel http://community.matrix.one/c/announcements.
+**Note**: An option for setting higher sample rates will be released soon.  Please keep in touch in the community announcements channel http://community.matrix.one/c/announcements.
 
 
-##### Datasheet:
+##### Microphones Datasheet:
 
 [MP34DB02 - MEMS audio sensor omnidirectional digital microphone](http://www.st.com/content/ccc/resource/technical/document/datasheet/57/af/88/31/7b/59/4f/77/DM00111225.pdf/files/DM00111225.pdf/jcr:content/translations/en.DM00111225.pdf) 
 
@@ -79,7 +79,6 @@ In the following example gets all the samples collected by the fpga in the buffe
                 for (unsigned int c = 0; c < mics.Channels(); c++) {
                   magnitude[c] += mics.At(s, c);
                 }
-              
                 for (auto& m : magnitude) {
                   m = m / (float)mics.NumberOfSamples();
                   std::cout <<  abs(m) << "\t";
@@ -97,7 +96,7 @@ The demo apps are in the folder `matrix-creator-hal/demos/` . They are built wit
     cd build/demos
     ./mic_demo
 
-note: You can play with the demos to lear how to use HAL, and them use them as starting points for your own apps.
+note: You can play with the demos to learn how to use HAL, and them use them as starting points for your own apps.
 
 ##### mic_demo
 This demo maps each mic audio input to one specific led on the Everloop. You can make sounds close to the MATRIX Creator and see how the LEDs turn green when a sound is detected. Also the demo prints in the terminal the audio as numbers, e.g.:
@@ -130,7 +129,7 @@ This demo records audio from all 8 channels (0-7) and the beamforming channel (c
     cd build/demos
     ./micarray_recorder
 
-The default example records audio to raw files for 10 seconds and them stops. After recording the files are on the same folder `/demos` :
+The default example records audio to raw files for 10 seconds and then stops. After recording the files are on the same folder `/demos` :
 
     cd build/demos
     ls | grep raw
