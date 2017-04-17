@@ -78,7 +78,7 @@ In the following example gets samples from channles (mics) collected by the fpga
             for (unsigned int s = 0; s < mics.NumberOfSamples(); s++) {
                 for (unsigned int c = 0; c < mics.Channels(); c++) {
                   magnitude[c] = mics.At(s, c);
-                  std::cout <<  m << "\t";
+                  std::cout <<  magnitude[c] << "\t";
                 }
                 std::cout << std::endl;
             }
