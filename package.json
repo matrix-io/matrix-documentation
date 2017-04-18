@@ -1,0 +1,21 @@
+{
+  "name": "matrix-documentation",
+  "version": "1.0.0",
+  "description": "MATRIX Documentation uses [MkDocs](http://www.mkdocs.org/) to format and compile Markdown into a HTML site.",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "deploy": "mkdocs gh-deploy --clean"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/matrix-io/matrix-documentation.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/matrix-io/matrix-documentation/issues"
+  },
+  "homepage": "https://github.com/matrix-io/matrix-documentation#readme"
+}
