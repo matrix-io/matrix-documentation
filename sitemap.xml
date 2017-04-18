@@ -4,7 +4,7 @@
     
     <url>
      <loc>/</loc>
-     <lastmod>2017-04-17</lastmod>
+     <lastmod>2017-04-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -12,7 +12,7 @@
     
     <url>
      <loc>/upgrades/</loc>
-     <lastmod>2017-04-17</lastmod>
+     <lastmod>2017-04-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -21,37 +21,37 @@
         
     <url>
      <loc>/CLI/overview/</loc>
-     <lastmod>2017-04-17</lastmod>
+     <lastmod>2017-04-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/CLI/installation/</loc>
-     <lastmod>2017-04-17</lastmod>
+     <lastmod>2017-04-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/CLI/apps/</loc>
-     <lastmod>2017-04-17</lastmod>
+     <lastmod>2017-04-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/CLI/device/</loc>
-     <lastmod>2017-04-17</lastmod>
+     <lastmod>2017-04-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/CLI/example/</loc>
-     <lastmod>2017-04-17</lastmod>
+     <lastmod>2017-04-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/intro/cli-troubleshooting/</loc>
-     <lastmod>2017-04-17</lastmod>
+     <lastmod>2017-04-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -61,13 +61,13 @@
         
     <url>
      <loc>/API/overview/</loc>
-     <lastmod>2017-04-17</lastmod>
+     <lastmod>2017-04-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/intro/app-publishing/</loc>
-     <lastmod>2017-04-17</lastmod>
+     <lastmod>2017-04-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -85,7 +85,7 @@
         
     <url>
      <loc>/intro/matrix-troubleshooting/</loc>
-     <lastmod>2017-04-17</lastmod>
+     <lastmod>2017-04-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -95,13 +95,13 @@
         
     <url>
      <loc>/Reference/creator/</loc>
-     <lastmod>2017-04-17</lastmod>
+     <lastmod>2017-04-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/Reference/voice/</loc>
-     <lastmod>2017-04-17</lastmod>
+     <lastmod>2017-04-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -119,37 +119,37 @@
         
     <url>
      <loc>/Reference/pinout/</loc>
-     <lastmod>2017-04-17</lastmod>
+     <lastmod>2017-04-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/Hardware/fpga/</loc>
-     <lastmod>2017-04-17</lastmod>
+     <lastmod>2017-04-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/Hardware/Sam3/</loc>
-     <lastmod>2017-04-17</lastmod>
+     <lastmod>2017-04-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/Hardware/sam3mcu-programming/</loc>
-     <lastmod>2017-04-17</lastmod>
+     <lastmod>2017-04-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/Hardware/microphone/</loc>
-     <lastmod>2017-04-17</lastmod>
+     <lastmod>2017-04-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/Hardware/SPI/</loc>
-     <lastmod>2017-04-17</lastmod>
+     <lastmod>2017-04-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -159,7 +159,7 @@
         
     <url>
      <loc>/Demos/Alexa/</loc>
-     <lastmod>2017-04-17</lastmod>
+     <lastmod>2017-04-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -168,7 +168,7 @@
     
     <url>
      <loc>/dictionary/</loc>
-     <lastmod>2017-04-17</lastmod>
+     <lastmod>2017-04-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
