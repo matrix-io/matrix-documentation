@@ -2,6 +2,8 @@
 
 A powerful tool for communicating with end users is the EverLoop LED circle.
 
+[![Everloop Tutorial](https://img.youtube.com/vi/L4btaqw4HqM/0.jpg)](https://www.youtube.com/watch?v=L4btaqw4HqM)
+
 ## Rendering
 
 MatrixOS is an attempt at abstracting out the complexity of hardware to make it very accessible for end users. At the same time, one also wants to support those who might want to perform more complex operations. When designing a language, sometimes compromises between ease of use and features must be made.
