@@ -917,13 +917,18 @@
         }, 
         {
             "location": "/API/ir/", 
-            "text": "Still working out the precise API for this. Stay tuned.\n\n\nSending IR Commands as a remote control\n\n\nmatrix.ir(make, model).send( command )", 
+            "text": "Sending IR Commands as a remote control\n\n\nWe will offer a more precise way to send and recieve information over IR. Right now, we have implemented remote emulation.\n\n\nFind the remote you want to use at the \nLIRC Remote Table\n.\n\n\nOpen the \n.conf\n file and take note of the \ncodes\n. These will replicate a button press and blast a signal out the IR transmitters. \n\n\nExample\n\n\nmatrix.ir('SONY', 'RM-833').send('KEY_POWER')", 
             "title": "IR TX/RX"
         }, 
         {
             "location": "/API/ir/#sending-ir-commands-as-a-remote-control", 
-            "text": "matrix.ir(make, model).send( command )", 
+            "text": "We will offer a more precise way to send and recieve information over IR. Right now, we have implemented remote emulation.  Find the remote you want to use at the  LIRC Remote Table .  Open the  .conf  file and take note of the  codes . These will replicate a button press and blast a signal out the IR transmitters.", 
             "title": "Sending IR Commands as a remote control"
+        }, 
+        {
+            "location": "/API/ir/#example", 
+            "text": "matrix.ir('SONY', 'RM-833').send('KEY_POWER')", 
+            "title": "Example"
         }, 
         {
             "location": "/API/nfc/", 

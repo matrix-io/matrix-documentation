@@ -702,6 +702,9 @@
               <li class="list-group-item"><a href="#sending-ir-commands-as-a-remote-control">Sending IR Commands as a remote control</a></li>
               
           
+              <li class="list-group-item"><a href="#example">Example</a></li>
+              
+          
           </ul>
 
           
@@ -709,10 +712,12 @@
       </div>
       <div class="col-md-10">
         
-          <p>Still working out the precise API for this. Stay tuned.</p>
-<h3 id="sending-ir-commands-as-a-remote-control">Sending IR Commands as a remote control</h3>
-<pre><code>matrix.ir(make, model).send( command )
-
+          <h3 id="sending-ir-commands-as-a-remote-control">Sending IR Commands as a remote control</h3>
+<p>We will offer a more precise way to send and recieve information over IR. Right now, we have implemented remote emulation.</p>
+<p>Find the remote you want to use at the <a href="http://lirc-remotes.sourceforge.net/remotes-table.html">LIRC Remote Table</a>.</p>
+<p>Open the <code>.conf</code> file and take note of the <code>codes</code>. These will replicate a button press and blast a signal out the IR transmitters. </p>
+<h3 id="example">Example</h3>
+<pre><code>matrix.ir('SONY', 'RM-833').send('KEY_POWER')
 </code></pre>
         
       </div>
@@ -721,7 +726,7 @@
 
   <!--
   MkDocs version      : 0.16.1
-  Docs Build Date UTC : 2017-04-20 18:10:35
+  Docs Build Date UTC : 2017-04-20 21:44:36
   -->
 
 </body>
