@@ -2,7 +2,9 @@
 
 A powerful tool for communicating with end users is the EverLoop LED circle.
 
-[![Everloop Tutorial](http://imgur.com/xArmW9G.jpg)](https://www.youtube.com/watch?v=L4btaqw4HqM)
+<a href="https://www.youtube.com/watch?v=L4btaqw4HqM
+" target="_blank"><img src="http://imgur.com/xArmW9G.jpg" 
+alt="Everloop Tutorial" width="945" height="548" border="10" /></a>
 
 ## Rendering
 
