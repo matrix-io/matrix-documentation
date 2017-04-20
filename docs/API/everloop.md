@@ -2,9 +2,7 @@
 
 A powerful tool for communicating with end users is the EverLoop LED circle.
 
-<a href="https://www.youtube.com/watch?v=L4btaqw4HqM
-" target="_blank"><img src="https://github.com/matrix-io/matrix-documentation/blob/master/docs/Configuration/img/everloop-image.png" 
-alt="Everloop Tutorial" width="945" height="548" border="10" /></a>
+[![Everloop Tutorial](img/everloop-image.png)](https://www.youtube.com/watch?v=L4btaqw4HqM)
 
 ## Rendering
 
