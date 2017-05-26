@@ -677,7 +677,7 @@
         }, 
         {
             "location": "/API/computer-vision/", 
-            "text": "Computer Vision\n\n\nMATRIX OS is designed to integrate with computer vision in a powerful and robust way. You can use computer vision output to drive behavior, capture data for further analysis or anything you want!\n\n\nExample\n\n\nFrom \nfaceTest MATRIX App\n\n\nmatrix.led('red').render();\n\nmatrix.service('face').start().then(function(data){\n  matrix.led('green').render();\n  setTimeout(function() {\n    matrix.led('black').render();\n  },2000);\n});\n\n\n\n\nConfiguration\n\n\nTo facilitate communication with the hardware,  CV services must be defined in \nconfig.yaml\n before they will be available to your application.\n\n\nservices:\n  faceDetection:\n    engine: detection\n    type: face\n\n\n\n\nSee \nServices\n for more information\n\n\nmatrix.service\n\n\nmatrix.service( algorithm, options )\n\n\n\n\nalgorithm\n\n\nface\n - triggers when it sees a face shape\n\nfist\n - gesture recognition for a closed fist\n\npalm\n - gesture recognition for an open palm\n\n\noptions\n\n\nrefresh\n - how many seconds before restarting the detection, default: 3\n\ntimeout\n - if there is no detection, stop after this many seconds, default: none\n\n\nstart()\n\n\nStarts a given CV algorithm with provided options.\n\n\nmatrix.service( algorithm, options ).start()\n\n\n\n\nstop()\n\n\nStops running a CV algorithm.\n\n\nvar s = matrix.service( algorithm, options ).start();\ns.stop();\n\n//or\nmatrix.service(algorithm).stop();\n\n\n\n\n\n\n\n.then()\n\n\nReturns the data, \nPromise\n style.\n\n\npalm\n, \nface\n and \nfist\n have associated tags\n\n\nReturns \ntag\n: \nHAND_PALM\n, \nHAND_FIST\n, or\nFACE\n\n\nExample\n\n\n{\n  location: {\n   x: 333,\n   y: 237,\n   width: 55,\n   height: 55\n  },\n  tag: 'HAND_PALM'\n}\n\n\n\n\nComplete Example\n\n\n# app.js\nvar algorithm = 'face';\nvar options   = {};\nmatrix.service( algorithm, options ).start().then(function( data ){\n  // your CV detection data will be available here\n  console.log( data );\n});\n\n\n\n\nExtended Face Analytics\n\n\nUse \ndemographics\n for the service call and in \nconfig\nservices\nname\nengine\n\n\nExample Config.yaml\n\n\nservices:\n  facelytics:\n    engine: demographics\n    type: face\n\n\n\n\ndemographics\n - \nmatrix.service('demographics')\n\n\nExtended Face Data Format\n\n\nemotions\n\n\nHAPPY\n\n\nSAD\n\n\nCONFUSED\n\n\nANGRY\n\n\nCALM\n\n\nSURPRISED\n\n\nDISGUST\n\n\nDemographics Output\n\n\n{ location: { x: 213, y: 221, width: 55, height: 55 },\n tag: 'FACE',\n demographics:\n  { gender: 'MALE',\n    emotion: 'CALM',\n    age: 35,\n    pose:\n     { yaw: -0.24303536117076874,\n       roll: 0.04344254732131958,\n       pitch: -0.10279278457164764 },\n    face_id: '4' } }\n\n\n\n\nRecognition\n\n\nrecognition\n - \nmatrix.service('recognition')\n\n\nMATRIX OS includes face recognition which turns a face into a series of numbers which can be used to identify the face when it is seen later. We do not store face images, just the numbers.\n\n\nRecognition only works from \n ~4 ft away. Removing hats and glasses will result in more accurate results.\n\n\nExample Config.yaml\n\n\nservices:\n  faceRecog:\n    engine: recognition\n    type: face\n\n\n\n\nBy default, \nrecognition\n works in \nRECOGNITION\n mode. Recognition requires training first.\n\n\ntrain()\n\n\nmatrix.service('recognition').train('test').then(function(data) { ... });\n\n\n\n\nThis will associate a face with a particular tag. The data which is passed to \nthen\n are uuid's internal to MATRIX and not particularly useful, but you could use the callback for other reasons.\n\n\nstart()\n\n\nAfter training, you can enable normal recognition as follows.\n\n\nmatrix.service('recognition').start().then(function(data){...})\n\n\n\n\nthen()\n\n\nOutputs a collection of tags and scores.\n\n\n[{ tags : ['tagName'], score: 0.8 }, {...}]\n\n\n\n\ntags\n are the tags matched with each recognition. \nscore\n is the measure of a match, lower numbers are better. \n 0.8\n is a good metric to use for recognition.", 
+            "text": "Computer Vision\n\n\nMATRIX OS is designed to integrate with computer vision in a powerful and robust way. You can use computer vision output to drive behavior, capture data for further analysis or anything you want!\n\n\nExample\n\n\nFrom \nfaceTest MATRIX App\n\n\nmatrix.led('red').render();\n\nmatrix.service('face').start().then(function(data){\n  matrix.led('green').render();\n  setTimeout(function() {\n    matrix.led('black').render();\n  },2000);\n});\n\n\n\n\nConfiguration\n\n\nTo facilitate communication with the hardware,  CV services must be defined in \nconfig.yaml\n before they will be available to your application.\n\n\nservices:\n  faceDetection:\n    engine: detection\n    type: face\n\n\n\n\nSee \nServices\n for more information\n\n\nmatrix.service\n\n\nThe base \nmatrix.service\n command is how you access computer vision services.\n\n\nmatrix.service( algorithm, options )\n\n\n\n\nbasic algorithms\n\n\nface\n - triggers when it sees a face shape\n\n\nfist\n - gesture recognition for a closed fist\n\n\npalm\n - gesture recognition for an open palm\n\n\noptions\n\n\nrefresh\n - how many seconds before restarting the detection, default: 3\n\n\ntimeout\n - if there is no detection, stop after this many seconds, default: none\n\n\nstart()\n\n\nStarts a given CV algorithm with provided options.\n\n\nmatrix.service( algorithm, options ).start()\n\n\n\n\nstop()\n\n\nStops running a CV algorithm.\n\n\nvar s = matrix.service( algorithm, options ).start();\ns.stop();\n\n//or\nmatrix.service(algorithm).stop();\n\n\n\n\n\n\n\n.then()\n\n\nReturns the data, \nPromise\n style.\n\n\npalm\n, \nface\n and \nfist\n have associated tags\n\n\nReturns \ntag\n: \nHAND_PALM\n, \nHAND_FIST\n, or\nFACE\n\n\nExample\n\n\n{\n  location: {\n   x: 333,\n   y: 237,\n   width: 55,\n   height: 55\n  },\n  tag: 'HAND_PALM'\n}\n\n\n\n\nComplete Example\n\n\n# app.js\nvar algorithm = 'face';\nvar options   = {};\nmatrix.service( algorithm, options ).start().then(function( data ){\n  // your CV detection data will be available here\n  console.log( data );\n});\n\n\n\n\nAdvanced Algorithms\n\n\ndemographics\n - age, gender and emotion detection\n\n\nrecognition\n - facial recognition\n\n\nExtended Face Analytics\n\n\nUse \ndemographics\n for the service call and in \nconfig\nservices\nname\nengine\n\n\nExample Config.yaml\n\n\nservices:\n  facelytics:\n    engine: demographics\n    type: face\n\n\n\n\nExample app.js\n\n\nmatrix.service('demographics').start().then(function(output){\n  // see output below\n});\n\n\n\n\nDemographics Output\n\n\n{ location: { x: 213, y: 221, width: 55, height: 55 },\n tag: 'FACE',\n demographics:\n  { gender: 'MALE',\n    emotion: 'CALM',\n    age: 25,\n    pose:\n     { yaw: -0.24303536117076874,\n       roll: 0.04344254732131958,\n       pitch: -0.10279278457164764 },\n    face_id: '4' } }\n\n\n\n\navailable emotions\n\n\nHAPPY\n\n\nSAD\n\n\nCONFUSED\n\n\nANGRY\n\n\nCALM\n\n\nSURPRISED\n\n\nDISGUST\n\n\nRecognition\n\n\nrecognition\n - \nmatrix.service('recognition')\n\n\nMATRIX OS includes face recognition which turns a face into a series of numbers which can be used to identify the face when it is seen later. We do not store face images, just the numbers.\n\n\nRecognition only works from \n ~4 ft away. Removing hats and glasses will result in more accurate results.\n\n\nExample Config.yaml\n\n\nservices:\n  faceRecog:\n    engine: recognition\n    type: face\n\n\n\n\nExample app.js\n\n\nmatrix.service('recognition').start()\n\n\n\n\nBy default, \nrecognition\n works in \nRECOGNITION\n mode. Recognition requires training first.\n\n\ntrain()\n\n\nmatrix.service('recognition').train('test').then(function(data) { ... });\n\n\n\n\nThis will associate a face with a particular tag. \n\n\nTraining Data Response\n\n\n{ \n  // number of trains performed\n  count: 2,\n  // number of trains desired\n  target: 7,\n  uuids: [...]\n}\n\n\n\n\nTraining Data Example\n\n\nThis will render a progress arc as training is completed.\n\n\nmatrix.service('recognition').train('test').then(function(d) {\n  matrix.led({\n    arc: Math.round(360 * (d.count / d.target)),\n    color: 'blue',\n    start: 0\n  }).render();\n});\n\n\n\n\nstart()\n\n\nAfter training, you can enable normal recognition as follows.\n\n\nmatrix.service('recognition').start().then(function(data){...})\n\n\n\n\nRecognition Training Response\n\n\nOutputs a collection of tags and scores.\n\n\n[{ tags : ['tagName'], score: 0.8 }, {...}]\n\n\n\n\ntags\n are the tags matched with each recognition. \nscore\n is the measure of a match, lower numbers are better. \n 0.8\n is a good metric to use for recognition.\n\n\nRecognition Example\n\n\n\nmatrix.service('recognition').start().then(function(data){...})\n// select the best match out of all the responses\n    var faces = _.values(d.matches);\n    faces = _.sortBy(faces, ['score'])[0];\n\n// if it passes a threshold, show green, otherwise show red\n    if (MinDistanceFace.score \n 0.85) {\n      matrix.led('green').render();\n    } else {\n      matrix.led('red').render();\n    }\n});\n\n\n\n\nStop()\n\n\nIf you need to explicitly stop a service, simply pass a \nstop()\n chained method.\n\n\nmatrix.service('recognition').stop()\n\n\n\n\nPlease note, that while this will tell the service to stop working, data may still trigger callbacks for a few seconds more.", 
             "title": "Computer Vision"
         }, 
         {
@@ -697,17 +697,17 @@
         }, 
         {
             "location": "/API/computer-vision/#matrixservice", 
-            "text": "matrix.service( algorithm, options )", 
+            "text": "The base  matrix.service  command is how you access computer vision services.  matrix.service( algorithm, options )", 
             "title": "matrix.service"
         }, 
         {
-            "location": "/API/computer-vision/#algorithm", 
-            "text": "face  - triggers when it sees a face shape fist  - gesture recognition for a closed fist palm  - gesture recognition for an open palm", 
-            "title": "algorithm"
+            "location": "/API/computer-vision/#basic-algorithms", 
+            "text": "face  - triggers when it sees a face shape  fist  - gesture recognition for a closed fist  palm  - gesture recognition for an open palm", 
+            "title": "basic algorithms"
         }, 
         {
             "location": "/API/computer-vision/#options", 
-            "text": "refresh  - how many seconds before restarting the detection, default: 3 timeout  - if there is no detection, stop after this many seconds, default: none", 
+            "text": "refresh  - how many seconds before restarting the detection, default: 3  timeout  - if there is no detection, stop after this many seconds, default: none", 
             "title": "options"
         }, 
         {
@@ -736,29 +736,34 @@
             "title": "Complete Example"
         }, 
         {
+            "location": "/API/computer-vision/#advanced-algorithms", 
+            "text": "demographics  - age, gender and emotion detection  recognition  - facial recognition", 
+            "title": "Advanced Algorithms"
+        }, 
+        {
             "location": "/API/computer-vision/#extended-face-analytics", 
             "text": "Use  demographics  for the service call and in  config services name engine", 
             "title": "Extended Face Analytics"
         }, 
         {
             "location": "/API/computer-vision/#example-configyaml", 
-            "text": "services:\n  facelytics:\n    engine: demographics\n    type: face  demographics  -  matrix.service('demographics')", 
+            "text": "services:\n  facelytics:\n    engine: demographics\n    type: face", 
             "title": "Example Config.yaml"
         }, 
         {
-            "location": "/API/computer-vision/#extended-face-data-format", 
-            "text": "", 
-            "title": "Extended Face Data Format"
-        }, 
-        {
-            "location": "/API/computer-vision/#emotions", 
-            "text": "HAPPY  SAD  CONFUSED  ANGRY  CALM  SURPRISED  DISGUST", 
-            "title": "emotions"
+            "location": "/API/computer-vision/#example-appjs", 
+            "text": "matrix.service('demographics').start().then(function(output){\n  // see output below\n});", 
+            "title": "Example app.js"
         }, 
         {
             "location": "/API/computer-vision/#demographics-output", 
-            "text": "{ location: { x: 213, y: 221, width: 55, height: 55 },\n tag: 'FACE',\n demographics:\n  { gender: 'MALE',\n    emotion: 'CALM',\n    age: 35,\n    pose:\n     { yaw: -0.24303536117076874,\n       roll: 0.04344254732131958,\n       pitch: -0.10279278457164764 },\n    face_id: '4' } }", 
+            "text": "{ location: { x: 213, y: 221, width: 55, height: 55 },\n tag: 'FACE',\n demographics:\n  { gender: 'MALE',\n    emotion: 'CALM',\n    age: 25,\n    pose:\n     { yaw: -0.24303536117076874,\n       roll: 0.04344254732131958,\n       pitch: -0.10279278457164764 },\n    face_id: '4' } }", 
             "title": "Demographics Output"
+        }, 
+        {
+            "location": "/API/computer-vision/#available-emotions", 
+            "text": "HAPPY  SAD  CONFUSED  ANGRY  CALM  SURPRISED  DISGUST", 
+            "title": "available emotions"
         }, 
         {
             "location": "/API/computer-vision/#recognition", 
@@ -767,13 +772,28 @@
         }, 
         {
             "location": "/API/computer-vision/#example-configyaml_1", 
-            "text": "services:\n  faceRecog:\n    engine: recognition\n    type: face  By default,  recognition  works in  RECOGNITION  mode. Recognition requires training first.", 
+            "text": "services:\n  faceRecog:\n    engine: recognition\n    type: face", 
             "title": "Example Config.yaml"
         }, 
         {
+            "location": "/API/computer-vision/#example-appjs_1", 
+            "text": "matrix.service('recognition').start()  By default,  recognition  works in  RECOGNITION  mode. Recognition requires training first.", 
+            "title": "Example app.js"
+        }, 
+        {
             "location": "/API/computer-vision/#train", 
-            "text": "matrix.service('recognition').train('test').then(function(data) { ... });  This will associate a face with a particular tag. The data which is passed to  then  are uuid's internal to MATRIX and not particularly useful, but you could use the callback for other reasons.", 
+            "text": "matrix.service('recognition').train('test').then(function(data) { ... });  This will associate a face with a particular tag.", 
             "title": "train()"
+        }, 
+        {
+            "location": "/API/computer-vision/#training-data-response", 
+            "text": "{ \n  // number of trains performed\n  count: 2,\n  // number of trains desired\n  target: 7,\n  uuids: [...]\n}", 
+            "title": "Training Data Response"
+        }, 
+        {
+            "location": "/API/computer-vision/#training-data-example", 
+            "text": "This will render a progress arc as training is completed.  matrix.service('recognition').train('test').then(function(d) {\n  matrix.led({\n    arc: Math.round(360 * (d.count / d.target)),\n    color: 'blue',\n    start: 0\n  }).render();\n});", 
+            "title": "Training Data Example"
         }, 
         {
             "location": "/API/computer-vision/#start_1", 
@@ -781,9 +801,19 @@
             "title": "start()"
         }, 
         {
-            "location": "/API/computer-vision/#then_1", 
+            "location": "/API/computer-vision/#recognition-training-response", 
             "text": "Outputs a collection of tags and scores.  [{ tags : ['tagName'], score: 0.8 }, {...}]  tags  are the tags matched with each recognition.  score  is the measure of a match, lower numbers are better.   0.8  is a good metric to use for recognition.", 
-            "title": "then()"
+            "title": "Recognition Training Response"
+        }, 
+        {
+            "location": "/API/computer-vision/#recognition-example", 
+            "text": "matrix.service('recognition').start().then(function(data){...})\n// select the best match out of all the responses\n    var faces = _.values(d.matches);\n    faces = _.sortBy(faces, ['score'])[0];\n\n// if it passes a threshold, show green, otherwise show red\n    if (MinDistanceFace.score   0.85) {\n      matrix.led('green').render();\n    } else {\n      matrix.led('red').render();\n    }\n});", 
+            "title": "Recognition Example"
+        }, 
+        {
+            "location": "/API/computer-vision/#stop_1", 
+            "text": "If you need to explicitly stop a service, simply pass a  stop()  chained method.  matrix.service('recognition').stop()  Please note, that while this will tell the service to stop working, data may still trigger callbacks for a few seconds more.", 
+            "title": "Stop()"
         }, 
         {
             "location": "/API/microphone/", 
