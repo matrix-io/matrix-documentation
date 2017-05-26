@@ -27,18 +27,23 @@ services:
 See [Services](../Configuration/services.md) for more information
 
 ## matrix.service
+The base `matrix.service` command is how you access computer vision services.
 ```
 matrix.service( algorithm, options )
 ```
 
-### `algorithm`
+### basic algorithms
 `face` - triggers when it sees a face shape
+
 `fist` - gesture recognition for a closed fist
+
 `palm` - gesture recognition for an open palm
 
 ### `options`
 `refresh` - how many seconds before restarting the detection, default: 3
+
 `timeout` - if there is no detection, stop after this many seconds, default: none
+
 
 ### start()
 Starts a given CV algorithm with provided options.
@@ -98,6 +103,11 @@ matrix.service( algorithm, options ).start().then(function( data ){
 });
 ```
 
+## Advanced Algorithms
+`demographics` - age, gender and emotion detection
+
+`recognition` - facial recognition
+
 ## Extended Face Analytics
 Use `demographics` for the service call and in `config>services>name>engine`
 
@@ -108,13 +118,30 @@ services:
     engine: demographics
     type: face
 ```
+### Example app.js
 
-`demographics` - `matrix.service('demographics')`
+```
+matrix.service('demographics').start().then(function(output){
+  // see output below
+});
+```
 
+#### Demographics Output
+```
+{ location: { x: 213, y: 221, width: 55, height: 55 },
+ tag: 'FACE',
+ demographics:
+  { gender: 'MALE',
+    emotion: 'CALM',
+    age: 25,
+    pose:
+     { yaw: -0.24303536117076874,
+       roll: 0.04344254732131958,
+       pitch: -0.10279278457164764 },
+    face_id: '4' } }
+```
 
-### Extended Face Data Format
-
-#### emotions
+#### available emotions
 `HAPPY`
 
 `SAD`
@@ -129,20 +156,6 @@ services:
 
 `DISGUST`
 
-#### Demographics Output
-```
-{ location: { x: 213, y: 221, width: 55, height: 55 },
- tag: 'FACE',
- demographics:
-  { gender: 'MALE',
-    emotion: 'CALM',
-    age: 35,
-    pose:
-     { yaw: -0.24303536117076874,
-       roll: 0.04344254732131958,
-       pitch: -0.10279278457164764 },
-    face_id: '4' } }
-```
 
 
 
@@ -161,6 +174,10 @@ services:
     engine: recognition
     type: face
 ```
+### Example app.js
+```
+matrix.service('recognition').start()
+```
 
 By default, `recognition` works in `RECOGNITION` mode. Recognition requires training first.
 #### train()
@@ -168,21 +185,65 @@ By default, `recognition` works in `RECOGNITION` mode. Recognition requires trai
 ```
 matrix.service('recognition').train('test').then(function(data) { ... });
 ```
-This will associate a face with a particular tag. The data which is passed to `then` are uuid's internal to MATRIX and not particularly useful, but you could use the callback for other reasons.
+This will associate a face with a particular tag. 
 
+### Training Data Response
+```
+{ 
+  // number of trains performed
+  count: 2,
+  // number of trains desired
+  target: 7,
+  uuids: [...]
+}
+```
+### Training Data Example
+This will render a progress arc as training is completed.
+```
+matrix.service('recognition').train('test').then(function(d) {
+  matrix.led({
+    arc: Math.round(360 * (d.count / d.target)),
+    color: 'blue',
+    start: 0
+  }).render();
+});
+```
 #### start()
 After training, you can enable normal recognition as follows.
 ```
 matrix.service('recognition').start().then(function(data){...})
 ```
 
-#### then()
+#### Recognition Training Response
 Outputs a collection of tags and scores.
 ```
 [{ tags : ['tagName'], score: 0.8 }, {...}]
 ```
 `tags` are the tags matched with each recognition. `score` is the measure of a match, lower numbers are better. `< 0.8` is a good metric to use for recognition.
 
+#### Recognition Example
+```
+
+matrix.service('recognition').start().then(function(data){...})
+// select the best match out of all the responses
+    var faces = _.values(d.matches);
+    faces = _.sortBy(faces, ['score'])[0];
+
+// if it passes a threshold, show green, otherwise show red
+    if (MinDistanceFace.score < 0.85) {
+      matrix.led('green').render();
+    } else {
+      matrix.led('red').render();
+    }
+});
+```
+
+### Stop()
+If you need to explicitly stop a service, simply pass a `stop()` chained method.
+```
+matrix.service('recognition').stop()
+```
+Please note, that while this will tell the service to stop working, data may still trigger callbacks for a few seconds more.
 
 <!--## Base Options
 These are applicable to all algorithms.
