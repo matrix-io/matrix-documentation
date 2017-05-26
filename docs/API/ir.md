@@ -7,7 +7,8 @@ Open the `.conf` file and take note of the `codes`. Sending these through MATRIX
 
 ### matrix.ir( brand, model )
 
-This tells your device to lookup a definition for the remote and use that for the following lookup.
+This tells your device to lookup a definition for the remote and use those values for the IR transmission.
+
 
 ### Example
 ```
