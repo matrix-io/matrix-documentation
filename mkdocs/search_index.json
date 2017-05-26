@@ -287,7 +287,7 @@
         }, 
         {
             "location": "/API/overview/", 
-            "text": "Overview\n\n\nMATRIX OS\n\n\nMATRIX OS is an open source operating system for hosting IoT applications. MATRIX OS runs on node.js, but applications will be language-agnostic, as we finish writing an API and SDK for different languages. Fundamentally, MATRIX OS applications logically connect hardware and machine learning abstractions. In this way, you can connect the output from a computer vision system to drive real-world behavior in the form of hardware signaling.\n\n\nApplications\n\n\nApplications, on a fundamental level, provides logical connections between physical data producers and consumers.  \n\n\nSo it makes sense to think of information as streams and filters instead of objects and trees. JavaScript has an elegant approach to data filtering through callbacks and first-order func \n\n\nApp API\n\n\nSensors\n\n\nSensor interfaces and data structures.\n\n\nEverloop\n\n\nEverloop interface.\n\n\nFilters\n\n\nFilters interface for Sensors, Computer Vision, etc...\n\n\nComputer Vision\n\n\nComputer Vision services.\n\n\nMicrophones\n\n\nMicrophone Services.\n\n\nIR TX/RX\n\n\nIR receiving and transmitter services.\n\n\nGPIO\n\n\nGPIO interfaces.\n\n\nServos\n\n\nServo interfaces.\n\n\nNFC\n\n\nNFC interfaces.\n\n\nZigbee\n\n\nZigbee interfaces.\n\n\nZ-wave\n\n\nZ-wave interfaces.\n\n\nConfiguration\n\n\nData Types\n\n\nData structures and how to save to the infrastructure.\n\n\nScreens\n\n\nDashboard creation and how to structure your widgets.\n\n\nFilters\n\n\nDashboard filter configuration.\n\n\nWidgets\n\n\nDashboard widget configuration.\n\n\nServices\n\n\nAvailable infrastructure services.\n\n\nTroubleshooting\n\n\nTroubleshooting", 
+            "text": "Overview\n\n\nMATRIX OS\n\n\nMATRIX OS is an open source operating system for hosting IoT applications. MATRIX OS runs on node.js, but applications will be language-agnostic, as we finish writing an API and SDK for different languages. Fundamentally, MATRIX OS applications logically connect hardware and machine learning abstractions. In this way, you can connect the output from a computer vision system to drive real-world behavior in the form of hardware signaling.\n\n\nApplications\n\n\nApplications, on a fundamental level, provides logical connections between physical data producers and consumers.  \n\n\nSo it makes sense to think of information as streams and filters instead of objects and trees. JavaScript has an elegant approach to data filtering through callbacks and first-order func \n\n\nApp API\n\n\nSensors\n\n\nSensor interfaces and data structures.\n\n\nEverloop\n\n\nEverloop interface.\n\n\nFilters\n\n\nFilters interface for Sensors, Computer Vision, etc...\n\n\nComputer Vision\n\n\nComputer Vision services.\n\n\nMicrophones\n\n\nMicrophone Services.\n\n\nIR TX/RX\n\n\nIR receiving and transmitter services.\n\n\nGPIO\n\n\nGPIO interfaces.\n\n\nServos\n\n\nServo interfaces.\n\n\nNFC\n\n\nNFC interfaces.\n\n\nZigbee\n\n\nZigbee interfaces.\n\n\nZ-wave\n\n\nZ-wave interfaces.\n\n\nConfiguration\n\n\nSettings\n\n\nFor application defaults or end-user configurable variables.\n\n\nData Types\n\n\nData structures and how to save to the infrastructure.\n\n\nScreens\n\n\nDashboard creation and how to structure your widgets.\n\n\nFilters\n\n\nDashboard filter configuration.\n\n\nWidgets\n\n\nDashboard widget configuration.\n\n\nServices\n\n\nAvailable infrastructure services.\n\n\nTroubleshooting\n\n\nTroubleshooting", 
             "title": "Overview"
         }, 
         {
@@ -369,6 +369,11 @@
             "location": "/API/overview/#configuration", 
             "text": "", 
             "title": "Configuration"
+        }, 
+        {
+            "location": "/API/overview/#settings", 
+            "text": "For application defaults or end-user configurable variables.", 
+            "title": "Settings"
         }, 
         {
             "location": "/API/overview/#data-types", 
@@ -1079,6 +1084,31 @@
             "location": "/API/db/#delete", 
             "text": "matrix.store.delete(key, cb)", 
             "title": "Delete"
+        }, 
+        {
+            "location": "/API/settings/", 
+            "text": "Settings\n\n\nWhen an application requires a variable which should be user defined, and will change between different installations, settings is a way to approach this problem.\n\n\nConfig.yaml\n\n\nIn your config enter the following.\n\n\nname: appName\nsettings:\n  apiKey: 'enteryourapikey'\n\n\n\n\napp.js\n\n\nEverything in settings is exposed on the root \nmatrix\n object.\n\n\nservice.auth( matrix.apikey ).then( ... );\n\n\n\n\nuserland\n\n\nAfter a user installs the application, they can change the settings from the CLI tool, or in the future, from the dashboard.\n\n\nmatrix config appName apiKey=myrealapikeydontcopy", 
+            "title": "Settings"
+        }, 
+        {
+            "location": "/API/settings/#settings", 
+            "text": "When an application requires a variable which should be user defined, and will change between different installations, settings is a way to approach this problem.", 
+            "title": "Settings"
+        }, 
+        {
+            "location": "/API/settings/#configyaml", 
+            "text": "In your config enter the following.  name: appName\nsettings:\n  apiKey: 'enteryourapikey'", 
+            "title": "Config.yaml"
+        }, 
+        {
+            "location": "/API/settings/#appjs", 
+            "text": "Everything in settings is exposed on the root  matrix  object.  service.auth( matrix.apikey ).then( ... );", 
+            "title": "app.js"
+        }, 
+        {
+            "location": "/API/settings/#userland", 
+            "text": "After a user installs the application, they can change the settings from the CLI tool, or in the future, from the dashboard.  matrix config appName apiKey=myrealapikeydontcopy", 
+            "title": "userland"
         }, 
         {
             "location": "/Configuration/overview/", 

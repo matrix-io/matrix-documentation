@@ -12,7 +12,7 @@
     The page_title contains the title for a page as shown in the navigation.
     Site name contains the name as defined in the mkdocs.yml
   -->
-  <title>Troubleshooting - MATRIX</title>
+  <title>Settings - MATRIX</title>
 
   <!--
     Support custom favicon support.
@@ -166,8 +166,8 @@
 
 -->
 
-<li class="active">
-    <a href="./">Troubleshooting</a>
+<li >
+    <a href="../../intro/cli-troubleshooting/">Troubleshooting</a>
 </li>
 
         
@@ -189,7 +189,7 @@
 -->
 
 <li >
-    <a href="../../API/overview/">Overview</a>
+    <a href="../overview/">Overview</a>
 </li>
 
         
@@ -198,7 +198,7 @@
 -->
 
 <li >
-    <a href="../app-publishing/">App Publishing</a>
+    <a href="../../intro/app-publishing/">App Publishing</a>
 </li>
 
         
@@ -216,7 +216,7 @@
 -->
 
 <li >
-    <a href="../../API/sensors/">Sensors</a>
+    <a href="../sensors/">Sensors</a>
 </li>
 
         
@@ -225,7 +225,7 @@
 -->
 
 <li >
-    <a href="../../API/everloop/">Everloop</a>
+    <a href="../everloop/">Everloop</a>
 </li>
 
         
@@ -234,7 +234,7 @@
 -->
 
 <li >
-    <a href="../../API/filter/">Filters</a>
+    <a href="../filter/">Filters</a>
 </li>
 
         
@@ -243,7 +243,7 @@
 -->
 
 <li >
-    <a href="../../API/computer-vision/">Computer Vision</a>
+    <a href="../computer-vision/">Computer Vision</a>
 </li>
 
         
@@ -252,7 +252,7 @@
 -->
 
 <li >
-    <a href="../../API/microphone/">Microphone</a>
+    <a href="../microphone/">Microphone</a>
 </li>
 
         
@@ -261,7 +261,7 @@
 -->
 
 <li >
-    <a href="../../API/crosstalk/">Cross-Talk</a>
+    <a href="../crosstalk/">Cross-Talk</a>
 </li>
 
         
@@ -270,7 +270,7 @@
 -->
 
 <li >
-    <a href="../../API/typesend/">Type</a>
+    <a href="../typesend/">Type</a>
 </li>
 
         
@@ -279,7 +279,7 @@
 -->
 
 <li >
-    <a href="../../API/GPIO/">GPIO</a>
+    <a href="../GPIO/">GPIO</a>
 </li>
 
         
@@ -288,7 +288,7 @@
 -->
 
 <li >
-    <a href="../../API/ir/">IR TX/RX</a>
+    <a href="../ir/">IR TX/RX</a>
 </li>
 
         
@@ -297,7 +297,7 @@
 -->
 
 <li >
-    <a href="../../API/nfc/">NFC</a>
+    <a href="../nfc/">NFC</a>
 </li>
 
         
@@ -306,7 +306,7 @@
 -->
 
 <li >
-    <a href="../../API/zwave/">Z-wave</a>
+    <a href="../zwave/">Z-wave</a>
 </li>
 
         
@@ -315,7 +315,7 @@
 -->
 
 <li >
-    <a href="../../API/zigbee/">Zigbee</a>
+    <a href="../zigbee/">Zigbee</a>
 </li>
 
         
@@ -324,7 +324,7 @@
 -->
 
 <li >
-    <a href="../../API/servos/">Servos</a>
+    <a href="../servos/">Servos</a>
 </li>
 
         
@@ -333,7 +333,7 @@
 -->
 
 <li >
-    <a href="../../API/file-storage/">File Storage</a>
+    <a href="../file-storage/">File Storage</a>
 </li>
 
         
@@ -342,7 +342,7 @@
 -->
 
 <li >
-    <a href="../../API/db/">Local Database</a>
+    <a href="../db/">Local Database</a>
 </li>
 
         
@@ -363,8 +363,8 @@
 
 -->
 
-<li >
-    <a href="../../API/settings/">Settings</a>
+<li class="active">
+    <a href="./">Settings</a>
 </li>
 
         
@@ -449,7 +449,7 @@
 -->
 
 <li >
-    <a href="../matrix-troubleshooting/">Troubleshooting</a>
+    <a href="../../intro/matrix-troubleshooting/">Troubleshooting</a>
 </li>
 
         
@@ -661,7 +661,7 @@
 </nav>
   <div class="jumbotron">
     
-    <h1 class="text-center">Troubleshooting</h1>
+    <h1 class="text-center">Settings</h1>
     
   </div>
   <div class="container">
@@ -694,10 +694,10 @@
           <h3>Navigation</h3>
             <div>
               
-                <a href="../../CLI/example/" class="btn btn-default" title="Examples"><span aria-hidden="true">&laquo;</span> prev.</a>
+                <a href="../db/" class="btn btn-default" title="Local Database"><span aria-hidden="true">&laquo;</span> prev.</a>
               
               
-                <a href="../../API/overview/" class="btn btn-default" title="Overview"/> next <span aria-hidden="true">&raquo;</span></a>
+                <a href="../../Configuration/overview/" class="btn btn-default" title="Overview"/> next <span aria-hidden="true">&raquo;</span></a>
               
             </div>
             <hr/>
@@ -708,7 +708,13 @@
           <h3>Contents</h3>
           <ul class="list-group">
           
-              <li class="list-group-item"><a href="#troubleshooting">Troubleshooting</a></li>
+              <li class="list-group-item"><a href="#settings">Settings</a></li>
+              
+                  <li class="list-group-item"><a href="#configyaml">Config.yaml</a></li>
+              
+                  <li class="list-group-item"><a href="#appjs">app.js</a></li>
+              
+                  <li class="list-group-item"><a href="#userland">userland</a></li>
               
           
           </ul>
@@ -718,10 +724,23 @@
       </div>
       <div class="col-md-10">
         
-          <h2 id="troubleshooting">Troubleshooting</h2>
-<p>Run <code>DEBUG=* matrix ...</code> to see more information.</p>
-<p>You will be notified if a dependency needs to be updated.</p>
-<p><code>npm update</code> will manually update dependencies.</p>
+          <h2 id="settings">Settings</h2>
+<p>When an application requires a variable which should be user defined, and will change between different installations, settings is a way to approach this problem.</p>
+<h3 id="configyaml">Config.yaml</h3>
+<p>In your config enter the following.</p>
+<pre><code>name: appName
+settings:
+  apiKey: 'enteryourapikey'
+</code></pre>
+
+<h3 id="appjs">app.js</h3>
+<p>Everything in settings is exposed on the root <code>matrix</code> object.</p>
+<pre><code>service.auth( matrix.apikey ).then( ... );
+</code></pre>
+
+<h3 id="userland">userland</h3>
+<p>After a user installs the application, they can change the settings from the CLI tool, or in the future, from the dashboard.</p>
+<p><code>matrix config appName apiKey=myrealapikeydontcopy</code></p>
         
       </div>
     </div>
