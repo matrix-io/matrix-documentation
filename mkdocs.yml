@@ -32,6 +32,7 @@ pages:
     - 'File Storage': 'API/file-storage.md'
     - 'Local Database': 'API/db.md'
   - Configuration:
+    - 'Settings': 'API/settings.md'
     - 'Overview': 'Configuration/overview.md'
     - 'Datatypes': 'Configuration/datatypes.md'
     - 'Screens': 'Configuration/screens.md'

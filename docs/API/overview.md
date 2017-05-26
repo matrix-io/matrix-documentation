@@ -34,6 +34,8 @@ Zigbee interfaces.
 Z-wave interfaces.
 
 ## Configuration
+####[Settings](../settings.md)
+For application defaults or end-user configurable variables.
 ####[Data Types](../Configuration/datatypes.md)
 Data structures and how to save to the infrastructure.
 ####[Screens](../Configuration/screens.md)
@@ -44,6 +46,7 @@ Dashboard filter configuration.
 Dashboard widget configuration.
 ####[Services](../Configuration/services.md)
 Available infrastructure services.
+
 
 ####[Troubleshooting](../intro/cli-troubleshooting.md)
 Troubleshooting
