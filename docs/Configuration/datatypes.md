@@ -1,7 +1,7 @@
 # dataTypes
 We experimented with a loosely defined data structure, where the system would dynamically type information for storage and retrieval. This may return in the future, but for now, we need to clearly define data structures and types.
 
-This is only useful if the application is `matrix.send()`ing information for storage or dashboard use.
+This is only useful if the application is `matrix.send()`ing information for storage and/or dashboard use.
 
 ## types
 Types are segments of your data. These are used for filtering in the dashboard.
@@ -52,3 +52,6 @@ dataTypes:
   foo2: s
   foo3: o
 ```
+
+## Caution
+MATRIX doesn't yet have a schema migration mechanism in place. While this is an issue, in the process of developing your application if you discover you need to change dataTypes, we recommend making a new application.
