@@ -711,6 +711,9 @@
               <li class="list-group-item"><a href="#cross-talk">Cross-Talk</a></li>
               
           
+              <li class="list-group-item"><a href="#overview">Overview</a></li>
+              
+          
               <li class="list-group-item"><a href="#config-setup">Config Setup</a></li>
               
                   <li class="list-group-item"><a href="#global">Global</a></li>
@@ -755,6 +758,8 @@
         
           <h2 id="cross-talk">Cross-Talk</h2>
 <p>Cross-Talk is a mechanism for applications to communicate, whether on the same device, or on different devices. Applications can exchange information with other applications, or with other instances of the same application. All messages get sent to all devices, so if you have the same app running on different devices, this is how to communicate between installations of the same app.</p>
+<h2 id="overview">Overview</h2>
+<p>Cross talk events are publicly searchable by app, and allow MATRIX applications to easily exchange information between devices, or on the same device. For example, a face detection application could trigger a <code>face-in</code>, which is heard by a <a href="../Configuation/overview.md">configured</a> and <a href="../computer-vision/">trained</a> recognition program. </p>
 <h2 id="config-setup">Config Setup</h2>
 <p>CrossTalk requires setup in configuration to execute successfully. This information is also used in the app store to determine which applications can communicate via events.</p>
 <h3 id="global">Global</h3>
@@ -846,7 +851,7 @@ matrix.on('buttonClick', function(payload) { ... });
 
   <!--
   MkDocs version      : 0.15.3
-  Docs Build Date UTC : 2017-06-13 22:10:34.854253
+  Docs Build Date UTC : 2017-06-13 22:12:15.542699
   -->
 
 </body>

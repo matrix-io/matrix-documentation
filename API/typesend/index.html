@@ -708,7 +708,12 @@
           <h3>Contents</h3>
           <ul class="list-group">
           
+              <li class="list-group-item"><a href="#send">Send</a></li>
+              
+          
               <li class="list-group-item"><a href="#type">Type</a></li>
+              
+                  <li class="list-group-item"><a href="#widget-use">Widget Use</a></li>
               
           
           </ul>
@@ -718,29 +723,26 @@
       </div>
       <div class="col-md-10">
         
-          <p>Unless otherwise specified, sensor data is typed with the application name.</p>
-<pre><code>matrix.send({
+          <h2 id="send">Send</h2>
+<p>This will save this particular data and make it accessible in realtime via dashboard. </p>
+<p>Each piece of data must have a type defined. Unless otherwise specified, sensor data is typed with the application name.</p>
+<p>Types must be defined in the config file using <code>dataTypes</code>. ( See <a href="../../Configuration/datatypes/">Configuration&gt;Datatypes</a>)</p>
+<pre><code>dataTypes:
+  foo: integer
+
+matrix.send({
   foo: 123
 })
 </code></pre>
 
-<p>is read in a widget <code>config.yaml</code> ( See <a href="../../Configuration/widgets/">Configuration&gt;Widgets</a>)</p>
-<pre><code>name: fooApp
-widgets:
-  fooWidget:
-    display: digit,
-    type: fooApp
-    key: foo
-</code></pre>
-
 <h1 id="type">Type</h1>
-<p>Types are another way to organize the data coming off MatrixOS and make it easier to work with in dashboards.</p>
+<p>Types are a way to organize the data coming off MatrixOS and make it easier to work with in dashboards.</p>
 <pre><code>matrix.type('bar').send({
   foo: 123
 })
 </code></pre>
 
-<p>would instead be utilized with the following</p>
+<p>would be utilized with the following</p>
 <pre><code>name: fooApp
 widgets:
   fooWidget:
@@ -749,7 +751,28 @@ widgets:
     key: foo
 </code></pre>
 
-<p>Types are also different ways of segmenting the data. When your application generates reports, types and keys will form the structure of that report. ( See <a href="../../Configuration/datatypes/"> Data Types </a> for more )</p>
+<p>Types are a way of segmenting data from the device for use by end-user applications. When your application generates reports, types and keys will form the structure of that report. ( See <a href="../../Configuration/datatypes/"> Data Types </a> for more )</p>
+<h3 id="widget-use">Widget Use</h3>
+<p>Example widget <code>config.yaml</code> using <code>type</code> ( See <a href="../../Configuration/widgets/">Configuration&gt;Widgets</a>)</p>
+<pre><code>matrix.send({...});
+
+name: fooApp
+widgets:
+  fooWidget:
+    display: digit,
+    type: fooApp
+    key: foo
+</code></pre>
+
+<pre><code>matrix.type('foo').send({...})
+
+name: fooApp
+widgets:
+  fooTime:
+    display: chart
+    type: foo
+    keys: a,b,c
+</code></pre>
         
       </div>
     </div>
@@ -757,7 +780,7 @@ widgets:
 
   <!--
   MkDocs version      : 0.15.3
-  Docs Build Date UTC : 2017-06-13 22:10:34.881768
+  Docs Build Date UTC : 2017-06-13 22:12:15.560840
   -->
 
 </body>

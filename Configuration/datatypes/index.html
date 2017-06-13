@@ -716,6 +716,8 @@
               
                   <li class="list-group-item"><a href="#options">options</a></li>
               
+                  <li class="list-group-item"><a href="#caution">Caution</a></li>
+              
           
           </ul>
 
@@ -726,7 +728,7 @@
         
           <h1 id="datatypes">dataTypes</h1>
 <p>We experimented with a loosely defined data structure, where the system would dynamically type information for storage and retrieval. This may return in the future, but for now, we need to clearly define data structures and types.</p>
-<p>This is only useful if the application is <code>matrix.send()</code>ing information for storage or dashboard use.</p>
+<p>This is only useful if the application is <code>matrix.send()</code>ing information for storage and/or dashboard use.</p>
 <h2 id="types">types</h2>
 <p>Types are segments of your data. These are used for filtering in the dashboard.</p>
 <h2 id="data">data</h2>
@@ -769,6 +771,9 @@
   foo2: s
   foo3: o
 </code></pre>
+
+<h2 id="caution">Caution</h2>
+<p>MATRIX doesn't yet have a schema migration mechanism in place. While this is an issue, in the process of developing your application if you discover you need to change dataTypes, we recommend making a new application.</p>
         
       </div>
     </div>
@@ -776,7 +781,7 @@
 
   <!--
   MkDocs version      : 0.15.3
-  Docs Build Date UTC : 2017-06-13 22:10:35.086907
+  Docs Build Date UTC : 2017-06-13 22:12:15.700069
   -->
 
 </body>
