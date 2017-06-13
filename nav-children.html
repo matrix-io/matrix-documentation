@@ -1,0 +1,5 @@
+{% if nav_item.children %}
+<li {% if nav_item.active %}class="active"{% endif %}>
+    <a href="{{ nav_item.url }}">{{ nav_item.title }} <span class="caret"></a>
+</li>
+{% endif %}
