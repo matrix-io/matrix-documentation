@@ -13,8 +13,8 @@ sensors:
 
 Otherwise sensors will not work.
 
-### .init
-All sensors are initialized using the `init` method.
+### .sensor
+All sensors are initialized using the `sensor` method.
 
 * `sensorType`: Type of sensor you are initializing `temperature`, `humidity`, `pressure`, `uv`, `gyroscope`, `accelerometer`.
 * `options`: The options for that sensor. By default, all sensors have a `refresh` and `timeout` property.
@@ -25,7 +25,7 @@ var options = {
   timeout: 1000 //milliseconds
 };
 
-matrix.init('temperature', options).then(function(data){
+matrix.sensor('temperature', options).then(function(data){
   //see below for data formats
 });
 ```
