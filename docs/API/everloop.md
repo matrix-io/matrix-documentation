@@ -25,7 +25,7 @@ matrix.led('blue'); //does nothing
 matrix.led('green').render(); //lights change
 
 // supports css
-matrix.led('rgba(255, 0, 100)').render();
+matrix.led('rgb(255, 0, 100)').render();
 ```
 
 You can use any CSS color property, including [https://www.wikiwand.com/en/Web_colors#/X11_color_names](X11 Color Names). Darker colors on the Everloop generally display with more precision then lighter colors, which tend to get washed out. 
