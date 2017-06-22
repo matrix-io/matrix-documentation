@@ -1,7 +1,7 @@
 
 # MATRIX Voice
 
-MATRIX Voice is an open-source VOICE RECOGNITION platform consisting of a 3.14-inches in diameter dev board, with a radial array of 7 MEMS microphones connected to a Xilinx Spartan6 FPGA & 64 Mbit SDRAM with 18 RGBW LED’s & 64 GPIO pins. 
+MATRIX Voice is an open-source VOICE RECOGNITION platform consisting of a 3.14-inches in diameter dev board, with a radial array of 7 MEMS microphones connected to a Xilinx Spartan6 FPGA & 64 Mbit SDRAM with 18 RGBW LED’s & 64 GPIO pins.
 
 ### [Back MATRIX Voice on Indiegogo! Click here.](https://www.indiegogo.com/projects/matrix-voice-open-source-voice-platform-for-all)
 
@@ -16,13 +16,13 @@ MATRIX Voice is an open-source VOICE RECOGNITION platform consisting of a 3.14-i
 
 ## Voice Engine Integrations
 
-- [Alexa](../demos/Alexa.md) 
+- [Alexa](../Demos/Alexa.md) 
 
 ### Coming Soon:
 - Wit.ai
 - Microsoft Cognitive Service
 - Google Speech API
-- Houndify 
+- Houndify
 
 ## Software Integrations
 - [Getting Started with MATRIX OS](https://matrix-io.github.io/matrix-documentation/)
@@ -38,4 +38,3 @@ MATRIX Voice is an open-source VOICE RECOGNITION platform consisting of a 3.14-i
 * [7 MEMS audio sensor digital microphones](http://www.st.com/content/ccc/resource/technical/document/datasheet/57/af/88/31/7b/59/4f/77/DM00111225.pdf/files/DM00111225.pdf/jcr:content/translations/en.DM00111225.pdf)
 
 * [RGBW everloop LED](http://blinkinlabs.com/wp-content/uploads/2016/01/SK6812RGBW-datasheet.pdf)
-
