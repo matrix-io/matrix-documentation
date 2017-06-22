@@ -3,16 +3,16 @@
 
     
     <url>
-     <loc>/</loc>
-     <lastmod>2017-06-14</lastmod>
+     <loc>None/</loc>
+     <lastmod>2017-06-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
 
     
     <url>
-     <loc>/upgrades/</loc>
-     <lastmod>2017-06-14</lastmod>
+     <loc>None/upgrades/</loc>
+     <lastmod>2017-06-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -20,38 +20,38 @@
     
         
     <url>
-     <loc>/CLI/overview/</loc>
-     <lastmod>2017-06-14</lastmod>
+     <loc>None/CLI/overview/</loc>
+     <lastmod>2017-06-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>/CLI/installation/</loc>
-     <lastmod>2017-06-14</lastmod>
+     <loc>None/CLI/installation/</loc>
+     <lastmod>2017-06-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>/CLI/apps/</loc>
-     <lastmod>2017-06-14</lastmod>
+     <loc>None/CLI/apps/</loc>
+     <lastmod>2017-06-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>/CLI/device/</loc>
-     <lastmod>2017-06-14</lastmod>
+     <loc>None/CLI/device/</loc>
+     <lastmod>2017-06-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>/CLI/example/</loc>
-     <lastmod>2017-06-14</lastmod>
+     <loc>None/CLI/example/</loc>
+     <lastmod>2017-06-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>/intro/cli-troubleshooting/</loc>
-     <lastmod>2017-06-14</lastmod>
+     <loc>None/intro/cli-troubleshooting/</loc>
+     <lastmod>2017-06-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -60,32 +60,32 @@
     
         
     <url>
-     <loc>/API/overview/</loc>
-     <lastmod>2017-06-14</lastmod>
+     <loc>None/API/overview/</loc>
+     <lastmod>2017-06-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>/intro/app-publishing/</loc>
-     <lastmod>2017-06-14</lastmod>
+     <loc>None/intro/app-publishing/</loc>
+     <lastmod>2017-06-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc></loc>
+     <loc>None</loc>
      <lastmod></lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc></loc>
+     <loc>None</loc>
      <lastmod></lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>/intro/matrix-troubleshooting/</loc>
-     <lastmod>2017-06-14</lastmod>
+     <loc>None/intro/matrix-troubleshooting/</loc>
+     <lastmod>2017-06-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -94,62 +94,62 @@
     
         
     <url>
-     <loc>/Reference/creator/</loc>
-     <lastmod>2017-06-14</lastmod>
+     <loc>None/Reference/creator/</loc>
+     <lastmod>2017-06-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>/Reference/voice/</loc>
-     <lastmod>2017-06-14</lastmod>
+     <loc>None/Reference/voice/</loc>
+     <lastmod>2017-06-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc></loc>
+     <loc>None</loc>
      <lastmod></lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc></loc>
+     <loc>None</loc>
      <lastmod></lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>/Reference/pinout/</loc>
-     <lastmod>2017-06-14</lastmod>
+     <loc>None/Reference/pinout/</loc>
+     <lastmod>2017-06-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>/Hardware/fpga/</loc>
-     <lastmod>2017-06-14</lastmod>
+     <loc>None/Hardware/fpga/</loc>
+     <lastmod>2017-06-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>/Hardware/Sam3/</loc>
-     <lastmod>2017-06-14</lastmod>
+     <loc>None/Hardware/Sam3/</loc>
+     <lastmod>2017-06-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>/Hardware/sam3mcu-programming/</loc>
-     <lastmod>2017-06-14</lastmod>
+     <loc>None/Hardware/sam3mcu-programming/</loc>
+     <lastmod>2017-06-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>/Hardware/microphone/</loc>
-     <lastmod>2017-06-14</lastmod>
+     <loc>None/Hardware/microphone/</loc>
+     <lastmod>2017-06-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>/Hardware/SPI/</loc>
-     <lastmod>2017-06-14</lastmod>
+     <loc>None/Hardware/SPI/</loc>
+     <lastmod>2017-06-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -158,8 +158,8 @@
     
         
     <url>
-     <loc>/Demos/Alexa/</loc>
-     <lastmod>2017-06-14</lastmod>
+     <loc>None/Demos/Alexa/</loc>
+     <lastmod>2017-06-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -167,8 +167,8 @@
 
     
     <url>
-     <loc>/dictionary/</loc>
-     <lastmod>2017-06-14</lastmod>
+     <loc>None/dictionary/</loc>
+     <lastmod>2017-06-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
