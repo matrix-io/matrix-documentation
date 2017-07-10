@@ -867,6 +867,7 @@ matrix.service( algorithm, options ).start().then(function( data ){
 <h4 id="demographics-output">Demographics Output</h4>
 <pre><code>{ location: { x: 213, y: 221, width: 55, height: 55 },
  tag: 'FACE',
+ trackId: 2,
  demographics:
   { gender: 'MALE',
     emotion: 'CALM',
@@ -878,6 +879,9 @@ matrix.service( algorithm, options ).start().then(function( data ){
     face_id: '4' } }
 </code></pre>
 
+<h4 id="tracking">Tracking</h4>
+<p><code>trackId</code> assigns a unique index-based identifier to each face detected. This number resets when the application or service is restarted, so do not rely on it for persistance.</p>
+<p>If you need persistant facial detection, try the <code>recognition</code> service.</p>
 <h4 id="available-emotions">available emotions</h4>
 <p><code>HAPPY</code></p>
 <p><code>SAD</code></p>
@@ -1031,8 +1035,8 @@ matrix.service('people-count').then(function(data){})
   </div>
 
   <!--
-  MkDocs version      : 0.15.3
-  Docs Build Date UTC : 2017-06-22 17:41:13.411130
+  MkDocs version      : 0.16.1
+  Docs Build Date UTC : 2017-07-10 21:22:49
   -->
 
 </body>
