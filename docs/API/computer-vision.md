@@ -130,6 +130,7 @@ matrix.service('demographics').start().then(function(output){
 ```
 { location: { x: 213, y: 221, width: 55, height: 55 },
  tag: 'FACE',
+ trackId: 2,
  demographics:
   { gender: 'MALE',
     emotion: 'CALM',
@@ -140,6 +141,10 @@ matrix.service('demographics').start().then(function(output){
        pitch: -0.10279278457164764 },
     face_id: '4' } }
 ```
+#### Tracking
+`trackId` assigns a unique index-based identifier to each face detected. This number resets when the application or service is restarted, so do not rely on it for persistance.
+
+If you need persistant facial detection, try the `recognition` service.
 
 #### available emotions
 `HAPPY`
