@@ -28,10 +28,10 @@
     You can include external assets of course, but be aware that it means the
     documentation may not work well offline.
   -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css">
   <link rel="stylesheet" href="{{ base_url }}/css/theme.css">
-  <link href="https://fonts.googleapis.com/css?family=PT+Sans:400,700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
   <!--
     extra_ess contains paths to CSS files in the users
     documentation directory or a list of CSS files defined in
@@ -48,12 +48,10 @@
     {{ base_url }} beforehand which will be the relative path to
     the root of the documentation.
   -->
-  <script
-  src="https://code.jquery.com/jquery-3.1.1.min.js"
-  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
-  crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"></script>
   <script src="{{ base_url }}/js/theme.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
   <!--
     extra_javascript contains paths to JavaScript files in the
@@ -96,22 +94,8 @@
 
     See the nav.html file for more details about how this works.
   -->
-<nav class="navbar navbar-default">
-  <div class="container">
-    <a class="navbar-brand" href="{{ base_url }}">
-      <img alt="MATRIX Labs" src="{{ base_url }}/img/matrix.png">
-    </a>
-    <ul class="nav navbar-nav">
-    {% set nav_level = 0 %}
-    {% for nav_item in nav %}
-      {% include "nav.html" %}
-    {% endfor %}
-    </ul>
-    <ul class="nav navbar-nav navbar-right">
-      <li><a class="order" href="https://creator.matrix.one" target="_blank">Order Dev Kit</a></li>
-    </ul>
-  </div>
-</nav>
+  {% include "nav.html" %}
+
   <div class="jumbotron">
     {% if page_title|string() == 'None' %}
     <h1 class="text-center">Installation</h1>
@@ -122,7 +106,6 @@
   <div class="container">
     <div class="row">
       <div class="col-md-2">
-        
         <h3>Search</h3>
           <!--
             Create a search form that sends the user to the search.html file - this is
@@ -138,12 +121,11 @@
             </form>
           </div>
 
-          
           <!--
             Implement the previous and next links to cycle through the pages.
           -->
           {% if next_page or previous_page %}
-          
+
           <div id="nav-ctrls" style="display: none">
           <hr/>
           <h3>Navigation</h3>
@@ -151,7 +133,7 @@
               {% if previous_page %}
                 <a href="{{ previous_page.url }}" class="btn btn-default" title="{{ previous_page.title }}"><span aria-hidden="true">&laquo;</span> prev.</a>
               {% else %}
-                <span aria-hidden="true">&laquo;</span> prev. 
+                <span aria-hidden="true">&laquo;</span> prev.
               {% endif %}
               {% if next_page %}
                 <a href="{{ next_page.url }}" class="btn btn-default" title="{{ next_page.title }}"/> next <span aria-hidden="true">&raquo;</span></a>
@@ -163,7 +145,6 @@
           </div>
           {% endif %}
 
-          
           <h3>Contents</h3>
           <ul class="list-group">
           {% for toc_item in toc %}

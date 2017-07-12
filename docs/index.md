@@ -5,8 +5,8 @@
 
 ## Installation
 
-#### Local Machine Setup 
-##### Important:    `Keep in mind that MATRIX CLI is intended to run on your host computer, not directly on the Pi running MOS.` 
+#### Local Machine Setup
+##### Important:    `Keep in mind that MATRIX CLI is intended to run on your host computer, not directly on the Pi running MOS.`
 **Note 1:** Pre-requisite of [NodeJS](https://nodejs.org/en/download) on the client computer.
 
 1. Install [MATRIX CLI](CLI/overview.md) via npm `sudo npm install -g matrix-cli`.
@@ -38,7 +38,7 @@ curl https://raw.githubusercontent.com/matrix-io/matrix-creator-quickstart/maste
 
 ##### Configure ENV variables
 
-1. On the Pi, inside your `~` folder, create a file named `.envrc` with the variables from the Matrix CLI Setup above.  
+1. On the Pi, inside your `~` folder, create a file named `.envrc` with the variables from the Matrix CLI Setup above.
 ```
 # in .envrc file or place in ~/.bash_profile to auto configure
 export MATRIX_DEVICE_ID=dc7a1a71be2d
