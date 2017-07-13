@@ -1,15 +1,29 @@
-/********** Navbar - START **********/
+html {
+  font-size: 16px;
+  color: rgba(0,0,0,.5);
+}
+
+body {
+  box-sizing: inherit;
+  font-family: 'Lato', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/********** Navbar - BEGIN **********/
 .navbar {
   z-index: 999;
 }
 
 .navbar-brand {
-  padding: 9px 8px;
-  font-weight: 300;
-  font-size: 1.625rem;
   margin-right: 0px;
+  padding: 9px 8px;
   height: 56px;
   width: 200px;
+}
+.navbar-brand span {
+  font-size: 1.625rem;
+  font-weight: 300;
   color: #8C8C8C;
 }
 
@@ -68,3 +82,24 @@
   }
 }
 /********** Navbar - END **********/
+
+/********** Header - BEGIN **********/
+.jumbotron {
+  background-color: #FFFFFF;
+  padding-left: 0px;
+  padding-right: 0px;
+}
+.jumbotron h1 {
+  font-size: 3.5rem;
+  font-weight: 300;
+  color: #828282;
+}
+/********** Header - END **********/
+
+
+
+
+
+
+
+
