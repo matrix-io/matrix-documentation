@@ -29,6 +29,7 @@ body {
 
 .nav-link {
   font-size: 1em;
+  cursor: pointer;
 }
 
 .navbar-collapse {
