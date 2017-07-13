@@ -25,7 +25,6 @@
   font-size: 1.125rem;
   color: rgba(0, 0, 0, 0.5);
   padding: 8px;
-  width: 120px;
   text-align: right;
 }
 
@@ -43,7 +42,7 @@
 .nav-item .dropdown-menu {
   right: 0;
   left: auto;
-  min-width: 0;
+  min-width: 0px;
 }
 
 @media(max-width: 991px) {
