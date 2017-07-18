@@ -95,6 +95,47 @@ body {
   font-weight: 300;
   color: #828282;
 }
+.jumbotron form {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.jumbotron form input {
+  outline: none;
+  font-size: 1.375rem!important;
+  color: #2F80ED!important
+}
+.jumbotron form input[type=search] {
+  -webkit-appearance: textfield;
+  -webkit-box-sizing: content-box;
+  font-size: 100%;
+}
+.jumbotron form input[type=search] {
+  background: #FFFFFF url("../img/search.svg") no-repeat 10px center;
+  padding: 8px 10px 8px 40px;
+  width: 4.3rem;
+  border: 0px;
+  -webkit-transition: all .5s;
+  -moz-transition: all .5s;
+  transition: all .5s;
+}
+.jumbotron form input[type=search]:focus {
+  width: 22rem;
+  background-color: #FFFFFF;
+  border: solid 1px #2A75F1;
+}
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: #2F80ED!important;
+}
+::-moz-placeholder { /* Firefox 19+ */
+  color: #2F80ED!important;
+}
+:-ms-input-placeholder { /* IE 10+ */
+  color: #2F80ED!important;
+}
+:-moz-placeholder { /* Firefox 18- */
+  color: #2F80ED!important;
+}
 /********** Header - END **********/
 
 
