@@ -125,16 +125,16 @@ a {
   background-color: #FFFFFF;
   border: solid 1px #2A75F1;
 }
-::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+.header .jumbotron form input::-webkit-input-placeholder { /* Chrome/Opera/Safari */
   color: #2F80ED!important;
 }
-::-moz-placeholder { /* Firefox 19+ */
+.header .jumbotron form input::-moz-placeholder { /* Firefox 19+ */
   color: #2F80ED!important;
 }
-:-ms-input-placeholder { /* IE 10+ */
+.header .jumbotron form input:-ms-input-placeholder { /* IE 10+ */
   color: #2F80ED!important;
 }
-:-moz-placeholder { /* Firefox 18- */
+.header .jumbotron form input:-moz-placeholder { /* Firefox 18- */
   color: #2F80ED!important;
 }
 /********** Header - END **********/
@@ -224,6 +224,95 @@ a {
   font-size: 1rem;
 }
 /********** Content - END **********/
+
+/********** Footer - BEGIN **********/
+footer {
+  padding-top: 50px;
+  padding-bottom: 50px;
+  border-top: 2px solid #F6F6F6;
+}
+footer ul {
+  list-style: none;
+  padding-left: 0px;
+  margin-top: 18px;
+}
+footer li {
+  margin-bottom: 12px;
+}
+footer h5 {
+  font-size: 1.5rem;
+}
+footer a {
+  font-size: 1.25rem;
+  color: #949999;
+}
+footer .subscribe-box input {
+  font-size: 1.125rem;
+  font-weight: normal;
+  padding: 10px 12px;
+  height: 55px;
+}
+footer .subscribe-box input::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  opacity: 0.25;
+}
+footer .subscribe-box input::-moz-placeholder { /* Firefox 19+ */
+  opacity: 0.25;
+}
+footer .subscribe-box input:-ms-input-placeholder { /* IE 10+ */
+  opacity: 0.25;
+}
+footer .subscribe-box input:-moz-placeholder { /* Firefox 18- */
+  opacity: 0.25;
+}
+footer .subscribe-box button {
+  font-size: 1.125rem;
+  font-weight: normal;
+  border-bottom-left-radius: 0;
+  border-top-left-radius: 0;
+  color: rgba(255,255,255,.75);
+  cursor: pointer;
+}
+footer > .row:nth-of-type(2) {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+footer .company-logo {
+  height: 56px;
+  width: 200px;
+}
+footer .company-logo {
+  text-decoration: none;
+}
+footer .company-logo span {
+  font-weight: 300;
+  font-size: 1.7rem;
+  color: #8C8C8C;
+}
+footer .utility-links {
+  float: right;
+}
+footer .utility-links a:nth-of-type(1) {
+  margin-right: 20px;
+}
+footer .copyright {
+  padding-top: 10px;
+  display: block;
+  color: #d3d3d3
+}
+@media (max-width: 575px) {
+  footer > .row:nth-of-type(2) {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+  footer .utility-links {
+    float: left;
+    margin-bottom: 10px;
+  }
+  footer .utility-links a:nth-of-type(1) {
+    margin-right: 0px;
+  }
+}
+/********** Footer - END **********/
 
 
 
