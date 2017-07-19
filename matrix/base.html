@@ -39,15 +39,9 @@
         <div class="sidebar col-md-3">
           <h3>Docs</h3>
           <ul>
-            {% for toc_item in toc %}
-              <li>
-                <a href="{{ toc_item.url }}">{{ toc_item.title }}</a>
-              </li>
-              {% for toc_item in toc_item.children %}
-                <li>
-                  <a href="{{ toc_item.url }}">{{ toc_item.title }}</a>
-                </li>
-              {% endfor %}
+            {% set nav_level = 0 %}
+            {% for nav_item in nav %}
+              {% include "sidebar.html" %}
             {% endfor %}
           </ul>
         </div>
@@ -73,14 +67,14 @@
             </div>
             <div class="col-md-3">
               <div class="compatibility">
-                <h4>Compatibility</h4>
+                <div class="title">Compatibility</div>
                 <p>MATRIX Voice</p>
                 <p>MATRIX Creator</p>
               </div>
             </div>
           </div>
           {% block content %}
-          {{ content }}
+            {{ content }}
           {% endblock %}
         </div>
       </div>
@@ -94,16 +88,17 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"></script>
   <script src="{{ base_url }}/js/theme.js"></script>
   <script src="https://use.fontawesome.com/21aeb6fedc.js"></script>
-  {% if google_analytics %}
-  <script>
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-    ga('create', '{{ google_analytics[0] }}', '{{ google_analytics[1] }}');
-    ga('send', 'pageview');
-  </script>
+  {% if google_analytics %}
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', '{{ google_analytics[0] }}', '{{ google_analytics[1] }}');
+      ga('send', 'pageview');
+    </script>
   {% endif %}
 </body>
 </html>

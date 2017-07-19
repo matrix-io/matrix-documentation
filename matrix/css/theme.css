@@ -155,13 +155,13 @@ a {
   list-style: none;
   padding: 0px;
 }
-.content .sidebar li {
+.content .sidebar ul li {
   margin-bottom: 22px;
 }
-.content .sidebar li a {
+.content .sidebar ul li a {
   color: #828282;
 }
-.content .sidebar li a .active {
+.content .sidebar ul li a.active {
   color: #2F80ED;
 }
 .content .docs {
@@ -187,7 +187,7 @@ a {
 .content .docs .compatibility {
   text-align: right;
 }
-.content .docs .compatibility h4 {
+.content .docs .compatibility .title {
   font-size: 1.375rem;
   color: #828282;
   margin-bottom: 13px;
@@ -198,11 +198,13 @@ a {
   margin-bottom: 5px;
 }
 .content .docs h2,
-.content .docs h3 {
+.content .docs h3,
+.content .docs h4 {
   font-size: 2rem;
   font-weight: 300;
 }
-.content .docs p {
+.content .docs p,
+.content .docs ul {
   font-weight: normal;
   line-height: 1.755rem;
   font-size: 1.125rem;
