@@ -55,12 +55,16 @@
                   {% for toc_item in toc %}
                     <li>
                       <a href="{{ toc_item.url }}">{{ toc_item.title }}</a>
+                      {% if toc_item.children %}
+                        <ol>
+                          {% for toc_item in toc_item.children %}
+                            <li>
+                              <a href="{{ toc_item.url }}">{{ toc_item.title }}</a>
+                            </li>
+                          {% endfor %}
+                        </ol>
+                      {% endif %}
                     </li>
-                    {% for toc_item in toc_item.children %}
-                      <li>
-                        <a href="{{ toc_item.url }}">{{ toc_item.title }}</a>
-                      </li>
-                    {% endfor %}
                   {% endfor %}
                 </ol>
               </div>

@@ -163,6 +163,8 @@ a {
 }
 .content .sidebar ul li a.active {
   color: #2F80ED;
+  border-right: 5px solid #2F80ED;
+  display: block;
 }
 .content .docs {
   padding-top: 69px;
@@ -176,13 +178,21 @@ a {
   color: #000000;
   margin-bottom: 18px;
 }
-.content .docs .summary ol {
+.content .docs .summary > ol {
   font-size: 1.375rem;
   color: #2F80ED;
   margin-bottom: 49px;
 }
+.content .docs .summary ol {
+  counter-reset: item;
+}
 .content .docs .summary ol li {
+  display: block;
   margin-bottom: 13px;
+}
+.content .docs .summary ol li:before {
+  content: counters(item, ".") ".";
+  counter-increment: item;
 }
 .content .docs .compatibility {
   text-align: right;
