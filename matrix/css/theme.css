@@ -170,9 +170,10 @@ a {
   padding-left: 74px;
 }
 .content .docs h3 {
-  font-size: 1.375rem;
-  color: #828282;
-  margin-bottom: 18px;
+  font-weight: 300;
+  line-height: normal;
+  font-size: 2.625rem;
+  color: #000000;
 }
 .content .docs ol {
   font-size: 1.375rem;
