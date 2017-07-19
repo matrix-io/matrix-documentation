@@ -53,18 +53,29 @@
 
         <div class="docs col-md-9">
           <h3>Table of Contents</h3>
-          <ol>
-            {% for toc_item in toc %}
-              <li>
-                <a href="{{ toc_item.url }}">{{ toc_item.title }}</a>
-              </li>
-              {% for toc_item in toc_item.children %}
-                <li>
-                  <a href="{{ toc_item.url }}">{{ toc_item.title }}</a>
-                </li>
-              {% endfor %}
-            {% endfor %}
-          </ol>
+          <div class="row">
+            <div class="col-md-9">
+              <ol>
+                {% for toc_item in toc %}
+                  <li>
+                    <a href="{{ toc_item.url }}">{{ toc_item.title }}</a>
+                  </li>
+                  {% for toc_item in toc_item.children %}
+                    <li>
+                      <a href="{{ toc_item.url }}">{{ toc_item.title }}</a>
+                    </li>
+                  {% endfor %}
+                {% endfor %}
+              </ol>
+            </div>
+            <div class="col-md-3">
+              <div class="compatibility">
+                <h4>Compatibility</h4>
+                <p>MATRIX Voice</p>
+                <p>MATRIX Creator</p>
+              </div>
+            </div>
+          </div>
           {% block content %}
           {{ content }}
           {% endblock %}

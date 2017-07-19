@@ -178,9 +178,23 @@ a {
 .content .docs ol {
   font-size: 1.375rem;
   color: #2F80ED;
+  margin-bottom: 49px;
 }
 .content .docs ol li {
   margin-bottom: 13px;
+}
+.content .docs .compatibility {
+  text-align: right;
+}
+.content .docs .compatibility h4 {
+  font-size: 1.375rem;
+  color: #828282;
+  margin-bottom: 13px;
+}
+.content .docs .compatibility p {
+  font-size: 1.25rem;
+  color: #333333;
+  margin-bottom: 5px;
 }
 /********** Content - END **********/
 
