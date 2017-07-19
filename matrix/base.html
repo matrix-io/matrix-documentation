@@ -52,21 +52,23 @@
         </div>
 
         <div class="docs col-md-9">
-          <h3>Table of Contents</h3>
+          <h1>Table of Contents</h1>
           <div class="row">
             <div class="col-md-9">
-              <ol>
-                {% for toc_item in toc %}
-                  <li>
-                    <a href="{{ toc_item.url }}">{{ toc_item.title }}</a>
-                  </li>
-                  {% for toc_item in toc_item.children %}
+              <div class="summary">
+                <ol>
+                  {% for toc_item in toc %}
                     <li>
                       <a href="{{ toc_item.url }}">{{ toc_item.title }}</a>
                     </li>
+                    {% for toc_item in toc_item.children %}
+                      <li>
+                        <a href="{{ toc_item.url }}">{{ toc_item.title }}</a>
+                      </li>
+                    {% endfor %}
                   {% endfor %}
-                {% endfor %}
-              </ol>
+                </ol>
+              </div>
             </div>
             <div class="col-md-3">
               <div class="compatibility">
