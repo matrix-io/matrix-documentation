@@ -11,73 +11,68 @@
 </head>
 <body>
   {% include "nav.html" %}
-  <div class="container">
-    <div class="jumbotron">
-      <div class="row">
-        <div class="col">
-          {% if page_title|string() == 'None' %}
-          <h1>Installation</h1>
-          {% else %}
-          <h1>{{ page_title }}</h1>
-          {% endif %}
-        </div>
-        <div class="col">
-          <form action="{{ base_url }}/search.html" method="get">
-            <input class="form-control" type="search" name="q" placeholder="Search"/>
-          </form>
-        </div>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="col-md-2">
-        {% if next_page or previous_page %}
-        <div id="nav-ctrls" style="display: none">
-          <hr/>
-          <h3>Navigation</h3>
-          <div>
-            {% if previous_page %}
-            <a href="{{ previous_page.url }}" class="btn btn-default" title="{{ previous_page.title }}"><span aria-hidden="true">&laquo;</span> prev.</a>
+  <div class="header">
+    <div class="container">
+      <div class="jumbotron">
+        <div class="row">
+          <div class="col">
+            {% if page_title|string() == 'None' %}
+            <h1>Installation</h1>
             {% else %}
-            <span aria-hidden="true">&laquo;</span> prev.
-            {% endif %}
-            {% if next_page %}
-            <a href="{{ next_page.url }}" class="btn btn-default" title="{{ next_page.title }}"/> next <span aria-hidden="true">&raquo;</span></a>
-            {% else %}
-            next <span aria-hidden="true">&raquo;</span>
+            <h1>{{ page_title }}</h1>
             {% endif %}
           </div>
-          <hr/>
+          <div class="col">
+            <form action="{{ base_url }}/search.html" method="get">
+              <input class="form-control" type="search" name="q" placeholder="Search"/>
+            </form>
+          </div>
         </div>
-        {% endif %}
-        <h3>Contents</h3>
-        <ul class="list-group">
-          {% for toc_item in toc %}
-          <li class="list-group-item"><a href="{{ toc_item.url }}">{{ toc_item.title }}</a></li>
-          {% for toc_item in toc_item.children %}
-          <li class="list-group-item"><a href="{{ toc_item.url }}">{{ toc_item.title }}</a></li>
-          {% endfor %}
-          {% endfor %}
-        </ul>
-
-        {% if repo_url %}
-        <h3>Source</h3>
-        {% if repo_name == 'GitHub' %}
-        <a href="{{ repo_url }}"> Edit on GitHub</a>
-        {% elif repo_name == 'Bitbucket' %}
-        <a href="{{ repo_url }}"> Edit on BitBucket</a>
-        {% else %}
-        <a href="{{ repo_url }}"> Edit in Repository</a>
-        {% endif %}
-        {% endif %}
-      </div>
-      <div class="col-md-10">
-        {% block content %}
-        {{ content }}
-        {% endblock %}
       </div>
     </div>
   </div>
+
+  <div class="content">
+    <div class="container">
+      <div class="row">
+        <div class="sidebar col-md-3">
+          <h3>Docs</h3>
+          <ul>
+            {% for toc_item in toc %}
+              <li>
+                <a href="{{ toc_item.url }}">{{ toc_item.title }}</a>
+              </li>
+              {% for toc_item in toc_item.children %}
+                <li>
+                  <a href="{{ toc_item.url }}">{{ toc_item.title }}</a>
+                </li>
+              {% endfor %}
+            {% endfor %}
+          </ul>
+        </div>
+
+        <div class="docs col-md-9">
+          <h3>Table of Contents</h3>
+          <ol>
+            {% for toc_item in toc %}
+              <li>
+                <a href="{{ toc_item.url }}">{{ toc_item.title }}</a>
+              </li>
+              {% for toc_item in toc_item.children %}
+                <li>
+                  <a href="{{ toc_item.url }}">{{ toc_item.title }}</a>
+                </li>
+              {% endfor %}
+            {% endfor %}
+          </ol>
+          {% block content %}
+          {{ content }}
+          {% endblock %}
+        </div>
+      </div>
+    </div>
+  </div>
+
   <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"></script>

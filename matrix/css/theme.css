@@ -10,107 +10,108 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+a {
+  font-size: 1.25rem;
+  color: #2F80ED;
+}
+
 /********** Navbar - BEGIN **********/
 .navbar {
   z-index: 999;
 }
-
-.navbar-brand {
+.navbar .navbar-brand {
   margin-right: 0px;
   padding: 9px 8px;
   height: 56px;
   width: 200px;
 }
-.navbar-brand span {
+.navbar .navbar-brand span {
   font-size: 1.625rem;
   font-weight: 300;
   color: #8C8C8C;
 }
-
-.nav-link {
+.navbar .nav-link {
   font-size: 1em;
   cursor: pointer;
 }
-
-.navbar-collapse {
+.navbar .navbar-collapse {
   float: right;
 }
-
-.dropdown-item {
+.navbar .dropdown-item {
   font-size: 1.125rem;
   color: rgba(0, 0, 0, 0.5);
   padding: 8px;
   text-align: right;
 }
-
-.nav-link {
+.navbar .nav-link {
   font-size: 1.125rem;
 }
-.nav-link.active {
+.navbar .nav-link.active {
   color: #0275d8!important;
 }
-
-.nav-item.dropdown > a {
+.navbar .nav-item.dropdown > a {
   cursor: pointer;
 }
-
-.nav-item .dropdown-menu {
+.navbar .nav-item .dropdown-menu {
   right: 0;
   left: auto;
   min-width: 0px;
 }
 
 @media(max-width: 991px) {
-  .navbar-light .navbar-toggler {
+  .navbar .navbar-light .navbar-toggler {
     border-color: transparent;
     padding-left: 0;
     padding-right: 0;
   }
-  .navbar-toggler {
+  .navbar .navbar-toggler {
     position: absolute;
     z-index: 2;
   }
-  .navbar-collapse {
+  .navbar .navbar-collapse {
     float: left;
   }
-  .navbar-brand {
+  .navbar .navbar-brand {
     text-align: center;
     margin: auto;
     padding: 4px 0px;
   }
-  .dropdown-item {
+  .navbar .dropdown-item {
     text-align: left;
   }
 }
 /********** Navbar - END **********/
 
 /********** Header - BEGIN **********/
-.jumbotron {
+.header {
+  border-bottom: 2px solid #F6F6F6;
+}
+.header .jumbotron {
   background-color: #FFFFFF;
   padding-left: 0px;
   padding-right: 0px;
 }
-.jumbotron h1 {
+.header .jumbotron h1 {
   font-size: 3.5rem;
   font-weight: 300;
   color: #828282;
 }
-.jumbotron form {
+.header .jumbotron form {
   display: flex;
   justify-content: flex-end;
 }
 
-.jumbotron form input {
+.header .jumbotron form input {
   outline: none;
   font-size: 1.375rem!important;
   color: #2F80ED!important
 }
-.jumbotron form input[type=search] {
+.header .jumbotron form input[type=search] {
   -webkit-appearance: textfield;
   -webkit-box-sizing: content-box;
   font-size: 100%;
 }
-.jumbotron form input[type=search] {
+.header .jumbotron form input[type=search] {
   background: #FFFFFF url("../img/search.svg") no-repeat 10px center;
   padding: 8px 10px 8px 40px;
   width: 4.3rem;
@@ -119,7 +120,7 @@ body {
   -moz-transition: all .5s;
   transition: all .5s;
 }
-.jumbotron form input[type=search]:focus {
+.header .jumbotron form input[type=search]:focus {
   width: 22rem;
   background-color: #FFFFFF;
   border: solid 1px #2A75F1;
@@ -138,6 +139,49 @@ body {
 }
 /********** Header - END **********/
 
+/********** Content - BEGIN **********/
+.content .sidebar {
+  border-right: 2px solid #F6F6F6;
+  padding-top: 69px;
+  padding-bottom: 69px;
+}
+.content .sidebar h3 {
+  font-weight: 300;
+  font-size: 2rem;
+  margin-bottom: 30px;
+}
+.content .sidebar ul {
+  font-size: 1.25rem;
+  list-style: none;
+  padding: 0px;
+}
+.content .sidebar li {
+  margin-bottom: 22px;
+}
+.content .sidebar li a {
+  color: #828282;
+}
+.content .sidebar li a .active {
+  color: #2F80ED;
+}
+.content .docs {
+  padding-top: 69px;
+  padding-bottom: 69px;
+  padding-left: 74px;
+}
+.content .docs h3 {
+  font-size: 1.375rem;
+  color: #828282;
+  margin-bottom: 18px;
+}
+.content .docs ol {
+  font-size: 1.375rem;
+  color: #2F80ED;
+}
+.content .docs ol li {
+  margin-bottom: 13px;
+}
+/********** Content - END **********/
 
 
 
