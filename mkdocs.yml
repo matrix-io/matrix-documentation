@@ -8,7 +8,7 @@ pages:
 - MATRIX CLI:
   - 'Overview': 'CLI/overview.md'
   - 'Installation': 'CLI/installation.md'
-  - 'MATRIX CLI': 'CLI/apps.md'
+  - 'Apps': 'CLI/apps.md'
   - 'Devices': 'CLI/device.md'
   - 'Examples': 'CLI/example.md'
   - 'Troubleshooting': 'intro/cli-troubleshooting.md'

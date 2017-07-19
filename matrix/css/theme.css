@@ -166,6 +166,12 @@ a {
   border-right: 5px solid #2F80ED;
   display: block;
 }
+.content .sidebar .submenu > ul {
+  margin-top: 22px;
+}
+.content .sidebar .submenu .neasted {
+  padding-left: 20px;
+}
 .content .docs {
   padding-top: 69px;
   padding-bottom: 69px;
