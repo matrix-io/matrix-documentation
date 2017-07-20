@@ -3,7 +3,7 @@ site_description: MATRIX OS Documentation
 docs_dir: docs
 theme_dir: matrix
 pages:
-- Installation: 'index.md'
+- Getting Started: 'index.md'
 - Upgrades: 'upgrades.md'
 - MATRIX CLI:
   - 'Overview': 'CLI/overview.md'

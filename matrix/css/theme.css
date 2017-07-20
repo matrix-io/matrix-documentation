@@ -177,13 +177,6 @@ a {
   padding-bottom: 69px;
   padding-left: 74px;
 }
-.content .docs h1 {
-  font-weight: 300;
-  line-height: normal;
-  font-size: 2.625rem;
-  color: #000000;
-  margin-bottom: 18px;
-}
 .content .docs .summary > ol {
   font-size: 1.375rem;
   color: #2F80ED;
@@ -197,7 +190,7 @@ a {
   margin-bottom: 13px;
 }
 .content .docs .summary ol li:before {
-  content: counters(item, ".") ".";
+  content: counters(item, ".") ". ";
   counter-increment: item;
 }
 .content .docs .compatibility {
@@ -213,10 +206,26 @@ a {
   color: #333333;
   margin-bottom: 5px;
 }
+.content .docs h1 {
+  font-weight: 300;
+  line-height: normal;
+  font-size: 2.625rem;
+  color: #000000;
+  margin-bottom: 18px;
+}
 .content .docs h2,
-.content .docs h3,
-.content .docs h4 {
+.content .docs h3 {
   font-size: 2rem;
+  font-weight: 300;
+}
+.content .docs h4 {
+  font-size: 1.5rem;
+  font-weight: 300;
+  margin: 20px 0px;
+}
+.content .docs h5,
+.content .docs h6 {
+  font-size: 1.2rem;
   font-weight: 300;
 }
 .content .docs p,
@@ -225,6 +234,24 @@ a {
   line-height: 1.755rem;
   font-size: 1.125rem;
   color: #828282;
+}
+.content .docs > ol {
+  font-weight: normal;
+  line-height: 1.755rem;
+  font-size: 1.125rem;
+  color: #828282;
+}
+.content .docs > ol {
+  counter-reset: item;
+}
+.content .docs > ol li {
+  display: block;
+  margin-bottom: 13px;
+}
+.content .docs > ol li:before {
+  content: counters(item, ".") ". ";
+  counter-increment: item;
+  font-weight: 600;
 }
 .content .docs pre {
   background: #EDEDED;
