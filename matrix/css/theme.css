@@ -137,6 +137,12 @@ a {
 .header .jumbotron form input:-moz-placeholder { /* Firefox 18- */
   color: #2F80ED!important;
 }
+@media (max-width: 767px) {
+  .header .jumbotron form {
+    justify-content: normal;
+    margin-top: 20px;
+  }
+}
 /********** Header - END **********/
 
 /********** Content - BEGIN **********/
@@ -267,6 +273,15 @@ a {
 .content .docs code {
   line-height: normal;
   font-size: 1rem;
+}
+@media (max-width: 767px) {
+  .content .docs {
+    padding: 0px 15px;
+  }
+  .content .docs .compatibility {
+    text-align: left;
+    margin-bottom: 50px;
+  }
 }
 /********** Content - END **********/
 
