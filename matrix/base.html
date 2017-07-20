@@ -39,9 +39,12 @@
         <div class="sidebar col-md-3">
           <h3>Docs</h3>
           <ul>
-            {% set nav_level = 0 %}
             {% for nav_item in nav %}
-              {% include "sidebar.html" %}
+              <li>
+                <a href="{{ nav_item.url }}" class="{% if nav_item.active %}active{% endif %}">
+                  {{ nav_item.title }}
+                </a>
+              </li>
             {% endfor %}
           </ul>
         </div>
