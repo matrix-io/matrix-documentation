@@ -41,7 +41,12 @@
           <ul>
             {% for nav_item in nav %}
             <li>
-              <a href="{{ nav_item.url }}" class="{% if nav_item.active %}active{% endif %}">
+              {% if not nav_item.url %}
+                {% set nav_url = nav_item.children[0].url %}
+              {% else %}
+                {% set nav_url = nav_item.url %}
+              {% endif %}
+              <a href="{{ nav_url }}" class="{% if nav_item.active %}active{% endif %}">
                 {{ nav_item.title }}
               </a>
             </li>

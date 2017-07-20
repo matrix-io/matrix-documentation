@@ -1,12 +1,14 @@
-## Overview
-
-####[Installation](installation.md)
+## [Installation](installation.md)
 Installation, Registration, Commands
-####[Applications](apps.md)
+
+## [Applications](apps.md)
 Application Management
-####[Devices](device.md)
+
+## [Devices](device.md)
 Device Management
-####[Examples](example.md)
+
+## [Examples](example.md)
 Example Workflows
-####[Troubleshooting](../intro/cli-troubleshooting.md)
+
+## [Troubleshooting](../intro/cli-troubleshooting.md)
 Troubleshooting

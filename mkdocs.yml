@@ -6,14 +6,14 @@ pages:
 - Getting Started: 'index.md'
 - Upgrades: 'upgrades.md'
 - MATRIX CLI:
-  - 'Overview': 'CLI/overview.md'
+  - 'MATRIX CLI': 'CLI/overview.md'
   - 'Installation': 'CLI/installation.md'
   - 'Apps': 'CLI/apps.md'
   - 'Devices': 'CLI/device.md'
   - 'Examples': 'CLI/example.md'
   - 'Troubleshooting': 'intro/cli-troubleshooting.md'
 - MATRIX OS:
-  - Overview: 'API/overview.md'
+  - MATRIX OS: 'API/overview.md'
   - App Publishing: 'intro/app-publishing.md'
   - App API:
     - 'Sensors': 'API/sensors.md'
@@ -43,11 +43,11 @@ pages:
     - 'Widget Examples': 'Configuration/examples.md'
   - Troubleshooting: 'intro/matrix-troubleshooting.md'
 - Hardware:
+  - 'Hardware': 'Hardware/overview.md'
   - 'Creator': 'Reference/creator.md'
   - 'Voice': 'Reference/voice.md'
   - HAL:
-    - 'Overview': 'HAL/overview.md'
-    - 'Examples': 'HAL/overview.md'
+    - 'Examples': 'HAL/examples.md'
     - 'Troubleshooting': 'HAL/troubleshooting.md'
   - MALOS:
     - 'Overview': 'MALOS/overview.md'
