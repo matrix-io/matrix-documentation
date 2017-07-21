@@ -16,7 +16,7 @@
     <div class="container">
       <div class="jumbotron">
         <div class="row">
-          <div class="col">
+          <div class="col-sm-8">
             {% if current_page and current_page.input_path != 'None' and current_page.input_path != 'index.md' %}
             <h1>{{ page_title }}</h1>
             {% elif current_page and current_page.input_path != 'None' and current_page.input_path == 'index.md' %}
@@ -25,7 +25,7 @@
             <h1>Search</h1>
             {% endif %}
           </div>
-          <div class="col">
+          <div class="col-sm-4">
             <form action="{{ base_url }}/search.html" method="get">
               <input class="form-control" type="search" name="q" placeholder="Search"/>
             </form>
