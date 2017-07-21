@@ -285,6 +285,22 @@ a {
 }
 /********** Content - END **********/
 
+/********** Search - BEGIN **********/
+.search form {
+  margin-bottom: 18px;
+}
+.search form input {
+  outline: none;
+  font-size: 1.375rem!important;
+  color: #2F80ED!important;
+  background: #FFFFFF url("../img/search.svg") no-repeat 10px center;
+  padding: 8px 10px 8px 40px;
+  width: 100%;
+  border: solid 1px #2A75F1;
+  background-color: #FFFFFF;
+}
+/********** Search - END **********/
+
 /********** Footer - BEGIN **********/
 footer {
   padding-top: 50px;

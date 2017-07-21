@@ -17,10 +17,12 @@
       <div class="jumbotron">
         <div class="row">
           <div class="col">
-            {% if page_title|string() == 'None' %}
+            {% if current_page and current_page.input_path != 'None' and current_page.input_path != 'index.md' %}
+            <h1>{{ page_title }}</h1>
+            {% elif current_page and current_page.input_path != 'None' and current_page.input_path == 'index.md' %}
             <h1>Getting Started</h1>
             {% else %}
-            <h1>{{ page_title }}</h1>
+            <h1>Search</h1>
             {% endif %}
           </div>
           <div class="col">
@@ -55,6 +57,7 @@
         </div>
 
         <div class="docs col-md-9">
+          {% if current_page and current_page.input_path != 'None' %}
           <h1>Table of Contents</h1>
           <div class="row">
             <div class="col-md-9">
@@ -85,6 +88,8 @@
               </div>
             </div>
           </div>
+          {% endif %}
+
           {% block content %}
             {{ content }}
           {% endblock %}
