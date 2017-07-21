@@ -2,7 +2,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Local Database MATRIX</title>
+  <title>Examples MATRIX</title>
   <link rel="shortcut icon" href="../../img/favicon.ico">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css">
   <link rel="stylesheet" href="../../css/theme.css">
@@ -80,7 +80,7 @@
         <div class="row">
           <div class="col">
             
-            <h1>Local Database</h1>
+            <h1>Examples</h1>
             
           </div>
           <div class="col">
@@ -131,7 +131,7 @@
               
                 
               
-              <a href="../overview/" class="active">
+              <a href="../../API/overview/" class="">
                 MATRIX OS
               </a>
             </li>
@@ -140,7 +140,7 @@
               
                 
               
-              <a href="../../Hardware/overview/" class="">
+              <a href="../../Hardware/overview/" class="active">
                 Hardware
               </a>
             </li>
@@ -174,22 +174,22 @@
                 <ol>
                   
                   <li>
-                    <a href="#local-database">Local Database</a>
+                    <a href="#overview">Overview</a>
                     
                   </li>
                   
                   <li>
-                    <a href="#get">Get</a>
+                    <a href="#pre-requisites">Pre-Requisites</a>
                     
                   </li>
                   
                   <li>
-                    <a href="#set">Set</a>
+                    <a href="#build">Build</a>
                     
                   </li>
                   
                   <li>
-                    <a href="#delete">Delete</a>
+                    <a href="#examples">Examples</a>
                     
                   </li>
                   
@@ -205,19 +205,51 @@
             </div>
           </div>
           
-            <h2 id="local-database">Local Database</h2>
-<p>MATRIX OS has a local, file-based key-value store for app usage.</p>
-<p>It is not recommended to set end user specific configurations here, and use <code>config.yaml&gt;settings</code> instead.</p>
-<h2 id="get">Get</h2>
-<pre><code>matrix.store.get(key, cb)
+            <h2 id="overview">Overview</h2>
+<p>HAL is the lowest-level abstraction for the MATRIX Creator drivers. You can interface directly with HAL, or use the higher level components like MALOS, and the MATRIX OS itself.</p>
+<h2 id="pre-requisites">Pre-Requisites</h2>
+<p>It does have some package dependencies, so please make sure to install the pre-requisites.</p>
+<pre><code>sudo apt-get install cmake g++ git
+git clone https://github.com/matrix-io/matrix-creator-hal.git
 </code></pre>
 
-<h2 id="set">Set</h2>
-<pre><code>matrix.store.set(key, value, cb)
+<h2 id="build">Build</h2>
+<p>To start working with HAL directly, you'll need to run <code>sudo make install</code> to get the build running. </p>
+<pre><code>$ mkdir build
+$ cd build
+$ cmake ..
+$ make &amp;&amp; sudo make install
+[100%] Built target matrix_creator_hal
+Install the project...
+-- Install configuration: &quot;&quot;
+-- Up-to-date: /usr/local/lib/libmatrix_creator_hal.a
+-- Installing: /usr/local/include/matrix_hal/creator_memory_map.h
+-- Installing: /usr/local/include/matrix_hal/everloop.h
+-- Installing: /usr/local/include/matrix_hal/humidity_data.h
+-- Installing: /usr/local/include/matrix_hal/imu_sensor.h
+-- Installing: /usr/local/include/matrix_hal/pressure_data.h
+-- Installing: /usr/local/include/matrix_hal/dummy_data.h
+-- Installing: /usr/local/include/matrix_hal/everloop_image.h
+-- Installing: /usr/local/include/matrix_hal/humidity_sensor.h
+-- Installing: /usr/local/include/matrix_hal/matrix_driver.h
+-- Installing: /usr/local/include/matrix_hal/pressure_sensor.h
+-- Installing: /usr/local/include/matrix_hal/dummy_sensor.h
+-- Installing: /usr/local/include/matrix_hal/gpio_control.h
+-- Installing: /usr/local/include/matrix_hal/imu_data.h
+-- Installing: /usr/local/include/matrix_hal/microphone_array.h
+-- Installing: /usr/local/include/matrix_hal/wishbone_bus.h
 </code></pre>
 
-<h2 id="delete">Delete</h2>
-<pre><code>matrix.store.delete(key, cb)
+<h2 id="examples">Examples</h2>
+<p>Run some of the examples below.</p>
+<pre><code># should already be in ~/matrix-creator-hal/build directory.
+cd demos
+
+# run the everloop demo
+./everloop_demo
+
+# see the rest of the examples
+ls -l
 </code></pre>
           
         </div>
