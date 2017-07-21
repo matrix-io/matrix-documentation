@@ -41,7 +41,7 @@ Zigbee interfaces.
 Z-wave interfaces.
 
 ## Configuration
-####[Settings](./settings.md)
+####[Settings](settings.md)
 For application defaults or end-user configurable variables.
 
 ####[Data Types](../Configuration/datatypes.md)
