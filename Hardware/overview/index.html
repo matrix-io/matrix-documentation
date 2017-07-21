@@ -2,7 +2,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Local Database MATRIX</title>
+  <title>Hardware MATRIX</title>
   <link rel="shortcut icon" href="../../img/favicon.ico">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css">
   <link rel="stylesheet" href="../../css/theme.css">
@@ -80,7 +80,7 @@
         <div class="row">
           <div class="col">
             
-            <h1>Local Database</h1>
+            <h1>Hardware</h1>
             
           </div>
           <div class="col">
@@ -131,7 +131,7 @@
               
                 
               
-              <a href="../overview/" class="active">
+              <a href="../../API/overview/" class="">
                 MATRIX OS
               </a>
             </li>
@@ -140,7 +140,7 @@
               
                 
               
-              <a href="../../Hardware/overview/" class="">
+              <a href="./" class="active">
                 Hardware
               </a>
             </li>
@@ -174,22 +174,80 @@
                 <ol>
                   
                   <li>
-                    <a href="#local-database">Local Database</a>
+                    <a href="#creator">Creator</a>
                     
                   </li>
                   
                   <li>
-                    <a href="#get">Get</a>
+                    <a href="#voice">Voice</a>
                     
                   </li>
                   
                   <li>
-                    <a href="#set">Set</a>
+                    <a href="#hal">HAL</a>
+                    
+                    <ol>
+                      
+                      <li>
+                        <a href="#examples">Examples</a>
+                      </li>
+                      
+                      <li>
+                        <a href="#troubleshooting">Troubleshooting</a>
+                      </li>
+                      
+                    </ol>
                     
                   </li>
                   
                   <li>
-                    <a href="#delete">Delete</a>
+                    <a href="#malos">MALOS</a>
+                    
+                    <ol>
+                      
+                      <li>
+                        <a href="#overview">Overview</a>
+                      </li>
+                      
+                      <li>
+                        <a href="#examples_1">Examples</a>
+                      </li>
+                      
+                      <li>
+                        <a href="#troubleshooting_1">Troubleshooting</a>
+                      </li>
+                      
+                    </ol>
+                    
+                  </li>
+                  
+                  <li>
+                    <a href="#pinout">Pinout</a>
+                    
+                  </li>
+                  
+                  <li>
+                    <a href="#fpga">FPGA</a>
+                    
+                  </li>
+                  
+                  <li>
+                    <a href="#sam3">SAM3</a>
+                    
+                  </li>
+                  
+                  <li>
+                    <a href="#sam3mcu">SAM3MCU</a>
+                    
+                  </li>
+                  
+                  <li>
+                    <a href="#microphone">Microphone</a>
+                    
+                  </li>
+                  
+                  <li>
+                    <a href="#spi">SPI</a>
                     
                   </li>
                   
@@ -205,20 +263,21 @@
             </div>
           </div>
           
-            <h2 id="local-database">Local Database</h2>
-<p>MATRIX OS has a local, file-based key-value store for app usage.</p>
-<p>It is not recommended to set end user specific configurations here, and use <code>config.yaml&gt;settings</code> instead.</p>
-<h2 id="get">Get</h2>
-<pre><code>matrix.store.get(key, cb)
-</code></pre>
-
-<h2 id="set">Set</h2>
-<pre><code>matrix.store.set(key, value, cb)
-</code></pre>
-
-<h2 id="delete">Delete</h2>
-<pre><code>matrix.store.delete(key, cb)
-</code></pre>
+            <h2 id="creator"><a href="../../Reference/creator/">Creator</a></h2>
+<h2 id="voice"><a href="../../Reference/voice/">Voice</a></h2>
+<h2 id="hal"><a href="../../Reference/voice/">HAL</a></h2>
+<h4 id="examples"><a href="../../HAL/examples/">Examples</a></h4>
+<h4 id="troubleshooting"><a href="../../HAL/troubleshooting/">Troubleshooting</a></h4>
+<h2 id="malos"><a href="/MALOS/voice.md">MALOS</a></h2>
+<h4 id="overview"><a href="../../MALOS/overview/">Overview</a></h4>
+<h4 id="examples_1"><a href="/MALOS/examples.md">Examples</a></h4>
+<h4 id="troubleshooting_1"><a href="../../MALOS/troubleshooting/">Troubleshooting</a></h4>
+<h2 id="pinout"><a href="../../Reference/pinout/">Pinout</a></h2>
+<h2 id="fpga"><a href="../fpga/">FPGA</a></h2>
+<h2 id="sam3"><a href="../Sam3/">SAM3</a></h2>
+<h2 id="sam3mcu"><a href="../sam3mcu-programming/">SAM3MCU</a></h2>
+<h2 id="microphone"><a href="../microphone/">Microphone</a></h2>
+<h2 id="spi"><a href="../SPI/">SPI</a></h2>
           
         </div>
       </div>
