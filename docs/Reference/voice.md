@@ -10,13 +10,13 @@ MATRIX Voice is an open-source VOICE RECOGNITION platform consisting of a 3.14-i
 
 ## Harware Integrations
 - [FPGA](../Hardware/fpga.md)
-- [HAL](../HAL/overview.md)
+- [HAL](../HAL/examples.md)
 - [MALOS](../MALOS/overview.md)
 - [Microphone](../Hardware/microphone.md)
 
 ## Voice Engine Integrations
 
-- [Alexa](../Demos/Alexa.md) 
+- [Alexa](../Demos/Alexa.md)
 
 ### Coming Soon:
 - Wit.ai

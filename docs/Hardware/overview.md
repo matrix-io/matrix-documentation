@@ -2,17 +2,17 @@
 
 ## [Voice](/Reference/voice.md)
 
-## [HAL](/Reference/voice.md)
+## [HAL](/)
 
 #### [Examples](/HAL/examples.md)
 
 #### [Troubleshooting](/HAL/troubleshooting.md)
 
-## [MALOS](/MALOS/voice.md)
+## [MALOS](/)
 
 #### [Overview](/MALOS/overview.md)
 
-#### [Examples](/MALOS/examples.md)
+#### [Examples](/MALOS/example.md)
 
 #### [Troubleshooting](/MALOS/troubleshooting.md)
 
