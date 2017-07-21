@@ -2,18 +2,13 @@
     "docs": [
         {
             "location": "/", 
-            "text": "Support\n\n\n\n\nPost questions or comments on \ncommunity.matrix.one\n\n\nPost package issues on github under \nmatrix-io\n\n\nSubmit documentation issues or improvements at \nmatrix-io/matrix-documentation\n\n\n\n\nRequirements\n\n\n\n\nRaspberry Pi\n\n\nMATRIX Creator\n\n\nNodeJS\n on the client computer\n\n\n\n\nInstallation\n\n\nLocal Machine Setup\n\n\n\n\nInstall \nMATRIX CLI\n via npm \nsudo npm install -g matrix-cli\n\n\nTarget the proper environment \nmatrix set env rc\n\n\nWith MATRIX CLI installed on your computer, register an account with MATRIX via \nmatrix register\n\n\nLog into your account using \nmatrix login\n\n\nOnce registered an account, run \nmatrix register device\n\n\nEnter a \ndevice name\n and (optional) \ndevice description\n\n\nAfter a few moments you will be provided with a \nMATRIX_DEVICE_ID\n and \nMATRIX_DEVICE_SECRET\n\n\nSelect your device using \nmatrix use\n, and enter your device ID. Command examples will be provided for easy copy paste\n\n\n\n\n# example variasbles generated via registration, yours will be different\nexport MATRIX_DEVICE_ID=dc7a1a71be2d\nexport MATRIX_DEVICE_SECRET=08629018e9d77h15i5n0t4r3alz0f06cd4f7e5544272b\n\n\n\n\nNote 1:\n Save these for the Configure ENV Variables step, near the end.\n\n\nNote 2:\n \nWatch Getting Started, Registration and Installation\n of MATRIX OS and MATRIX CLI on Youtube.\n\n\nRaspberry Pi Setup\n\n\nThe following command installs the MATRIX Open Source platform and get ready your MATRIX Creator:\n\n\n\n\nInstall MATRIX OS: \ncurl https://raw.githubusercontent.com/matrix-io/matrix-creator-quickstart/master/install.sh | sh\n\n\nInside your home folder (\n~\n), create a file named \n.envrc\n with the variables from the \nMatrix CLI Setup above\n\n\nRun \nsource ~/.envrc\n to make the variables available to the shell\n\n\nGo to \nmatrix-os\n folder with \ncd ~/matrix-os\n and run \nNODE_ENV=rc node index.js\n to start the OS. While in alpha, we are running in our Release Candidate environment.\n\n\n\n\nCheck if everything works\n\n\n\n\nIf you didn't do it earlier, \nmatrix use $deviceId\n\n\nRun \nmatrix\n, verify you are on \nrc\n environment, your user is correct, and your selected device is correct.\n\n\nNow you can issue commands and deploy apps to your MATRIX OS from the \nMATRIX CLI\n.\n\n\n\n\nCustom Raspbian Package\n\n\nWe'll be making a custom raspbian package available for download very soon!", 
-            "title": "Getting Started"
+            "text": "Support\n\n\n\n\nPost questions or comments on \ncommunity.matrix.one\n\n\nPost package issues on github under \nmatrix-io\n\n\nSubmit documentation issues or improvements at \nmatrix-io/matrix-documentation\n\n\n\n\nInstallation\n\n\nLocal Machine Setup\n\n\nImportant:    \nKeep in mind that MATRIX CLI is intended to run on your host computer, not directly on the Pi running MOS.\n\n\nNote 1:\n Pre-requisite of \nNodeJS\n on the client computer.\n\n\n\n\nInstall \nMATRIX CLI\n via npm \nsudo npm install -g matrix-cli\n.\n\n\nTarget the proper environment \nmatrix set env rc\n.\n\n\nWith MATRIX CLI installed on your computer, register an account with MATRIX via \nmatrix register\n.\n\n\nLog into your account using \nmatrix login\n.\n\n\nOnce registered an account, run \nmatrix register device\n.\n\n\nEnter a \ndevice name\n and (optional) \ndevice description\n.\n\n\nAfter a few moments you will be provided with a \nMATRIX_DEVICE_ID\n and \nMATRIX_DEVICE_SECRET\n.\n\n\nSelect your device using \nmatrix use\n, and enter your device ID. Command examples will be provided for easy copy paste.\n\n\n\n\n# example variables generated via registration, yours will be different\nexport MATRIX_DEVICE_ID=dc7a1a71be2d\nexport MATRIX_DEVICE_SECRET=08629018e9d77h15i5n0t4r3alz0f06cd4f7e5544272b\n\n\n\n\nSave these for the Configure ENV Variables step, near the end.\n\n\nNote 2:\n Watch \nGetting Started\n, \nRegistration\n and \nInstallation\n of MATRIX OS and MATRIX CLI on Youtube. \nWatch now\n.\n\n\nRaspberry Pi Setup\n\n\nThe following installation configures the MATRIX Creator, as well as installs the MATRIX Open Source platform.\n\n\n# Does everything including reboot.\ncurl https://raw.githubusercontent.com/matrix-io/matrix-creator-quickstart/master/install.sh | sh\n\n\n\n\nConfigure ENV variables\n\n\n\n\nOn the Pi, inside your \n~\n folder, create a file named \n.envrc\n with the variables from the Matrix CLI Setup above.  \n\n\n\n\n# in .envrc file or place in ~/.bash_profile to auto configure\nexport MATRIX_DEVICE_ID=dc7a1a71be2d\nexport MATRIX_DEVICE_SECRET=08629018e9d77h15i5n0t4r3alz0f06cd4f7e5544272b\n\n\n\n\n\n\nsource .envrc\n from \n~\n to make the variables available to the shell.\n\n\n\n\nRun MATRIX OS\n\n\n\n\nFrom the \nmatrix-os\n folder. \nNODE_ENV=rc node index.js\n. While in alpha, we are running in our Release Candidate environment.\n\n\n\n\nReturning to local computer\n\n\n\n\nIf you didn't do it earlier, \nmatrix use $deviceId\n\n\nRun \nmatrix\n, verify you are on \nrc\n environment, your user is correct, and your selected device is correct.\n\n\nNow you can issue commands and deploy apps to your MATRIX OS from the \nMATRIX CLI\n.\n\n\n\n\nCustom Raspbian Package\n\n\nWe'll be making a custom raspbian package available for download very soon!", 
+            "title": "Installation"
         }, 
         {
             "location": "/#support", 
             "text": "Post questions or comments on  community.matrix.one  Post package issues on github under  matrix-io  Submit documentation issues or improvements at  matrix-io/matrix-documentation", 
             "title": "Support"
-        }, 
-        {
-            "location": "/#requirements", 
-            "text": "Raspberry Pi  MATRIX Creator  NodeJS  on the client computer", 
-            "title": "Requirements"
         }, 
         {
             "location": "/#installation", 
@@ -22,18 +17,33 @@
         }, 
         {
             "location": "/#local-machine-setup", 
-            "text": "Install  MATRIX CLI  via npm  sudo npm install -g matrix-cli  Target the proper environment  matrix set env rc  With MATRIX CLI installed on your computer, register an account with MATRIX via  matrix register  Log into your account using  matrix login  Once registered an account, run  matrix register device  Enter a  device name  and (optional)  device description  After a few moments you will be provided with a  MATRIX_DEVICE_ID  and  MATRIX_DEVICE_SECRET  Select your device using  matrix use , and enter your device ID. Command examples will be provided for easy copy paste   # example variasbles generated via registration, yours will be different\nexport MATRIX_DEVICE_ID=dc7a1a71be2d\nexport MATRIX_DEVICE_SECRET=08629018e9d77h15i5n0t4r3alz0f06cd4f7e5544272b  Note 1:  Save these for the Configure ENV Variables step, near the end.  Note 2:   Watch Getting Started, Registration and Installation  of MATRIX OS and MATRIX CLI on Youtube.", 
+            "text": "", 
             "title": "Local Machine Setup"
         }, 
         {
+            "location": "/#important-keep-in-mind-that-matrix-cli-is-intended-to-run-on-your-host-computer-not-directly-on-the-pi-running-mos", 
+            "text": "Note 1:  Pre-requisite of  NodeJS  on the client computer.   Install  MATRIX CLI  via npm  sudo npm install -g matrix-cli .  Target the proper environment  matrix set env rc .  With MATRIX CLI installed on your computer, register an account with MATRIX via  matrix register .  Log into your account using  matrix login .  Once registered an account, run  matrix register device .  Enter a  device name  and (optional)  device description .  After a few moments you will be provided with a  MATRIX_DEVICE_ID  and  MATRIX_DEVICE_SECRET .  Select your device using  matrix use , and enter your device ID. Command examples will be provided for easy copy paste.   # example variables generated via registration, yours will be different\nexport MATRIX_DEVICE_ID=dc7a1a71be2d\nexport MATRIX_DEVICE_SECRET=08629018e9d77h15i5n0t4r3alz0f06cd4f7e5544272b  Save these for the Configure ENV Variables step, near the end.  Note 2:  Watch  Getting Started ,  Registration  and  Installation  of MATRIX OS and MATRIX CLI on Youtube.  Watch now .", 
+            "title": "Important:    Keep in mind that MATRIX CLI is intended to run on your host computer, not directly on the Pi running MOS."
+        }, 
+        {
             "location": "/#raspberry-pi-setup", 
-            "text": "The following command installs the MATRIX Open Source platform and get ready your MATRIX Creator:   Install MATRIX OS:  curl https://raw.githubusercontent.com/matrix-io/matrix-creator-quickstart/master/install.sh | sh  Inside your home folder ( ~ ), create a file named  .envrc  with the variables from the  Matrix CLI Setup above  Run  source ~/.envrc  to make the variables available to the shell  Go to  matrix-os  folder with  cd ~/matrix-os  and run  NODE_ENV=rc node index.js  to start the OS. While in alpha, we are running in our Release Candidate environment.", 
+            "text": "The following installation configures the MATRIX Creator, as well as installs the MATRIX Open Source platform.  # Does everything including reboot.\ncurl https://raw.githubusercontent.com/matrix-io/matrix-creator-quickstart/master/install.sh | sh", 
             "title": "Raspberry Pi Setup"
         }, 
         {
-            "location": "/#check-if-everything-works", 
+            "location": "/#configure-env-variables", 
+            "text": "On the Pi, inside your  ~  folder, create a file named  .envrc  with the variables from the Matrix CLI Setup above.     # in .envrc file or place in ~/.bash_profile to auto configure\nexport MATRIX_DEVICE_ID=dc7a1a71be2d\nexport MATRIX_DEVICE_SECRET=08629018e9d77h15i5n0t4r3alz0f06cd4f7e5544272b   source .envrc  from  ~  to make the variables available to the shell.", 
+            "title": "Configure ENV variables"
+        }, 
+        {
+            "location": "/#run-matrix-os", 
+            "text": "From the  matrix-os  folder.  NODE_ENV=rc node index.js . While in alpha, we are running in our Release Candidate environment.", 
+            "title": "Run MATRIX OS"
+        }, 
+        {
+            "location": "/#returning-to-local-computer", 
             "text": "If you didn't do it earlier,  matrix use $deviceId  Run  matrix , verify you are on  rc  environment, your user is correct, and your selected device is correct.  Now you can issue commands and deploy apps to your MATRIX OS from the  MATRIX CLI .", 
-            "title": "Check if everything works"
+            "title": "Returning to local computer"
         }, 
         {
             "location": "/#custom-raspbian-package", 
@@ -82,8 +92,13 @@
         }, 
         {
             "location": "/CLI/overview/", 
-            "text": "Installation\n\n\nInstallation, Registration, Commands\n\n\nApplications\n\n\nApplication Management\n\n\nDevices\n\n\nDevice Management\n\n\nExamples\n\n\nExample Workflows\n\n\nTroubleshooting\n\n\nTroubleshooting", 
-            "title": "MATRIX CLI"
+            "text": "Overview\n\n\nInstallation\n\n\nInstallation, Registration, Commands\n\n\nApplications\n\n\nApplication Management\n\n\nDevices\n\n\nDevice Management\n\n\nExamples\n\n\nExample Workflows\n\n\nTroubleshooting\n\n\nTroubleshooting", 
+            "title": "Overview"
+        }, 
+        {
+            "location": "/CLI/overview/#overview", 
+            "text": "", 
+            "title": "Overview"
         }, 
         {
             "location": "/CLI/overview/#installation", 
@@ -272,17 +287,22 @@
         }, 
         {
             "location": "/API/overview/", 
-            "text": "Overview\n\n\nMATRIX OS is an open source operating system for hosting IoT applications. MATRIX OS runs on node.js, but applications will be language-agnostic, as we finish writing an API and SDK for different languages. Fundamentally, MATRIX OS applications logically connect hardware and machine learning abstractions. In this way, you can connect the output from a computer vision system to drive real-world behavior in the form of hardware signaling.\n\n\nApplications\n\n\nApplications, on a fundamental level, provides logical connections between physical data producers and consumers.\n\n\nSo it makes sense to think of information as streams and filters instead of objects and trees. JavaScript has an elegant approach to data filtering through callbacks and first-order functions.\n\n\nApp API\n\n\nSensors\n\n\nSensor interfaces and data structures.\n\n\nEverloop\n\n\nEverloop interface.\n\n\nFilters\n\n\nFilters interface for Sensors, Computer Vision, etc...\n\n\nComputer Vision\n\n\nComputer Vision services.\n\n\nMicrophones\n\n\nMicrophone Services.\n\n\nIR TX/RX\n\n\nIR receiving and transmitter services.\n\n\nGPIO\n\n\nGPIO interfaces.\n\n\nServos\n\n\nServo interfaces.\n\n\nNFC\n\n\nNFC interfaces.\n\n\nZigbee\n\n\nZigbee interfaces.\n\n\nZ-wave\n\n\nZ-wave interfaces.\n\n\nConfiguration\n\n\nSettings\n\n\nFor application defaults or end-user configurable variables.\n\n\nData Types\n\n\nData structures and how to save to the infrastructure.\n\n\nScreens\n\n\nDashboard creation and how to structure your widgets.\n\n\nFilters\n\n\nDashboard filter configuration.\n\n\nWidgets\n\n\nDashboard widget configuration.\n\n\nServices\n\n\nAvailable infrastructure services.\n\n\nTroubleshooting\n\n\nTroubleshooting", 
-            "title": "MATRIX OS"
-        }, 
-        {
-            "location": "/API/overview/#overview", 
-            "text": "MATRIX OS is an open source operating system for hosting IoT applications. MATRIX OS runs on node.js, but applications will be language-agnostic, as we finish writing an API and SDK for different languages. Fundamentally, MATRIX OS applications logically connect hardware and machine learning abstractions. In this way, you can connect the output from a computer vision system to drive real-world behavior in the form of hardware signaling.", 
+            "text": "Overview\n\n\nMATRIX OS\n\n\nMATRIX OS is an open source operating system for hosting IoT applications. MATRIX OS runs on node.js, but applications will be language-agnostic, as we finish writing an API and SDK for different languages. Fundamentally, MATRIX OS applications logically connect hardware and machine learning abstractions. In this way, you can connect the output from a computer vision system to drive real-world behavior in the form of hardware signaling.\n\n\nApplications\n\n\nApplications, on a fundamental level, provides logical connections between physical data producers and consumers.  \n\n\nSo it makes sense to think of information as streams and filters instead of objects and trees. JavaScript has an elegant approach to data filtering through callbacks and first-order func \n\n\nApp API\n\n\nSensors\n\n\nSensor interfaces and data structures.\n\n\nEverloop\n\n\nEverloop interface.\n\n\nFilters\n\n\nFilters interface for Sensors, Computer Vision, etc...\n\n\nComputer Vision\n\n\nComputer Vision services.\n\n\nMicrophones\n\n\nMicrophone Services.\n\n\nIR TX/RX\n\n\nIR receiving and transmitter services.\n\n\nGPIO\n\n\nGPIO interfaces.\n\n\nServos\n\n\nServo interfaces.\n\n\nNFC\n\n\nNFC interfaces.\n\n\nZigbee\n\n\nZigbee interfaces.\n\n\nZ-wave\n\n\nZ-wave interfaces.\n\n\nConfiguration\n\n\nSettings\n\n\nFor application defaults or end-user configurable variables.\n\n\nData Types\n\n\nData structures and how to save to the infrastructure.\n\n\nScreens\n\n\nDashboard creation and how to structure your widgets.\n\n\nFilters\n\n\nDashboard filter configuration.\n\n\nWidgets\n\n\nDashboard widget configuration.\n\n\nServices\n\n\nAvailable infrastructure services.\n\n\nTroubleshooting\n\n\nTroubleshooting", 
             "title": "Overview"
         }, 
         {
+            "location": "/API/overview/#overview", 
+            "text": "", 
+            "title": "Overview"
+        }, 
+        {
+            "location": "/API/overview/#matrix-os", 
+            "text": "MATRIX OS is an open source operating system for hosting IoT applications. MATRIX OS runs on node.js, but applications will be language-agnostic, as we finish writing an API and SDK for different languages. Fundamentally, MATRIX OS applications logically connect hardware and machine learning abstractions. In this way, you can connect the output from a computer vision system to drive real-world behavior in the form of hardware signaling.", 
+            "title": "MATRIX OS"
+        }, 
+        {
             "location": "/API/overview/#applications", 
-            "text": "Applications, on a fundamental level, provides logical connections between physical data producers and consumers.  So it makes sense to think of information as streams and filters instead of objects and trees. JavaScript has an elegant approach to data filtering through callbacks and first-order functions.", 
+            "text": "Applications, on a fundamental level, provides logical connections between physical data producers and consumers.    So it makes sense to think of information as streams and filters instead of objects and trees. JavaScript has an elegant approach to data filtering through callbacks and first-order func", 
             "title": "Applications"
         }, 
         {
@@ -817,7 +837,7 @@
         }, 
         {
             "location": "/API/crosstalk/", 
-            "text": "Cross-Talk\n\n\nCross-Talk is a mechanism for applications to communicate, whether on the same device, or on different devices. Applications can exchange information with other applications, or with other instances of the same application. All messages get sent to all devices, so if you have the same app running on different devices, this is how to communicate between installations of the\u00a0same app.\n\n\nOverview\n\n\nCross talk events are publicly searchable by app, and allow MATRIX applications to easily exchange information between devices, or on the same device. For example, a face detection application could trigger a \nface-in\n, which is heard by a \nconfigured\n and \ntrained\n recognition program.\n\n\nConfig Setup\n\n\nCrossTalk requires setup in configuration to execute successfully. This information is also used in the app store to determine which applications can communicate via events.\n\n\nGlobal\n\n\nevents:\n  - globalEvent\n\n\n\n\nApp Targeted\n\n\nevents:\n  - appName\n\n\n\n\nApp/Event Targeted\n\n\nevents:\n  - appname:\n    - eventname\n\n\n\n\nGlobal Emitters \n Listeners\n\n\nGlobal messages that can be received across applications, devices, and clients. e.g. Emit from one device, receive on another.\n\n\n.emit(payload)\n\n\n\n\npayload\n Object or string to pass through to retrieve with the listener.\n\n\n\n\n// Send a payload to all listeners\nmatrix.emit(payload);\n\n\n\n\n.on(cb)\n\n\n\n\ncb\n Callback method with \npayload\n returned.\n\n\n\n\n// Listen for global CrossTalk messages\nmatrix.on(function(payload) { ... });\n\n\n\n\nApp Specific Message\n\n\nMessages that can be shared across applications on a single device.\n\n\n.emit(app, payload)\n\n\n\n\napp\n Label to later listen for.\n\n\npayload\n Object or string to pass through to retrieve with the listener.\n\n\n\n\n// Send a message to a particular application\nmatrix.emit('app', payload);\n\n\n\n\n.on(cb)\n\n\n\n\ncb\n Callback method with payload returned.\n\n\n\n\n// Listen for application specific CrossTalk messages\nmatrix.on(function(payload) { ... });\n\n\n\n\nSpecific Event within App\n\n\nMessages that can be filtered by application, and an event type.\n\n\n.emit(app, event, payload)\n\n\n\n\napp\n Label to later listen for.\n\n\nevent\n Event scope within \napp\n to listen for.\n\n\npayload\n Object or string to pass through to retrieve with the listener.\n\n\n\n\n// Trigger an event in a specific application\nmatrix.emit('app', 'event', payload);\n\n\n\n\n.on(event, cb)\n\n\n\n\nevent\n Event to listen on.\n\n\ncb\n Callback method with payload returned.\n\n\n\n\n// Listen for CrossTalk events sent to this application\nmatrix.on('event', function(payload) { ... });\n\n\n\n\nDashboard\n\n\nReceive events from web or mobile by binding them to widget controls.\n\n\n// Interface elements from Dashboards can also trigger CrossTalk events.\nmatrix.on('buttonClick', function(payload) { ... });\n\n\n\n\nConfiguration-Driven Events\n\n\nSee \nConfiguration \n Widgets", 
+            "text": "Cross-Talk\n\n\nCross-Talk is a mechanism for applications to communicate, whether on the same device, or on different devices. Applications can exchange information with other applications, or with other instances of the same application. All messages get sent to all devices, so if you have the same app running on different devices, this is how to communicate between installations of the\u00a0same app.\n\n\nOverview\n\n\nCross talk events are publicly searchable by app, and allow MATRIX applications to easily exchange information between devices, or on the same device. For example, a face detection application could trigger a \nface-in\n, which is heard by a \nconfigured\n and \ntrained\n recognition program. \n\n\nConfig Setup\n\n\nCrossTalk requires setup in configuration to execute successfully. This information is also used in the app store to determine which applications can communicate via events.\n\n\nGlobal\n\n\nevents:\n  - globalEvent\n\n\n\n\nApp Targeted\n\n\nevents:\n  - appName\n\n\n\n\nApp/Event Targeted\n\n\nevents:\n  - appname:\n    - eventname\n\n\n\n\nGlobal Emitters \n Listeners\n\n\nGlobal messages that can be received across applications, devices, and clients. e.g. Emit from one device, receive on another.\n\n\n.emit(payload)\n\n\n\n\npayload\n Object or string to pass through to retrieve with the listener.\n\n\n\n\n// Send a payload to all listeners\nmatrix.emit(payload);\n\n\n\n\n.on(cb)\n\n\n\n\ncb\n Callback method with \npayload\n returned.\n\n\n\n\n// Listen for global CrossTalk messages\nmatrix.on(function(payload) { ... });\n\n\n\n\nApp Specific Message\n\n\nMessages that can be shared across applications on a single device.\n\n\n.emit(app, payload)\n\n\n\n\napp\n Label to later listen for.\n\n\npayload\n Object or string to pass through to retrieve with the listener.\n\n\n\n\n// Send a message to a particular application\nmatrix.emit('app', payload);\n\n\n\n\n.on(cb)\n\n\n\n\ncb\n Callback method with payload returned.\n\n\n\n\n// Listen for application specific CrossTalk messages\nmatrix.on(function(payload) { ... });\n\n\n\n\nSpecific Event within App\n\n\nMessages that can be filtered by application, and an event type.\n\n\n.emit(app, event, payload)\n\n\n\n\napp\n Label to later listen for.\n\n\nevent\n Event scope within \napp\n to listen for.\n\n\npayload\n Object or string to pass through to retrieve with the listener.\n\n\n\n\n// Trigger an event in a specific application\nmatrix.emit('app', 'event', payload);\n\n\n\n\n.on(event, cb)\n\n\n\n\nevent\n Event to listen on.\n\n\ncb\n Callback method with payload returned.\n\n\n\n\n// Listen for CrossTalk events sent to this application\nmatrix.on('event', function(payload) { ... });\n\n\n\n\nDashboard\n\n\nReceive events from web or mobile by binding them to widget controls.\n\n\n// Interface elements from Dashboards can also trigger CrossTalk events.\nmatrix.on('buttonClick', function(payload) { ... });\n\n\n\n\nConfiguration-Driven Events\n\n\nSee \nConfiguration \n Widgets", 
             "title": "Cross-Talk"
         }, 
         {
@@ -1661,86 +1681,6 @@
             "title": "MATRIX Vision Services not working"
         }, 
         {
-            "location": "/Hardware/overview/", 
-            "text": "Creator\n\n\nVoice\n\n\nHAL\n\n\nExamples\n\n\nTroubleshooting\n\n\nMALOS\n\n\nOverview\n\n\nExamples\n\n\nTroubleshooting\n\n\nPinout\n\n\nFPGA\n\n\nSAM3\n\n\nSAM3MCU\n\n\nMicrophone\n\n\nSPI", 
-            "title": "Hardware"
-        }, 
-        {
-            "location": "/Hardware/overview/#creator", 
-            "text": "", 
-            "title": "Creator"
-        }, 
-        {
-            "location": "/Hardware/overview/#voice", 
-            "text": "", 
-            "title": "Voice"
-        }, 
-        {
-            "location": "/Hardware/overview/#hal", 
-            "text": "", 
-            "title": "HAL"
-        }, 
-        {
-            "location": "/Hardware/overview/#examples", 
-            "text": "", 
-            "title": "Examples"
-        }, 
-        {
-            "location": "/Hardware/overview/#troubleshooting", 
-            "text": "", 
-            "title": "Troubleshooting"
-        }, 
-        {
-            "location": "/Hardware/overview/#malos", 
-            "text": "", 
-            "title": "MALOS"
-        }, 
-        {
-            "location": "/Hardware/overview/#overview", 
-            "text": "", 
-            "title": "Overview"
-        }, 
-        {
-            "location": "/Hardware/overview/#examples_1", 
-            "text": "", 
-            "title": "Examples"
-        }, 
-        {
-            "location": "/Hardware/overview/#troubleshooting_1", 
-            "text": "", 
-            "title": "Troubleshooting"
-        }, 
-        {
-            "location": "/Hardware/overview/#pinout", 
-            "text": "", 
-            "title": "Pinout"
-        }, 
-        {
-            "location": "/Hardware/overview/#fpga", 
-            "text": "", 
-            "title": "FPGA"
-        }, 
-        {
-            "location": "/Hardware/overview/#sam3", 
-            "text": "", 
-            "title": "SAM3"
-        }, 
-        {
-            "location": "/Hardware/overview/#sam3mcu", 
-            "text": "", 
-            "title": "SAM3MCU"
-        }, 
-        {
-            "location": "/Hardware/overview/#microphone", 
-            "text": "", 
-            "title": "Microphone"
-        }, 
-        {
-            "location": "/Hardware/overview/#spi", 
-            "text": "", 
-            "title": "SPI"
-        }, 
-        {
             "location": "/Reference/creator/", 
             "text": "MATRIX Creator\n\n\n\n\nTechnical Datasheets:\n\n\n\n\n\n\nAtmel 32 bits Cortex M3 SAM3S2\n\n\n\n\n\n\nXilinx Spartan 6S XC6SLX4 FPGA\n\n\n\n\n\n\n8 MEMS audio sensor digital microphones\n\n\n\n\n\n\nST LSM9DS1 3D accelerometer, 3D gyroscope, 3D magnetometer\n\n\n\n\n\n\nST HTS221 digital sensor for relative humidity and temperature\n\n\n\n\n\n\nNXP PN512 NFC reader\n\n\n\n\n\n\nNXP MPL3115A2 Altimeter\n\n\n\n\n\n\nVishay VEML6070 UV Light Sensor\n\n\n\n\n\n\nVishay INFRARED Receptor\n\n\n\n\n\n\nRGBW everloop LED", 
             "title": "Creator"
@@ -1801,27 +1741,52 @@
             "title": "Technical Datasheets:"
         }, 
         {
-            "location": "/HAL/examples/", 
+            "location": "/HAL/overview/", 
             "text": "Overview\n\n\nHAL is the lowest-level abstraction for the MATRIX Creator drivers. You can interface directly with HAL, or use the higher level components like MALOS, and the MATRIX OS itself.\n\n\nPre-Requisites\n\n\nIt does have some package dependencies, so please make sure to install the pre-requisites.\n\n\nsudo apt-get install cmake g++ git\ngit clone https://github.com/matrix-io/matrix-creator-hal.git\n\n\n\n\nBuild\n\n\nTo start working with HAL directly, you'll need to run \nsudo make install\n to get the build running. \n\n\n$ mkdir build\n$ cd build\n$ cmake ..\n$ make \n sudo make install\n[100%] Built target matrix_creator_hal\nInstall the project...\n-- Install configuration: \n\n-- Up-to-date: /usr/local/lib/libmatrix_creator_hal.a\n-- Installing: /usr/local/include/matrix_hal/creator_memory_map.h\n-- Installing: /usr/local/include/matrix_hal/everloop.h\n-- Installing: /usr/local/include/matrix_hal/humidity_data.h\n-- Installing: /usr/local/include/matrix_hal/imu_sensor.h\n-- Installing: /usr/local/include/matrix_hal/pressure_data.h\n-- Installing: /usr/local/include/matrix_hal/dummy_data.h\n-- Installing: /usr/local/include/matrix_hal/everloop_image.h\n-- Installing: /usr/local/include/matrix_hal/humidity_sensor.h\n-- Installing: /usr/local/include/matrix_hal/matrix_driver.h\n-- Installing: /usr/local/include/matrix_hal/pressure_sensor.h\n-- Installing: /usr/local/include/matrix_hal/dummy_sensor.h\n-- Installing: /usr/local/include/matrix_hal/gpio_control.h\n-- Installing: /usr/local/include/matrix_hal/imu_data.h\n-- Installing: /usr/local/include/matrix_hal/microphone_array.h\n-- Installing: /usr/local/include/matrix_hal/wishbone_bus.h\n\n\n\n\nExamples\n\n\nRun some of the examples below.\n\n\n# should already be in ~/matrix-creator-hal/build directory.\ncd demos\n\n# run the everloop demo\n./everloop_demo\n\n# see the rest of the examples\nls -l", 
-            "title": "Examples"
+            "title": "Overview"
         }, 
         {
-            "location": "/HAL/examples/#overview", 
+            "location": "/HAL/overview/#overview", 
             "text": "HAL is the lowest-level abstraction for the MATRIX Creator drivers. You can interface directly with HAL, or use the higher level components like MALOS, and the MATRIX OS itself.", 
             "title": "Overview"
         }, 
         {
-            "location": "/HAL/examples/#pre-requisites", 
+            "location": "/HAL/overview/#pre-requisites", 
             "text": "It does have some package dependencies, so please make sure to install the pre-requisites.  sudo apt-get install cmake g++ git\ngit clone https://github.com/matrix-io/matrix-creator-hal.git", 
             "title": "Pre-Requisites"
         }, 
         {
-            "location": "/HAL/examples/#build", 
+            "location": "/HAL/overview/#build", 
             "text": "To start working with HAL directly, you'll need to run  sudo make install  to get the build running.   $ mkdir build\n$ cd build\n$ cmake ..\n$ make   sudo make install\n[100%] Built target matrix_creator_hal\nInstall the project...\n-- Install configuration:  \n-- Up-to-date: /usr/local/lib/libmatrix_creator_hal.a\n-- Installing: /usr/local/include/matrix_hal/creator_memory_map.h\n-- Installing: /usr/local/include/matrix_hal/everloop.h\n-- Installing: /usr/local/include/matrix_hal/humidity_data.h\n-- Installing: /usr/local/include/matrix_hal/imu_sensor.h\n-- Installing: /usr/local/include/matrix_hal/pressure_data.h\n-- Installing: /usr/local/include/matrix_hal/dummy_data.h\n-- Installing: /usr/local/include/matrix_hal/everloop_image.h\n-- Installing: /usr/local/include/matrix_hal/humidity_sensor.h\n-- Installing: /usr/local/include/matrix_hal/matrix_driver.h\n-- Installing: /usr/local/include/matrix_hal/pressure_sensor.h\n-- Installing: /usr/local/include/matrix_hal/dummy_sensor.h\n-- Installing: /usr/local/include/matrix_hal/gpio_control.h\n-- Installing: /usr/local/include/matrix_hal/imu_data.h\n-- Installing: /usr/local/include/matrix_hal/microphone_array.h\n-- Installing: /usr/local/include/matrix_hal/wishbone_bus.h", 
             "title": "Build"
         }, 
         {
-            "location": "/HAL/examples/#examples", 
+            "location": "/HAL/overview/#examples", 
+            "text": "Run some of the examples below.  # should already be in ~/matrix-creator-hal/build directory.\ncd demos\n\n# run the everloop demo\n./everloop_demo\n\n# see the rest of the examples\nls -l", 
+            "title": "Examples"
+        }, 
+        {
+            "location": "/HAL/overview/", 
+            "text": "Overview\n\n\nHAL is the lowest-level abstraction for the MATRIX Creator drivers. You can interface directly with HAL, or use the higher level components like MALOS, and the MATRIX OS itself.\n\n\nPre-Requisites\n\n\nIt does have some package dependencies, so please make sure to install the pre-requisites.\n\n\nsudo apt-get install cmake g++ git\ngit clone https://github.com/matrix-io/matrix-creator-hal.git\n\n\n\n\nBuild\n\n\nTo start working with HAL directly, you'll need to run \nsudo make install\n to get the build running. \n\n\n$ mkdir build\n$ cd build\n$ cmake ..\n$ make \n sudo make install\n[100%] Built target matrix_creator_hal\nInstall the project...\n-- Install configuration: \n\n-- Up-to-date: /usr/local/lib/libmatrix_creator_hal.a\n-- Installing: /usr/local/include/matrix_hal/creator_memory_map.h\n-- Installing: /usr/local/include/matrix_hal/everloop.h\n-- Installing: /usr/local/include/matrix_hal/humidity_data.h\n-- Installing: /usr/local/include/matrix_hal/imu_sensor.h\n-- Installing: /usr/local/include/matrix_hal/pressure_data.h\n-- Installing: /usr/local/include/matrix_hal/dummy_data.h\n-- Installing: /usr/local/include/matrix_hal/everloop_image.h\n-- Installing: /usr/local/include/matrix_hal/humidity_sensor.h\n-- Installing: /usr/local/include/matrix_hal/matrix_driver.h\n-- Installing: /usr/local/include/matrix_hal/pressure_sensor.h\n-- Installing: /usr/local/include/matrix_hal/dummy_sensor.h\n-- Installing: /usr/local/include/matrix_hal/gpio_control.h\n-- Installing: /usr/local/include/matrix_hal/imu_data.h\n-- Installing: /usr/local/include/matrix_hal/microphone_array.h\n-- Installing: /usr/local/include/matrix_hal/wishbone_bus.h\n\n\n\n\nExamples\n\n\nRun some of the examples below.\n\n\n# should already be in ~/matrix-creator-hal/build directory.\ncd demos\n\n# run the everloop demo\n./everloop_demo\n\n# see the rest of the examples\nls -l", 
+            "title": "Examples"
+        }, 
+        {
+            "location": "/HAL/overview/#overview", 
+            "text": "HAL is the lowest-level abstraction for the MATRIX Creator drivers. You can interface directly with HAL, or use the higher level components like MALOS, and the MATRIX OS itself.", 
+            "title": "Overview"
+        }, 
+        {
+            "location": "/HAL/overview/#pre-requisites", 
+            "text": "It does have some package dependencies, so please make sure to install the pre-requisites.  sudo apt-get install cmake g++ git\ngit clone https://github.com/matrix-io/matrix-creator-hal.git", 
+            "title": "Pre-Requisites"
+        }, 
+        {
+            "location": "/HAL/overview/#build", 
+            "text": "To start working with HAL directly, you'll need to run  sudo make install  to get the build running.   $ mkdir build\n$ cd build\n$ cmake ..\n$ make   sudo make install\n[100%] Built target matrix_creator_hal\nInstall the project...\n-- Install configuration:  \n-- Up-to-date: /usr/local/lib/libmatrix_creator_hal.a\n-- Installing: /usr/local/include/matrix_hal/creator_memory_map.h\n-- Installing: /usr/local/include/matrix_hal/everloop.h\n-- Installing: /usr/local/include/matrix_hal/humidity_data.h\n-- Installing: /usr/local/include/matrix_hal/imu_sensor.h\n-- Installing: /usr/local/include/matrix_hal/pressure_data.h\n-- Installing: /usr/local/include/matrix_hal/dummy_data.h\n-- Installing: /usr/local/include/matrix_hal/everloop_image.h\n-- Installing: /usr/local/include/matrix_hal/humidity_sensor.h\n-- Installing: /usr/local/include/matrix_hal/matrix_driver.h\n-- Installing: /usr/local/include/matrix_hal/pressure_sensor.h\n-- Installing: /usr/local/include/matrix_hal/dummy_sensor.h\n-- Installing: /usr/local/include/matrix_hal/gpio_control.h\n-- Installing: /usr/local/include/matrix_hal/imu_data.h\n-- Installing: /usr/local/include/matrix_hal/microphone_array.h\n-- Installing: /usr/local/include/matrix_hal/wishbone_bus.h", 
+            "title": "Build"
+        }, 
+        {
+            "location": "/HAL/overview/#examples", 
             "text": "Run some of the examples below.  # should already be in ~/matrix-creator-hal/build directory.\ncd demos\n\n# run the everloop demo\n./everloop_demo\n\n# see the rest of the examples\nls -l", 
             "title": "Examples"
         }, 

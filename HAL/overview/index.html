@@ -12,7 +12,7 @@
     The page_title contains the title for a page as shown in the navigation.
     Site name contains the name as defined in the mkdocs.yml
   -->
-  <title>Overview - MATRIX</title>
+  <title>Examples - MATRIX</title>
 
   <!--
     Support custom favicon support.
@@ -498,7 +498,16 @@
 -->
 
 <li >
-    <a href="../../HAL/overview/">Overview</a>
+    <a href="./">Overview</a>
+</li>
+
+        
+            <!--
+
+-->
+
+<li class="active">
+    <a href="./">Examples</a>
 </li>
 
         
@@ -507,16 +516,7 @@
 -->
 
 <li >
-    <a href="../../HAL/overview/">Examples</a>
-</li>
-
-        
-            <!--
-
--->
-
-<li >
-    <a href="../../HAL/troubleshooting/">Troubleshooting</a>
+    <a href="../troubleshooting/">Troubleshooting</a>
 </li>
 
         
@@ -537,8 +537,8 @@
 
 -->
 
-<li class="active">
-    <a href="./">Overview</a>
+<li >
+    <a href="../../MALOS/overview/">Overview</a>
 </li>
 
         
@@ -547,7 +547,7 @@
 -->
 
 <li >
-    <a href="../example/">Examples</a>
+    <a href="../../MALOS/example/">Examples</a>
 </li>
 
         
@@ -556,7 +556,7 @@
 -->
 
 <li >
-    <a href="../troubleshooting/">Troubleshooting</a>
+    <a href="../../MALOS/troubleshooting/">Troubleshooting</a>
 </li>
 
         
@@ -661,7 +661,7 @@
 </nav>
   <div class="jumbotron">
     
-    <h1 class="text-center">Overview</h1>
+    <h1 class="text-center">Examples</h1>
     
   </div>
   <div class="container">
@@ -694,10 +694,10 @@
           <h3>Navigation</h3>
             <div>
               
-                <a href="../../HAL/troubleshooting/" class="btn btn-default" title="Troubleshooting"><span aria-hidden="true">&laquo;</span> prev.</a>
+                <a href="./" class="btn btn-default" title="Overview"><span aria-hidden="true">&laquo;</span> prev.</a>
               
               
-                <a href="../example/" class="btn btn-default" title="Examples"/> next <span aria-hidden="true">&raquo;</span></a>
+                <a href="../troubleshooting/" class="btn btn-default" title="Troubleshooting"/> next <span aria-hidden="true">&raquo;</span></a>
               
             </div>
             <hr/>
@@ -708,15 +708,16 @@
           <h3>Contents</h3>
           <ul class="list-group">
           
-              <li class="list-group-item"><a href="#matrix-abstraction-layer-for-os">Matrix Abstraction Layer for OS</a></li>
+              <li class="list-group-item"><a href="#overview">Overview</a></li>
               
           
-              <li class="list-group-item"><a href="#installation">Installation</a></li>
+              <li class="list-group-item"><a href="#pre-requisites">Pre-Requisites</a></li>
               
           
-              <li class="list-group-item"><a href="#upgrades">Upgrades</a></li>
+              <li class="list-group-item"><a href="#build">Build</a></li>
               
-                  <li class="list-group-item"><a href="#demos">Demos</a></li>
+          
+              <li class="list-group-item"><a href="#examples">Examples</a></li>
               
           
           </ul>
@@ -726,27 +727,52 @@
       </div>
       <div class="col-md-10">
         
-          <h2 id="matrix-abstraction-layer-for-os">Matrix Abstraction Layer for OS</h2>
-<p>MALOS provides a <a href="http://zeromq.org/">ZeroMQ</a> messaging layer. An intended target for this layer is <a href="http://github.com/matrix-io/matrix-os">MATRIX OS</a>.</p>
-<p>Documentation in progress can be found on <a href="https://github.com/matrix-io/matrix-creator-malos/tree/master/docs">MALOS GitHub</a></p>
-<h2 id="installation">Installation</h2>
-<pre><code># setup &amp; installation
-echo &quot;deb http://packages.matrix.one/matrix-creator/ ./&quot; | sudo tee --append /etc/apt/sources.list;
-sudo apt-get update;
-sudo apt-get upgrade;
-sudo apt-get install -y libzmq3-dev xc3sprog malos-eye matrix-creator-malos matrix-creator-openocd wiringpi matrix-creator-init cmake g++ git --force-yes;
+          <h2 id="overview">Overview</h2>
+<p>HAL is the lowest-level abstraction for the MATRIX Creator drivers. You can interface directly with HAL, or use the higher level components like MALOS, and the MATRIX OS itself.</p>
+<h2 id="pre-requisites">Pre-Requisites</h2>
+<p>It does have some package dependencies, so please make sure to install the pre-requisites.</p>
+<pre><code>sudo apt-get install cmake g++ git
+git clone https://github.com/matrix-io/matrix-creator-hal.git
 </code></pre>
 
-<h2 id="upgrades">Upgrades</h2>
-<p>If you need to upgrade your <code>malos</code> package at any time, please run the following commands and restart.</p>
-<pre><code>sudo apt-get update;
-sudo apt-get upgrade;
-sudo shutdown -r now;
+<h2 id="build">Build</h2>
+<p>To start working with HAL directly, you'll need to run <code>sudo make install</code> to get the build running. </p>
+<pre><code>$ mkdir build
+$ cd build
+$ cmake ..
+$ make &amp;&amp; sudo make install
+[100%] Built target matrix_creator_hal
+Install the project...
+-- Install configuration: &quot;&quot;
+-- Up-to-date: /usr/local/lib/libmatrix_creator_hal.a
+-- Installing: /usr/local/include/matrix_hal/creator_memory_map.h
+-- Installing: /usr/local/include/matrix_hal/everloop.h
+-- Installing: /usr/local/include/matrix_hal/humidity_data.h
+-- Installing: /usr/local/include/matrix_hal/imu_sensor.h
+-- Installing: /usr/local/include/matrix_hal/pressure_data.h
+-- Installing: /usr/local/include/matrix_hal/dummy_data.h
+-- Installing: /usr/local/include/matrix_hal/everloop_image.h
+-- Installing: /usr/local/include/matrix_hal/humidity_sensor.h
+-- Installing: /usr/local/include/matrix_hal/matrix_driver.h
+-- Installing: /usr/local/include/matrix_hal/pressure_sensor.h
+-- Installing: /usr/local/include/matrix_hal/dummy_sensor.h
+-- Installing: /usr/local/include/matrix_hal/gpio_control.h
+-- Installing: /usr/local/include/matrix_hal/imu_data.h
+-- Installing: /usr/local/include/matrix_hal/microphone_array.h
+-- Installing: /usr/local/include/matrix_hal/wishbone_bus.h
 </code></pre>
 
-<p>MALOS should be running on next boot.</p>
-<h3 id="demos">Demos</h3>
-<p>See <a href="../example/">MALOS &gt; Demos</a></p>
+<h2 id="examples">Examples</h2>
+<p>Run some of the examples below.</p>
+<pre><code># should already be in ~/matrix-creator-hal/build directory.
+cd demos
+
+# run the everloop demo
+./everloop_demo
+
+# see the rest of the examples
+ls -l
+</code></pre>
         
       </div>
     </div>
@@ -754,7 +780,7 @@ sudo shutdown -r now;
 
   <!--
   MkDocs version      : 0.15.3
-  Docs Build Date UTC : 2017-07-21 15:17:25.021004
+  Docs Build Date UTC : 2017-07-21 15:17:25.003461
   -->
 
 </body>
