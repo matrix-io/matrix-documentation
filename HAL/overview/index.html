@@ -12,7 +12,7 @@
     The page_title contains the title for a page as shown in the navigation.
     Site name contains the name as defined in the mkdocs.yml
   -->
-  <title>GPIO - MATRIX</title>
+  <title>Examples - MATRIX</title>
 
   <!--
     Support custom favicon support.
@@ -189,7 +189,7 @@
 -->
 
 <li >
-    <a href="../overview/">Overview</a>
+    <a href="../../API/overview/">Overview</a>
 </li>
 
         
@@ -216,7 +216,7 @@
 -->
 
 <li >
-    <a href="../sensors/">Sensors</a>
+    <a href="../../API/sensors/">Sensors</a>
 </li>
 
         
@@ -225,7 +225,7 @@
 -->
 
 <li >
-    <a href="../everloop/">Everloop</a>
+    <a href="../../API/everloop/">Everloop</a>
 </li>
 
         
@@ -234,7 +234,7 @@
 -->
 
 <li >
-    <a href="../filter/">Filters</a>
+    <a href="../../API/filter/">Filters</a>
 </li>
 
         
@@ -243,7 +243,7 @@
 -->
 
 <li >
-    <a href="../computer-vision/">Computer Vision</a>
+    <a href="../../API/computer-vision/">Computer Vision</a>
 </li>
 
         
@@ -252,7 +252,7 @@
 -->
 
 <li >
-    <a href="../microphone/">Microphone</a>
+    <a href="../../API/microphone/">Microphone</a>
 </li>
 
         
@@ -261,7 +261,7 @@
 -->
 
 <li >
-    <a href="../crosstalk/">Cross-Talk</a>
+    <a href="../../API/crosstalk/">Cross-Talk</a>
 </li>
 
         
@@ -270,16 +270,7 @@
 -->
 
 <li >
-    <a href="../typesend/">Type</a>
-</li>
-
-        
-            <!--
-
--->
-
-<li class="active">
-    <a href="./">GPIO</a>
+    <a href="../../API/typesend/">Type</a>
 </li>
 
         
@@ -288,7 +279,7 @@
 -->
 
 <li >
-    <a href="../ir/">IR TX/RX</a>
+    <a href="../../API/GPIO/">GPIO</a>
 </li>
 
         
@@ -297,7 +288,7 @@
 -->
 
 <li >
-    <a href="../nfc/">NFC</a>
+    <a href="../../API/ir/">IR TX/RX</a>
 </li>
 
         
@@ -306,7 +297,7 @@
 -->
 
 <li >
-    <a href="../zwave/">Z-wave</a>
+    <a href="../../API/nfc/">NFC</a>
 </li>
 
         
@@ -315,7 +306,7 @@
 -->
 
 <li >
-    <a href="../zigbee/">Zigbee</a>
+    <a href="../../API/zwave/">Z-wave</a>
 </li>
 
         
@@ -324,7 +315,7 @@
 -->
 
 <li >
-    <a href="../servos/">Servos</a>
+    <a href="../../API/zigbee/">Zigbee</a>
 </li>
 
         
@@ -333,7 +324,7 @@
 -->
 
 <li >
-    <a href="../file-storage/">File Storage</a>
+    <a href="../../API/servos/">Servos</a>
 </li>
 
         
@@ -342,7 +333,16 @@
 -->
 
 <li >
-    <a href="../db/">Local Database</a>
+    <a href="../../API/file-storage/">File Storage</a>
+</li>
+
+        
+            <!--
+
+-->
+
+<li >
+    <a href="../../API/db/">Local Database</a>
 </li>
 
         
@@ -364,7 +364,7 @@
 -->
 
 <li >
-    <a href="../settings/">Settings</a>
+    <a href="../../API/settings/">Settings</a>
 </li>
 
         
@@ -498,7 +498,16 @@
 -->
 
 <li >
-    <a href="../../HAL/overview/">Overview</a>
+    <a href="./">Overview</a>
+</li>
+
+        
+            <!--
+
+-->
+
+<li class="active">
+    <a href="./">Examples</a>
 </li>
 
         
@@ -507,16 +516,7 @@
 -->
 
 <li >
-    <a href="../../HAL/overview/">Examples</a>
-</li>
-
-        
-            <!--
-
--->
-
-<li >
-    <a href="../../HAL/troubleshooting/">Troubleshooting</a>
+    <a href="../troubleshooting/">Troubleshooting</a>
 </li>
 
         
@@ -661,7 +661,7 @@
 </nav>
   <div class="jumbotron">
     
-    <h1 class="text-center">GPIO</h1>
+    <h1 class="text-center">Examples</h1>
     
   </div>
   <div class="container">
@@ -694,10 +694,10 @@
           <h3>Navigation</h3>
             <div>
               
-                <a href="../typesend/" class="btn btn-default" title="Type"><span aria-hidden="true">&laquo;</span> prev.</a>
+                <a href="./" class="btn btn-default" title="Overview"><span aria-hidden="true">&laquo;</span> prev.</a>
               
               
-                <a href="../ir/" class="btn btn-default" title="IR TX/RX"/> next <span aria-hidden="true">&raquo;</span></a>
+                <a href="../troubleshooting/" class="btn btn-default" title="Troubleshooting"/> next <span aria-hidden="true">&raquo;</span></a>
               
             </div>
             <hr/>
@@ -708,13 +708,16 @@
           <h3>Contents</h3>
           <ul class="list-group">
           
-              <li class="list-group-item"><a href="#gpio">GPIO</a></li>
+              <li class="list-group-item"><a href="#overview">Overview</a></li>
               
-                  <li class="list-group-item"><a href="#configuration">Configuration</a></li>
+          
+              <li class="list-group-item"><a href="#pre-requisites">Pre-Requisites</a></li>
               
-                  <li class="list-group-item"><a href="#read">.read</a></li>
+          
+              <li class="list-group-item"><a href="#build">Build</a></li>
               
-                  <li class="list-group-item"><a href="#write">.write</a></li>
+          
+              <li class="list-group-item"><a href="#examples">Examples</a></li>
               
           
           </ul>
@@ -724,34 +727,51 @@
       </div>
       <div class="col-md-10">
         
-          <h2 id="gpio">GPIO</h2>
-<p>GPIO can be used to communicate or receive input from analog and digital components through the MATRIX Creator, or any other sensor leveraging Raspberry Pi's GPIOs.</p>
-<h3 id="configuration">Configuration</h3>
-<p>Make sure to add the following to your <code>config.yaml</code> to enable GPIO's/</p>
-<pre><code>integrations:
-  - gpio
+          <h2 id="overview">Overview</h2>
+<p>HAL is the lowest-level abstraction for the MATRIX Creator drivers. You can interface directly with HAL, or use the higher level components like MALOS, and the MATRIX OS itself.</p>
+<h2 id="pre-requisites">Pre-Requisites</h2>
+<p>It does have some package dependencies, so please make sure to install the pre-requisites.</p>
+<pre><code>sudo apt-get install cmake g++ git
+git clone https://github.com/matrix-io/matrix-creator-hal.git
 </code></pre>
 
-<h3 id="read">.read</h3>
-<ul>
-<li><code>pinNumber</code>: The GPIO you are reading from.</li>
-<li><code>callback</code>: Returns <code>err</code>, <code>value</code>.</li>
-</ul>
-<pre><code>matrix.gpio.read(16, function(err, value) {
-  if(err) throw err;
-  console.log(value);   // The current state of the pin
-});
+<h2 id="build">Build</h2>
+<p>To start working with HAL directly, you'll need to run <code>sudo make install</code> to get the build running. </p>
+<pre><code>$ mkdir build
+$ cd build
+$ cmake ..
+$ make &amp;&amp; sudo make install
+[100%] Built target matrix_creator_hal
+Install the project...
+-- Install configuration: &quot;&quot;
+-- Up-to-date: /usr/local/lib/libmatrix_creator_hal.a
+-- Installing: /usr/local/include/matrix_hal/creator_memory_map.h
+-- Installing: /usr/local/include/matrix_hal/everloop.h
+-- Installing: /usr/local/include/matrix_hal/humidity_data.h
+-- Installing: /usr/local/include/matrix_hal/imu_sensor.h
+-- Installing: /usr/local/include/matrix_hal/pressure_data.h
+-- Installing: /usr/local/include/matrix_hal/dummy_data.h
+-- Installing: /usr/local/include/matrix_hal/everloop_image.h
+-- Installing: /usr/local/include/matrix_hal/humidity_sensor.h
+-- Installing: /usr/local/include/matrix_hal/matrix_driver.h
+-- Installing: /usr/local/include/matrix_hal/pressure_sensor.h
+-- Installing: /usr/local/include/matrix_hal/dummy_sensor.h
+-- Installing: /usr/local/include/matrix_hal/gpio_control.h
+-- Installing: /usr/local/include/matrix_hal/imu_data.h
+-- Installing: /usr/local/include/matrix_hal/microphone_array.h
+-- Installing: /usr/local/include/matrix_hal/wishbone_bus.h
 </code></pre>
 
-<h3 id="write">.write</h3>
-<ul>
-<li><code>pinNumber</code>: The GPIO you are reading from.</li>
-<li><code>value</code>: The value you would like to update the GPIO with.</li>
-<li><code>callback</code>: Returns <code>err</code>, <code>value</code>.</li>
-</ul>
-<pre><code>matrix.gpio.write(16, 1, function(err) {
-    if(err) throw err;
-});
+<h2 id="examples">Examples</h2>
+<p>Run some of the examples below.</p>
+<pre><code># should already be in ~/matrix-creator-hal/build directory.
+cd demos
+
+# run the everloop demo
+./everloop_demo
+
+# see the rest of the examples
+ls -l
 </code></pre>
         
       </div>
@@ -760,7 +780,7 @@
 
   <!--
   MkDocs version      : 0.15.3
-  Docs Build Date UTC : 2017-07-21 17:49:08.642464
+  Docs Build Date UTC : 2017-07-21 17:49:08.937651
   -->
 
 </body>
