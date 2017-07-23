@@ -67,6 +67,7 @@ a {
   .navbar .navbar-toggler {
     position: absolute;
     z-index: 2;
+    top: 10px;
   }
   .navbar .navbar-collapse {
     float: left;
