@@ -52,6 +52,14 @@
                 {{ nav_item.title }}
               </a>
             </li>
+              {% if nav_item.active and nav_item.children %}
+                <ul class="subnav">
+                {% for child_item in nav_item.children %}
+                  <li><a href="{{ child_item.url }}">{{ child_item.title }}</a></li>
+                {% endfor %}
+                </ul>
+              {% endif %}
+
             {% endfor %}
           </ul>
         </div>

@@ -81,6 +81,10 @@ a {
     text-align: left;
   }
 }
+
+.navbar ul ul {
+  padding-left: 1em;
+}
 /********** Navbar - END **********/
 
 /********** Header - BEGIN **********/
@@ -156,6 +160,10 @@ a {
   font-weight: 300;
   font-size: 2rem;
   margin-bottom: 30px;
+}
+
+.content .sidebar .subnav{
+  padding-left: 1em;
 }
 .content .sidebar ul {
   font-size: 1.25rem;

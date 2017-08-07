@@ -1,7 +1,7 @@
 # Publishing your Application
 
 ## App Store
-[http://apps.matrix.one]()
+[http://apps.matrix.one](http://apps.matrix.one)
 
 ## Three Steps to Distribution
 
@@ -14,7 +14,7 @@ Your application must do only what it claims to do with the name, description an
 
 All sensors, integrations and computer vision usage must be registered in the `config.yaml`, and will be authorized by users on install.
 
-All applications will be code-reviewed and are subject to removal at any time.
+All applications will be code reviewed and are subject to removal at any time.
 
 ## Before publishing an application.
 
