@@ -1,7 +1,12 @@
 ## Sensors
 
-### Sensors and Configuration
-End users must explicitly authorize MOS applications to utilize hardware sensors and computer vision algorithms.
+### Available Sensors
+`temperature`, `humidity`, `pressure`, `uv`, `gyroscope`, `accelerometer`
+
+> You should have familiarity with [Configuration Files](../overview/configuration.md) before exploring Sensors. 
+
+### Configuration
+End users must explicitly authorize MOS applications to utilize hardware sensors.
 
 This requires that each application identify required sensors in `config.yaml`.
 
@@ -13,16 +18,16 @@ sensors:
 
 Otherwise sensors will not work.
 
-### .sensor
+### matrix.sensor()
 All sensors are initialized using the `sensor` method.
 
-* `sensorType`: Type of sensor you are initializing `temperature`, `humidity`, `pressure`, `uv`, `gyroscope`, `accelerometer`.
-* `options`: The options for that sensor. By default, all sensors have a `refresh` and `timeout` property.
+* `sensorType`: Type of sensor you are initializing 
+* `options`: The options for that sensor. By default, all sensors support a `refresh` and `timeout` property.
 
 ```
 var options = {
-  refresh: 1000, //milliseconds
-  timeout: 1000 //milliseconds
+  refresh: 1000, //milliseconds between data points
+  timeout: 10000 //how long before stopping this sensor
 };
 
 matrix.sensor('temperature', options).then(function(data){
@@ -103,4 +108,4 @@ Output for `magnetometer`
 ```
 
 ### Filtering Sensor Data
-See [API > Filter](filter.md)
+See [MATRIX OS > Reference > Filter](filters.md)

@@ -26,6 +26,7 @@ pages:
     - 'Applications' : 'matrix-os/overview/applications.md'
     - 'Configuration' : 'matrix-os/overview/configuration.md'
     - 'CLI': 'matrix-os/overview/cli.md'
+    - 'Sending Data': 'matrix-os/overview/data.md'
     - 'Publishing': 'matrix-os/overview/publishing.md'
     - 'Manual Setup': 'matrix-os/overview/manual-setup.md'
   - 'Getting Started':
