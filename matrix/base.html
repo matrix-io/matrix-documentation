@@ -41,58 +41,38 @@
         <div class="sidebar col-md-3">
           <h3>Docs</h3>
           <ul>
+            {% set nav_level = 0 %}
             {% for nav_item in nav %}
-            <li>
-              {% if not nav_item.url %}
-                {% set nav_url = nav_item.children[0].url %}
-              {% else %}
-                {% set nav_url = nav_item.url %}
-              {% endif %}
-              <a href="{{ nav_url }}" class="{% if nav_item.active %}active{% endif %}">
-                {{ nav_item.title }}
-              </a>
-            </li>
+              {% include "sidebar.html" %}
             {% endfor %}
           </ul>
         </div>
 
-        <div class="docs col-md-9">
-          {% if current_page and current_page.input_path != 'None' %}
-          <h1>Table of Contents</h1>
+        <div class="col-md-9">
           <div class="row">
-            <div class="col-md-9">
-              <div class="summary">
-                <ol>
-                  {% for toc_item in toc %}
-                  <li>
-                    <a href="{{ toc_item.url }}">{{ toc_item.title }}</a>
-                    {% if toc_item.children %}
-                    <ol>
-                      {% for toc_item in toc_item.children %}
-                      <li>
-                        <a href="{{ toc_item.url }}">{{ toc_item.title }}</a>
-                      </li>
-                      {% endfor %}
-                    </ol>
-                    {% endif %}
-                  </li>
-                  {% endfor %}
-                </ol>
-              </div>
+            <div class="docs col-md-9">
+              {% block content %}
+                {{ content }}
+              {% endblock %}
             </div>
             <div class="col-md-3">
               <div class="compatibility">
-                <div class="title">Compatibility</div>
+                <h3>Compatibility</h3>
                 <p>MATRIX Voice</p>
                 <p>MATRIX Creator</p>
               </div>
+              {% if current_page and current_page.input_path != 'None' %}
+              <div class="summary">
+                <h3>Table of Contents</h3>
+                <ul>
+                  {% for toc_item in toc %}
+                    {% include "toc.html" %}
+                  {% endfor %}
+                </ul>
+              </div>
+              {% endif %}
             </div>
           </div>
-          {% endif %}
-
-          {% block content %}
-            {{ content }}
-          {% endblock %}
         </div>
       </div>
     </div>
@@ -105,6 +85,24 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"></script>
   <script src="{{ base_url }}/js/theme.js"></script>
   <script src="https://use.fontawesome.com/21aeb6fedc.js"></script>
+
+  <!-- TOC Script -->
+  <script>
+    jQuery(function($){
+      $('.summary ul li a').on('click', function () {
+        var removedElement = $(this)
+          .closest('.summary ul li')
+          .find('a.active')
+          .removeClass('active');
+
+        if(removedElement.length == 0) {
+          $('.summary ul li').find('a.active').removeClass('active');
+        }
+
+        $(this).addClass('active');
+      });
+    });
+  </script>
 
   {% if google_analytics %}
   <script>

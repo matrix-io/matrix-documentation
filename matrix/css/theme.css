@@ -157,7 +157,8 @@ a {
   font-size: 2rem;
   margin-bottom: 30px;
 }
-.content .sidebar ul {
+.content .sidebar ul,
+.content .summary ul {
   font-size: 1.25rem;
   list-style: none;
   padding: 0px;
@@ -165,10 +166,12 @@ a {
 .content .sidebar ul li {
   margin-bottom: 22px;
 }
-.content .sidebar ul li a {
+.content .sidebar ul li a,
+.content .summary ul li a {
   color: #828282;
 }
-.content .sidebar ul li a.active {
+.content .sidebar ul li a.active,
+.content .summary ul li a.active {
   color: #2F80ED;
   border-right: 5px solid #2F80ED;
   display: block;
@@ -184,33 +187,27 @@ a {
   padding-bottom: 69px;
   padding-left: 74px;
 }
-.content .docs .summary > ol {
+.content .summary h3 {
+  margin-top: 30px;
   font-size: 1.375rem;
-  color: #2F80ED;
-  margin-bottom: 49px;
+  font-weight: normal!important;
 }
-.content .docs .summary ol {
-  counter-reset: item;
-}
-.content .docs .summary ol li {
-  display: block;
+.content .summary ul li {
   margin-bottom: 13px;
 }
-.content .docs .summary ol li:before {
-  content: counters(item, ".") ". ";
-  counter-increment: item;
+.content .compatibility {
+  text-align: left;
+  padding-top: 69px;
 }
-.content .docs .compatibility {
-  text-align: right;
-}
-.content .docs .compatibility .title {
+.content .compatibility h3 {
+  line-height: normal;
   font-size: 1.375rem;
-  color: #828282;
   margin-bottom: 13px;
-}
-.content .docs .compatibility p {
-  font-size: 1.25rem;
   color: #333333;
+}
+.content .compatibility p {
+  font-size: 1.25rem;
+  color: #828282;
   margin-bottom: 5px;
 }
 .content .docs h1 {
