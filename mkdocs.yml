@@ -21,6 +21,8 @@ pages:
     - 'Microphone': 'matrix-core/reference/microphone.md'
   - Troubleshooting: 'matrix-core/troubleshooting.md'
 - MATRIX OS:
+  # loads first page as index, overview is nested
+  - 'Index': 'matrix-os/index.md'
   - 'Overview':
     - 'Devices' : 'matrix-os/overview/devices.md'
     - 'Applications' : 'matrix-os/overview/applications.md'
@@ -28,6 +30,7 @@ pages:
     - 'CLI': 'matrix-os/overview/cli.md'
     - 'Publishing': 'matrix-os/overview/publishing.md'
     - 'Manual Setup': 'matrix-os/overview/manual-setup.md'
+    - 'Index': 'matrix-os/overview/index.md'
   - 'Getting Started':
     - 'Prerequisities': 'matrix-os/getting-started/prerequisites.md'
     - 'Installation': 'matrix-os/getting-started/installation.md'
@@ -45,6 +48,7 @@ pages:
     - 'Communication': 'matrix-os/reference/communication.md'
     - 'Microphone': 'matrix-os/reference/microphone.md'
     - 'Integrations': 'matrix-os/reference/integrations.md'
+    - 'Filters' : 'matrix-os/reference/filters.md'
   - Troubleshooting: 'matrix-os/troubleshooting.md'
 - MATRIX HAL:
   - 'Overview': 'matrix-hal/overview.md'

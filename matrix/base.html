@@ -55,7 +55,20 @@
               {% if nav_item.active and nav_item.children %}
                 <ul class="subnav">
                 {% for child_item in nav_item.children %}
-                  <li><a href="{{ child_item.url }}">{{ child_item.title }}</a></li>
+                  {% if child_item.children %}
+                    <li><a href="{{ child_item.url }}index">{{ child_item.title }}</a></li>
+                    <ul class="subnav">
+                    {% for subchild_item in child_item.children %}
+                      {% if child_item.title != 'Index' %}
+                        <li><a href="{{ subchild_item.url }}">{{ subchild_item.title }}</a></li>
+                      {% endif %}
+                    {% endfor %}
+                  </ul>
+                {% else %}
+                  {% if child_item.title != 'Index' %}
+                   <li><a href="{{ child_item.url }}index">{{ child_item.title }}</a></li>
+                  {% endif %}
+                {% endif %}
                 {% endfor %}
                 </ul>
               {% endif %}

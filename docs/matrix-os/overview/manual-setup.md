@@ -40,6 +40,8 @@ node index.js
 
 `MATRIX_DEVICE_SECRET` - secret from the cli device registration
 
+`SUN_MODE` - set to true to enable the white LEDs and luminence calculations. Very bright.
+
 You can save any of these as environment variables to `~/.bash_profile` and they will be automatically available when you ssh in. To add these to a MOS which is launched on device boot, you will have to add an `Environment=` line to `/lib/systemd/system/matrix-os.service` for each launch option you want to enable.
 
 ### Heed warning
