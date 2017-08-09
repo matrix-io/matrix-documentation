@@ -151,6 +151,9 @@ a {
 /********** Header - END **********/
 
 /********** Content - BEGIN **********/
+.content {
+  word-wrap: break-word;
+}
 .content .sidebar {
   border-right: 2px solid #F6F6F6;
   padding-top: 69px;
@@ -165,7 +168,9 @@ a {
 .content .sidebar .subnav{
   padding-left: 1em;
 }
-.content .sidebar ul {
+
+.content .sidebar ul,
+.content .summary ul {
   font-size: 1.25rem;
   list-style: none;
   padding: 0px;
@@ -173,10 +178,12 @@ a {
 .content .sidebar ul li {
   margin-bottom: 22px;
 }
-.content .sidebar ul li a {
+.content .sidebar ul li a,
+.content .summary ul li a {
   color: #828282;
 }
-.content .sidebar ul li a.active {
+.content .sidebar ul li a.active,
+.content .summary ul li a.active {
   color: #2F80ED;
   border-right: 5px solid #2F80ED;
   display: block;
@@ -192,34 +199,32 @@ a {
   padding-bottom: 69px;
   padding-left: 74px;
 }
-.content .docs .summary > ol {
+.content .summary h3 {
+  margin-top: 30px;
+  margin-bottom: 13px;
   font-size: 1.375rem;
-  color: #2F80ED;
-  margin-bottom: 49px;
+  font-weight: normal!important;
 }
-.content .docs .summary ol {
-  counter-reset: item;
-}
-.content .docs .summary ol li {
-  display: block;
+.content .summary ul li {
   margin-bottom: 13px;
 }
-.content .docs .summary ol li:before {
-  content: counters(item, ".") ". ";
-  counter-increment: item;
+.content .summary ul li ul {
+  margin-top: 13px;
 }
-.content .docs .compatibility {
-  text-align: right;
+.content .compatibility {
+  text-align: left;
+  padding-top: 69px;
 }
-.content .docs .compatibility .title {
+.content .compatibility h3 {
+  line-height: normal;
   font-size: 1.375rem;
+  margin-bottom: 13px;
+  color: #333333;
+}
+.content .compatibility p {
+  font-size: 1.25rem;
   color: #828282;
   margin-bottom: 13px;
-}
-.content .docs .compatibility p {
-  font-size: 1.25rem;
-  color: #333333;
-  margin-bottom: 5px;
 }
 .content .docs h1 {
   font-weight: 300;
@@ -283,13 +288,30 @@ a {
   line-height: normal;
   font-size: 1rem;
 }
-@media (max-width: 767px) {
+
+@media (max-width: 991px) {
+  .content .sidebar {
+    padding-top: 30px;
+    padding-bottom: 0px;
+    border-right: 0px;
+  }
+  .content .sidebar ul li a.active,
+  .content .summary ul li a.active {
+    border-right: 0px;
+  }
   .content .docs {
     padding: 0px 15px;
   }
-  .content .docs .compatibility {
-    text-align: left;
-    margin-bottom: 50px;
+  .content .docs > ol {
+    padding-left: 15px;
+  }
+  .content .docs pre {
+    padding: 15px;
+    margin-top: 0px;
+    margin-bottom: 16px;
+  }
+  .content .compatibility {
+    padding-top: 30px;
   }
 }
 /********** Content - END **********/
@@ -398,10 +420,3 @@ footer .copyright {
   }
 }
 /********** Footer - END **********/
-
-
-
-
-
-
-

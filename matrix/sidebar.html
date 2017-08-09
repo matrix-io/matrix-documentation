@@ -1,0 +1,75 @@
+{% if not nav_item.children %}
+<!-- If there are no children, use the url (simple)  -->
+<li>
+  <a href="{{ nav_item.url }}" class="{% if nav_item.active %}active{% endif %}">
+    {{ nav_item.title }}
+  </a>
+</li>
+
+{% else %}
+<!-- Children complicate things  -->
+
+<!-- link to depth-first url found  -->
+{% if not nav_item.children[0].url %}
+{% set nav_url = nav_item.children[0].children[0].url %}
+{% else %}
+{% set nav_url = nav_item.children[0].url %}
+{% endif %}
+
+<!-- print root node  -->
+<li>
+  <a href="{{ nav_url }}" class="{% if nav_item.active %}active{% endif %}">
+    {{ nav_item.title }}
+  </a>
+</li>
+
+<ul class="subnav">
+  {% for nav_child in nav_item.children %}
+  {% if not nav_child.children %}
+    <!-- only 1 deep, print menu items  -->
+    <li><a href="{{ nav_child.url }}" class="{% if nav_child.active %}active{% endif %}">{{ nav_child.title }}</a></li>  
+  {% else %}
+    <!-- 2 deep  -->
+    <!-- print subroot  -->
+    <li>
+      <a href="{{ nav_child.children[0].url }}" class="{% if nav_child.active %}active{% endif %}">
+        {{ nav_child.title }}
+      </a>
+    </li>
+    
+    <ul class="subnav">
+    {% for nav_subchild in nav_child.children %}
+      <li><a href="{{ nav_subchild.url }}" class="{% if nav_subchild.active %}active{% endif %}">{{ nav_subchild.title }}</a></li>  
+    {% endfor %}
+    </ul>
+
+  {% endif %}
+
+{% endfor %}
+</ul>
+
+
+
+
+
+{% else %}
+<li class="submenu">
+  <a href="#">
+    {{ nav_item.title }}
+  </a>
+  <ul class="neasted">
+    {% for nav_item in nav_item.children %}
+    <li>
+      {% if not nav_item.url %}
+      {% set nav_url = nav_item.children[0].url %}
+      {% else %}
+      {% set nav_url = nav_item.url %}
+      {% endif %}
+      <a href="{{ nav_url }}" class="{% if nav_item.active %}active{% endif %}">
+        {{ nav_item.title }}
+      </a>
+    </li>
+    {% endfor %}
+  </ul>
+</li>
+{% endif %}
