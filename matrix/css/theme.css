@@ -147,6 +147,9 @@ a {
 /********** Header - END **********/
 
 /********** Content - BEGIN **********/
+.content {
+  word-wrap: break-word;
+}
 .content .sidebar {
   border-right: 2px solid #F6F6F6;
   padding-top: 69px;
@@ -276,13 +279,30 @@ a {
   line-height: normal;
   font-size: 1rem;
 }
-@media (max-width: 767px) {
+
+@media (max-width: 991px) {
+  .content .sidebar {
+    padding-top: 30px;
+    padding-bottom: 0px;
+    border-right: 0px;
+  }
+  .content .sidebar ul li a.active,
+  .content .summary ul li a.active {
+    border-right: 0px;
+  }
   .content .docs {
     padding: 0px 15px;
   }
-  .content .docs .compatibility {
-    text-align: left;
-    margin-bottom: 50px;
+  .content .docs > ol {
+    padding-left: 15px;
+  }
+  .content .docs pre {
+    padding: 15px;
+    margin-top: 0px;
+    margin-bottom: 16px;
+  }
+  .content .compatibility {
+    padding-top: 30px;
   }
 }
 /********** Content - END **********/
@@ -391,10 +411,3 @@ footer .copyright {
   }
 }
 /********** Footer - END **********/
-
-
-
-
-
-
-
