@@ -189,11 +189,15 @@ a {
 }
 .content .summary h3 {
   margin-top: 30px;
+  margin-bottom: 13px;
   font-size: 1.375rem;
   font-weight: normal!important;
 }
 .content .summary ul li {
   margin-bottom: 13px;
+}
+.content .summary ul li ul {
+  margin-top: 13px;
 }
 .content .compatibility {
   text-align: left;
@@ -208,7 +212,7 @@ a {
 .content .compatibility p {
   font-size: 1.25rem;
   color: #828282;
-  margin-bottom: 5px;
+  margin-bottom: 13px;
 }
 .content .docs h1 {
   font-weight: 300;
