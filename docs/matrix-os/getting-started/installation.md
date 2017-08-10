@@ -48,11 +48,11 @@ export MATRIX_DEVICE_SECRET=08629018e9d77h15i5n0t4r3alz0f06cd4f7e5544272b
 These instructions should be executed on the Pi.
 
 1. Inside your home folder (`~`), create a file named `.envrc` with the variables from the [Matrix CLI Setup above](/#local-machine-setup)
-1. Run `source ~/.envrc` to make the variables available to the shell
+1. Run `source ~/.envrc` to make the variables available to the shell, which will then be used when starting MOS.
 1. Go to `matrix-os` folder with `cd ~/matrix-os` and run `node index.js` to start the OS.
 
 ### Check if everything works
-1. If you didn't do it earlier, `matrix use $deviceId`
+1. If you didn't do it earlier, `matrix use {deviceId}`
 1. Run `matrix`, your user is correct, and your selected device is correct.
 1. Now you can issue commands and deploy apps to your MATRIX OS from the [MATRIX CLI](CLI/overview.md).
 1. Try `matrix ping`, the device should flash a few seconds later.
