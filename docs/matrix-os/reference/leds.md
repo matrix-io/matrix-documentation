@@ -2,19 +2,8 @@
 
 A powerful tool for communicating with end users is the EverLoop LED circle. CLICK VIDEO BELOW:
 
-[![Everloop Tutorial](img/everloop-image.png)](https://www.youtube.com/watch?v=L4btaqw4HqM)
+[![Everloop Tutorial](../img/everloop-image.png)](https://www.youtube.com/watch?v=L4btaqw4HqM)
 
-## Rendering
-
-MatrixOS is an attempt at abstracting out the complexity of hardware to make it very accessible for end users. At the same time, one also wants to support those who might want to perform more complex operations. When designing a language, sometimes compromises between ease of use and features must be made.
-
-#### The problem
-Many things might want to write to the LED. We can leave it up to chance as to which gets to write, or we can approach it intelligently to optimize the aesthetics and performance. We also want to be able to manage and optimize LED transformations from a system level. Normally, MATRIX OS enables very fast communication with the hardware and tries to get out of the way as much as possible. For LEDS, we still get out of the way, but we need to blend all the input from different applications, otherwise this creates flicker as multiple applications compete for the same light indices. To discretely manage this, we created a special channel and notation just for leds.
-
-#### The Solution
-```
-matrix.led
-```
 
 ## Basic Operations
 
@@ -28,10 +17,7 @@ matrix.led('green').render(); //lights change
 matrix.led('rgb(255, 0, 100)').render();
 ```
 
-You can use any CSS color property, including [https://www.wikiwand.com/en/Web_colors#/X11_color_names](X11 Color Names). Darker colors on the Everloop generally display with more precision then lighter colors, which tend to get washed out. 
-
-Further examples omit the `render` for readability. 
-
+You can use any CSS color property, including [https://www.wikiwand.com/en/Web_colors#/X11_color_names](X11 Color Names). Darker colors on the Everloop generally display with more precision then lighter colors, which tend to get washed out. Please avoid `rgba` as alpha values do not render correctly. 
 
 ## Intermediate Operation
 ### Object Notation - Shape Generators
@@ -40,22 +26,21 @@ Shape objects `{Shape}` are the fastest way to get started with Everloop. We are
 
 The object creation is simple, you combine global properties with specific properties into a single object that controls a single generator. To draw multiple shapes, see Multiple Shapes below.
 
-### Global Shape Properties
-Every Shape object must include a `color` property to render.
-```
-color - color strings, as specified above
-blend - mix lights to make angle positioning more precise
-spin - number of degrees by which to spin the hue ( 0 - 360 )
-start - ( arc only ), start light index
-```
-
-
 ### Available Shapes
 Include one of these properties to enable the shape generator.
 ```
 arc - number of degrees to draw an arc, important for smile faces, supports negative values
 fade - similiar to arc, except lights fade out
 angle - draw a single light at this degree point
+```
+
+### Shape Properties
+Every Shape object must include a `color` property to render.
+```
+color - color strings, as specified above
+blend - mix lights to make angle positioning more precise
+spin - number of degrees by which to spin the hue ( 0 - 360 )
+start - ( arc only ), start light index
 ```
 
 #### Example Shape Object
@@ -89,7 +74,7 @@ var a = matrix.led({
 
   // index to start drawing arc
   start: 12
-});
+}).render();
 
 
 // draw a point
@@ -98,10 +83,10 @@ var b = matrix.led({
   color: 'white',
   // blends interlight space if true, solid lights if false, default false
   blend: true
-});
+}).render();
 
 // rotate the lights clockwise by a specified angle
-matrix.led([a, b]).rotate(90);
+matrix.led([a, b]).rotate(90).render();
 ```
 
 ## Composition
@@ -123,16 +108,17 @@ matrix.led([
     color: 'yellow',
     start: 225
   }
-]);
+]).render();
 ```
-### Direct Pixel Manipulation
-Array index = led to change
+
+### Direct LED Manipulation
+Array index indicates the led to change
 ```js
 matrix.led([0, 0, 0, 0, 'yellow', 0,
 0, 0, 0, 0, 0, 0, 0, 'yellow', 0, 0,
 0, 0, 0, 0, 0, 0, 'yellow', 'yellow',
 'yellow', 'yellow', 'yellow', 'yellow',
-'yellow', 'yellow', 'yellow' ]);
+'yellow', 'yellow', 'yellow' ]).render();
 ```
 
 
@@ -165,8 +151,21 @@ setInterval(function(){
 
   matrix.led([hourLED, minuteLED]).render();
 
-}, 1000);
+}, 1000).render();
 ```
 
 ## Advanced Use
 Enable `SUN_MODE=true` as a flag when launching MATRIX OS to turn on the white LEDs (and the luminence calculations). Wear sunglasses or use another mode of protecting your eyes when using this while developing. It is intended for use behind coverings.
+
+
+## High Level Discussion
+
+MATRIX OS is an attempt at abstracting out the complexity of hardware to make it very accessible for end users. At the same time, one also wants to support those who might want to perform more complex operations. When designing a language, sometimes compromises between ease of use and features must be made.
+
+#### The problem
+Many applications might want to write to the LED. We can leave it up to chance as to which gets to write, or we can approach it intelligently to optimize the aesthetics and performance. We also want to be able to manage and optimize LED transformations from a system level. Normally, MATRIX OS enables very fast communication with the hardware and tries to get out of the way as much as possible. For LEDS, we still get out of the way, but we need to blend all the input from different applications, otherwise this creates flicker as multiple applications compete for the same light indices. To discretely manage this, we created a special channel and notation just for leds.
+
+#### The Solution
+```
+matrix.led
+```

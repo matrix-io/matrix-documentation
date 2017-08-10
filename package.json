@@ -6,7 +6,9 @@
     "doc": "docs"
   },
   "scripts": {
-    "deploy": "mkdocs gh-deploy --clean"
+    "deploy": "mkdocs gh-deploy --clean",
+    "watch": "nodemon -e md,yml,html -i site --exec mkdocs build",
+    "surge": "surge site matrix-docs.surge.sh"
   },
   "repository": {
     "type": "git",

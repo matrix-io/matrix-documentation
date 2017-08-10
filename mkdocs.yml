@@ -21,17 +21,17 @@ pages:
     - 'Microphone': 'matrix-core/reference/microphone.md'
   - Troubleshooting: 'matrix-core/troubleshooting.md'
 - MATRIX OS:
-  # loads first page as index, overview is nested
+  # Index pages are hidden by template, child[0].url is loaded when user clicks on category
   - 'Index': 'matrix-os/index.md'
   - 'Overview':
+    - 'Index': 'matrix-os/overview/index.md'
     - 'Devices' : 'matrix-os/overview/devices.md'
     - 'Applications' : 'matrix-os/overview/applications.md'
     - 'Configuration' : 'matrix-os/overview/configuration.md'
-    - 'CLI': 'matrix-os/overview/cli.md'
+    - 'Command Line Interface': 'matrix-os/overview/cli.md'
     - 'Sending Data': 'matrix-os/overview/data.md'
     - 'Publishing': 'matrix-os/overview/publishing.md'
     - 'Manual Setup': 'matrix-os/overview/manual-setup.md'
-    - 'Index': 'matrix-os/overview/index.md'
   - 'Getting Started':
     - 'Prerequisities': 'matrix-os/getting-started/prerequisites.md'
     - 'Installation': 'matrix-os/getting-started/installation.md'
@@ -42,11 +42,14 @@ pages:
     - '1' : 'examples/mos/1.md'
     - '2' : 'examples/mos/2.md'
   - Reference:
+    - 'Index': 'matrix-os/reference/index.md'
     - 'System': 'matrix-os/reference/system.md'
     - 'Sensors': 'matrix-os/reference/sensors.md'
     - 'Computer Vision': 'matrix-os/reference/computer-vision.md'
     - 'Leds': 'matrix-os/reference/leds.md'
     - 'Communication': 'matrix-os/reference/communication.md'
+    - 'GPIO': 'matrix-os/reference/gpio.md'
+    - 'IR': 'matrix-os/reference/ir.md'
     - 'Microphone': 'matrix-os/reference/microphone.md'
     - 'Integrations': 'matrix-os/reference/integrations.md'
     - 'Filters' : 'matrix-os/reference/filters.md'

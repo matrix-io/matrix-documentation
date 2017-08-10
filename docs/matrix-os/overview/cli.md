@@ -1,4 +1,4 @@
-## MATRIX OS Command Line Interface
+## MATRIX OS Command Line Interface (CLI)
 
 MATRIX devices can be managed via website, mobile phone applications or via CLI.
 
@@ -13,7 +13,7 @@ After Node is available, install MATRIX CLI with `npm` and you're good to go.
 npm install -g matrix-cli
 ```
 
-### Local vs Device
+##### Local vs Device
 MATRIX CLI was designed to be used from your local machine, or can be installed to and used from your Raspberry Pi.
 
 ## Registration
@@ -39,7 +39,7 @@ matrix register device
 
 This will ask for your device details and then provide you with an id and a secret, you need to set those ENV vars in your device so it can authenticate on boot. For more info see (MATRIX OS > Overview > Manual Setup)[manual-setup.md].
 
-### Help
+### Command list
 For a list of all the available options, use:
 ```
 matrix
