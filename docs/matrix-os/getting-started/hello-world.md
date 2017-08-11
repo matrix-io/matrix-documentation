@@ -25,3 +25,6 @@ Or if using the Command Line Tool
 You should see lights animating on the Everloop, one for every active sensor.
 
 ![Sensor Test Success](../img/sensor-test.md)
+
+### Next Steps
+Now that you have installed and run an application, now lets look at the 

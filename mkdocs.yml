@@ -38,9 +38,9 @@ pages:
     - 'Hello World': 'matrix-os/getting-started/hello-world.md'
     - 'Next Steps': 'matrix-os/getting-started/next-steps.md'
   - Examples:
-    - 'CLI': 'examples/mos/cli.md'
-    - '1' : 'examples/mos/1.md'
-    - '2' : 'examples/mos/2.md'
+    - 'App Workflow': 'matrix-os/examples/app-create.md'
+    - 'Sensor Test' : 'matrix-os/examples/sensor-test.md'
+    - 'IFTTT Integration' : 'matrix-os/examples/ifttt.md'
   - Reference:
     - 'Index': 'matrix-os/reference/index.md'
     - 'System': 'matrix-os/reference/system.md'

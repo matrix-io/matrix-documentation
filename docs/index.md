@@ -5,7 +5,7 @@ C++ abstraction layer for HAL. Hosts the ZeroMQ communication layer which makes 
 
 [Read more about MATRIX CORE](matrix-core/overview.md)
 
-## MATRIX Open Source (MATRIX OS)
+## MATRIX OS
 Top-level application management layer which integrates with the MATRIX Creator hardware via MATRIX CORE.
 
 [Read more about MATRIX OS](matrix-os/overview.md)
