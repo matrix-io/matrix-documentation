@@ -1,6 +1,6 @@
-# MATRIX OS (MOS) Overview
+# Overview
 
-MATRIX OS is open source software for hosting IoT applications. MATRIX OS runs on node.js, and initially, applications will be written in JavaScript, however, as we finish writing SDK's, other languages will be supported. Python is first up.
+MATRIX OS (MOS) is open source software for hosting IoT applications. MATRIX OS runs on node.js, and initially, applications will be written in JavaScript, however, as we finish writing SDK's, other languages will be supported. Python is first up.
 
 ## Applications
 
