@@ -1,9 +1,9 @@
-## MATRIX OS Command Line Interface (CLI)
+## Command Line Interface (CLI)
 
 MATRIX devices can be managed via website, mobile phone applications or via CLI.
 
 ## Installation
-Installing MATRIX CLI is easy. However, you do need to have Node installed:
+Installing MATRIX CLI is easy. You need to have Node installed:
 
 * [Node.js](https://nodejs.org/en/)
 

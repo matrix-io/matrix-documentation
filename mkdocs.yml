@@ -25,8 +25,8 @@ pages:
   - 'Index': 'matrix-os/index.md'
   - 'Overview':
     - 'Index': 'matrix-os/overview/index.md'
-    - 'Devices' : 'matrix-os/overview/devices.md'
     - 'Applications' : 'matrix-os/overview/applications.md'
+    - 'Dashboard': 'matrix-os/overview/dashboard.md'
     - 'Configuration' : 'matrix-os/overview/configuration.md'
     - 'Command Line Interface': 'matrix-os/overview/cli.md'
     - 'Sending Data': 'matrix-os/overview/data.md'
@@ -53,6 +53,7 @@ pages:
     - 'Microphone': 'matrix-os/reference/microphone.md'
     - 'Integrations': 'matrix-os/reference/integrations.md'
     - 'Filters' : 'matrix-os/reference/filters.md'
+    - 'Widgets': 'matrix-os/reference/widgets.md'
   - Troubleshooting: 'matrix-os/troubleshooting.md'
 - MATRIX HAL:
   - 'Overview': 'matrix-hal/overview.md'

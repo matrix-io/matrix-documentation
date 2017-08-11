@@ -62,7 +62,7 @@ matrix.type('bar').send({
   foo: 123
 })
 ```
-would be utilized with the following
+would be utilized with the following widget
 ```
 name: fooApp
 dataTypes:

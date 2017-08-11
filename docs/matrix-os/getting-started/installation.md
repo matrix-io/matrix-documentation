@@ -56,3 +56,6 @@ These instructions should be executed on the Pi.
 1. Run `matrix`, your user is correct, and your selected device is correct.
 1. Now you can issue commands and deploy apps to your MATRIX OS from the [MATRIX CLI](CLI/overview.md).
 1. Try `matrix ping`, the device should flash a few seconds later.
+
+### More options
+See [Manual Setup](../overview/manual-setup)
