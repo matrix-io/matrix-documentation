@@ -6,7 +6,7 @@ MatrixOS sensors and computer vision algorithms provide data which can be filter
 // filtering in a simple application
 matrix.sensor('temperature')
 .above(80)
-.then(function(data){
+.then(data => {
   // see CrossTalk documentation for more information about matrix.emit
   matrix.emit('ac-control', 'turnOn');
 });

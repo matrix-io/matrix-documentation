@@ -12,12 +12,12 @@ Sensors push to applications which push to libraries which push back to the appl
 This example initializes the temperature sensor, and then handles the response.
 ```
 # callback style
-matrix.sensor('temperature', function(data){
+matrix.sensor('temperature', data => {
   // data = { value: 74.123123 }
 });
 
 # promise style
-matrix.sensor('temperature').then(function(data){
+matrix.sensor('temperature').then(data => {
   // data = { value: 74.123123 }
 });
 ```

@@ -5,21 +5,6 @@ theme_dir: matrix
 pages:
 - Overview: 'index.md'
 - Device Setup: 'setup.md'
-- MATRIX CORE:
-  - 'Overview': 'matrix-core/overview.md'
-  - 'Getting Started':
-    - 'Prerequisities': 'matrix-core/getting-started/prerequisites.md'
-    - 'Installation': 'matrix-core/getting-started/installation.md'
-    - 'Hello World': 'matrix-core/getting-started/hello-world.md'
-    - 'Next Steps': 'matrix-core/getting-started/next-steps.md'
-  - Examples:
-    - 'Python' : 'examples/core/python.md'
-    - 'Example2' : 'examples/core/example2.md'
-  - Reference:
-    - 'Sensors': 'matrix-core/reference/sensors.md'
-    - 'Communication': 'matrix-core/reference/communication.md'
-    - 'Microphone': 'matrix-core/reference/microphone.md'
-  - Troubleshooting: 'matrix-core/troubleshooting.md'
 - MATRIX OS:
   # Index pages are hidden by template, child[0].url is loaded when user clicks on category
   - 'Index': 'matrix-os/index.md'
@@ -55,6 +40,21 @@ pages:
     - 'Filters' : 'matrix-os/reference/filters.md'
     - 'Widgets': 'matrix-os/reference/widgets.md'
   - Troubleshooting: 'matrix-os/troubleshooting.md'
+- MATRIX CORE:
+  - 'Overview': 'matrix-core/overview.md'
+  - 'Getting Started':
+    - 'Prerequisities': 'matrix-core/getting-started/prerequisites.md'
+    - 'Installation': 'matrix-core/getting-started/installation.md'
+    - 'Hello World': 'matrix-core/getting-started/hello-world.md'
+    - 'Next Steps': 'matrix-core/getting-started/next-steps.md'
+  - Examples:
+    - 'Python' : 'examples/core/python.md'
+    - 'Example2' : 'examples/core/example2.md'
+  - Reference:
+    - 'Sensors': 'matrix-core/reference/sensors.md'
+    - 'Communication': 'matrix-core/reference/communication.md'
+    - 'Microphone': 'matrix-core/reference/microphone.md'
+  - Troubleshooting: 'matrix-core/troubleshooting.md'
 - MATRIX HAL:
   - 'Overview': 'matrix-hal/overview.md'
   - 'Getting Started':

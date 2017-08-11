@@ -37,7 +37,11 @@ In order to manually set up your device, use:
 matrix register device
 ```
 
-This will ask for your device details and then provide you with an id and a secret, you need to set those ENV vars in your device so it can authenticate on boot. For more info see (MATRIX OS > Overview > Manual Setup)[manual-setup.md].
+For more details about registering devices, see [Getting Started > Installation > CLI Setup](../getting-started/installation.md#cli-setup)
+
+This will ask for your device details and then provide you with an id and a secret, you need to set those ENV vars in your device so it can authenticate on boot. 
+
+For more information on running MATRIX OS manually, see (MATRIX OS > Overview > Manual Setup)[manual-setup.md].
 
 ### Command list
 For a list of all the available options, use:

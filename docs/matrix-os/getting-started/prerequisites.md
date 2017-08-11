@@ -1,17 +1,15 @@
 ## Prerequisites
 
-### Hardware
+##### Hardware
 * Android or iPhone with MATRIX application installed
 * Raspberry Pi with MATRIX Creator
 * SD Card with [MATRIX OS installed](installation.md)
 
 ## Development Prerequisites
 
-### Software
+##### Software
 * Terminal
 * JavaScript
 
-### Optional
+#### Optional
 Host computer running Linux, Win, or OS X for Command Line Interface
-
-

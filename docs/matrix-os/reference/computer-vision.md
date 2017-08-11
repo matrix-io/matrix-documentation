@@ -6,7 +6,7 @@ From [faceTest MATRIX App](http://apps.matrix.one/#!/apps/facetest)
 ```
 matrix.led('red').render();
 
-matrix.service('face').start().then(function(data){
+matrix.service('face').start().then(data => {
   matrix.led('green').render();
   setTimeout(function() {
     matrix.led('black').render();
@@ -188,7 +188,7 @@ By default, `recognition` works in `RECOGNITION` mode. Recognition requires trai
 #### train()
 
 ```
-matrix.service('recognition').train('test').then(function(data) { ... });
+matrix.service('recognition').train('test').then(data =>  { ... });
 ```
 This will associate a face with a particular tag. 
 
@@ -216,7 +216,7 @@ matrix.service('recognition').train('test').then(function(d) {
 #### start()
 After training, you can enable normal recognition as follows.
 ```
-matrix.service('recognition').start().then(function(data){...})
+matrix.service('recognition').start().then(data => {...})
 ```
 
 #### Recognition Training Response
@@ -229,7 +229,7 @@ Outputs a collection of tags and scores.
 #### Recognition Example
 ```
 
-matrix.service('recognition').start().then(function(data){...})
+matrix.service('recognition').start().then(data => {...})
 // select the best match out of all the responses
     var faces = _.values(d.matches);
     faces = _.sortBy(faces, ['score'])[0];
@@ -268,7 +268,7 @@ var zone2 =  [ 50, 50, 250, 300 ];
 
 <!-- ## Gesture
 ```
-matrix.service('gesture', options).then(function(data){})
+matrix.service('gesture', options).then(data => {})
 ```
 `then` will call when any gesture is detected.
 
@@ -303,7 +303,7 @@ matrix.service('gesture', options);
 <!--
 ## Face Recognition
 ```
-matrix.service('face-id').then(function(data){})
+matrix.service('face-id').then(data => {})
 ```  
 Facial recognition requires a target face to be supplied to it first. This can be provided in the application folder or uploaded to the device.
 
@@ -317,7 +317,7 @@ matrix.service('face-id', { match: 'myFace' })
 ```
 ```
 // dynamic faces from dashboard / mobile app / cli
-matrix.on('faceUpload', function(data){
+matrix.on('faceUpload', data => {
   // saves upload to filesystem
   matrix.save(data.name + '.' + data.typeSuffix, data.file);
 
@@ -339,7 +339,7 @@ matrix.service('face', { match: matrix.faces })
 ```
 ## Vehicle Counting
 ```
-matrix.service('vehicle-count').then(function(data){})
+matrix.service('vehicle-count').then(data => {})
 ```  
 
 ### Options
@@ -350,7 +350,7 @@ Toggle different detection modes depending on circumstances.
 
 ## People Counting
 ```
-matrix.service('people-count').then(function(data){})
+matrix.service('people-count').then(data => {})
 ```
 ### Options
 ### Example -->

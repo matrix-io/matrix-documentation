@@ -30,7 +30,7 @@ var options = {
   timeout: 10000 //how long before stopping this sensor
 };
 
-matrix.sensor('temperature', options).then(function(data){
+matrix.sensor('temperature', options).then(data => {
   //see below for data formats
 });
 ```

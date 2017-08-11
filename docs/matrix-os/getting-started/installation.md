@@ -1,7 +1,7 @@
 
 ## Installation
 
-Your MATRIX device will have MATRIX OS preinstalled on it. These instructions are included if you want to build your own MOS image. 
+Your MATRIX device will have MATRIX OS preinstalled on it. These instructions are included if you want to build your own MOS image.
 
 MATRIX OS is currently targeted to run on Raspbian. 
 
