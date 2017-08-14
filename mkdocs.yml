@@ -56,19 +56,24 @@ pages:
     - 'Microphone': 'matrix-core/reference/microphone.md'
   - Troubleshooting: 'matrix-core/troubleshooting.md'
 - MATRIX HAL:
-  - 'Overview': 'matrix-hal/overview.md'
+  - 'Index': 'matrix-hal/index.md'
   - 'Getting Started':
     - 'Prerequisities': 'matrix-hal/getting-started/prerequisites.md'
     - 'Installation': 'matrix-hal/getting-started/installation.md'
     - 'Hello World': 'matrix-hal/getting-started/hello-world.md'
     - 'Next Steps': 'matrix-hal/getting-started/next-steps.md'
   - Examples:
-    - 'Example1' : 'examples/hal/1.md'
-    - 'Example2' : 'examples/hal/2.md'
-  - Reference:
-    - 'Sensors': 'matrix-core/reference/sensors.md'
-    - 'Communication': 'matrix-core/reference/communication.md'
-    - 'Microphone': 'matrix-core/reference/microphone.md'
+    - 'Alexa' : 'matrix-hal/examples/alexa.md'
+  - Datasheets:
+    - 'Creator': 'matrix-hal/datasheets/creator.md'
+    - 'Voice': 'matrix-hal/datasheets/voice.md'
+    - 'Pinout': 'matrix-hal/datasheets/pinout.md'
+  - Components:
+    - 'FPGA': 'matrix-hal/components/fpga.md'
+    - 'Microphone': 'matrix-hal/components/microphone.md'
+    - 'SAM3': 'matrix-hal/components/Sam3.md'
+    - 'SAM3MCU': 'matrix-hal/components/Sam3mcu.md'
+    - 'SPI': 'matrix-hal/components/SPI.md'
   - Troubleshooting: 'matrix-hal/troubleshooting.md'
 - Help: 'help.md'
 #   - App Publishing: 'intro/app-publishing.md'
