@@ -1,5 +1,4 @@
-## Pre-Requisites
-Building MATRIX HAL has some dependencies, so please make sure to install the pre-requisites.
+## Dependencies
 
 ```
 sudo apt-get install cmake g++ git
@@ -8,6 +7,7 @@ git clone https://github.com/matrix-io/matrix-creator-hal.git
 
 ## Build
 To start working with HAL directly, you'll need to run `sudo make install` to get the build running. 
+
 ```
 $ mkdir build
 $ cd build
