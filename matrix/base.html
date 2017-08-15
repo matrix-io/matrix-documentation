@@ -40,13 +40,13 @@
   <div class="content">
     <div class="container">
       <div class="row">
-        <div class="sidebar col-lg-3">
+        <div class="sidebar col-lg-2">
           <h3>Documentation</h3>
           <ul>
             {% set nav_level = 0 %} {% for nav_item in nav %} {% include "sidebar.html" %} {% endfor %}
           </ul>
         </div>
-        <div class="col-lg-7">
+        <div class="col-lg-8">
           {% block content %} {{ content }} {% endblock %}
         </div>
         <div class="toc col-lg-2">
