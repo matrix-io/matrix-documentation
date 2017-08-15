@@ -1,58 +1,36 @@
+# MATRIX Ecosystem Overview
+
+The MATRIX Ecosystem was created to make powerful hardware projects very approachable for software developers. The pillars of MATRIX, computer vision, hardware interfaces, distributed internet communication, and data-driven end-user clients, are all programming disciplines which require years for an individual to master, or for a team to build a solution around.
+
+MATRIX provides powerful capabilities in an environment which adapts to your use-case and capacity.
+ 
+With MATRIX OS, you can write an application in an hour, deploy to your devices in seconds, and publish for a worldwide audience with a keypress.
+
+With MATRIX CORE, you can integrate MATRIX hardware with your favorite languages and libraries.
+
+With MATRIX HAL, you can work with the low-level fundamentals of MATRIX hardware to have it function the way you want. 
+
+## MATRIX OS
+Top-level application management layer which integrates with the MATRIX Creator hardware via MATRIX CORE.
+
+[Read more about MATRIX OS](matrix-os/overview.md)
+
+## MATRIX CORE
+C++ abstraction layer for HAL. Hosts the ZeroMQ communication layer which makes the sensors accessible via high-level interfaces. Supports 40+ different languages, C++, Python, Ruby, PHP, Java, etc. 
+
+[Read more about MATRIX CORE](matrix-core/overview.md)
+
+## MATRIX HAL
+Low-level C++ drivers for sensors and available components.
+
+[Read more about MATRIX HAL](matrix-hal/overview.md)
+
 ## Support
 * Post questions or comments on [community.matrix.one](http://community.matrix.one/)
 * Post package issues on github under [matrix-io](https://github.com/matrix-io)
 * Submit documentation issues or improvements at [matrix-io/matrix-documentation](https://github.com/matrix-io/matrix-documentation)
 
-## Installation
+## MATRIX Requirements
+* [Raspberry Pi](https://www.raspberrypi.org)
+* [MATRIX Creator](https://creator.matrix.one)
 
-#### Local Machine Setup 
-##### Important:    `Keep in mind that MATRIX CLI is intended to run on your host computer, not directly on the Pi running MOS.` 
-**Note 1:** Pre-requisite of [NodeJS](https://nodejs.org/en/download) on the client computer.
-
-1. Install [MATRIX CLI](CLI/overview.md) via npm `sudo npm install -g matrix-cli`.
-1. Target the proper environment `matrix set env rc`.
-1. With MATRIX CLI installed on your computer, register an account with MATRIX via `matrix register`.
-1. Log into your account using `matrix login`.
-1. Once registered an account, run `matrix register device`.
-1. Enter a `device name` and (optional) `device description`.
-1. After a few moments you will be provided with a `MATRIX_DEVICE_ID` and `MATRIX_DEVICE_SECRET`.
-1. Select your device using `matrix use `, and enter your device ID. Command examples will be provided for easy copy paste.
-
-```
-# example variables generated via registration, yours will be different
-export MATRIX_DEVICE_ID=dc7a1a71be2d
-export MATRIX_DEVICE_SECRET=08629018e9d77h15i5n0t4r3alz0f06cd4f7e5544272b
-```
-
-Save these for the Configure ENV Variables step, near the end.
-
-**Note 2:** Watch **Getting Started**, **Registration** and **Installation** of MATRIX OS and MATRIX CLI on Youtube. [Watch now](https://www.youtube.com/watch?v=ckDD6HEjfAY).
-#### Raspberry Pi Setup
-
-The following installation configures the MATRIX Creator, as well as installs the MATRIX Open Source platform.
-
-```
-# Does everything including reboot.
-curl https://raw.githubusercontent.com/matrix-io/matrix-creator-quickstart/master/install.sh | sh
-```
-
-##### Configure ENV variables
-
-1. On the Pi, inside your `~` folder, create a file named `.envrc` with the variables from the Matrix CLI Setup above.  
-```
-# in .envrc file or place in ~/.bash_profile to auto configure
-export MATRIX_DEVICE_ID=dc7a1a71be2d
-export MATRIX_DEVICE_SECRET=08629018e9d77h15i5n0t4r3alz0f06cd4f7e5544272b
-```
-1. `source .envrc` from `~` to make the variables available to the shell.
-
-#### Run MATRIX OS
-1. From the `matrix-os` folder. `NODE_ENV=rc node index.js`. While in alpha, we are running in our Release Candidate environment.
-
-#### Returning to local computer
-1. If you didn't do it earlier, `matrix use $deviceId`
-1. Run `matrix`, verify you are on `rc` environment, your user is correct, and your selected device is correct.
-1. Now you can issue commands and deploy apps to your MATRIX OS from the [MATRIX CLI](CLI/overview.md).
-
-## Custom Raspbian Package
-We'll be making a custom raspbian package available for download very soon!

@@ -11,7 +11,7 @@ MATRIX Documentation uses [MkDocs](http://www.mkdocs.org/) to format and compile
 ```
 $ virtualenv env
 $ source env/bin/activate
-``` 
+```
 
 ```
 # Do this to get the docs running locally.
