@@ -1,7 +1,7 @@
 ## Prerequisites
 
 ##### Hardware
-* Android or iPhone with MATRIX application installed
+* Android or iPhone with MATRIX OS installed
 * Raspberry Pi with MATRIX Creator
 * SD Card with [MATRIX OS installed](installation.md)
 

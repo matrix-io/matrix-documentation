@@ -9,7 +9,7 @@ You should be able to navigate to your active devices and applications. The dash
 
 See [Reference > Widget Examples](../reference/widgets.md) for more detailed information about widget configuration.
 
-#### Widget options
+#### Options
 
 ##### All Widgets
 * `label` - text label for this widget box
@@ -30,7 +30,6 @@ Display widgets, like tables, charts and value outputs are only concerned with w
 * `map` - on button widgets, a collection of `value: trigger` where value is the button text, and trigger is the event fired
 
 #### Layout
-
 Widgets are defined in the `widgets` key of an app config file. This is a collection where each Widget has a keyed name which is associated with an entry in `screens` to determine it's location on the dashboard or the mobile apps.
 
 ```

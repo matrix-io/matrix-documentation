@@ -24,8 +24,6 @@ services:
     type: face
 ```
 
-See [Services](../Configuration/services.md) for more information
-
 ## matrix.service
 The base `matrix.service` command is how you access computer vision services.
 ```

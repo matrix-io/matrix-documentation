@@ -1,5 +1,5 @@
 site_name: MATRIX
-site_description: MATRIX OS Documentation
+site_description: MATRIX Documentation
 docs_dir: docs
 theme_dir: matrix
 pages:
@@ -23,6 +23,7 @@ pages:
     - 'Hello World': 'matrix-os/getting-started/hello-world.md'
     - 'Next Steps': 'matrix-os/getting-started/next-steps.md'
   - Examples:
+    - 'Index': 'matrix-os/examples/index.md'
     - 'App Workflow': 'matrix-os/examples/app-create.md'
     - 'Sensor Test' : 'matrix-os/examples/sensor-test.md'
     - 'IFTTT Integration' : 'matrix-os/examples/ifttt.md'

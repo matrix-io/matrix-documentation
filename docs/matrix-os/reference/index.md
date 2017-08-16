@@ -28,29 +28,25 @@ NFC interfaces.
 
 ####[Zigbee](zigbee.md)
 Zigbee interfaces.
-[](
-####[Z-wave](zwave.md)
-Z-wave interfaces.
-)
 
 ## Configuration
 ####[Settings](system.md/#settings)
 For application defaults or end-user configurable variables.
 
-####[Data Types](../Configuration/datatypes.md)
+####[Data Types](../overview/data/#data-types)
 Data structures and how to save to the infrastructure.
 
 ####[Screens](../Configuration/screens.md)
 Dashboard creation and how to structure your widgets.
 
-####[Filters](filter.md)
+####[Filters](filters.md)
 Dashboard filter configuration.
 
-####[Widgets](computer-vision.md)
+####[Widgets](widgets.md)
 Dashboard widget configuration.
 
-####[Services](../Configuration/services.md)
+####[Computer Vision Services](computer-vision.md)
 Available infrastructure services.
 
-####[Troubleshooting](../intro/cli-troubleshooting.md)
+####[Troubleshooting](../troubleshooting.md)
 Troubleshooting

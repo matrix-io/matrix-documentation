@@ -16,16 +16,23 @@ events:
 
 Global messages that can be received across applications, devices, and clients. e.g. Emit from one device, receive on another.
 #### matrix.emit(payload)
+
+The sending application will `emit` a message.
+
 * `payload` Object or string to pass through to the listener.
 ```
 // Send a payload to all listeners
 matrix.emit(payload);
 ```
+
 #### matrix.on(cb)
+
+The recieving application uses `on` to handle the message sent by the sending application.
+
 * `cb` Callback method with `payload` returned.
 ```
 // Listen for global CrossTalk messages
-matrix.on(function(payload) { ... });
+matrix.on( payload => { ... });
 ```
 
 ### App Targeted Events
@@ -35,18 +42,20 @@ events:
   - appName
 ```
 Messages that can be shared across applications on a single device.
+
 #### matrix.emit(app, payload)
-* `app` Label to later listen for.
+* `foo` Event to later listen for.
 * `payload` Object or string to pass through to retrieve with the listener.
 ```
 // Send a message to a particular application
-matrix.emit('app', payload);
+matrix.emit('foo', payload);
 ```
-#### matrix.on(cb)
+#### matrix.on(event, cb)
+* `event` Event to listen on.
 * `cb` Callback method with payload returned.
 ```
 // Listen for application specific CrossTalk messages
-matrix.on(function(payload) { ... });
+matrix.on('foo',  payload => { ... });
 ```
 
 ### App & Event Filtering
@@ -70,14 +79,14 @@ matrix.emit('app', 'event', payload);
 * `cb` Callback method with payload returned.
 ```
 // Listen for CrossTalk events sent to this application
-matrix.on('event', function(payload) { ... });
+matrix.on('event',  payload => { ... });
 ```
 
 ### Dashboard
 Receive events from web or mobile by binding them to widget controls.
 ```
 // Interface elements from Dashboards can also trigger CrossTalk events.
-matrix.on('buttonClick', function(payload) { ... });
+matrix.on('buttonClick',  payload => { ... });
 ```
 #### Configuration-Driven Events
 See [Overview > Dashboard > Widgets](../overview/dashboard/#widgets)

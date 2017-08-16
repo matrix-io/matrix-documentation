@@ -57,13 +57,13 @@ matrix.sensor('gyroscope').has('x')
 
 ### bounds
 ###### > greater then
-`above`, `over`, 'after'
+`above`, `over`, `after`
 ```
 matrix.sensor('temperature').has().above(72)
 ```
 
 ###### < less then
-`below`, `under`, 'before'
+`below`, `under`, `before`
 ```
 matrix.sensor('temperature').has().below(32)
 ```
