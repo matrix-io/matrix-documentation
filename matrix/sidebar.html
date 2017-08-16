@@ -31,7 +31,7 @@
   <!-- only 1 deep, print menu items  -->
   {% if nav_child.title != 'Index' %}
   {% if nav_item.active %}
-  <li class="{% if expand %}expanded{% endif %}"><a href="{{ nav_child.url }}" class="{% if nav_child.active %}active{% endif %}">{{ nav_child.title }}</a></li>  
+  <li><a href="{{ nav_child.url }}" class="{% if nav_child.active %}active{% endif %}">{{ nav_child.title }}</a></li>  
   {% endif %}
   {% endif %}
   {% else %}
