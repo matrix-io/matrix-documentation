@@ -4,7 +4,6 @@ Every MOS application has a configuration file `config.yaml`.
 
 This file:
 
-<<<<<<< HEAD
 1. Sets meta information for the application, which is used in the [MATRIX App Store](http://apps.matrix.one).
 1. Defines a schema for [sending data](data.md) from the device.
 1. Identifies which [sensors](../reference/sensors/#configuration), [services](../reference/computer-vision/#configuration), [events](../reference/communication/#configuration) and [integrations](../reference/integrations/#configuration) an application utilizes.
@@ -46,10 +45,4 @@ The config.yaml is standardized before installation, which will modify it somewh
 See the helper library with examples at: <https://github.com/matrix-io/matrix-app-config-helper>
 
 
-=======
-1. Sets meta information for the application, which is displayed in the [MATRIX App Store](http://apps.matrix.one).
-1. Identifies which sensors, services, events and integrations an application utilizes.
-1. Generates a policy on install, asking the user for particular access to their device.
-1. Defines dynamic settings variables, which are available to the application and end-user modifiable.
->>>>>>> 548e95c25eca46843eb2f2d8e6be1b1d3fa93113
 
