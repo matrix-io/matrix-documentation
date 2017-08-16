@@ -8,7 +8,7 @@ $ cd testApp
 $ vi app.js
 ```
 
-Enter this for the app code. It will flash the LED green for 5 seconds.
+Enter this to `app.js`. It will flash the LED green for 5 seconds.
 ```js
 matrix.led('green').render();
 

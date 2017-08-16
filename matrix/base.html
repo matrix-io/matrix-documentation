@@ -49,13 +49,17 @@
         <div class="col-lg-8">
           {% block content %} {{ content }} {% endblock %}
         </div>
-        <div class="toc col-lg-2">
-          {% if current_page and current_page.input_path != 'None' %}
+        <div class="toc-parent col-lg-2">
+          <div class="toc">
 
-          <h3>Contents</h3>
-          <ul>
-            {% for toc_item in toc %} {% include "toc.html" %} {% endfor %}
-          </ul>
+            {% if current_page and current_page.input_path != 'None' %}
+            
+            <h3>Contents</h3>
+            <ul>
+              {% for toc_item in toc %} {% include "toc.html" %} {% endfor %}
+            </ul>
+            
+          </div>
         </div>
         {% endif %}
       </div>

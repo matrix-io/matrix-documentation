@@ -198,14 +198,26 @@ a {
   border-right: 1px solid #EEE;
 }
 
-.content .toc {
+* {
+  box-sizing: border-box;
+}
+
+
+.content .toc-parent {
   border-left: 1px solid #EEE;
+  position: relative;
+  top: 10px;
+  transition: top 1s;
 }
 
 .content .toc a {
   font-size: 0.75em;
 }
 
+.content .toc.float {
+  position: fixed;
+  top: 10px;
+}
 
 /* add a little space to the top of each column so it's not against the border  */
 
@@ -255,8 +267,15 @@ a {
   font-size: 0.75em;
 }
 
-.content .sidebar ul li a.active,
 .content .toc ul li a.active {
+  border-left: 5px solid #2F80ED;
+  display: block;
+  padding-left: 5px;
+  position: relative;
+  left: -11px;
+  color: #2F80ED;
+}
+.content .sidebar ul li a.active { 
   color: #2F80ED;
   border-right: 5px solid #2F80ED;
   display: block;
