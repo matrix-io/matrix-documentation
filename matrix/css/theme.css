@@ -234,8 +234,18 @@ a {
   padding: 0px;
 }
 
-.content .sidebar ul li {
-  margin-bottom: 13px;
+.content .sidebar ul ul li {
+  line-height: 1.3em;
+  margin-bottom: 0em;
+}
+
+
+.content .sidebar ul>li {
+  margin-bottom: 1em;
+}
+.content .sidebar ul .expanded {
+  margin-bottom: 0em;
+  margin-top: 1em;
 }
 
 .content .sidebar ul li a,
