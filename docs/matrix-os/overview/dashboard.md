@@ -2,12 +2,46 @@
 
 Login to your [MATRIX Dashboard](http://dash.matrix.one).
 
+### One dashboard per application
+Dashboards consist of widgets which are defined in a [configuration file](configuration.yaml), `config.yaml`. Widgets provide readouts for data coming from a MATRIX application, or widgets can provide controls for users to modify how applications operate.
+
+#### Layout via `screens`
+`screens` and `widgets` are both global entries in the `config.yaml`. `screens` provides for a data-structure driven layout, where each row is a defined list of widgets. So if we have one array:
+
+```
+screens:
+  - leftWidget
+  - rightWidget
+
+widgets:
+  leftWidget: ...
+  rightWidget: ...
+```
+The widgets will end up left 50% and right 50%.w
+
+This way we can easily distinguish between layout and functionality.
+
+You can use nesting within the `screens` data structure to further customize the layout.
+
+This example would produce two rows, the first with two panels, the second with three.
+
+```
+screens:
+  - - topLeft
+    - topRight
+  - - bottomLeft
+    - bottomCenter
+    - bottomRight
+```
+
+
 #### Devices and Applications
 You should be able to navigate to your active devices and applications. The dashboard for each application consists of widgets which display data from the selected devices.
 
 ### Widgets
-
+Widgets are configured via `config.yaml` under the `widgets` key.
 See [Reference > Widget Examples](../reference/widgets.md) for more detailed information about widget configuration.
+
 
 #### Options
 
@@ -29,7 +63,7 @@ Display widgets, like tables, charts and value outputs are only concerned with w
 * `value` - on button widgets, what text should be in the button
 * `map` - on button widgets, a collection of `value: trigger` where value is the button text, and trigger is the event fired
 
-#### Layout
+#### Screens
 Widgets are defined in the `widgets` key of an app config file. This is a collection where each Widget has a keyed name which is associated with an entry in `screens` to determine it's location on the dashboard or the mobile apps.
 
 ```
