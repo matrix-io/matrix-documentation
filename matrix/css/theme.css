@@ -539,8 +539,11 @@ footer .company-logo span {
 footer .utility-links {
   float: right;
 }
-
-footer .utility-links a:nth-of-type(1) {
+footer .utility-links a {
+  cursor: pointer;
+}
+footer .utility-links a:nth-of-type(1),
+footer .utility-links a:nth-of-type(2), {
   margin-right: 20px;
 }
 
