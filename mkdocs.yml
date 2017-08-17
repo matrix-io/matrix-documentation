@@ -8,6 +8,11 @@ pages:
 - MATRIX OS:
   # Index pages are hidden by template, child[0].url is loaded when user clicks on category
   - 'Index': 'matrix-os/index.md'
+  - 'Getting Started':
+    - 'Prerequisities': 'matrix-os/getting-started/prerequisites.md'
+    - 'Installation': 'matrix-os/getting-started/installation.md'
+    - 'Hello World': 'matrix-os/getting-started/hello-world.md'
+    - 'Next Steps': 'matrix-os/getting-started/next-steps.md'
   - 'Overview':
     - 'Index': 'matrix-os/overview/index.md'
     - 'Applications' : 'matrix-os/overview/applications.md'
@@ -17,11 +22,6 @@ pages:
     - 'Sending Data': 'matrix-os/overview/data.md'
     - 'Publishing': 'matrix-os/overview/publishing.md'
     - 'Manual Setup': 'matrix-os/overview/manual-setup.md'
-  - 'Getting Started':
-    - 'Prerequisities': 'matrix-os/getting-started/prerequisites.md'
-    - 'Installation': 'matrix-os/getting-started/installation.md'
-    - 'Hello World': 'matrix-os/getting-started/hello-world.md'
-    - 'Next Steps': 'matrix-os/getting-started/next-steps.md'
   - Examples:
     - 'Index': 'matrix-os/examples/index.md'
     - 'App Workflow': 'matrix-os/examples/app-create.md'
@@ -42,7 +42,7 @@ pages:
     - 'Widgets': 'matrix-os/reference/widgets.md'
   - Troubleshooting: 'matrix-os/troubleshooting.md'
 - MATRIX CORE:
-  - 'Overview': 'matrix-core/overview.md'
+  - 'Index': 'matrix-core/index.md'
   - 'Getting Started':
     - 'Prerequisities': 'matrix-core/getting-started/prerequisites.md'
     - 'Installation': 'matrix-core/getting-started/installation.md'
