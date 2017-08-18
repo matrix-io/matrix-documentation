@@ -209,18 +209,15 @@ img {
 
 .content .toc-parent {
   border-left: 1px solid #EEE;
-  position: relative;
-  top: 10px;
-  transition: top 1s;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0px;
+  max-height: 100vh;
+  overflow-y: auto;
 }
 
 .content .toc a {
   font-size: 0.75em;
-}
-
-.content .toc.float {
-  position: fixed;
-  top: 10px;
 }
 
 /* add a little space to the top of each column so it's not against the border  */
