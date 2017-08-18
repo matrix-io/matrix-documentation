@@ -10,6 +10,13 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+blockquote { 
+  border-left: 5px solid #2F80ED;
+  background-color: #CCC;
+  font-size:1.4em;
+  padding-left: 10px;
+}
+
 .sidebar a,
 .toc a {
   font-size: 1.25rem;

@@ -20,9 +20,8 @@ curl https://raw.githubusercontent.com/matrix-io/matrix-creator-quickstart/maste
 
 These next instructions can be executed via your Raspberry Pi or on a local computer. We would recommend NOT installing the CLI on the Raspberry Pi.
 
-```
-You need Node installed on your machine to continue
-```
+> You need Node installed on your machine to continue
+
 1. Install [MATRIX CLI](../overview/cli.md) via npm `npm install -g matrix-cli`
 1. If you do not have a MATRIX Labs account, register via `matrix register`
 
