@@ -13,14 +13,14 @@ Widgets are basically configuration objects which can be defined in the followin
 Display widgets, like tables, charts and value outputs are only concerned with what data to display and how to display it.
 * `display` - which display widget to load
 * `key`/`keys` - show these keys from the data payload
-* `type` - select keys from this data segment (see [Overview > Sending Data](data.md) )
+* `type` - select keys from this data segment (see [Overview > Sending Data](../overview/data.md) )
 * `format` - filter the data. choose from `count`, `sum`, `avg`, `percent`, `max`, `min`, `fixed`, `round`.
 * `realtime` - defaults to true. set to false and use refresh option for manual updates.
 * `refresh` - how many seconds between data refresh. not set by default. use with realtime: false. 
 
 ##### Interactive Widgets
 * `control` - which interactive widget to load
-* `trigger` - the event to listen for in your application ( see [Reference > Crosstalk](../reference/crosstalk.md))
+* `trigger` - the event to listen for in your application ( see [Reference > Crosstalk](crosstalk.md))
 * `value` - on button widgets, what text should be in the button
 * `map` - on button widgets, a collection of `value: trigger` where value is the button text, and trigger is the event fired
 

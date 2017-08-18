@@ -1,4 +1,4 @@
-## Everloop
+## Everloop LEDS
 
 A powerful tool for communicating with end users is the EverLoop LED circle. CLICK VIDEO BELOW:
 

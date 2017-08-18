@@ -24,7 +24,7 @@ Or if using the Command Line Tool
 ### Success
 You should see lights animating on the Everloop, one for every active sensor.
 
-![Sensor Test Success](../img/sensor-test.md)
+![Sensor Test Success](../img/sensor-test.png)
 
 ### Next Steps
 Now that you have installed and run an application, [Next Steps](next-steps.md) will be able to guide your next MATRIX adventure.

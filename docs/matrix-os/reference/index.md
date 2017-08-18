@@ -5,8 +5,8 @@ Sensor interfaces and data structures.
 ####[Everloop](leds.md)
 Everloop interface.
 
-####[Filters](filter.md)
-Filters interface for Sensors, Computer Vision, etc...
+####[Filters](filters.md)
+Filtering data
 
 ####[Computer Vision](computer-vision.md)
 Computer Vision services.
@@ -14,29 +14,26 @@ Computer Vision services.
 ####[Microphones](microphone.md)
 Microphone Services.
 
-####[IR TX/RX](communication.md)
+####[IR TX/RX](ir.md)
 IR receiving and transmitter services.
 
 ####[GPIO](gpio.md)
 GPIO interfaces.
 
-####[Servos](servos.md)
+####[Servos](gpio/#servos)
 Servo interfaces.
-
-####[NFC](nfc.md)
-NFC interfaces.
 
 ####[Zigbee](zigbee.md)
 Zigbee interfaces.
 
 ## Configuration
-####[Settings](system.md/#settings)
+####[Settings](system/#settings)
 For application defaults or end-user configurable variables.
 
 ####[Data Types](../overview/data/#data-types)
 Data structures and how to save to the infrastructure.
 
-####[Screens](../Configuration/screens.md)
+####[Screens](screens.md)
 Dashboard creation and how to structure your widgets.
 
 ####[Filters](filters.md)

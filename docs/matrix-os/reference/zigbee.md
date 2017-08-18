@@ -32,7 +32,7 @@ currently, only zigbee lights are supported
 `zb.light().fadeIn(time)` - slowly turn a light over `time` seconds
 `zb.light().fadeOut(time)` - slowly turn off a light over `time` seconds
 
-`zb.light().color(hue, time)` - sets the light to `hue` color, over `time` seconds, defaulting to 3 seconds. `hue` accepts 0-360 hue values, in addition any `color` value which would be passed to the Everloop, like `'blue'` or `'#0000FF'`. see [Everloop](everloop.md)
+`zb.light().color(hue, time)` - sets the light to `hue` color, over `time` seconds, defaulting to 3 seconds. `hue` accepts 0-360 hue values, in addition any `color` value which would be passed to the Everloop, like `'blue'` or `'#0000FF'`. see [Everloop](leds.md)
 
 `zb.light().level(level, time)` - sets the light level to `level` 0-100 over `time` seconds, defaults to 3
 

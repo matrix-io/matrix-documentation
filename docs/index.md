@@ -13,17 +13,17 @@ With MATRIX HAL, you can work with the low-level fundamentals of MATRIX hardware
 ## MATRIX OS
 Top-level application management layer which integrates with the MATRIX Creator hardware via MATRIX CORE.
 
-[Read more about MATRIX OS](matrix-os/overview.md)
+[Read more about MATRIX OS](matrix-os/index.md)
 
 ## MATRIX CORE
 C++ abstraction layer for HAL. Hosts the ZeroMQ communication layer which makes the sensors accessible via high-level interfaces. Supports 40+ different languages, C++, Python, Ruby, PHP, Java, etc. 
 
-[Read more about MATRIX CORE](matrix-core/overview.md)
+[Read more about MATRIX CORE](matrix-core/index.md)
 
 ## MATRIX HAL
 Low-level C++ drivers for sensors and available components.
 
-[Read more about MATRIX HAL](matrix-hal/overview.md)
+[Read more about MATRIX HAL](matrix-hal/index.md)
 
 ## Support
 * Post questions or comments on [community.matrix.one](http://community.matrix.one/)

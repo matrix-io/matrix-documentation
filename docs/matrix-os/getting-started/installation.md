@@ -23,7 +23,7 @@ These next instructions can be executed via your Raspberry Pi or on a local comp
 ```
 You need Node installed on your machine to continue
 ```
-1. Install [MATRIX CLI](CLI/overview.md) via npm `npm install -g matrix-cli`
+1. Install [MATRIX CLI](../overview/cli.md) via npm `npm install -g matrix-cli`
 1. If you do not have a MATRIX Labs account, register via `matrix register`
 
 ### Register a Device
@@ -54,7 +54,7 @@ These instructions should be executed on the Pi.
 ### Check if everything works
 1. If you didn't do it earlier, `matrix use {deviceId}`
 1. Run `matrix`, your user is correct, and your selected device is correct.
-1. Now you can issue commands and deploy apps to your MATRIX OS from the [MATRIX CLI](CLI/overview.md).
+1. Now you can issue commands and deploy apps to your MATRIX OS from the [MATRIX CLI](../overview/cli.md).
 1. Try `matrix ping`, the device should flash a few seconds later.
 
 ### More options

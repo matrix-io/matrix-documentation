@@ -33,12 +33,14 @@ pages:
     - 'Sensors': 'matrix-os/reference/sensors.md'
     - 'Computer Vision': 'matrix-os/reference/computer-vision.md'
     - 'Leds': 'matrix-os/reference/leds.md'
-    - 'Communication': 'matrix-os/reference/communication.md'
+    - 'Crosstalk': 'matrix-os/reference/crosstalk.md'
+    - 'Zigbee': 'matrix-os/reference/zigbee.md'
     - 'GPIO': 'matrix-os/reference/gpio.md'
     - 'IR': 'matrix-os/reference/ir.md'
     - 'Microphone': 'matrix-os/reference/microphone.md'
     - 'Integrations': 'matrix-os/reference/integrations.md'
     - 'Filters' : 'matrix-os/reference/filters.md'
+    - 'Screens' : 'matrix-os/reference/screens.md'
     - 'Widgets': 'matrix-os/reference/widgets.md'
   - Troubleshooting: 'matrix-os/troubleshooting.md'
 - MATRIX CORE:
@@ -48,8 +50,7 @@ pages:
     - 'Installation': 'matrix-core/getting-started/installation.md'
     - 'Hello World': 'matrix-core/getting-started/hello-world.md'
   - Examples:
-    - 'Python' : 'examples/core/python.md'
-    - 'Example2' : 'examples/core/example2.md'
+    - 'Python' : 'matrix-core/examples/tests.md'
   - Reference:
     - 'Sensors': 'matrix-core/reference/sensors.md'
     - 'Communication': 'matrix-core/reference/communication.md'
