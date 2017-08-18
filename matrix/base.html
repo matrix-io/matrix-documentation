@@ -46,7 +46,7 @@
             {% set nav_level = 0 %} {% for nav_item in nav %} {% include "sidebar.html" %} {% endfor %}
           </ul>
         </div>
-        <div class="col-lg-8">
+        <div id="content" class="col-lg-8">
           {% block content %} {{ page.content }} {% endblock %}
         </div>
         <div class="toc-parent col-lg-2">

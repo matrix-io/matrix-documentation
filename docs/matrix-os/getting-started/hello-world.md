@@ -1,10 +1,9 @@
 ## Hello World
 
-You need:
-> A Registered & Configured MATRIX Device
-> Mobile Application
-OR 
-> [Command Line Tool](../overview/cli.md)
+### You will need
+* A Registered & Configured MATRIX Device
+
+* Installed Mobile Application OR [Command Line Tool](../overview/cli.md)
 
 After you have successfully configured your MATRIX OS installation on a MATRIX device, you can install applications.
 
@@ -12,6 +11,7 @@ After you have successfully configured your MATRIX OS installation on a MATRIX d
 Using the mobile application, or using the Command Line Tool, install `sensorTest`
 
 ```
+# after selecting device with `matrix use`
 > matrix install sensorTest
 ```
 
@@ -23,7 +23,6 @@ Using the mobile application, flick the switch next to an application name to st
 Or if using the Command Line Tool
 
 ```
-# after selecting device with `matrix use`
 > matrix start sensorTest
 ```
 
