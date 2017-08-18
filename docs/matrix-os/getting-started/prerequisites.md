@@ -8,7 +8,7 @@
 ## Development Prerequisites
 
 ##### Software
-* Terminal
+* Command Line - ( Terminal on OSX / Ubuntu or Prompt/PuTTy on Windows )
 * JavaScript
 
 #### Optional

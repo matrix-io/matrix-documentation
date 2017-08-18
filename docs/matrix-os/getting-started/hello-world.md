@@ -1,15 +1,21 @@
 ## Hello World
 
+You need:
+> A Registered & Configured MATRIX Device
+> Mobile Application
+OR 
+> [Command Line Tool](../overview/cli.md)
+
 After you have successfully configured your MATRIX OS installation on a MATRIX device, you can install applications.
 
 ### Application Installation
-Using the mobile application, or using the [Command Line Tool](../overview/cli.md), install `sensorTest`
+Using the mobile application, or using the Command Line Tool, install `sensorTest`
 
 ```
 > matrix install sensorTest
 ```
 
-Allow access for the application to all sensors.
+Permission will be asked before install commences, to continue, allow access for the application to all sensors.
 
 ### Running an Application
 Using the mobile application, flick the switch next to an application name to start.
@@ -24,7 +30,8 @@ Or if using the Command Line Tool
 ### Success
 You should see lights animating on the Everloop, one for every active sensor.
 
-![Sensor Test Success](../img/sensor-test.png)
+![Sensor Test Success](../img/sensor-test.jpg)
+
 
 ### Next Steps
 Now that you have installed and run an application, [Next Steps](next-steps.md) will be able to guide your next MATRIX adventure.

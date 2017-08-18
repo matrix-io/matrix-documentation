@@ -22,6 +22,10 @@ blockquote {
   font-size: 1.25rem;
 }
 
+h2,h3,h4 {
+  padding-top: 1em;
+}
+
 a {
   color: #2F80ED;
 }

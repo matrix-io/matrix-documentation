@@ -29,18 +29,19 @@ These next instructions can be executed via your Raspberry Pi or on a local comp
 1. Log into your account using `matrix login`
 1. Once registered an account, run `matrix register device`
 1. Enter a `device name` and (optional) `device description`
-1. After a few moments you will be provided with a `MATRIX_DEVICE_ID` and `MATRIX_DEVICE_SECRET`
-1. Select your device using `matrix use `, and enter your device name or device ID. Other commands, like `install`, `start`, and `ping`, require a device to be selected for targeting the command.
+1. You will be provided with a `MATRIX_DEVICE_ID` and `MATRIX_DEVICE_SECRET`
 
 ```
 # example variables generated via registration, yours will be different
 export MATRIX_DEVICE_ID=dc7a1a71be2d
 export MATRIX_DEVICE_SECRET=08629018e9d77h15i5n0t4r3alz0f06cd4f7e5544272b
 ```
-
 **Note 1:** Save these for the Configure ENV Variables step, near the end.
 
-**Note 2:** [Watch Getting Started, Registration and Installation](https://www.youtube.com/watch?v=ckDD6HEjfAY) of MATRIX OS and MATRIX CLI on Youtube.
+**Note 2:** [Watch Getting Started, Registration and Installation](https://www.youtube.com/watch?v=ckDD6HEjfAY) of MATRIX OS and MATRIX CLI on Youtube
+.
+### After registration
+1. Select your device using `matrix use` with your device name or device ID (`matrix use dc7a1a71be2d`). Other commands, like `install`, `start`, and `ping`, require a device to be selected for targeting the command.
 
 ### Configuring MOS on the Pi
 
