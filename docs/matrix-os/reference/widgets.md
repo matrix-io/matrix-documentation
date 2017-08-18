@@ -1,15 +1,22 @@
-### Widgets
+## Widgets
 
 Defined in config.yaml, widgets display information from the device and allow you to send information via familiar interfaces, like dropdowns and buttons.
 
-Widgets are basically configuration objects which can be defined in the following ways. 
+### Layout
+For details on how to arrange widgets on a dashboard, see [Screens](screens.md)
+
+Widgets are basically configuration objects which can be defined with the following options. 
 
 #### Options
 
 ##### All Widgets
 * `label` - text label for this widget box
 
-##### Display Widgets
+Widgets come in two forms:
+* Display Widgets - Displays data from an application
+* Interactive Widgets - Sends real-time events to an application
+
+##### Display Widget Options
 Display widgets, like tables, charts and value outputs are only concerned with what data to display and how to display it.
 * `display` - which display widget to load
 * `key`/`keys` - show these keys from the data payload
@@ -18,39 +25,11 @@ Display widgets, like tables, charts and value outputs are only concerned with w
 * `realtime` - defaults to true. set to false and use refresh option for manual updates.
 * `refresh` - how many seconds between data refresh. not set by default. use with realtime: false. 
 
-##### Interactive Widgets
+##### Interactive Widget Options
 * `control` - which interactive widget to load
 * `trigger` - the event to listen for in your application ( see [Reference > Crosstalk](crosstalk.md))
 * `value` - on button widgets, what text should be in the button
 * `map` - on button widgets, a collection of `value: trigger` where value is the button text, and trigger is the event fired
-
-#### Screens
-Widgets are defined in the `widgets` key of an app config file. This is a collection where each Widget has a keyed name which is associated with an entry in `screens` to determine it's location on the dashboard or the mobile apps.
-
-```
-screens:
-  - leftWidget
-  - rightWidget
-
-widgets:
-  leftWidget: ...
-  rightWidget: ...
-```
-
-This way we can easily distinguish between layout and functionality.
-
-You can use nesting within the `screens` data structure to further customize the layout.
-
-This example would produce two rows, the first with two panels, the second with three.
-
-```
-screens:
-  - - topLeft
-    - topRight
-  - - bottomLeft
-    - bottomCenter
-    - bottomRight
-```
 
 #### Data Operations
 
