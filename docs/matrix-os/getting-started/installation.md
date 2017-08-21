@@ -1,61 +1,52 @@
 
 ## Installation
 
-Your MATRIX device will have MATRIX OS preinstalled on it. These instructions are included if you want to build your own MOS image.
+Your MATRIX device may or may not have **MATRIX Application Manager** preinstalled on it. These instructions are included if you want to build your own MOS image.
 
-MATRIX OS is currently targeted to run on Raspbian. 
+**Note:** MATRIX Application Manager is currently targeted to run on Raspbian. 
 
-### Raspberry Pi Setup
-Start with a [clean Raspbian install](https://www.raspberrypi.org/downloads/raspbian/).
+### Set up your Personal Computer
 
-When complete, start your Raspberry Pi and get to a device command prompt. 
+<div class="alert alert-info">
+You need NodeJS, and the Node Package Manager (npm) on your Personal Computer. <a href="https://nodejs.org/en/download/" target="_blank">Follow this link to install them.</a>
+</div>
 
-This command installs the MATRIX Open Source platform and configures your MATRIX Creator:
+These next instructions can be executed your personal computer or Raspberry Pi. We would recommend installing the [Command Line Interface](../overview/cli) (CLI) on your local computer, not the Raspberry Pi.
 
-```
-curl https://raw.githubusercontent.com/matrix-io/matrix-creator-quickstart/master/install.sh | sh
-```
-
-### CLI Setup
-
-These next instructions can be executed via your Raspberry Pi or on a local computer. We would recommend NOT installing the CLI on the Raspberry Pi.
-
-> You need Node installed on your machine to continue
-
-1. Install [MATRIX CLI](../overview/cli.md) via npm `npm install -g matrix-cli`
+1. Install the CLI via npm `npm install -g matrix-cli`
 1. If you do not have a MATRIX Labs account, register via `matrix register`
-
-### Register a Device
 1. Log into your account using `matrix login`
 1. Once registered an account, run `matrix register device`
 1. Enter a `device name` and (optional) `device description`
-1. You will be provided with a `MATRIX_DEVICE_ID` and `MATRIX_DEVICE_SECRET`
+1. After a few moments you will be provided with a `MATRIX_DEVICE_ID` and `MATRIX_DEVICE_SECRET`
 
 ```
 # example variables generated via registration, yours will be different
 export MATRIX_DEVICE_ID=dc7a1a71be2d
 export MATRIX_DEVICE_SECRET=08629018e9d77h15i5n0t4r3alz0f06cd4f7e5544272b
 ```
-**Note 1:** Save these for the Configure ENV Variables step, near the end.
 
-**Note 2:** [Watch Getting Started, Registration and Installation](https://www.youtube.com/watch?v=ckDD6HEjfAY) of MATRIX OS and MATRIX CLI on Youtube
-.
-### After registration
-1. Select your device using `matrix use` with your device name or device ID (`matrix use dc7a1a71be2d`). Other commands, like `install`, `start`, and `ping`, require a device to be selected for targeting the command.
+**Note:** Save these for the Configure ENV Variables step, near the end.
 
-### Configuring MOS on the Pi
+### Set up your Raspberry Pi
 
-These instructions should be executed on the Pi.
+Start with a [clean Raspbian install](https://www.raspberrypi.org/downloads/raspbian/). When complete, start your Raspberry Pi and get to a device command prompt. The following command installs the **MATRIX Application Manager** and configures your MATRIX Creator:
+
+```
+curl https://raw.githubusercontent.com/matrix-io/matrix-creator-quickstart/master/install.sh | sh
+```
+
+**Note:** [Watch Getting Started, Registration and Installation](https://www.youtube.com/watch?v=ckDD6HEjfAY) of MATRIX OS and MATRIX CLI on Youtube.
 
 1. Inside your home folder (`~`), create a file named `.envrc` with the variables from the [Matrix CLI Setup above](/#local-machine-setup)
 1. Run `source ~/.envrc` to make the variables available to the shell, which will then be used when starting MOS.
 1. Go to `matrix-os` folder with `cd ~/matrix-os` and run `node index.js` to start the OS.
 
 ### Check if everything works
-1. If you didn't do it earlier, `matrix use {deviceId}`
-1. Run `matrix`, your user is correct, and your selected device is correct.
-1. Now you can issue commands and deploy apps to your MATRIX OS from the [MATRIX CLI](../overview/cli.md).
+1. On your Personal Computer, If you didn't do it earlier, in PuTTy, Terminal, or Command Prompt, type `matrix use {deviceId}`
 1. Try `matrix ping`, the device should flash a few seconds later.
+1. Now you can issue commands and [deploy applications](../overview/cli/#deploy) to your MATRIX OS from the [MATRIX CLI](CLI/overview.md).
 
-### More options
-See [Manual Setup](../overview/manual-setup)
+### Continue
+* See [Hello World](../overview/hello-world) example
+* See [Manual Setup](../overview/manual-setup)
