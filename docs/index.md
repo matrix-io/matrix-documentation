@@ -16,12 +16,12 @@ Top-level application management layer which integrates with the MATRIX Creator 
 [Read more about MATRIX OS](matrix-os/index.md)
 
 ## MATRIX CORE
-C++ abstraction layer for HAL. Hosts the ZeroMQ communication layer which makes the sensors accessible via high-level interfaces. Supports 40+ different languages, C++, Python, Ruby, PHP, Java, etc. 
+Abstraction layer for HAL. Hosts the ZeroMQ + Protobuf communication layer which makes the sensors accessible via high-level interfaces. Supports 40+ different languages, C++, Python, Ruby, PHP, Java, etc. 
 
 [Read more about MATRIX CORE](matrix-core/index.md)
 
 ## MATRIX HAL
-Low-level C++ drivers for sensors and available components.
+C++ drivers for sensors and available components. Tooling for accessing the FPGA and microcontrollers on the MATRIX device.
 
 [Read more about MATRIX HAL](matrix-hal/index.md)
 

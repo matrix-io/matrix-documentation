@@ -62,9 +62,7 @@ pages:
     - 'Installation': 'matrix-hal/getting-started/installation.md'
     - 'Hello World': 'matrix-hal/getting-started/hello-world.md'
     - 'Next Steps': 'matrix-hal/getting-started/next-steps.md'
-  - Examples:
-    - 'Alexa' : 'matrix-hal/examples/alexa.md'
-  - Datasheets:
+  - Boards:
     - 'Creator': 'matrix-hal/datasheets/creator.md'
     - 'Voice': 'matrix-hal/datasheets/voice.md'
   - Components:
@@ -74,6 +72,11 @@ pages:
     - 'SAM3MCU': 'matrix-hal/components/Sam3mcu.md'
     - 'Pinout': 'matrix-hal/components/pinout.md'
     - 'SPI': 'matrix-hal/components/SPI.md'
+  - Tools:
+    - 'OpenOCD': 'matrix-hal/tools.md'
+    - 'xc3sprog': 'matrix-hal/tools.md'
+  - Examples:
+    - 'Alexa' : 'matrix-hal/examples/alexa.md'
   - Troubleshooting: 'matrix-hal/troubleshooting.md'
 - Support : 'help.md'
 #   - App Publishing: 'intro/app-publishing.md'

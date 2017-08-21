@@ -2,6 +2,12 @@
 
 HAL is the lowest-level abstraction for the MATRIX Creator drivers. You can interface directly with HAL, or use the higher level components like [CORE](/matrix-core/index.md), and [MATRIX OS](/matrix-os/index.md).
 
+## Tooling
+
+<https://github.com/matrix-io/xc3sprog> - xc3sprog for programming the FPGA
+
+<https://github.com/matrix-io/matrix-creator-openocd> - OpenOCD for programming the microcontroller
+
 ## Boards
 - [Creator](datasheets/creator.md)
 - [Voice](datasheets/voice.md)
