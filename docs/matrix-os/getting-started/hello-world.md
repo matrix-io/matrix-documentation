@@ -11,12 +11,8 @@ After you have successfully configured your MATRIX OS installation on a MATRIX d
 Using the mobile application, or using the Command Line Tool, install `sensorTest`
 
 ```
-<<<<<<< HEAD
 # after selecting device with `matrix use`
 > matrix install sensorTest
-=======
-$ matrix install sensorTest
->>>>>>> bs/my-updates
 ```
 
 Permission will be asked before install commences, to continue, allow access for the application to all sensors.
@@ -25,12 +21,7 @@ Permission will be asked before install commences, to continue, allow access for
 Using the mobile application, flick the switch next to an application name to start. Or if using the Command Line Tool:
 
 ```
-<<<<<<< HEAD
 > matrix start sensorTest
-=======
-# after selecting device with `matrix use`
-$ matrix start sensorTest
->>>>>>> bs/my-updates
 ```
 
 ### Success
