@@ -1,21 +1,21 @@
 # System Methods
-Several methods are available for common computing use cases, like application instance settings, storing files or data. These will be localized to the device and are not available across all instances of the application.
+Several methods are available for common computing use cases, like application instance settings, storing files or persistant data lookups. These will be localized to the device and are not available across all instances of the application.
 
 ## Settings
-
-When an application requires a variable which should be user defined, and will change between different installations, settings is a way to approach this problem.
+When an application requires a variable which should be user provided or will change between different installations, settings is a way to approach this problem.
 
 ### Example
 ```
-# config.yaml
+# in config.yaml
 name: appName
 settings:
   apiKey: 'enteryourapikey'
 ```
 
-Everything in settings is exposed on the root `matrix` object.
+Every key in settings is exposed on the root `matrix` object. Here, `settings.apiKey` is available in the application environment as `matrix.apiKey`.
+
 ```
-# app.js
+# in app.js
 externalService.auth({ key:  matrix.apiKey }).then( ... );
 ```
 
