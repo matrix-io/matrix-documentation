@@ -1,9 +1,9 @@
 
 ## Installation
 
-Your MATRIX device may or may not have **MATRIX Application Manager** preinstalled on it. These instructions are included if you want to build your own MOS image.
+Your MATRIX device may or may not have **MATRIX Open System** preinstalled on it. These instructions are included if you want to build your own MOS image.
 
-**Note:** MATRIX Application Manager is currently targeted to run on Raspbian. 
+**Note:** MATRIX Open System is currently targeted to run on Raspbian. 
 
 ### Set up your Personal Computer
 
@@ -30,7 +30,7 @@ export MATRIX_DEVICE_SECRET=08629018e9d77h15i5n0t4r3alz0f06cd4f7e5544272b
 
 ### Set up your Raspberry Pi
 
-Start with a [clean Raspbian install](https://www.raspberrypi.org/downloads/raspbian/). When complete, start your Raspberry Pi and get to a device command prompt. The following command installs the **MATRIX Application Manager** and configures your MATRIX Creator:
+Start with a [clean Raspbian install](https://www.raspberrypi.org/downloads/raspbian/). When complete, start your Raspberry Pi and get to a device command prompt. The following command installs the **MATRIX Open System** and configures your MATRIX Creator:
 
 ```
 curl https://raw.githubusercontent.com/matrix-io/matrix-creator-quickstart/master/install.sh | sh

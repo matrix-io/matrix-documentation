@@ -1,13 +1,11 @@
 ## Command Line Interface (CLI)
 
+> MATRIX CLI requires [Node.js](https://nodejs.org/en/)
+
 MATRIX devices can be managed via website, mobile phone applications or via CLI.
 
 ## Installation
-Installing MATRIX CLI is easy. You need to have Node installed:
-
-* [Node.js](https://nodejs.org/en/)
-
-After Node is available, install MATRIX CLI with `npm` and you're good to go.
+Install MATRIX CLI with `npm` and you're good to go.
 
 ```
 npm install -g matrix-cli
