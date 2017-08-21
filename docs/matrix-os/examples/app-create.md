@@ -1,4 +1,4 @@
-## Application Workflow Example
+## Create an Application
 
 > You must have installed the [CLI](../overview/cli.md) and have a registered MATRIX device for this example.
 

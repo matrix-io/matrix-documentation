@@ -1,3 +1,4 @@
+## IFTTT Integration
 Here we will demonstrate a simple IFTTT integration to alert you to weather outside.
 
 > You should know the basics of application creation and deployment. See [Application Workflow Example](app-create.md) for more information.

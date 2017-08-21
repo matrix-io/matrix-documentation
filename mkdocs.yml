@@ -5,7 +5,7 @@ theme_dir: matrix
 pages:
 - Overview: 'index.md'
 - Device Setup: 'setup.md'
-- MATRIX OS:
+- MATRIX Applications:
   # Index pages are hidden by template, child[0].url is loaded when user clicks on category
   - 'Index': 'matrix-os/index.md'
   - 'Getting Started':
@@ -24,7 +24,7 @@ pages:
     - 'Manual Setup': 'matrix-os/overview/manual-setup.md'
   - Examples:
     - 'Index': 'matrix-os/examples/index.md'
-    - 'App Workflow': 'matrix-os/examples/app-create.md'
+    - 'Create an App': 'matrix-os/examples/app-create.md'
     - 'Sensor Test' : 'matrix-os/examples/sensor-test.md'
     - 'IFTTT Integration' : 'matrix-os/examples/ifttt.md'
   - Reference:

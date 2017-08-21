@@ -1,22 +1,26 @@
 # MATRIX Ecosystem Overview
 
+This site hosts the documentation for the open source community.
+
 The MATRIX Ecosystem was created to make powerful hardware projects very approachable for software developers. The pillars of MATRIX, computer vision, hardware interfaces, distributed internet communication, and data-driven end-user clients, are all programming disciplines which require years for an individual to master, or for a team to build a solution around.
 
-MATRIX provides powerful capabilities in an environment which adapts to your use-case and capacity.
- 
-With MATRIX OS, you can write an application in an hour, deploy to your devices in seconds, and publish for a worldwide audience with a keypress.
+The MATRIX boards add powerful capabilities to your Raspberry Pi, depending on your background and the kind of application you want to write, you may prefer to integrate at different layers. The documentation is organized according to these layers:
 
-With MATRIX CORE, you can integrate MATRIX hardware with your favorite languages and libraries.
+* [MATRIX Ecosystem Overview](/#overview)
+* [MATRIX HAL Docs](/#matrix-hal)
+* [MATRIX CORE Docs](/#matrix-core)
+* [MATRIX Applications Docs](/#matrix-application-manager)
 
-With MATRIX HAL, you can work with the low-level fundamentals of MATRIX hardware to have it function the way you want. 
+<a name="overview"></a>
+![MATRIX Ecosystem Overview](img/overview-diagram.png "Logo Title Text 1")
 
-## MATRIX OS
-Top-level application management layer which integrates with the MATRIX Creator hardware via MATRIX CORE.
+## MATRIX Application Manager
+Top-level application management layer which integrates with the MATRIX Creator hardware via **MATRIX CORE**.
 
-[Read more about MATRIX OS](matrix-os/index.md)
+[Read more about MATRIX Applications](matrix-os/overview/)
 
 ## MATRIX CORE
-C++ abstraction layer for HAL. Hosts the ZeroMQ communication layer which makes the sensors accessible via high-level interfaces. Supports 40+ different languages, C++, Python, Ruby, PHP, Java, etc. 
+C++ abstraction layer for **MATRIX HAL**. Hosts the ZeroMQ communication layer which makes the sensors accessible via high-level interfaces. Supports 40+ different languages, C++, Python, Ruby, PHP, Java, etc... 
 
 [Read more about MATRIX CORE](matrix-core/index.md)
 
@@ -24,6 +28,10 @@ C++ abstraction layer for HAL. Hosts the ZeroMQ communication layer which makes 
 Low-level C++ drivers for sensors and available components.
 
 [Read more about MATRIX HAL](matrix-hal/index.md)
+
+## What do you need to get started?
+* Raspberry Pi
+* MATRIX Creator
 
 ## Support
 * Post questions or comments on [community.matrix.one](http://community.matrix.one/)

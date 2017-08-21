@@ -7,4 +7,5 @@ The easiest way to start using MATRIX OS is to pair it using Bluetooth on your m
 1. Add a new device ( lights will flash green )
 1. Add Name, description and Wifi information (if desired)
 
-Proceed to [Hello World!](hello-world.md) to install an application.
+### Continue
+See [Hello World!](hello-world.md) to install an application.

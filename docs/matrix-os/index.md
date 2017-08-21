@@ -1,10 +1,10 @@
-## MATRIX OS (MOS)
+## MATRIX Application Manager
 
-MATRIX OS manages Javascript-based applications on MATRIX devices. MOS should start automatically with your MATRIX device, which, if not yet configured, will be indicated by a pulsing blue light.
+MATRIX Application Manager (MOS) manages Javascript-based applications on MATRIX devices. MOS should start automatically with your MATRIX device, which, if not yet configured, will be indicated by a pulsing blue light.
 
-Read more about [MATRIX OS Applications](overview/applications.md)
+Read more about [MATRIX Applications](overview/applications.md)
 
-### Using MATRIX OS
+### Using MATRIX Application Manager
 
 MOS devices and applications can be managed and observed via the [MATRIX Dashboard](http://dash.matrix.one), or via mobile apps on Android and iOS. 
 
