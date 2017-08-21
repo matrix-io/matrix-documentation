@@ -10,11 +10,11 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-blockquote { 
+blockquote {
   border-left: 5px solid #2F80ED;
   background-color: #CCC;
-  font-size:1.4em;
-  padding-left: 10px;
+  font-size: 1.1em;
+  padding: 1em 0px 0.2em 1em;
 }
 
 .sidebar a,
@@ -22,7 +22,9 @@ blockquote {
   font-size: 1.25rem;
 }
 
-#content h3, #content h4 {
+#content h3,
+#content h4 {
+  font-weight: 300;
   padding-top: 1em;
 }
 
@@ -217,7 +219,6 @@ img {
   box-sizing: border-box;
 }
 
-
 .content .toc-parent {
   border-left: 1px solid #EEE;
   position: -webkit-sticky;
@@ -230,6 +231,7 @@ img {
 .content .toc a {
   font-size: 0.75em;
 }
+
 
 /* add a little space to the top of each column so it's not against the border  */
 
@@ -264,10 +266,10 @@ img {
   font-size: 0.9em;
 }
 
-
 .content .sidebar ul>li {
   margin-bottom: 1em;
 }
+
 .content .sidebar ul .expanded {
   margin-bottom: 0.3em;
   margin-top: 1em;
@@ -287,7 +289,8 @@ img {
   left: -11px;
   color: #2F80ED;
 }
-.content .sidebar ul li a.active { 
+
+.content .sidebar ul li a.active {
   color: #2F80ED;
   border-right: 5px solid #2F80ED;
   display: block;
@@ -393,6 +396,7 @@ img {
 }
 
 pre {
+  border: 1px dotted #bbb;
   background: #EDEDED;
   border-radius: 5px;
   padding: 20px 40px;
@@ -547,6 +551,7 @@ footer .company-logo span {
 footer .utility-links {
   float: right;
 }
+
 footer .utility-links a {
   cursor: pointer;
   margin-right: 20px;
