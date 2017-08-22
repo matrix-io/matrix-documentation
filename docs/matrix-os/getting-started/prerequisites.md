@@ -13,4 +13,4 @@
 * Basic Knowledge of JavaScript. Familiarity with events and callbacks is helpful.
 
 ### Continue
-See [Installation](../getting-started/installation)
+Once you have [connected](../device-setup) added power to your Pi, the MATRIX Everloop will activate and eventually, pulse blue, indicating your MATRIX ready for [Pairing](../getting-started/pairing).
