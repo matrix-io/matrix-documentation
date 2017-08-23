@@ -7,18 +7,20 @@ In [Hello World](../getting-started/hello-world), we installed an application wh
 Here, we will build that application.
 
 ### Create New Application
+
 First, create the application and visit the directory:
 
-```
+```bash
 > matrix create mySensorTest
 # app folder is made
 > cd mySensorTest
 ```
 
 ### Edit Configuration
+
 Edit `config.yaml` to add the sensors. This step is necessary to authorize the application to access the sensors.
 
-```
+```yaml
 sensors:
   - temperature
   - pressure
@@ -31,9 +33,10 @@ sensors:
 ```
 
 ### Edit Application
+
 Edit `app.js`. This is an example of an implementation for one sensor, `temperature`. You will have to repeat the code for every sensor, and adjust the LED `angle` option accordingly.
 
-```
+```js
 matrix.sensor('temperature', function(data){
   matrix.led({
     angle: 0,
@@ -45,9 +48,10 @@ matrix.sensor('temperature', function(data){
 Save your work.
 
 ### Deploy
+
 After you have finished, return to the command prompt and `deploy`. You will have to select a device with `matrix use` before running this command.
 
-```
+```bash
 # inside mySensorTest folder
 > matrix deploy
 ```
@@ -56,8 +60,8 @@ In a moment, the application will be uploaded to your device. Now start your dep
 
 ### Start
 
-```
-matrix start mySensorTest
+```bash
+> matrix start mySensorTest
 ```
 
 ![sensor](../img/sensor-test.jpg)

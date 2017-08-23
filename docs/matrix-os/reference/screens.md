@@ -13,7 +13,7 @@ screens:
 It's not pretty, but it allows us much design flexibility in a configuration file. 
 
 For example, this creates a dashboard with two widgets in one row, each taking up 50% of the available width.
-```
+```yaml
 screens:
   - - leftWidget
     - rightWidget
@@ -27,7 +27,7 @@ You can use nesting within the `screens` data structure to further customize the
 
 This example would produce two rows, the first with two panels, the second with three.
 
-```
+```yaml
 screens:
   - - topLeft
     - topRight

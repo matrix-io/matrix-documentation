@@ -21,7 +21,8 @@ These next instructions can be executed your personal computer or Raspberry Pi. 
 1. After a few moments you will be provided with a `MATRIX_DEVICE_ID` and `MATRIX_DEVICE_SECRET`
 
 #### Login Credentials
-```
+
+```bash
 # example variables generated via registration, yours will be different
 export MATRIX_DEVICE_ID=dc7a1a71be2d
 export MATRIX_DEVICE_SECRET=08629018e9d77h15i5n0t4r3alz0f06cd4f7e5544272b
@@ -36,24 +37,28 @@ export MATRIX_DEVICE_SECRET=08629018e9d77h15i5n0t4r3alz0f06cd4f7e5544272b
 Access a command prompt on your Pi. 
 
 #### MOS Installation
+
 This command will install the **MATRIX Open System** and required sub-components.
 
-```
+```bash
 curl https://raw.githubusercontent.com/matrix-io/matrix-creator-quickstart/master/install.sh | sh
 ```
 
 **Note:** [Watch Getting Started, Registration and Installation](https://www.youtube.com/watch?v=ckDD6HEjfAY) of MATRIX OS and MATRIX CLI on Youtube.
 
 #### Device Registration
+
 1. Inside your home folder (`~`), create a file named `.envrc` with the [id & secret exports](/#login-credentials) from above.
 1. Run `source ~/.envrc` to make the variables available to the shell, which will then be used when starting MOS.
 1. Go to `matrix-os` folder with `cd ~/matrix-os` and run `node index.js` to start the OS.
 
 ### Check if everything works
+
 1. On your Personal Computer, If you didn't do it earlier, in PuTTy, Terminal, or Command Prompt, type `matrix use {deviceId}`
 1. Try `matrix ping`, the device should flash a few seconds later.
 1. Now you can issue commands and [deploy applications](../overview/cli/#deploy) to your MATRIX OS from the [MATRIX CLI](CLI/overview.md).
 
 ### Continue
+
 * See [Hello World](../overview/hello-world) example
 * See [Manual Setup](../overview/manual-setup)

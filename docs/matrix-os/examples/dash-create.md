@@ -60,8 +60,10 @@ dataTypes:
 
 widgets: 
   message: 
+    display: label
     type: motd
     key: msg
+    label: message
 
 screens:
   - message
@@ -75,10 +77,17 @@ Here, we use the dataType `motd`, and send an object with a `msg` key to display
 matrix.type('motd').send({msg: 'hello to dashboard'});
 ```
 
-### Layout 
+### Open the Dashboard
+
+<http://dash.matrix.one>
+
+### Starting the App
+
+Dashboard display real time information. If you open an application, it will not show data until you either query historical information or a device application `send`s information.
 
 ### Charting Realtime Data
 
+Adding a `display` widget, we can begin to keep track
+
 ### Controls
 
-### Starting the App

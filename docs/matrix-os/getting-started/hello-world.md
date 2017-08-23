@@ -10,7 +10,7 @@ After you have successfully configured your MATRIX OS installation on a MATRIX d
 ### Application Installation
 Using the mobile application, or using the Command Line Tool, install `sensorTest`
 
-```
+```bash
 # after selecting device with `matrix use`
 > matrix install sensorTest
 ```
@@ -20,7 +20,7 @@ Permission will be asked before install commences, to continue, allow access for
 ### Running an Application
 Using the mobile application, flick the switch next to an application name to start. Or if using the Command Line Tool:
 
-```
+```bash
 > matrix start sensorTest
 ```
 

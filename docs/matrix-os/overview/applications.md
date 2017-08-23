@@ -7,10 +7,12 @@ MOS applications act as a logical glue between hardware components, machine lear
 MOS applications differ from traditional phone or desktop applications in that, for the most part, they have a passive interface, waiting for a particular event or circumstance to do an action. Of course, there exceptions to this rule, you can wire up whatever behavior you want. However, most interactions with hardware come in the form of configuring the hardware, waiting for data, and then doing a behavior based on that data.
 
 ### Data Flow
+
 Sensors push to applications which push to libraries which push back to the application, which pushes to the internet, other devices and dashboards. This one-way data flow is well matched with the listener/emitter event model of JavaScript and Node. We run a function, which is asynchronous, it sends a request to a sensor, library or web call, and waits for responses. Unlike traditional request / response style APIs, these are intended to be called once and handle many responses, sometimes in parallel.
 
 This example initializes the temperature sensor, and then handles the response.
-```
+
+```js
 # callback style
 matrix.sensor('temperature', data => {
   // data = { value: 74.123123 }
