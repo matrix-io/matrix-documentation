@@ -1,15 +1,15 @@
 
-## Installation
+## Installation & Registration
 
-Your MATRIX device may or may not have **MATRIX Open System** preinstalled on it. These instructions are included if you want to build your own MOS image.
+Your MATRIX device may or may not have **MATRIX Open System** preinstalled on it. 
+
+These instructions are included if you need to build your own MOS image.
 
 **Note:** MATRIX Open System is currently targeted to run on Raspbian. 
 
 ### Set up your Personal Computer
 
-<div class="alert alert-info">
-You need NodeJS, and the Node Package Manager (npm) on your Personal Computer. <a href="https://nodejs.org/en/download/" target="_blank">Follow this link to install them.</a>
-</div>
+> You need [NodeJS, and the Node Package Manager (npm)](https://nodejs.org/en/download/) installed.
 
 These next instructions can be executed your personal computer or Raspberry Pi. We would recommend installing the [Command Line Interface](../overview/cli) (CLI) on your local computer, not the Raspberry Pi.
 
@@ -20,6 +20,7 @@ These next instructions can be executed your personal computer or Raspberry Pi. 
 1. Enter a `device name` and (optional) `device description`
 1. After a few moments you will be provided with a `MATRIX_DEVICE_ID` and `MATRIX_DEVICE_SECRET`
 
+#### Login Credentials
 ```
 # example variables generated via registration, yours will be different
 export MATRIX_DEVICE_ID=dc7a1a71be2d
@@ -30,7 +31,12 @@ export MATRIX_DEVICE_SECRET=08629018e9d77h15i5n0t4r3alz0f06cd4f7e5544272b
 
 ### Set up your Raspberry Pi
 
-Start with a [clean Raspbian install](https://www.raspberrypi.org/downloads/raspbian/). When complete, start your Raspberry Pi and get to a device command prompt. The following command installs the **MATRIX Open System** and configures your MATRIX Creator:
+> Your Pi needs a [clean Raspbian install](https://www.raspberrypi.org/downloads/raspbian/).
+
+Access a command prompt on your Pi. 
+
+#### MOS Installation
+This command will install the **MATRIX Open System** and required sub-components.
 
 ```
 curl https://raw.githubusercontent.com/matrix-io/matrix-creator-quickstart/master/install.sh | sh
@@ -38,7 +44,8 @@ curl https://raw.githubusercontent.com/matrix-io/matrix-creator-quickstart/maste
 
 **Note:** [Watch Getting Started, Registration and Installation](https://www.youtube.com/watch?v=ckDD6HEjfAY) of MATRIX OS and MATRIX CLI on Youtube.
 
-1. Inside your home folder (`~`), create a file named `.envrc` with the variables from the [Matrix CLI Setup above](/#local-machine-setup)
+#### Device Registration
+1. Inside your home folder (`~`), create a file named `.envrc` with the [id & secret exports](/#login-credentials) from above.
 1. Run `source ~/.envrc` to make the variables available to the shell, which will then be used when starting MOS.
 1. Go to `matrix-os` folder with `cd ~/matrix-os` and run `node index.js` to start the OS.
 

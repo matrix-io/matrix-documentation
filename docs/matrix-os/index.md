@@ -6,9 +6,9 @@ Read more about [MATRIX Applications](overview/applications.md)
 
 ### Using MATRIX Open System
 
-MOS devices and applications can be managed and observed via the [MATRIX Dashboard](http://dash.matrix.one), or via mobile apps on Android and iOS. 
+> MATRIX devices must be linked with your account to use MOS. See instructions for [Mobile App Bluetooth Pairing] (getting-started/pairing) or [Manual Installation & Registration](getting-started/installation/).
 
-Initially, a device using MOS must be registered with MATRIX Labs. Instructions for this is available in [Pairing](getting-started/pairing).
+MOS devices and applications can be managed and observed via the [MATRIX Dashboard](http://dash.matrix.one), or via mobile apps on Android and iOS. 
 
 To learn more about applications, tooling and the dashboard, start at [Overview](overview/index.md)
 

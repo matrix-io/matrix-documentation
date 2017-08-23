@@ -1,10 +1,19 @@
-# Zigbee
+### Zigbee
 
 Alpha API, subject to deprecation
 
 Version Introduced: 0.9.0
 
-## Base
+#### Configuration
+Zigbee requires `zigbee` to be added to `integrations` in the `config.yaml`
+
+```yaml
+# config.yaml
+integrations:
+  - zigbee
+```
+
+### Base
 
 `matrix.zigbee()` - activates the zigbee network and sees if any of the remembered devices are available
 
@@ -14,13 +23,13 @@ Returns an object which is used to activate other zigbee commands
 var zb = matrix.zigbee();
 ```
 
-## Network
+### Network
 
  `zb.discover()` - put zigbee into discover mode for 60 seconds. power on your zigbee device to have it be found
 
  `zb.reset()` - if you get into problems, issue a reset command
 
-## Lights
+### Lights
 
 currently, only zigbee lights are supported
 `zb.light(n)` - address found lights. `n` indicates the number of the light, in order of which it was added, default to the first.
@@ -36,7 +45,7 @@ currently, only zigbee lights are supported
 
 `zb.light().level(level, time)` - sets the light level to `level` 0-100 over `time` seconds, defaults to 3
 
-## Example
+### Example
 Use events to have precise control over your zigbee devices.
 ```
 matrix.on('discover', function(){

@@ -1,22 +1,10 @@
-
-{% if nav_item.title == 'MATRIX Applications' or nav_item.title == 'MATRIX HAL' or nav_item.title == 'MATRIX CORE'%}
-{% set expand = true %} 
-{% endif %}
-
-
-
-
-{% if expand or nav_item.children %}
+ {% if nav_item.title == 'MATRIX OS' or nav_item.title == 'MATRIX HAL' or nav_item.title == 'MATRIX CORE'%} {% set expand = true %} {% endif %} {% if expand or nav_item.children %}
 
 
 <!-- Children complicate things  -->
 
 <!-- link to depth-first url found  -->
-{% if not nav_item.children[0].url %}
-{% set nav_url = nav_item.children[0].children[0].url %}
-{% else %}
-{% set nav_url = nav_item.children[0].url %}
-{% endif %}
+{% if not nav_item.children[0].url %} {% set nav_url = nav_item.children[0].children[0].url %} {% else %} {% set nav_url = nav_item.children[0].url %} {% endif %}
 
 <!-- print root node  -->
 <li class="{% if expand %}expanded{% endif %}">
@@ -26,15 +14,11 @@
 </li>
 
 <ul class="subnav">
-  {% for nav_child in nav_item.children %}
-  {% if not nav_child.children %}
+  {% for nav_child in nav_item.children %} {% if not nav_child.children %}
   <!-- only 1 deep, print menu items  -->
-  {% if nav_child.title != 'Index' %}
-  {% if nav_item.active %}
-  <li><a href="{{ nav_child.url }}" class="{% if nav_child.active %}active{% endif %}">{{ nav_child.title }}</a></li>  
-  {% endif %}
-  {% endif %}
-  {% else %}
+  {% if nav_child.title != 'Index' %} {% if nav_item.active %}
+  <li><a href="{{ nav_child.url }}" class="{% if nav_child.active %}active{% endif %}">{{ nav_child.title }}</a></li>
+  {% endif %} {% endif %} {% else %}
   <!-- 2 deep  -->
   <!-- print subroot  -->
   <li>
@@ -42,34 +26,20 @@
       {{ nav_child.title }}
     </a>
   </li>
-  
-  <ul class="subnav">
-    {% for nav_subchild in nav_child.children %}
-    {% if nav_subchild.title != 'Index' %}
-    {% if nav_child.active or expand %}
-    <li><a href="{{ nav_subchild.url }}" class="{% if nav_subchild.active %}active{% endif %}">{{ nav_subchild.title }}</a></li>  
-    {% endif %}
-    {% endif %}
-    {% endfor %}
-    </ul>
 
-  {% endif %}
-  
-  {% endfor %}
+  <ul class="subnav">
+    {% for nav_subchild in nav_child.children %} {% if nav_subchild.title != 'Index' %} {% if nav_child.active or expand %}
+    <li><a href="{{ nav_subchild.url }}" class="{% if nav_subchild.active %}active{% endif %}">{{ nav_subchild.title }}</a></li>
+    {% endif %} {% endif %} {% endfor %}
+  </ul>
+
+  {% endif %} {% endfor %}
 </ul>
 
 {% else %}
 
 <!-- link to depth-first url found  -->
-{% if not nav_item.url %}
-  {% if not nav_item.children[0].url %}
-    {% set nav_url = nav_item.children[0].children[0].url %}
-  {% else %}
-    {% set nav_url = nav_item.children[0].url %}
-  {% endif %}
-{% else %}
-  {% set nav_url = nav_item.url %}
-{% endif %}
+{% if not nav_item.url %} {% if not nav_item.children[0].url %} {% set nav_url = nav_item.children[0].children[0].url %} {% else %} {% set nav_url = nav_item.children[0].url %} {% endif %} {% else %} {% set nav_url = nav_item.url %} {% endif %}
 
 <!-- If there are no children, use the url (simple)  -->
 <li>

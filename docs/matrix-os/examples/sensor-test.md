@@ -1,6 +1,6 @@
 ## Test your Sensors
 
-> You need a registered MATRIX device with [CLI](../overview.md) installed
+> You need a [registered](../getting-started/installation/) MATRIX device with [CLI](../overview/cli/) installed
 
 In [Hello World](../getting-started/hello-world), we installed an application which shines lights if a sensor is working properly
 

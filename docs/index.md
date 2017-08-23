@@ -4,7 +4,6 @@ The MATRIX Ecosystem was created to make powerful hardware projects very approac
 
 MATRIX adds powerful capabilities to your Raspberry Pi, depending on your background and the kind of application you want to write, you may prefer to integrate with different layers. The documentation is organized according to these layers:
 
-* [MATRIX Ecosystem Overview](/#overview)
 * [MATRIX OS Docs](/#matrix-open-system)
 * [MATRIX CORE Docs](/#matrix-core)
 * [MATRIX HAL Docs](/#matrix-hal)
@@ -28,8 +27,8 @@ C++ drivers for sensors and available components. Tooling for accessing the FPGA
 [Read more about MATRIX HAL](matrix-hal/index.md)
 
 ## What do you need to get started?
-* Raspberry Pi 2/3 & 8GB SD Card
-* MATRIX Creator
+* [Raspberry Pi 2/3](https://www.raspberrypi.org/) & 8GB SD Card
+* [MATRIX Creator](http://creator.matrix.one)
 
 ## Support
 * Post questions or comments on [community.matrix.one](http://community.matrix.one/)

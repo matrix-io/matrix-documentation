@@ -17,7 +17,7 @@ MATRIX CLI was designed to be used from your local machine, or can be installed 
 ## Registration
 
 ### User registration
-If you do not have an AdMobilize MATRIX account, use:
+If you do not have an MATRIX Labs MATRIX account, use:
 ```
 matrix register
 ```
@@ -39,7 +39,7 @@ For more details about registering devices, see [Getting Started > Installation 
 
 This will ask for your device details and then provide you with an id and a secret, you need to set those ENV vars in your device so it can authenticate on boot. 
 
-For more information on running MATRIX OS manually, see (MATRIX OS > Overview > Manual Setup)[manual-setup.md].
+For more information on running MATRIX OS manually, see [MATRIX OS > Overview > Manual Setup](manual-setup.md).
 
 ### Command list
 For a list of all the available options, use:

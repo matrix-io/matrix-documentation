@@ -10,6 +10,7 @@ pages:
   - 'Index': 'matrix-os/index.md'
   - 'Getting Started':
     - 'Prerequisities': 'matrix-os/getting-started/prerequisites.md'
+    - 'Mobile Apps': 'matrix-os/getting-started/mobile-applications.md'
     - 'Pairing' : 'matrix-os/getting-started/pairing.md' 
     - 'Installation': 'matrix-os/getting-started/installation.md'
     - 'Hello World': 'matrix-os/getting-started/hello-world.md'
