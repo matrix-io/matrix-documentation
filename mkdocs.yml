@@ -5,7 +5,7 @@ theme_dir: matrix
 pages:
 - Overview: 'index.md'
 - Device Setup: 'setup.md'
-- MATRIX Applications:
+- MATRIX OS:
   # Index pages are hidden by template, child[0].url is loaded when user clicks on category
   - 'Index': 'matrix-os/index.md'
   - 'Getting Started':
