@@ -24,5 +24,20 @@ Along with mobile applications and the dashboard, the Command Line Interface (CL
 
 Read more at [Overview > Command Line Interface](cli.md)
 
+## Sending Data
 
+MATRIX devices will only externally store data if it is explicitly sent via an application. If you want to use MATRIX Dashboard components to work with your data, it will need to be exported using the `send` command.
 
+Read more at [Overview > Sending Data](send.md)
+
+## Application Publishing
+
+You can freely publish MATRIX applications to the MATRIX App store. 
+
+Read more at [Overview > Publishing](publishing.md)
+
+## Manual Setup
+
+If you want to install MOS from scratch, start here.
+
+Read more at [Manual Setup](manual-setup.md)

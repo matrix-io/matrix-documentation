@@ -27,5 +27,3 @@ Verify that SPI has been enabled.
 ![SPI enabled](https://storage.googleapis.com/packages.matrix.one/wiki-images/enable-spi/5-enabled.jpg)
 
 Now you can exit raspi-config and SPI will be permanently enabled.
-
-This allows you to play with the [Everloop LED Array And IMU](Everloop LED Array And IMU).

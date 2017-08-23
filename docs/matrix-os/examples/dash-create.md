@@ -39,6 +39,7 @@ widgets:
     display: label
     type: motd
     key: msg
+    label: from device
 ```
 
 #### Add to layout
@@ -63,7 +64,7 @@ widgets:
     display: label
     type: motd
     key: msg
-    label: message
+    label: from device
 
 screens:
   - message
@@ -87,7 +88,94 @@ Dashboard display real time information. If you open an application, it will not
 
 ### Charting Realtime Data
 
-Adding a `display` widget, we can begin to keep track
+Adding a `display` widget and a `monitor` data type, the dashboard can begin to show information over time.
+
+#### Configuration Additions
+
+```yaml
+# config.yaml
+dataTypes:
+  message: ...
+  monitor: 
+    cpu: float
+    mem: integer
+
+screens:
+  - - motd
+  - - graph
+
+widgets:
+  motd: ...
+  graph:
+    display: line
+    type: monitor
+    keys: cpu, mem
+    label: Device Status
+```
+
+#### Code for chart widget
+
+The following will send `cpu` and `mem` information to the `graph` widget to be charted.
+
+```js
+// app.js
+const os = require('os');
+
+setTimeout(function(){
+  matrix.type('monitor').send({ cpu: os.loadavg()[0], mem: os.freemem() })
+}, 1000);
+```
 
 ### Controls
 
+Adding interactivity through `control` widgets is how end users can interface directly with devices in real time. 
+
+```yaml
+# config.yaml
+screens:
+  - - motd
+  - - graph
+  - - interface
+
+widgets:
+  motd: ...
+  graph: ...
+  interface:
+    control: button
+    event: increasePower
+    value: + CPU
+    label: Device Control
+```
+
+### More Controle
+
+```yaml
+# config.yaml
+  interface:
+    control: button
+    map:  
+      - event: increasePower
+        value: + CPU
+      - event: decreasePower
+        value: - CPU
+    label: Device Control
+```
+### Script For New Controls
+
+```js
+const os = require('os');
+
+let cpuOffset = 0;
+setTimeout(function(){
+  matrix.type('monitor').send({ cpu: os.loadavg()[0] + cpuOffset, mem: os.freemem() })
+}, 1000);
+
+
+matrix.on('increasePower', () => {
+  cpuOffset--;
+})
+
+matrix.on('decreasePower', () => {
+  cpuOffset--;
+})
+```

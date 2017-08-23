@@ -2,6 +2,10 @@
 
 MOS applications act as a logical glue between hardware components, machine learning libraries and the internet. For example, you could train faces of a group of people, match it up with Twitter profiles, and have the MATRIX device read the last tweet by a recognized face. You could have your device watch for your face, and then after confirming with an NFC tag, it could unlock your front door. A wide world of possible interactions exists via MATRIX OS applications.
 
+### Reference
+
+More detailed information about programming MOS applications can be found in [Create An App](../examples/app-create/) and [Reference](../reference/).
+
 ### Touchless
 
 MOS applications differ from traditional phone or desktop applications in that, for the most part, they have a passive interface, waiting for a particular event or circumstance to do an action. Of course, there exceptions to this rule, you can wire up whatever behavior you want. However, most interactions with hardware come in the form of configuring the hardware, waiting for data, and then doing a behavior based on that data.

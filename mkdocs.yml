@@ -52,8 +52,10 @@ pages:
     - 'Prerequisities': 'matrix-core/getting-started/prerequisites.md'
     - 'Installation': 'matrix-core/getting-started/installation.md'
     - 'Hello World': 'matrix-core/getting-started/hello-world.md'
+    - 'Next Steps': 'matrix-core/getting-started/next-steps.md'
   - Examples:
-    - 'Python' : 'matrix-core/examples/tests.md'
+    - 'JavaScript' : 'matrix-core/examples/tests.md'
+    - 'Code' : 'matrix-core/examples/code.md'
   - Reference:
     - 'Sensors': 'matrix-core/reference/sensors.md'
     - 'Communication': 'matrix-core/reference/communication.md'

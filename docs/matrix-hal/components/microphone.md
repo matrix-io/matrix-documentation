@@ -1,7 +1,7 @@
 ### Microphone
 
 #### 1. Mic Array on MATRIX Creator
-![Mic Position](../img/mic-position.png)
+![Mic Position](../img/mic_position.png)
 
 ##### Position [x,y] of each mic in the array:
 

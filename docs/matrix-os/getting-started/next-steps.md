@@ -15,10 +15,11 @@ More about MATRIX OS system fundamentals.
 * [IFTTT Integration](../examples/ifttt.md)
 
 
-### Learn
+### Share your creation
 
-More about MATRIX OS system fundamentals. 
+Show us know what you've made and we'll share it to our channels! 
 
-[Overview](../overview/index.md) - High level concepts. Covers application lifecycle, the CLI, configuration, dashboards, and data.
-
-[Reference](../reference/index.md) - Implementation details for the MATRIX OS SDK.
+<https://community.matrix.one/>
+<https://www.hackster.io/matrix-labs>
+<https://www.youtube.com/channel/UCBIqR8r0tfY6W-4-YpZ7NeQ>
+<https://twitter.com/matrix_creator>

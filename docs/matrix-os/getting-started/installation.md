@@ -14,7 +14,7 @@ These instructions are included if you need to build your own MOS image.
 These next instructions can be executed your personal computer or Raspberry Pi. We would recommend installing the [Command Line Interface](../overview/cli) (CLI) on your local computer, not the Raspberry Pi.
 
 1. Install the CLI via npm `npm install -g matrix-cli`
-1. If you do not have a MATRIX Labs account, register via `matrix register`
+1. `matrix login` if you have a MATRIX Labs account, otherwise `matrix register` to sign up
 1. Log into your account using `matrix login`
 1. Once registered an account, run `matrix register device`
 1. Enter a `device name` and (optional) `device description`
