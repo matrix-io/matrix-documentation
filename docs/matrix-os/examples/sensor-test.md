@@ -60,4 +60,4 @@ In a moment, the application will be uploaded to your device. Now start your dep
 matrix start mySensorTest
 ```
 
-!()[../img/sensor-test.jpg]
+![sensor](../img/sensor-test.jpg)

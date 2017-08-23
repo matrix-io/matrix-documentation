@@ -1,4 +1,4 @@
-## Create an Application
+## Create and Run an Application
 
 > You must have installed the [CLI](../overview/cli.md) and have a registered MATRIX device for this example.
 
@@ -33,3 +33,8 @@ $ matrix start testApp
 ```
 
 That's it! The light should flash green.
+
+```
+# stop the MOS application (optional)
+$ matrix stop testApp
+```

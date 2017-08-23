@@ -3,11 +3,20 @@ MATRIX Dashboards are made up of [widgets](widgets/md), and the `screens` option
 
 `screens` uses structured data to represnent layouts. One array represents a row, elements of that array are columns within that row. Widget names must be used in the `screens` array to link the layout with the configuration widget object.
 
+This means that every `screen` must be a nested array. In YAML, `[[a, b]]`` is represented by
+
+```yaml
+screens:
+  - - a
+    - b
+```
+It's not pretty, but it allows us much design flexibility in a configuration file. 
+
 For example, this creates a dashboard with two widgets in one row, each taking up 50% of the available width.
 ```
 screens:
-  - leftWidget
-  - rightWidget
+  - - leftWidget
+    - rightWidget
 
 widgets:
   leftWidget: ...
