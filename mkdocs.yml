@@ -10,7 +10,7 @@ pages:
   - 'Index': 'matrix-os/index.md'
   - 'Getting Started':
     - 'Prerequisities': 'matrix-os/getting-started/prerequisites.md'
-    - 'Mobile Pairing' : 'matrix-os/getting-started/pairing.md' 
+    - 'Pairing' : 'matrix-os/getting-started/pairing.md' 
     - 'Installation': 'matrix-os/getting-started/installation.md'
     - 'Hello World': 'matrix-os/getting-started/hello-world.md'
     - 'Next Steps': 'matrix-os/getting-started/next-steps.md'
@@ -26,7 +26,7 @@ pages:
   - Examples:
     - 'Index': 'matrix-os/examples/index.md'
     - 'Create an App': 'matrix-os/examples/app-create.md'
-    - 'Create an Dashboard': 'matrix-os/examples/dash-create.md'
+    - 'Basic Dashboard': 'matrix-os/examples/dash-create.md'
     - 'Sensor Test' : 'matrix-os/examples/sensor-test.md'
     - 'IFTTT Integration' : 'matrix-os/examples/ifttt.md'
   - Reference:
