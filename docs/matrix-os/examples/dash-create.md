@@ -1,5 +1,9 @@
 ## Creating a Dashboard
 
+In this example we will make this simple dashboard.
+
+![](../img/dash-done.png)
+
 > Before attempting this example, you should have [CLI](../overview/cli.md) installed and are familiar with [application `create` and `deploy`](app-create.md) and [data types](../overview/data.md).
 
 > For more details about what is covered in this example, please read about [widgets](../reference/widgets/) and [sensors](../reference/sensors/)
@@ -121,7 +125,7 @@ The following will send `cpu` and `mem` information to the `graph` widget to be 
 // app.js
 const os = require('os');
 
-setTimeout(function(){
+setInterval(function(){
   matrix.type('monitor').send({ cpu: os.loadavg()[0], mem: os.freemem() })
 }, 1000);
 ```
@@ -147,7 +151,7 @@ widgets:
     label: Device Control
 ```
 
-### More Controle
+### More Controls
 
 ```yaml
 # config.yaml
@@ -166,16 +170,28 @@ widgets:
 const os = require('os');
 
 let cpuOffset = 0;
-setTimeout(function(){
+setInterval(function(){
   matrix.type('monitor').send({ cpu: os.loadavg()[0] + cpuOffset, mem: os.freemem() })
 }, 1000);
 
 
 matrix.on('increasePower', () => {
-  cpuOffset--;
+  cpuOffset++;
 })
 
 matrix.on('decreasePower', () => {
   cpuOffset--;
 })
 ```
+
+### Deploy & Start
+
+Make sure your registered MATRIX device is on, connected, and you have selected the proper device with `matrix use`
+
+```bash
+# from /ezDash
+> matrix deploy
+> matrix start exDash
+
+# subsequent deploys shouldn't need start, will automagically restart if deployed while active
+> matrix deploy

@@ -1,5 +1,0 @@
-# Device Setup
-
-## Creator
-
-## Voice
