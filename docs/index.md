@@ -32,17 +32,13 @@ C++ drivers for sensors and available components. Tooling for accessing the FPGA
 
 ## What do you need to get started?
 
-* [Raspberry Pi 2/3](https://www.raspberrypi.org/) & 8GB SD Card
-* [MATRIX Creator](http://creator.matrix.one)
+* [Raspberry Pi](https://www.raspberrypi.org)
+* [MATRIX Creator](https://creator.matrix.one)
+
 
 ## Support
 
 * Post questions or comments on [community.matrix.one](http://community.matrix.one/)
 * Post package issues on github under [matrix-io](https://github.com/matrix-io)
 * Submit documentation issues or improvements at [matrix-io/matrix-documentation](https://github.com/matrix-io/matrix-documentation)
-
-## MATRIX Requirements
-
-* [Raspberry Pi](https://www.raspberrypi.org)
-* [MATRIX Creator](https://creator.matrix.one)
 

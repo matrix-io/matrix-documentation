@@ -20,7 +20,7 @@ pages:
     - 'Applications' : 'matrix-os/overview/applications.md'
     - 'Dashboard': 'matrix-os/overview/dashboard.md'
     - 'Configuration' : 'matrix-os/overview/configuration.md'
-    - 'Command Line Interface': 'matrix-os/overview/cli.md'
+    - 'Command Line': 'matrix-os/overview/cli.md'
     - 'Sending Data': 'matrix-os/overview/data.md'
     - 'Publishing': 'matrix-os/overview/publishing.md'
     - 'Manual Setup': 'matrix-os/overview/manual-setup.md'

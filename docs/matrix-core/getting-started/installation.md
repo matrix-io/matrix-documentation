@@ -20,7 +20,7 @@ sudo shutdown -r now;
 
 ### Starting manually
 ```
-# MALOS runs as a service, but to stop it run:
+# CORE runs as a service, but to stop it run:
 sudo pkill -9 malos
 
 # to run manually, just type `malos`

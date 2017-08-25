@@ -5,7 +5,7 @@ The UV driver reports values for:
 * UV Index scale used in the United States conforms with international guidelines for UVI reporting established by the World Health Organization.  From [UV Index Scale](https://www.epa.gov/sunsafety/uv-index-scale-0) 
 * UV Risk scale established by World Health Organization. From [UV Index Scale](https://www.epa.gov/sunsafety/uv-index-scale-0)
 
-The driver follows the [MALOS protocol](../index.md#protocol).
+The driver follows the [CORE protocol](../index.md#protocol).
 
 ### 0MQ Port
 ```
@@ -25,7 +25,7 @@ The message is defined in [driver.proto](https://github.com/matrix-io/protocol-b
 
 ### Keep-alives
 
-This driver needs keep-alive messages [as specified in the MALOS protocol](https:////github.com/matrix-io/matrix-creator-malos/blob/master/README.md#keep-alive-port).
+This driver needs keep-alive messages [as specified in the CORE protocol](https:////github.com/matrix-io/matrix-creator-malos/blob/master/README.md#keep-alive-port).
 If you start sending keep-alive messages it will start returning data every second so you can omit the configuration for this device.
 
 
@@ -61,7 +61,7 @@ Enhanced description of the [sample source code](https://github.com/matrix-io/ma
 
 First, define the address of the MATRIX Creator. In this case we make it be `127.0.0.1`
 because we are connecting from the local host but it needs to be different if we
-connect from another computer. There is also the base port reserved by MALOS for
+connect from another computer. There is also the base port reserved by CORE for
 the UV driver.
 
 ```

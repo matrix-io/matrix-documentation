@@ -66,7 +66,7 @@ Enhanced description of the [sample source code](https://github.com/matrix-io/ma
 
 First, define the address of the MATRIX Creator. In this case we make it be `127.0.0.1`
 because we are connecting from the local host but it needs to be different if we
-connect from another computer. There is also the base port reserved by MALOS for
+connect from another computer. There is also the base port reserved by CORE for
 the Pressure driver.
 
 ``` javascript

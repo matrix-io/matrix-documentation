@@ -1,7 +1,7 @@
 # Everloop
 
 The Everloop driver controls the LED array of the MATRIX Creator.
-It follows the [MALOS protocol](../README.md#protocol).
+It follows the [CORE protocol](../README.md#protocol).
 
 ### 0MQ Port
 

@@ -1,14 +1,5 @@
-# GPIO python example
+# Python Examples
 
-On this example, we will connect to CORE GPIO driver for controlling a single pin. GPIO driver on MATRIX creator supports:<a href="https://github.com/matrix-io/matrix-creator-malos/blob/master/docs/gpio_diagram.jpg"><img src="https://github.com/matrix-io/matrix-creator-malos/blob/master/docs/gpio_diagram.jpg" align="right" width="420" ></a>
-
-* GPIO pin input
-* GPIO pin output
-* GPIO updates (state from all pins)
-
-The CORE driver follows the [CORE protocol](../index.md).
-
-----
 
 ## Prerequisites
 
@@ -28,7 +19,7 @@ pipenv install
 
 ### MATRIX Creator software
 
-install CORE and perform device reboot. For more details: [Getting Started Guide](https://github.com/matrix-io/matrix-creator-quickstart/wiki/2.-Getting-Started)
+Install CORE and perform device reboot. 
 
 ``` bash
 echo "deb http://packages.matrix.one/matrix-creator/ ./" | sudo tee --append /etc/apt/sources.list
@@ -38,11 +29,6 @@ sudo apt-get install matrix-creator-init matrix-creator-malos cmake g++ git libz
 reboot
 
 ```
-### Protobuf installation
-
-Python examples no longer require you to build the protocol buffer messages, these will now get installed as a python module.
-
-----
 
 ## Running basic sample
 
@@ -61,7 +47,67 @@ pipenv run python test_gpio.py
 
 (on this example: pin 15 on write mode, toggle value 0 and 1)
 
-#### Basic Example details
+## Python Test Files
+
+### Driver_info
+
+- `python test_driver_info.py`
+
+### Everloop
+
+- `python test_everloop.py`
+
+### Everloop color
+
+- `python test_set_everloop_color.py`
+
+### Gpio
+
+- `python test_gpio.py`
+
+### Gpio read & write
+
+- `python test_gpio_read_write.py`
+
+### Humidity
+
+- `python test_humidity.py`
+
+### Imu
+
+- `python test_imu.py`
+
+### IR
+
+- `python test_ir_remote.py`
+
+### Pressure
+
+- `python test_pressure.py`
+
+### Servo
+
+- `python test_servo.py`
+
+### UV
+
+- `python test_uv.py`
+
+
+#### GPIO python example
+
+On this example, we will connect to CORE GPIO driver for controlling a single pin. GPIO driver on MATRIX creator supports:<a href="https://github.com/matrix-io/matrix-creator-malos/blob/master/docs/gpio_diagram.jpg"><img src="https://github.com/matrix-io/matrix-creator-malos/blob/master/docs/gpio_diagram.jpg" align="right" width="420" ></a>
+
+* GPIO pin input
+* GPIO pin output
+* GPIO updates (state from all pins)
+
+The CORE driver follows the [CORE protocol](../index.md).
+
+----
+
+
+#### GPIO Example details
 
 Enhanced description of the [sample source code](./test_gpio.py).
 

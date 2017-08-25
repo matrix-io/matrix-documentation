@@ -7,10 +7,10 @@ Top-level application layer which integrates into the MATRIX Creator hardware, a
 #### MATRIX Command Line Interface (MATRIX CLI)
 Command Line Interface that integrates into the top-level MATRIX OS. Built to allow quick application development and application management on the Raspberry Pi.
 
-#### MALOS
+#### CORE
 C++ abstraction layer for HAL. Hosts the ZeroMQ communication layer which makes the sensors accessible via high-level interfaces. 
 
-#### MALOS Eye
+#### CORE Eye
 C++ Computer Vision Framework.
 
 #### Hardware Abstraction Layer (HAL)

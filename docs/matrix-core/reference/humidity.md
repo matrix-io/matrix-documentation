@@ -11,7 +11,7 @@ The Humidity can be configured with:
 * Current temperature in celcius
 * Flag to set software calibration.
 
-The driver follows the [MALOS protocol](../README.md#protocol).
+The driver follows the [CORE protocol](../README.md#protocol).
 
 ### 0MQ Port
 ```
@@ -38,7 +38,7 @@ The message is defined in [driver.proto](https://github.com/matrix-io/protocol-b
 
 ### Keep-alives
 
-This driver needs keep-alive messages [as specified in the MALOS protocol](https:////github.com/matrix-io/matrix-creator-malos/blob/master/README.md#keep-alive-port).
+This driver needs keep-alive messages [as specified in the CORE protocol](https:////github.com/matrix-io/matrix-creator-malos/blob/master/README.md#keep-alive-port).
 If you start sending keep-alive messages it will start returning data every second so you can omit the configuration for this device.
 
 
@@ -85,7 +85,7 @@ Enhanced description of the [sample source code](../src/js_test/test_humidity.js
 
 First, define the address of the MATRIX Creator. In this case we make it be `127.0.0.1`
 because we are connecting from the local host but it needs to be different if we
-connect from another computer. There is also the base port reserved by MALOS for
+connect from another computer. There is also the base port reserved by CORE for
 the Humidity driver.
 
 ```
