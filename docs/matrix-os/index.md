@@ -6,7 +6,7 @@ Read more about [MATRIX Applications](overview/applications.md)
 
 ### Using MATRIX Open System
 
-> MATRIX devices must be linked with your account to use MOS. See instructions for [Mobile App Bluetooth Pairing] (getting-started/pairing) or [Manual Installation & Registration](getting-started/installation/).
+> MATRIX devices must be linked with your account to use MOS. If your MATRIX device starts with a pulsing blue light, MOS is installed and ready for [Bluetooth Pairing](getting-started/pairing). Otherwise, you can start from scratch with [Manual Installation & Registration](getting-started/installation/).
 
 MOS devices and applications can be managed and observed via the [MATRIX Dashboard](http://dash.matrix.one), or via mobile apps on Android and iOS. 
 

@@ -189,7 +189,7 @@ matrix.on('decreasePower', () => {
 Make sure your registered MATRIX device is on, connected, and you have selected the proper device with `matrix use`
 
 ```bash
-# from /ezDash
+# from /ezDash will upload code to device
 > matrix deploy
 > matrix start exDash
 

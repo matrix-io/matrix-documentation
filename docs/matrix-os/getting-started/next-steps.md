@@ -10,7 +10,8 @@ More about MATRIX OS system fundamentals.
 
 ## Examples
 
-* [App Lifecycle](../examples/app-create.md)
+* [Create An App](../examples/app-create.md)
+* [Basic Dashboard](../examples/dash-create.md)
 * [Sensor Test](../examples/sensor-test.md)
 * [IFTTT Integration](../examples/ifttt.md)
 

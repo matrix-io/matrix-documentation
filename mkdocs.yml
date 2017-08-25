@@ -7,16 +7,16 @@ pages:
 - Device Setup: 'setup.md'
 - MATRIX OS:
   # Index pages are hidden by template, child[0].url is loaded when user clicks on category
-  - 'Index': 'matrix-os/index.md'
+  - 'MATRIX OS': 'matrix-os/index.md'
   - 'Getting Started':
     - 'Prerequisities': 'matrix-os/getting-started/prerequisites.md'
+    - 'Installation': 'matrix-os/getting-started/installation.md'
     - 'Mobile Apps': 'matrix-os/getting-started/mobile-applications.md'
     - 'Pairing' : 'matrix-os/getting-started/pairing.md' 
-    - 'Installation': 'matrix-os/getting-started/installation.md'
     - 'Hello World': 'matrix-os/getting-started/hello-world.md'
     - 'Next Steps': 'matrix-os/getting-started/next-steps.md'
   - 'Overview':
-    - 'Index': 'matrix-os/overview/index.md'
+    - 'Overview': 'matrix-os/overview/index.md'
     - 'Applications' : 'matrix-os/overview/applications.md'
     - 'Dashboard': 'matrix-os/overview/dashboard.md'
     - 'Configuration' : 'matrix-os/overview/configuration.md'
@@ -25,13 +25,13 @@ pages:
     - 'Publishing': 'matrix-os/overview/publishing.md'
     - 'Manual Setup': 'matrix-os/overview/manual-setup.md'
   - Examples:
-    - 'Index': 'matrix-os/examples/index.md'
+    - 'Examples': 'matrix-os/examples/index.md'
     - 'Create an App': 'matrix-os/examples/app-create.md'
     - 'Basic Dashboard': 'matrix-os/examples/dash-create.md'
     - 'Sensor Test' : 'matrix-os/examples/sensor-test.md'
     - 'IFTTT Integration' : 'matrix-os/examples/ifttt.md'
   - Reference:
-    - 'Index': 'matrix-os/reference/index.md'
+    - 'Reference': 'matrix-os/reference/index.md'
     - 'System': 'matrix-os/reference/system.md'
     - 'Sensors': 'matrix-os/reference/sensors.md'
     - 'Computer Vision': 'matrix-os/reference/computer-vision.md'
@@ -47,22 +47,27 @@ pages:
     - 'Widgets': 'matrix-os/reference/widgets.md'
   - Troubleshooting: 'matrix-os/troubleshooting.md'
 - MATRIX CORE:
-  - 'Index': 'matrix-core/index.md'
+  - 'MATRIX CORE': 'matrix-core/index.md'
   - 'Getting Started':
     - 'Prerequisities': 'matrix-core/getting-started/prerequisites.md'
     - 'Installation': 'matrix-core/getting-started/installation.md'
     - 'Hello World': 'matrix-core/getting-started/hello-world.md'
     - 'Next Steps': 'matrix-core/getting-started/next-steps.md'
   - Examples:
-    - 'JavaScript' : 'matrix-core/examples/tests.md'
-    - 'Code' : 'matrix-core/examples/code.md'
+    - 'Python' : 'matrix-core/examples/pytests.md'
+    - 'JavaScript' : 'matrix-core/examples/jstests.md'
   - Reference:
-    - 'Sensors': 'matrix-core/reference/sensors.md'
-    - 'Communication': 'matrix-core/reference/communication.md'
-    - 'Microphone': 'matrix-core/reference/microphone.md'
+    - 'Everloop': 'matrix-core/reference/everloop.md'
+    - 'GPIO': 'matrix-core/reference/gpio.md'
+    - 'Humidity': 'matrix-core/reference/humidity.md'
+    - 'IMU': 'matrix-core/reference/imu.md'
+    - 'IR': 'matrix-core/reference/lirc.md'
+    - 'Pressure': 'matrix-core/reference/pressure.md'
+    - 'Servo': 'matrix-core/reference/servo.md'
+    - 'UV': 'matrix-core/reference/UV.md'
   - Troubleshooting: 'matrix-core/troubleshooting.md'
 - MATRIX HAL:
-  - 'Index': 'matrix-hal/index.md'
+  - 'MATRIX HAL': 'matrix-hal/index.md'
   - 'Getting Started':
     - 'Installation': 'matrix-hal/getting-started/installation.md'
     - 'Hello World': 'matrix-hal/getting-started/hello-world.md'
@@ -71,6 +76,7 @@ pages:
     - 'Creator': 'matrix-hal/datasheets/creator.md'
     - 'Voice': 'matrix-hal/datasheets/voice.md'
   - Components:
+    - 'Components': 'matrix-hal/components/index.md'
     - 'FPGA': 'matrix-hal/components/fpga.md'
     - 'Microphone': 'matrix-hal/components/microphone.md'
     - 'SAM3': 'matrix-hal/components/Sam3.md'
@@ -119,10 +125,10 @@ pages:
 #   - HAL:
 #     - 'Examples': 'HAL/examples.md'
 #     - 'Troubleshooting': 'HAL/troubleshooting.md'
-#   - MALOS:
-#     - 'Overview': 'MALOS/overview.md'
-#     - 'Examples': 'MALOS/example.md'
-#     - 'Troubleshooting': 'MALOS/troubleshooting.md'
+#   - CORE:
+#     - 'Overview': 'CORE/overview.md'
+#     - 'Examples': 'CORE/example.md'
+#     - 'Troubleshooting': 'CORE/troubleshooting.md'
 #   - 'Pinout': 'Reference/pinout.md'
 #   - 'FPGA': 'Hardware/fpga.md'
 #   - 'SAM3': 'Hardware/Sam3.md'

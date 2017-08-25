@@ -28,7 +28,7 @@ export MATRIX_DEVICE_ID=dc7a1a71be2d
 export MATRIX_DEVICE_SECRET=08629018e9d77h15i5n0t4r3alz0f06cd4f7e5544272b
 ```
 
-**Note:** Save these for the Configure ENV Variables step, near the end.
+**Note:** Save these for [device-registration](#device-registration).
 
 ### Set up your Raspberry Pi
 

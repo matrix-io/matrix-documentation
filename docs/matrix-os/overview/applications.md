@@ -6,10 +6,6 @@ MOS applications act as a logical glue between hardware components, machine lear
 
 More detailed information about programming MOS applications can be found in [Create An App](../examples/app-create/) and [Reference](../reference/).
 
-### Touchless
-
-MOS applications differ from traditional phone or desktop applications in that, for the most part, they have a passive interface, waiting for a particular event or circumstance to do an action. Of course, there exceptions to this rule, you can wire up whatever behavior you want. However, most interactions with hardware come in the form of configuring the hardware, waiting for data, and then doing a behavior based on that data.
-
 ### Data Flow
 
 Sensors push to applications which push to libraries which push back to the application, which pushes to the internet, other devices and dashboards. This one-way data flow is well matched with the listener/emitter event model of JavaScript and Node. We run a function, which is asynchronous, it sends a request to a sensor, library or web call, and waits for responses. Unlike traditional request / response style APIs, these are intended to be called once and handle many responses, sometimes in parallel.
@@ -31,17 +27,27 @@ Learn more about [callbacks](https://developer.mozilla.org/en-US/docs/Glossary/C
 
 After data is managed inside the application, it can be [sent to the cloud](data.md) for exporting, webhooks, analysis and to explore in the dashboard.
 
+Learn more about [sending data](data.md)
+
 ### Dashboards
 
-Every MOS application can display outputted data on [a highly customizable dashboard](dashboard.md). 
+Every MOS application can display data and can be controlled by users on [a highly customizable dashboard](dashboard.md).  
+
+Learn more about [dashboards](dashboard.md)
 
 ### Configuration driven
 
 MOS applications use [configuration files](configuration.md), `config.yaml`, to provide easy end-user adaptation, as well as extensive dashboard adaptability. Simple applications don't need any JavaScript and can be configuration only. Configuration is end-user accessible, and can provide unique information for individual instances of MOS applications across devices via [settings](../reference/system.md#settings)
 
+Learn more about [configuration](configuration.md)
+
 ### Development
 
 MOS applications are currently written in JavaScript. Python support is planned for the near future. You will need the [Command Line Interface](cli.md) installed to create, deploy and [publish](publishing.md) MOS applications.
+
+Start learning about MOS development with [Create An App](../examples/app-create) and [Basic Dashboards](../examples/dash-create).
+
+More details are available at the [Reference](../reference/) 
 
 #### Development Workflow
 
