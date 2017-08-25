@@ -195,3 +195,7 @@ Make sure your registered MATRIX device is on, connected, and you have selected 
 
 # subsequent deploys shouldn't need start, will automagically restart if deployed while active
 > matrix deploy
+```
+
+### Usage Note
+If you visit the dashboard after starting the application, you will see the real time data, but not the message. Why? MOS applications are event based, and the message is sent on start. If the `send` for the message was placed inside the `setInterval` then it would show.
