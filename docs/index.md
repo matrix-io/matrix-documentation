@@ -10,11 +10,11 @@ MATRIX adds powerful capabilities to your Raspberry Pi, depending on your backgr
 * [MATRIX CORE Docs](/#matrix-core)
 * [MATRIX HAL Docs](/#matrix-hal)
 
-![MATRIX Ecosystem Overview](img/overview-diagram.png "Logo Title Text 1")
+![MATRIX Ecosystem Overview](img/overview-diagram.png)
 
 ## MATRIX Open System
 
-Top-level application management and connection layer integrating with MATRIX hardware via **MATRIX CORE**.
+Top-level application and connection layer integrating with MATRIX hardware via **MATRIX CORE**.
 
 [Read more about MATRIX OS](matrix-os/overview/)
 
