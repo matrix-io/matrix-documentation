@@ -2,7 +2,6 @@
 
 ### You will need
 * A Registered & Configured MATRIX Device
-
 * Installed Mobile Application OR [Command Line Tool](../overview/cli.md)
 
 After you have successfully configured your MATRIX OS installation on a MATRIX device, you can install applications.
