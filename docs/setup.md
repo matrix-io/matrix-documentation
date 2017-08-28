@@ -38,6 +38,6 @@ If the LED ring lights up, this means [MATRIX OS](../matrix-os/) is installed an
 ## Next Steps
 Where to go next with your MATRIX is entirely dependent on your level of comfort.
 
-- [MATRIX OS](matrix-os/) - A fully managed platform for your devices, data and behaviors
-- [MATRIX CORE](matrix-core/) - Centralized software protocol to enable communication with the hardware.
-- [MATRIX HAL](matrix-hal/) - Reprogram your MATRIX device with FPGA and microcontroller tooling.
+- [MATRIX OS](matrix-os/) - A fully managed platform for your devices, data and behaviors, with the primary language being Javascript.
+- [MATRIX CORE](matrix-core/) - Centralized software protocol to enable communication with the hardware, with 40+ languages supported.
+- [MATRIX HAL](matrix-hal/) - Reprogram your MATRIX device with FPGA and microcontroller tooling. Primarily C++, direct interface into drivers.

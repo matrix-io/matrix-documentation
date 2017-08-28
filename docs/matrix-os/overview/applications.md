@@ -37,7 +37,7 @@ Learn more about [dashboards](dashboard.md)
 
 ### Configuration driven
 
-MOS applications use [configuration files](configuration.md), `config.yaml`, to provide easy end-user adaptation, as well as extensive dashboard adaptability. Simple applications don't need any JavaScript and can be configuration only. Configuration is end-user accessible, and can provide unique information for individual instances of MOS applications across devices via [settings](../reference/system.md#settings)
+MOS applications use [configuration files](configuration.md), `config.yaml`, to provide easy end-user adaptation, as well as extensive dashboard adaptability. Simple applications don't need any JavaScript and can be configuration only. Configuration is end-user accessible, and can provide unique information for individual instances of MOS applications across devices via [settings](../reference/system.md#settings).
 
 Learn more about [configuration](configuration.md)
 
