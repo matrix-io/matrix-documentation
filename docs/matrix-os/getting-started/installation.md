@@ -1,15 +1,13 @@
 
 ## Installation & Registration
 
-Your MATRIX device may or may not have **MATRIX Open System** preinstalled on it. 
+> MATRIX Open System is currently targeted to run on Raspbian. 
 
-These instructions are included if you need to build your own MOS image.
-
-**Note:** MATRIX Open System is currently targeted to run on Raspbian. 
+Your MATRIX device may or may not have **MATRIX Open System** preinstalled on it. These instructions are included if you need to build your own MOS image.
 
 ### Set up your Personal Computer
 
-> You need [NodeJS, and the Node Package Manager (npm)](https://nodejs.org/en/download/) installed.
+> You need [NodeJS, and the Node Package Manager (npm)](https://nodejs.org/en/download/) installed. See [pre-requisites](./prerequisites) for more details.
 
 These next instructions can be executed your personal computer or Raspberry Pi. We would recommend installing the [Command Line Interface](../overview/cli) (CLI) on your local computer, not the Raspberry Pi.
 
@@ -23,7 +21,9 @@ These next instructions can be executed your personal computer or Raspberry Pi. 
 #### Login Credentials
 
 ```bash
-# example variables generated via registration, yours will be different
+# example variables generated via registration,
+# yours will be different for each device you create.
+
 export MATRIX_DEVICE_ID=dc7a1a71be2d
 export MATRIX_DEVICE_SECRET=08629018e9d77h15i5n0t4r3alz0f06cd4f7e5544272b
 ```

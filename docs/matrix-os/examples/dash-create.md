@@ -84,11 +84,11 @@ matrix.type('motd').send({msg: 'hello to dashboard'});
 
 ### Open the Dashboard
 
-<http://dash.matrix.one>
+Goto [MATRIX Dashboard](http://dash.matrix.one)
 
 ### Starting the App
 
-Dashboard display real time information. If you open an application, it will not show data until you either query historical information or a device application `send`s information.
+Dashboard display real time information. If you open an application, it will not show data until you either query historical information or a device application sends information.
 
 ### Charting Realtime Data
 
@@ -190,11 +190,11 @@ Make sure your registered MATRIX device is on, connected, and you have selected 
 
 ```bash
 # from /ezDash will upload code to device
-> matrix deploy
-> matrix start exDash
+$ matrix deploy
+$ matrix start exDash
 
 # subsequent deploys shouldn't need start, will automagically restart if deployed while active
-> matrix deploy
+$ matrix deploy
 ```
 
 ### Usage Note
