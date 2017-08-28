@@ -6,7 +6,7 @@ The GPIO driver on current version supports:<a href="https://github.com/matrix-i
 * GPIO pin output
 * GPIO updates (state from all pins)
 
-The driver follows the [CORE protocol](../README.md#protocol).
+The driver follows the [CORE protocol](../index/).
 
 ### GPIO electrical characteristics
 
@@ -44,7 +44,7 @@ The message is defined in [driver.proto](https://github.com/matrix-io/protocol-b
 
 ### Keep-alives
 
-This driver needs keep-alive messages [as specified in the CORE protocol](https:////github.com/matrix-io/matrix-creator-malos/blob/master/README.md#keep-alive-port).
+This driver needs keep-alive messages [as specified in the CORE protocol](../../index/#keep-alive-port).
 If you start sending keep-alive messages it will start returning data every second so you can omit the configuration for this device.
 
 
@@ -60,7 +60,7 @@ All pins on matrix creator start as inputs. For change to outputs the driver nee
 
 ### Read
 
-The driver will send a serialized message of integer *values* which reprensets of state from all GPIO pins [see figure 1](https://github.com/matrix-io/matrix-creator-malos/blob/av/doc_gpio/docs/gpio_diagram.jpg). For example: *values=5* represents *101* (pin 0 on 1, pin 1 on 0 and pin 2 on 1).
+The driver will send a serialized message of integer *values* which represents of state from all GPIO pins [see figure 1](gpio_diagram.jpg). For example: *values=5* represents *101* (pin 0 on 1, pin 1 on 0 and pin 2 on 1).
 
 
 This is a sample output given by the example described below.
@@ -84,7 +84,7 @@ Sending pings every 5 seconds
 
 ### JavaScript example
 
-Enhanced description of the [sample source code](../src/js_test/test_gpio.js).
+Enhanced description of the [sample source code](https://github.com/matrix-io/matrix-creator-malos/src/js_test/test_gpio.js).
 
 First, define the address of the MATRIX Creator. In this case we make it be `127.0.0.1`
 because we are connecting from the local host but it needs to be different if we
@@ -120,7 +120,7 @@ errorSocket.on('message', function(error_message) {
 ```
 
 #### Configure GPIO pins modes and set values for GPIO outputs:
-All the drivers are configured using the message `driverconfig` (see [driver.proto](https://github.com/matrix-io/protocol-buffers/blob/master/malos/driver.proto)).
+All the drivers are configured using the message `DriverConfig` (see [driver.proto](https://github.com/matrix-io/protocol-buffers/blob/master/malos/driver.proto)).
 ##### Output mode:
 
 instance driver config object 
@@ -140,7 +140,7 @@ set GPIO pin value (0 or 1)
   gpio_cfg_cmd.set_value(1);
 ```
 
-set on config driver params, enconde and send
+set on config driver params, encode and send
 ``` javascript
   config.set_gpio(gpio_cfg_cmd)
   configSocket.send(config.encode().toBuffer())
@@ -153,7 +153,7 @@ instance driver config object
   var config = new matrixMalosBuilder.DriverConfig
 ```
 
-set 250 miliseconds between updates for example: (optional, default 1 second)
+set 250 ms between updates for example: (optional, default 1 second)
 ``` javascript
   config.delay_between_updates = .250
 ```
@@ -163,14 +163,14 @@ configure sending updates 2 seconds after pings (optional)
   config.timeout_after_last_ping = 2.0
 ```
 
-with GpioParams for example set GPIO 1 to input mode:
+with `GpioParams` for example set GPIO 1 to input mode:
 ``` javascript
   var gpio_cfg_cmd = new matrixMalosBuilder.GpioParams
   gpio_cfg_cmd.set_pin(1)
   gpio_cfg_cmd.set_mode(matrixMalosBuilder.GpioParams.EnumMode.INPUT)
 ```
 
-set on config driver params, enconde and send
+set on config driver params, encode and send
 ``` javascript
   config.set_gpio(gpio_cfg_cmd)
   configSocket.send(config.encode().toBuffer())
@@ -195,7 +195,7 @@ updateSocket.on('message', function(gpio_buffer) {
   console.log('<== GPIO pins register: ',dec2bin(gpioData.values))
 });
 ```
-The driver will send on callback a serialized message of integer *values* which reprensets of state from all GPIO pins
+The driver will send on callback a serialized message of integer *values* which represents of state from all GPIO pins
 
 #### Keep-alive messages
 

@@ -23,7 +23,7 @@ This driver doesn't send any data to a subscribed program.
 
 ### Example Usage
 
-This section provides an enhanced description of the relevant parts of the [sample source code](../src/js_test/test_everloop.js).
+This section provides an enhanced description of the relevant parts of the [sample source code](https://github.com/matrix-io/matrix-creator-malos/src/js_test/test_everloop.js).
 
 To run the source code of this example you need to execute the following commands:
 
