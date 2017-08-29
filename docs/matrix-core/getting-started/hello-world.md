@@ -17,5 +17,6 @@ MATRIX CORE is the program that sits between the low level hardware layer and MA
 node test_driver_info.js
 ```
 
-## Next Steps
-See the [rest of the tests](../examples/tests)
+### Continue
+1. Try the rest of the [JavaScript](../examples/jstests.md) or [Python](../examples/pytests.md) tests.
+1. Write and run your own CORE-enabled software by using our [Reference](./reference.md) documentation.
