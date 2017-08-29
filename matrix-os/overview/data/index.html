@@ -11,7 +11,7 @@
   <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
 </head>
 
-<body>
+<body data-spy="scroll">
   <nav class="navbar navbar-expand-lg navbar-light container">
   <a class="navbar-brand" href="/">
     <img src="../../../img/everloop.png" width="38" height="38" class="d-inline-block align-top" alt="">
@@ -22,7 +22,7 @@
   </button>
   <div class="collapse navbar-collapse" id="navbar-menu">
     <ul class="navbar-nav ml-auto">
-      <li class="nav-item">
+      <!-- <li class="nav-item">
         <a class="nav-link">
           For Home
         </a>
@@ -71,7 +71,7 @@
             <img src="/img/spain.png" alt="Spanish" />
           </a>
         </div>
-      </li>
+      </li> -->
     </ul>
   </div>
 </nav>
@@ -243,10 +243,9 @@
 
     
   <!-- only 1 deep, print menu items  -->
-    
-  
+   
   <li><a href="../../troubleshooting/" class="">Troubleshooting</a></li>
-     
+    
 </ul>
 
   
@@ -322,8 +321,9 @@
 
     
   <!-- only 1 deep, print menu items  -->
+   
+  <li><a href="../../../matrix-core/troubleshooting/" class="">Troubleshooting</a></li>
     
-     
 </ul>
 
   
@@ -425,8 +425,9 @@
 
     
   <!-- only 1 deep, print menu items  -->
+   
+  <li><a href="../../../matrix-hal/troubleshooting/" class="">Troubleshooting</a></li>
     
-     
 </ul>
 
   
@@ -445,7 +446,7 @@
  
           </ul>
         </div>
-        <div id="content" class="col-lg-8">
+        <div id="content"  class="col-lg-8">
            <h1 id="sending-data-from-matrix-devices">Sending Data From MATRIX Devices</h1>
 <p>MATRIX devices will only externally store data if it is explicitly sent via an application. If you want to use MATRIX Dashboard components to work with your data, it will need to be exported using the <code>send</code> command.</p>
 <p>Enabling a MATRIX application to save information using <code>send</code> requires a <em>Data Type</em> to be configured.</p>
@@ -515,28 +516,28 @@ widgets:
           <div class="toc">
             
             <h3>Contents</h3>
-            <ul>
-               <li>
-  <a href="#sending-data-from-matrix-devices" class="active">
+            <ul class="nav">
+               <li class='nav-item'>
+  <a href="#sending-data-from-matrix-devices" class="nav-link active">
     Sending Data From MATRIX Devices
   </a>
   
   <ul>
     
     <li>
-      <a href="#data-types">
+      <a class="nav-link" href="#data-types">
         Data Types
       </a>
     </li>
     
     <li>
-      <a href="#send">
+      <a class="nav-link" href="#send">
         Send
       </a>
     </li>
     
     <li>
-      <a href="#types">
+      <a class="nav-link" href="#types">
         Types
       </a>
     </li>

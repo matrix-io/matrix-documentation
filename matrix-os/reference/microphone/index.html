@@ -11,7 +11,7 @@
   <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
 </head>
 
-<body>
+<body data-spy="scroll">
   <nav class="navbar navbar-expand-lg navbar-light container">
   <a class="navbar-brand" href="/">
     <img src="../../../img/everloop.png" width="38" height="38" class="d-inline-block align-top" alt="">
@@ -22,7 +22,7 @@
   </button>
   <div class="collapse navbar-collapse" id="navbar-menu">
     <ul class="navbar-nav ml-auto">
-      <li class="nav-item">
+      <!-- <li class="nav-item">
         <a class="nav-link">
           For Home
         </a>
@@ -71,7 +71,7 @@
             <img src="/img/spain.png" alt="Spanish" />
           </a>
         </div>
-      </li>
+      </li> -->
     </ul>
   </div>
 </nav>
@@ -255,10 +255,9 @@
 
     
   <!-- only 1 deep, print menu items  -->
-    
-  
+   
   <li><a href="../../troubleshooting/" class="">Troubleshooting</a></li>
-     
+    
 </ul>
 
   
@@ -334,8 +333,9 @@
 
     
   <!-- only 1 deep, print menu items  -->
+   
+  <li><a href="../../../matrix-core/troubleshooting/" class="">Troubleshooting</a></li>
     
-     
 </ul>
 
   
@@ -437,8 +437,9 @@
 
     
   <!-- only 1 deep, print menu items  -->
+   
+  <li><a href="../../../matrix-hal/troubleshooting/" class="">Troubleshooting</a></li>
     
-     
 </ul>
 
   
@@ -457,7 +458,7 @@
  
           </ul>
         </div>
-        <div id="content" class="col-lg-8">
+        <div id="content"  class="col-lg-8">
            <h2 id="voice-control">Voice Control</h2>
 <p>MATRIX OS provides for voice recognition via wakeword detection. "Hey Siri", "Alexa", "Ok Google" are examples of common wakewords used in commercial products. The default wakeword for MATRIX OS is "Matrix", however, you can train any wakeword you want.</p>
 <h3 id="configuration">Configuration</h3>
@@ -494,22 +495,22 @@ matrix.service('customListener').listen(function(err, phrase){
           <div class="toc">
             
             <h3>Contents</h3>
-            <ul>
-               <li>
-  <a href="#voice-control" class="active">
+            <ul class="nav">
+               <li class='nav-item'>
+  <a href="#voice-control" class="nav-link active">
     Voice Control
   </a>
   
   <ul>
     
     <li>
-      <a href="#configuration">
+      <a class="nav-link" href="#configuration">
         Configuration
       </a>
     </li>
     
     <li>
-      <a href="#wakeword-training">
+      <a class="nav-link" href="#wakeword-training">
         Wakeword Training
       </a>
     </li>

@@ -11,7 +11,7 @@
   <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
 </head>
 
-<body>
+<body data-spy="scroll">
   <nav class="navbar navbar-expand-lg navbar-light container">
   <a class="navbar-brand" href="/">
     <img src="../../../img/everloop.png" width="38" height="38" class="d-inline-block align-top" alt="">
@@ -22,7 +22,7 @@
   </button>
   <div class="collapse navbar-collapse" id="navbar-menu">
     <ul class="navbar-nav ml-auto">
-      <li class="nav-item">
+      <!-- <li class="nav-item">
         <a class="nav-link">
           For Home
         </a>
@@ -71,7 +71,7 @@
             <img src="/img/spain.png" alt="Spanish" />
           </a>
         </div>
-      </li>
+      </li> -->
     </ul>
   </div>
 </nav>
@@ -229,8 +229,9 @@
 
     
   <!-- only 1 deep, print menu items  -->
+   
+  <li><a href="../../../matrix-os/troubleshooting/" class="">Troubleshooting</a></li>
     
-     
 </ul>
 
   
@@ -310,10 +311,9 @@
 
     
   <!-- only 1 deep, print menu items  -->
-    
-  
+   
   <li><a href="../../troubleshooting/" class="">Troubleshooting</a></li>
-     
+    
 </ul>
 
   
@@ -415,8 +415,9 @@
 
     
   <!-- only 1 deep, print menu items  -->
+   
+  <li><a href="../../../matrix-hal/troubleshooting/" class="">Troubleshooting</a></li>
     
-     
 </ul>
 
   
@@ -435,13 +436,14 @@
  
           </ul>
         </div>
-        <div id="content" class="col-lg-8">
-           <h2 id="javascript-example">JAVASCRIPT Example</h2>
+        <div id="content"  class="col-lg-8">
+           <h2 id="javascript-example">Javascript Example</h2>
+<blockquote>
+<p>You need <a href="https://nodejs.org/en/download/">NodeJS, and the Node Package Manager (npm)</a> installed on the Raspberry Pi.</p>
+</blockquote>
 <p>CORE is the program that sits between the low level hardware layer and MATRIX OS. This program allows MATRIX OS to access the board hardware via ZeroMQ sockets. You can also use it directly, as it is done with the examples below. The IPs are hardcoded in the examples to 127.0.0.1. Remember to edit them if you're accessing the Creator from another host and not from the Raspberry itself.</p>
 <p>For an in-depth discussion of these tests, please examine the <a href="../../reference/">Reference</a> sections for JavaScript details.</p>
-<h3 id="nodejs-dependency">NodeJS Dependency</h3>
-<p><strong>Note:</strong> Pre-requisite of <a href="https://nodejs.org/en/download">Node</a> on the target device.</p>
-<p>On the RaspberryPi</p>
+<h3 id="on-the-raspberry-pi">On the Raspberry Pi</h3>
 <pre><code class="bash"># Install npm (doesn't really matter what version, apt-get node is v0.10...)
 sudo apt-get install npm
 
@@ -599,96 +601,96 @@ updateSocket.on('message', function(buffer) {
           <div class="toc">
             
             <h3>Contents</h3>
-            <ul>
-               <li>
-  <a href="#javascript-example" class="active">
-    JAVASCRIPT Example
+            <ul class="nav">
+               <li class='nav-item'>
+  <a href="#javascript-example" class="nav-link active">
+    Javascript Example
   </a>
   
   <ul>
     
     <li>
-      <a href="#nodejs-dependency">
-        NodeJS Dependency
+      <a class="nav-link" href="#on-the-raspberry-pi">
+        On the Raspberry Pi
       </a>
     </li>
     
   </ul>
   
-</li>  <li>
-  <a href="#download-and-prepare-core" class="">
+</li>  <li class='nav-item'>
+  <a href="#download-and-prepare-core" class="nav-link ">
     Download and Prepare CORE
   </a>
   
-</li>  <li>
-  <a href="#using-core" class="">
+</li>  <li class='nav-item'>
+  <a href="#using-core" class="nav-link ">
     Using CORE
   </a>
   
   <ul>
     
     <li>
-      <a href="#core-examples">
+      <a class="nav-link" href="#core-examples">
         CORE Examples
       </a>
     </li>
     
     <li>
-      <a href="#drivers">
+      <a class="nav-link" href="#drivers">
         Drivers
       </a>
     </li>
     
     <li>
-      <a href="#everloop">
+      <a class="nav-link" href="#everloop">
         Everloop
       </a>
     </li>
     
     <li>
-      <a href="#humidity">
+      <a class="nav-link" href="#humidity">
         Humidity
       </a>
     </li>
     
     <li>
-      <a href="#imu">
+      <a class="nav-link" href="#imu">
         IMU
       </a>
     </li>
     
     <li>
-      <a href="#ir-remote">
+      <a class="nav-link" href="#ir-remote">
         IR Remote
       </a>
     </li>
     
     <li>
-      <a href="#pressure">
+      <a class="nav-link" href="#pressure">
         Pressure
       </a>
     </li>
     
     <li>
-      <a href="#uv">
+      <a class="nav-link" href="#uv">
         UV
       </a>
     </li>
     
     <li>
-      <a href="#zigbee-bulb-onoff">
+      <a class="nav-link" href="#zigbee-bulb-onoff">
         Zigbee Bulb On/Off
       </a>
     </li>
     
     <li>
-      <a href="#zigbee-bulb-color">
+      <a class="nav-link" href="#zigbee-bulb-color">
         Zigbee Bulb Color
       </a>
     </li>
     
     <li>
-      <a href="#zigbee-bulb-brightness">
+      <a class="nav-link" href="#zigbee-bulb-brightness">
         Zigbee Bulb Brightness
       </a>
     </li>

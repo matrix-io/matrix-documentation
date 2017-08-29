@@ -11,7 +11,7 @@
   <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
 </head>
 
-<body>
+<body data-spy="scroll">
   <nav class="navbar navbar-expand-lg navbar-light container">
   <a class="navbar-brand" href="/">
     <img src="../../../img/everloop.png" width="38" height="38" class="d-inline-block align-top" alt="">
@@ -22,7 +22,7 @@
   </button>
   <div class="collapse navbar-collapse" id="navbar-menu">
     <ul class="navbar-nav ml-auto">
-      <li class="nav-item">
+      <!-- <li class="nav-item">
         <a class="nav-link">
           For Home
         </a>
@@ -71,7 +71,7 @@
             <img src="/img/spain.png" alt="Spanish" />
           </a>
         </div>
-      </li>
+      </li> -->
     </ul>
   </div>
 </nav>
@@ -255,10 +255,9 @@
 
     
   <!-- only 1 deep, print menu items  -->
-    
-  
+   
   <li><a href="../../troubleshooting/" class="">Troubleshooting</a></li>
-     
+    
 </ul>
 
   
@@ -334,8 +333,9 @@
 
     
   <!-- only 1 deep, print menu items  -->
+   
+  <li><a href="../../../matrix-core/troubleshooting/" class="">Troubleshooting</a></li>
     
-     
 </ul>
 
   
@@ -437,8 +437,9 @@
 
     
   <!-- only 1 deep, print menu items  -->
+   
+  <li><a href="../../../matrix-hal/troubleshooting/" class="">Troubleshooting</a></li>
     
-     
 </ul>
 
   
@@ -457,7 +458,7 @@
  
           </ul>
         </div>
-        <div id="content" class="col-lg-8">
+        <div id="content"  class="col-lg-8">
            <h1 id="system-methods">System Methods</h1>
 <p>Several methods are available for common computing use cases, like application instance settings, storing files or persistant data lookups. These will be localized to the device and are not available across all instances of the application.</p>
 <h2 id="settings">Settings</h2>
@@ -525,46 +526,46 @@ matrix.file.remove( filename, cb )
           <div class="toc">
             
             <h3>Contents</h3>
-            <ul>
-               <li>
-  <a href="#system-methods" class="active">
+            <ul class="nav">
+               <li class='nav-item'>
+  <a href="#system-methods" class="nav-link active">
     System Methods
   </a>
   
   <ul>
     
     <li>
-      <a href="#settings">
+      <a class="nav-link" href="#settings">
         Settings
       </a>
     </li>
     
     <li>
-      <a href="#local-database">
+      <a class="nav-link" href="#local-database">
         Local Database
       </a>
     </li>
     
     <li>
-      <a href="#get">
+      <a class="nav-link" href="#get">
         Get
       </a>
     </li>
     
     <li>
-      <a href="#set">
+      <a class="nav-link" href="#set">
         Set
       </a>
     </li>
     
     <li>
-      <a href="#delete">
+      <a class="nav-link" href="#delete">
         Delete
       </a>
     </li>
     
     <li>
-      <a href="#file-storage">
+      <a class="nav-link" href="#file-storage">
         File Storage
       </a>
     </li>

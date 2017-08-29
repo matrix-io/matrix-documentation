@@ -11,7 +11,7 @@
   <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
 </head>
 
-<body>
+<body data-spy="scroll">
   <nav class="navbar navbar-expand-lg navbar-light container">
   <a class="navbar-brand" href="/">
     <img src="../../../img/everloop.png" width="38" height="38" class="d-inline-block align-top" alt="">
@@ -22,7 +22,7 @@
   </button>
   <div class="collapse navbar-collapse" id="navbar-menu">
     <ul class="navbar-nav ml-auto">
-      <li class="nav-item">
+      <!-- <li class="nav-item">
         <a class="nav-link">
           For Home
         </a>
@@ -71,7 +71,7 @@
             <img src="/img/spain.png" alt="Spanish" />
           </a>
         </div>
-      </li>
+      </li> -->
     </ul>
   </div>
 </nav>
@@ -255,10 +255,9 @@
 
     
   <!-- only 1 deep, print menu items  -->
-    
-  
+   
   <li><a href="../../troubleshooting/" class="">Troubleshooting</a></li>
-     
+    
 </ul>
 
   
@@ -334,8 +333,9 @@
 
     
   <!-- only 1 deep, print menu items  -->
+   
+  <li><a href="../../../matrix-core/troubleshooting/" class="">Troubleshooting</a></li>
     
-     
 </ul>
 
   
@@ -437,8 +437,9 @@
 
     
   <!-- only 1 deep, print menu items  -->
+   
+  <li><a href="../../../matrix-hal/troubleshooting/" class="">Troubleshooting</a></li>
     
-     
 </ul>
 
   
@@ -457,7 +458,7 @@
  
           </ul>
         </div>
-        <div id="content" class="col-lg-8">
+        <div id="content"  class="col-lg-8">
            <h2 id="filters">Filters</h2>
 <p>MatrixOS sensors and computer vision algorithms provide data which can be filtered between the <code>sensor</code>, which can be regarded as the data source, and the <code>then</code>, which can be regarded as the data receiver. Between the two, we can use chaining methods to easily filter what data is received.</p>
 <pre><code>// filtering in a simple application
@@ -520,33 +521,33 @@ matrix.sensor('gyroscope').has('x')
           <div class="toc">
             
             <h3>Contents</h3>
-            <ul>
-               <li>
-  <a href="#filters" class="active">
+            <ul class="nav">
+               <li class='nav-item'>
+  <a href="#filters" class="nav-link active">
     Filters
   </a>
   
-</li>  <li>
-  <a href="#simple-filtering-methods" class="">
+</li>  <li class='nav-item'>
+  <a href="#simple-filtering-methods" class="nav-link ">
     Simple Filtering methods
   </a>
   
   <ul>
     
     <li>
-      <a href="#equality">
+      <a class="nav-link" href="#equality">
         equality
       </a>
     </li>
     
     <li>
-      <a href="#has">
+      <a class="nav-link" href="#has">
         has
       </a>
     </li>
     
     <li>
-      <a href="#bounds">
+      <a class="nav-link" href="#bounds">
         bounds
       </a>
     </li>

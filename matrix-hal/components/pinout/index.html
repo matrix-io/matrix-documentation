@@ -11,7 +11,7 @@
   <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
 </head>
 
-<body>
+<body data-spy="scroll">
   <nav class="navbar navbar-expand-lg navbar-light container">
   <a class="navbar-brand" href="/">
     <img src="../../../img/everloop.png" width="38" height="38" class="d-inline-block align-top" alt="">
@@ -22,7 +22,7 @@
   </button>
   <div class="collapse navbar-collapse" id="navbar-menu">
     <ul class="navbar-nav ml-auto">
-      <li class="nav-item">
+      <!-- <li class="nav-item">
         <a class="nav-link">
           For Home
         </a>
@@ -71,7 +71,7 @@
             <img src="/img/spain.png" alt="Spanish" />
           </a>
         </div>
-      </li>
+      </li> -->
     </ul>
   </div>
 </nav>
@@ -229,8 +229,9 @@
 
     
   <!-- only 1 deep, print menu items  -->
+   
+  <li><a href="../../../matrix-os/troubleshooting/" class="">Troubleshooting</a></li>
     
-     
 </ul>
 
   
@@ -306,8 +307,9 @@
 
     
   <!-- only 1 deep, print menu items  -->
+   
+  <li><a href="../../../matrix-core/troubleshooting/" class="">Troubleshooting</a></li>
     
-     
 </ul>
 
   
@@ -421,10 +423,9 @@
 
     
   <!-- only 1 deep, print menu items  -->
-    
-  
+   
   <li><a href="../../troubleshooting/" class="">Troubleshooting</a></li>
-     
+    
 </ul>
 
   
@@ -443,7 +444,7 @@
  
           </ul>
         </div>
-        <div id="content" class="col-lg-8">
+        <div id="content"  class="col-lg-8">
            <h1 id="creator-v2-pinout">Creator v2 Pinout</h1>
 <p><img alt="" src="../../img/pinout-v2.png" /></p>
 <h2 id="creator-v1-pinout-for-reference">Creator V1 Pinout - For Reference</h2>
@@ -475,34 +476,34 @@ NET &quot;DF&lt;0&gt;&quot; LOC=&quot;P78&quot;;
           <div class="toc">
             
             <h3>Contents</h3>
-            <ul>
-               <li>
-  <a href="#creator-v2-pinout" class="active">
+            <ul class="nav">
+               <li class='nav-item'>
+  <a href="#creator-v2-pinout" class="nav-link active">
     Creator v2 Pinout
   </a>
   
   <ul>
     
     <li>
-      <a href="#creator-v1-pinout-for-reference">
+      <a class="nav-link" href="#creator-v1-pinout-for-reference">
         Creator V1 Pinout - For Reference
       </a>
     </li>
     
     <li>
-      <a href="#expansion-pinout">
+      <a class="nav-link" href="#expansion-pinout">
         Expansion pinout
       </a>
     </li>
     
     <li>
-      <a href="#expansion-location">
+      <a class="nav-link" href="#expansion-location">
         Expansion location
       </a>
     </li>
     
     <li>
-      <a href="#fpgas-ucf-definition">
+      <a class="nav-link" href="#fpgas-ucf-definition">
         FPGA's UCF definition
       </a>
     </li>

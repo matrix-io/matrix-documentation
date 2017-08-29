@@ -11,7 +11,7 @@
   <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
 </head>
 
-<body>
+<body data-spy="scroll">
   <nav class="navbar navbar-expand-lg navbar-light container">
   <a class="navbar-brand" href="/">
     <img src="../../img/everloop.png" width="38" height="38" class="d-inline-block align-top" alt="">
@@ -22,7 +22,7 @@
   </button>
   <div class="collapse navbar-collapse" id="navbar-menu">
     <ul class="navbar-nav ml-auto">
-      <li class="nav-item">
+      <!-- <li class="nav-item">
         <a class="nav-link">
           For Home
         </a>
@@ -71,7 +71,7 @@
             <img src="/img/spain.png" alt="Spanish" />
           </a>
         </div>
-      </li>
+      </li> -->
     </ul>
   </div>
 </nav>
@@ -229,8 +229,9 @@
 
     
   <!-- only 1 deep, print menu items  -->
+   
+  <li><a href="../../matrix-os/troubleshooting/" class="">Troubleshooting</a></li>
     
-     
 </ul>
 
   
@@ -306,10 +307,9 @@
 
     
   <!-- only 1 deep, print menu items  -->
-    
-  
+   
   <li><a href="./" class="active">Troubleshooting</a></li>
-     
+    
 </ul>
 
   
@@ -411,8 +411,9 @@
 
     
   <!-- only 1 deep, print menu items  -->
+   
+  <li><a href="../../matrix-hal/troubleshooting/" class="">Troubleshooting</a></li>
     
-     
 </ul>
 
   
@@ -431,8 +432,34 @@
  
           </ul>
         </div>
-        <div id="content" class="col-lg-8">
-           <h2 id="support">Support</h2>
+        <div id="content"  class="col-lg-8">
+           <h3 id="check-matrix-core-services-are-running">Check MATRIX CORE Services are Running</h3>
+<p>Run the following command on your Raspberry Pi to confirm your MATRIX Services are running.</p>
+<pre><code>$ ps aux | grep 'malos'
+</code></pre>
+
+<p>This should return something along the lines of:</p>
+<pre><code>root       445  0.0  0.6 126240  5964 ?        Ssl  16:51   0:00 /usr/bin/malos_eye
+root       449  5.3  0.8 853204  8352 ?        Ssl  16:51   4:41 /usr/bin/malos
+</code></pre>
+
+<h3 id="running-services-manually">Running Services Manually</h3>
+<p>If your services are not listed as shown above, you can run them manually using the following terminal commands:</p>
+<pre><code># Running MATRIX CORE Sensors &amp; Comm. Services
+$ malos
+
+# Running MATRIX CORE Vision Services
+$ malos_eye
+</code></pre>
+
+<h3 id="stopping-services">Stopping Services</h3>
+<pre><code># Stopping the services altogether
+
+$ pkill -9 malos
+$ pkill -9 malos_eye
+</code></pre>
+
+<h3 id="support">Support</h3>
 <ul>
 <li>Post questions or comments on <a href="http://community.matrix.one/">community.matrix.one</a></li>
 <li>Post package issues on github under <a href="https://github.com/matrix-io">matrix-io</a></li>
@@ -443,9 +470,24 @@
           <div class="toc">
             
             <h3>Contents</h3>
-            <ul>
-               <li>
-  <a href="#support" class="active">
+            <ul class="nav">
+               <li class='nav-item'>
+  <a href="#check-matrix-core-services-are-running" class="nav-link active">
+    Check MATRIX CORE Services are Running
+  </a>
+  
+</li>  <li class='nav-item'>
+  <a href="#running-services-manually" class="nav-link ">
+    Running Services Manually
+  </a>
+  
+</li>  <li class='nav-item'>
+  <a href="#stopping-services" class="nav-link ">
+    Stopping Services
+  </a>
+  
+</li>  <li class='nav-item'>
+  <a href="#support" class="nav-link ">
     Support
   </a>
   

@@ -11,7 +11,7 @@
   <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
 </head>
 
-<body>
+<body data-spy="scroll">
   <nav class="navbar navbar-expand-lg navbar-light container">
   <a class="navbar-brand" href="/">
     <img src="../../../img/everloop.png" width="38" height="38" class="d-inline-block align-top" alt="">
@@ -22,7 +22,7 @@
   </button>
   <div class="collapse navbar-collapse" id="navbar-menu">
     <ul class="navbar-nav ml-auto">
-      <li class="nav-item">
+      <!-- <li class="nav-item">
         <a class="nav-link">
           For Home
         </a>
@@ -71,7 +71,7 @@
             <img src="/img/spain.png" alt="Spanish" />
           </a>
         </div>
-      </li>
+      </li> -->
     </ul>
   </div>
 </nav>
@@ -243,10 +243,9 @@
 
     
   <!-- only 1 deep, print menu items  -->
-    
-  
+   
   <li><a href="../../troubleshooting/" class="">Troubleshooting</a></li>
-     
+    
 </ul>
 
   
@@ -322,8 +321,9 @@
 
     
   <!-- only 1 deep, print menu items  -->
+   
+  <li><a href="../../../matrix-core/troubleshooting/" class="">Troubleshooting</a></li>
     
-     
 </ul>
 
   
@@ -425,8 +425,9 @@
 
     
   <!-- only 1 deep, print menu items  -->
+   
+  <li><a href="../../../matrix-hal/troubleshooting/" class="">Troubleshooting</a></li>
     
-     
 </ul>
 
   
@@ -445,7 +446,7 @@
  
           </ul>
         </div>
-        <div id="content" class="col-lg-8">
+        <div id="content"  class="col-lg-8">
            <h2 id="manual-start">Manual Start</h2>
 <p>MOS is a managed environment for running IoT applications. If you want more control and information, you can run MOS manually. </p>
 <h3 id="headless-access">Headless Access</h3>
@@ -486,34 +487,34 @@ node index.js
           <div class="toc">
             
             <h3>Contents</h3>
-            <ul>
-               <li>
-  <a href="#manual-start" class="active">
+            <ul class="nav">
+               <li class='nav-item'>
+  <a href="#manual-start" class="nav-link active">
     Manual Start
   </a>
   
   <ul>
     
     <li>
-      <a href="#headless-access">
+      <a class="nav-link" href="#headless-access">
         Headless Access
       </a>
     </li>
     
     <li>
-      <a href="#device-boot-behavior">
+      <a class="nav-link" href="#device-boot-behavior">
         Device Boot Behavior
       </a>
     </li>
     
     <li>
-      <a href="#find-start-matrix-os">
+      <a class="nav-link" href="#find-start-matrix-os">
         Find &amp; Start MATRIX OS
       </a>
     </li>
     
     <li>
-      <a href="#heed-warning">
+      <a class="nav-link" href="#heed-warning">
         Heed warning
       </a>
     </li>

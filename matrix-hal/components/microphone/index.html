@@ -11,7 +11,7 @@
   <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
 </head>
 
-<body>
+<body data-spy="scroll">
   <nav class="navbar navbar-expand-lg navbar-light container">
   <a class="navbar-brand" href="/">
     <img src="../../../img/everloop.png" width="38" height="38" class="d-inline-block align-top" alt="">
@@ -22,7 +22,7 @@
   </button>
   <div class="collapse navbar-collapse" id="navbar-menu">
     <ul class="navbar-nav ml-auto">
-      <li class="nav-item">
+      <!-- <li class="nav-item">
         <a class="nav-link">
           For Home
         </a>
@@ -71,7 +71,7 @@
             <img src="/img/spain.png" alt="Spanish" />
           </a>
         </div>
-      </li>
+      </li> -->
     </ul>
   </div>
 </nav>
@@ -229,8 +229,9 @@
 
     
   <!-- only 1 deep, print menu items  -->
+   
+  <li><a href="../../../matrix-os/troubleshooting/" class="">Troubleshooting</a></li>
     
-     
 </ul>
 
   
@@ -306,8 +307,9 @@
 
     
   <!-- only 1 deep, print menu items  -->
+   
+  <li><a href="../../../matrix-core/troubleshooting/" class="">Troubleshooting</a></li>
     
-     
 </ul>
 
   
@@ -421,10 +423,9 @@
 
     
   <!-- only 1 deep, print menu items  -->
-    
-  
+   
   <li><a href="../../troubleshooting/" class="">Troubleshooting</a></li>
-     
+    
 </ul>
 
   
@@ -443,7 +444,7 @@
  
           </ul>
         </div>
-        <div id="content" class="col-lg-8">
+        <div id="content"  class="col-lg-8">
            <h3 id="microphone">Microphone</h3>
 <h4 id="1-mic-array-on-matrix-creator">1. Mic Array on MATRIX Creator</h4>
 <p><img alt="Mic Position" src="../../img/mic_position.png" /></p>
@@ -694,34 +695,34 @@ sox -r 16000 -c 1 -e signed -c 1 -e signed -b 16 mic_16000_s16le_channel_7.raw c
           <div class="toc">
             
             <h3>Contents</h3>
-            <ul>
-               <li>
-  <a href="#microphone" class="active">
+            <ul class="nav">
+               <li class='nav-item'>
+  <a href="#microphone" class="nav-link active">
     Microphone
   </a>
   
   <ul>
     
     <li>
-      <a href="#1-mic-array-on-matrix-creator">
+      <a class="nav-link" href="#1-mic-array-on-matrix-creator">
         1. Mic Array on MATRIX Creator
       </a>
     </li>
     
     <li>
-      <a href="#2-how-to-get-microphone-data-from-c">
+      <a class="nav-link" href="#2-how-to-get-microphone-data-from-c">
         2. How to get microphone data from C++
       </a>
     </li>
     
     <li>
-      <a href="#3-example-demo-apps-for-mics">
+      <a class="nav-link" href="#3-example-demo-apps-for-mics">
         3. Example demo apps for mics
       </a>
     </li>
     
     <li>
-      <a href="#record-convert-and-play-sounds">
+      <a class="nav-link" href="#record-convert-and-play-sounds">
         Record, Convert and Play sounds.
       </a>
     </li>

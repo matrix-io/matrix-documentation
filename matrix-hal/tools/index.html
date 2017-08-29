@@ -11,7 +11,7 @@
   <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
 </head>
 
-<body>
+<body data-spy="scroll">
   <nav class="navbar navbar-expand-lg navbar-light container">
   <a class="navbar-brand" href="/">
     <img src="../../img/everloop.png" width="38" height="38" class="d-inline-block align-top" alt="">
@@ -22,7 +22,7 @@
   </button>
   <div class="collapse navbar-collapse" id="navbar-menu">
     <ul class="navbar-nav ml-auto">
-      <li class="nav-item">
+      <!-- <li class="nav-item">
         <a class="nav-link">
           For Home
         </a>
@@ -71,7 +71,7 @@
             <img src="/img/spain.png" alt="Spanish" />
           </a>
         </div>
-      </li>
+      </li> -->
     </ul>
   </div>
 </nav>
@@ -229,8 +229,9 @@
 
     
   <!-- only 1 deep, print menu items  -->
+   
+  <li><a href="../../matrix-os/troubleshooting/" class="">Troubleshooting</a></li>
     
-     
 </ul>
 
   
@@ -306,8 +307,9 @@
 
     
   <!-- only 1 deep, print menu items  -->
+   
+  <li><a href="../../matrix-core/troubleshooting/" class="">Troubleshooting</a></li>
     
-     
 </ul>
 
   
@@ -413,10 +415,9 @@
 
     
   <!-- only 1 deep, print menu items  -->
-    
-  
+   
   <li><a href="../troubleshooting/" class="">Troubleshooting</a></li>
-     
+    
 </ul>
 
   
@@ -435,7 +436,7 @@
  
           </ul>
         </div>
-        <div id="content" class="col-lg-8">
+        <div id="content"  class="col-lg-8">
            <h2 id="tools">Tools</h2>
 <h3 id="xc3sprog">xc3sprog</h3>
 <p><a href="https://github.com/matrix-io/xc3sprog">https://github.com/matrix-io/xc3sprog</a> - xc3sprog for programming the FPGA</p>
@@ -446,22 +447,22 @@
           <div class="toc">
             
             <h3>Contents</h3>
-            <ul>
-               <li>
-  <a href="#tools" class="active">
+            <ul class="nav">
+               <li class='nav-item'>
+  <a href="#tools" class="nav-link active">
     Tools
   </a>
   
   <ul>
     
     <li>
-      <a href="#xc3sprog">
+      <a class="nav-link" href="#xc3sprog">
         xc3sprog
       </a>
     </li>
     
     <li>
-      <a href="#openocd">
+      <a class="nav-link" href="#openocd">
         OpenOCD
       </a>
     </li>

@@ -11,7 +11,7 @@
   <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
 </head>
 
-<body>
+<body data-spy="scroll">
   <nav class="navbar navbar-expand-lg navbar-light container">
   <a class="navbar-brand" href="/">
     <img src="../../../img/everloop.png" width="38" height="38" class="d-inline-block align-top" alt="">
@@ -22,7 +22,7 @@
   </button>
   <div class="collapse navbar-collapse" id="navbar-menu">
     <ul class="navbar-nav ml-auto">
-      <li class="nav-item">
+      <!-- <li class="nav-item">
         <a class="nav-link">
           For Home
         </a>
@@ -71,7 +71,7 @@
             <img src="/img/spain.png" alt="Spanish" />
           </a>
         </div>
-      </li>
+      </li> -->
     </ul>
   </div>
 </nav>
@@ -243,10 +243,9 @@
 
     
   <!-- only 1 deep, print menu items  -->
-    
-  
+   
   <li><a href="../../troubleshooting/" class="">Troubleshooting</a></li>
-     
+    
 </ul>
 
   
@@ -322,8 +321,9 @@
 
     
   <!-- only 1 deep, print menu items  -->
+   
+  <li><a href="../../../matrix-core/troubleshooting/" class="">Troubleshooting</a></li>
     
-     
 </ul>
 
   
@@ -425,8 +425,9 @@
 
     
   <!-- only 1 deep, print menu items  -->
+   
+  <li><a href="../../../matrix-hal/troubleshooting/" class="">Troubleshooting</a></li>
     
-     
 </ul>
 
   
@@ -445,7 +446,7 @@
  
           </ul>
         </div>
-        <div id="content" class="col-lg-8">
+        <div id="content"  class="col-lg-8">
            <h2 id="command-line-interface-cli">Command Line Interface (CLI)</h2>
 <blockquote>
 <p>MATRIX CLI requires <a href="https://nodejs.org/en/">Node.js</a></p>
@@ -538,120 +539,120 @@ matrix deploy appName
           <div class="toc">
             
             <h3>Contents</h3>
-            <ul>
-               <li>
-  <a href="#command-line-interface-cli" class="active">
+            <ul class="nav">
+               <li class='nav-item'>
+  <a href="#command-line-interface-cli" class="nav-link active">
     Command Line Interface (CLI)
   </a>
   
-</li>  <li>
-  <a href="#installation" class="">
+</li>  <li class='nav-item'>
+  <a href="#installation" class="nav-link ">
     Installation
   </a>
   
   <ul>
     
     <li>
-      <a href="#local-vs-device">
+      <a class="nav-link" href="#local-vs-device">
         Local vs Device
       </a>
     </li>
     
   </ul>
   
-</li>  <li>
-  <a href="#registration" class="">
+</li>  <li class='nav-item'>
+  <a href="#registration" class="nav-link ">
     Registration
   </a>
   
   <ul>
     
     <li>
-      <a href="#user-registration">
+      <a class="nav-link" href="#user-registration">
         User registration
       </a>
     </li>
     
     <li>
-      <a href="#command-list">
+      <a class="nav-link" href="#command-list">
         Command list
       </a>
     </li>
     
   </ul>
   
-</li>  <li>
-  <a href="#devices" class="">
+</li>  <li class='nav-item'>
+  <a href="#devices" class="nav-link ">
     Devices
   </a>
   
   <ul>
     
     <li>
-      <a href="#device-registration">
+      <a class="nav-link" href="#device-registration">
         Device Registration
       </a>
     </li>
     
     <li>
-      <a href="#list-your-devices">
+      <a class="nav-link" href="#list-your-devices">
         List your Devices
       </a>
     </li>
     
     <li>
-      <a href="#use-a-specific-device">
+      <a class="nav-link" href="#use-a-specific-device">
         Use a Specific Device
       </a>
     </li>
     
   </ul>
   
-</li>  <li>
-  <a href="#applications" class="">
+</li>  <li class='nav-item'>
+  <a href="#applications" class="nav-link ">
     Applications
   </a>
   
   <ul>
     
     <li>
-      <a href="#install">
+      <a class="nav-link" href="#install">
         Install
       </a>
     </li>
     
     <li>
-      <a href="#uninstall">
+      <a class="nav-link" href="#uninstall">
         Uninstall
       </a>
     </li>
     
     <li>
-      <a href="#create">
+      <a class="nav-link" href="#create">
         Create
       </a>
     </li>
     
     <li>
-      <a href="#deploy">
+      <a class="nav-link" href="#deploy">
         Deploy
       </a>
     </li>
     
     <li>
-      <a href="#run">
+      <a class="nav-link" href="#run">
         Run
       </a>
     </li>
     
     <li>
-      <a href="#stop">
+      <a class="nav-link" href="#stop">
         Stop
       </a>
     </li>
     
     <li>
-      <a href="#restart">
+      <a class="nav-link" href="#restart">
         Restart
       </a>
     </li>

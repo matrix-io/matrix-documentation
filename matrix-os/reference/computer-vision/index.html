@@ -11,7 +11,7 @@
   <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
 </head>
 
-<body>
+<body data-spy="scroll">
   <nav class="navbar navbar-expand-lg navbar-light container">
   <a class="navbar-brand" href="/">
     <img src="../../../img/everloop.png" width="38" height="38" class="d-inline-block align-top" alt="">
@@ -22,7 +22,7 @@
   </button>
   <div class="collapse navbar-collapse" id="navbar-menu">
     <ul class="navbar-nav ml-auto">
-      <li class="nav-item">
+      <!-- <li class="nav-item">
         <a class="nav-link">
           For Home
         </a>
@@ -71,7 +71,7 @@
             <img src="/img/spain.png" alt="Spanish" />
           </a>
         </div>
-      </li>
+      </li> -->
     </ul>
   </div>
 </nav>
@@ -255,10 +255,9 @@
 
     
   <!-- only 1 deep, print menu items  -->
-    
-  
+   
   <li><a href="../../troubleshooting/" class="">Troubleshooting</a></li>
-     
+    
 </ul>
 
   
@@ -334,8 +333,9 @@
 
     
   <!-- only 1 deep, print menu items  -->
+   
+  <li><a href="../../../matrix-core/troubleshooting/" class="">Troubleshooting</a></li>
     
-     
 </ul>
 
   
@@ -437,8 +437,9 @@
 
     
   <!-- only 1 deep, print menu items  -->
+   
+  <li><a href="../../../matrix-hal/troubleshooting/" class="">Troubleshooting</a></li>
     
-     
 </ul>
 
   
@@ -457,7 +458,7 @@
  
           </ul>
         </div>
-        <div id="content" class="col-lg-8">
+        <div id="content"  class="col-lg-8">
            <h2 id="computer-vision">Computer Vision</h2>
 <p>MATRIX OS is designed to integrate with computer vision in a powerful and robust way. You can use computer vision output to drive behavior, capture data for further analysis or anything you want!</p>
 <h2 id="example">Example</h2>
@@ -730,123 +731,123 @@ matrix.service('people-count').then(data => {})
           <div class="toc">
             
             <h3>Contents</h3>
-            <ul>
-               <li>
-  <a href="#computer-vision" class="active">
+            <ul class="nav">
+               <li class='nav-item'>
+  <a href="#computer-vision" class="nav-link active">
     Computer Vision
   </a>
   
-</li>  <li>
-  <a href="#example" class="">
+</li>  <li class='nav-item'>
+  <a href="#example" class="nav-link ">
     Example
   </a>
   
-</li>  <li>
-  <a href="#configuration" class="">
+</li>  <li class='nav-item'>
+  <a href="#configuration" class="nav-link ">
     Configuration
   </a>
   
-</li>  <li>
-  <a href="#matrixservice" class="">
+</li>  <li class='nav-item'>
+  <a href="#matrixservice" class="nav-link ">
     matrix.service
   </a>
   
   <ul>
     
     <li>
-      <a href="#basic-algorithms">
+      <a class="nav-link" href="#basic-algorithms">
         basic algorithms
       </a>
     </li>
     
     <li>
-      <a href="#options">
+      <a class="nav-link" href="#options">
         options
       </a>
     </li>
     
     <li>
-      <a href="#start">
+      <a class="nav-link" href="#start">
         start()
       </a>
     </li>
     
     <li>
-      <a href="#stop">
+      <a class="nav-link" href="#stop">
         stop()
       </a>
     </li>
     
     <li>
-      <a href="#then">
+      <a class="nav-link" href="#then">
         .then()
       </a>
     </li>
     
     <li>
-      <a href="#complete-example">
+      <a class="nav-link" href="#complete-example">
         Complete Example
       </a>
     </li>
     
   </ul>
   
-</li>  <li>
-  <a href="#advanced-algorithms" class="">
+</li>  <li class='nav-item'>
+  <a href="#advanced-algorithms" class="nav-link ">
     Advanced Algorithms
   </a>
   
-</li>  <li>
-  <a href="#extended-face-analytics" class="">
+</li>  <li class='nav-item'>
+  <a href="#extended-face-analytics" class="nav-link ">
     Extended Face Analytics
   </a>
   
   <ul>
     
     <li>
-      <a href="#example-configyaml">
+      <a class="nav-link" href="#example-configyaml">
         Example Config.yaml
       </a>
     </li>
     
     <li>
-      <a href="#example-appjs">
+      <a class="nav-link" href="#example-appjs">
         Example app.js
       </a>
     </li>
     
     <li>
-      <a href="#recognition">
+      <a class="nav-link" href="#recognition">
         Recognition
       </a>
     </li>
     
     <li>
-      <a href="#example-configyaml_1">
+      <a class="nav-link" href="#example-configyaml_1">
         Example Config.yaml
       </a>
     </li>
     
     <li>
-      <a href="#example-appjs_1">
+      <a class="nav-link" href="#example-appjs_1">
         Example app.js
       </a>
     </li>
     
     <li>
-      <a href="#training-data-response">
+      <a class="nav-link" href="#training-data-response">
         Training Data Response
       </a>
     </li>
     
     <li>
-      <a href="#training-data-example">
+      <a class="nav-link" href="#training-data-example">
         Training Data Example
       </a>
     </li>
     
     <li>
-      <a href="#stop_1">
+      <a class="nav-link" href="#stop_1">
         Stop()
       </a>
     </li>

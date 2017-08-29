@@ -11,7 +11,7 @@
   <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
 </head>
 
-<body>
+<body data-spy="scroll">
   <nav class="navbar navbar-expand-lg navbar-light container">
   <a class="navbar-brand" href="/">
     <img src="../../../img/everloop.png" width="38" height="38" class="d-inline-block align-top" alt="">
@@ -22,7 +22,7 @@
   </button>
   <div class="collapse navbar-collapse" id="navbar-menu">
     <ul class="navbar-nav ml-auto">
-      <li class="nav-item">
+      <!-- <li class="nav-item">
         <a class="nav-link">
           For Home
         </a>
@@ -71,7 +71,7 @@
             <img src="/img/spain.png" alt="Spanish" />
           </a>
         </div>
-      </li>
+      </li> -->
     </ul>
   </div>
 </nav>
@@ -243,10 +243,9 @@
 
     
   <!-- only 1 deep, print menu items  -->
-    
-  
+   
   <li><a href="../../troubleshooting/" class="">Troubleshooting</a></li>
-     
+    
 </ul>
 
   
@@ -322,8 +321,9 @@
 
     
   <!-- only 1 deep, print menu items  -->
+   
+  <li><a href="../../../matrix-core/troubleshooting/" class="">Troubleshooting</a></li>
     
-     
 </ul>
 
   
@@ -425,8 +425,9 @@
 
     
   <!-- only 1 deep, print menu items  -->
+   
+  <li><a href="../../../matrix-hal/troubleshooting/" class="">Troubleshooting</a></li>
     
-     
 </ul>
 
   
@@ -445,7 +446,7 @@
  
           </ul>
         </div>
-        <div id="content" class="col-lg-8">
+        <div id="content"  class="col-lg-8">
            <h2 id="applications">Applications</h2>
 <p>MOS applications act as a logical glue between hardware components, machine learning libraries and the internet. For example, you could train faces of a group of people, match it up with Twitter profiles, and have the MATRIX device read the last tweet by a recognized face. You could have your device watch for your face, and then after confirming with an NFC tag, it could unlock your front door. A wide world of possible interactions exists via MATRIX OS applications.</p>
 <h3 id="reference">Reference</h3>
@@ -492,40 +493,40 @@ matrix.sensor('temperature').then(data =&gt; {
           <div class="toc">
             
             <h3>Contents</h3>
-            <ul>
-               <li>
-  <a href="#applications" class="active">
+            <ul class="nav">
+               <li class='nav-item'>
+  <a href="#applications" class="nav-link active">
     Applications
   </a>
   
   <ul>
     
     <li>
-      <a href="#reference">
+      <a class="nav-link" href="#reference">
         Reference
       </a>
     </li>
     
     <li>
-      <a href="#data-flow">
+      <a class="nav-link" href="#data-flow">
         Data Flow
       </a>
     </li>
     
     <li>
-      <a href="#dashboards">
+      <a class="nav-link" href="#dashboards">
         Dashboards
       </a>
     </li>
     
     <li>
-      <a href="#configuration-driven">
+      <a class="nav-link" href="#configuration-driven">
         Configuration driven
       </a>
     </li>
     
     <li>
-      <a href="#development">
+      <a class="nav-link" href="#development">
         Development
       </a>
     </li>

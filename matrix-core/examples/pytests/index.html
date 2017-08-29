@@ -11,7 +11,7 @@
   <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
 </head>
 
-<body>
+<body data-spy="scroll">
   <nav class="navbar navbar-expand-lg navbar-light container">
   <a class="navbar-brand" href="/">
     <img src="../../../img/everloop.png" width="38" height="38" class="d-inline-block align-top" alt="">
@@ -22,7 +22,7 @@
   </button>
   <div class="collapse navbar-collapse" id="navbar-menu">
     <ul class="navbar-nav ml-auto">
-      <li class="nav-item">
+      <!-- <li class="nav-item">
         <a class="nav-link">
           For Home
         </a>
@@ -71,7 +71,7 @@
             <img src="/img/spain.png" alt="Spanish" />
           </a>
         </div>
-      </li>
+      </li> -->
     </ul>
   </div>
 </nav>
@@ -229,8 +229,9 @@
 
     
   <!-- only 1 deep, print menu items  -->
+   
+  <li><a href="../../../matrix-os/troubleshooting/" class="">Troubleshooting</a></li>
     
-     
 </ul>
 
   
@@ -310,10 +311,9 @@
 
     
   <!-- only 1 deep, print menu items  -->
-    
-  
+   
   <li><a href="../../troubleshooting/" class="">Troubleshooting</a></li>
-     
+    
 </ul>
 
   
@@ -415,8 +415,9 @@
 
     
   <!-- only 1 deep, print menu items  -->
+   
+  <li><a href="../../../matrix-hal/troubleshooting/" class="">Troubleshooting</a></li>
     
-     
 </ul>
 
   
@@ -435,31 +436,36 @@
  
           </ul>
         </div>
-        <div id="content" class="col-lg-8">
-           <h1 id="python-examples">Python Examples</h1>
-<h2 id="prerequisites">Prerequisites</h2>
-<h3 id="python-packages">Python packages</h3>
-<p>install python packages dependences:</p>
-<pre><code class="bash">sudo apt-get install build-essential python-dev
+        <div id="content"  class="col-lg-8">
+           <h2 id="python-examples">Python Examples</h2>
+<h3 id="prerequisites">Prerequisites</h3>
+<p>Make sure to have cloned the Python examples found below to your Raspberry Pi.</p>
+<pre><code>git clone https://github.com/matrix-io/matrix-creator-malos;
+git submodule update --init;
+cd matrix-creator-malos/src/python_test;
+</code></pre>
+
+<h4 id="python-packages">Python packages</h4>
+<p>Install the following python packages dependences via Terminal.</p>
+<pre><code>sudo apt-get install build-essential python-dev
 pip install -r requirements.txt
 </code></pre>
 
-<p>If you use <a href="https://github.com/kennethreitz/pipenv">pipenv</a>:</p>
-<pre><code class="bash"># Install deps
+<p>If you're using <a href="https://github.com/kennethreitz/pipenv">pipenv</a>, then do the following:</p>
+<pre><code># Install dependencies
 pipenv install
 </code></pre>
 
-<h3 id="matrix-creator-software">MATRIX Creator software</h3>
+<h4 id="matrix-creator-software">MATRIX Creator software</h4>
 <p>Install CORE and perform device reboot. </p>
-<pre><code class="bash">echo &quot;deb http://packages.matrix.one/matrix-creator/ ./&quot; | sudo tee --append /etc/apt/sources.list
+<pre><code>echo &quot;deb http://packages.matrix.one/matrix-creator/ ./&quot; | sudo tee --append /etc/apt/sources.list
 sudo apt-get update
 sudo apt-get upgrade
 sudo apt-get install matrix-creator-init matrix-creator-malos cmake g++ git libzmq3-dev --no-install-recommends
 reboot
-
 </code></pre>
 
-<h2 id="running-basic-sample">Running basic sample</h2>
+<h3 id="test-gpio">Test GPIO</h3>
 <pre><code class="bash">$ python test_gpio.py
 GPIO15=0
 GPIO15=1
@@ -467,56 +473,56 @@ GPIO15=0
 
 </code></pre>
 
-<p>If you use <a href="https://github.com/kennethreitz/pipenv">pipenv</a>:</p>
-<pre><code>pipenv run python test_gpio.py
+<p>If you're using <a href="https://github.com/kennethreitz/pipenv">pipenv</a>:</p>
+<pre><code class="bash">$ pipenv run python test_gpio.py
 </code></pre>
 
 <p>(on this example: pin 15 on write mode, toggle value 0 and 1)</p>
 <h2 id="python-test-files">Python Test Files</h2>
 <h3 id="driver_info">Driver_info</h3>
-<ul>
-<li><code>python test_driver_info.py</code></li>
-</ul>
+<pre><code class="bash">python test_driver_info.py
+</code></pre>
+
 <h3 id="everloop">Everloop</h3>
-<ul>
-<li><code>python test_everloop.py</code></li>
-</ul>
+<pre><code class="bash">python test_everloop.py
+</code></pre>
+
 <h3 id="everloop-color">Everloop color</h3>
-<ul>
-<li><code>python test_set_everloop_color.py</code></li>
-</ul>
-<h3 id="gpio">Gpio</h3>
-<ul>
-<li><code>python test_gpio.py</code></li>
-</ul>
-<h3 id="gpio-read-write">Gpio read &amp; write</h3>
-<ul>
-<li><code>python test_gpio_read_write.py</code></li>
-</ul>
+<pre><code class="bash">python test_set_everloop_color.py
+</code></pre>
+
+<h3 id="gpio">GPIO</h3>
+<pre><code class="bash">python test_gpio.py
+</code></pre>
+
+<h3 id="gpio-read-write">GPIO Read &amp; Write</h3>
+<pre><code class="bash">python test_gpio_read_write.py
+</code></pre>
+
 <h3 id="humidity">Humidity</h3>
-<ul>
-<li><code>python test_humidity.py</code></li>
-</ul>
+<pre><code class="bash">python test_humidity.py
+</code></pre>
+
 <h3 id="imu">Imu</h3>
-<ul>
-<li><code>python test_imu.py</code></li>
-</ul>
+<pre><code class="bash">python test_imu.py
+</code></pre>
+
 <h3 id="ir">IR</h3>
-<ul>
-<li><code>python test_ir_remote.py</code></li>
-</ul>
+<pre><code class="bash">python test_ir_remote.py
+</code></pre>
+
 <h3 id="pressure">Pressure</h3>
-<ul>
-<li><code>python test_pressure.py</code></li>
-</ul>
+<pre><code class="bash">python test_pressure.py
+</code></pre>
+
 <h3 id="servo">Servo</h3>
-<ul>
-<li><code>python test_servo.py</code></li>
-</ul>
+<pre><code class="bash">python test_servo.py
+</code></pre>
+
 <h3 id="uv">UV</h3>
-<ul>
-<li><code>python test_uv.py</code></li>
-</ul>
+<pre><code class="bash">python test_uv.py
+</code></pre>
+
 <h4 id="gpio-python-example">GPIO python example</h4>
 <p>On this example, we will connect to CORE GPIO driver for controlling a single pin. GPIO driver on MATRIX creator supports:<a href="https://github.com/matrix-io/matrix-creator-malos/blob/master/docs/gpio_diagram.jpg"><img src="https://github.com/matrix-io/matrix-creator-malos/blob/master/docs/gpio_diagram.jpg" align="right" width="420" ></a></p>
 <ul>
@@ -680,35 +686,149 @@ If you start sending keep-alive messages it will start returning data every seco
           <div class="toc">
             
             <h3>Contents</h3>
-            <ul>
-               <li>
-  <a href="#python-examples" class="active">
+            <ul class="nav">
+               <li class='nav-item'>
+  <a href="#python-examples" class="nav-link active">
     Python Examples
   </a>
   
   <ul>
     
     <li>
-      <a href="#prerequisites">
+      <a class="nav-link" href="#prerequisites">
         Prerequisites
       </a>
     </li>
     
     <li>
-      <a href="#running-basic-sample">
-        Running basic sample
+      <a class="nav-link" href="#test-gpio">
+        Test GPIO
+      </a>
+    </li>
+    
+  </ul>
+  
+</li>  <li class='nav-item'>
+  <a href="#python-test-files" class="nav-link ">
+    Python Test Files
+  </a>
+  
+  <ul>
+    
+    <li>
+      <a class="nav-link" href="#driver_info">
+        Driver_info
       </a>
     </li>
     
     <li>
-      <a href="#python-test-files">
-        Python Test Files
+      <a class="nav-link" href="#everloop">
+        Everloop
       </a>
     </li>
     
     <li>
-      <a href="#core-driver-details">
-        CORE Driver details
+      <a class="nav-link" href="#everloop-color">
+        Everloop color
+      </a>
+    </li>
+    
+    <li>
+      <a class="nav-link" href="#gpio">
+        GPIO
+      </a>
+    </li>
+    
+    <li>
+      <a class="nav-link" href="#gpio-read-write">
+        GPIO Read &amp; Write
+      </a>
+    </li>
+    
+    <li>
+      <a class="nav-link" href="#humidity">
+        Humidity
+      </a>
+    </li>
+    
+    <li>
+      <a class="nav-link" href="#imu">
+        Imu
+      </a>
+    </li>
+    
+    <li>
+      <a class="nav-link" href="#ir">
+        IR
+      </a>
+    </li>
+    
+    <li>
+      <a class="nav-link" href="#pressure">
+        Pressure
+      </a>
+    </li>
+    
+    <li>
+      <a class="nav-link" href="#servo">
+        Servo
+      </a>
+    </li>
+    
+    <li>
+      <a class="nav-link" href="#uv">
+        UV
+      </a>
+    </li>
+    
+    <li>
+      <a class="nav-link" href="#advanced-sample">
+        Advanced sample
+      </a>
+    </li>
+    
+  </ul>
+  
+</li>  <li class='nav-item'>
+  <a href="#core-driver-details" class="nav-link ">
+    CORE Driver details
+  </a>
+  
+  <ul>
+    
+    <li>
+      <a class="nav-link" href="#0mq-port">
+        0MQ Port
+      </a>
+    </li>
+    
+    <li>
+      <a class="nav-link" href="#protocol-buffers">
+        Protocol buffers
+      </a>
+    </li>
+    
+    <li>
+      <a class="nav-link" href="#keep-alives">
+        Keep-alives
+      </a>
+    </li>
+    
+    <li>
+      <a class="nav-link" href="#errors">
+        Errors
+      </a>
+    </li>
+    
+    <li>
+      <a class="nav-link" href="#write">
+        Write
+      </a>
+    </li>
+    
+    <li>
+      <a class="nav-link" href="#read">
+        Read
       </a>
     </li>
     

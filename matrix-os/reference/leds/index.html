@@ -11,7 +11,7 @@
   <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
 </head>
 
-<body>
+<body data-spy="scroll">
   <nav class="navbar navbar-expand-lg navbar-light container">
   <a class="navbar-brand" href="/">
     <img src="../../../img/everloop.png" width="38" height="38" class="d-inline-block align-top" alt="">
@@ -22,7 +22,7 @@
   </button>
   <div class="collapse navbar-collapse" id="navbar-menu">
     <ul class="navbar-nav ml-auto">
-      <li class="nav-item">
+      <!-- <li class="nav-item">
         <a class="nav-link">
           For Home
         </a>
@@ -71,7 +71,7 @@
             <img src="/img/spain.png" alt="Spanish" />
           </a>
         </div>
-      </li>
+      </li> -->
     </ul>
   </div>
 </nav>
@@ -255,10 +255,9 @@
 
     
   <!-- only 1 deep, print menu items  -->
-    
-  
+   
   <li><a href="../../troubleshooting/" class="">Troubleshooting</a></li>
-     
+    
 </ul>
 
   
@@ -334,8 +333,9 @@
 
     
   <!-- only 1 deep, print menu items  -->
+   
+  <li><a href="../../../matrix-core/troubleshooting/" class="">Troubleshooting</a></li>
     
-     
 </ul>
 
   
@@ -437,8 +437,9 @@
 
     
   <!-- only 1 deep, print menu items  -->
+   
+  <li><a href="../../../matrix-hal/troubleshooting/" class="">Troubleshooting</a></li>
     
-     
 </ul>
 
   
@@ -457,7 +458,7 @@
  
           </ul>
         </div>
-        <div id="content" class="col-lg-8">
+        <div id="content"  class="col-lg-8">
            <h2 id="everloop-leds">Everloop LEDS</h2>
 <p>A powerful tool for communicating with end users is the EverLoop LED circle. CLICK VIDEO BELOW:</p>
 <p><a href="https://www.youtube.com/watch?v=L4btaqw4HqM"><img alt="Everloop Tutorial" src="../../img/everloop-image.png" /></a></p>
@@ -606,117 +607,117 @@ matrix.led([
           <div class="toc">
             
             <h3>Contents</h3>
-            <ul>
-               <li>
-  <a href="#everloop-leds" class="active">
+            <ul class="nav">
+               <li class='nav-item'>
+  <a href="#everloop-leds" class="nav-link active">
     Everloop LEDS
   </a>
   
-</li>  <li>
-  <a href="#basic-operations" class="">
+</li>  <li class='nav-item'>
+  <a href="#basic-operations" class="nav-link ">
     Basic Operations
   </a>
   
   <ul>
     
     <li>
-      <a href="#string-notation-render">
+      <a class="nav-link" href="#string-notation-render">
         String Notation &amp; Render
       </a>
     </li>
     
   </ul>
   
-</li>  <li>
-  <a href="#intermediate-operation" class="">
+</li>  <li class='nav-item'>
+  <a href="#intermediate-operation" class="nav-link ">
     Intermediate Operation
   </a>
   
   <ul>
     
     <li>
-      <a href="#object-notation-shape-generators">
+      <a class="nav-link" href="#object-notation-shape-generators">
         Object Notation - Shape Generators
       </a>
     </li>
     
     <li>
-      <a href="#available-shapes">
+      <a class="nav-link" href="#available-shapes">
         Available Shapes
       </a>
     </li>
     
     <li>
-      <a href="#shape-properties">
+      <a class="nav-link" href="#shape-properties">
         Shape Properties
       </a>
     </li>
     
     <li>
-      <a href="#chaining-operations">
+      <a class="nav-link" href="#chaining-operations">
         Chaining Operations
       </a>
     </li>
     
     <li>
-      <a href="#multiple-shapes-and-pixel-drawing">
+      <a class="nav-link" href="#multiple-shapes-and-pixel-drawing">
         Multiple shapes and pixel drawing
       </a>
     </li>
     
   </ul>
   
-</li>  <li>
-  <a href="#examples" class="">
+</li>  <li class='nav-item'>
+  <a href="#examples" class="nav-link ">
     Examples
   </a>
   
-</li>  <li>
-  <a href="#composition" class="">
+</li>  <li class='nav-item'>
+  <a href="#composition" class="nav-link ">
     Composition
   </a>
   
   <ul>
     
     <li>
-      <a href="#shape-objects">
+      <a class="nav-link" href="#shape-objects">
         Shape Objects
       </a>
     </li>
     
     <li>
-      <a href="#direct-led-manipulation">
+      <a class="nav-link" href="#direct-led-manipulation">
         Direct LED Manipulation
       </a>
     </li>
     
   </ul>
   
-</li>  <li>
-  <a href="#example-clock" class="">
+</li>  <li class='nav-item'>
+  <a href="#example-clock" class="nav-link ">
     Example clock
   </a>
   
-</li>  <li>
-  <a href="#advanced-use" class="">
+</li>  <li class='nav-item'>
+  <a href="#advanced-use" class="nav-link ">
     Advanced Use
   </a>
   
-</li>  <li>
-  <a href="#high-level-discussion" class="">
+</li>  <li class='nav-item'>
+  <a href="#high-level-discussion" class="nav-link ">
     High Level Discussion
   </a>
   
   <ul>
     
     <li>
-      <a href="#the-problem">
+      <a class="nav-link" href="#the-problem">
         The problem
       </a>
     </li>
     
     <li>
-      <a href="#the-solution">
+      <a class="nav-link" href="#the-solution">
         The Solution
       </a>
     </li>

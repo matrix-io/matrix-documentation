@@ -11,7 +11,7 @@
   <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
 </head>
 
-<body>
+<body data-spy="scroll">
   <nav class="navbar navbar-expand-lg navbar-light container">
   <a class="navbar-brand" href="/">
     <img src="../../../img/everloop.png" width="38" height="38" class="d-inline-block align-top" alt="">
@@ -22,7 +22,7 @@
   </button>
   <div class="collapse navbar-collapse" id="navbar-menu">
     <ul class="navbar-nav ml-auto">
-      <li class="nav-item">
+      <!-- <li class="nav-item">
         <a class="nav-link">
           For Home
         </a>
@@ -71,7 +71,7 @@
             <img src="/img/spain.png" alt="Spanish" />
           </a>
         </div>
-      </li>
+      </li> -->
     </ul>
   </div>
 </nav>
@@ -229,8 +229,9 @@
 
     
   <!-- only 1 deep, print menu items  -->
+   
+  <li><a href="../../../matrix-os/troubleshooting/" class="">Troubleshooting</a></li>
     
-     
 </ul>
 
   
@@ -314,10 +315,9 @@
 
     
   <!-- only 1 deep, print menu items  -->
-    
-  
+   
   <li><a href="../../troubleshooting/" class="">Troubleshooting</a></li>
-     
+    
 </ul>
 
   
@@ -419,8 +419,9 @@
 
     
   <!-- only 1 deep, print menu items  -->
+   
+  <li><a href="../../../matrix-hal/troubleshooting/" class="">Troubleshooting</a></li>
     
-     
 </ul>
 
   
@@ -439,55 +440,57 @@
  
           </ul>
         </div>
-        <div id="content" class="col-lg-8">
+        <div id="content"  class="col-lg-8">
            <h2 id="prerequisites">Prerequisites</h2>
-<h5 id="hardware">Hardware</h5>
+<h3 id="hardware">Hardware</h3>
 <ul>
 <li>Raspberry Pi with MATRIX Creator</li>
 <li>SD Card with <a href="../installation/">MATRIX CORE installed</a></li>
 </ul>
-<h2 id="development-prerequisites">Development Prerequisites</h2>
+<h3 id="development-prerequisites">Development Prerequisites</h3>
 <ul>
 <li>Language <a href="http://zeromq.org/bindings:_start">supported by ZeroMQ</a></li>
 <li><a href="https://developers.google.com/protocol-buffers/">Protocol Buffers</a></li>
 </ul>
-<h2 id="get-started">Get Started</h2>
+<h3 id="continue">Continue</h3>
 <ol>
-<li>Get your Pi ready at (installation)[installation.md].</li>
+<li>Get your Pi ready at <a href="../installation/">installation</a>.</li>
 <li>Do <a href="../hello-world/">Hello World</a></li>
 <li>Try <a href="../../examples/jstests/">JavaScript</a> or <a href="../../examples/pytests/">Python</a> tests.</li>
-<li>Write and run your own CORE enabled software.</li>
+<li>Write and run your own CORE-enabled software by using our <a href="./reference.md">Reference</a> documentation.</li>
 </ol> 
         </div>
         <div class="toc-parent col-lg-2">
           <div class="toc">
             
             <h3>Contents</h3>
-            <ul>
-               <li>
-  <a href="#prerequisites" class="active">
+            <ul class="nav">
+               <li class='nav-item'>
+  <a href="#prerequisites" class="nav-link active">
     Prerequisites
   </a>
   
   <ul>
     
     <li>
-      <a href="#hardware">
+      <a class="nav-link" href="#hardware">
         Hardware
       </a>
     </li>
     
+    <li>
+      <a class="nav-link" href="#development-prerequisites">
+        Development Prerequisites
+      </a>
+    </li>
+    
+    <li>
+      <a class="nav-link" href="#continue">
+        Continue
+      </a>
+    </li>
+    
   </ul>
-  
-</li>  <li>
-  <a href="#development-prerequisites" class="">
-    Development Prerequisites
-  </a>
-  
-</li>  <li>
-  <a href="#get-started" class="">
-    Get Started
-  </a>
   
 </li> 
             </ul>

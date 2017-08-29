@@ -11,7 +11,7 @@
   <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
 </head>
 
-<body>
+<body data-spy="scroll">
   <nav class="navbar navbar-expand-lg navbar-light container">
   <a class="navbar-brand" href="/">
     <img src="../../img/everloop.png" width="38" height="38" class="d-inline-block align-top" alt="">
@@ -22,7 +22,7 @@
   </button>
   <div class="collapse navbar-collapse" id="navbar-menu">
     <ul class="navbar-nav ml-auto">
-      <li class="nav-item">
+      <!-- <li class="nav-item">
         <a class="nav-link">
           For Home
         </a>
@@ -71,7 +71,7 @@
             <img src="/img/spain.png" alt="Spanish" />
           </a>
         </div>
-      </li>
+      </li> -->
     </ul>
   </div>
 </nav>
@@ -243,10 +243,9 @@
 
     
   <!-- only 1 deep, print menu items  -->
-    
-  
+   
   <li><a href="../troubleshooting/" class="">Troubleshooting</a></li>
-     
+    
 </ul>
 
   
@@ -322,8 +321,9 @@
 
     
   <!-- only 1 deep, print menu items  -->
+   
+  <li><a href="../../matrix-core/troubleshooting/" class="">Troubleshooting</a></li>
     
-     
 </ul>
 
   
@@ -425,8 +425,9 @@
 
     
   <!-- only 1 deep, print menu items  -->
+   
+  <li><a href="../../matrix-hal/troubleshooting/" class="">Troubleshooting</a></li>
     
-     
 </ul>
 
   
@@ -445,7 +446,7 @@
  
           </ul>
         </div>
-        <div id="content" class="col-lg-8">
+        <div id="content"  class="col-lg-8">
            <h1 id="overview">Overview</h1>
 <p>MATRIX Open System (MOS) is open source software for hosting IoT applications. MATRIX Open System runs on node.js, and initially, applications will be written in JavaScript, however, as we finish writing SDKs, other languages will be supported. Python is first up.</p>
 <h2 id="applications">Applications</h2>
@@ -474,52 +475,52 @@
           <div class="toc">
             
             <h3>Contents</h3>
-            <ul>
-               <li>
-  <a href="#overview" class="active">
+            <ul class="nav">
+               <li class='nav-item'>
+  <a href="#overview" class="nav-link active">
     Overview
   </a>
   
   <ul>
     
     <li>
-      <a href="#applications">
+      <a class="nav-link" href="#applications">
         Applications
       </a>
     </li>
     
     <li>
-      <a href="#dashboard">
+      <a class="nav-link" href="#dashboard">
         Dashboard
       </a>
     </li>
     
     <li>
-      <a href="#configuration">
+      <a class="nav-link" href="#configuration">
         Configuration
       </a>
     </li>
     
     <li>
-      <a href="#command-line-interface">
+      <a class="nav-link" href="#command-line-interface">
         Command Line Interface
       </a>
     </li>
     
     <li>
-      <a href="#sending-data">
+      <a class="nav-link" href="#sending-data">
         Sending Data
       </a>
     </li>
     
     <li>
-      <a href="#application-publishing">
+      <a class="nav-link" href="#application-publishing">
         Application Publishing
       </a>
     </li>
     
     <li>
-      <a href="#manual-setup">
+      <a class="nav-link" href="#manual-setup">
         Manual Setup
       </a>
     </li>
