@@ -1,36 +1,41 @@
 # Python Examples
 
+### Prerequisites
 
-## Prerequisites
+Make sure to have cloned the Python examples found below to your Raspberry Pi.
+```
+git clone https://github.com/matrix-io/matrix-creator-malos;
+git submodule update --init;
+cd matrix-creator-malos/src/python_test;
+```
 
-### Python packages
+#### Python packages
 
-install python packages dependences:
-``` bash
+Install the following python packages dependences via Terminal.
+```
 sudo apt-get install build-essential python-dev
 pip install -r requirements.txt
 ```
 
-If you use [pipenv](https://github.com/kennethreitz/pipenv):
-```bash
-# Install deps
+If you're using [pipenv](https://github.com/kennethreitz/pipenv), then do the following:
+```
+# Install dependencies
 pipenv install
 ```
 
-### MATRIX Creator software
+#### MATRIX Creator software
 
 Install CORE and perform device reboot. 
 
-``` bash
+```
 echo "deb http://packages.matrix.one/matrix-creator/ ./" | sudo tee --append /etc/apt/sources.list
 sudo apt-get update
 sudo apt-get upgrade
 sudo apt-get install matrix-creator-init matrix-creator-malos cmake g++ git libzmq3-dev --no-install-recommends
 reboot
-
 ```
 
-## Running basic sample
+### Test GPIO
 
 ``` bash
 $ python test_gpio.py
@@ -40,9 +45,9 @@ GPIO15=0
 
 ```
 
-If you use [pipenv](https://github.com/kennethreitz/pipenv):
+If you're using [pipenv](https://github.com/kennethreitz/pipenv):
 ```
-pipenv run python test_gpio.py
+$ pipenv run python test_gpio.py
 ```
 
 (on this example: pin 15 on write mode, toggle value 0 and 1)
@@ -51,47 +56,70 @@ pipenv run python test_gpio.py
 
 ### Driver_info
 
-- `python test_driver_info.py`
+```
+python test_driver_info.py
+```
 
 ### Everloop
 
-- `python test_everloop.py`
+```
+python test_everloop.py
+```
 
 ### Everloop color
 
-- `python test_set_everloop_color.py`
 
-### Gpio
+```
+python test_set_everloop_color.py
+```
 
-- `python test_gpio.py`
+### GPIO
 
-### Gpio read & write
+```
+python test_gpio.py
+```
 
-- `python test_gpio_read_write.py`
+### GPIO Read & Write
+
+```
+python test_gpio_read_write.py
+```
 
 ### Humidity
 
-- `python test_humidity.py`
+```
+python test_humidity.py
+```
 
 ### Imu
 
-- `python test_imu.py`
+```
+python test_imu.py
+```
 
 ### IR
 
-- `python test_ir_remote.py`
+```
+python test_ir_remote.py
+```
 
 ### Pressure
 
-- `python test_pressure.py`
+```
+python test_pressure.py
+```
 
 ### Servo
 
-- `python test_servo.py`
+```
+python test_servo.py
+```
 
 ### UV
 
-- `python test_uv.py`
+```
+python test_uv.py
+```
 
 
 #### GPIO python example

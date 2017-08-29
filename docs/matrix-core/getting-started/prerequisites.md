@@ -10,7 +10,7 @@
 * [Protocol Buffers](https://developers.google.com/protocol-buffers/)
 
 ## Get Started
-1. Get your Pi ready at (installation)[installation.md].
+1. Get your Pi ready at [installation](installation.md).
 1. Do [Hello World](hello-world.md)
 1. Try [JavaScript](../examples/jstests.md) or [Python](../examples/pytests.md) tests.
 1. Write and run your own CORE enabled software.
