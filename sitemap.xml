@@ -3,16 +3,16 @@
 
     
     <url>
-     <loc>None/</loc>
-     <lastmod>2017-07-21</lastmod>
+     <loc>/</loc>
+     <lastmod>2017-08-28</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
 
     
     <url>
-     <loc>None/upgrades/</loc>
-     <lastmod>2017-07-21</lastmod>
+     <loc>/setup/</loc>
+     <lastmod>2017-08-28</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -20,72 +20,38 @@
     
         
     <url>
-     <loc>None/CLI/overview/</loc>
-     <lastmod>2017-07-21</lastmod>
+     <loc>/matrix-os/</loc>
+     <lastmod>2017-08-28</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>None/CLI/installation/</loc>
-     <lastmod>2017-07-21</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>None/CLI/apps/</loc>
-     <lastmod>2017-07-21</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>None/CLI/device/</loc>
-     <lastmod>2017-07-21</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>None/CLI/example/</loc>
-     <lastmod>2017-07-21</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>None/intro/cli-troubleshooting/</loc>
-     <lastmod>2017-07-21</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    
-
-    
-        
-    <url>
-     <loc>None/API/overview/</loc>
-     <lastmod>2017-07-21</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>None/intro/app-publishing/</loc>
-     <lastmod>2017-07-21</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>None</loc>
+     <loc></loc>
      <lastmod></lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>None</loc>
+     <loc></loc>
      <lastmod></lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>None/intro/matrix-troubleshooting/</loc>
-     <lastmod>2017-07-21</lastmod>
+     <loc></loc>
+     <lastmod></lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc></loc>
+     <lastmod></lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/matrix-os/troubleshooting/</loc>
+     <lastmod>2017-08-28</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -94,62 +60,32 @@
     
         
     <url>
-     <loc>None/Reference/creator/</loc>
-     <lastmod>2017-07-21</lastmod>
+     <loc>/matrix-core/</loc>
+     <lastmod>2017-08-28</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>None/Reference/voice/</loc>
-     <lastmod>2017-07-21</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>None</loc>
+     <loc></loc>
      <lastmod></lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>None</loc>
+     <loc></loc>
      <lastmod></lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>None/Reference/pinout/</loc>
-     <lastmod>2017-07-21</lastmod>
+     <loc></loc>
+     <lastmod></lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>None/Hardware/fpga/</loc>
-     <lastmod>2017-07-21</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>None/Hardware/Sam3/</loc>
-     <lastmod>2017-07-21</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>None/Hardware/sam3mcu-programming/</loc>
-     <lastmod>2017-07-21</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>None/Hardware/microphone/</loc>
-     <lastmod>2017-07-21</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>None/Hardware/SPI/</loc>
-     <lastmod>2017-07-21</lastmod>
+     <loc>/matrix-core/troubleshooting/</loc>
+     <lastmod>2017-08-28</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -158,8 +94,44 @@
     
         
     <url>
-     <loc>None/Demos/Alexa/</loc>
-     <lastmod>2017-07-21</lastmod>
+     <loc>/matrix-hal/</loc>
+     <lastmod>2017-08-28</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc></loc>
+     <lastmod></lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc></loc>
+     <lastmod></lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc></loc>
+     <lastmod></lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc></loc>
+     <lastmod></lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc></loc>
+     <lastmod></lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/matrix-hal/troubleshooting/</loc>
+     <lastmod>2017-08-28</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -167,8 +139,8 @@
 
     
     <url>
-     <loc>None/dictionary/</loc>
-     <lastmod>2017-07-21</lastmod>
+     <loc>/help/</loc>
+     <lastmod>2017-08-28</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
