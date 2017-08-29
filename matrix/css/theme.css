@@ -291,13 +291,13 @@ img {
   transition: border-left-color 250ms;
   /* transition: left 100ms; */
 
-  padding-left: 11px;
+  padding-left: 6px;
   border-left: 5px solid transparent;
 }
 
 .content .toc ul li a.active {
   border-left-color: #2F80ED;
-  padding-left: 11px;
+  padding-left: 6px;
   color: #2F80ED;
 }
 
