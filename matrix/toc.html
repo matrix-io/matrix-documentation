@@ -1,12 +1,12 @@
-<li>
-  <a href="{{ toc_item.url }}" class="{% if toc_item.active %}active{% endif %}">
+<li class='nav-item'>
+  <a href="{{ toc_item.url }}" class="nav-link {% if toc_item.active %}active{% endif %}">
     {{ toc_item.title }}
   </a>
   {% if toc_item.children %}
   <ul>
     {% for toc_item in toc_item.children %}
     <li>
-      <a href="{{ toc_item.url }}">
+      <a class="nav-link" href="{{ toc_item.url }}">
         {{ toc_item.title }}
       </a>
     </li>

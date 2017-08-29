@@ -232,6 +232,12 @@ img {
   font-size: 0.75em;
 }
 
+/* scrolly spy */
+.toc {
+  position: relative;
+  height: 100%;
+  overflow-y: hidden;
+}
 
 /* add a little space to the top of each column so it's not against the border  */
 
@@ -281,12 +287,17 @@ img {
   font-size: 0.75em;
 }
 
+.content .toc ul li a {
+  transition: border-left-color 250ms;
+  /* transition: left 100ms; */
+
+  padding-left: 6px;
+  border-left: 5px solid transparent;
+}
+
 .content .toc ul li a.active {
-  border-left: 5px solid #2F80ED;
-  display: block;
-  padding-left: 5px;
-  position: relative;
-  left: -11px;
+  border-left-color: #2F80ED;
+  padding-left: 6px;
   color: #2F80ED;
 }
 
