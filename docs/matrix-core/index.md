@@ -1,10 +1,6 @@
 # MATRIX CORE
 
-MATRIX CORE provides [Protobufs](https://developers.google.com/protocol-buffers/) over [ZeroMQ](http://zeromq.org/). 
-
-An intended target for this layer is [MATRIX Open System](http://github.com/matrix-io/matrix-os).
-
-You can also use CORE to query sensors and control any MATRIX Device from any language that supports protocol buffers (version 3.X) and 0MQ.
+MATRIX CORE provides [Protobufs](https://developers.google.com/protocol-buffers/) over [ZeroMQ](http://zeromq.org/). An intended target for this layer is [MATRIX Open System](http://github.com/matrix-io/matrix-os). You can also use CORE to query sensors and control any MATRIX Device from any language that supports protocol buffers (version 3.X) and 0MQ. 
 
 Connections to CORE can be made both from localhost (127.0.0.1) and from remote computers that are in the same network.
 

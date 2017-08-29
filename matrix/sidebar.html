@@ -1,4 +1,4 @@
- {% if nav_item.title == 'MATRIX OS' or nav_item.title == 'MATRIX HAL' or nav_item.title == 'MATRIX CORE'%} {% set expand = true %} {% endif %} {% if expand or nav_item.children %}
+{% if expand or nav_item.children %}
 
 
 <!-- Children complicate things  -->
@@ -16,10 +16,9 @@
 <ul class="subnav">
   {% for nav_child in nav_item.children %} {% if not nav_child.children %}
   <!-- only 1 deep, print menu items  -->
-  {% if nav_child.title != 'Index' and nav_child.title != 'MATRIX OS' and nav_child.title != 'MATRIX HAL' and nav_child.title != 'MATRIX CORE' %}  
-  {% if nav_item.active %}
+  {% if nav_child.title != 'Index' and nav_child.title != 'MATRIX OS' and nav_child.title != 'MATRIX HAL' and nav_child.title != 'MATRIX CORE' %} 
   <li><a href="{{ nav_child.url }}" class="{% if nav_child.active %}active{% endif %}">{{ nav_child.title }}</a></li>
-  {% endif %} {% endif %} {% else %}
+  {% endif %} {% else %}
   <!-- 2 deep  -->
   <!-- print subroot  -->
   <li>
