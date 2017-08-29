@@ -1,10 +1,13 @@
 ## Examples
 
 ### App Creation
-[Example](app-create.md) Very basics of app creation, deployment and starting.
+* Very basics of app creation, deployment and starting. - [[Example](app-create.md)] 
 
 ### Sensor Test
-[Example](sensor-test.md) Go through the basics of connecting to sensors and using the LED
+* The basics of connecting to sensors and using the LED. - [[Example](sensor-test.md)] 
 
 ### IFTTT Integration
-[Example](ifttt.md) Integrate with the online universe via IFTTT.
+*  Integrate with the online universe via IFTTT. - [[Example](ifttt.md)]
+
+### Dashboards
+* Make amazing data-driven dashboards. - [[Example]](dash-create.md)]

@@ -6,7 +6,7 @@ The IMU driver reports values for:
 * Pitch Axis or lateral axis
 * Roll Axis or longitudinal axis
 
-The driver follows the [CORE protocol](../README.md#protocol).
+The driver follows the [CORE protocol](../index.md#protocol).
 
 ### 0MQ Port
 ```

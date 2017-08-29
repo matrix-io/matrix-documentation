@@ -11,7 +11,7 @@ The Humidity can be configured with:
 * Current temperature in celcius
 * Flag to set software calibration.
 
-The driver follows the [CORE protocol](../README.md#protocol).
+The driver follows the [CORE protocol](../index.md#protocol).
 
 ### 0MQ Port
 ```

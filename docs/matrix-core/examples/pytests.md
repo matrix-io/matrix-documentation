@@ -46,7 +46,7 @@ GPIO15=0
 ```
 
 If you're using [pipenv](https://github.com/kennethreitz/pipenv):
-```
+``` bash
 $ pipenv run python test_gpio.py
 ```
 
@@ -56,68 +56,68 @@ $ pipenv run python test_gpio.py
 
 ### Driver_info
 
-```
+``` bash
 python test_driver_info.py
 ```
 
 ### Everloop
 
-```
+```bash
 python test_everloop.py
 ```
 
 ### Everloop color
 
 
-```
+```bash
 python test_set_everloop_color.py
 ```
 
 ### GPIO
 
-```
+```bash
 python test_gpio.py
 ```
 
 ### GPIO Read & Write
 
-```
+```bash
 python test_gpio_read_write.py
 ```
 
 ### Humidity
 
-```
+```bash
 python test_humidity.py
 ```
 
 ### Imu
 
-```
+```bash
 python test_imu.py
 ```
 
 ### IR
 
-```
+```bash
 python test_ir_remote.py
 ```
 
 ### Pressure
 
-```
+```bash
 python test_pressure.py
 ```
 
 ### Servo
 
-```
+```bash
 python test_servo.py
 ```
 
 ### UV
 
-```
+```bash
 python test_uv.py
 ```
 
