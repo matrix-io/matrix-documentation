@@ -38,7 +38,7 @@ Access a command prompt on your Pi.
 
 #### MOS Installation
 
-This command will install the **MATRIX Open System** and required sub-components.
+This command will install the **MATRIX Open System** and required sub-components. Expect the device to reboot when finished.
 
 ```bash
 curl https://raw.githubusercontent.com/matrix-io/matrix-creator-quickstart/master/install.sh | sh
