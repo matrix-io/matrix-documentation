@@ -1,14 +1,11 @@
+## Javascript Example
+> You need [NodeJS, and the Node Package Manager (npm)](https://nodejs.org/en/download/) installed on the Raspberry Pi.
 
-## JAVASCRIPT Example
 CORE is the program that sits between the low level hardware layer and MATRIX OS. This program allows MATRIX OS to access the board hardware via ZeroMQ sockets. You can also use it directly, as it is done with the examples below. The IPs are hardcoded in the examples to 127.0.0.1. Remember to edit them if you're accessing the Creator from another host and not from the Raspberry itself.
 
 For an in-depth discussion of these tests, please examine the [Reference](../reference/) sections for JavaScript details.
 
-### NodeJS Dependency
-
-**Note:** Pre-requisite of [Node](https://nodejs.org/en/download) on the target device.
-
-On the RaspberryPi
+### On the Raspberry Pi
 
 ```bash
 # Install npm (doesn't really matter what version, apt-get node is v0.10...)
