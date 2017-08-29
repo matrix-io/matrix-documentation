@@ -11,7 +11,7 @@
   <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
 </head>
 
-<body>
+<body data-spy="scroll">
   {% include "nav.html" %}
 
   <div class="header">
@@ -46,14 +46,14 @@
             {% set nav_level = 0 %} {% for nav_item in nav %} {% include "sidebar.html" %} {% endfor %}
           </ul>
         </div>
-        <div id="content" class="col-lg-8">
+        <div id="content"  class="col-lg-8">
           {% block content %} {{ page.content }} {% endblock %}
         </div>
         <div class="toc-parent col-lg-2">
           <div class="toc">
             {% if page and page.input_path != 'None' %}
             <h3>Contents</h3>
-            <ul>
+            <ul class="nav">
               {% for toc_item in page.toc %} {% include "toc.html" %} {% endfor %}
             </ul>
           </div>
