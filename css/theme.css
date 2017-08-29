@@ -267,7 +267,7 @@ img {
 }
 
 .content .sidebar ul>li {
-  margin-bottom: 1em;
+  margin: 0.25em 0em 0.25em 0em;
 }
 
 .content .sidebar ul .expanded {
