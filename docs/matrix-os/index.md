@@ -14,12 +14,9 @@ To learn more about applications, tooling and the dashboard, start at [Overview]
 
 ### Developing MATRIX Applications
 
-> To develop on MOS, you should have some familiarity with JavaScript and how to do command line operations. 
+> To develop on MOS, you should have some familiarity with JavaScript and how to do command line operations. See [Prerequisites](getting-started/prerequisites.md) for more details. 
 
-See [Prerequisites](getting-started/prerequisites.md) 
+First, install the [Command Line Tool](overview/cli.md) and register your device, either via CLI or mobile app. After your device is registered, the best place to start with developing MOS applications is [Hello World](getting-started/hello-world.md). This will get you familiar with the MOS application-device workflow. 
 
-First, install the [Command Line Tool](overview/cli.md) and register your device, either via CLI or mobile app.
-
-After your device is registered, the best place to start with developing MOS applications is [Hello World](getting-started/hello-world.md). This will get you familiar with the MOS application-device workflow. 
-
+### Continue
 Then visit [Next Steps](getting-started/next-steps.md) to build some [examples](examples/index.md), or dive into the [reference](reference/index.md)
