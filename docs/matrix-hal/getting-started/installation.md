@@ -34,3 +34,7 @@ Install the project...
 -- Installing: /usr/local/include/matrix_hal/wishbone_bus.h
 ```
 
+### Continue
+1. Do [Hello World](./hello-world.md)
+1. Try out the [hardware demos](../examples/hardware-demos.md) available inside the `demos` directory.
+1. Write and run your own HAL abstraction layer by using our [Reference](../reference.md) documentation.
