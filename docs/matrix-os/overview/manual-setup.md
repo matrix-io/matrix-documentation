@@ -1,4 +1,4 @@
-## Manual Setup
+## Manual Start
 MOS is a managed environment for running IoT applications. If you want more control and information, you can run MOS manually. 
 
 ### Headless Access
