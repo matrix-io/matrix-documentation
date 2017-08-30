@@ -697,13 +697,18 @@
         }, 
         {
             "location": "/matrix-os/examples/app-create/", 
-            "text": "Creating, deploying and running applications\n\n\n\n\nYou must have installed the \nCLI\n and have a registered MATRIX device for this example.\n\n\n\n\n$ matrix create testApp\n$ cd testApp\n$ vi app.js\n\n\n\n\nEnter this to \napp.js\n. It will flash the LED green for 5 seconds.\n\n\nmatrix.led('green').render();\n\nsetTimeout(() =\n {\n  matrix.led('black').render();\n}, 5000)\n\n\n\n\nDeploy the application to your MATRIX device\n\n\n# if you don't know your device id\n$ matrix list devices\n\n# select from above list\n$ matrix use {deviceId}\n\n# from still inside the testApp directory\n$ matrix deploy testApp\n\n# run the MOS application\n$ matrix start testApp\n\n\n\n\nThat's it! The light should flash green.\n\n\n# stop the MOS application (optional)\n$ matrix stop testApp", 
+            "text": "Creating, deploying and running applications\n\n\n\n\nYou must have installed the \nCLI\n and have a registered MATRIX device for this example.\n\n\n\n\n$ matrix create testApp\n$ cd testApp\n$ vi app.js\n\n\n\n\nEnter this to \napp.js\n. It will flash the LED green for 5 seconds.\n\n\nmatrix.led('green').render();\n\nsetTimeout(() =\n {\n  matrix.led('black').render();\n}, 5000)\n\n\n\n\nDeploy\n\n\nDeploy the application to your MATRIX device\n\n\n# if you don't know your device id\n$ matrix list devices\n\n# select from above list\n$ matrix use {deviceId}\n\n# from still inside the testApp directory\n$ matrix deploy testApp\n\n# run the MOS application\n$ matrix start testApp\n\n\n\n\nThat's it! The light should flash green.\n\n\n# stop the MOS application (optional)\n$ matrix stop testApp", 
             "title": "Create an App"
         }, 
         {
             "location": "/matrix-os/examples/app-create/#creating-deploying-and-running-applications", 
-            "text": "You must have installed the  CLI  and have a registered MATRIX device for this example.   $ matrix create testApp\n$ cd testApp\n$ vi app.js  Enter this to  app.js . It will flash the LED green for 5 seconds.  matrix.led('green').render();\n\nsetTimeout(() =  {\n  matrix.led('black').render();\n}, 5000)  Deploy the application to your MATRIX device  # if you don't know your device id\n$ matrix list devices\n\n# select from above list\n$ matrix use {deviceId}\n\n# from still inside the testApp directory\n$ matrix deploy testApp\n\n# run the MOS application\n$ matrix start testApp  That's it! The light should flash green.  # stop the MOS application (optional)\n$ matrix stop testApp", 
+            "text": "You must have installed the  CLI  and have a registered MATRIX device for this example.   $ matrix create testApp\n$ cd testApp\n$ vi app.js  Enter this to  app.js . It will flash the LED green for 5 seconds.  matrix.led('green').render();\n\nsetTimeout(() =  {\n  matrix.led('black').render();\n}, 5000)", 
             "title": "Creating, deploying and running applications"
+        }, 
+        {
+            "location": "/matrix-os/examples/app-create/#deploy", 
+            "text": "Deploy the application to your MATRIX device  # if you don't know your device id\n$ matrix list devices\n\n# select from above list\n$ matrix use {deviceId}\n\n# from still inside the testApp directory\n$ matrix deploy testApp\n\n# run the MOS application\n$ matrix start testApp  That's it! The light should flash green.  # stop the MOS application (optional)\n$ matrix stop testApp", 
+            "title": "Deploy"
         }, 
         {
             "location": "/matrix-os/examples/dash-create/", 
@@ -2421,6 +2426,16 @@
             "title": "Zigbee Bulb Brightness"
         }, 
         {
+            "location": "/matrix-core/reference/", 
+            "text": "Reference\n\n\n\n\nEverloop\n\n\nHumidity\n\n\nIMU\n\n\nIR\n\n\nPressure\n\n\nUV\n\n\nGPIO", 
+            "title": "Index"
+        }, 
+        {
+            "location": "/matrix-core/reference/#reference", 
+            "text": "Everloop  Humidity  IMU  IR  Pressure  UV  GPIO", 
+            "title": "Reference"
+        }, 
+        {
             "location": "/matrix-core/reference/everloop/", 
             "text": "Everloop\n\n\nThe Everloop driver controls the LED array of the MATRIX Creator.\nIt follows the \nCORE protocol\n.\n\n\n0MQ Port\n\n\n20021\n\n\n\n\nKeep-alives\n\n\nThis driver doesn't need keep-alive messages as it doesn't send data to the subscribed programs.\n\n\nErrors\n\n\nThis driver report errors when an invalid configuration is sent.\n\n\nRead\n\n\nThis driver doesn't send any data to a subscribed program.\n\n\nExample Usage\n\n\nThis section provides an enhanced description of the relevant parts of the \nsample source code\n.\n\n\nTo run the source code of this example you need to execute the following commands:\n\n\ngit clone https://github.com/matrix-io/matrix-creator-malos.git\ncd matrix-creator-malos\ngit submodule update --init\ncd src/js_test/\nnpm install\nnode test_everloop.js\n\n\n\n\nIn order to set the LEDs of the Creator you need to perform the following steps.\n\n\nInitialize Configuration\n\n\nvar config = new matrixMalosBuilder.DriverConfig\n\n\n\nCreate LED configuration object\n\n\nconfig.image = new matrixMalosBuilder.EverloopImage\n\n\n\nSet LED states\n\n\nThe following steps needs to be repeated 35 times, once per LED.\n\n\nThe LEDs are counted starting from the left, clock-wise\nas shown in the picture.\n\n\n\n\nIndividual LED state\n\n\nFirst, create the object.\n\n\nvar ledValue = new matrixMalosBuilder.LedValue\n\n\n\nNow fill out the state of a given led by calling the following functions on ledValue.\nEach of the following functions receives an integer in the range [0, 255].\n\n\n\n\n\n\n\n\nFunction\n\n\nObjective\n\n\n\n\n\n\n\n\n\n\nsetRed\n\n\nSet value of red component\n\n\n\n\n\n\nsetGreen\n\n\nSet value of green component\n\n\n\n\n\n\nSetBlue\n\n\nSet value of blue component\n\n\n\n\n\n\nSeWhite\n\n\nSet value of white component\n\n\n\n\n\n\n\n\nThat is, repeat 35 times:\n\n\nledValue.setRed(red_value)\nledValue.setGreen(green_value)\nledValue.setBlue(blue_value)\nledValue.setWhite(white_value)\n\nconfig.image.led.push(ledValue)\n\n\n\nSend configuration\n\n\nconfigSocket.send(config.encode().toBuffer())\n\n\nAll steps combined\n\n\nThe following snippet will make all the greens display the green color.\n\n\nvar config = new matrixMalosBuilder.DriverConfig\nconfig.image = new matrixMalosBuilder.EverloopImage\nfor (var j = 0; j \n 35; ++j) {\n  var ledValue = new matrixMalosBuilder.LedValue\n  ledValue.setRed(0)\n  ledValue.setGreen(30)\n  ledValue.setBlue(0)\n  ledValue.setWhite(0)\n  config.image.led.push(ledValue)\n}\nconfigSocket.send(config.encode().toBuffer())\n\n\n\nGlossary\n\n\nProtocol buffers\n\n\nIn this section we get into the details of the \nprotocol buffers\n used by the\nJavaScript example to communicate with the Everloop driver.\nThe messages used by this driver are defined in \ndriver.proto\n.\n\n\nmessage EverloopImage {\n  repeated LedValue led = 1;\n}\n\n\n\n\nThe message \nEverloopImage\n needs to have exactly 35 messages of type \nLedValue\n in the repeated field \nled\n,\ncorresponding to each of the LEDs present in the Creator.\n\n\nThe message LedValue holds the color values for each LED and each value is in the range [0, 255].\n\n\nmessage LedValue {\n  uint32 red = 1;\n  uint32 green = 2;\n  uint32 blue = 3;\n  uint32 white = 4;\n}", 
             "title": "Everloop"
@@ -2836,42 +2851,42 @@
             "title": "Send continuous configuration:"
         }, 
         {
-            "location": "/matrix-core/reference/UV/", 
+            "location": "/matrix-core/reference/uv/", 
             "text": "UV\n\n\nThe UV driver reports values for:\n\n\n\n\nUV Index scale used in the United States conforms with international guidelines for UVI reporting established by the World Health Organization.  From \nUV Index Scale\n \n\n\nUV Risk scale established by World Health Organization. From \nUV Index Scale\n\n\n\n\nThe driver follows the \nCORE protocol\n.\n\n\n0MQ Port\n\n\n20029\n\n\n\n\nProtocol buffers\n\n\nmessage UV{\n  float uv_index = 1;\n  string oms_risk = 2;\n}\n\n\n\n\nThe message is defined in \ndriver.proto\n.\n\n\nKeep-alives\n\n\nThis driver needs keep-alive messages \nas specified in the CORE protocol\n.\nIf you start sending keep-alive messages it will start returning data every second so you can omit the configuration for this device.\n\n\nErrors\n\n\nThis driver report errors when an invalid configuration is sent.\n\n\nRead\n\n\nThe driver will send a serialized message of type\nUV\n.\n\n\nmessage UV{\n  float uv_index = 1;\n  string oms_risk = 2;\n}\n\n\n\n\nThis is a sample output given by the example described below.\n\n\n$ node test_uv.js \nSending pings every 5 seconds\n{ uv_index: 0, oms_risk: 'Low' }\n{ uv_index: 0, oms_risk: 'Low' }\n{ uv_index: 0, oms_risk: 'Low' }\n{ uv_index: 0, oms_risk: 'Low' }\n\n\n\n\nJavaScript example\n\n\nEnhanced description of the \nsample source code\n.\n\n\nFirst, define the address of the MATRIX Creator. In this case we make it be \n127.0.0.1\n\nbecause we are connecting from the local host but it needs to be different if we\nconnect from another computer. There is also the base port reserved by CORE for\nthe UV driver.\n\n\nvar creator_ip = '127.0.0.1'\nvar creator_uv_base_port = 20013 + (4 * 4) \n\n\n\n\nLoad the protocol buffers used in the example.\n\n\nvar protoBuf = require(\nprotobufjs\n)\n\n// Parse proto file\nvar protoBuilder = protoBuf.loadProtoFile('../../protocol-buffers/malos/driver.proto')\n// Parse matrix_malos package (namespace).\nvar matrixMalosBuilder = protoBuilder.build(\nmatrix_malos\n)\n\n\n\n\nSubscribe to the errors reported by the driver. \n\n\nvar zmq = require('zmq')\n\nvar errorSocket = zmq.socket('sub')\nerrorSocket.connect('tcp://' + creator_ip + ':' + (creator_uv_base_port + 2))\nerrorSocket.subscribe('')\nerrorSocket.on('message', function(error_message) {\n  process.stdout.write('Message received: UV error: ' + error_message.toString('utf8') + \n\\n\n)\n});\n\n\n\n\nAll the drivers are configured using the message \nDriverConfig\n (see \ndriver.proto\n).\nThis is what the message looks like if we omit the fields that are not used in this example.\n\n\nmessage DriverConfig {\n  float delay_between_updates = 1;\n  float timeout_after_last_ping = 2;\n}\n\n\n\nThe following snippet is telling the driver to send an update each 2 seconds\nand stop sending updates if it doesn't receive a keep-alive message for 6 seconds.\n\n\nvar configSocket = zmq.socket('push')\nconfigSocket.connect('tcp://' + creator_ip + ':' + creator_uv_base_port)\n\nvar driverConfigProto = new matrixMalosBuilder.DriverConfig\n\ndriverConfigProto.delay_between_updates = 2.0\ndriverConfigProto.timeout_after_last_ping = 6.0\n\nconfigSocket.send(driverConfigProto.encode().toBuffer())\n\n\n\n\nWhere is where the updates are received by subscribing to the \ndata update port\n of the driver.\nThe subscription is initiated by the line \nupdateSocket.subscribe('')\n.\n\n\nvar updateSocket = zmq.socket('sub')\nupdateSocket.connect('tcp://' + creator_ip + ':' + (creator_uv_base_port + 3))\nupdateSocket.subscribe('')\nupdateSocket.on('message', function(buffer) {\n  var data = new matrixMalosBuilder.UV.decode(buffer)\n  console.log(data)\n});\n\n\n\n\nAn empty keep-alive message is sent to the driver every 5 seconds to make sure it keeps\nsending data updates.\n\n\nvar pingSocket = zmq.socket('push')\npingSocket.connect('tcp://' + creator_ip + ':' + (creator_uv_base_port + 1))\nprocess.stdout.write(\nSending pings every 5 seconds\n);\npingSocket.send(''); // Ping the first time.\nsetInterval(function(){\n  pingSocket.send('');\n}, 5000);", 
             "title": "UV"
         }, 
         {
-            "location": "/matrix-core/reference/UV/#uv", 
+            "location": "/matrix-core/reference/uv/#uv", 
             "text": "The UV driver reports values for:   UV Index scale used in the United States conforms with international guidelines for UVI reporting established by the World Health Organization.  From  UV Index Scale    UV Risk scale established by World Health Organization. From  UV Index Scale   The driver follows the  CORE protocol .", 
             "title": "UV"
         }, 
         {
-            "location": "/matrix-core/reference/UV/#0mq-port", 
+            "location": "/matrix-core/reference/uv/#0mq-port", 
             "text": "20029", 
             "title": "0MQ Port"
         }, 
         {
-            "location": "/matrix-core/reference/UV/#protocol-buffers", 
+            "location": "/matrix-core/reference/uv/#protocol-buffers", 
             "text": "message UV{\n  float uv_index = 1;\n  string oms_risk = 2;\n}  The message is defined in  driver.proto .", 
             "title": "Protocol buffers"
         }, 
         {
-            "location": "/matrix-core/reference/UV/#keep-alives", 
+            "location": "/matrix-core/reference/uv/#keep-alives", 
             "text": "This driver needs keep-alive messages  as specified in the CORE protocol .\nIf you start sending keep-alive messages it will start returning data every second so you can omit the configuration for this device.", 
             "title": "Keep-alives"
         }, 
         {
-            "location": "/matrix-core/reference/UV/#errors", 
+            "location": "/matrix-core/reference/uv/#errors", 
             "text": "This driver report errors when an invalid configuration is sent.", 
             "title": "Errors"
         }, 
         {
-            "location": "/matrix-core/reference/UV/#read", 
+            "location": "/matrix-core/reference/uv/#read", 
             "text": "The driver will send a serialized message of type UV .  message UV{\n  float uv_index = 1;\n  string oms_risk = 2;\n}  This is a sample output given by the example described below.  $ node test_uv.js \nSending pings every 5 seconds\n{ uv_index: 0, oms_risk: 'Low' }\n{ uv_index: 0, oms_risk: 'Low' }\n{ uv_index: 0, oms_risk: 'Low' }\n{ uv_index: 0, oms_risk: 'Low' }", 
             "title": "Read"
         }, 
         {
-            "location": "/matrix-core/reference/UV/#javascript-example", 
+            "location": "/matrix-core/reference/uv/#javascript-example", 
             "text": "Enhanced description of the  sample source code .  First, define the address of the MATRIX Creator. In this case we make it be  127.0.0.1 \nbecause we are connecting from the local host but it needs to be different if we\nconnect from another computer. There is also the base port reserved by CORE for\nthe UV driver.  var creator_ip = '127.0.0.1'\nvar creator_uv_base_port = 20013 + (4 * 4)   Load the protocol buffers used in the example.  var protoBuf = require( protobufjs )\n\n// Parse proto file\nvar protoBuilder = protoBuf.loadProtoFile('../../protocol-buffers/malos/driver.proto')\n// Parse matrix_malos package (namespace).\nvar matrixMalosBuilder = protoBuilder.build( matrix_malos )  Subscribe to the errors reported by the driver.   var zmq = require('zmq')\n\nvar errorSocket = zmq.socket('sub')\nerrorSocket.connect('tcp://' + creator_ip + ':' + (creator_uv_base_port + 2))\nerrorSocket.subscribe('')\nerrorSocket.on('message', function(error_message) {\n  process.stdout.write('Message received: UV error: ' + error_message.toString('utf8') +  \\n )\n});  All the drivers are configured using the message  DriverConfig  (see  driver.proto ).\nThis is what the message looks like if we omit the fields that are not used in this example.  message DriverConfig {\n  float delay_between_updates = 1;\n  float timeout_after_last_ping = 2;\n}  The following snippet is telling the driver to send an update each 2 seconds\nand stop sending updates if it doesn't receive a keep-alive message for 6 seconds.  var configSocket = zmq.socket('push')\nconfigSocket.connect('tcp://' + creator_ip + ':' + creator_uv_base_port)\n\nvar driverConfigProto = new matrixMalosBuilder.DriverConfig\n\ndriverConfigProto.delay_between_updates = 2.0\ndriverConfigProto.timeout_after_last_ping = 6.0\n\nconfigSocket.send(driverConfigProto.encode().toBuffer())  Where is where the updates are received by subscribing to the  data update port  of the driver.\nThe subscription is initiated by the line  updateSocket.subscribe('') .  var updateSocket = zmq.socket('sub')\nupdateSocket.connect('tcp://' + creator_ip + ':' + (creator_uv_base_port + 3))\nupdateSocket.subscribe('')\nupdateSocket.on('message', function(buffer) {\n  var data = new matrixMalosBuilder.UV.decode(buffer)\n  console.log(data)\n});  An empty keep-alive message is sent to the driver every 5 seconds to make sure it keeps\nsending data updates.  var pingSocket = zmq.socket('push')\npingSocket.connect('tcp://' + creator_ip + ':' + (creator_uv_base_port + 1))\nprocess.stdout.write( Sending pings every 5 seconds );\npingSocket.send(''); // Ping the first time.\nsetInterval(function(){\n  pingSocket.send('');\n}, 5000);", 
             "title": "JavaScript example"
         }, 
