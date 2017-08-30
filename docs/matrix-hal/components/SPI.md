@@ -1,8 +1,6 @@
 ### SPI
 
-The SPI bus is not enabled by default by Raspbian.
-
-To enable it you can follow the next steps.
+The SPI bus is not enabled by default by Raspbian. To enable it you can follow the next steps.
 
 First, open raspi-config.
 

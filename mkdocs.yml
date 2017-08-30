@@ -28,7 +28,7 @@ pages:
     - 'Examples': 'matrix-os/examples/index.md'
     - 'Create an App': 'matrix-os/examples/app-create.md'
     - 'Basic Dashboard': 'matrix-os/examples/dash-create.md'
-    - 'Sensor Test' : 'matrix-os/examples/sensor-test.md'
+    - 'Sensor Tests' : 'matrix-os/examples/sensor-test.md'
     - 'IFTTT Integration' : 'matrix-os/examples/ifttt.md'
   - Reference:
     - 'Reference': 'matrix-os/reference/index.md'
@@ -89,6 +89,7 @@ pages:
     - 'xc3sprog': 'matrix-hal/tools.md'
   - Examples:
     - 'Alexa' : 'matrix-hal/examples/alexa.md'
+    - 'Sensor Tests' : 'matrix-hal/examples/hardware-demos.md'
   - Troubleshooting: 'matrix-hal/troubleshooting.md'
 - Support : 'help.md'
 #   - App Publishing: 'intro/app-publishing.md'
