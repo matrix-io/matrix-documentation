@@ -19,4 +19,4 @@ node test_driver_info.js
 
 ### Continue
 1. Try the rest of the [JavaScript](../examples/jstests.md) or [Python](../examples/pytests.md) tests.
-1. Write and run your own CORE-enabled software by using our [Reference](./reference.md) documentation.
+1. Write and run your own CORE-enabled software by using our [Reference](../reference/index.md) documentation.

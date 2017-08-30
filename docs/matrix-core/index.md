@@ -14,7 +14,7 @@ See [Installation](getting-started/installation.md)
 
 ## Examples
 
-See [JS Test Example](examples/tests.md)
+See [JS Test Example](examples/jstests.md)
 
 See [Python Test Example](examples/pytests.md)
 

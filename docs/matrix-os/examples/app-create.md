@@ -18,6 +18,7 @@ setTimeout(() => {
 }, 5000)
 ```
 
+## Deploy 
 Deploy the application to your MATRIX device
 
 ```bash

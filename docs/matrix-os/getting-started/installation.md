@@ -56,7 +56,7 @@ curl https://raw.githubusercontent.com/matrix-io/matrix-creator-quickstart/maste
 
 1. On your Personal Computer, If you didn't do it earlier, in PuTTy, Terminal, or Command Prompt, type `matrix use {deviceId}`
 1. Try `matrix ping`, the device should flash a few seconds later.
-1. Now you can issue commands and [deploy applications](../overview/cli/#deploy) to your MATRIX OS from the [MATRIX CLI](CLI/overview.md).
+1. Now you can issue commands and [deploy applications](../examples/app-create/#deploy) to your MATRIX OS from the [MATRIX CLI](../overview/cli.md).
 
 ### Continue
 

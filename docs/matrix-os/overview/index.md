@@ -28,7 +28,7 @@ Read more at [Overview > Command Line Interface](cli.md)
 
 MATRIX devices will only externally store data if it is explicitly sent via an application. If you want to use MATRIX Dashboard components to work with your data, it will need to be exported using the `send` command.
 
-Read more at [Overview > Sending Data](send.md)
+Read more at [Overview > Sending Data](data.md)
 
 ## Application Publishing
 

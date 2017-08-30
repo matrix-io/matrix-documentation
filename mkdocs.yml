@@ -57,6 +57,7 @@ pages:
     - 'Python' : 'matrix-core/examples/pytests.md'
     - 'JavaScript' : 'matrix-core/examples/jstests.md'
   - Reference:
+    - 'Index': 'matrix-core/reference/index.md'
     - 'Everloop': 'matrix-core/reference/everloop.md'
     - 'GPIO': 'matrix-core/reference/gpio.md'
     - 'Humidity': 'matrix-core/reference/humidity.md'
@@ -64,7 +65,7 @@ pages:
     - 'IR': 'matrix-core/reference/lirc.md'
     - 'Pressure': 'matrix-core/reference/pressure.md'
     - 'Servo': 'matrix-core/reference/servo.md'
-    - 'UV': 'matrix-core/reference/UV.md'
+    - 'UV': 'matrix-core/reference/uv.md'
   - Troubleshooting: 'matrix-core/troubleshooting.md'
 - MATRIX HAL:
   - 'MATRIX HAL': 'matrix-hal/index.md'
