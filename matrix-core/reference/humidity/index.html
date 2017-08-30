@@ -453,11 +453,11 @@
 <p>The Humidity driver reports values for:</p>
 <ul>
 <li>Relative Humidity on the Board </li>
-<li>Temperature in Celcius</li>
-<li>RAW Values of temperaute</li>
+<li>Temperature in Celsius</li>
+<li>RAW Values of temperature</li>
 </ul>
 <p>The Humidity can be configured with:
-<em> Current temperature in celcius
+<em> Current temperature in Celsius
 </em> Flag to set software calibration.</p>
 <p>The driver follows the <a href="../../#protocol">CORE protocol</a>.</p>
 <h3 id="0mq-port">0MQ Port</h3>
@@ -480,7 +480,7 @@ message HumidityParams{
 
 <p>The message is defined in <a href="https://github.com/matrix-io/protocol-buffers/blob/master/malos/driver.proto">driver.proto</a>.</p>
 <h3 id="keep-alives">Keep-alives</h3>
-<p>This driver needs keep-alive messages <a href="https:////github.com/matrix-io/matrix-creator-malos/blob/master/README.md#keep-alive-port">as specified in the CORE protocol</a>.
+<p>This driver needs keep-alive messages <a href="../../#keep-alive-port">as specified in the CORE protocol</a>.
 If you start sending keep-alive messages it will start returning data every second so you can omit the configuration for this device.</p>
 <h3 id="errors">Errors</h3>
 <p>This driver report errors when an invalid configuration is sent.</p>
@@ -593,7 +593,7 @@ setInterval(function(){
           <div class="toc">
             
             <h3>Contents</h3>
-            <ul class="nav">
+            <ul class="nav flex-column">
                <li class='nav-item'>
   <a href="#humidity" class="nav-link active">
     Humidity
@@ -762,7 +762,16 @@ setInterval(function(){
     });
   </script>
 
-   
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-38180903-26', 'auto');
+    ga('send', 'pageview');
+  </script>
+  
 </body>
 
 </html>
