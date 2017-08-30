@@ -1,11 +1,11 @@
-## Dependencies
+### Installation
 
 ```
 sudo apt-get install cmake g++ git
 git clone https://github.com/matrix-io/matrix-creator-hal.git
 ```
 
-## Build
+### Build
 To start working with HAL directly, you'll need to run `sudo make install` to get the build running. 
 
 ```
@@ -33,4 +33,7 @@ Install the project...
 -- Installing: /usr/local/include/matrix_hal/microphone_array.h
 -- Installing: /usr/local/include/matrix_hal/wishbone_bus.h
 ```
+
+### Continue
+Continue onto [Hello World](./hello-world/) to run some examples.
 

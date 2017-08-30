@@ -1,7 +1,7 @@
 # Everloop
 
 The Everloop driver controls the LED array of the MATRIX Creator.
-It follows the [CORE protocol](../README.md#protocol).
+It follows the [CORE protocol](../index.md#protocol).
 
 ### 0MQ Port
 
@@ -64,12 +64,12 @@ First, create the object.
 Now fill out the state of a given led by calling the following functions on ledValue.
 Each of the following functions receives an integer in the range [0, 255].
 
-| Function      |   Objective   |
-| ------------- |:-------------:|
-| setRed        | Set value of red component  |
-| setGreen      | Set value of green component |
-| SetBlue       | Set value of blue component |
-| SeWhite       | Set value of white component |
+| Function | Objective                    |
+| -------- | :--------------------------: |
+| setRed   | Set value of red component   |
+| setGreen | Set value of green component |
+| SetBlue  | Set value of blue component  |
+| SeWhite  | Set value of white component |
 
 That is, repeat 35 times:
 

@@ -291,6 +291,7 @@ img {
   transition: border-left-color 250ms;
   /* transition: left 100ms; */
 
+  display:block;
   padding-left: 6px;
   border-left: 5px solid transparent;
 }

@@ -6,7 +6,7 @@ The GPIO driver on current version supports:<a href="https://github.com/matrix-i
 * GPIO pin output
 * GPIO updates (state from all pins)
 
-The driver follows the [CORE protocol](../index/).
+The driver follows the [CORE protocol](../index.md#protocol).
 
 ### GPIO electrical characteristics
 
