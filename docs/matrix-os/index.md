@@ -18,5 +18,7 @@ To learn more about applications, tooling and the dashboard, start at [Overview]
 
 First, install the [Command Line Tool](overview/cli.md) and register your device, either via CLI or mobile app. After your device is registered, the best place to start with developing MOS applications is [Hello World](getting-started/hello-world.md). This will get you familiar with the MOS application-device workflow. 
 
-### Continue
-Then visit [Next Steps](getting-started/next-steps.md) to build some [examples](examples/index.md), or dive into the [reference](reference/index.md)
+#### Continue
+After the CLI is installed, visit [Next Steps](getting-started/next-steps.md) to get started with[examples](examples/index.md), or dive into the [reference](reference/index.md).
+
+When you're done, you can [publish](overview/publishing.md)
