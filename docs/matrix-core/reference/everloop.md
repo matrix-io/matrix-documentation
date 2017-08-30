@@ -1,7 +1,7 @@
 # Everloop
 
 The Everloop driver controls the LED array of the MATRIX Creator.
-It follows the [CORE protocol](../README.md#protocol).
+It follows the [CORE protocol](../index.md#protocol).
 
 ### 0MQ Port
 
@@ -23,7 +23,7 @@ This driver doesn't send any data to a subscribed program.
 
 ### Example Usage
 
-This section provides an enhanced description of the relevant parts of the [sample source code](../src/js_test/test_everloop.js).
+This section provides an enhanced description of the relevant parts of the [sample source code](https://github.com/matrix-io/matrix-creator-malos/src/js_test/test_everloop.js).
 
 To run the source code of this example you need to execute the following commands:
 
@@ -64,12 +64,12 @@ First, create the object.
 Now fill out the state of a given led by calling the following functions on ledValue.
 Each of the following functions receives an integer in the range [0, 255].
 
-| Function      |   Objective   |
-| ------------- |:-------------:|
-| setRed        | Set value of red component  |
-| setGreen      | Set value of green component |
-| SetBlue       | Set value of blue component |
-| SeWhite       | Set value of white component |
+| Function | Objective                    |
+| -------- | :--------------------------: |
+| setRed   | Set value of red component   |
+| setGreen | Set value of green component |
+| SetBlue  | Set value of blue component  |
+| SeWhite  | Set value of white component |
 
 That is, repeat 35 times:
 

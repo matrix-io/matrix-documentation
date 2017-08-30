@@ -3,15 +3,15 @@
 The Humidity driver reports values for:
 
 * Relative Humidity on the Board 
-* Temperature in Celcius
-* RAW Values of temperaute
+* Temperature in Celsius
+* RAW Values of temperature
 
 
 The Humidity can be configured with:
-* Current temperature in celcius
+* Current temperature in Celsius
 * Flag to set software calibration.
 
-The driver follows the [CORE protocol](../README.md#protocol).
+The driver follows the [CORE protocol](../index.md#protocol).
 
 ### 0MQ Port
 ```
@@ -38,7 +38,7 @@ The message is defined in [driver.proto](https://github.com/matrix-io/protocol-b
 
 ### Keep-alives
 
-This driver needs keep-alive messages [as specified in the CORE protocol](https:////github.com/matrix-io/matrix-creator-malos/blob/master/README.md#keep-alive-port).
+This driver needs keep-alive messages [as specified in the CORE protocol](../index.md#keep-alive-port).
 If you start sending keep-alive messages it will start returning data every second so you can omit the configuration for this device.
 
 

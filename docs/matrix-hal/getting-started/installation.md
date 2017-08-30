@@ -1,11 +1,11 @@
-## Dependencies
+### Installation
 
 ```
 sudo apt-get install cmake g++ git
 git clone https://github.com/matrix-io/matrix-creator-hal.git
 ```
 
-## Build
+### Build
 To start working with HAL directly, you'll need to run `sudo make install` to get the build running. 
 
 ```

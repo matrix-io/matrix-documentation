@@ -11,35 +11,23 @@ This file:
 1. Defines the [widgets](../reference/widgets.md) and their layout in the [dashboard](dashboard.md)
 1. Generates a policy on install, asking the user for specific access to their device.
 
-### Root Options
-`name` - name of the application
+### Configuration Options
+* `name` - Name of the application that appears as part of the application store when viewing it.
+* `description` - Short description that appears as part of the application when deploying or pushing to App Store.
+* `keywords` - a few values about the application. ex: `face, door, unlock`
+* `version` - this field will be updated by the CLI on publish.
+* `configVersion` - This field defines what version is the configuration. don't touch this. 
+* `settings` - runtime variables for MOS applications
+* `dataTypes` - schema for structured data from an application
+* `sensors` - which sensors to activate for this application
+* `integrations` - which external integrations does this application support ie. `ifttt`
+* `events` - which events this application has listeners for 
+* `screens` - layout for widgets. see [Layout](dashboard.md#layout)
+* `widgets` - widget definitions. see [Widgets](dashboard.md#widgets)
+* `services` - service definitions. see [Computer Vision](../reference/computer-vision.md)
 
-`description` - short description
-
-`keywords` - a few values about the application. ex: `face, door, unlock`
-
-`version` - this field will be updated by the CLI on publish.
-
-`configVersion` - this field defines what version is the configuration. don't touch this. 
-
-`settings` - runtime variables for MOS applications
-
-`dataTypes` - schema for structured data from an application
-
-`sensors` - which sensors to activate for this application
-
-`integrations` - which external integrations does this application support ie. `ifttt`
-
-`events` - which events this application has listeners for 
-
-`screens` - layout for widgets. see [Layout](dashboard.md#layout)
-
-`widgets` - widget definitions. see [Widgets](dashboard.md#widgets)
-
-`services` - service definitions. see [Computer Vision](../reference/computer-vision.md)
-
-#### Usage Notes
-The config.yaml is standardized before installation, which will modify it somewhat, especially in the widget definations. Do not be alarmed if your installed `config.yaml` does not match the original, this is normal.
+### Usage Notes
+The `config.yaml` is standardized before installation, which will modify it somewhat, especially in the widget definations. Do not be alarmed if your installed `config.yaml` does not match the original, this is normal.
 
 ### More info
 See the helper library with examples at: <https://github.com/matrix-io/matrix-app-config-helper>

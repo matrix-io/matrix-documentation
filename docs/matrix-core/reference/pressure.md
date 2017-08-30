@@ -6,7 +6,7 @@ The Pressure driver reports values for:
 * Altitude
 * Temperature
 
-The driver follows the [MATRIX CORE protocol](../README.md#protocol).
+The driver follows the [MATRIX CORE protocol](../index.md#protocol).
 
 ### 0MQ Port
 ```
