@@ -11,7 +11,7 @@
   <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
 </head>
 
-<body>
+<body data-spy="scroll">
   {% include "nav.html" %}
 
   <div class="header">
@@ -46,14 +46,14 @@
             {% set nav_level = 0 %} {% for nav_item in nav %} {% include "sidebar.html" %} {% endfor %}
           </ul>
         </div>
-        <div id="content" class="col-lg-8">
+        <div id="content"  class="col-lg-8">
           {% block content %} {{ page.content }} {% endblock %}
         </div>
         <div class="toc-parent col-lg-2">
           <div class="toc">
             {% if page and page.input_path != 'None' %}
             <h3>Contents</h3>
-            <ul>
+            <ul class="nav">
               {% for toc_item in page.toc %} {% include "toc.html" %} {% endfor %}
             </ul>
           </div>
@@ -90,24 +90,16 @@
     });
   </script>
 
-  {% if config.google_analytics %}
   <script>
-    (function(i, s, o, g, r, a, m) {
-      i['GoogleAnalyticsObject'] = r;
-      i[r] = i[r] || function() {
-        (i[r].q = i[r].q || []).push(arguments)
-      }, i[r].l = 1 * new Date();
-      a = s.createElement(o),
-        m = s.getElementsByTagName(o)[0];
-      a.async = 1;
-      a.src = g;
-      m.parentNode.insertBefore(a, m)
-    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
-    ga('create', '{{ config.google_analytics[0] }}', '{{ config.google_analytics[1] }}');
+    ga('create', 'UA-38180903-26', 'auto');
     ga('send', 'pageview');
   </script>
-  {% endif %} {% block extrahead %}{% endblock %}
+  {% block extrahead %}{% endblock %}
 </body>
 
 </html>

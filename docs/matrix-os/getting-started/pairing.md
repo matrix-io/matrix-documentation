@@ -1,5 +1,9 @@
 ## Initial Pairing
 
+
+![](img/m-11.jpg)
+
+
 The easiest way to start using MATRIX OS is to pair it using Bluetooth on your mobile phone.
 
 1. Download the MATRIX application

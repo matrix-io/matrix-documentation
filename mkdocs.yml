@@ -23,7 +23,7 @@ pages:
     - 'Command Line': 'matrix-os/overview/cli.md'
     - 'Sending Data': 'matrix-os/overview/data.md'
     - 'Publishing': 'matrix-os/overview/publishing.md'
-    - 'Manual Setup': 'matrix-os/overview/manual-setup.md'
+    - 'Manual Start': 'matrix-os/overview/manual-setup.md'
   - Examples:
     - 'Examples': 'matrix-os/examples/index.md'
     - 'Create an App': 'matrix-os/examples/app-create.md'
