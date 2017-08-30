@@ -6,7 +6,7 @@ Connections to CORE can be made both from localhost (127.0.0.1) and from remote 
 
 ## Specification
 
-Our [Protocol Buffer Specifications](http://github.com/matrix-io/protocol-buffers) are currently defined in `proto` files. Please use these files to inform your ZMQ payloads. More information can be found in the [examples](examples).
+Our [Protocol Buffer Specifications](http://github.com/matrix-io/protocol-buffers) are currently defined in `proto` files. Please use these files to inform your ZMQ payloads. More information can be found in the examples below.
 
 ## Installation
 
@@ -14,10 +14,8 @@ See [Installation](getting-started/installation.md)
 
 ## Examples
 
-See [JS Test Example](examples/tests.md)
-
-See [Python Test Example](examples/pytests.md)
-
+* See [Javascript Test Example](examples/tests.md)
+* See [Python Test Example](examples/pytests.md)
 
 ## Protocol
 
@@ -77,10 +75,9 @@ Each of the LedValue messages would need to have the following values:
 
 The valid values for led intensities range from 0 to 255, but we set red to 10 because this value is bright enough.
 
-Once the message of type EverloopImage is filled out it needs to be serialized as a string and sent to the 0MQ configuration port.
+Once the message of type Everloop Image is filled out it needs to be serialized as a string and sent to the 0MQ configuration port.
 
-If invalid values are used for the LED values of the number of LED values inside of EverloopImage is not 35 the configuration will be discarded
-and an error message will be generated and sent to the error channel described below.
+If invalid values are used for the LED values of the number of LED values inside of EverloopImage is not 35 the configuration will be discarded and an error message will be generated and sent to the error channel described below.
 
 
 
