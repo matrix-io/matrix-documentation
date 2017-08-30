@@ -14,7 +14,7 @@ See [Installation](getting-started/installation.md)
 
 ## Examples
 
-* See [Javascript Test Example](examples/tests.md)
+* See [Javascript Test Example](examples/jstests.md)
 * See [Python Test Example](examples/pytests.md)
 
 ## Protocol
