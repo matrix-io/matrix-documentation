@@ -13,7 +13,7 @@
 
 <body data-spy="scroll">
   <nav class="navbar navbar-expand-lg navbar-light container">
-  <a class="navbar-brand" href="/">
+  <a class="navbar-brand" href="https://matrix.one">
     <img src="../../../img/everloop.png" width="38" height="38" class="d-inline-block align-top" alt="">
     <span>MATRIX</span>
   </a>
@@ -414,6 +414,7 @@
 
   <ul class="subnav">
       
+        
       
   </ul>
 
@@ -446,7 +447,7 @@
 echo &quot;deb http://packages.matrix.one/matrix-creator/ ./&quot; | sudo tee --append /etc/apt/sources.list;
 sudo apt-get update;
 sudo apt-get upgrade;
-sudo apt-get install libzmq3-dev xc3sprog matrix-creator-openocd wiringpi cmake g++ git;
+sudo apt-get install libzmq3-dev xc3sprog matrix-creator-openocd wiringpi cmake g++ git matrix-creator-init matrix-creator-malos;
 </code></pre>
 
 <p>CORE should be running on next boot.</p>

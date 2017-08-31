@@ -13,7 +13,7 @@
 
 <body data-spy="scroll">
   <nav class="navbar navbar-expand-lg navbar-light container">
-  <a class="navbar-brand" href="/">
+  <a class="navbar-brand" href="https://matrix.one">
     <img src="../img/everloop.png" width="38" height="38" class="d-inline-block align-top" alt="">
     <span>MATRIX</span>
   </a>
@@ -406,6 +406,7 @@
 
   <ul class="subnav">
       
+        
       
   </ul>
 
@@ -437,12 +438,14 @@
 <p>MATRIX CORE provides <a href="https://developers.google.com/protocol-buffers/">Protobufs</a> over <a href="http://zeromq.org/">ZeroMQ</a>. An intended target for this layer is <a href="http://github.com/matrix-io/matrix-os">MATRIX Open System</a>. You can also use CORE to query sensors and control any MATRIX Device from any language that supports protocol buffers (version 3.X) and 0MQ. </p>
 <p>Connections to CORE can be made both from localhost (127.0.0.1) and from remote computers that are in the same network.</p>
 <h2 id="specification">Specification</h2>
-<p>Our <a href="http://github.com/matrix-io/protocol-buffers">Protocol Buffer Specifications</a> are currently defined in <code>proto</code> files. Please use these files to inform your ZMQ payloads. More information can be found in the <a href="./examples">examples</a>.</p>
+<p>Our <a href="http://github.com/matrix-io/protocol-buffers">Protocol Buffer Specifications</a> are currently defined in <code>proto</code> files. Please use these files to inform your ZMQ payloads. More information can be found in the examples below.</p>
 <h2 id="installation">Installation</h2>
 <p>See <a href="getting-started/installation/">Installation</a></p>
 <h2 id="examples">Examples</h2>
-<p>See <a href="examples/jstests/">JS Test Example</a></p>
-<p>See <a href="examples/pytests/">Python Test Example</a></p>
+<ul>
+<li>See <a href="examples/jstests/">Javascript Test Example</a></li>
+<li>See <a href="examples/pytests/">Python Test Example</a></li>
+</ul>
 <h2 id="protocol">Protocol</h2>
 <p>All the CORE drivers use the same protocol to interact with other programs. Drivers allow read-only,
 write-only or read-write modes.</p>
@@ -489,9 +492,8 @@ Each of the LedValue messages would need to have the following values:</p>
 <li>white: 0</li>
 </ul>
 <p>The valid values for led intensities range from 0 to 255, but we set red to 10 because this value is bright enough.</p>
-<p>Once the message of type EverloopImage is filled out it needs to be serialized as a string and sent to the 0MQ configuration port.</p>
-<p>If invalid values are used for the LED values of the number of LED values inside of EverloopImage is not 35 the configuration will be discarded
-and an error message will be generated and sent to the error channel described below.</p>
+<p>Once the message of type Everloop Image is filled out it needs to be serialized as a string and sent to the 0MQ configuration port.</p>
+<p>If invalid values are used for the LED values of the number of LED values inside of EverloopImage is not 35 the configuration will be discarded and an error message will be generated and sent to the error channel described below.</p>
 <h3 id="error-port">Error port</h3>
 <p>Programs can subscribe to the 0MQ error port. It is a PUSH port. The port number is obtained by adding 2 to the base port (Also known as driver port).
 The errors are returned as strings but there's a pending task to change the error messages to a protocol buffer (<a href="https://github.com/matrix-io/matrix-creator-malos/issues/21">track issue</a>).
