@@ -149,9 +149,10 @@ setInterval(function(){
     blend: true
   };
 
-  matrix.led([hourLED, minuteLED]).render();
+  // will draw all three
+  matrix.led([hourLED, minuteLED, secondLED]).render();
 
-}, 1000).render();
+}, 1000);
 ```
 
 ## Advanced Use
