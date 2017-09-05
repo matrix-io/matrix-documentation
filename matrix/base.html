@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>{% if page_title %}{{ page_title }} {% else %} Getting Started - {% endif %}{{ config.site_name }}</title>
+  <title>{% if page.title %}{{ page.title }} {% else %} MATRIX Ecosystem - {% endif %}{{ config.site_name }}</title>
   <link rel="shortcut icon" href="{{ base_url }}/img/favicon.ico">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
   <link rel="stylesheet" href="{{ base_url }}/css/theme.css">
@@ -47,7 +47,7 @@
           </ul>
         </div>
         <div id="content"  class="col-lg-8">
-          {% block content %} {{ content }} {% endblock %}
+          {% block content %} {{ page.content }} {% endblock %}
         </div>
         <div class="toc-parent col-lg-2">
           <div class="toc">
