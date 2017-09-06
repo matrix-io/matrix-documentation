@@ -199,6 +199,10 @@ img {
     justify-content: normal;
     margin-top: 20px;
   }
+
+  .content .toc-parent {
+    display: none;
+  }
 }
 
 
@@ -450,6 +454,15 @@ code {
   .content .compatibility {
     padding-top: 30px;
   }
+  .collapse.navbar-collapse {
+    display: none;
+  }
+}
+
+@media (min-width: 992px) {
+  .collapse.navbar-collapse {
+    display: block;
+  }
 }
 
 
@@ -588,6 +601,8 @@ footer .copyright {
     margin-right: 0px;
   }
 }
-
-
 /********** Footer - END **********/
+
+.collapse.show {
+  display: block!important;
+}

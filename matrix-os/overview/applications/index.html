@@ -13,67 +13,13 @@
 
 <body data-spy="scroll">
   <nav class="navbar navbar-expand-lg navbar-light container">
-  <a class="navbar-brand" href="https://creator.matrix.one">
+  <a class="navbar-brand" href="../../..">
     <img src="../../../img/everloop.png" width="38" height="38" class="d-inline-block align-top" alt="">
     <span>MATRIX</span>
   </a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
+  	<span class="navbar-toggler-icon"></span>
   </button>
-  <div class="collapse navbar-collapse" id="navbar-menu">
-    <ul class="navbar-nav ml-auto">
-      <!-- <li class="nav-item">
-        <a class="nav-link">
-          For Home
-        </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link">
-          Creator
-        </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link">
-          Voice
-        </a>
-      </li>
-      <li class="nav-item">
-        <a href="https://apps.matrix.one/" target="blank" class="nav-link">
-          Apps
-        </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link">
-          Store
-        </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link">
-          OS
-        </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link active">
-          Developers
-        </a>
-      </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <img src="/img/english.png" alt="English">
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" href="#">
-            <span>Português</span>
-            <img src="/img/brazil.png" alt="Portuguese" />
-          </a>
-          <a class="dropdown-item" href="#">
-            <span>Español</span>
-            <img src="/img/spain.png" alt="Spanish" />
-          </a>
-        </div>
-      </li> -->
-    </ul>
-  </div>
 </nav>
 
   <div class="header">
@@ -99,9 +45,10 @@
     <div class="container">
       <div class="row">
         <div class="sidebar col-lg-2">
-          <h3>Documentation</h3>
-          <ul>
-              
+          <div class="collapse navbar-collapse" id="navbar-menu">
+            <h3>Documentation</h3>
+            <ul>
+                
 
 <!-- link to depth-first url found  -->
   
@@ -445,9 +392,10 @@
 
 
  
-          </ul>
+            </ul>
+          </div>
         </div>
-        <div id="content"  class="col-lg-8">
+        <div id="content" class="col-lg-8 col-md-9">
            <h2 id="applications">Applications</h2>
 <p>MOS applications act as a logical glue between hardware components, machine learning libraries and the internet. For example, you could train faces of a group of people, match it up with Twitter profiles, and have the MATRIX device read the last tweet by a recognized face. You could have your device watch for your face, and then after confirming with an NFC tag, it could unlock your front door. A wide world of possible interactions exists via MATRIX OS applications.</p>
 <h3 id="reference">Reference</h3>
@@ -490,7 +438,7 @@ matrix.sensor('temperature').then(data =&gt; {
 <li>When finished, publish to <a href="http://apps.matrix.one">MATRIX App Store</a> with <code>matrix publish &lt;app-name&gt;</code></li>
 </ol> 
         </div>
-        <div class="toc-parent col-lg-2">
+        <div class="toc-parent col-lg-2 col-md-3">
           <div class="toc">
             
             <h3>Contents</h3>
@@ -542,109 +490,106 @@ matrix.sensor('temperature').then(data =&gt; {
       </div>
     </div>
   </div>
-  </div>
 
-  <footer class="container">
-  <div class="row">
-    <div class="col-lg-8">
-      <div class="row">
-        <div class="col-sm-4">
-          <h5>MATRIX</h5>
-          <ul>
-            <!-- <li>
-              <a href="https://matrix.one/products/home">For Home</a>
-            </li>
-            <li>
-              <a href="https://matrix.one/products/creator">Creator</a>
-            </li>
-            <li>
-              <a href="https://matrix.one/products/voice">Voice</a>
-            </li> -->
-            <li>
-              <a href="https://matrix.one/">For Home</a>
-            </li>
-            <li>
-              <a href="https://creator.matrix.one/">Creator</a>
-            </li>
-            <!-- <li>
-              <a href="https://matrix.one/products/voice">Voice</a>
-            </li> -->
-
-            <li>
-              <a href="https://apps.matrix.one/" target="blank">Apps</a>
-            </li>
-          </ul>
-        </div>
-        <div class="col-sm-4">
-          <h5>Learn</h5>
-          <ul>
-            <li>
-              <a href="http://blog.matrix.one/" target="blank">Blog</a>
-            </li>
-            <li>
-              <a href="http://community.matrix.one/" target="blank">Community</a>
-            </li>
-            <li>
-              <a href="../../..">Docs</a>
-            </li>
-          </ul>
-        </div>
-        <div class="col-sm-4">
-          <h5>Social Network</h5>
-          <ul>
-            <li>
-              <a href="https://www.facebook.com/MATRIXCreator" target="blank">Facebook</a>
-            </li>
-            <li>
-              <a href="https://twitter.com/matrix_creator" target="blank">Twitter</a>
-            </li>
-            <li>
-              <a href="https://www.youtube.com/channel/UCBIqR8r0tfY6W-4-YpZ7NeQ" target="blank">YouTube</a>
-            </li>
-          </ul>
+  <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8">
+        <div class="row">
+          <div class="col-sm-4">
+            <h5>MATRIX</h5>
+            <ul>
+              <li>
+                <a href="https://matrix.one/products/home" target="_blank">For Home</a>
+              </li>
+              <li>
+                <a href="https://matrix.one/products/creator" target="_blank">Creator</a>
+              </li>
+              <li>
+                <a href="https://matrix.one/products/voice" target="_blank">Voice</a>
+              </li>
+              <li>
+                <a href="https://apps.matrix.one/" target="_blank">Apps</a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-sm-4">
+            <h5>Learn</h5>
+            <ul>
+              <li>
+                <a href="http://blog.matrix.one/" target="_blank">Blog</a>
+              </li>
+              <li>
+                <a href="http://community.matrix.one/" target="_blank">Community</a>
+              </li>
+              <li>
+                <a href="../../..">Docs</a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-sm-4">
+            <h5>Social Network</h5>
+            <ul>
+              <li>
+                <a href="https://www.facebook.com/MATRIXCreator" target="_blank">Facebook</a>
+              </li>
+              <li>
+                <a href="https://twitter.com/matrix_creator" target="_blank">Twitter</a>
+              </li>
+              <li>
+                <a href="https://www.youtube.com/channel/UCBIqR8r0tfY6W-4-YpZ7NeQ" target="_blank">YouTube</a>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
+      <div class="col-lg-4">
+        <h5>Contact</h5>
+        <ul>
+          <li>
+            <a href="https://matrix.one/contact">Contact Us</a>
+          </li>
+          <li class="subscribe-box">
+            <form id="newsletter-form">
+              <div class="input-group">
+                <input id="newsletter-email" type="email" class="form-control" placeholder="Subscribe for Updates">
+                <button type="submit" class="btn btn-success">Subscribe</button>
+              </div>
+              <label for="newsletter-email"></label>
+            </form>
+          </li>
+        </ul>
+      </div>
     </div>
-    <div class="col-lg-4">
-      <h5>Contact</h5>
-      <ul>
-        <li>
-          <a href="mailto:contact@matrix.one">contact@matrix.one</a>
-        </li>
-        <!-- <li class="subscribe-box">
-          <div class="input-group">
-            <input type="text" class="form-control" placeholder="Subscribe for Updates">
-            <button type="button" class="btn btn-success">Subscribe</button>
-          </div>
-        </li> -->
-      </ul>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-sm-6">
-      <a href="https://creator.matrix.one" class="company-logo">
-        <img src="../../../img/everloop.png" width="38" height="38" class="d-inline-block align-top" alt="">
-        <span>MATRIX</span>
-      </a>
-      <small class="copyright">
-        2017 &copy; MATRIX - All rights reserved
-      </small>
-    </div>
-    <div class="col-sm-6">
-      <div class="utility-links">
-        <a href="https://www.admobilize.com/#!/policies/terms">Terms of Service</a>
-        <a href="https://www.admobilize.com/#!/policies/privacy">Privacy Policy</a>
-        <a href="https://www.admobilize.com/#!/policies/cookie">Cookie Policy</a>
+    <div class="row">
+      <div class="col-sm-6">
+        <a href="https://creator.matrix.one" class="company-logo">
+          <img src="../../../img/everloop.png" width="38" height="38" class="d-inline-block align-top" alt="">
+          <span>MATRIX</span>
+        </a>
+        <small class="copyright">
+          2017 &copy; MATRIX - All rights reserved
+        </small>
+      </div>
+      <div class="col-sm-6">
+        <div class="utility-links">
+          <a href="https://matrix.one/policies/terms">Terms of Service</a>
+          <a href="https://matrix.one/policies/privacy">Privacy Policy</a>
+          <a href="https://matrix.one/policies/cookie">Cookie Policy</a>
+        </div>
       </div>
     </div>
   </div>
 </footer>
 
-  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
   <script src="../../../js/theme.js"></script>
   <script src="https://use.fontawesome.com/21aeb6fedc.js"></script>
+  <script src="../../../js/jquery.ajaxchimp.min.js"></script>
+  <script src="../../../js/jquery.ajaxchimp.langs.min.js"></script>
+  <script src="../../../js/footer.js"></script>
 
   <!-- TOC Script -->
   <script>
