@@ -41,15 +41,17 @@
     <div class="container">
       <div class="row">
         <div class="sidebar col-lg-2">
-          <h3>Documentation</h3>
-          <ul>
-            {% set nav_level = 0 %} {% for nav_item in nav %} {% include "sidebar.html" %} {% endfor %}
-          </ul>
+          <div class="collapse navbar-collapse" id="navbar-menu">
+            <h3>Documentation</h3>
+            <ul>
+              {% set nav_level = 0 %} {% for nav_item in nav %} {% include "sidebar.html" %} {% endfor %}
+            </ul>
+          </div>
         </div>
-        <div id="content"  class="col-lg-8">
+        <div id="content" class="col-lg-8 col-md-9">
           {% block content %} {{ page.content }} {% endblock %}
         </div>
-        <div class="toc-parent col-lg-2">
+        <div class="toc-parent col-lg-2 col-md-3">
           <div class="toc">
             {% if page and page.input_path != 'None' %}
             <h3>Contents</h3>
