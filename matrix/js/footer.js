@@ -8,14 +8,11 @@
     4: 'The username portion of the email address is invalid (the portion before the @: ).',
     5: 'This email address looks fake or invalid. Please enter a real email address.'
   };
-  console.log('hueeeeeeeeeeeeee!!!');
-  console.log($.ajaxChimp);
+
   $('#newsletter-form').ajaxChimp({
     url: 'http://admobilize.us6.list-manage.com/subscribe/post?u=456538565a6b42a1ca52edfd2&amp;id=a9216adb2d',
     language: 'us',
     callback: function(respnse) {
-      console.log('haaaaaaaaaaaaaaaa!!!');
-      console.log(respnse);
       $('#newsletter-form').find('.warning').each(function() {
         $(this).removeClass('warning');
       });
