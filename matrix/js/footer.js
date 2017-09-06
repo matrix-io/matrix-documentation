@@ -10,7 +10,7 @@
   };
 
   $('#newsletter-form').ajaxChimp({
-    url: 'http://admobilize.us6.list-manage.com/subscribe/post?u=456538565a6b42a1ca52edfd2&amp;id=a9216adb2d',
+    url: 'https://admobilize.us6.list-manage.com/subscribe/post?u=456538565a6b42a1ca52edfd2&amp;id=a9216adb2d',
     language: 'us',
     callback: function(respnse) {
       $('#newsletter-form').find('.warning').each(function() {
