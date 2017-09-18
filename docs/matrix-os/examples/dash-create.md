@@ -30,7 +30,7 @@ Data is sent and sorted via it's structure which is defined in `dataTypes`. In t
 ```yaml
 dataTypes:
   motd:
-    msg : string
+    msg: string
 ```
 
 #### Widget Definition
@@ -51,7 +51,7 @@ widgets:
 `message` is the widget name to add to the `screens` layout definition.
 ```yaml
 screens:
-  - message
+  - - message
 ```
 
 #### Final Configuration File
@@ -61,7 +61,7 @@ screens:
 
 dataTypes:
   motd:
-    msg : string
+    msg: string
 
 widgets: 
   message: 
@@ -71,14 +71,14 @@ widgets:
     label: from device
 
 screens:
-  - message
+  - - message
 ```
 
 ### Application to send a Basic Message
 
 Here, we use the dataType `motd`, and send an object with a `msg` key to display in the dashboard.
 ```js
-# app.js
+// app.js
 matrix.type('motd').send({msg: 'hello to dashboard'});
 ```
 
@@ -99,18 +99,23 @@ Adding a `display` widget and a `monitor` data type, the dashboard can begin to 
 ```yaml
 # config.yaml
 dataTypes:
-  message: ...
-  monitor: 
+  motd:
+    msg: string
+  monitor: # new data type
     cpu: float
     mem: integer
 
 screens:
-  - - motd
-  - - graph
+  - - message
+  - - graph # new screen
 
 widgets:
-  motd: ...
-  graph:
+  message:
+    display: label
+    type: motd
+    key: msg
+    label: from device 
+  graph: # new widget
     display: line
     type: monitor
     keys: cpu, mem
@@ -137,14 +142,22 @@ Adding interactivity through `control` widgets is how end users can interface di
 ```yaml
 # config.yaml
 screens:
-  - - motd
+  - - message
   - - graph
-  - - interface
+  - - interface # new screen
 
 widgets:
-  motd: ...
-  graph: ...
-  interface:
+  message:
+    display: label
+    type: motd
+    key: msg
+    label: from device
+  graph:
+    display: line
+    type: monitor
+    keys: cpu, mem
+    label: Device Status
+  interface: # new widget
     control: button
     event: increasePower
     value: + CPU
