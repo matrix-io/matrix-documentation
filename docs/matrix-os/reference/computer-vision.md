@@ -113,8 +113,8 @@ Use `demographics` for the service call and in `config>services>name>engine`
 ```
 services:
   facelytics:
-    engine: demographics
-    type: face
+    engine: detection
+    type: demographics
 ```
 ### Example app.js
 
