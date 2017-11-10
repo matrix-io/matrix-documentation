@@ -6,7 +6,7 @@
 
 ## Creator V1 Pinout - For Reference
 ## Expansion pinout
-![Pinout](https://storage.googleapis.com/packages.matrix.one/wiki-images/hardware/creator_pinout.png)
+![Pinout](../img/creator-pinout.png)
 
 ## Expansion location
 ![](https://storage.googleapis.com/packages.matrix.one/wiki-images/hardware/creator_expansion.jpg)
