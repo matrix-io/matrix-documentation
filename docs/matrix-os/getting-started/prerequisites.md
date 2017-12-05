@@ -13,4 +13,4 @@
 * Host computer running Linux, Win, or OS X for [Command Line Interface](../overview/cli.md), with [NodeJS, Node Package Manager (npm)](https://nodejs.org/en/download/) installed.
 
 ### Continue
-Once you have all the prerequsites listed above, you can continue to [Next Steps](../next-steps.md) or create your first MATRIX [Hello World](../hello-world.md) application. 
+Once you have all the prerequsites listed above, you can continue to [Next Steps](next-steps.md) or create your first MATRIX [Hello World](../getting-started/hello-world.md) application. 
