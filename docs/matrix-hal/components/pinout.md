@@ -1,8 +1,6 @@
 
-# Creator v2 Pinout
-
-![](../img/pinout-v2.png)
-
+# Creator V1 Pinout Rev 2
+![](../img/creator-pinout-v2.png)
 
 ## Creator V1 Pinout - For Reference
 ## Expansion pinout
