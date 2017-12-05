@@ -13,4 +13,4 @@
 * Host computer running Linux, Win, or OS X for [Command Line Interface](../overview/cli.md), with [NodeJS, Node Package Manager (npm)](https://nodejs.org/en/download/) installed.
 
 ### Continue
-Once you have [connected](../device-setup) added power to your Pi, the MATRIX Everloop will activate and eventually, pulse blue, indicating your MATRIX ready for [Pairing](../getting-started/pairing).
+Once you have [connected](../setup) added power to your Pi, the MATRIX Everloop will activate and eventually, pulse blue, indicating your MATRIX ready for [Pairing](../getting-started/pairing.md).
