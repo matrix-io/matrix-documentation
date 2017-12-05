@@ -1,7 +1,7 @@
 ## Prerequisites
 
 ### Hardware
-* [Mobile Application](../getting-started/mobile-applications) Installed
+* [Mobile Application](../getting-started/mobile-applications.md) Installed
 * Raspberry Pi with MATRIX Creator
 * Raspberry Pi Camera
 * SD Card with [MATRIX Open System](installation.md) installed.
