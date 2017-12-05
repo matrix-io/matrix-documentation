@@ -413,7 +413,7 @@ $ cd ezDash
 <p>Data is sent and sorted via it's structure which is defined in <code>dataTypes</code>. In this example <code>motd</code> is the <code>type</code> of data which is parsed for a given key <code>msg</code> in the dashboard.</p>
 <pre><code class="yaml">dataTypes:
   motd:
-    msg : string
+    msg: string
 </code></pre>
 
 <h4 id="widget-definition">Widget Definition</h4>
@@ -429,7 +429,7 @@ $ cd ezDash
 <h4 id="add-to-layout">Add to layout</h4>
 <p><code>message</code> is the widget name to add to the <code>screens</code> layout definition.</p>
 <pre><code class="yaml">screens:
-  - message
+  - - message
 </code></pre>
 
 <h4 id="final-configuration-file">Final Configuration File</h4>
@@ -437,7 +437,7 @@ $ cd ezDash
 
 dataTypes:
   motd:
-    msg : string
+    msg: string
 
 widgets: 
   message: 
@@ -447,12 +447,12 @@ widgets:
     label: from device
 
 screens:
-  - message
+  - - message
 </code></pre>
 
 <h3 id="application-to-send-a-basic-message">Application to send a Basic Message</h3>
 <p>Here, we use the dataType <code>motd</code>, and send an object with a <code>msg</code> key to display in the dashboard.</p>
-<pre><code class="js"># app.js
+<pre><code class="js">// app.js
 matrix.type('motd').send({msg: 'hello to dashboard'});
 </code></pre>
 
@@ -465,18 +465,23 @@ matrix.type('motd').send({msg: 'hello to dashboard'});
 <h4 id="configuration-additions">Configuration Additions</h4>
 <pre><code class="yaml"># config.yaml
 dataTypes:
-  message: ...
-  monitor: 
+  motd:
+    msg: string
+  monitor: # new data type
     cpu: float
     mem: integer
 
 screens:
-  - - motd
-  - - graph
+  - - message
+  - - graph # new screen
 
 widgets:
-  motd: ...
-  graph:
+  message:
+    display: label
+    type: motd
+    key: msg
+    label: from device 
+  graph: # new widget
     display: line
     type: monitor
     keys: cpu, mem
@@ -497,14 +502,22 @@ setInterval(function(){
 <p>Adding interactivity through <code>control</code> widgets is how end users can interface directly with devices in real time. </p>
 <pre><code class="yaml"># config.yaml
 screens:
-  - - motd
+  - - message
   - - graph
-  - - interface
+  - - interface # new screen
 
 widgets:
-  motd: ...
-  graph: ...
-  interface:
+  message:
+    display: label
+    type: motd
+    key: msg
+    label: from device
+  graph:
+    display: line
+    type: monitor
+    keys: cpu, mem
+    label: Device Status
+  interface: # new widget
     control: button
     event: increasePower
     value: + CPU
