@@ -1,6 +1,6 @@
 ## MATRIX Open System
 
-MATRIX Open System (MOS) manages Javascript-based applications on MATRIX devices. MOS should start automatically with your MATRIX device, which, if not yet configured, will be indicated by a pulsing blue light.
+MATRIX Open System (MOS) manages Javascript-based applications on MATRIX devices. 
 
 Read more about [MATRIX Applications](overview/applications.md)
 
@@ -18,7 +18,7 @@ To learn more about applications, tooling and the dashboard, start at [Overview]
 
 First, install the [Command Line Tool](overview/cli.md) and register your device, either via CLI or mobile app. After your device is registered, the best place to start with developing MOS applications is [Hello World](getting-started/hello-world.md). This will get you familiar with the MOS application-device workflow. 
 
-#### Continue
-After the CLI is installed, visit [Next Steps](getting-started/next-steps.md) to get started with[examples](examples/index.md), or dive into the [reference](reference/index.md).
+### Continue
+After the CLI is installed, visit [Next Steps](getting-started/next-steps.md) to get started with [examples](examples/index.md), or dive into the [reference](reference/index.md).
 
 When you're done, you can [publish](overview/publishing.md)

@@ -48,17 +48,18 @@ curl https://raw.githubusercontent.com/matrix-io/matrix-creator-quickstart/maste
 
 #### Device Registration
 
-1. Inside your home folder (`~`), create a file named `.envrc` with the [id & secret exports](/#login-credentials) from above.
+1. Inside your home folder (`~`), create a file named `.envrc`. Type `touch .envrc` to create the file. 
+1. Copy and paste the id & secret exports exactly as shown in the section **Login Credentials** above.
 1. Run `source ~/.envrc` to make the variables available to the shell, which will then be used when starting MOS.
 1. Go to `matrix-os` folder with `cd ~/matrix-os` and run `node index.js` to start the OS.
 
 ### Check if everything works
 
-1. On your Personal Computer, If you didn't do it earlier, in PuTTy, Terminal, or Command Prompt, type `matrix use {deviceId}`
+1. On your Personal Computer, If you didn't do it earlier, in PuTTy, Terminal, or Command Prompt, type `matrix use {deviceId}` or `matrix use {deviceName}`
 1. Try `matrix ping`, the device should flash a few seconds later.
-1. Now you can issue commands and [deploy applications](../examples/app-create/#deploy) to your MATRIX OS from the [MATRIX CLI](../overview/cli.md).
+1. Now you can issue commands and [deploy applications](../examples/app-create/#deploy.md) to your MATRIX OS from the [MATRIX CLI](../overview/cli.md).
 
 ### Continue
 
-* See [Hello World](./hello-world) example
-* See [Manual Setup](../overview/manual-setup)
+* See [Hello World](./hello-world.) example
+* See [Manual Setup](../overview/manual-setup.)
