@@ -9,7 +9,7 @@ pages:
   # Index pages are hidden by template, child[0].url is loaded when user clicks on category
   - 'MATRIX OS': 'matrix-os/index.md'
   - 'Getting Started':
-    - 'Prerequisities': 'matrix-os/getting-started/prerequisites.md'
+    - 'Prerequisites': 'matrix-os/getting-started/prerequisites.md'
     - 'Installation': 'matrix-os/getting-started/installation.md'
     - 'Mobile Apps': 'matrix-os/getting-started/mobile-applications.md'
     - 'Pairing' : 'matrix-os/getting-started/pairing.md' 
