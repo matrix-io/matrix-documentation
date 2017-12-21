@@ -104,7 +104,7 @@
   <ul class="subnav">
       
     
-    <li><a href="../prerequisites/" class="">Prerequisities</a></li>
+    <li><a href="../prerequisites/" class="">Prerequisites</a></li>
         
     
     <li><a href="./" class="active">Installation</a></li>
@@ -434,20 +434,21 @@ export MATRIX_DEVICE_SECRET=08629018e9d77h15i5n0t4r3alz0f06cd4f7e5544272b
 <p><strong>Note:</strong> <a href="https://www.youtube.com/watch?v=ckDD6HEjfAY">Watch Getting Started, Registration and Installation</a> of MATRIX OS and MATRIX CLI on Youtube.</p>
 <h4 id="device-registration">Device Registration</h4>
 <ol>
-<li>Inside your home folder (<code>~</code>), create a file named <code>.envrc</code> with the <a href="../../../#login-credentials">id &amp; secret exports</a> from above.</li>
+<li>Inside your home folder (<code>~</code>), create a file named <code>.envrc</code>. Type <code>touch .envrc</code> to create the file. </li>
+<li>Copy and paste the id &amp; secret exports exactly as shown in the section <strong>Login Credentials</strong> above.</li>
 <li>Run <code>source ~/.envrc</code> to make the variables available to the shell, which will then be used when starting MOS.</li>
 <li>Go to <code>matrix-os</code> folder with <code>cd ~/matrix-os</code> and run <code>node index.js</code> to start the OS.</li>
 </ol>
 <h3 id="check-if-everything-works">Check if everything works</h3>
 <ol>
-<li>On your Personal Computer, If you didn't do it earlier, in PuTTy, Terminal, or Command Prompt, type <code>matrix use {deviceId}</code></li>
+<li>On your Personal Computer, If you didn't do it earlier, in PuTTy, Terminal, or Command Prompt, type <code>matrix use {deviceId}</code> or <code>matrix use {deviceName}</code></li>
 <li>Try <code>matrix ping</code>, the device should flash a few seconds later.</li>
-<li>Now you can issue commands and <a href="../../examples/app-create/#deploy">deploy applications</a> to your MATRIX OS from the <a href="../../overview/cli/">MATRIX CLI</a>.</li>
+<li>Now you can issue commands and <a href="../../examples/app-create/#deploy.md">deploy applications</a> to your MATRIX OS from the <a href="../../overview/cli/">MATRIX CLI</a>.</li>
 </ol>
 <h3 id="continue">Continue</h3>
 <ul>
-<li>See <a href="../hello-world">Hello World</a> example</li>
-<li>See <a href="../../overview/manual-setup">Manual Setup</a></li>
+<li>See <a href="../hello-world.">Hello World</a> example</li>
+<li>See <a href="../../overview/manual-setup.">Manual Setup</a></li>
 </ul> 
         </div>
         <div class="toc-parent col-lg-2 col-md-3">
