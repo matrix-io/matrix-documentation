@@ -26,14 +26,40 @@ sudo apt-get upgrade;
 sudo shutdown -r now;
 ```
 
-### Starting manually
+## Start / Stop manually
+
+CORE runs as a service after boot. If you need to stop it use:
 
 ```bash
-# CORE runs as a service, but to stop it run:
 sudo pkill -9 malos
+```
 
-# to run manually, just type `malos`
-malos
+To manually run it back again use:
+
+```bash
+malos &
+```
+
+The output will be similar to:
+
+```bash
+pi@raspberrypi:~ $ malos &
+[1] 24343
+pi@raspberrypi:~ $ **************
+MALOS starting
+**************
+
+You can query specific driver info using port 20012.
+Registered driver IMU with port 20013.
+Registered driver Humidity with port 20017.
+Registered driver Everloop with port 20021.
+Registered driver Pressure with port 20025.
+Registered driver UV with port 20029.
+Registered driver MicArray_Alsa with port 20037.
+Registered driver Servo with port 20045.
+Registered driver Gpio with port 20049.
+
+pi@raspberrypi:~ $
 ```
 
 ### Continue
