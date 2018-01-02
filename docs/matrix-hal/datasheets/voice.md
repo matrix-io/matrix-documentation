@@ -13,7 +13,7 @@ MATRIX Voice is an open-source VOICE RECOGNITION platform consisting of a 3.14-i
 
 ## System Architecture
 
-![Voice Diagram](../img/voice_arch.png)
+![Voice Diagram](../img/matrix-voice-diagram.png)
 
 ## Voice Engine Integrations
 
