@@ -1,11 +1,17 @@
+
 ## Installation
 
 ```bash
-# setup & installation
-echo "deb http://packages.matrix.one/matrix-creator/ ./" | sudo tee --append /etc/apt/sources.list;
+# Add rep and key
+curl https://apt.matrix.one/doc/apt-key.gpg | sudo apt-key add -
+echo "deb https://apt.matrix.one/raspbian $(lsb_release -sc) main" | sudo tee /etc/apt/sources.list.d/matrixlabs.list
+# update & upgrade
 sudo apt-get update;
 sudo apt-get upgrade;
-sudo apt-get install libzmq3-dev xc3sprog matrix-creator-openocd wiringpi cmake g++ git matrix-creator-init matrix-creator-malos;
+# install malos package
+sudo apt-get install matrixio-malos
+# reboot
+sudo reboot
 ```
 
 CORE should be running on next boot.
