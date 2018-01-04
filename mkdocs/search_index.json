@@ -267,7 +267,7 @@
         }, 
         {
             "location": "/matrix-os/overview/", 
-            "text": "Overview\n\n\nMATRIX Open System (MOS) is open source software for hosting IoT applications. MATRIX Open System runs on node.js, and initially, applications will be written in JavaScript, however, as we finish writing SDKs, other languages will be supported. Python is first up.\n\n\nApplications\n\n\nFundamentally, MATRIX OS applications logically connect hardware with machine learning abstractions. In this way, you can connect the output from a computer vision system to drive real-world behavior in the form of hardware signaling. You can also use internet API's and integrations, such as IFTTT to further customize your application, for yourself, or for end-users.\n\n\nRead more at \nOverview \n Applications\n\n\nDashboard\n\n\nMOS applications optionally include a dashboard for exploring data.\n\n\nRead more at \nOverview \n Dashboard\n\n\nConfiguration\n\n\nIn order to make MOS applications flexible, powerful, and discoverable, each application has an associated file, \nconfig.yaml\n which sets the meta information needed for an application to execute safely and consistently.\n\n\nRead more at \nOverview \n Configuration\n\n\nCommand Line Interface\n\n\nAlong with mobile applications and the dashboard, the Command Line Interface (CLI) enables you to manage your MATRIX device and associated applications. If you want to develop MATRIX OS applications, you need to use the CLI to manage different aspects of the development lifecycle. \n\n\nRead more at \nOverview \n Command Line Interface\n\n\nSending Data\n\n\nMATRIX devices will only externally store data if it is explicitly sent via an application. If you want to use MATRIX Dashboard components to work with your data, it will need to be exported using the \nsend\n command.\n\n\nRead more at \nOverview \n Sending Data\n\n\nApplication Publishing\n\n\nYou can freely publish MATRIX applications to the MATRIX App store. \n\n\nRead more at \nOverview \n Publishing\n\n\nManual Setup\n\n\nIf you want to install MOS from scratch, start here.\n\n\nRead more at \nManual Setup", 
+            "text": "Overview\n\n\nMATRIX Open System (MOS) is open source software for hosting IoT applications. MATRIX Open System runs on node.js, and initially, applications will be written in JavaScript, however, as we finish writing SDKs, other languages will be supported. Python is first up.\n\n\nApplications\n\n\nFundamentally, MATRIX OS applications logically connect hardware with machine learning abstractions. In this way, you can connect the output from a computer vision system to drive real-world behavior in the form of hardware signaling. You can also use third party API's and integrations, such as IFTTT to further customize your application, for yourself, or for end-users.\n\n\nRead more at \nOverview \n Applications\n\n\nDashboard\n\n\nMOS applications optionally include a dashboard for exploring data.\n\n\nRead more at \nOverview \n Dashboard\n\n\nConfiguration\n\n\nIn order to make MOS applications flexible, powerful, and discoverable, each application has an associated file, \nconfig.yaml\n which sets the meta information needed for an application to execute safely and consistently.\n\n\nRead more at \nOverview \n Configuration\n\n\nCommand Line Interface\n\n\nAlong with mobile applications and the dashboard, the Command Line Interface (CLI) enables you to manage your MATRIX device and associated applications. If you want to develop MATRIX OS applications, you need to use the CLI to manage different aspects of the development lifecycle. \n\n\nRead more at \nOverview \n Command Line Interface\n\n\nSending Data\n\n\nMATRIX devices will only externally store data if it is explicitly sent via an application. If you want to use MATRIX Dashboard components to work with your data, it will need to be exported using the \nsend\n command.\n\n\nRead more at \nOverview \n Sending Data\n\n\nApplication Publishing\n\n\nYou can freely publish MATRIX applications to the MATRIX App store. \n\n\nRead more at \nOverview \n Publishing\n\n\nManual Setup\n\n\nIf you want to install MOS from scratch, start here.\n\n\nRead more at \nManual Setup", 
             "title": "Overview"
         }, 
         {
@@ -277,7 +277,7 @@
         }, 
         {
             "location": "/matrix-os/overview/#applications", 
-            "text": "Fundamentally, MATRIX OS applications logically connect hardware with machine learning abstractions. In this way, you can connect the output from a computer vision system to drive real-world behavior in the form of hardware signaling. You can also use internet API's and integrations, such as IFTTT to further customize your application, for yourself, or for end-users.  Read more at  Overview   Applications", 
+            "text": "Fundamentally, MATRIX OS applications logically connect hardware with machine learning abstractions. In this way, you can connect the output from a computer vision system to drive real-world behavior in the form of hardware signaling. You can also use third party API's and integrations, such as IFTTT to further customize your application, for yourself, or for end-users.  Read more at  Overview   Applications", 
             "title": "Applications"
         }, 
         {
@@ -312,7 +312,7 @@
         }, 
         {
             "location": "/matrix-os/overview/applications/", 
-            "text": "Applications\n\n\nMOS applications act as a logical glue between hardware components, machine learning libraries and the internet. For example, you could train faces of a group of people, match it up with Twitter profiles, and have the MATRIX device read the last tweet by a recognized face. You could have your device watch for your face, and then after confirming with an NFC tag, it could unlock your front door. A wide world of possible interactions exists via MATRIX OS applications.\n\n\nReference\n\n\nMore detailed information about programming MOS applications can be found in \nCreate An App\n and \nReference\n.\n\n\nData Flow\n\n\nSensors push to applications which push to libraries which push back to the application, which pushes to the internet, other devices and dashboards. This one-way data flow is well matched with the listener/emitter event model of JavaScript and Node. We run a function, which is asynchronous, it sends a request to a sensor, library or web call, and waits for responses. Unlike traditional request / response style APIs, these are intended to be called once and handle many responses, sometimes in parallel.\n\n\nThis example initializes the temperature sensor, and then handles the response.\n\n\n# callback style\nmatrix.sensor('temperature', data =\n {\n  // data = { value: 74.123123 }\n});\n\n# promise style\nmatrix.sensor('temperature').then(data =\n {\n  // data = { value: 74.123123 }\n});\n\n\n\n\nLearn more about \ncallbacks\n or \npromises\n. MOS does not make true \nPromise\n objects, just borrows the \nthen\n syntax.\n\n\nAfter data is managed inside the application, it can be \nsent to the cloud\n for exporting, webhooks, analysis and to explore in the dashboard.\n\n\nLearn more about \nsending data\n\n\nDashboards\n\n\nEvery MOS application can display data and can be controlled by users on \na highly customizable dashboard\n.  \n\n\nLearn more about \ndashboards\n\n\nConfiguration driven\n\n\nMOS applications use \nconfiguration files\n, \nconfig.yaml\n, to provide easy end-user adaptation, as well as extensive dashboard adaptability. Simple applications don't need any JavaScript and can be configuration only. Configuration is end-user accessible, and can provide unique information for individual instances of MOS applications across devices via \nsettings\n.\n\n\nLearn more about \nconfiguration\n\n\nDevelopment\n\n\nMOS applications are currently written in JavaScript. Python support is planned for the near future. You will need the \nCommand Line Interface\n installed to create, deploy and \npublish\n MOS applications.\n\n\nStart learning about MOS development with \nCreate An App\n and \nBasic Dashboards\n.\n\n\nMore details are available at the \nReference\n \n\n\nDevelopment Workflow\n\n\n\n\nmatrix create \napp-name\n\n\nCode and configure your app. \nMOS SDK Reference\n\n\nmatrix use \ndevice-id\n\n\nmatrix deploy \napp-name\n\n\nmatrix start \napp-name\n\n\nWatch the app output with \nmatrix log\n\n\nWhen finished, publish to \nMATRIX App Store\n with \nmatrix publish \napp-name", 
+            "text": "Applications\n\n\nMOS applications act as a logical glue between hardware components, machine learning libraries and the internet. For example, you could train faces of a group of people, match it up with Twitter profiles, and have the MATRIX device read the last tweet by a recognized face. You could have your device watch for your face, and then after confirming with an NFC tag, it could unlock your front door. A wide world of possible interactions exists via MATRIX OS applications.\n\n\nReference\n\n\nMore detailed information about programming MOS applications can be found in \nCreate An App\n and \nReference\n.\n\n\nData Flow\n\n\nSensors push to applications which push to libraries which push back to the application, which pushes to the internet, other devices and dashboards. This one-way data flow is well matched with the listener/emitter event model of JavaScript and Node. We run a function, which is asynchronous, it sends a request to a sensor, library or web call, and waits for responses. Unlike traditional request / response style APIs, these are intended to be called once and handle many responses, sometimes in parallel.\n\n\nThis example initializes the temperature sensor, and then handles the response.\n\n\n# callback style\nmatrix.sensor('temperature', data =\n {\n  // data = { value: 74.123123 }\n});\n\n# promise style\nmatrix.sensor('temperature').then(data =\n {\n  // data = { value: 74.123123 }\n});\n\n\n\n\nLearn more about \ncallbacks\n or \npromises\n. MOS does not make true \nPromise\n objects, just borrows the \nthen\n syntax.\n\n\nAfter data is managed inside the application, it can be sent to the cloud for exporting, webhooks, analysis and to explore in the dashboard.\n\n\nLearn more about \nsending data\n\n\nDashboards\n\n\nEvery MOS application can display data and can be controlled by users on a highly customizable dashboard.  \n\n\nLearn more about \ndashboards\n\n\nConfiguration driven\n\n\nMOS applications use configuration files, \nconfig.yaml\n, to provide easy end-user adaptation, as well as extensive dashboard adaptability. Simple applications don't need any JavaScript and can be configuration only. Configuration is end-user accessible, and can provide unique information for individual instances of MOS applications across devices via \nsettings\n.\n\n\nLearn more about \nconfiguration\n\n\nDevelopment\n\n\nMOS applications are currently written in JavaScript. Python support is planned for the near future. You will need the \nCommand Line Interface\n installed to create, deploy and \npublish\n MOS applications.\n\n\nStart learning about MOS development with \nCreate An App\n and \nBasic Dashboards\n.\n\n\nMore details are available at the \nReference\n \n\n\nDevelopment Workflow\n\n\n\n\nmatrix create \napp-name\n\n\nCode and configure your app. \nMOS SDK Reference\n\n\nmatrix use \ndevice-id\n\n\nmatrix deploy \napp-name\n\n\nmatrix start \napp-name\n\n\nWatch the app output with \nmatrix log\n\n\nWhen finished, publish to \nMATRIX App Store\n with \nmatrix publish \napp-name", 
             "title": "Applications"
         }, 
         {
@@ -327,17 +327,17 @@
         }, 
         {
             "location": "/matrix-os/overview/applications/#data-flow", 
-            "text": "Sensors push to applications which push to libraries which push back to the application, which pushes to the internet, other devices and dashboards. This one-way data flow is well matched with the listener/emitter event model of JavaScript and Node. We run a function, which is asynchronous, it sends a request to a sensor, library or web call, and waits for responses. Unlike traditional request / response style APIs, these are intended to be called once and handle many responses, sometimes in parallel.  This example initializes the temperature sensor, and then handles the response.  # callback style\nmatrix.sensor('temperature', data =  {\n  // data = { value: 74.123123 }\n});\n\n# promise style\nmatrix.sensor('temperature').then(data =  {\n  // data = { value: 74.123123 }\n});  Learn more about  callbacks  or  promises . MOS does not make true  Promise  objects, just borrows the  then  syntax.  After data is managed inside the application, it can be  sent to the cloud  for exporting, webhooks, analysis and to explore in the dashboard.  Learn more about  sending data", 
+            "text": "Sensors push to applications which push to libraries which push back to the application, which pushes to the internet, other devices and dashboards. This one-way data flow is well matched with the listener/emitter event model of JavaScript and Node. We run a function, which is asynchronous, it sends a request to a sensor, library or web call, and waits for responses. Unlike traditional request / response style APIs, these are intended to be called once and handle many responses, sometimes in parallel.  This example initializes the temperature sensor, and then handles the response.  # callback style\nmatrix.sensor('temperature', data =  {\n  // data = { value: 74.123123 }\n});\n\n# promise style\nmatrix.sensor('temperature').then(data =  {\n  // data = { value: 74.123123 }\n});  Learn more about  callbacks  or  promises . MOS does not make true  Promise  objects, just borrows the  then  syntax.  After data is managed inside the application, it can be sent to the cloud for exporting, webhooks, analysis and to explore in the dashboard.  Learn more about  sending data", 
             "title": "Data Flow"
         }, 
         {
             "location": "/matrix-os/overview/applications/#dashboards", 
-            "text": "Every MOS application can display data and can be controlled by users on  a highly customizable dashboard .    Learn more about  dashboards", 
+            "text": "Every MOS application can display data and can be controlled by users on a highly customizable dashboard.    Learn more about  dashboards", 
             "title": "Dashboards"
         }, 
         {
             "location": "/matrix-os/overview/applications/#configuration-driven", 
-            "text": "MOS applications use  configuration files ,  config.yaml , to provide easy end-user adaptation, as well as extensive dashboard adaptability. Simple applications don't need any JavaScript and can be configuration only. Configuration is end-user accessible, and can provide unique information for individual instances of MOS applications across devices via  settings .  Learn more about  configuration", 
+            "text": "MOS applications use configuration files,  config.yaml , to provide easy end-user adaptation, as well as extensive dashboard adaptability. Simple applications don't need any JavaScript and can be configuration only. Configuration is end-user accessible, and can provide unique information for individual instances of MOS applications across devices via  settings .  Learn more about  configuration", 
             "title": "Configuration driven"
         }, 
         {
@@ -412,7 +412,7 @@
         }, 
         {
             "location": "/matrix-os/overview/cli/", 
-            "text": "Command Line Interface (CLI)\n\n\n\n\nMATRIX CLI requires \nNode.js\n\n\n\n\nMATRIX devices can be managed via website, mobile phone applications or via CLI.\n\n\nInstallation\n\n\nInstall MATRIX CLI with \nnpm\n and you're good to go.\n\n\nnpm install -g matrix-cli\n\n\n\n\nLocal vs Device\n\n\nMATRIX CLI was designed to be used from your local machine, or can be installed to and used from your Raspberry Pi.\n\n\nRegistration\n\n\nUser registration\n\n\nIf you do not have an MATRIX Labs MATRIX account, use:\n\n\nmatrix register\n\n\n\n\nCheck your email to confirm the account then you can login.\n\n\nmatrix login\n\n\n\n\nManual device registration\n\n\nThis step can also be done via the MATRIX mobile application, which will automatically set the credentials.\n\n\nIn order to manually set up your device, use:\n\n\nmatrix register device\n\n\n\n\nFor more details about registering devices, see \nGetting Started \n Installation \n CLI Setup\n\n\nThis will ask for your device details and then provide you with an id and a secret, you need to set those ENV vars in your device so it can authenticate on boot. \n\n\nFor more information on running MATRIX OS manually, see \nMATRIX OS \n Overview \n Manual Setup\n.\n\n\nCommand list\n\n\nFor a list of all the available options, use:\n\n\nmatrix\n\n\n\n\nDevices\n\n\nSee (MATRIX OS \n Overview \n Devices)[devices.md]\n\n\nDevice Registration\n\n\n# Find MatrixOS apps for a keyword\nmatrix register device\n\n\n\n\nList your Devices\n\n\nmatrix list devices\n\n\n\n\nUse a Specific Device\n\n\n# Choosing a device identifier from the list above\nmatrix use \ndevice-id\n\n\n\n\n\nApplications\n\n\nSee (MATRIX OS \n Overview \n Applications)[applications.md]\n\n\nAll the application commands require an active device to be specified with \nmatrix use\n.\n\n\nInstall\n\n\n# Install an app from the store to MatrixOS\nmatrix install appName\n\n\n\n\nUninstall\n\n\n# Uninstall an app from your device\nmatrix uninstall appName\n\n\n\n\nCreate\n\n\n#creates a folder with a base matrix app template\nmatrix create appName\n\n\n\n\nSee \nMATRIX OS \n Overview \n Applications\n for more information about writing MATRIX OS applications.\n\n\nDeploy\n\n\n# uploads app folder to MatrixOS\nmatrix deploy appName\n\n\n\n\nRun\n\n\nmatrix start appName\n\n\n\n\nStop\n\n\nmatrix stop appName\n\n\n\n\nRestart\n\n\nmatrix restart appName", 
+            "text": "Command Line Interface (CLI)\n\n\n\n\nMATRIX CLI requires \nNode.js\n\n\n\n\nMATRIX devices can be managed via website, mobile phone applications or via CLI.\n\n\nInstallation\n\n\nInstall MATRIX CLI with \nnpm\n and you're good to go.\n\n\nnpm install -g matrix-cli\n\n\n\n\nLocal vs Device\n\n\nMATRIX CLI was designed to be used from your local machine, or can be installed to and used from your Raspberry Pi.\n\n\nRegistration\n\n\nUser registration\n\n\nIf you do not have an MATRIX Labs MATRIX account, use:\n\n\nmatrix register\n\n\n\n\nCheck your email to confirm the account then you can login.\n\n\nmatrix login\n\n\n\n\nManual device registration\n\n\nThis step can also be done via the MATRIX mobile application, which will automatically set the credentials.\n\n\nIn order to manually set up your device, use:\n\n\nmatrix register device\n\n\n\n\nFor more details about registering devices, see \nGetting Started \n Installation \n CLI Setup\n\n\nThis will ask for your device details and then provide you with an id and a secret, you need to set those ENV vars in your device so it can authenticate on boot. \n\n\nFor more information on running MATRIX OS manually, see \nMATRIX OS \n Overview \n Manual Setup\n.\n\n\nCommand list\n\n\nFor a list of all the available options, use:\n\n\nmatrix\n\n\n\n\nDevices\n\n\nHow to register, use, and see your MATRIX devices\n\n\nDevice Registration\n\n\nRegister a new device to your account\n\n\nmatrix register device\n\n\n\n\nList your Devices\n\n\nLists all registered devices on your account\n\n\nmatrix list devices\n\n\n\n\nUse a Specific Device\n\n\nTo use a specific device you can use either command below\n\n\nmatrix use \ndevice-id\n\nmatrix use \ndevice-name\n\n\n\n\n\nApplications\n\n\nSee \nMATRIX OS \n Overview \n Applications\n\n\nAll the application commands require an active device to be specified with \nmatrix use\n.\n\n\nInstall\n\n\nInstall an app from the store to MatrixOS\n\n\nmatrix install appName\n\n\n\n\nUninstall\n\n\nUninstall an app from your device\n\n\nmatrix uninstall appName\n\n\n\n\nCreate\n\n\nCreates a folder with a base matrix app template\n\n\nmatrix create appName\n\n\n\n\nSee \nMATRIX OS \n Overview \n Applications\n for more information about writing MATRIX OS applications.\n\n\nDeploy\n\n\nUploads app folder to MatrixOS\n\n\nmatrix deploy appName\n\n\n\n\nRun\n\n\nUsed to start an app\n\n\nmatrix start appName\n\n\n\n\nStop\n\n\nUsed to stop an app\n\n\nmatrix stop appName\n\n\n\n\nRestart\n\n\nUsed to restart an app\n\n\nmatrix restart appName", 
             "title": "Command Line"
         }, 
         {
@@ -452,62 +452,62 @@
         }, 
         {
             "location": "/matrix-os/overview/cli/#devices", 
-            "text": "See (MATRIX OS   Overview   Devices)[devices.md]", 
+            "text": "How to register, use, and see your MATRIX devices", 
             "title": "Devices"
         }, 
         {
             "location": "/matrix-os/overview/cli/#device-registration", 
-            "text": "# Find MatrixOS apps for a keyword\nmatrix register device", 
+            "text": "Register a new device to your account  matrix register device", 
             "title": "Device Registration"
         }, 
         {
             "location": "/matrix-os/overview/cli/#list-your-devices", 
-            "text": "matrix list devices", 
+            "text": "Lists all registered devices on your account  matrix list devices", 
             "title": "List your Devices"
         }, 
         {
             "location": "/matrix-os/overview/cli/#use-a-specific-device", 
-            "text": "# Choosing a device identifier from the list above\nmatrix use  device-id", 
+            "text": "To use a specific device you can use either command below  matrix use  device-id \nmatrix use  device-name", 
             "title": "Use a Specific Device"
         }, 
         {
             "location": "/matrix-os/overview/cli/#applications", 
-            "text": "See (MATRIX OS   Overview   Applications)[applications.md]  All the application commands require an active device to be specified with  matrix use .", 
+            "text": "See  MATRIX OS   Overview   Applications  All the application commands require an active device to be specified with  matrix use .", 
             "title": "Applications"
         }, 
         {
             "location": "/matrix-os/overview/cli/#install", 
-            "text": "# Install an app from the store to MatrixOS\nmatrix install appName", 
+            "text": "Install an app from the store to MatrixOS  matrix install appName", 
             "title": "Install"
         }, 
         {
             "location": "/matrix-os/overview/cli/#uninstall", 
-            "text": "# Uninstall an app from your device\nmatrix uninstall appName", 
+            "text": "Uninstall an app from your device  matrix uninstall appName", 
             "title": "Uninstall"
         }, 
         {
             "location": "/matrix-os/overview/cli/#create", 
-            "text": "#creates a folder with a base matrix app template\nmatrix create appName  See  MATRIX OS   Overview   Applications  for more information about writing MATRIX OS applications.", 
+            "text": "Creates a folder with a base matrix app template  matrix create appName  See  MATRIX OS   Overview   Applications  for more information about writing MATRIX OS applications.", 
             "title": "Create"
         }, 
         {
             "location": "/matrix-os/overview/cli/#deploy", 
-            "text": "# uploads app folder to MatrixOS\nmatrix deploy appName", 
+            "text": "Uploads app folder to MatrixOS  matrix deploy appName", 
             "title": "Deploy"
         }, 
         {
             "location": "/matrix-os/overview/cli/#run", 
-            "text": "matrix start appName", 
+            "text": "Used to start an app  matrix start appName", 
             "title": "Run"
         }, 
         {
             "location": "/matrix-os/overview/cli/#stop", 
-            "text": "matrix stop appName", 
+            "text": "Used to stop an app  matrix stop appName", 
             "title": "Stop"
         }, 
         {
             "location": "/matrix-os/overview/cli/#restart", 
-            "text": "matrix restart appName", 
+            "text": "Used to restart an app  matrix restart appName", 
             "title": "Restart"
         }, 
         {
@@ -957,7 +957,7 @@
         }, 
         {
             "location": "/matrix-os/reference/system/", 
-            "text": "System Methods\n\n\nSeveral methods are available for common computing use cases, like application instance settings, storing files or persistant data lookups. These will be localized to the device and are not available across all instances of the application.\n\n\nSettings\n\n\nWhen an application requires a variable which should be user provided or will change between different installations, settings is a way to approach this problem.\n\n\nExample\n\n\n# in config.yaml\nname: appName\nsettings:\n  apiKey: 'enteryourapikey'\n\n\n\n\nEvery key in settings is exposed on the root \nmatrix\n object. Here, \nsettings.apiKey\n is available in the application environment as \nmatrix.apiKey\n.\n\n\n# in app.js\nexternalService.auth({ key:  matrix.apiKey }).then( ... );\n\n\n\n\nDynamically Changing Settings from an application\n\n\nmatrix.set({ apiKey: 'newkey' });\n\n\n\n\nChanging application instance settings\n\n\nAfter a user installs the application, they can change the settings from the CLI tool.\n\n\nmatrix config appName apiKey=myrealapikeydontcopy\n\n\n\n\nLocal Database\n\n\nMATRIX OS provides a local, file-based key-value store for app usage. This is available across applications.\n\n\nIt is not recommended to set end user specific configurations here, and use \nconfig.yaml\nsettings\n instead.\n\n\nGet\n\n\nmatrix.store.get(key, cb)\n\n\n\n\nSet\n\n\nmatrix.store.set(key, value, cb)\n\n\n\n\nDelete\n\n\nmatrix.store.delete(key, cb)\n\n\n\n\nFile Storage\n\n\nMATRIX applications utilize a shared file storage, so files saved with one application are accessible from another.\n\n\nSave\n\n\n// url - publically accessible url\n// filename - what to save this file as\n// cb - function to call when save is complete\nmatrix.file.save( url, filename, cb )\n\n\n\n\nLoad\n\n\n// filename - file to load\n// cb - function to call after file is read, passed (err, data)\nmatrix.file.load(filename, cb)\n\n\n\n\nList\n\n\nmatrix.file.list(filename, function(err, files){\n  // files is an array of file names\n})\n\n\n\n\nRemove\n\n\n// filename - what file to Remove\n// cb - function to call when remove is complete\nmatrix.file.remove( filename, cb )", 
+            "text": "System Methods\n\n\nSeveral methods are available for common computing use cases, like application instance settings, storing files or persistant data lookups. These will be localized to the device and are not available across all instances of the application.\n\n\nSettings\n\n\nWhen an application requires a variable which should be user provided or will change between different installations, settings is a way to approach this problem.\n\n\nExample\n\n\n# in config.yaml\nname: appName\nsettings:\n  apiKey: 'enteryourapikey'\n\n\n\n\nEvery key in settings is exposed on the root \nmatrix\n object. Here, \nsettings.apiKey\n is available in the application environment as \nmatrix.apiKey\n.\n\n\n# in app.js\nexternalService.auth({ key:  matrix.apiKey }).then( ... );\n\n\n\n\nChanging application instance settings\n\n\nAfter a user installs the application, they can change the settings from the CLI tool.\n\n\nmatrix config appName apiKey=myrealapikeydontcopy\n\n\n\n\nLocal Database\n\n\nMATRIX OS provides a local, file-based key-value store for app usage. This is available across applications.\n\n\nIt is not recommended to set end user specific configurations here, and use \nconfig.yaml\nsettings\n instead.\n\n\nGet\n\n\nmatrix.store.get(key, cb)\n\n\n\n\nSet\n\n\nmatrix.store.set(key, value, cb)\n\n\n\n\nDelete\n\n\nmatrix.store.delete(key, cb)\n\n\n\n\nFile Storage\n\n\nMATRIX applications utilize a shared file storage, so files saved with one application are accessible from another.\n\n\nSave\n\n\n// url - publically accessible url\n// filename - what to save this file as\n// cb - function to call when save is complete\nmatrix.file.save( url, filename, cb )\n\n\n\n\nLoad\n\n\n// filename - file to load\n// cb - function to call after file is read, passed (err, data)\nmatrix.file.load(filename, cb)\n\n\n\n\nList\n\n\nmatrix.file.list(filename, function(err, files){\n  // files is an array of file names\n})\n\n\n\n\nRemove\n\n\n// filename - what file to Remove\n// cb - function to call when remove is complete\nmatrix.file.remove( filename, cb )", 
             "title": "System"
         }, 
         {
@@ -974,11 +974,6 @@
             "location": "/matrix-os/reference/system/#example", 
             "text": "# in config.yaml\nname: appName\nsettings:\n  apiKey: 'enteryourapikey'  Every key in settings is exposed on the root  matrix  object. Here,  settings.apiKey  is available in the application environment as  matrix.apiKey .  # in app.js\nexternalService.auth({ key:  matrix.apiKey }).then( ... );", 
             "title": "Example"
-        }, 
-        {
-            "location": "/matrix-os/reference/system/#dynamically-changing-settings-from-an-application", 
-            "text": "matrix.set({ apiKey: 'newkey' });", 
-            "title": "Dynamically Changing Settings from an application"
         }, 
         {
             "location": "/matrix-os/reference/system/#changing-application-instance-settings", 
@@ -2132,12 +2127,12 @@
         }, 
         {
             "location": "/matrix-core/getting-started/installation/", 
-            "text": "Installation\n\n\n# setup \n installation\necho \ndeb http://packages.matrix.one/matrix-creator/ ./\n | sudo tee --append /etc/apt/sources.list;\nsudo apt-get update;\nsudo apt-get upgrade;\nsudo apt-get install libzmq3-dev xc3sprog matrix-creator-openocd wiringpi cmake g++ git matrix-creator-init matrix-creator-malos;\n\n\n\n\nCORE should be running on next boot.\n\n\nUpgrades\n\n\nIf you need to upgrade your MATRIX CORE package at any time, please run the following commands and restart.\n\n\nsudo apt-get update;\nsudo apt-get upgrade;\nsudo shutdown -r now;\n\n\n\n\nStarting manually\n\n\n# CORE runs as a service, but to stop it run:\nsudo pkill -9 malos\n\n# to run manually, just type `malos`\nmalos\n\n\n\n\nContinue\n\n\n\n\nDo \nHello World\n\n\nTry \nJavaScript\n or \nPython\n tests.\n\n\nWrite and run your own CORE-enabled software by using our \nReference\n documentation.", 
+            "text": "Installation\n\n\n# Add rep and key\ncurl https://apt.matrix.one/doc/apt-key.gpg | sudo apt-key add -\necho \ndeb https://apt.matrix.one/raspbian $(lsb_release -sc) main\n | sudo tee /etc/apt/sources.list.d/matrixlabs.list\n# update \n upgrade\nsudo apt-get update;\nsudo apt-get upgrade;\n# install malos package\nsudo apt-get install matrixio-malos\n# reboot\nsudo reboot\n\n\n\n\nCORE should be running on next boot.\n\n\nUpgrades\n\n\nIf you need to upgrade your MATRIX CORE package at any time, please run the following commands and restart.\n\n\nsudo apt-get update;\nsudo apt-get upgrade;\nsudo shutdown -r now;\n\n\n\n\nStart / Stop manually\n\n\nCORE runs as a service after boot. If you need to stop it use:\n\n\nsudo pkill -9 malos\n\n\n\n\nTo manually run it back again use:\n\n\nmalos \n\n\n\n\n\nThe output will be similar to:\n\n\npi@raspberrypi:~ $ malos \n\n[1] 24343\npi@raspberrypi:~ $ **************\nMALOS starting\n**************\n\nYou can query specific driver info using port 20012.\nRegistered driver IMU with port 20013.\nRegistered driver Humidity with port 20017.\nRegistered driver Everloop with port 20021.\nRegistered driver Pressure with port 20025.\nRegistered driver UV with port 20029.\nRegistered driver MicArray_Alsa with port 20037.\nRegistered driver Servo with port 20045.\nRegistered driver Gpio with port 20049.\n\npi@raspberrypi:~ $\n\n\n\n\nContinue\n\n\n\n\nDo \nHello World\n\n\nTry \nJavaScript\n or \nPython\n tests.\n\n\nWrite and run your own CORE-enabled software by using our \nReference\n documentation.", 
             "title": "Installation"
         }, 
         {
             "location": "/matrix-core/getting-started/installation/#installation", 
-            "text": "# setup   installation\necho  deb http://packages.matrix.one/matrix-creator/ ./  | sudo tee --append /etc/apt/sources.list;\nsudo apt-get update;\nsudo apt-get upgrade;\nsudo apt-get install libzmq3-dev xc3sprog matrix-creator-openocd wiringpi cmake g++ git matrix-creator-init matrix-creator-malos;  CORE should be running on next boot.", 
+            "text": "# Add rep and key\ncurl https://apt.matrix.one/doc/apt-key.gpg | sudo apt-key add -\necho  deb https://apt.matrix.one/raspbian $(lsb_release -sc) main  | sudo tee /etc/apt/sources.list.d/matrixlabs.list\n# update   upgrade\nsudo apt-get update;\nsudo apt-get upgrade;\n# install malos package\nsudo apt-get install matrixio-malos\n# reboot\nsudo reboot  CORE should be running on next boot.", 
             "title": "Installation"
         }, 
         {
@@ -2146,9 +2141,9 @@
             "title": "Upgrades"
         }, 
         {
-            "location": "/matrix-core/getting-started/installation/#starting-manually", 
-            "text": "# CORE runs as a service, but to stop it run:\nsudo pkill -9 malos\n\n# to run manually, just type `malos`\nmalos", 
-            "title": "Starting manually"
+            "location": "/matrix-core/getting-started/installation/#start-stop-manually", 
+            "text": "CORE runs as a service after boot. If you need to stop it use:  sudo pkill -9 malos  To manually run it back again use:  malos    The output will be similar to:  pi@raspberrypi:~ $ malos  \n[1] 24343\npi@raspberrypi:~ $ **************\nMALOS starting\n**************\n\nYou can query specific driver info using port 20012.\nRegistered driver IMU with port 20013.\nRegistered driver Humidity with port 20017.\nRegistered driver Everloop with port 20021.\nRegistered driver Pressure with port 20025.\nRegistered driver UV with port 20029.\nRegistered driver MicArray_Alsa with port 20037.\nRegistered driver Servo with port 20045.\nRegistered driver Gpio with port 20049.\n\npi@raspberrypi:~ $", 
+            "title": "Start / Stop manually"
         }, 
         {
             "location": "/matrix-core/getting-started/installation/#continue", 
@@ -3022,13 +3017,23 @@
         }, 
         {
             "location": "/matrix-hal/datasheets/voice/", 
-            "text": "MATRIX Voice\n\n\nMATRIX Voice is an open-source VOICE RECOGNITION platform consisting of a 3.14-inches in diameter dev board, with a radial array of 7 MEMS microphones connected to a Xilinx Spartan6 FPGA \n 64 Mbit SDRAM with 18 RGBW LED\u2019s \n 64 GPIO pins. \n\n\nSystem Architecture\n\n\n\n\nVoice Engine Integrations\n\n\n\n\nAlexa\n\n\n\n\nTechnical Datasheets:\n\n\n\n\n\n\nAtmel 32 bits Cortex M3 SAM3S2\n\n\n\n\n\n\nXilinx Spartan 6S XC6SLX4 FPGA\n\n\n\n\n\n\n7 MEMS audio sensor digital microphones\n\n\n\n\n\n\nRGBW everloop LED", 
+            "text": "MATRIX Voice\n\n\nMATRIX Voice is an open-source VOICE RECOGNITION platform consisting of a 3.14-inches in diameter dev board, with a radial array of 8 MEMS microphones connected to a Xilinx Spartan 6 FPGA \n 64 Mbit Flash, a 512Mbit SDRAM and 18 RGBW LED\u2019s.\n\n\nTop View\n\n\n\n\nBottom View\n\n\n\n\nSystem Architecture\n\n\n\n\nVoice Engine Integrations\n\n\n\n\nAlexa\n\n\n\n\nTechnical Datasheets\n\n\n\n\nXilinx Spartan 6 FPGA - XC6SLX9-2FTG256C\n\n\n8 MEMS audio sensor digital microphones - MP34DB02\n\n\nSerial Flash 64MBIT - MX25L6406E\n\n\nDDR2 SDRAM 512MBIT - MT47H32M16\n\n\n3W Stereo Class-D Audio Amplifier and Class-AB Headphone Driver - PAM8019\n\n\nRGBW LED - SK6812RGBW\n\n\nESP32-WROOM", 
             "title": "Voice"
         }, 
         {
             "location": "/matrix-hal/datasheets/voice/#matrix-voice", 
-            "text": "MATRIX Voice is an open-source VOICE RECOGNITION platform consisting of a 3.14-inches in diameter dev board, with a radial array of 7 MEMS microphones connected to a Xilinx Spartan6 FPGA   64 Mbit SDRAM with 18 RGBW LED\u2019s   64 GPIO pins.", 
+            "text": "MATRIX Voice is an open-source VOICE RECOGNITION platform consisting of a 3.14-inches in diameter dev board, with a radial array of 8 MEMS microphones connected to a Xilinx Spartan 6 FPGA   64 Mbit Flash, a 512Mbit SDRAM and 18 RGBW LED\u2019s.", 
             "title": "MATRIX Voice"
+        }, 
+        {
+            "location": "/matrix-hal/datasheets/voice/#top-view", 
+            "text": "", 
+            "title": "Top View"
+        }, 
+        {
+            "location": "/matrix-hal/datasheets/voice/#bottom-view", 
+            "text": "", 
+            "title": "Bottom View"
         }, 
         {
             "location": "/matrix-hal/datasheets/voice/#system-architecture", 
@@ -3042,8 +3047,8 @@
         }, 
         {
             "location": "/matrix-hal/datasheets/voice/#technical-datasheets", 
-            "text": "Atmel 32 bits Cortex M3 SAM3S2    Xilinx Spartan 6S XC6SLX4 FPGA    7 MEMS audio sensor digital microphones    RGBW everloop LED", 
-            "title": "Technical Datasheets:"
+            "text": "Xilinx Spartan 6 FPGA - XC6SLX9-2FTG256C  8 MEMS audio sensor digital microphones - MP34DB02  Serial Flash 64MBIT - MX25L6406E  DDR2 SDRAM 512MBIT - MT47H32M16  3W Stereo Class-D Audio Amplifier and Class-AB Headphone Driver - PAM8019  RGBW LED - SK6812RGBW  ESP32-WROOM", 
+            "title": "Technical Datasheets"
         }, 
         {
             "location": "/matrix-hal/components/", 

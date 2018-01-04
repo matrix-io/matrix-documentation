@@ -391,11 +391,16 @@
         </div>
         <div id="content" class="col-lg-8 col-md-9">
            <h2 id="installation">Installation</h2>
-<pre><code class="bash"># setup &amp; installation
-echo &quot;deb http://packages.matrix.one/matrix-creator/ ./&quot; | sudo tee --append /etc/apt/sources.list;
+<pre><code class="bash"># Add rep and key
+curl https://apt.matrix.one/doc/apt-key.gpg | sudo apt-key add -
+echo &quot;deb https://apt.matrix.one/raspbian $(lsb_release -sc) main&quot; | sudo tee /etc/apt/sources.list.d/matrixlabs.list
+# update &amp; upgrade
 sudo apt-get update;
 sudo apt-get upgrade;
-sudo apt-get install libzmq3-dev xc3sprog matrix-creator-openocd wiringpi cmake g++ git matrix-creator-init matrix-creator-malos;
+# install malos package
+sudo apt-get install matrixio-malos
+# reboot
+sudo reboot
 </code></pre>
 
 <p>CORE should be running on next boot.</p>
@@ -406,12 +411,33 @@ sudo apt-get upgrade;
 sudo shutdown -r now;
 </code></pre>
 
-<h3 id="starting-manually">Starting manually</h3>
-<pre><code># CORE runs as a service, but to stop it run:
-sudo pkill -9 malos
+<h2 id="start-stop-manually">Start / Stop manually</h2>
+<p>CORE runs as a service after boot. If you need to stop it use:</p>
+<pre><code class="bash">sudo pkill -9 malos
+</code></pre>
 
-# to run manually, just type `malos`
-malos
+<p>To manually run it back again use:</p>
+<pre><code class="bash">malos &amp;
+</code></pre>
+
+<p>The output will be similar to:</p>
+<pre><code class="bash">pi@raspberrypi:~ $ malos &amp;
+[1] 24343
+pi@raspberrypi:~ $ **************
+MALOS starting
+**************
+
+You can query specific driver info using port 20012.
+Registered driver IMU with port 20013.
+Registered driver Humidity with port 20017.
+Registered driver Everloop with port 20021.
+Registered driver Pressure with port 20025.
+Registered driver UV with port 20029.
+Registered driver MicArray_Alsa with port 20037.
+Registered driver Servo with port 20045.
+Registered driver Gpio with port 20049.
+
+pi@raspberrypi:~ $
 </code></pre>
 
 <h3 id="continue">Continue</h3>
@@ -436,13 +462,12 @@ malos
     Upgrades
   </a>
   
+</li>  <li class='nav-item'>
+  <a href="#start-stop-manually" class="nav-link ">
+    Start / Stop manually
+  </a>
+  
   <ul>
-    
-    <li>
-      <a class="nav-link" href="#starting-manually">
-        Starting manually
-      </a>
-    </li>
     
     <li>
       <a class="nav-link" href="#continue">
