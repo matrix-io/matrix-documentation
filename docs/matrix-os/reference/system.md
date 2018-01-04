@@ -22,6 +22,11 @@ Every key in settings is exposed on the root `matrix` object. Here, `settings.ap
 externalService.auth({ key:  matrix.apiKey }).then( ... );
 ```
 
+### Dynamically Changing Settings from an application
+```js
+matrix.set({ apiKey: 'newkey' });
+```
+
 ### Changing application instance settings
 
 After a user installs the application, they can change the settings from the CLI tool.
