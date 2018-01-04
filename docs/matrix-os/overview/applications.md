@@ -25,19 +25,19 @@ matrix.sensor('temperature').then(data => {
 ```
 Learn more about [callbacks](https://developer.mozilla.org/en-US/docs/Glossary/Callback_function) or [promises](http://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/promise). MOS does not make true `Promise` objects, just borrows the `then` syntax.
 
-After data is managed inside the application, it can be [sent to the cloud](data.md) for exporting, webhooks, analysis and to explore in the dashboard.
+After data is managed inside the application, it can be sent to the cloud for exporting, webhooks, analysis and to explore in the dashboard.
 
 Learn more about [sending data](data.md)
 
 ### Dashboards
 
-Every MOS application can display data and can be controlled by users on [a highly customizable dashboard](dashboard.md).  
+Every MOS application can display data and can be controlled by users on a highly customizable dashboard.  
 
 Learn more about [dashboards](dashboard.md)
 
 ### Configuration driven
 
-MOS applications use [configuration files](configuration.md), `config.yaml`, to provide easy end-user adaptation, as well as extensive dashboard adaptability. Simple applications don't need any JavaScript and can be configuration only. Configuration is end-user accessible, and can provide unique information for individual instances of MOS applications across devices via [settings](../reference/system.md#settings).
+MOS applications use configuration files, `config.yaml`, to provide easy end-user adaptation, as well as extensive dashboard adaptability. Simple applications don't need any JavaScript and can be configuration only. Configuration is end-user accessible, and can provide unique information for individual instances of MOS applications across devices via [settings](../reference/system.md#settings).
 
 Learn more about [configuration](configuration.md)
 
