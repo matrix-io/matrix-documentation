@@ -61,5 +61,5 @@ curl https://raw.githubusercontent.com/matrix-io/matrix-creator-quickstart/maste
 
 ### Continue
 
-* See [Hello World](./hello-world.) example
-* See [Manual Setup](../overview/manual-setup.)
+* See [Hello World](./hello-world.md) example
+* See [Manual Setup](../overview/manual-setup.md)
