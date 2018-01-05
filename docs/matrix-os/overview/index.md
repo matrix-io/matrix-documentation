@@ -4,7 +4,7 @@ MATRIX Open System (MOS) is open source software for hosting IoT applications. M
 
 ## Applications
 
-Fundamentally, MATRIX OS applications logically connect hardware with machine learning abstractions. In this way, you can connect the output from a computer vision system to drive real-world behavior in the form of hardware signaling. You can also use internet API's and integrations, such as IFTTT to further customize your application, for yourself, or for end-users.
+Fundamentally, MATRIX OS applications logically connect hardware with machine learning abstractions. In this way, you can connect the output from a computer vision system to drive real-world behavior in the form of hardware signaling. You can also use third party API's and integrations, such as IFTTT to further customize your application, for yourself, or for end-users.
 
 Read more at [Overview > Applications](applications.md)
 

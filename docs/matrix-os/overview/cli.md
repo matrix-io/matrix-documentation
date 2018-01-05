@@ -48,66 +48,70 @@ matrix
 ```
 
 ## Devices
-See (MATRIX OS > Overview > Devices)[devices.md]
+**How to register, use, and see your MATRIX devices**
 
 ### Device Registration
+Register a new device to your account
 ```
-# Find MatrixOS apps for a keyword
 matrix register device
 ```
 
 ### List your Devices
+Lists all registered devices on your account
 ```
 matrix list devices
 ```
 
 ### Use a Specific Device
+To use a specific device you can use either command below
 ```
-# Choosing a device identifier from the list above
 matrix use <device-id>
+matrix use <device-name>
 ```
 
 ## Applications
-See (MATRIX OS > Overview > Applications)[applications.md]
+See [MATRIX OS > Overview > Applications](applications.md)
 
 **All the application commands require an active device to be specified with `matrix use`.**
 
 ### Install
-
+Install an app from the store to MatrixOS
 ```
-# Install an app from the store to MatrixOS
 matrix install appName
 ```
 
 ### Uninstall
+Uninstall an app from your device
 ```
-# Uninstall an app from your device
 matrix uninstall appName
 ```
 
 ### Create
+Creates a folder with a base matrix app template
 ```
-#creates a folder with a base matrix app template
 matrix create appName
 ```
 See [MATRIX OS > Overview > Applications](applications.md) for more information about writing MATRIX OS applications.
 
 ### Deploy
+Uploads app folder to MatrixOS
 ```
-# uploads app folder to MatrixOS
 matrix deploy appName
 ```
 ### Run
+Used to start an app
 ```
 matrix start appName
 ```
 
 ### Stop
+Used to stop an app
 ```
 matrix stop appName
 ```
 
 ### Restart
+Used to restart an app
 ```
 matrix restart appName
 ```
