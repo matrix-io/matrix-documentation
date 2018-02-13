@@ -2,17 +2,19 @@
 
 ##### Objective: Hardware shouldn't be hard
 
-The MATRIX Ecosystem was created to make powerful hardware projects very approachable for software developers. The pillars of MATRIX, computer vision, hardware interfaces, distributed internet communication, and data-driven end-user clients, are all programming disciplines which require years for an individual to master, or for a team to build a solution around..
+The MATRIX Ecosystem was created to make powerful hardware projects very approachable for software developers. The pillars of MATRIX, computer vision, hardware interfaces, distributed internet communication, and data-driven end-user clients, are all programming disciplines which require years for an individual to master, or for a team to build a solution around.
 
 MATRIX adds powerful capabilities to your Raspberry Pi, depending on your background and the kind of application you want to write, you may prefer to integrate with different layers. The documentation is organized according to these layers:
 
-* [MATRIX OS Docs](/#matrix-open-system)
+* [MATRIX OS Docs](/#matrix-open-system) (⚠️ UNDER MAINTENANCE)
 * [MATRIX CORE Docs](/#matrix-core)
 * [MATRIX HAL Docs](/#matrix-hal)
 
 ![MATRIX Ecosystem Overview](img/overview-diagram.png)
 
 ## MATRIX Open System
+
+⚠️ **CURRENTLY UNDER MAINTENANCE** Find out more information [here](../matrix-os/).
 
 Top-level application and connection layer integrating with MATRIX hardware via **MATRIX CORE**.
 
@@ -33,8 +35,8 @@ C++ drivers for sensors and available components. Tooling for accessing the FPGA
 ## What do you need to get started?
 
 * [Raspberry Pi](https://www.raspberrypi.org)
-* [MATRIX Creator](https://creator.matrix.one)
-
+    * Supported Versions: Raspberry Pi B+ or newer and all Raspberry Pi Zero's
+* [MATRIX Creator](https://creator.matrix.one) or [MATRIX Voice](https://voice.matrix.one)
 
 ## Support
 
