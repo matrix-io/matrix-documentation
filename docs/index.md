@@ -14,7 +14,7 @@ MATRIX adds powerful capabilities to your Raspberry Pi, depending on your backgr
 
 ## MATRIX Open System
 
-⚠️ **CURRENTLY UNDER MAINTENANCE** Find out more information [here](../matrix-os/).
+⚠️ **CURRENTLY UNDER MAINTENANCE** Find out more information [here](/matrix-os/index.md).
 
 Top-level application and connection layer integrating with MATRIX hardware via **MATRIX CORE**.
 

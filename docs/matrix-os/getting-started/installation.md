@@ -1,7 +1,7 @@
 
 ## Installation & Registration
 
-⚠️ **CURRENTLY UNDER MAINTENANCE** Find out more information [here](../matrix-os/).
+⚠️ **CURRENTLY UNDER MAINTENANCE** Find out more information [here](../index.md).
 
 > MATRIX Open System is currently targeted to run on Raspbian. 
 
