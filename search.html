@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Overview MATRIX</title>
+  <title> MATRIX Ecosystem - MATRIX</title>
   <link rel="shortcut icon" href="./img/favicon.ico">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
   <link rel="stylesheet" href="./css/theme.css">
@@ -28,7 +28,7 @@
         <div class="row">
           <div class="col-sm-8">
             
-            <h1>MATRIX Ecosystem</h1>
+            <h1>Search</h1>
             
           </div>
           <div class="col-sm-4">
@@ -55,7 +55,7 @@
 
 <!-- If there are no children, use the url (simple)  -->
 <li>
-  <a href="." class="active">
+  <a href="." class="">
     Overview
   </a>
 </li>
@@ -382,92 +382,22 @@
           </div>
         </div>
         <div id="content" class="col-lg-8 col-md-9">
-           <h1 id="matrix-ecosystem-overview">MATRIX Ecosystem Overview</h1>
-<h5 id="objective-hardware-shouldnt-be-hard">Objective: Hardware shouldn't be hard</h5>
-<p>The MATRIX Ecosystem was created to make powerful hardware projects very approachable for software developers. The pillars of MATRIX, computer vision, hardware interfaces, distributed internet communication, and data-driven end-user clients, are all programming disciplines which require years for an individual to master, or for a team to build a solution around..</p>
-<p>MATRIX adds powerful capabilities to your Raspberry Pi, depending on your background and the kind of application you want to write, you may prefer to integrate with different layers. The documentation is organized according to these layers:</p>
-<ul>
-<li><a href="./#matrix-open-system">MATRIX OS Docs</a></li>
-<li><a href="./#matrix-core">MATRIX CORE Docs</a></li>
-<li><a href="./#matrix-hal">MATRIX HAL Docs</a></li>
-</ul>
-<p><img alt="MATRIX Ecosystem Overview" src="./img/overview-diagram.png" /></p>
-<h2 id="matrix-open-system">MATRIX Open System</h2>
-<p>Top-level application and connection layer integrating with MATRIX hardware via <strong>MATRIX CORE</strong>.</p>
-<p><a href="./matrix-os/overview/">Read more about MATRIX OS</a></p>
-<h2 id="matrix-core">MATRIX CORE</h2>
-<p>Abstraction layer for HAL. Hosts a ZeroMQ + Protobuf communication layer which makes device information accessible via high-level interfaces. Supports 40+ different languages, C++, Python, Ruby, PHP, Java, etc. </p>
-<p><a href="matrix-core/">Read more about MATRIX CORE</a></p>
-<h2 id="matrix-hal">MATRIX HAL</h2>
-<p>C++ drivers for sensors and available components. Tooling for accessing the FPGA and microcontrollers on the MATRIX device.</p>
-<p><a href="matrix-hal/">Read more about MATRIX HAL</a></p>
-<h2 id="what-do-you-need-to-get-started">What do you need to get started?</h2>
-<ul>
-<li><a href="https://www.raspberrypi.org">Raspberry Pi</a></li>
-<li><a href="https://creator.matrix.one">MATRIX Creator</a></li>
-</ul>
-<h2 id="support">Support</h2>
-<ul>
-<li>Post questions or comments on <a href="http://community.matrix.one/">community.matrix.one</a></li>
-<li>Post package issues on github under <a href="https://github.com/matrix-io">matrix-io</a></li>
-<li>Submit documentation issues or improvements at <a href="https://github.com/matrix-io/matrix-documentation">matrix-io/matrix-documentation</a></li>
-</ul> 
+          
+<div class="search">
+  <h1 id="search">Search Results</h1>
+  <form id="content_search" action="search.html">
+    <span role="status" aria-live="polite" class="ui-helper-hidden-accessible"></span>
+    <input name="q" id="mkdocs-search-query" type="text" class="search_input search-query ui-autocomplete-input" placeholder="Search the Docs" autocomplete="off">
+  </form>
+  <div id="mkdocs-search-results">
+    Sorry, page not found.
+  </div>
+</div>
+
         </div>
         <div class="toc-parent col-lg-2 col-md-3">
           <div class="toc">
             
-            <h3>Contents</h3>
-            <ul class="nav flex-column">
-               <li class='nav-item'>
-  <a href="#matrix-ecosystem-overview" class="nav-link active">
-    MATRIX Ecosystem Overview
-  </a>
-  
-  <ul>
-    
-    <li>
-      <a class="nav-link" href="#objective-hardware-shouldnt-be-hard">
-        Objective: Hardware shouldn't be hard
-      </a>
-    </li>
-    
-    <li>
-      <a class="nav-link" href="#matrix-open-system">
-        MATRIX Open System
-      </a>
-    </li>
-    
-    <li>
-      <a class="nav-link" href="#matrix-core">
-        MATRIX CORE
-      </a>
-    </li>
-    
-    <li>
-      <a class="nav-link" href="#matrix-hal">
-        MATRIX HAL
-      </a>
-    </li>
-    
-    <li>
-      <a class="nav-link" href="#what-do-you-need-to-get-started">
-        What do you need to get started?
-      </a>
-    </li>
-    
-    <li>
-      <a class="nav-link" href="#support">
-        Support
-      </a>
-    </li>
-    
-  </ul>
-  
-</li> 
-            </ul>
-          </div>
-        </div>
-        
       </div>
     </div>
   </div>
@@ -600,6 +530,9 @@
     ga('send', 'pageview');
   </script>
   
+<script>var base_url = '.';</script>
+<script data-main="./mkdocs/js/search.js" src="./mkdocs/js/require.js"></script>
+
 </body>
 
 </html>
