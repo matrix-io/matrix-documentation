@@ -1,37 +1,43 @@
 ### Installation
 
+#### Install from package 
+
+If you haven't already installed the required MATRIX packages that configure everything after each boot, please install:
+
 ```
-sudo apt-get install cmake g++ git
+# Add repo and key
+curl https://apt.matrix.one/doc/apt-key.gpg | sudo apt-key add -
+echo "deb https://apt.matrix.one/raspbian $(lsb_release -sc) main" | sudo tee /etc/apt/sources.list.d/matrixlabs.list
+
+# Update packages and install
+sudo apt-get update
+sudo apt-get upgrade
+
+# Installation
+sudo apt-get install matrixio-creator-init libmatrixio-creator-hal libmatrixio-creator-hal-dev
+
+# Reboot after installation
+sudo reboot
+```
+
+#### Install from source
+
+##### Install Pre-Requisites
+
+```
+sudo apt-get install cmake g++ git libfftw3-dev wiringpi libgflags-dev
+```
+
+##### Clone and Build
+
+To start working with HAL directly, you'll need to clone it and then build it. 
+
+```
 git clone https://github.com/matrix-io/matrix-creator-hal.git
-```
-
-### Build
-To start working with HAL directly, you'll need to run `sudo make install` to get the build running. 
-
-```
-$ mkdir build
-$ cd build
-$ cmake ..
-$ make && sudo make install
-[100%] Built target matrix_creator_hal
-Install the project...
--- Install configuration: ""
--- Up-to-date: /usr/local/lib/libmatrix_creator_hal.a
--- Installing: /usr/local/include/matrix_hal/creator_memory_map.h
--- Installing: /usr/local/include/matrix_hal/everloop.h
--- Installing: /usr/local/include/matrix_hal/humidity_data.h
--- Installing: /usr/local/include/matrix_hal/imu_sensor.h
--- Installing: /usr/local/include/matrix_hal/pressure_data.h
--- Installing: /usr/local/include/matrix_hal/dummy_data.h
--- Installing: /usr/local/include/matrix_hal/everloop_image.h
--- Installing: /usr/local/include/matrix_hal/humidity_sensor.h
--- Installing: /usr/local/include/matrix_hal/matrix_driver.h
--- Installing: /usr/local/include/matrix_hal/pressure_sensor.h
--- Installing: /usr/local/include/matrix_hal/dummy_sensor.h
--- Installing: /usr/local/include/matrix_hal/gpio_control.h
--- Installing: /usr/local/include/matrix_hal/imu_data.h
--- Installing: /usr/local/include/matrix_hal/microphone_array.h
--- Installing: /usr/local/include/matrix_hal/wishbone_bus.h
+mkdir build
+cd build
+cmake ..
+make && sudo make install
 ```
 
 ### Continue
