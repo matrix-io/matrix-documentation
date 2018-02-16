@@ -2962,18 +2962,33 @@
         }, 
         {
             "location": "/matrix-hal/getting-started/installation/", 
-            "text": "Installation\n\n\nsudo apt-get install cmake g++ git\ngit clone https://github.com/matrix-io/matrix-creator-hal.git\n\n\n\n\nBuild\n\n\nTo start working with HAL directly, you'll need to run \nsudo make install\n to get the build running. \n\n\n$ mkdir build\n$ cd build\n$ cmake ..\n$ make \n sudo make install\n[100%] Built target matrix_creator_hal\nInstall the project...\n-- Install configuration: \n\n-- Up-to-date: /usr/local/lib/libmatrix_creator_hal.a\n-- Installing: /usr/local/include/matrix_hal/creator_memory_map.h\n-- Installing: /usr/local/include/matrix_hal/everloop.h\n-- Installing: /usr/local/include/matrix_hal/humidity_data.h\n-- Installing: /usr/local/include/matrix_hal/imu_sensor.h\n-- Installing: /usr/local/include/matrix_hal/pressure_data.h\n-- Installing: /usr/local/include/matrix_hal/dummy_data.h\n-- Installing: /usr/local/include/matrix_hal/everloop_image.h\n-- Installing: /usr/local/include/matrix_hal/humidity_sensor.h\n-- Installing: /usr/local/include/matrix_hal/matrix_driver.h\n-- Installing: /usr/local/include/matrix_hal/pressure_sensor.h\n-- Installing: /usr/local/include/matrix_hal/dummy_sensor.h\n-- Installing: /usr/local/include/matrix_hal/gpio_control.h\n-- Installing: /usr/local/include/matrix_hal/imu_data.h\n-- Installing: /usr/local/include/matrix_hal/microphone_array.h\n-- Installing: /usr/local/include/matrix_hal/wishbone_bus.h\n\n\n\n\nContinue\n\n\n\n\nDo \nHello World\n\n\nTry out the \nhardware demos\n available inside the \ndemos\n directory.\n\n\nWrite and run your own HAL abstraction layer by using our \nComponent\n documentation.", 
+            "text": "Installation\n\n\nInstall from package\n\n\nIf you haven't already installed the required MATRIX packages that configure everything after each boot, please install:\n\n\n# Add repo and key\ncurl https://apt.matrix.one/doc/apt-key.gpg | sudo apt-key add -\necho \ndeb https://apt.matrix.one/raspbian $(lsb_release -sc) main\n | sudo tee /etc/apt/sources.list.d/matrixlabs.list\n\n# Update packages and install\nsudo apt-get update\nsudo apt-get upgrade\n\n# Installation\nsudo apt-get install matrixio-creator-init libmatrixio-creator-hal libmatrixio-creator-hal-dev\n\n# Reboot after installation\nsudo reboot\n\n\n\n\nInstall from source\n\n\nInstall Pre-Requisites\n\n\nsudo apt-get install cmake g++ git libfftw3-dev wiringpi libgflags-dev\n\n\n\n\nClone and Build\n\n\nTo start working with HAL directly, you'll need to clone it and then build it. \n\n\ngit clone https://github.com/matrix-io/matrix-creator-hal.git\nmkdir build\ncd build\ncmake ..\nmake \n sudo make install\n\n\n\n\nContinue\n\n\n\n\nDo \nHello World\n\n\nTry out the \nhardware demos\n available inside the \ndemos\n directory.\n\n\nWrite and run your own HAL abstraction layer by using our \nComponent\n documentation.", 
             "title": "Installation"
         }, 
         {
             "location": "/matrix-hal/getting-started/installation/#installation", 
-            "text": "sudo apt-get install cmake g++ git\ngit clone https://github.com/matrix-io/matrix-creator-hal.git", 
+            "text": "", 
             "title": "Installation"
         }, 
         {
-            "location": "/matrix-hal/getting-started/installation/#build", 
-            "text": "To start working with HAL directly, you'll need to run  sudo make install  to get the build running.   $ mkdir build\n$ cd build\n$ cmake ..\n$ make   sudo make install\n[100%] Built target matrix_creator_hal\nInstall the project...\n-- Install configuration:  \n-- Up-to-date: /usr/local/lib/libmatrix_creator_hal.a\n-- Installing: /usr/local/include/matrix_hal/creator_memory_map.h\n-- Installing: /usr/local/include/matrix_hal/everloop.h\n-- Installing: /usr/local/include/matrix_hal/humidity_data.h\n-- Installing: /usr/local/include/matrix_hal/imu_sensor.h\n-- Installing: /usr/local/include/matrix_hal/pressure_data.h\n-- Installing: /usr/local/include/matrix_hal/dummy_data.h\n-- Installing: /usr/local/include/matrix_hal/everloop_image.h\n-- Installing: /usr/local/include/matrix_hal/humidity_sensor.h\n-- Installing: /usr/local/include/matrix_hal/matrix_driver.h\n-- Installing: /usr/local/include/matrix_hal/pressure_sensor.h\n-- Installing: /usr/local/include/matrix_hal/dummy_sensor.h\n-- Installing: /usr/local/include/matrix_hal/gpio_control.h\n-- Installing: /usr/local/include/matrix_hal/imu_data.h\n-- Installing: /usr/local/include/matrix_hal/microphone_array.h\n-- Installing: /usr/local/include/matrix_hal/wishbone_bus.h", 
-            "title": "Build"
+            "location": "/matrix-hal/getting-started/installation/#install-from-package", 
+            "text": "If you haven't already installed the required MATRIX packages that configure everything after each boot, please install:  # Add repo and key\ncurl https://apt.matrix.one/doc/apt-key.gpg | sudo apt-key add -\necho  deb https://apt.matrix.one/raspbian $(lsb_release -sc) main  | sudo tee /etc/apt/sources.list.d/matrixlabs.list\n\n# Update packages and install\nsudo apt-get update\nsudo apt-get upgrade\n\n# Installation\nsudo apt-get install matrixio-creator-init libmatrixio-creator-hal libmatrixio-creator-hal-dev\n\n# Reboot after installation\nsudo reboot", 
+            "title": "Install from package"
+        }, 
+        {
+            "location": "/matrix-hal/getting-started/installation/#install-from-source", 
+            "text": "", 
+            "title": "Install from source"
+        }, 
+        {
+            "location": "/matrix-hal/getting-started/installation/#install-pre-requisites", 
+            "text": "sudo apt-get install cmake g++ git libfftw3-dev wiringpi libgflags-dev", 
+            "title": "Install Pre-Requisites"
+        }, 
+        {
+            "location": "/matrix-hal/getting-started/installation/#clone-and-build", 
+            "text": "To start working with HAL directly, you'll need to clone it and then build it.   git clone https://github.com/matrix-io/matrix-creator-hal.git\nmkdir build\ncd build\ncmake ..\nmake   sudo make install", 
+            "title": "Clone and Build"
         }, 
         {
             "location": "/matrix-hal/getting-started/installation/#continue", 

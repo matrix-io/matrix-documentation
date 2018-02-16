@@ -389,35 +389,35 @@
         </div>
         <div id="content" class="col-lg-8 col-md-9">
            <h3 id="installation">Installation</h3>
-<pre><code>sudo apt-get install cmake g++ git
-git clone https://github.com/matrix-io/matrix-creator-hal.git
+<h4 id="install-from-package">Install from package</h4>
+<p>If you haven't already installed the required MATRIX packages that configure everything after each boot, please install:</p>
+<pre><code># Add repo and key
+curl https://apt.matrix.one/doc/apt-key.gpg | sudo apt-key add -
+echo &quot;deb https://apt.matrix.one/raspbian $(lsb_release -sc) main&quot; | sudo tee /etc/apt/sources.list.d/matrixlabs.list
+
+# Update packages and install
+sudo apt-get update
+sudo apt-get upgrade
+
+# Installation
+sudo apt-get install matrixio-creator-init libmatrixio-creator-hal libmatrixio-creator-hal-dev
+
+# Reboot after installation
+sudo reboot
 </code></pre>
 
-<h3 id="build">Build</h3>
-<p>To start working with HAL directly, you'll need to run <code>sudo make install</code> to get the build running. </p>
-<pre><code>$ mkdir build
-$ cd build
-$ cmake ..
-$ make &amp;&amp; sudo make install
-[100%] Built target matrix_creator_hal
-Install the project...
--- Install configuration: &quot;&quot;
--- Up-to-date: /usr/local/lib/libmatrix_creator_hal.a
--- Installing: /usr/local/include/matrix_hal/creator_memory_map.h
--- Installing: /usr/local/include/matrix_hal/everloop.h
--- Installing: /usr/local/include/matrix_hal/humidity_data.h
--- Installing: /usr/local/include/matrix_hal/imu_sensor.h
--- Installing: /usr/local/include/matrix_hal/pressure_data.h
--- Installing: /usr/local/include/matrix_hal/dummy_data.h
--- Installing: /usr/local/include/matrix_hal/everloop_image.h
--- Installing: /usr/local/include/matrix_hal/humidity_sensor.h
--- Installing: /usr/local/include/matrix_hal/matrix_driver.h
--- Installing: /usr/local/include/matrix_hal/pressure_sensor.h
--- Installing: /usr/local/include/matrix_hal/dummy_sensor.h
--- Installing: /usr/local/include/matrix_hal/gpio_control.h
--- Installing: /usr/local/include/matrix_hal/imu_data.h
--- Installing: /usr/local/include/matrix_hal/microphone_array.h
--- Installing: /usr/local/include/matrix_hal/wishbone_bus.h
+<h4 id="install-from-source">Install from source</h4>
+<h5 id="install-pre-requisites">Install Pre-Requisites</h5>
+<pre><code>sudo apt-get install cmake g++ git libfftw3-dev wiringpi libgflags-dev
+</code></pre>
+
+<h5 id="clone-and-build">Clone and Build</h5>
+<p>To start working with HAL directly, you'll need to clone it and then build it. </p>
+<pre><code>git clone https://github.com/matrix-io/matrix-creator-hal.git
+mkdir build
+cd build
+cmake ..
+make &amp;&amp; sudo make install
 </code></pre>
 
 <h3 id="continue">Continue</h3>
@@ -437,10 +437,21 @@ Install the project...
     Installation
   </a>
   
-</li>  <li class='nav-item'>
-  <a href="#build" class="nav-link ">
-    Build
-  </a>
+  <ul>
+    
+    <li>
+      <a class="nav-link" href="#install-from-package">
+        Install from package
+      </a>
+    </li>
+    
+    <li>
+      <a class="nav-link" href="#install-from-source">
+        Install from source
+      </a>
+    </li>
+    
+  </ul>
   
 </li>  <li class='nav-item'>
   <a href="#continue" class="nav-link ">
