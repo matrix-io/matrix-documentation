@@ -1,7 +1,12 @@
-### Microphone
+### Microphones
 
 #### Microphone Array on MATRIX Creator
 ![Mic Position](../img/mic_creator_position.png)
+
+##### Audio Specifications:
+
+Sample Rate: 8 to 48 kHz
+Bit Depth: 16 bit
 
 ##### Position [x,y] of each mic in the array (mm):
 
@@ -32,13 +37,14 @@ You can check the [creator.ucf](https://github.com/matrix-io/matrix-creator-fpga
 |  M8  |     P44     | pdm_data<7> |
 |  CLK |     P47     | pdm_clk     |
 
+
+#### Microphone Array on MATRIX Voice
+![Mic Position](../img/mic_voice_position.png)
+
 ##### Audio specs:
 
 Sample Rate: 8 to 48 kHz
 Bit Depth: 16 bit
-
-#### Microphone Array on MATRIX Voice
-![Mic Position](../img/mic_voice_position.png)
 
 ##### Position [x,y] of each mic in the array (mm):
 
@@ -66,11 +72,6 @@ Bit Depth: 16 bit
 |  M7  |     B6      | pdm_data<6> |
 |  M8  |     A5      | pdm_data<7> |
 |  CLK |     B5      | pdm_clk     |
-
-##### Audio specs:
-
-Sample Rate: 8 to 48 kHz
-Bit Depth: 16 bit
 
 ##### Microphones Datasheet:
 Both boards use the same part : [MP34DB02 - MEMS audio sensor omnidirectional digital microphone](http://www.st.com/content/ccc/resource/technical/document/datasheet/57/af/88/31/7b/59/4f/77/DM00111225.pdf/files/DM00111225.pdf/jcr:content/translations/en.DM00111225.pdf) 
