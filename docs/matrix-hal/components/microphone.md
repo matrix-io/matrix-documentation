@@ -1,9 +1,14 @@
-### Microphone
+### Microphones
 
-#### 1. Mic Array on MATRIX Creator
-![Mic Position](../img/mic_position.png)
+#### Microphone Array on MATRIX Creator
+![Mic Position](../img/mic_creator_position.png)
 
-##### Position [x,y] of each mic in the array:
+##### Audio Specifications:
+
+Sample Rate: 8 to 48 kHz
+Bit Depth: 16 bit
+
+##### Position [x,y] of each mic in the array (mm):
 
 | Mic  |      X      |      Y      |  
 | ---- | ----------- | ----------- |  
@@ -16,11 +21,9 @@
 |  M7  |  48.5036755 |  20.0908795 |
 |  M8  |  48.5036755 | -20.0908795 |
 
-
 ##### Connection to the FPGA 
 
-from the [creator.ucf](https://github.com/matrix-io/matrix-creator-fpga/blob/master/creator_core/creator.ucf) :
-
+You can check the [creator.ucf](https://github.com/matrix-io/matrix-creator-fpga/blob/master/creator_core/creator.ucf) file from the basic FPGA architecture. Here are the connections between the mics and the FPGA:
 
 | Mic  |   FPGA pin  |   PDM_Data  |  
 | ---- | ----------- | ----------- |  
@@ -34,19 +37,46 @@ from the [creator.ucf](https://github.com/matrix-io/matrix-creator-fpga/blob/mas
 |  M8  |     P44     | pdm_data<7> |
 |  CLK |     P47     | pdm_clk     |
 
+
+#### Microphone Array on MATRIX Voice
+![Mic Position](../img/mic_voice_position.png)
+
 ##### Audio specs:
 
-Sample Rate: 16 kHz
+Sample Rate: 8 to 48 kHz
 Bit Depth: 16 bit
 
-**Note**: An option for setting higher sample rates will be released soon.  Please keep in touch in the community announcements channel http://community.matrix.one/c/announcements.
+##### Position [x,y] of each mic in the array (mm):
 
+| Mic  |      X      |      Y      |  
+| ---- | ----------- | ----------- |  
+|  M1  |    00.00    |     0.00    |
+|  M2  |   -38.13    |     3.58    |
+|  M3  |   -20.98    |    32.04    |
+|  M4  |    11.97    |    36.38    |
+|  M5  |    35.91    |    13.32    |
+|  M6  |    32.81    |   -19.77    |
+|  M7  |     5.00    |   -37.97    |
+|  M8  |   -26.57    |   -27.58    |
+
+##### Connections between mics and the FPGA 
+
+| Mic  |   FPGA pin  |   PDM_Data  |  
+| ---- | ----------- | ----------- |  
+|  M1  |     E6      | pdm_data<0> |
+|  M2  |     B8      | pdm_data<1> |
+|  M3  |     A8      | pdm_data<2> |
+|  M4  |     C7      | pdm_data<3> |
+|  M5  |     A7      | pdm_data<4> |
+|  M6  |     A6      | pdm_data<5> |
+|  M7  |     B6      | pdm_data<6> |
+|  M8  |     A5      | pdm_data<7> |
+|  CLK |     B5      | pdm_clk     |
 
 ##### Microphones Datasheet:
+Both boards use the same part : [MP34DB02 - MEMS audio sensor omnidirectional digital microphone](http://www.st.com/content/ccc/resource/technical/document/datasheet/57/af/88/31/7b/59/4f/77/DM00111225.pdf/files/DM00111225.pdf/jcr:content/translations/en.DM00111225.pdf) 
 
-[MP34DB02 - MEMS audio sensor omnidirectional digital microphone](http://www.st.com/content/ccc/resource/technical/document/datasheet/57/af/88/31/7b/59/4f/77/DM00111225.pdf/files/DM00111225.pdf/jcr:content/translations/en.DM00111225.pdf) 
-
-#### 2. How to get microphone data from C++
+#### How to get microphone data from C++
 
 You can use our lower software layer in C++ called HAL () (Hardware Abstraction Layer) to read data from the microphones.
 
