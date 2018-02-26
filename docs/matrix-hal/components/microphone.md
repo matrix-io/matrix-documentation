@@ -74,7 +74,7 @@ Bit Depth: 16 bit
 |  CLK |     B5      | pdm_clk     |
 
 ##### Microphones Datasheet:
-Both boards use the same part : [MP34DB02 - MEMS audio sensor omnidirectional digital microphone](http://www.st.com/content/ccc/resource/technical/document/datasheet/57/af/88/31/7b/59/4f/77/DM00111225.pdf/files/DM00111225.pdf/jcr:content/translations/en.DM00111225.pdf) 
+Both boards use the same part : [MP34DB02 - MEMS audio sensor omnidirectional digital microphone](https://www1.iodparts.com/datasheets/stmicroelectronics-microphones-dm00111225.pdf) 
 
 #### How to get microphone data from C++
 
