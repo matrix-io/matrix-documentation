@@ -19,9 +19,10 @@ MATRIX Voice is an open-source VOICE RECOGNITION platform consisting of a 3.14-i
 
 ![Voice RPIGPIO Pinout](../img/matrix-voice-rpgpio-pinout.png)
 
-## Voice Engine Integrations
+## Tutorials
 
-- [Alexa](../examples/alexa.md)
+- [MATRIX Voice Running Alexa Demo](https://www.hackster.io/matrix-labs/matrix-voice-running-alexa-demo-in-hands-free-mode-404aa3)
+- [Get Started w/ESP32 on the MATRIX Voice](https://www.hackster.io/matrix-labs/get-started-w-esp32-on-the-matrix-voice-d01e0d)
 
 ## Technical Datasheets
 
