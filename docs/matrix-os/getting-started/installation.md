@@ -1,8 +1,6 @@
 
 ## Installation & Registration
 
-⚠️ **CURRENTLY UNDER MAINTENANCE** Find out more information [here](../index.md).
-
 > MATRIX Open System is currently targeted to run on Raspbian. 
 
 Your MATRIX device may or may not have **MATRIX Open System** preinstalled on it. These instructions are included if you need to build your own MOS image.

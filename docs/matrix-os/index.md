@@ -1,14 +1,5 @@
 ## MATRIX Open System
- <br>
-###### ⚠️ **CURRENTLY UNDER MAINTENANCE** 
 
-Due to various upgrades and changes to the underlying dependencies that MOS is built on (such as HAL and MATRIX Core), there are currently several errors that arise when attempting to install and run MOS. Our team is aware of these issues and is working as quickly as possible to upgrade MOS for the latest dependencies.
-
-While MOS is under maintenance we suggest you use [MATRIX Core](../matrix-core/index.md) and/or [HAL](../matrix-hal/index.md) in order to program your MATRIX devices.
-
-Latest Update: 02/13/2018 5:15pm EST
-
-<br>
 MATRIX Open System (MOS) manages Javascript-based applications on MATRIX devices. 
 
 Read more about [MATRIX Applications](overview/applications.md)

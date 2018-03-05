@@ -1,7 +1,5 @@
 ## Prerequisites
 
-⚠️ **CURRENTLY UNDER MAINTENANCE** Find out more information [here](../index.md).
-
 ### Hardware
 * [Mobile Application](../getting-started/mobile-applications.md) Installed
 * Raspberry Pi with MATRIX Creator
