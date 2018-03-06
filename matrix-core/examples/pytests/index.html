@@ -388,45 +388,39 @@
         <div id="content" class="col-lg-8 col-md-9">
            <h2 id="python-examples">Python Examples</h2>
 <h3 id="prerequisites">Prerequisites</h3>
-<p>Make sure to have cloned the Python examples found below to your Raspberry Pi.</p>
-<pre><code>git clone https://github.com/matrix-io/matrix-creator-malos;
-git submodule update --init;
-cd matrix-creator-malos/src/python_test;
+<p>After sucessfully installed <a href="../../getting-started/installation/">MATRIX Core</a> in your Rapsberry Pi, clone matrix-creator-malos repository that contains Python examples:</p>
+<pre><code>cd ~/
+git clone https://github.com/matrix-io/matrix-creator-malos.git
 </code></pre>
 
-<h4 id="python-packages">Python packages</h4>
-<p>Install the following python packages dependences via Terminal.</p>
+<h4 id="install-python-packages">Install Python packages</h4>
+<p>Install the following python packages dependencies:</p>
 <pre><code>sudo apt-get install build-essential python-dev
 pip install -r requirements.txt
 </code></pre>
 
-<p>If you're using <a href="https://github.com/kennethreitz/pipenv">pipenv</a>, then do the following:</p>
-<pre><code># Install dependencies
-pipenv install
-</code></pre>
-
-<h4 id="matrix-creator-software">MATRIX Creator software</h4>
-<p>Install CORE and perform device reboot. </p>
-<pre><code>echo &quot;deb http://packages.matrix.one/matrix-creator/ ./&quot; | sudo tee --append /etc/apt/sources.list
-sudo apt-get update
-sudo apt-get upgrade
-sudo apt-get install matrix-creator-init matrix-creator-malos cmake g++ git libzmq3-dev --no-install-recommends
-reboot
+<p>If you're using <a href="https://github.com/kennethreitz/pipenv">pipenv</a>, then also install:</p>
+<pre><code>pipenv install
 </code></pre>
 
 <h3 id="test-gpio">Test GPIO</h3>
-<pre><code class="bash">$ python test_gpio.py
+<p>In this example the PIN 15 (in the MATRIX board external GPIOs) is set up in output mode and is then toggled with <code>0</code> and <code>1</code>.</p>
+<pre><code class="bash">cd ~/matrix-creator-malos/src/python_test
+python test_gpio.py
+</code></pre>
+
+<p>the output should be:</p>
+<pre><code>$ python test_gpio.py
 GPIO15=0
 GPIO15=1
 GPIO15=0
 
 </code></pre>
 
-<p>If you're using <a href="https://github.com/kennethreitz/pipenv">pipenv</a>:</p>
+<p>When using <a href="https://github.com/kennethreitz/pipenv">pipenv</a> use this instead:</p>
 <pre><code class="bash">$ pipenv run python test_gpio.py
 </code></pre>
 
-<p>(on this example: pin 15 on write mode, toggle value 0 and 1)</p>
 <h2 id="python-test-files">Python Test Files</h2>
 <h3 id="driver_info">Driver_info</h3>
 <pre><code class="bash">python test_driver_info.py
