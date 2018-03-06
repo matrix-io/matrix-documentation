@@ -2,7 +2,7 @@
 
 ### Prerequisites
 
-After sucessfully installed [MATRIX Core](../getting-started/installation.md) in your Rapsberry Pi, clone matrix-creator-malos repository that contains Python examples:
+After sucessfully installing [MATRIX Core](../getting-started/installation.md) in your Rapsberry Pi, clone matrix-creator-malos repository that contains Python examples:
 ```
 cd ~/
 git clone https://github.com/matrix-io/matrix-creator-malos.git
