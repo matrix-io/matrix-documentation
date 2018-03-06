@@ -2,42 +2,35 @@
 
 ### Prerequisites
 
-Make sure to have cloned the Python examples found below to your Raspberry Pi.
+After sucessfully installed [MATRIX Core](../getting-started/installation.md) in your Rapsberry Pi, clone matrix-creator-malos repository that contains Python examples:
 ```
-git clone https://github.com/matrix-io/matrix-creator-malos;
-git submodule update --init;
-cd matrix-creator-malos/src/python_test;
+cd ~/
+git clone https://github.com/matrix-io/matrix-creator-malos.git
 ```
 
-#### Python packages
+#### Install Python packages
 
-Install the following python packages dependences via Terminal.
+Install the following python packages dependencies:
 ```
 sudo apt-get install build-essential python-dev
 pip install -r requirements.txt
 ```
 
-If you're using [pipenv](https://github.com/kennethreitz/pipenv), then do the following:
+If you're using [pipenv](https://github.com/kennethreitz/pipenv), then also install:
 ```
-# Install dependencies
 pipenv install
-```
-
-#### MATRIX Creator software
-
-Install CORE and perform device reboot. 
-
-```
-echo "deb http://packages.matrix.one/matrix-creator/ ./" | sudo tee --append /etc/apt/sources.list
-sudo apt-get update
-sudo apt-get upgrade
-sudo apt-get install matrix-creator-init matrix-creator-malos cmake g++ git libzmq3-dev --no-install-recommends
-reboot
 ```
 
 ### Test GPIO
 
+In this example the PIN 15 (in the MATRIX board external GPIOs) is set up in output mode and is then toggled with `0` and `1`.
+
 ``` bash
+cd ~/matrix-creator-malos/src/python_test
+python test_gpio.py
+```
+the output should be:
+```
 $ python test_gpio.py
 GPIO15=0
 GPIO15=1
@@ -45,12 +38,10 @@ GPIO15=0
 
 ```
 
-If you're using [pipenv](https://github.com/kennethreitz/pipenv):
+When using [pipenv](https://github.com/kennethreitz/pipenv) use this instead:
 ``` bash
 $ pipenv run python test_gpio.py
 ```
-
-(on this example: pin 15 on write mode, toggle value 0 and 1)
 
 ## Python Test Files
 
