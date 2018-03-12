@@ -17,15 +17,11 @@ MATRIX Voice is an open-source VOICE RECOGNITION platform consisting of a 3.14-i
 
 ## Raspberry Pi GPIO Connector Pinout
 
-<p align="center">
-  <img src="../img/matrix-voice-rpgpio-pinout.png" />
-</p>
+![RPIGPIO](../img/matrix-voice-rpgpio-pinout.png)
 
 ## External GPIO Connector Pinout
 
-<p align="center">
-  <img src="../img/matrix-voice-extpio-pinout.png" />
-</p>
+![EXTGPIO](../img/matrix-voice-extpio-pinout.png)
 
 ## Tutorials
 
