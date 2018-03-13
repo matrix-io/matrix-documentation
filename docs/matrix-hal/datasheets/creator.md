@@ -1,9 +1,32 @@
 ### MATRIX Creator
 
-![Select Advanced](https://storage.googleapis.com/packages.matrix.one/wiki-images/hardware/matrixlabs_creator_block.jpg)
+MATRIX Creator is a fully-featured development board, including microphones, sensors, wireless communications, an ARM Cortex M3 processor and a Spartan 6 FPGA. MATRIX Creator was built with a mission to give every maker, tinkerer, and developer around the world a complete, affordable, and user-friendly tool for simple to complex Internet of Things (IoT) app creation.
+
+#### Board
+
+##### Top View
+![Voice Top Image](../img/matrix-voice-top.png)
+
+##### Bottom View
+![Voice Back Image](../img/matrix-voice-back.png)
+
+### 3D Model
+Access to 3D models [here](https://github.com/matrix-io/matrixio-models/tree/master/matrix-creator).
+
+#### System Architecture
+![Select Advanced](../img/matrixlabs_creator_block.jpg)
+
+#### Raspberry Pi GPIO pinout
+
+![RPIGPIO](../img/matrix-creator-rpgpio-pinout.png)
+
+#### External GPIO pinout
+
+![EXTGPIO](../img/matrix-creator-extgpio-pinout.png)
 
 
-### Technical Datasheets:
+
+#### Technical Datasheets:
 
 * [Atmel 32 bits Cortex M3 SAM3S2](http://www.atmel.com/Images/Atmel-6500-32-bit-Cortex-M3-Microcontroller-SAM3S4-SAM3S2-SAM3S1_Datasheet.pdf)
 
