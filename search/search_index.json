@@ -3017,28 +3017,13 @@
         }, 
         {
             "location": "/matrix-hal/datasheets/creator/", 
-            "text": "MATRIX Creator\n\n\nMATRIX Creator is a fully-featured development board, including microphones, sensors, wireless communications, an ARM Cortex M3 processor and a Spartan 6 FPGA. MATRIX Creator was built with a mission to give every maker, tinkerer, and developer around the world a complete, affordable, and user-friendly tool for simple to complex Internet of Things (IoT) app creation.\n\n\nBoard\n\n\nTop View\n\n\n\n\nBottom View\n\n\n\n\n3D Model\n\n\nAccess to 3D models \nhere\n.\n\n\nSystem Architecture\n\n\n\n\nRaspberry Pi GPIO pinout\n\n\n\n\nExternal GPIO pinout\n\n\n\n\nTechnical Datasheets:\n\n\n\n\n\n\nAtmel 32 bits Cortex M3 SAM3S2\n\n\n\n\n\n\nXilinx Spartan 6S XC6SLX4 FPGA\n\n\n\n\n\n\n8 MEMS audio sensor digital microphones\n\n\n\n\n\n\nST LSM9DS1 3D accelerometer, 3D gyroscope, 3D magnetometer\n\n\n\n\n\n\nST HTS221 digital sensor for relative humidity and temperature\n\n\n\n\n\n\nNXP PN512 NFC reader\n\n\n\n\n\n\nNXP MPL3115A2 Altimeter\n\n\n\n\n\n\nVishay VEML6070 UV Light Sensor\n\n\n\n\n\n\nVishay INFRARED Receptor\n\n\n\n\n\n\nRGBW everloop LED", 
+            "text": "MATRIX Creator\n\n\nMATRIX Creator is a fully-featured development board, including microphones, sensors, wireless communications, an ARM Cortex M3 processor and a Spartan 6 FPGA. MATRIX Creator was built with a mission to give every maker, tinkerer, and developer around the world a complete, affordable, and user-friendly tool for simple to complex Internet of Things (IoT) app creation.\n\n\n3D Model\n\n\nAccess to 3D models \nhere\n.\n\n\nSystem Architecture\n\n\n\n\nRaspberry Pi GPIO pinout\n\n\n\n\nExternal GPIO pinout\n\n\n\n\nTechnical Datasheets:\n\n\n\n\n\n\nAtmel 32 bits Cortex M3 SAM3S2\n\n\n\n\n\n\nXilinx Spartan 6S XC6SLX4 FPGA\n\n\n\n\n\n\n8 MEMS audio sensor digital microphones\n\n\n\n\n\n\nST LSM9DS1 3D accelerometer, 3D gyroscope, 3D magnetometer\n\n\n\n\n\n\nST HTS221 digital sensor for relative humidity and temperature\n\n\n\n\n\n\nNXP PN512 NFC reader\n\n\n\n\n\n\nNXP MPL3115A2 Altimeter\n\n\n\n\n\n\nVishay VEML6070 UV Light Sensor\n\n\n\n\n\n\nVishay INFRARED Receptor\n\n\n\n\n\n\nRGBW everloop LED", 
             "title": "Creator"
         }, 
         {
             "location": "/matrix-hal/datasheets/creator/#matrix-creator", 
             "text": "MATRIX Creator is a fully-featured development board, including microphones, sensors, wireless communications, an ARM Cortex M3 processor and a Spartan 6 FPGA. MATRIX Creator was built with a mission to give every maker, tinkerer, and developer around the world a complete, affordable, and user-friendly tool for simple to complex Internet of Things (IoT) app creation.", 
             "title": "MATRIX Creator"
-        }, 
-        {
-            "location": "/matrix-hal/datasheets/creator/#board", 
-            "text": "", 
-            "title": "Board"
-        }, 
-        {
-            "location": "/matrix-hal/datasheets/creator/#top-view", 
-            "text": "", 
-            "title": "Top View"
-        }, 
-        {
-            "location": "/matrix-hal/datasheets/creator/#bottom-view", 
-            "text": "", 
-            "title": "Bottom View"
         }, 
         {
             "location": "/matrix-hal/datasheets/creator/#3d-model", 
