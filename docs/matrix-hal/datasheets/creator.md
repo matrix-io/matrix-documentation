@@ -2,14 +2,6 @@
 
 MATRIX Creator is a fully-featured development board, including microphones, sensors, wireless communications, an ARM Cortex M3 processor and a Spartan 6 FPGA. MATRIX Creator was built with a mission to give every maker, tinkerer, and developer around the world a complete, affordable, and user-friendly tool for simple to complex Internet of Things (IoT) app creation.
 
-#### Board
-
-##### Top View
-![Voice Top Image](../img/matrix-voice-top.png)
-
-##### Bottom View
-![Voice Back Image](../img/matrix-voice-back.png)
-
 ### 3D Model
 Access to 3D models [here](https://github.com/matrix-io/matrixio-models/tree/master/matrix-creator).
 
