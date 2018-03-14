@@ -394,13 +394,10 @@
           </div>
         </div>
         <div id="content" class="col-lg-8 col-md-9">
-           <h3 id="microphones">Microphones</h3>
-<h4 id="microphone-array-on-matrix-creator">Microphone Array on MATRIX Creator</h4>
-<p><img alt="Mic Position" src="../../img/mic_creator_position.png" /></p>
-<h5 id="audio-specifications">Audio Specifications:</h5>
-<p>Sample Rate: 8 to 48 kHz
-Bit Depth: 16 bit</p>
-<h5 id="position-xy-of-each-mic-in-the-array-mm">Position [x,y] of each mic in the array (mm):</h5>
+           <h3 id="microphone">Microphone</h3>
+<h4 id="1-mic-array-on-matrix-creator">1. Mic Array on MATRIX Creator</h4>
+<p><img alt="Mic Position" src="../../img/mic_position.png" /></p>
+<h5 id="position-xy-of-each-mic-in-the-array">Position [x,y] of each mic in the array:</h5>
 <table>
 <thead>
 <tr>
@@ -453,7 +450,7 @@ Bit Depth: 16 bit</p>
 </tbody>
 </table>
 <h5 id="connection-to-the-fpga">Connection to the FPGA</h5>
-<p>You can check the <a href="https://github.com/matrix-io/matrix-creator-fpga/blob/master/creator_core/creator.ucf">creator.ucf</a> file from the basic FPGA architecture. Here are the connections between the mics and the FPGA:</p>
+<p>from the <a href="https://github.com/matrix-io/matrix-creator-fpga/blob/master/creator_core/creator.ucf">creator.ucf</a> :</p>
 <table>
 <thead>
 <tr>
@@ -510,123 +507,13 @@ Bit Depth: 16 bit</p>
 </tr>
 </tbody>
 </table>
-<h4 id="microphone-array-on-matrix-voice">Microphone Array on MATRIX Voice</h4>
-<p><img alt="Mic Position" src="../../img/mic_voice_position.png" /></p>
 <h5 id="audio-specs">Audio specs:</h5>
-<p>Sample Rate: 8 to 48 kHz
+<p>Sample Rate: 16 kHz
 Bit Depth: 16 bit</p>
-<h5 id="position-xy-of-each-mic-in-the-array-mm_1">Position [x,y] of each mic in the array (mm):</h5>
-<table>
-<thead>
-<tr>
-<th>Mic</th>
-<th>X</th>
-<th>Y</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>M1</td>
-<td>00.00</td>
-<td>0.00</td>
-</tr>
-<tr>
-<td>M2</td>
-<td>-38.13</td>
-<td>3.58</td>
-</tr>
-<tr>
-<td>M3</td>
-<td>-20.98</td>
-<td>32.04</td>
-</tr>
-<tr>
-<td>M4</td>
-<td>11.97</td>
-<td>36.38</td>
-</tr>
-<tr>
-<td>M5</td>
-<td>35.91</td>
-<td>13.32</td>
-</tr>
-<tr>
-<td>M6</td>
-<td>32.81</td>
-<td>-19.77</td>
-</tr>
-<tr>
-<td>M7</td>
-<td>5.00</td>
-<td>-37.97</td>
-</tr>
-<tr>
-<td>M8</td>
-<td>-26.57</td>
-<td>-27.58</td>
-</tr>
-</tbody>
-</table>
-<h5 id="connections-between-mics-and-the-fpga">Connections between mics and the FPGA</h5>
-<table>
-<thead>
-<tr>
-<th>Mic</th>
-<th>FPGA pin</th>
-<th>PDM_Data</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>M1</td>
-<td>E6</td>
-<td>pdm_data&lt;0&gt;</td>
-</tr>
-<tr>
-<td>M2</td>
-<td>B8</td>
-<td>pdm_data&lt;1&gt;</td>
-</tr>
-<tr>
-<td>M3</td>
-<td>A8</td>
-<td>pdm_data&lt;2&gt;</td>
-</tr>
-<tr>
-<td>M4</td>
-<td>C7</td>
-<td>pdm_data&lt;3&gt;</td>
-</tr>
-<tr>
-<td>M5</td>
-<td>A7</td>
-<td>pdm_data&lt;4&gt;</td>
-</tr>
-<tr>
-<td>M6</td>
-<td>A6</td>
-<td>pdm_data&lt;5&gt;</td>
-</tr>
-<tr>
-<td>M7</td>
-<td>B6</td>
-<td>pdm_data&lt;6&gt;</td>
-</tr>
-<tr>
-<td>M8</td>
-<td>A5</td>
-<td>pdm_data&lt;7&gt;</td>
-</tr>
-<tr>
-<td>CLK</td>
-<td>B5</td>
-<td>pdm_clk</td>
-</tr>
-</tbody>
-</table>
+<p><strong>Note</strong>: An option for setting higher sample rates will be released soon.  Please keep in touch in the community announcements channel http://community.matrix.one/c/announcements.</p>
 <h5 id="microphones-datasheet">Microphones Datasheet:</h5>
-<p>Both boards use the same part : <a href="https://www1.iodparts.com/datasheets/stmicroelectronics-microphones-dm00111225.pdf">MP34DB02 - MEMS audio sensor omnidirectional digital microphone</a> </p>
-<h4 id="how-to-get-microphone-data-from-c">How to get microphone data from C++</h4>
+<p><a href="http://www.st.com/content/ccc/resource/technical/document/datasheet/57/af/88/31/7b/59/4f/77/DM00111225.pdf/files/DM00111225.pdf/jcr:content/translations/en.DM00111225.pdf">MP34DB02 - MEMS audio sensor omnidirectional digital microphone</a> </p>
+<h4 id="2-how-to-get-microphone-data-from-c">2. How to get microphone data from C++</h4>
 <p>You can use our lower software layer in C++ called HAL () (Hardware Abstraction Layer) to read data from the microphones.</p>
 <h5 id="getting-and-compiling-hal">Getting and Compiling HAL</h5>
 <pre><code>git clone https://github.com/matrix-io/matrix-creator-hal.git
@@ -759,27 +646,21 @@ sox -r 16000 -c 1 -e signed -c 1 -e signed -b 16 mic_16000_s16le_channel_7.raw c
             <h3>Contents</h3>
             <ul class="nav flex-column">
                <li class='nav-item'>
-  <a href="#microphones" class="nav-link active">
-    Microphones
+  <a href="#microphone" class="nav-link active">
+    Microphone
   </a>
   
   <ul>
     
     <li>
-      <a class="nav-link" href="#microphone-array-on-matrix-creator">
-        Microphone Array on MATRIX Creator
+      <a class="nav-link" href="#1-mic-array-on-matrix-creator">
+        1. Mic Array on MATRIX Creator
       </a>
     </li>
     
     <li>
-      <a class="nav-link" href="#microphone-array-on-matrix-voice">
-        Microphone Array on MATRIX Voice
-      </a>
-    </li>
-    
-    <li>
-      <a class="nav-link" href="#how-to-get-microphone-data-from-c">
-        How to get microphone data from C++
+      <a class="nav-link" href="#2-how-to-get-microphone-data-from-c">
+        2. How to get microphone data from C++
       </a>
     </li>
     
