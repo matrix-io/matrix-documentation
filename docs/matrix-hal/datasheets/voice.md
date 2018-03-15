@@ -12,7 +12,7 @@ MATRIX Voice is an open-source VOICE RECOGNITION platform consisting of a 3.14-i
 ![Voice Back Image](../img/matrix-voice-back.png)
 
 ### 3D Model
-Access to 3D models [here](https://github.com/matrix-io/matrixio-models/tree/master/matrix-voice).
+Access to 3D models [here](https://github.com/matrix-io/matrixio-models/tree/master/matrix-voice). Also, you can take a look online [here](http://a360.co/2IiewhY).
 
 ## Technical Datasheets
 
