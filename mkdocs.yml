@@ -87,9 +87,7 @@ pages:
   - Tools:
     - 'OpenOCD': 'matrix-hal/tools.md'
     - 'xc3sprog': 'matrix-hal/tools.md'
-  - Examples:
-    - 'Alexa' : 'matrix-hal/examples/alexa.md'
-    - 'Sensor Tests' : 'matrix-hal/examples/hardware-demos.md'
+  - Sensor Tests: 'matrix-hal/examples/hardware-demos.md'
   - Troubleshooting: 'matrix-hal/troubleshooting.md'
 - Support : 'help.md'
 #   - App Publishing: 'intro/app-publishing.md'
