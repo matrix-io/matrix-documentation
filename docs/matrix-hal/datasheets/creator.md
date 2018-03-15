@@ -2,21 +2,14 @@
 
 MATRIX Creator is a fully-featured development board, including microphones, sensors, wireless communications, an ARM Cortex M3 processor and a Spartan 6 FPGA. MATRIX Creator was built with a mission to give every maker, tinkerer, and developer around the world a complete, affordable, and user-friendly tool for simple to complex Internet of Things (IoT) app creation.
 
-### 3D Model
-Access to 3D models [here](https://github.com/matrix-io/matrixio-models/tree/master/matrix-creator).
 
-#### System Architecture
-![Select Advanced](../img/matrixlabs_creator_block.jpg)
+## Board
 
-#### Raspberry Pi GPIO pinout
+#### Top View
+![Voice Top Image](../img/matrix-creator-front.png)
 
-![RPIGPIO](../img/matrix-creator-rpgpio-pinout.png)
-
-#### External GPIO pinout
-
-![EXTGPIO](../img/matrix-creator-extgpio-pinout.png)
-
-
+#### Bottom View
+![Voice Back Image](../img/matrix-creator-back.png)
 
 #### Technical Datasheets:
 
@@ -39,3 +32,20 @@ Access to 3D models [here](https://github.com/matrix-io/matrixio-models/tree/mas
 * [Vishay INFRARED Receptor](http://www.vishay.com/docs/82450/tsop573.pdf)
 
 * [RGBW everloop LED](http://blinkinlabs.com/wp-content/uploads/2016/01/SK6812RGBW-datasheet.pdf)
+
+### 3D Model
+Access to 3D models [here](https://github.com/matrix-io/matrixio-models/tree/master/matrix-creator). Also, you can take a look online [here](http://a360.co/2peDKGe).
+
+#### System Architecture
+![Select Advanced](../img/matrixlabs_creator_block.jpg)
+
+#### Raspberry Pi GPIO pinout
+
+![RPIGPIO](../img/matrix-creator-rpgpio-pinout.png)
+
+#### External GPIO pinout
+
+![EXTGPIO](../img/matrix-creator-extgpio-pinout.png)
+
+
+
