@@ -18,4 +18,4 @@ And only then you can flash the SAM3 firmware.
 sudo openocd -f cfg/sam3s.cfg
 ```
 
-Questions? Post them on <https://community.matrix.one>!
+Questions? Post them on <https://community.matrix.one>.
