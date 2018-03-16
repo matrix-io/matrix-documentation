@@ -10,7 +10,7 @@ git clone https://github.com/matrix-io/matrix-creator-mcu
 cd  matrix-creator-mcu/creator && make
 ```
 
-Now copy build/ch.bin to the Rasbperry Pi (if you didn't build there) and [flash it](sam3mcu). In order to flash it you need to replace the file blob/ch.bin (or edit the cfg/sam3s.cfg configuration file).
+Now copy build/ch.bin to the Rasbperry Pi (if you didn't build there) and [flash it](Sam3mcu). In order to flash it you need to replace the file blob/ch.bin (or edit the cfg/sam3s.cfg configuration file).
 
 And only then you can flash the SAM3 firmware.
 
@@ -18,4 +18,4 @@ And only then you can flash the SAM3 firmware.
 sudo openocd -f cfg/sam3s.cfg
 ```
 
-Questions? Post them on <http://raspberrypi.stackexchange.com>! Use the tag #matrix-creator
+Questions? Post them on <https://community.matrix.one>!
