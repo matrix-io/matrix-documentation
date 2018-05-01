@@ -1531,26 +1531,6 @@
             "title": "Example"
         }, 
         {
-            "location": "/matrix-os/reference/microphone/", 
-            "text": "Voice Control\n\n\nMATRIX OS provides for voice recognition via wakeword detection. \"Hey Siri\", \"Alexa\", \"Ok Google\" are examples of common wakewords used in commercial products. The default wakeword for MATRIX OS is \"Matrix\", however, you can train any wakeword you want.\n\n\nConfiguration\n\n\nservices:\n  customListener:\n    engine: voice\n    phrase: hey joe\n\n\n\n\nWakeword Training\n\n\nmatrix.listen('hey joe', function(err, phrase){\n\n});\n\n// equivalent to\n\nmatrix.listen('customListener', function(err, phrase){\n\n});\n\n// equivalent to\n\nmatrix.service('voice').listen('hey joe', function(err, phrase){\n\n});\n\n// equivalent to \nmatrix.service('customListener').listen(function(err, phrase){\n\n})", 
-            "title": "Microphone"
-        }, 
-        {
-            "location": "/matrix-os/reference/microphone/#voice-control", 
-            "text": "MATRIX OS provides for voice recognition via wakeword detection. \"Hey Siri\", \"Alexa\", \"Ok Google\" are examples of common wakewords used in commercial products. The default wakeword for MATRIX OS is \"Matrix\", however, you can train any wakeword you want.", 
-            "title": "Voice Control"
-        }, 
-        {
-            "location": "/matrix-os/reference/microphone/#configuration", 
-            "text": "services:\n  customListener:\n    engine: voice\n    phrase: hey joe", 
-            "title": "Configuration"
-        }, 
-        {
-            "location": "/matrix-os/reference/microphone/#wakeword-training", 
-            "text": "matrix.listen('hey joe', function(err, phrase){\n\n});\n\n// equivalent to\n\nmatrix.listen('customListener', function(err, phrase){\n\n});\n\n// equivalent to\n\nmatrix.service('voice').listen('hey joe', function(err, phrase){\n\n});\n\n// equivalent to \nmatrix.service('customListener').listen(function(err, phrase){\n\n})", 
-            "title": "Wakeword Training"
-        }, 
-        {
             "location": "/matrix-os/reference/integrations/", 
             "text": "Integrations\n\n\nExternal integrations must be enabled via configuration.\n\n\nConfiguration\n\n\n# in config.yaml\nintegrations\n  - ifttt\n\n\n\n\nIFTTT\n\n\nIf This Then That\n enables a MATRIX device to trigger actions or react to external events. By piggybacking onto the existing \nevent system\n, MOS can seamlessly integrates with thousands of platforms available on IFTTT.\n\n\nZigbee\n\n\nZigbee is a popular wireless protocol for smart device control.\n\n\nSee \nZigbee", 
             "title": "Integrations"
