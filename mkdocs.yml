@@ -40,7 +40,7 @@ pages:
     - 'Zigbee': 'matrix-os/reference/zigbee.md'
     - 'GPIO': 'matrix-os/reference/gpio.md'
     - 'IR': 'matrix-os/reference/ir.md'
-    - 'Microphone': 'matrix-os/reference/microphone.md'
+    # - 'Microphone': 'matrix-os/reference/microphone.md'
     - 'Integrations': 'matrix-os/reference/integrations.md'
     - 'Filters' : 'matrix-os/reference/filters.md'
     - 'Screens' : 'matrix-os/reference/screens.md'
