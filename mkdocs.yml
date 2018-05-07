@@ -4,7 +4,29 @@ docs_dir: docs
 theme_dir: matrix
 pages:
 - Overview: 'index.md'
-- Device Setup: 'setup.md'
+# MATRIX Boards
+- MATRIX Creator:
+  - 'Overview': 'matrix-creator/overview.md'
+  - 'Device Setup': 'matrix-creator/device-setup.md'
+  - Resources:
+    - 'Overview': 'matrix-creator/resources/overview.md'
+    - 'Pinout': 'matrix-creator/resources/pinout.md'
+    - 'Microphone': 'matrix-creator/resources/microphone.md'
+    - 'Reference Models': 'matrix-creator/resources/reference-models.md'
+    - 'System Architecture': 'matrix-creator/resources/system-architecture.md'
+    - 'Technical Datasheets': 'matrix-creator/resources/technical-datasheets.md'
+- MATRIX Voice:
+  - 'Overview': 'matrix-voice/overview.md'
+  - 'Device Setup': 'matrix-voice/device-setup.md'
+  - 'ESP32': 'matrix-voice/esp32.md'
+  - Resources:
+    - 'Overview': 'matrix-voice/resources/overview.md'
+    - 'Pinout': 'matrix-voice/resources/pinout.md'
+    - 'Microphone': 'matrix-voice/resources/microphone.md'
+    - 'Reference Models': 'matrix-voice/resources/reference-models.md'
+    - 'System Architecture': 'matrix-voice/resources/system-architecture.md'
+    - 'Technical Datasheets': 'matrix-voice/resources/technical-datasheets.md'
+# Ecosystem
 - MATRIX OS:
   # Index pages are hidden by template, child[0].url is loaded when user clicks on category
   - 'MATRIX OS': 'matrix-os/index.md'
@@ -40,7 +62,7 @@ pages:
     - 'Zigbee': 'matrix-os/reference/zigbee.md'
     - 'GPIO': 'matrix-os/reference/gpio.md'
     - 'IR': 'matrix-os/reference/ir.md'
-    # - 'Microphone': 'matrix-os/reference/microphone.md'
+    - 'Microphone': 'matrix-os/reference/microphone.md'
     - 'Integrations': 'matrix-os/reference/integrations.md'
     - 'Filters' : 'matrix-os/reference/filters.md'
     - 'Screens' : 'matrix-os/reference/screens.md'
@@ -73,22 +95,18 @@ pages:
     - 'Installation': 'matrix-hal/getting-started/installation.md'
     - 'Hello World': 'matrix-hal/getting-started/hello-world.md'
     - 'Next Steps': 'matrix-hal/getting-started/next-steps.md'
-  - Boards:
-    - 'Creator': 'matrix-hal/datasheets/creator.md'
-    - 'Voice': 'matrix-hal/datasheets/voice.md'
-  - Components:
-    - 'Components': 'matrix-hal/components/index.md'
-    - 'FPGA': 'matrix-hal/components/fpga.md'
-    - 'Microphone': 'matrix-hal/components/microphone.md'
-    - 'SAM3': 'matrix-hal/components/Sam3.md'
-    - 'SAM3MCU': 'matrix-hal/components/Sam3mcu.md'
-    - 'Pinout': 'matrix-hal/components/pinout.md'
-    - 'SPI': 'matrix-hal/components/SPI.md'
-  - Tools:
-    - 'OpenOCD': 'matrix-hal/tools.md'
-    - 'xc3sprog': 'matrix-hal/tools.md'
+  # - Components:
+  #   - 'Components': 'matrix-hal/components/index.md'
+  #   - 'FPGA': 'matrix-hal/components/fpga.md'
+  #   - 'Microphone': 'matrix-hal/components/microphone.md'
+  #   - 'SAM3': 'matrix-hal/components/Sam3.md'
+  #   - 'SAM3MCU': 'matrix-hal/components/Sam3mcu.md'
+  #   - 'Pinout': 'matrix-hal/components/pinout.md'
+  #   - 'SPI': 'matrix-hal/components/SPI.md'
+  #- Tools:
+  #  - 'OpenOCD': 'matrix-hal/tools.md'
+  #  - 'xc3sprog': 'matrix-hal/tools.md'
   - Sensor Tests: 'matrix-hal/examples/hardware-demos.md'
-  - Troubleshooting: 'matrix-hal/troubleshooting.md'
 - Support : 'help.md'
 #   - App Publishing: 'intro/app-publishing.md'
 #   - App API:
