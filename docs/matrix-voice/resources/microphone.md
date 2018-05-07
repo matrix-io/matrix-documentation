@@ -3,8 +3,8 @@
 
 ## Audio specs:
 
-Sample Rate: 8 to 48 kHz
-Bit Depth: 16 bit
+Sample Rate: 8 to 96 kHz
+Bit Depth: Signed 16 bit
 
 <h2 style="padding-top:0;">Position [x,y] of each mic in the array (mm):</h2>
 

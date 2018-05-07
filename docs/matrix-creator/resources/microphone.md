@@ -3,8 +3,8 @@
 
 ## Audio Specifications:
 
-Sample Rate: 8 to 48 kHz
-Bit Depth: 16 bit
+Sample Rate: 8 to 96 kHz
+Bit Depth: Signed 16 bit
 
 <!-- ## Position [x,y] of each mic in the array (mm): -->
 <h2 style="padding-top:0;">Position [x,y] of each mic in the array (mm):</h2>
@@ -23,7 +23,8 @@ Bit Depth: 16 bit
 
 <h2 style="padding-top:0;">Connection to the FPGA:</h2>
 
-You can check the <a href="https://github.com/matrix-io/matrix-creator-fpga/blob/master/creator_core/creator.ucf" target="_blank">creator.ucf</a> file from the basic FPGA architecture. Here are the connections between the mics and the FPGA:
+You can check the physical connection between the FPGA and other components in 
+<a href="https://github.com/matrix-io/matrix-creator-fpga/blob/master/creator_core/creator.ucf" target="_blank">creator.ucf</a>
 
 | Mic  |   FPGA pin  |   PDM_Data  |  
 | ---- | ----------- | ----------- |  
