@@ -12,4 +12,4 @@ ls -l
 ```
 
 ### Continue
-Move onto the rest of the [Javascript](../examples/jstests) or [Python](../examples/pytests) examples.
+Move onto the remaining examples [here](https://github.com/matrix-io/matrix-creator-hal/tree/master/demos).
