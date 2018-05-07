@@ -1,10 +1,10 @@
 ## Hardware Prerequisites
 * <a href="https://www.matrix.one/products/creator" target="_blank">MATRIX Creator</a>
 * Compatible Raspberry Pi:
-    * 1 Model B+
-    * 2 Model B
-    * 3 Model B
     * 3 Model B+
+    * 3 Model B
+    * 2 Model B
+    * 1 Model B+
     * Zero
     * Zero W
 * 5V 2.5A Micro USB Power Supply
