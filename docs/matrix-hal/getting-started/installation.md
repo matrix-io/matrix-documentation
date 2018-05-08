@@ -34,6 +34,7 @@ To start working with HAL directly, you'll need to clone it and then build it.
 
 ```
 git clone https://github.com/matrix-io/matrix-creator-hal.git
+cd matrix-creator-hal
 mkdir build
 cd build
 cmake ..
