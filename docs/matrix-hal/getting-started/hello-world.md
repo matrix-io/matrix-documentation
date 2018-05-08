@@ -11,5 +11,5 @@ cd demos
 ls -l
 ```
 
-### Continue
-Move onto the rest of the [Javascript](../examples/jstests) or [Python](../examples/pytests) examples.
+### Continue 
+Move onto the rest of the <a href="https://github.com/matrix-io/matrix-creator-hal/tree/master/demos" target="_blank">C++ examples</a>.
