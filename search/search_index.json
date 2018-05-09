@@ -2,7 +2,7 @@
     "docs": [
         {
             "location": "/", 
-            "text": "MATRIX Ecosystem Overview\n\n\nObjective: Hardware shouldn't be hard\n\n\nThe MATRIX Ecosystem was created to make powerful hardware projects very approachable for software developers. The pillars of MATRIX, computer vision, hardware interfaces, distributed internet communication, and data-driven end-user clients, are all programming disciplines which require years for an individual to master, or for a team to build a solution around.\n\n\nMATRIX adds powerful capabilities to your Raspberry Pi, depending on your background and the kind of application you want to write, you may prefer to integrate with different layers. The documentation is organized according to these layers:\n\n\n\n\nMATRIX OS Docs\n (\u26a0\ufe0f UNDER MAINTENANCE)\n\n\nMATRIX CORE Docs\n\n\nMATRIX HAL Docs\n\n\n\n\n\n\nMATRIX Open System\n\n\nTop-level application and connection layer integrating with MATRIX hardware via \nMATRIX CORE\n.\n\n\nRead more about MATRIX OS\n\n\nMATRIX CORE\n\n\nAbstraction layer for HAL. Hosts a ZeroMQ + Protobuf communication layer which makes device information accessible via high-level interfaces. Supports 40+ different languages, C++, Python, Ruby, PHP, Java, etc. \n\n\nRead more about MATRIX CORE\n\n\nMATRIX HAL\n\n\nC++ drivers for sensors and available components. Tooling for accessing the FPGA and microcontrollers on the MATRIX device.\n\n\nRead more about MATRIX HAL\n\n\nWhat do you need to get started?\n\n\n\n\nRaspberry Pi\n\n\nSupported Versions: Raspberry Pi B+ or newer and all Raspberry Pi Zero's\n\n\n\n\n\n\nMATRIX Creator\n or \nMATRIX Voice\n\n\n\n\nSupport\n\n\n\n\nPost questions or comments on \ncommunity.matrix.one\n\n\nPost package issues on github under \nmatrix-io\n\n\nSubmit documentation issues or improvements at \nmatrix-io/matrix-documentation", 
+            "text": "MATRIX Ecosystem Overview\n\n\nObjective: Hardware shouldn't be hard\n\nThe MATRIX Ecosystem was created to make powerful hardware projects very approachable for software developers. The pillars of MATRIX, computer vision, hardware interfaces, distributed internet communication, and data-driven end-user clients, are all programming disciplines which require years for an individual to master, or for a team to build a solution around.\n\n\nProgramming Layers\n\n\nThe MATRIX platform adds powerful capabilities to your Raspberry Pi, depending on your background and the kind of application you want to write, you may need to decide on which layer best fits your need. The documentation is organized according to these layers:\n\n\n\n\n\n\n\nMATRIX Open System (MOS)\n\n\n\nLanguage:\n Javascript\n\n\nHighest level of abstraction integrating with MATRIX hardware via \nMATRIX CORE\n. This layer requires an online connection and offers an integrated IoT environment that's easy to use.\n\n\n\n\nRemote App Deployment\n\n\nMobile Interface\n\n\nOnline Dashboard\n\n\nApp Store\n\n\n\n\nRead more about MATRIX OS\n\n\nMATRIX CORE\n\n\n\nLanguages:\n Over 40 (Examples in Javascript \n Python)\n\n\nAbstraction layer for \nMATRIX HAL\n. Hosts a ZeroMQ + Protobuf communication layer which makes device information accessible via high-level interfaces. Supports 40+ different languages through Protocol Buffers: C++, Python, Ruby, PHP, Java, etc.\n\n\nRead more about MATRIX CORE\n\n\nMATRIX HAL\n\n\n\nLanguage:\n C++\n\n\nInteracts with the kernel modules by using C++ drivers, enabling it to access available sensors and components on your device.\n\n\nRead more about MATRIX HAL\n\n\nDevices\n\n\nEach programming layer in the MATRIX platform is compatible with each MATRIX product, excluding specific components on the boards.\n\n\nMATRIX Creator\n\n\n\n\n\n\nA fully-featured development board for the Raspberry Pi with various sensors and communication protocols such as a 3D Gyroscope, Accelerometer, an 8 Microphone Array, zigbee, Z-Wave, and more!\n\n\nRead more about the MATRIX Creator\n\n\nMATRIX Voice\n\n\n\n\n\n\nA voice and audio focused development board with an 8 microphone array that enables you to create your own audio driven applications or use voice assistants such as \n\nAmazon Alexa\n, \n\nGoogle Assistant\n, \nPocketSphinx, etc.\n\n\nRead more about the MATRIX Voice\n\n\nSupport\n\n\n\n\nPost questions or comments on \ncommunity.matrix.one\n\n\nAlert issues on our \nGitHub\n under the corresponding repository\n\n\nSubmit documentation issues or improvements to the \nMATRIX Documentation Repository", 
             "title": "Overview"
         }, 
         {
@@ -11,84 +11,279 @@
             "title": "MATRIX Ecosystem Overview"
         }, 
         {
-            "location": "/#objective-hardware-shouldnt-be-hard", 
-            "text": "The MATRIX Ecosystem was created to make powerful hardware projects very approachable for software developers. The pillars of MATRIX, computer vision, hardware interfaces, distributed internet communication, and data-driven end-user clients, are all programming disciplines which require years for an individual to master, or for a team to build a solution around.  MATRIX adds powerful capabilities to your Raspberry Pi, depending on your background and the kind of application you want to write, you may prefer to integrate with different layers. The documentation is organized according to these layers:   MATRIX OS Docs  (\u26a0\ufe0f UNDER MAINTENANCE)  MATRIX CORE Docs  MATRIX HAL Docs", 
-            "title": "Objective: Hardware shouldn't be hard"
+            "location": "/#programming-layers", 
+            "text": "The MATRIX platform adds powerful capabilities to your Raspberry Pi, depending on your background and the kind of application you want to write, you may need to decide on which layer best fits your need. The documentation is organized according to these layers:", 
+            "title": "Programming Layers"
         }, 
         {
-            "location": "/#matrix-open-system", 
-            "text": "Top-level application and connection layer integrating with MATRIX hardware via  MATRIX CORE .  Read more about MATRIX OS", 
-            "title": "MATRIX Open System"
-        }, 
-        {
-            "location": "/#matrix-core", 
-            "text": "Abstraction layer for HAL. Hosts a ZeroMQ + Protobuf communication layer which makes device information accessible via high-level interfaces. Supports 40+ different languages, C++, Python, Ruby, PHP, Java, etc.   Read more about MATRIX CORE", 
-            "title": "MATRIX CORE"
-        }, 
-        {
-            "location": "/#matrix-hal", 
-            "text": "C++ drivers for sensors and available components. Tooling for accessing the FPGA and microcontrollers on the MATRIX device.  Read more about MATRIX HAL", 
-            "title": "MATRIX HAL"
-        }, 
-        {
-            "location": "/#what-do-you-need-to-get-started", 
-            "text": "Raspberry Pi  Supported Versions: Raspberry Pi B+ or newer and all Raspberry Pi Zero's    MATRIX Creator  or  MATRIX Voice", 
-            "title": "What do you need to get started?"
+            "location": "/#devices", 
+            "text": "Each programming layer in the MATRIX platform is compatible with each MATRIX product, excluding specific components on the boards.", 
+            "title": "Devices"
         }, 
         {
             "location": "/#support", 
-            "text": "Post questions or comments on  community.matrix.one  Post package issues on github under  matrix-io  Submit documentation issues or improvements at  matrix-io/matrix-documentation", 
+            "text": "Post questions or comments on  community.matrix.one  Alert issues on our  GitHub  under the corresponding repository  Submit documentation issues or improvements to the  MATRIX Documentation Repository", 
             "title": "Support"
         }, 
         {
-            "location": "/setup/", 
-            "text": "Device Setup\n\n\nCongratulations on your purchase of a MATRIX device, we hope this is the beginning of an exciting adventure of making and discovery.\n\n\nConnecting your Device to a Pi\n\n\n\n\nYour MATRIX device is made to fit atop a Raspberry Pi.\n\n\n\n\n\n\nIf you're using a Camera, be sure to connect it now.\n\n\n\n\nAlign the MATRIX device pin slots to the GPIO pins on the Pi.\n\n\n\n\nPress together firmly.\n\n\n\n\n\n\nThe center of the Pi should roughly align with the center of the MATRIX device.\n\n\n\n\nInsert SD Card\n\n\nMake sure you have a copy of Raspbian on that Micro SD Card of yours, and ensure that it's seated well in the SD Card slot.\n\n\n\n\nPower On\n\n\nConnect at least 2.5A of power to your Raspberry Pi.\n\n\nContinue\n\n\nWhere to go next with your MATRIX is entirely dependent on your level of comfort.\n\n\n\n\nMATRIX OS\n - A fully managed platform for your devices, data and behaviors, with the primary language being Javascript.\n\n\nMATRIX CORE\n - Centralized software protocol to enable communication with the hardware, with 40+ languages supported.\n\n\nMATRIX HAL\n - C++ drivers for sensors and available components. Tooling for accessing the FPGA and microcontrollers on the MATRIX device.", 
+            "location": "/matrix-creator/overview/", 
+            "text": "MATRIX Creator\n\n\n\n\nThe MATRIX Creator is a fully-featured development board, including sensors, wireless communications, and an FPGA. MATRIX Creator was built with a mission to give every maker, tinkerer, and developer around the world a complete, affordable, and user-friendly tool for simple to complex Internet of Things (IoT) app creation.\n\n\nOverview\n\n\n\n\nDevice Setup\n: How to get started with your MATRIX Creator\n\n\nResources\n: View and download helpful information about the MATRIX Creator", 
+            "title": "Overview"
+        }, 
+        {
+            "location": "/matrix-creator/overview/#matrix-creator", 
+            "text": "The MATRIX Creator is a fully-featured development board, including sensors, wireless communications, and an FPGA. MATRIX Creator was built with a mission to give every maker, tinkerer, and developer around the world a complete, affordable, and user-friendly tool for simple to complex Internet of Things (IoT) app creation.", 
+            "title": "MATRIX Creator"
+        }, 
+        {
+            "location": "/matrix-creator/overview/#overview", 
+            "text": "Device Setup : How to get started with your MATRIX Creator  Resources : View and download helpful information about the MATRIX Creator", 
+            "title": "Overview"
+        }, 
+        {
+            "location": "/matrix-creator/device-setup/", 
+            "text": "Hardware Prerequisites\n\n\n\n\nMATRIX Creator\n\n\nCompatible Raspberry Pi:\n\n\n3 Model B+\n\n\n3 Model B\n\n\n2 Model B\n\n\n1 Model B+\n\n\nZero\n\n\nZero W\n\n\n\n\n\n\n5V 2.5A Micro USB Power Supply\n\n\nMicroSD Card With \nRaspbian Stretch\n Lite or Desktop Installed\n\n\nWe recommend using \nEtcher.io\n for easy flashing\n\n\n\n\n\n\n\n\nDevice Installation\n\n\n\n\nSteps\n\n\n\n\nInsert flashed microSD card into Raspberry Pi\n\n\nAttach MATRIX Creator onto Raspberry Pi GPIO pins\n\n\nPower Raspberry Pi with micro USB power supply\n\n\n\n\nChoosing A Programming Environment\n\n\nAfter your MATRIX Creator is setup, visit \nEcosystem Overview\n for information about the three programming environments available to you in the MATRIX platform.", 
             "title": "Device Setup"
         }, 
         {
-            "location": "/setup/#device-setup", 
-            "text": "Congratulations on your purchase of a MATRIX device, we hope this is the beginning of an exciting adventure of making and discovery.", 
+            "location": "/matrix-creator/device-setup/#hardware-prerequisites", 
+            "text": "MATRIX Creator  Compatible Raspberry Pi:  3 Model B+  3 Model B  2 Model B  1 Model B+  Zero  Zero W    5V 2.5A Micro USB Power Supply  MicroSD Card With  Raspbian Stretch  Lite or Desktop Installed  We recommend using  Etcher.io  for easy flashing", 
+            "title": "Hardware Prerequisites"
+        }, 
+        {
+            "location": "/matrix-creator/device-setup/#device-installation", 
+            "text": "", 
+            "title": "Device Installation"
+        }, 
+        {
+            "location": "/matrix-creator/device-setup/#choosing-a-programming-environment", 
+            "text": "After your MATRIX Creator is setup, visit  Ecosystem Overview  for information about the three programming environments available to you in the MATRIX platform.", 
+            "title": "Choosing A Programming Environment"
+        }, 
+        {
+            "location": "/matrix-creator/resources/overview/", 
+            "text": "Resources\n\n\n\n\nPinout\n: Lists and labels of the MATRIX Creator's Pinouts\n\n\nMicrophone\n: Microphone sample rate and board position\n\n\nReference Models\n: Download or view the Matrix Creator's 3D models and case\n\n\nSystem Architecture\n: View a technical diagram of the MATRIX Creator architecture.\n\n\nTechnical Datasheets\n: PDFs of MATRIX Creator Components", 
+            "title": "Overview"
+        }, 
+        {
+            "location": "/matrix-creator/resources/overview/#resources", 
+            "text": "Pinout : Lists and labels of the MATRIX Creator's Pinouts  Microphone : Microphone sample rate and board position  Reference Models : Download or view the Matrix Creator's 3D models and case  System Architecture : View a technical diagram of the MATRIX Creator architecture.  Technical Datasheets : PDFs of MATRIX Creator Components", 
+            "title": "Resources"
+        }, 
+        {
+            "location": "/matrix-creator/resources/pinout/", 
+            "text": "Expansion GPIO\n\n\n\n\n\n\nRev 1 Boards do not include pin 25 \n 26. Rev 2 boards can be identified if there is a QR code sticker on the MATRIX Creator's face.\n\n\n\n\nRaspberry Pi GPIO\n\n\n\n\nGPIO Locations", 
+            "title": "Pinout"
+        }, 
+        {
+            "location": "/matrix-creator/resources/pinout/#expansion-gpio", 
+            "text": "Rev 1 Boards do not include pin 25   26. Rev 2 boards can be identified if there is a QR code sticker on the MATRIX Creator's face.", 
+            "title": "Expansion GPIO"
+        }, 
+        {
+            "location": "/matrix-creator/resources/pinout/#raspberry-pi-gpio", 
+            "text": "", 
+            "title": "Raspberry Pi GPIO"
+        }, 
+        {
+            "location": "/matrix-creator/resources/pinout/#gpio-locations", 
+            "text": "", 
+            "title": "GPIO Locations"
+        }, 
+        {
+            "location": "/matrix-creator/resources/microphone/", 
+            "text": "Microphone Array on MATRIX Creator\n\n\n\n\nAudio Specifications:\n\n\nSample Rate: 8 to 96 kHz\nBit Depth: Signed 16 bit\n\n\n\n\n\nPosition [x,y] of each mic in the array (mm):\n\n\n\n\n\n\n\n\n\nMic\n\n\nX\n\n\nY\n\n\n\n\n\n\n\n\n\n\nM1\n\n\n20.0908795\n\n\n-48.5036755\n\n\n\n\n\n\nM2\n\n\n-20.0908795\n\n\n-48.5036755\n\n\n\n\n\n\nM3\n\n\n-48.5036755\n\n\n-20.0908795\n\n\n\n\n\n\nM4\n\n\n-48.5036755\n\n\n20.0908795\n\n\n\n\n\n\nM5\n\n\n-20.0908795\n\n\n48.5036755\n\n\n\n\n\n\nM6\n\n\n20.0908795\n\n\n48.5036755\n\n\n\n\n\n\nM7\n\n\n48.5036755\n\n\n20.0908795\n\n\n\n\n\n\nM8\n\n\n48.5036755\n\n\n-20.0908795\n\n\n\n\n\n\n\n\nConnection to the FPGA:\n\n\n\nYou can check the physical connection between the FPGA and other components in \n\ncreator.ucf\n\n\n\n\n\n\n\n\nMic\n\n\nFPGA pin\n\n\nPDM_Data\n\n\n\n\n\n\n\n\n\n\nM1\n\n\nP45\n\n\npdm_data\n0\n\n\n\n\n\n\nM2\n\n\nP46\n\n\npdm_data\n1\n\n\n\n\n\n\nM3\n\n\nP47\n\n\npdm_data\n2\n\n\n\n\n\n\nM4\n\n\nP58\n\n\npdm_data\n3\n\n\n\n\n\n\nM5\n\n\nP59\n\n\npdm_data\n4\n\n\n\n\n\n\nM6\n\n\nP64\n\n\npdm_data\n5\n\n\n\n\n\n\nM7\n\n\nP65\n\n\npdm_data\n6\n\n\n\n\n\n\nM8\n\n\nP44\n\n\npdm_data\n7\n\n\n\n\n\n\nCLK\n\n\nP47\n\n\npdm_clk", 
+            "title": "Microphone"
+        }, 
+        {
+            "location": "/matrix-creator/resources/microphone/#microphone-array-on-matrix-creator", 
+            "text": "", 
+            "title": "Microphone Array on MATRIX Creator"
+        }, 
+        {
+            "location": "/matrix-creator/resources/microphone/#audio-specifications", 
+            "text": "Sample Rate: 8 to 96 kHz\nBit Depth: Signed 16 bit", 
+            "title": "Audio Specifications:"
+        }, 
+        {
+            "location": "/matrix-creator/resources/reference-models/", 
+            "text": "Board Model\n\n\nTop View\n\n\n\n\nBottom View\n\n\n\n\n\nModel Download\n\n\n\nAccess to 3D models \nhere\n. Also, you can take a look online \n\nhere\n.\n\n\nCase Model\n\n\nPrinted Case\n\n\n\n\nModel Download\n\n\n\nAccess to 3D case models \nhere\n.", 
+            "title": "Reference Models"
+        }, 
+        {
+            "location": "/matrix-creator/resources/reference-models/#board-model", 
+            "text": "", 
+            "title": "Board Model"
+        }, 
+        {
+            "location": "/matrix-creator/resources/reference-models/#case-model", 
+            "text": "", 
+            "title": "Case Model"
+        }, 
+        {
+            "location": "/matrix-creator/resources/system-architecture/", 
+            "text": "System Architecture", 
+            "title": "System Architecture"
+        }, 
+        {
+            "location": "/matrix-creator/resources/system-architecture/#system-architecture", 
+            "text": "", 
+            "title": "System Architecture"
+        }, 
+        {
+            "location": "/matrix-creator/resources/technical-datasheets/", 
+            "text": "Datasheets:\n\n\n\n\n\n\nAtmel 32 bits Cortex M3 SAM3S2\n\n\n\n\n\n\nXilinx Spartan 6S XC6SLX4 FPGA\n\n\n\n\n\n\n8 MEMS audio sensor digital microphones\n\n\n\n\n\n\nST LSM9DS1 3D accelerometer, 3D gyroscope, 3D magnetometer\n\n\n\n\n\n\nST HTS221 digital sensor for relative humidity and temperature\n\n\n\n\n\n\nNXP PN512 NFC reader\n\n\n\n\n\n\nNXP MPL3115A2 Altimeter\n\n\n\n\n\n\nVishay VEML6070 UV Light Sensor\n\n\n\n\n\n\nVishay INFRARED Receptor\n\n\n\n\n\n\nRGBW everloop LED", 
+            "title": "Technical Datasheets"
+        }, 
+        {
+            "location": "/matrix-creator/resources/technical-datasheets/#datasheets", 
+            "text": "Atmel 32 bits Cortex M3 SAM3S2    Xilinx Spartan 6S XC6SLX4 FPGA    8 MEMS audio sensor digital microphones    ST LSM9DS1 3D accelerometer, 3D gyroscope, 3D magnetometer    ST HTS221 digital sensor for relative humidity and temperature    NXP PN512 NFC reader    NXP MPL3115A2 Altimeter    Vishay VEML6070 UV Light Sensor    Vishay INFRARED Receptor    RGBW everloop LED", 
+            "title": "Datasheets:"
+        }, 
+        {
+            "location": "/matrix-voice/overview/", 
+            "text": "MATRIX Voice\n\n\n\n\nThe MATRIX Voice is a development board for building sound driven behaviors and interfaces. MATRIX Voice was built with a mission to give every maker, tinkerer, and developer around the world a complete, affordable, and user-friendly tool for simple to complex Internet of Things (IoT) voice app creation.\n\n\nOverview\n\n\n\n\nDevice Setup\n: How to get started with your MATRIX Voice \n MATRIX Voice ESP32 version\n\n\nESP32\n: Instructions to setup your ESP32 module\n\n\nResources\n: View and download helpful information about the MATRIX Voice\n\n\n\n\nBoard Versions\n\n\nBoth versions of these boards run the same on a Raspberry Pi, however, the MATRIX Voice ESP32 version has the option to run standalone by programming the ESP32 module.", 
+            "title": "Overview"
+        }, 
+        {
+            "location": "/matrix-voice/overview/#matrix-voice", 
+            "text": "The MATRIX Voice is a development board for building sound driven behaviors and interfaces. MATRIX Voice was built with a mission to give every maker, tinkerer, and developer around the world a complete, affordable, and user-friendly tool for simple to complex Internet of Things (IoT) voice app creation.", 
+            "title": "MATRIX Voice"
+        }, 
+        {
+            "location": "/matrix-voice/overview/#overview", 
+            "text": "Device Setup : How to get started with your MATRIX Voice   MATRIX Voice ESP32 version  ESP32 : Instructions to setup your ESP32 module  Resources : View and download helpful information about the MATRIX Voice", 
+            "title": "Overview"
+        }, 
+        {
+            "location": "/matrix-voice/overview/#board-versions", 
+            "text": "Both versions of these boards run the same on a Raspberry Pi, however, the MATRIX Voice ESP32 version has the option to run standalone by programming the ESP32 module.", 
+            "title": "Board Versions"
+        }, 
+        {
+            "location": "/matrix-voice/device-setup/", 
+            "text": "Hardware Prerequisites\n\n\n\n\nMATRIX Voice\n\n\nCompatible Raspberry Pi:\n\n\n3 Model B+\n\n\n3 Model B\n\n\n2 Model B\n\n\n1 Model B+\n\n\nZero\n\n\nZero W\n\n\n\n\n\n\n5V 2.5A Micro USB Power Supply\n\n\nMicroSD Card With \nRaspbian Stretch\n Lite or Desktop Installed\n\n\nWe recommend using \nEtcher.io\n for easy flashing\n\n\n\n\n\n\n\n\nDevice Installation\n\n\n\n\nSteps\n\n\n\n\nInsert flashed microSD card into Raspberry Pi\n\n\nAttach MATRIX Voice onto Raspberry Pi GPIO pins\n\n\nPower Raspberry Pi with micro USB power supply\n\n\n\n\n\n\nThe yellow startup LED sequence (with 1 LED off) will be removed when a programming environment is installed.\n\n\n\n\nChoosing A Programming Environment\n\n\nAfter your MATRIX Voice is setup, visit \nEcosystem Overview\n for information about the three programming environments available to you in the MATRIX platform.\n\n\n\n\nAll 3 programming environments are compatible with the MATRIX Voice \n MATRIX Voice ESP32 version on a Raspberry Pi.  \n\n\n\n\nESP32 Setup\n\n\nUsers with a MATRIX Voice ESP32 version can also follow this \nguide\n on how to program their ESP32 module.", 
             "title": "Device Setup"
         }, 
         {
-            "location": "/setup/#connecting-your-device-to-a-pi", 
+            "location": "/matrix-voice/device-setup/#hardware-prerequisites", 
+            "text": "MATRIX Voice  Compatible Raspberry Pi:  3 Model B+  3 Model B  2 Model B  1 Model B+  Zero  Zero W    5V 2.5A Micro USB Power Supply  MicroSD Card With  Raspbian Stretch  Lite or Desktop Installed  We recommend using  Etcher.io  for easy flashing", 
+            "title": "Hardware Prerequisites"
+        }, 
+        {
+            "location": "/matrix-voice/device-setup/#device-installation", 
             "text": "", 
-            "title": "Connecting your Device to a Pi"
+            "title": "Device Installation"
         }, 
         {
-            "location": "/setup/#your-matrix-device-is-made-to-fit-atop-a-raspberry-pi", 
-            "text": "If you're using a Camera, be sure to connect it now.", 
-            "title": "Your MATRIX device is made to fit atop a Raspberry Pi."
+            "location": "/matrix-voice/device-setup/#choosing-a-programming-environment", 
+            "text": "After your MATRIX Voice is setup, visit  Ecosystem Overview  for information about the three programming environments available to you in the MATRIX platform.   All 3 programming environments are compatible with the MATRIX Voice   MATRIX Voice ESP32 version on a Raspberry Pi.", 
+            "title": "Choosing A Programming Environment"
         }, 
         {
-            "location": "/setup/#align-the-matrix-device-pin-slots-to-the-gpio-pins-on-the-pi", 
+            "location": "/matrix-voice/device-setup/#esp32-setup", 
+            "text": "Users with a MATRIX Voice ESP32 version can also follow this  guide  on how to program their ESP32 module.", 
+            "title": "ESP32 Setup"
+        }, 
+        {
+            "location": "/matrix-voice/esp32/", 
+            "text": "ESP32 Setup\n\n\nThis guide will show you how to get started with the ESP32 module on the MATRIX Voice ESP32 version.\n\n\nStep 1: Raspberry Pi Setup\n\n\nRun the following commands inside your Raspberry Pi terminal to install the MATRIX Voice Software. This will keep the FPGA firmware updated and install few tools to flash the ESP-WROOM-32.\n\n\n# Add repo and key\ncurl https://apt.matrix.one/doc/apt-key.gpg | sudo apt-key add -\necho \ndeb https://apt.matrix.one/raspbian $(lsb_release -sc) main\n | sudo tee /etc/apt/sources.list.d/matrixlabs.list\n# Update packages and install\nsudo apt-get update\nsudo apt-get upgrade\n# Installation\nsudo apt install matrixio-creator-init\n\n\n\n\nReboot your Raspberry Pi to make sure all the required services are running.\n\n\nStep 2: Personal Computer Setup\n\n\nHere we're installing the requirements needed to allow your pc to develop and compile ESP32 projects.\n\n\nInstall Git:\n\n\n\n\nhttps://git-scm.com/downloads\n\n\n\n\nInstall ESP32 toolchain:\n\n\n\n\nLinux: \nhttps://esp-idf.readthedocs.io/en/latest/get-started/linux-setup.html\n\n\nMac: \nhttps://esp-idf.readthedocs.io/en/latest/get-started/macos-setup.html\n\n\nWindows: \nhttps://esp-idf.readthedocs.io/en/latest/get-started/windows-setup.html\n(currently not functioning)\n\n\nStop Following when you reach \"Next Steps\"\n\n\n\n\nSetup ESP-IDF development framework:\n\n\n\n\nDownload ESP-IDF: \nhttps://esp-idf.readthedocs.io/en/latest/get-started/index.html#get-esp-idf\n\n\nSet ESP-IDF Path: \nhttps://esp-idf.readthedocs.io/en/latest/get-started/add-idf_path-to-profile.html\n\n\n\n\nClone MATRIX Voice ESP32 repository\n\n\nThis repository contains the necessary libraries to control the MATRIX Voice's components.\n\n\n# windows must be using MINGw32 terminal from toolchain step\ngit clone https://github.com/matrix-io/matrixio_hal_esp32.git\n\n\n\n\nStep 3: Build and Deploy\n\n\nHere we will be deploying and running one of the example apps in the Repository we just downloaded.\n\n\nConfiguring IDF (one time setup):\n\n\ncd matrixio_hal_esp32/examples/mic_energy/\nmake menuconfig\n\n\n\n\n\n\nYou will now be taken to the IDF Configuration screen, as shown above. Once there, select the \n option to save default configuration.\n\n\nRunning example project:\n\n\nTo finish running the example, all that's left is to make and deploy the code to the Raspberry Pi. This requires the Pi's IP address and you will be prompted to insert the Pi's password as well.\n\n\nexport RPI_HOST=pi@RASPBERRY_IP_ADDRESS\nmake deploy\n\n\n\n\nStep 4: Finishing Up\n\n\n\n\nYour MATRIX Voice ESP32 should now be running the deployed example. With the program properly flashed in the ESP32, the Voice can now run without the Pi if you choose to do so. Ensure the MATRIX Voice and Pi are not powered before connecting or disconnecting.", 
+            "title": "ESP32"
+        }, 
+        {
+            "location": "/matrix-voice/esp32/#esp32-setup", 
+            "text": "This guide will show you how to get started with the ESP32 module on the MATRIX Voice ESP32 version.", 
+            "title": "ESP32 Setup"
+        }, 
+        {
+            "location": "/matrix-voice/esp32/#step-1-raspberry-pi-setup", 
+            "text": "Run the following commands inside your Raspberry Pi terminal to install the MATRIX Voice Software. This will keep the FPGA firmware updated and install few tools to flash the ESP-WROOM-32.  # Add repo and key\ncurl https://apt.matrix.one/doc/apt-key.gpg | sudo apt-key add -\necho  deb https://apt.matrix.one/raspbian $(lsb_release -sc) main  | sudo tee /etc/apt/sources.list.d/matrixlabs.list\n# Update packages and install\nsudo apt-get update\nsudo apt-get upgrade\n# Installation\nsudo apt install matrixio-creator-init  Reboot your Raspberry Pi to make sure all the required services are running.", 
+            "title": "Step 1: Raspberry Pi Setup"
+        }, 
+        {
+            "location": "/matrix-voice/esp32/#step-2-personal-computer-setup", 
+            "text": "Here we're installing the requirements needed to allow your pc to develop and compile ESP32 projects.  Install Git:   https://git-scm.com/downloads   Install ESP32 toolchain:   Linux:  https://esp-idf.readthedocs.io/en/latest/get-started/linux-setup.html  Mac:  https://esp-idf.readthedocs.io/en/latest/get-started/macos-setup.html  Windows:  https://esp-idf.readthedocs.io/en/latest/get-started/windows-setup.html (currently not functioning)  Stop Following when you reach \"Next Steps\"   Setup ESP-IDF development framework:   Download ESP-IDF:  https://esp-idf.readthedocs.io/en/latest/get-started/index.html#get-esp-idf  Set ESP-IDF Path:  https://esp-idf.readthedocs.io/en/latest/get-started/add-idf_path-to-profile.html   Clone MATRIX Voice ESP32 repository  This repository contains the necessary libraries to control the MATRIX Voice's components.  # windows must be using MINGw32 terminal from toolchain step\ngit clone https://github.com/matrix-io/matrixio_hal_esp32.git", 
+            "title": "Step 2: Personal Computer Setup"
+        }, 
+        {
+            "location": "/matrix-voice/esp32/#step-3-build-and-deploy", 
+            "text": "Here we will be deploying and running one of the example apps in the Repository we just downloaded.  Configuring IDF (one time setup):  cd matrixio_hal_esp32/examples/mic_energy/\nmake menuconfig   You will now be taken to the IDF Configuration screen, as shown above. Once there, select the   option to save default configuration.  Running example project:  To finish running the example, all that's left is to make and deploy the code to the Raspberry Pi. This requires the Pi's IP address and you will be prompted to insert the Pi's password as well.  export RPI_HOST=pi@RASPBERRY_IP_ADDRESS\nmake deploy  Step 4: Finishing Up   Your MATRIX Voice ESP32 should now be running the deployed example. With the program properly flashed in the ESP32, the Voice can now run without the Pi if you choose to do so. Ensure the MATRIX Voice and Pi are not powered before connecting or disconnecting.", 
+            "title": "Step 3: Build and Deploy"
+        }, 
+        {
+            "location": "/matrix-voice/resources/overview/", 
+            "text": "Resources\n\n\n\n\nPinout\n: Lists and labels of the MATRIX Voice's Pinouts\n\n\nMicrophone\n: Microphone sample rate and board position\n\n\nReference Models\n: Download or view the Matrix Voice's 3D models\n\n\nSystem Architecture\n: View a technical diagram of the MATRIX Voice architecture\n\n\nTechnical Datasheets\n: PDFs of MATRIX Voice Components", 
+            "title": "Overview"
+        }, 
+        {
+            "location": "/matrix-voice/resources/overview/#resources", 
+            "text": "Pinout : Lists and labels of the MATRIX Voice's Pinouts  Microphone : Microphone sample rate and board position  Reference Models : Download or view the Matrix Voice's 3D models  System Architecture : View a technical diagram of the MATRIX Voice architecture  Technical Datasheets : PDFs of MATRIX Voice Components", 
+            "title": "Resources"
+        }, 
+        {
+            "location": "/matrix-voice/resources/pinout/", 
+            "text": "Expansion GPIO\n\n\n\n\nRaspberry Pi GPIO\n\n\n\n\nGPIO Locations", 
+            "title": "Pinout"
+        }, 
+        {
+            "location": "/matrix-voice/resources/pinout/#expansion-gpio", 
             "text": "", 
-            "title": "Align the MATRIX device pin slots to the GPIO pins on the Pi."
+            "title": "Expansion GPIO"
         }, 
         {
-            "location": "/setup/#press-together-firmly", 
+            "location": "/matrix-voice/resources/pinout/#raspberry-pi-gpio", 
             "text": "", 
-            "title": "Press together firmly."
+            "title": "Raspberry Pi GPIO"
         }, 
         {
-            "location": "/setup/#the-center-of-the-pi-should-roughly-align-with-the-center-of-the-matrix-device", 
+            "location": "/matrix-voice/resources/pinout/#gpio-locations", 
             "text": "", 
-            "title": "The center of the Pi should roughly align with the center of the MATRIX device."
+            "title": "GPIO Locations"
         }, 
         {
-            "location": "/setup/#insert-sd-card", 
-            "text": "Make sure you have a copy of Raspbian on that Micro SD Card of yours, and ensure that it's seated well in the SD Card slot.", 
-            "title": "Insert SD Card"
+            "location": "/matrix-voice/resources/microphone/", 
+            "text": "Microphone Array on MATRIX Voice\n\n\n\n\nAudio specs:\n\n\nSample Rate: 8 to 96 kHz\nBit Depth: Signed 16 bit\n\n\nPosition [x,y] of each mic in the array (mm):\n\n\n\n\n\n\n\n\n\nMic\n\n\nX\n\n\nY\n\n\n\n\n\n\n\n\n\n\nM1\n\n\n00.00\n\n\n0.00\n\n\n\n\n\n\nM2\n\n\n-38.13\n\n\n3.58\n\n\n\n\n\n\nM3\n\n\n-20.98\n\n\n32.04\n\n\n\n\n\n\nM4\n\n\n11.97\n\n\n36.38\n\n\n\n\n\n\nM5\n\n\n35.91\n\n\n13.32\n\n\n\n\n\n\nM6\n\n\n32.81\n\n\n-19.77\n\n\n\n\n\n\nM7\n\n\n5.00\n\n\n-37.97\n\n\n\n\n\n\nM8\n\n\n-26.57\n\n\n-27.58\n\n\n\n\n\n\n\n\nConnection to the FPGA:\n\n\n\n\n\n\n\n\n\nMic\n\n\nFPGA pin\n\n\nPDM_Data\n\n\n\n\n\n\n\n\n\n\nM1\n\n\nE6\n\n\npdm_data\n0\n\n\n\n\n\n\nM2\n\n\nB8\n\n\npdm_data\n1\n\n\n\n\n\n\nM3\n\n\nA8\n\n\npdm_data\n2\n\n\n\n\n\n\nM4\n\n\nC7\n\n\npdm_data\n3\n\n\n\n\n\n\nM5\n\n\nA7\n\n\npdm_data\n4\n\n\n\n\n\n\nM6\n\n\nA6\n\n\npdm_data\n5\n\n\n\n\n\n\nM7\n\n\nB6\n\n\npdm_data\n6\n\n\n\n\n\n\nM8\n\n\nA5\n\n\npdm_data\n7\n\n\n\n\n\n\nCLK\n\n\nB5\n\n\npdm_clk", 
+            "title": "Microphone"
         }, 
         {
-            "location": "/setup/#power-on", 
-            "text": "Connect at least 2.5A of power to your Raspberry Pi.", 
-            "title": "Power On"
+            "location": "/matrix-voice/resources/microphone/#microphone-array-on-matrix-voice", 
+            "text": "", 
+            "title": "Microphone Array on MATRIX Voice"
         }, 
         {
-            "location": "/setup/#continue", 
-            "text": "Where to go next with your MATRIX is entirely dependent on your level of comfort.   MATRIX OS  - A fully managed platform for your devices, data and behaviors, with the primary language being Javascript.  MATRIX CORE  - Centralized software protocol to enable communication with the hardware, with 40+ languages supported.  MATRIX HAL  - C++ drivers for sensors and available components. Tooling for accessing the FPGA and microcontrollers on the MATRIX device.", 
-            "title": "Continue"
+            "location": "/matrix-voice/resources/microphone/#audio-specs", 
+            "text": "Sample Rate: 8 to 96 kHz\nBit Depth: Signed 16 bit", 
+            "title": "Audio specs:"
+        }, 
+        {
+            "location": "/matrix-voice/resources/reference-models/", 
+            "text": "Board Model\n\n\nTop View\n\n\n\n\nBottom View\n\n\n\n\n\nModel Download\n\n\n\nAccess to 3D models \nhere\n. Also, you can take a look online \n\nhere\n.", 
+            "title": "Reference Models"
+        }, 
+        {
+            "location": "/matrix-voice/resources/reference-models/#board-model", 
+            "text": "", 
+            "title": "Board Model"
+        }, 
+        {
+            "location": "/matrix-voice/resources/system-architecture/", 
+            "text": "System Architecture", 
+            "title": "System Architecture"
+        }, 
+        {
+            "location": "/matrix-voice/resources/system-architecture/#system-architecture", 
+            "text": "", 
+            "title": "System Architecture"
+        }, 
+        {
+            "location": "/matrix-voice/resources/technical-datasheets/", 
+            "text": "Datasheets:\n\n\n\n\n\n\nXilinx Spartan 6 FPGA - XC6SLX9-2FTG256C\n\n\n\n\n\n\n8 MEMS audio sensor digital microphones - MP34DB02\n\n\n\n\n\n\nSerial Flash 64MBIT - MX25L6406E\n\n\n\n\n\n\nDDR2 SDRAM 512MBIT - MT47H32M16\n\n\n\n\n\n\n3W Stereo Class-D Audio Amplifier and Class-AB Headphone Driver - PAM8019\n\n\n\n\n\n\nRGBW LED - SK6812RGBW\n\n\n\n\n\n\nESP32-WROOM", 
+            "title": "Technical Datasheets"
+        }, 
+        {
+            "location": "/matrix-voice/resources/technical-datasheets/#datasheets", 
+            "text": "Xilinx Spartan 6 FPGA - XC6SLX9-2FTG256C    8 MEMS audio sensor digital microphones - MP34DB02    Serial Flash 64MBIT - MX25L6406E    DDR2 SDRAM 512MBIT - MT47H32M16    3W Stereo Class-D Audio Amplifier and Class-AB Headphone Driver - PAM8019    RGBW LED - SK6812RGBW    ESP32-WROOM", 
+            "title": "Datasheets:"
         }, 
         {
             "location": "/matrix-os/", 
@@ -1531,6 +1726,26 @@
             "title": "Example"
         }, 
         {
+            "location": "/matrix-os/reference/microphone/", 
+            "text": "Voice Control\n\n\nMATRIX OS provides for voice recognition via wakeword detection. \"Hey Siri\", \"Alexa\", \"Ok Google\" are examples of common wakewords used in commercial products. The default wakeword for MATRIX OS is \"Matrix\", however, you can train any wakeword you want.\n\n\nConfiguration\n\n\nservices:\n  customListener:\n    engine: voice\n    phrase: hey joe\n\n\n\n\nWakeword Training\n\n\nmatrix.listen('hey joe', function(err, phrase){\n\n});\n\n// equivalent to\n\nmatrix.listen('customListener', function(err, phrase){\n\n});\n\n// equivalent to\n\nmatrix.service('voice').listen('hey joe', function(err, phrase){\n\n});\n\n// equivalent to \nmatrix.service('customListener').listen(function(err, phrase){\n\n})", 
+            "title": "Microphone"
+        }, 
+        {
+            "location": "/matrix-os/reference/microphone/#voice-control", 
+            "text": "MATRIX OS provides for voice recognition via wakeword detection. \"Hey Siri\", \"Alexa\", \"Ok Google\" are examples of common wakewords used in commercial products. The default wakeword for MATRIX OS is \"Matrix\", however, you can train any wakeword you want.", 
+            "title": "Voice Control"
+        }, 
+        {
+            "location": "/matrix-os/reference/microphone/#configuration", 
+            "text": "services:\n  customListener:\n    engine: voice\n    phrase: hey joe", 
+            "title": "Configuration"
+        }, 
+        {
+            "location": "/matrix-os/reference/microphone/#wakeword-training", 
+            "text": "matrix.listen('hey joe', function(err, phrase){\n\n});\n\n// equivalent to\n\nmatrix.listen('customListener', function(err, phrase){\n\n});\n\n// equivalent to\n\nmatrix.service('voice').listen('hey joe', function(err, phrase){\n\n});\n\n// equivalent to \nmatrix.service('customListener').listen(function(err, phrase){\n\n})", 
+            "title": "Wakeword Training"
+        }, 
+        {
             "location": "/matrix-os/reference/integrations/", 
             "text": "Integrations\n\n\nExternal integrations must be enabled via configuration.\n\n\nConfiguration\n\n\n# in config.yaml\nintegrations\n  - ifttt\n\n\n\n\nIFTTT\n\n\nIf This Then That\n enables a MATRIX device to trigger actions or react to external events. By piggybacking onto the existing \nevent system\n, MOS can seamlessly integrates with thousands of platforms available on IFTTT.\n\n\nZigbee\n\n\nZigbee is a popular wireless protocol for smart device control.\n\n\nSee \nZigbee", 
             "title": "Integrations"
@@ -2897,7 +3112,7 @@
         }, 
         {
             "location": "/matrix-hal/", 
-            "text": "Overview\n\n\nHAL is the lowest-level abstraction for the MATRIX Creator drivers. You can interface directly with HAL, or use the higher level components like \nCORE\n, and \nMATRIX OS\n.\n\n\nTooling\n\n\n\n\nxc3sprog\n - To program the FPGA.\n\n\nOpenOCD\n - To program the microcontroller.\n\n\n\n\nBoards\n\n\n\n\nCreator\n\n\nVoice\n\n\n\n\nHardware Integrations\n\n\n\n\nFPGA\n\n\nHAL\n\n\nMicrophone\n\n\n\n\nExample Software Integrations\n\n\n\n\nMATRIX CORE\n\n\nMATRIX OS\n\n\n\n\nComponents\n\n\n\n\nPinout\n\n\nFPGA\n\n\nSAM3\n\n\nSAM3MCU\n\n\nMicrophone\n\n\nSPI", 
+            "text": "Overview\n\n\nHAL is the lowest-level abstraction for the MATRIX Creator drivers. You can interface directly with HAL, or use the higher level components like \nCORE\n, and \nMATRIX OS\n.\n\n\nTooling\n\n\n\n\nxc3sprog\n - To program the FPGA.\n\n\nOpenOCD\n - To program the microcontroller.\n\n\n\n\nExample Software Integrations\n\n\n\n\nMATRIX CORE\n\n\nMATRIX OS", 
             "title": "MATRIX HAL"
         }, 
         {
@@ -2911,28 +3126,13 @@
             "title": "Tooling"
         }, 
         {
-            "location": "/matrix-hal/#boards", 
-            "text": "Creator  Voice", 
-            "title": "Boards"
-        }, 
-        {
-            "location": "/matrix-hal/#hardware-integrations", 
-            "text": "FPGA  HAL  Microphone", 
-            "title": "Hardware Integrations"
-        }, 
-        {
             "location": "/matrix-hal/#example-software-integrations", 
             "text": "MATRIX CORE  MATRIX OS", 
             "title": "Example Software Integrations"
         }, 
         {
-            "location": "/matrix-hal/#components", 
-            "text": "Pinout  FPGA  SAM3  SAM3MCU  Microphone  SPI", 
-            "title": "Components"
-        }, 
-        {
             "location": "/matrix-hal/getting-started/installation/", 
-            "text": "Installation\n\n\nInstall from package\n\n\nIf you haven't already installed the required MATRIX packages that configure everything after each boot, please install:\n\n\n# Add repo and key\ncurl https://apt.matrix.one/doc/apt-key.gpg | sudo apt-key add -\necho \ndeb https://apt.matrix.one/raspbian $(lsb_release -sc) main\n | sudo tee /etc/apt/sources.list.d/matrixlabs.list\n\n# Update packages and install\nsudo apt-get update\nsudo apt-get upgrade\n\n# Installation\nsudo apt-get install matrixio-creator-init libmatrixio-creator-hal libmatrixio-creator-hal-dev\n\n# Reboot after installation\nsudo reboot\n\n\n\n\nInstall from source\n\n\nInstall Pre-Requisites\n\n\nsudo apt-get install cmake g++ git libfftw3-dev wiringpi libgflags-dev\n\n\n\n\nClone and Build\n\n\nTo start working with HAL directly, you'll need to clone it and then build it. \n\n\ngit clone https://github.com/matrix-io/matrix-creator-hal.git\nmkdir build\ncd build\ncmake ..\nmake \n sudo make install\n\n\n\n\nContinue\n\n\n\n\nDo \nHello World\n\n\nTry out the \nhardware demos\n available inside the \ndemos\n directory.\n\n\nWrite and run your own HAL abstraction layer by using our \nComponent\n documentation.", 
+            "text": "Installation\n\n\nInstall from package\n\n\nIf you haven't already installed the required MATRIX packages that configure everything after each boot, please install:\n\n\n# Add repo and key\ncurl https://apt.matrix.one/doc/apt-key.gpg | sudo apt-key add -\necho \ndeb https://apt.matrix.one/raspbian $(lsb_release -sc) main\n | sudo tee /etc/apt/sources.list.d/matrixlabs.list\n\n# Update packages and install\nsudo apt-get update\nsudo apt-get upgrade\n\n# Installation\nsudo apt-get install matrixio-creator-init libmatrixio-creator-hal libmatrixio-creator-hal-dev\n\n# Reboot after installation\nsudo reboot\n\n\n\n\nInstall from source\n\n\nInstall Pre-Requisites\n\n\nsudo apt-get install cmake g++ git libfftw3-dev wiringpi libgflags-dev\n\n\n\n\nClone and Build\n\n\nTo start working with HAL directly, you'll need to clone it and then build it. \n\n\ngit clone https://github.com/matrix-io/matrix-creator-hal.git\ncd matrix-creator-hal\nmkdir build\ncd build\ncmake ..\nmake \n sudo make install\n\n\n\n\nContinue\n\n\n\n\nDo \nHello World\n\n\nTry out the \nhardware demos\n available inside the \ndemos\n directory.\n\n\nWrite and run your own HAL abstraction layer by using our \nComponent\n documentation.", 
             "title": "Installation"
         }, 
         {
@@ -2957,7 +3157,7 @@
         }, 
         {
             "location": "/matrix-hal/getting-started/installation/#clone-and-build", 
-            "text": "To start working with HAL directly, you'll need to clone it and then build it.   git clone https://github.com/matrix-io/matrix-creator-hal.git\nmkdir build\ncd build\ncmake ..\nmake   sudo make install", 
+            "text": "To start working with HAL directly, you'll need to clone it and then build it.   git clone https://github.com/matrix-io/matrix-creator-hal.git\ncd matrix-creator-hal\nmkdir build\ncd build\ncmake ..\nmake   sudo make install", 
             "title": "Clone and Build"
         }, 
         {
@@ -2967,7 +3167,7 @@
         }, 
         {
             "location": "/matrix-hal/getting-started/hello-world/", 
-            "text": "Basic Examples\n\n\nBasic examples can be found inside the \ndemo\n directory inside of the repository that you cloned during \ninstallation\n. Below we'll get you started with the Everloop demo which should turn the LEDs a \nblue\n color.\n\n\n# should already be in ~/matrix-creator-hal/build directory.\ncd demos\n\n# run the everloop demo\n./everloop_demo\n\n# see the rest of the examples\nls -l\n\n\n\n\nContinue\n\n\nMove onto the rest of the \nJavascript\n or \nPython\n examples.", 
+            "text": "Basic Examples\n\n\nBasic examples can be found inside the \ndemo\n directory inside of the repository that you cloned during \ninstallation\n. Below we'll get you started with the Everloop demo which should turn the LEDs a \nblue\n color.\n\n\n# should already be in ~/matrix-creator-hal/build directory.\ncd demos\n\n# run the everloop demo\n./everloop_demo\n\n# see the rest of the examples\nls -l\n\n\n\n\nContinue\n\n\nMove onto the rest of the \nC++ examples\n.", 
             "title": "Hello World"
         }, 
         {
@@ -2977,7 +3177,7 @@
         }, 
         {
             "location": "/matrix-hal/getting-started/hello-world/#continue", 
-            "text": "Move onto the rest of the  Javascript  or  Python  examples.", 
+            "text": "Move onto the rest of the  C++ examples .", 
             "title": "Continue"
         }, 
         {
@@ -2996,361 +3196,6 @@
             "title": "Share your creation"
         }, 
         {
-            "location": "/matrix-hal/datasheets/creator/", 
-            "text": "MATRIX Creator\n\n\nMATRIX Creator is a fully-featured development board, including microphones, sensors, wireless communications, an ARM Cortex M3 processor and a Spartan 6 FPGA. MATRIX Creator was built with a mission to give every maker, tinkerer, and developer around the world a complete, affordable, and user-friendly tool for simple to complex Internet of Things (IoT) app creation.\n\n\nBoard\n\n\nTop View\n\n\n\n\nBottom View\n\n\n\n\n3D Model\n\n\nAccess to 3D models \nhere\n. Also, you can take a look online \nhere\n.\n\n\nTechnical Datasheets:\n\n\n\n\n\n\nAtmel 32 bits Cortex M3 SAM3S2\n\n\n\n\n\n\nXilinx Spartan 6S XC6SLX4 FPGA\n\n\n\n\n\n\n8 MEMS audio sensor digital microphones\n\n\n\n\n\n\nST LSM9DS1 3D accelerometer, 3D gyroscope, 3D magnetometer\n\n\n\n\n\n\nST HTS221 digital sensor for relative humidity and temperature\n\n\n\n\n\n\nNXP PN512 NFC reader\n\n\n\n\n\n\nNXP MPL3115A2 Altimeter\n\n\n\n\n\n\nVishay VEML6070 UV Light Sensor\n\n\n\n\n\n\nVishay INFRARED Receptor\n\n\n\n\n\n\nRGBW everloop LED\n\n\n\n\n\n\nSystem Architecture\n\n\n\n\nRaspberry Pi GPIO pinout\n\n\n\n\nExternal GPIO pinout", 
-            "title": "Creator"
-        }, 
-        {
-            "location": "/matrix-hal/datasheets/creator/#matrix-creator", 
-            "text": "MATRIX Creator is a fully-featured development board, including microphones, sensors, wireless communications, an ARM Cortex M3 processor and a Spartan 6 FPGA. MATRIX Creator was built with a mission to give every maker, tinkerer, and developer around the world a complete, affordable, and user-friendly tool for simple to complex Internet of Things (IoT) app creation.", 
-            "title": "MATRIX Creator"
-        }, 
-        {
-            "location": "/matrix-hal/datasheets/creator/#board", 
-            "text": "", 
-            "title": "Board"
-        }, 
-        {
-            "location": "/matrix-hal/datasheets/creator/#top-view", 
-            "text": "", 
-            "title": "Top View"
-        }, 
-        {
-            "location": "/matrix-hal/datasheets/creator/#bottom-view", 
-            "text": "", 
-            "title": "Bottom View"
-        }, 
-        {
-            "location": "/matrix-hal/datasheets/creator/#3d-model", 
-            "text": "Access to 3D models  here . Also, you can take a look online  here .", 
-            "title": "3D Model"
-        }, 
-        {
-            "location": "/matrix-hal/datasheets/creator/#technical-datasheets", 
-            "text": "Atmel 32 bits Cortex M3 SAM3S2    Xilinx Spartan 6S XC6SLX4 FPGA    8 MEMS audio sensor digital microphones    ST LSM9DS1 3D accelerometer, 3D gyroscope, 3D magnetometer    ST HTS221 digital sensor for relative humidity and temperature    NXP PN512 NFC reader    NXP MPL3115A2 Altimeter    Vishay VEML6070 UV Light Sensor    Vishay INFRARED Receptor    RGBW everloop LED", 
-            "title": "Technical Datasheets:"
-        }, 
-        {
-            "location": "/matrix-hal/datasheets/creator/#system-architecture", 
-            "text": "", 
-            "title": "System Architecture"
-        }, 
-        {
-            "location": "/matrix-hal/datasheets/creator/#raspberry-pi-gpio-pinout", 
-            "text": "", 
-            "title": "Raspberry Pi GPIO pinout"
-        }, 
-        {
-            "location": "/matrix-hal/datasheets/creator/#external-gpio-pinout", 
-            "text": "", 
-            "title": "External GPIO pinout"
-        }, 
-        {
-            "location": "/matrix-hal/datasheets/voice/", 
-            "text": "MATRIX Voice\n\n\nMATRIX Voice is an open-source VOICE RECOGNITION platform consisting of a 3.14-inches in diameter dev board, with a radial array of 8 MEMS microphones connected to a Xilinx Spartan 6 FPGA \n 64 Mbit Flash, a 512Mbit SDRAM and 18 RGBW LED\u2019s.\n\n\nBoard\n\n\nTop View\n\n\n\n\nBottom View\n\n\n\n\n3D Model\n\n\nAccess to 3D models \nhere\n. Also, you can take a look online \nhere\n.\n\n\nTechnical Datasheets\n\n\n\n\nXilinx Spartan 6 FPGA - XC6SLX9-2FTG256C\n\n\n8 MEMS audio sensor digital microphones - MP34DB02\n\n\nSerial Flash 64MBIT - MX25L6406E\n\n\nDDR2 SDRAM 512MBIT - MT47H32M16\n\n\n3W Stereo Class-D Audio Amplifier and Class-AB Headphone Driver - PAM8019\n\n\nRGBW LED - SK6812RGBW\n\n\nESP32-WROOM\n\n\n\n\nSystem Architecture\n\n\n\n\nRaspberry Pi GPIO Connector Pinout\n\n\n\n\nExternal GPIO Connector Pinout\n\n\n\n\nTutorials\n\n\n\n\nMATRIX Voice Running Alexa Demo\n\n\nGet Started w/ESP32 on the MATRIX Voice", 
-            "title": "Voice"
-        }, 
-        {
-            "location": "/matrix-hal/datasheets/voice/#matrix-voice", 
-            "text": "MATRIX Voice is an open-source VOICE RECOGNITION platform consisting of a 3.14-inches in diameter dev board, with a radial array of 8 MEMS microphones connected to a Xilinx Spartan 6 FPGA   64 Mbit Flash, a 512Mbit SDRAM and 18 RGBW LED\u2019s.", 
-            "title": "MATRIX Voice"
-        }, 
-        {
-            "location": "/matrix-hal/datasheets/voice/#board", 
-            "text": "", 
-            "title": "Board"
-        }, 
-        {
-            "location": "/matrix-hal/datasheets/voice/#top-view", 
-            "text": "", 
-            "title": "Top View"
-        }, 
-        {
-            "location": "/matrix-hal/datasheets/voice/#bottom-view", 
-            "text": "", 
-            "title": "Bottom View"
-        }, 
-        {
-            "location": "/matrix-hal/datasheets/voice/#3d-model", 
-            "text": "Access to 3D models  here . Also, you can take a look online  here .", 
-            "title": "3D Model"
-        }, 
-        {
-            "location": "/matrix-hal/datasheets/voice/#technical-datasheets", 
-            "text": "Xilinx Spartan 6 FPGA - XC6SLX9-2FTG256C  8 MEMS audio sensor digital microphones - MP34DB02  Serial Flash 64MBIT - MX25L6406E  DDR2 SDRAM 512MBIT - MT47H32M16  3W Stereo Class-D Audio Amplifier and Class-AB Headphone Driver - PAM8019  RGBW LED - SK6812RGBW  ESP32-WROOM", 
-            "title": "Technical Datasheets"
-        }, 
-        {
-            "location": "/matrix-hal/datasheets/voice/#system-architecture", 
-            "text": "", 
-            "title": "System Architecture"
-        }, 
-        {
-            "location": "/matrix-hal/datasheets/voice/#raspberry-pi-gpio-connector-pinout", 
-            "text": "", 
-            "title": "Raspberry Pi GPIO Connector Pinout"
-        }, 
-        {
-            "location": "/matrix-hal/datasheets/voice/#external-gpio-connector-pinout", 
-            "text": "", 
-            "title": "External GPIO Connector Pinout"
-        }, 
-        {
-            "location": "/matrix-hal/datasheets/voice/#tutorials", 
-            "text": "MATRIX Voice Running Alexa Demo  Get Started w/ESP32 on the MATRIX Voice", 
-            "title": "Tutorials"
-        }, 
-        {
-            "location": "/matrix-hal/components/", 
-            "text": "Components\n\n\n\n\nPinout\n\n\nFPGA\n\n\nSAM3\n\n\nSAM3MCU\n\n\nMicrophone\n\n\nSPI", 
-            "title": "Components"
-        }, 
-        {
-            "location": "/matrix-hal/components/#components", 
-            "text": "Pinout  FPGA  SAM3  SAM3MCU  Microphone  SPI", 
-            "title": "Components"
-        }, 
-        {
-            "location": "/matrix-hal/components/fpga/", 
-            "text": "FPGA\n\n\nOnce you have installed the \nrequired software\n you can program the FPGA. This will allow you to play with the everloop LED array.\n\n\nFirst, get the firmware.\n\n\nwget http://packages.matrix.one/matrix-creator-firmware/firmware-0.8.tar.gz\ntar xzvf firmware-0.8.tar.gz\n\n\n\nThen flash the firmware using the \nxc3sprog\n program that should be installed on the Raspberry.\n\n\nsudo xc3sprog -c matrix_pi firmware-0.8/blob/system.bit -p 1\n\n\n\nSample result:\n\n\n$ sudo xc3sprog -c matrix_pi firmware-0.8/blob/system.bit -p 1\nXC3SPROG (c) 2004-2011 xc3sprog project $Rev: 774 $ OS: Linux\nFree software: If you contribute nothing, expect nothing!\nFeedback on success/failure/enhancement requests:\n    http://sourceforge.net/mail/?group_id=170565 \nCheck Sourceforge for updates:\n    http://sourceforge.net/projects/xc3sprog/develop\n\nDNA is 0x39c620e4bfe15bfd\n\n\n\nQuestions? Post them on \nraspberrypi.stackexchange.com\n! Use the tag #matrix-creator", 
-            "title": "FPGA"
-        }, 
-        {
-            "location": "/matrix-hal/components/fpga/#fpga", 
-            "text": "Once you have installed the  required software  you can program the FPGA. This will allow you to play with the everloop LED array.  First, get the firmware.  wget http://packages.matrix.one/matrix-creator-firmware/firmware-0.8.tar.gz\ntar xzvf firmware-0.8.tar.gz  Then flash the firmware using the  xc3sprog  program that should be installed on the Raspberry.  sudo xc3sprog -c matrix_pi firmware-0.8/blob/system.bit -p 1  Sample result:  $ sudo xc3sprog -c matrix_pi firmware-0.8/blob/system.bit -p 1\nXC3SPROG (c) 2004-2011 xc3sprog project $Rev: 774 $ OS: Linux\nFree software: If you contribute nothing, expect nothing!\nFeedback on success/failure/enhancement requests:\n    http://sourceforge.net/mail/?group_id=170565 \nCheck Sourceforge for updates:\n    http://sourceforge.net/projects/xc3sprog/develop\n\nDNA is 0x39c620e4bfe15bfd  Questions? Post them on  raspberrypi.stackexchange.com ! Use the tag #matrix-creator", 
-            "title": "FPGA"
-        }, 
-        {
-            "location": "/matrix-hal/components/microphone/", 
-            "text": "Microphones\n\n\nMicrophone Array on MATRIX Creator\n\n\n\n\nAudio Specifications:\n\n\nSample Rate: 8 to 48 kHz\nBit Depth: 16 bit\n\n\nPosition [x,y] of each mic in the array (mm):\n\n\n\n\n\n\n\n\nMic\n\n\nX\n\n\nY\n\n\n\n\n\n\n\n\n\n\nM1\n\n\n20.0908795\n\n\n-48.5036755\n\n\n\n\n\n\nM2\n\n\n-20.0908795\n\n\n-48.5036755\n\n\n\n\n\n\nM3\n\n\n-48.5036755\n\n\n-20.0908795\n\n\n\n\n\n\nM4\n\n\n-48.5036755\n\n\n20.0908795\n\n\n\n\n\n\nM5\n\n\n-20.0908795\n\n\n48.5036755\n\n\n\n\n\n\nM6\n\n\n20.0908795\n\n\n48.5036755\n\n\n\n\n\n\nM7\n\n\n48.5036755\n\n\n20.0908795\n\n\n\n\n\n\nM8\n\n\n48.5036755\n\n\n-20.0908795\n\n\n\n\n\n\n\n\nConnection to the FPGA\n\n\nYou can check the \ncreator.ucf\n file from the basic FPGA architecture. Here are the connections between the mics and the FPGA:\n\n\n\n\n\n\n\n\nMic\n\n\nFPGA pin\n\n\nPDM_Data\n\n\n\n\n\n\n\n\n\n\nM1\n\n\nP45\n\n\npdm_data\n0\n\n\n\n\n\n\nM2\n\n\nP46\n\n\npdm_data\n1\n\n\n\n\n\n\nM3\n\n\nP47\n\n\npdm_data\n2\n\n\n\n\n\n\nM4\n\n\nP58\n\n\npdm_data\n3\n\n\n\n\n\n\nM5\n\n\nP59\n\n\npdm_data\n4\n\n\n\n\n\n\nM6\n\n\nP64\n\n\npdm_data\n5\n\n\n\n\n\n\nM7\n\n\nP65\n\n\npdm_data\n6\n\n\n\n\n\n\nM8\n\n\nP44\n\n\npdm_data\n7\n\n\n\n\n\n\nCLK\n\n\nP47\n\n\npdm_clk\n\n\n\n\n\n\n\n\nMicrophone Array on MATRIX Voice\n\n\n\n\nAudio specs:\n\n\nSample Rate: 8 to 48 kHz\nBit Depth: 16 bit\n\n\nPosition [x,y] of each mic in the array (mm):\n\n\n\n\n\n\n\n\nMic\n\n\nX\n\n\nY\n\n\n\n\n\n\n\n\n\n\nM1\n\n\n00.00\n\n\n0.00\n\n\n\n\n\n\nM2\n\n\n-38.13\n\n\n3.58\n\n\n\n\n\n\nM3\n\n\n-20.98\n\n\n32.04\n\n\n\n\n\n\nM4\n\n\n11.97\n\n\n36.38\n\n\n\n\n\n\nM5\n\n\n35.91\n\n\n13.32\n\n\n\n\n\n\nM6\n\n\n32.81\n\n\n-19.77\n\n\n\n\n\n\nM7\n\n\n5.00\n\n\n-37.97\n\n\n\n\n\n\nM8\n\n\n-26.57\n\n\n-27.58\n\n\n\n\n\n\n\n\nConnections between mics and the FPGA\n\n\n\n\n\n\n\n\nMic\n\n\nFPGA pin\n\n\nPDM_Data\n\n\n\n\n\n\n\n\n\n\nM1\n\n\nE6\n\n\npdm_data\n0\n\n\n\n\n\n\nM2\n\n\nB8\n\n\npdm_data\n1\n\n\n\n\n\n\nM3\n\n\nA8\n\n\npdm_data\n2\n\n\n\n\n\n\nM4\n\n\nC7\n\n\npdm_data\n3\n\n\n\n\n\n\nM5\n\n\nA7\n\n\npdm_data\n4\n\n\n\n\n\n\nM6\n\n\nA6\n\n\npdm_data\n5\n\n\n\n\n\n\nM7\n\n\nB6\n\n\npdm_data\n6\n\n\n\n\n\n\nM8\n\n\nA5\n\n\npdm_data\n7\n\n\n\n\n\n\nCLK\n\n\nB5\n\n\npdm_clk\n\n\n\n\n\n\n\n\nMicrophones Datasheet:\n\n\nBoth boards use the same part : \nMP34DB02 - MEMS audio sensor omnidirectional digital microphone\n \n\n\nHow to get microphone data from C++\n\n\nYou can use our lower software layer in C++ called HAL () (Hardware Abstraction Layer) to read data from the microphones.\n\n\nGetting and Compiling HAL\n\n\ngit clone https://github.com/matrix-io/matrix-creator-hal.git\ncd matrix-creator-hal \nmkdir build \n cd build\ncmake ..\nmake\n\n\n\nExample code\n\n\nThe following example gets samples from all channels (mics) collected by the fpga.  \n\n\n... \nint main() {\n    hal::WishboneBus bus;\n    bus.SpiInit();\n    hal::MicrophoneArray mics;\n    mics.Setup(\nbus);\n    std::valarray\nfloat\n magnitude(mics.Channels());\n\n    mics.SetGain(8);\n    std::cout \n \"M1\\t\" \n \"M2\\t\" \n \"M3\\t\" \n \"M4\\t\" \n \"M5\\t\" \n \"M6\\t\" \n \"M7\\t\" \n \"M8\\t\" \n std::endl;\n\n    while (true) {\n        mics.Read();\n        magnitude = 0.0;\n        for (unsigned int s = 0; s \n mics.NumberOfSamples(); s++) {\n            for (unsigned int c = 0; c \n mics.Channels(); c++) {\n              magnitude[c] = mics.At(s, c);\n              std::cout \n  magnitude[c] \n \"\\t\";\n            }\n            std::cout \n std::endl;\n        }\n    }\n    return 0;\n}\n\n\n\n3. Example demo apps for mics\n\n\nThe demo apps are in the folder \nmatrix-creator-hal/demos/\n . They are built with HAL. To run them go to the demo folder :\n\n\ncd build/demos\n./mic_demo\n\n\n\nnote: You can play with the demos to learn how to use HAL, and them use them as starting points for your own apps.\n\n\nmic_demo\n\n\nThis demo maps each mic audio input to one specific led on the Everloop. You can make sounds close to the MATRIX Creator and see how the LEDs turn green when a sound is detected. Also the demo prints in the terminal the audio as numbers, e.g.:\n\n\ncd build/demos\n./mic_demo\n0   0   0   0   0   0   0   0   \n0   0   0   0   0   0   0   0   \n6   6   6   6   6   4   5   6   \n3   6   4   4   2   2   2   2   \n0   0   0   0   0   0   0   0   \n0   0   0   0   0   0   0   0   \n0   0   0   0   0   0   0   0   \n3   5   5   4   4   4   5   4   \n5   6   6   6   6   5   6   5   \n1   0   1   2   2   1   1   1   \n0   1   1   1   1   1   1   1   \n0   1   1   0   1   0   0   0   \n...\n\n\n\nmic_energy\n\n\nThis demo is similar but instead of mapping the mic's audio individually takes all channels and maps the average of all mics. It maps at the same time in all LEDs and creates a very voice responsive red light. This demos does not print anything on the terminal.\n\n\ncd build/demos\n./mic_energy\n\n\n\nmicarray_recorder\n\n\nThis demo records audio from all 8 channels (0-7) and the beamforming channel (channel 8) to raw files located in the same folder. After you launching the demo you will have these files:\n\n\ncd build/demos\n./micarray_recorder\n\n\n\nThe default example records audio to raw files for 10 seconds and then stops. After recording the files are on the same folder \n/demos\n :\n\n\ncd build/demos\nls | grep raw\nmic_16000_s16le_channel_0.raw\nmic_16000_s16le_channel_1.raw\nmic_16000_s16le_channel_2.raw\nmic_16000_s16le_channel_3.raw\nmic_16000_s16le_channel_4.raw\nmic_16000_s16le_channel_5.raw\nmic_16000_s16le_channel_6.raw\nmic_16000_s16le_channel_7.raw\nmic_16000_s16le_channel_8.raw\n\n\n\nnote: The data in the raw files is written in \nint16_t\n. \n\n\ndirection_of_arrival_demo\n\n\nThis demo shows a first implementation of direction of arrival detection. It shows the direction of arrival using the LEDs and also prints the result angle in the terminal. To test it run the demo and make sounds from different directions to the MATRIX Creator board to see how. \n\n\n./direction_of_arrival_demo\nazimutal angle = 0, polar angle = 0, mic = 0\nazimutal angle = 0, polar angle = 0, mic = 0\nazimutal angle = -157.5, polar angle = 18, mic = 2\nazimutal angle = -157.5, polar angle = 18, mic = 2\nazimutal angle = -157.5, polar angle = 18, mic = 2\nazimutal angle = 22.5, polar angle = 36, mic = 6\nazimutal angle = -157.5, polar angle = 54, mic = 2\nazimutal angle = -157.5, polar angle = 72, mic = 2\nazimutal angle = -157.5, polar angle = 72, mic = 2\n\n\n\nRecord, Convert and Play sounds.\n\n\nUpdate and upgrade Raspbian\n\n\nsudo apt-get update\nsudo apt-get upgrade\n\n\n\nInstall \nAlsa tools\n and the \nsox\n utility\n\n\nsudo apt-get install sox alsa-utils\n\n\n\nRun the volume control\n\n\nalsamixer\n\n\n\nRun capture and check the recorded files\n\n\ncd demos\n./micarray_recorder\nls -1 *raw\n\n\n\nConvert the audio\n\n\nsox -r 16000 -c 1 -e signed -c 1 -e signed -b 16 mic_16000_s16le_channel_0.raw channel_0.wav\nsox -r 16000 -c 1 -e signed -c 1 -e signed -b 16 mic_16000_s16le_channel_1.raw channel_1.wav\nsox -r 16000 -c 1 -e signed -c 1 -e signed -b 16 mic_16000_s16le_channel_2.raw channel_2.wav\nsox -r 16000 -c 1 -e signed -c 1 -e signed -b 16 mic_16000_s16le_channel_3.raw channel_3.wav\nsox -r 16000 -c 1 -e signed -c 1 -e signed -b 16 mic_16000_s16le_channel_4.raw channel_4.wav\nsox -r 16000 -c 1 -e signed -c 1 -e signed -b 16 mic_16000_s16le_channel_5.raw channel_5.wav\nsox -r 16000 -c 1 -e signed -c 1 -e signed -b 16 mic_16000_s16le_channel_6.raw channel_6.wav\nsox -r 16000 -c 1 -e signed -c 1 -e signed -b 16 mic_16000_s16le_channel_7.raw channel_7.wav\n\n\n\nPlay the wav file (i.e. audio from channel 0)\n\n\naplay channel_0.wav", 
-            "title": "Microphone"
-        }, 
-        {
-            "location": "/matrix-hal/components/microphone/#microphones", 
-            "text": "", 
-            "title": "Microphones"
-        }, 
-        {
-            "location": "/matrix-hal/components/microphone/#microphone-array-on-matrix-creator", 
-            "text": "", 
-            "title": "Microphone Array on MATRIX Creator"
-        }, 
-        {
-            "location": "/matrix-hal/components/microphone/#audio-specifications", 
-            "text": "Sample Rate: 8 to 48 kHz\nBit Depth: 16 bit", 
-            "title": "Audio Specifications:"
-        }, 
-        {
-            "location": "/matrix-hal/components/microphone/#position-xy-of-each-mic-in-the-array-mm", 
-            "text": "Mic  X  Y      M1  20.0908795  -48.5036755    M2  -20.0908795  -48.5036755    M3  -48.5036755  -20.0908795    M4  -48.5036755  20.0908795    M5  -20.0908795  48.5036755    M6  20.0908795  48.5036755    M7  48.5036755  20.0908795    M8  48.5036755  -20.0908795", 
-            "title": "Position [x,y] of each mic in the array (mm):"
-        }, 
-        {
-            "location": "/matrix-hal/components/microphone/#connection-to-the-fpga", 
-            "text": "You can check the  creator.ucf  file from the basic FPGA architecture. Here are the connections between the mics and the FPGA:     Mic  FPGA pin  PDM_Data      M1  P45  pdm_data 0    M2  P46  pdm_data 1    M3  P47  pdm_data 2    M4  P58  pdm_data 3    M5  P59  pdm_data 4    M6  P64  pdm_data 5    M7  P65  pdm_data 6    M8  P44  pdm_data 7    CLK  P47  pdm_clk", 
-            "title": "Connection to the FPGA"
-        }, 
-        {
-            "location": "/matrix-hal/components/microphone/#microphone-array-on-matrix-voice", 
-            "text": "", 
-            "title": "Microphone Array on MATRIX Voice"
-        }, 
-        {
-            "location": "/matrix-hal/components/microphone/#audio-specs", 
-            "text": "Sample Rate: 8 to 48 kHz\nBit Depth: 16 bit", 
-            "title": "Audio specs:"
-        }, 
-        {
-            "location": "/matrix-hal/components/microphone/#position-xy-of-each-mic-in-the-array-mm_1", 
-            "text": "Mic  X  Y      M1  00.00  0.00    M2  -38.13  3.58    M3  -20.98  32.04    M4  11.97  36.38    M5  35.91  13.32    M6  32.81  -19.77    M7  5.00  -37.97    M8  -26.57  -27.58", 
-            "title": "Position [x,y] of each mic in the array (mm):"
-        }, 
-        {
-            "location": "/matrix-hal/components/microphone/#connections-between-mics-and-the-fpga", 
-            "text": "Mic  FPGA pin  PDM_Data      M1  E6  pdm_data 0    M2  B8  pdm_data 1    M3  A8  pdm_data 2    M4  C7  pdm_data 3    M5  A7  pdm_data 4    M6  A6  pdm_data 5    M7  B6  pdm_data 6    M8  A5  pdm_data 7    CLK  B5  pdm_clk", 
-            "title": "Connections between mics and the FPGA"
-        }, 
-        {
-            "location": "/matrix-hal/components/microphone/#microphones-datasheet", 
-            "text": "Both boards use the same part :  MP34DB02 - MEMS audio sensor omnidirectional digital microphone", 
-            "title": "Microphones Datasheet:"
-        }, 
-        {
-            "location": "/matrix-hal/components/microphone/#how-to-get-microphone-data-from-c", 
-            "text": "You can use our lower software layer in C++ called HAL () (Hardware Abstraction Layer) to read data from the microphones.", 
-            "title": "How to get microphone data from C++"
-        }, 
-        {
-            "location": "/matrix-hal/components/microphone/#getting-and-compiling-hal", 
-            "text": "git clone https://github.com/matrix-io/matrix-creator-hal.git\ncd matrix-creator-hal \nmkdir build   cd build\ncmake ..\nmake", 
-            "title": "Getting and Compiling HAL"
-        }, 
-        {
-            "location": "/matrix-hal/components/microphone/#example-code", 
-            "text": "The following example gets samples from all channels (mics) collected by the fpga.    ... \nint main() {\n    hal::WishboneBus bus;\n    bus.SpiInit();\n    hal::MicrophoneArray mics;\n    mics.Setup( bus);\n    std::valarray float  magnitude(mics.Channels());\n\n    mics.SetGain(8);\n    std::cout   \"M1\\t\"   \"M2\\t\"   \"M3\\t\"   \"M4\\t\"   \"M5\\t\"   \"M6\\t\"   \"M7\\t\"   \"M8\\t\"   std::endl;\n\n    while (true) {\n        mics.Read();\n        magnitude = 0.0;\n        for (unsigned int s = 0; s   mics.NumberOfSamples(); s++) {\n            for (unsigned int c = 0; c   mics.Channels(); c++) {\n              magnitude[c] = mics.At(s, c);\n              std::cout    magnitude[c]   \"\\t\";\n            }\n            std::cout   std::endl;\n        }\n    }\n    return 0;\n}", 
-            "title": "Example code"
-        }, 
-        {
-            "location": "/matrix-hal/components/microphone/#3-example-demo-apps-for-mics", 
-            "text": "The demo apps are in the folder  matrix-creator-hal/demos/  . They are built with HAL. To run them go to the demo folder :  cd build/demos\n./mic_demo  note: You can play with the demos to learn how to use HAL, and them use them as starting points for your own apps.", 
-            "title": "3. Example demo apps for mics"
-        }, 
-        {
-            "location": "/matrix-hal/components/microphone/#mic_demo", 
-            "text": "This demo maps each mic audio input to one specific led on the Everloop. You can make sounds close to the MATRIX Creator and see how the LEDs turn green when a sound is detected. Also the demo prints in the terminal the audio as numbers, e.g.:  cd build/demos\n./mic_demo\n0   0   0   0   0   0   0   0   \n0   0   0   0   0   0   0   0   \n6   6   6   6   6   4   5   6   \n3   6   4   4   2   2   2   2   \n0   0   0   0   0   0   0   0   \n0   0   0   0   0   0   0   0   \n0   0   0   0   0   0   0   0   \n3   5   5   4   4   4   5   4   \n5   6   6   6   6   5   6   5   \n1   0   1   2   2   1   1   1   \n0   1   1   1   1   1   1   1   \n0   1   1   0   1   0   0   0   \n...", 
-            "title": "mic_demo"
-        }, 
-        {
-            "location": "/matrix-hal/components/microphone/#mic_energy", 
-            "text": "This demo is similar but instead of mapping the mic's audio individually takes all channels and maps the average of all mics. It maps at the same time in all LEDs and creates a very voice responsive red light. This demos does not print anything on the terminal.  cd build/demos\n./mic_energy", 
-            "title": "mic_energy"
-        }, 
-        {
-            "location": "/matrix-hal/components/microphone/#micarray_recorder", 
-            "text": "This demo records audio from all 8 channels (0-7) and the beamforming channel (channel 8) to raw files located in the same folder. After you launching the demo you will have these files:  cd build/demos\n./micarray_recorder  The default example records audio to raw files for 10 seconds and then stops. After recording the files are on the same folder  /demos  :  cd build/demos\nls | grep raw\nmic_16000_s16le_channel_0.raw\nmic_16000_s16le_channel_1.raw\nmic_16000_s16le_channel_2.raw\nmic_16000_s16le_channel_3.raw\nmic_16000_s16le_channel_4.raw\nmic_16000_s16le_channel_5.raw\nmic_16000_s16le_channel_6.raw\nmic_16000_s16le_channel_7.raw\nmic_16000_s16le_channel_8.raw  note: The data in the raw files is written in  int16_t .", 
-            "title": "micarray_recorder"
-        }, 
-        {
-            "location": "/matrix-hal/components/microphone/#direction_of_arrival_demo", 
-            "text": "This demo shows a first implementation of direction of arrival detection. It shows the direction of arrival using the LEDs and also prints the result angle in the terminal. To test it run the demo and make sounds from different directions to the MATRIX Creator board to see how.   ./direction_of_arrival_demo\nazimutal angle = 0, polar angle = 0, mic = 0\nazimutal angle = 0, polar angle = 0, mic = 0\nazimutal angle = -157.5, polar angle = 18, mic = 2\nazimutal angle = -157.5, polar angle = 18, mic = 2\nazimutal angle = -157.5, polar angle = 18, mic = 2\nazimutal angle = 22.5, polar angle = 36, mic = 6\nazimutal angle = -157.5, polar angle = 54, mic = 2\nazimutal angle = -157.5, polar angle = 72, mic = 2\nazimutal angle = -157.5, polar angle = 72, mic = 2", 
-            "title": "direction_of_arrival_demo"
-        }, 
-        {
-            "location": "/matrix-hal/components/microphone/#record-convert-and-play-sounds", 
-            "text": "", 
-            "title": "Record, Convert and Play sounds."
-        }, 
-        {
-            "location": "/matrix-hal/components/microphone/#update-and-upgrade-raspbian", 
-            "text": "sudo apt-get update\nsudo apt-get upgrade", 
-            "title": "Update and upgrade Raspbian"
-        }, 
-        {
-            "location": "/matrix-hal/components/microphone/#install-alsa-tools-and-the-sox-utility", 
-            "text": "sudo apt-get install sox alsa-utils", 
-            "title": "Install Alsa tools and the sox utility"
-        }, 
-        {
-            "location": "/matrix-hal/components/microphone/#run-the-volume-control", 
-            "text": "alsamixer", 
-            "title": "Run the volume control"
-        }, 
-        {
-            "location": "/matrix-hal/components/microphone/#run-capture-and-check-the-recorded-files", 
-            "text": "cd demos\n./micarray_recorder\nls -1 *raw", 
-            "title": "Run capture and check the recorded files"
-        }, 
-        {
-            "location": "/matrix-hal/components/microphone/#convert-the-audio", 
-            "text": "sox -r 16000 -c 1 -e signed -c 1 -e signed -b 16 mic_16000_s16le_channel_0.raw channel_0.wav\nsox -r 16000 -c 1 -e signed -c 1 -e signed -b 16 mic_16000_s16le_channel_1.raw channel_1.wav\nsox -r 16000 -c 1 -e signed -c 1 -e signed -b 16 mic_16000_s16le_channel_2.raw channel_2.wav\nsox -r 16000 -c 1 -e signed -c 1 -e signed -b 16 mic_16000_s16le_channel_3.raw channel_3.wav\nsox -r 16000 -c 1 -e signed -c 1 -e signed -b 16 mic_16000_s16le_channel_4.raw channel_4.wav\nsox -r 16000 -c 1 -e signed -c 1 -e signed -b 16 mic_16000_s16le_channel_5.raw channel_5.wav\nsox -r 16000 -c 1 -e signed -c 1 -e signed -b 16 mic_16000_s16le_channel_6.raw channel_6.wav\nsox -r 16000 -c 1 -e signed -c 1 -e signed -b 16 mic_16000_s16le_channel_7.raw channel_7.wav", 
-            "title": "Convert the audio"
-        }, 
-        {
-            "location": "/matrix-hal/components/microphone/#play-the-wav-file-ie-audio-from-channel-0", 
-            "text": "aplay channel_0.wav", 
-            "title": "Play the wav file (i.e. audio from channel 0)"
-        }, 
-        {
-            "location": "/matrix-hal/components/Sam3/", 
-            "text": "SAM3 Firmware Flash\n\n\nThis firmware is used to read the sensors. You can build it in your host machine, and then copy the resulting binary to the Raspberry Pi.\n\n\nFirst, you need to compile the firmware. You can do it in the Rasbperry Pi (if you have enough space available) or in your host machine if you want to do it faster.\n\n\napt-get install gcc-arm-none-eabi\ngit clone https://github.com/matrix-io/matrix-creator-mcu\ncd  matrix-creator-mcu/creator \n make\n\n\n\n\nNow copy build/ch.bin to the Rasbperry Pi (if you didn't build there) and \nflash it\n. In order to flash it you need to replace the file blob/ch.bin (or edit the cfg/sam3s.cfg configuration file).\n\n\nAnd only then you can flash the SAM3 firmware.\n\n\nsudo openocd -f cfg/sam3s.cfg\n\n\n\n\nQuestions? Post them on \nhttps://community.matrix.one\n.", 
-            "title": "SAM3"
-        }, 
-        {
-            "location": "/matrix-hal/components/Sam3/#sam3-firmware-flash", 
-            "text": "This firmware is used to read the sensors. You can build it in your host machine, and then copy the resulting binary to the Raspberry Pi.  First, you need to compile the firmware. You can do it in the Rasbperry Pi (if you have enough space available) or in your host machine if you want to do it faster.  apt-get install gcc-arm-none-eabi\ngit clone https://github.com/matrix-io/matrix-creator-mcu\ncd  matrix-creator-mcu/creator   make  Now copy build/ch.bin to the Rasbperry Pi (if you didn't build there) and  flash it . In order to flash it you need to replace the file blob/ch.bin (or edit the cfg/sam3s.cfg configuration file).  And only then you can flash the SAM3 firmware.  sudo openocd -f cfg/sam3s.cfg  Questions? Post them on  https://community.matrix.one .", 
-            "title": "SAM3 Firmware Flash"
-        }, 
-        {
-            "location": "/matrix-hal/components/Sam3mcu/", 
-            "text": "Sam3 MCU Programming\n\n\nOnce you have installed the \nrequired software\n you can program the SAM3 MCU. The MCU is used to read the sensors.\n\n\nThis firmware is free software and \nyou can compile it yourself\n. Here we describe the process of compiling the shipped firmware.\n\n\nFirst, get the firmware.\n\n\nwget http://packages.matrix.one/matrix-creator-firmware/firmware-0.8.tar.gz\ntar xzvf firmware-0.8.tar.gz\n\n\n\nThen flash the firmware using the \nopenocd\n program that should be installed on the Raspberry (with the package matrix-creator-openocd).\n\n\nThen execute the following commands as root.\n\n\necho 18 \n /sys/class/gpio/export\necho out \n /sys/class/gpio/gpio18/direction\necho 1 \n /sys/class/gpio/gpio18/value\necho 0 \n /sys/class/gpio/gpio18/value\necho 1 \n /sys/class/gpio/gpio18/value\n\n\n\nNow you can program the firmware.\n\n\ncd firmware-0.8\nsudo openocd -f cfg/sam3s.cfg\n\n\n\nExample output:\n\n\n$ sudo openocd -f cfg/sam3s.cfg\nOpen On-Chip Debugger 0.10.0-dev-00283-g7223cae-dirty (2016-07-15-08:36)\nLicensed under GNU GPL v2\nFor bug reports, read\n    http://openocd.org/doc/doxygen/bugs.html\nBCM2835 GPIO config: tck = 17, tms = 4, tdi = 22, tdo = 27\nBCM2835 GPIO config: trst = 18\ntrst_only separate trst_push_pull\nadapter speed: 512 kHz\nWarn : em357.bs: nonstandard IR value\nWarn : Specify TAP 'sam3n.cpu.cpu' by name, not number 3\nInfo : BCM2835 GPIO JTAG/SWD bitbang driver\nInfo : JTAG only mode enabled (specify swclk and swdio gpio to add SWD mode)\nInfo : clock speed 512 kHz\nInfo : JTAG tap: em357.cpu tap/device found: 0x3ba00477 (mfg: 0x23b (ARM Ltd.), part: 0xba00, ver: 0x3)\nInfo : JTAG tap: em357.bs tap/device found: 0x069aa62b (mfg: 0x315 (Ember Corporation), part: 0x69aa, ver: 0x0)\nInfo : JTAG tap: xc6sxl4.fpga.fpga tap/device found: 0x24000093 (mfg: 0x049 (Xilinx), part: 0x4000, ver: 0x2)\nInfo : JTAG tap: sam3n.cpu.cpu tap/device found: 0x4ba00477 (mfg: 0x23b (ARM Ltd.), part: 0xba00, ver: 0x4)\nError: xc6sxl4.fpga.fpga: IR capture error; saw 0x35 not 0x11\nWarn : Bypassing JTAG setup events due to errors\nInfo : sam3n.cpu: hardware has 6 breakpoints, 4 watchpoints\nsam3n.cpu: target state: halted\ntarget halted due to debug-request, current mode: Thread\nxPSR: 0x61000000 pc: 0x00402560 psp: 0x20000800\n#0 : at91sam3 at 0x00400000, size 0x00020000, buswidth 0, chipwidth 0\n    #  0: 0x00000000 (0x4000 16kB) not protected\n    #  1: 0x00004000 (0x4000 16kB) not protected\n    #  2: 0x00008000 (0x4000 16kB) not protected\n    #  3: 0x0000c000 (0x4000 16kB) not protected\n    #  4: 0x00010000 (0x4000 16kB) not protected\n    #  5: 0x00014000 (0x4000 16kB) not protected\n    #  6: 0x00018000 (0x4000 16kB) not protected\n    #  7: 0x0001c000 (0x4000 16kB) not protected\nflash 'at91sam3' found at 0x00400000\nError: Invalid ACK (6) in DAP response\nError: Failed to read memory at 0x400e0a0c\nError: SAM3: Error performing Erase \n Write page @ phys address 0x00400800\nwrote 38620 bytes from file blob/ch.bin to flash bank 0 at offset 0x00000000 in 1.256279s (30.021 KiB/s)\nInfo : JTAG tap: em357.cpu tap/device found: 0x3ba00477 (mfg: 0x23b (ARM Ltd.), part: 0xba00, ver: 0x3)\nInfo : JTAG tap: em357.bs tap/device found: 0x069aa62b (mfg: 0x315 (Ember Corporation), part: 0x69aa, ver: 0x0)\nInfo : JTAG tap: xc6sxl4.fpga.fpga tap/device found: 0x24000093 (mfg: 0x049 (Xilinx), part: 0x4000, ver: 0x2)\nInfo : JTAG tap: sam3n.cpu.cpu tap/device found: 0x4ba00477 (mfg: 0x23b (ARM Ltd.), part: 0xba00, ver: 0x4)\nError: xc6sxl4.fpga.fpga: IR capture error; saw 0x35 not 0x11\nWarn : Bypassing JTAG setup events due to errors\nWarn : Only resetting the Cortex-M core, use a reset-init event handler to reset any peripherals or configure     hardware srst support.\nshutdown command invoked\n\n\n\nFlashing succeeded if you get the line \"wrote 38620 bytes from file blob/ch.bin to flash bank 0 at offset 0x00000000 in 1.256279s (30.021 KiB/s)\" in the previous output. A small LED next to the SAM3 MCU should start flashing once per second.\n\n\nIf flashing fails, please retry the flashing command.\n\n\nSample video\n\n\nQuestions? Post them on raspberrypi.stackexchange.com! Use the tag #matrix-creator", 
-            "title": "SAM3MCU"
-        }, 
-        {
-            "location": "/matrix-hal/components/Sam3mcu/#sam3-mcu-programming", 
-            "text": "Once you have installed the  required software  you can program the SAM3 MCU. The MCU is used to read the sensors.  This firmware is free software and  you can compile it yourself . Here we describe the process of compiling the shipped firmware.  First, get the firmware.  wget http://packages.matrix.one/matrix-creator-firmware/firmware-0.8.tar.gz\ntar xzvf firmware-0.8.tar.gz  Then flash the firmware using the  openocd  program that should be installed on the Raspberry (with the package matrix-creator-openocd).  Then execute the following commands as root.  echo 18   /sys/class/gpio/export\necho out   /sys/class/gpio/gpio18/direction\necho 1   /sys/class/gpio/gpio18/value\necho 0   /sys/class/gpio/gpio18/value\necho 1   /sys/class/gpio/gpio18/value  Now you can program the firmware.  cd firmware-0.8\nsudo openocd -f cfg/sam3s.cfg  Example output:  $ sudo openocd -f cfg/sam3s.cfg\nOpen On-Chip Debugger 0.10.0-dev-00283-g7223cae-dirty (2016-07-15-08:36)\nLicensed under GNU GPL v2\nFor bug reports, read\n    http://openocd.org/doc/doxygen/bugs.html\nBCM2835 GPIO config: tck = 17, tms = 4, tdi = 22, tdo = 27\nBCM2835 GPIO config: trst = 18\ntrst_only separate trst_push_pull\nadapter speed: 512 kHz\nWarn : em357.bs: nonstandard IR value\nWarn : Specify TAP 'sam3n.cpu.cpu' by name, not number 3\nInfo : BCM2835 GPIO JTAG/SWD bitbang driver\nInfo : JTAG only mode enabled (specify swclk and swdio gpio to add SWD mode)\nInfo : clock speed 512 kHz\nInfo : JTAG tap: em357.cpu tap/device found: 0x3ba00477 (mfg: 0x23b (ARM Ltd.), part: 0xba00, ver: 0x3)\nInfo : JTAG tap: em357.bs tap/device found: 0x069aa62b (mfg: 0x315 (Ember Corporation), part: 0x69aa, ver: 0x0)\nInfo : JTAG tap: xc6sxl4.fpga.fpga tap/device found: 0x24000093 (mfg: 0x049 (Xilinx), part: 0x4000, ver: 0x2)\nInfo : JTAG tap: sam3n.cpu.cpu tap/device found: 0x4ba00477 (mfg: 0x23b (ARM Ltd.), part: 0xba00, ver: 0x4)\nError: xc6sxl4.fpga.fpga: IR capture error; saw 0x35 not 0x11\nWarn : Bypassing JTAG setup events due to errors\nInfo : sam3n.cpu: hardware has 6 breakpoints, 4 watchpoints\nsam3n.cpu: target state: halted\ntarget halted due to debug-request, current mode: Thread\nxPSR: 0x61000000 pc: 0x00402560 psp: 0x20000800\n#0 : at91sam3 at 0x00400000, size 0x00020000, buswidth 0, chipwidth 0\n    #  0: 0x00000000 (0x4000 16kB) not protected\n    #  1: 0x00004000 (0x4000 16kB) not protected\n    #  2: 0x00008000 (0x4000 16kB) not protected\n    #  3: 0x0000c000 (0x4000 16kB) not protected\n    #  4: 0x00010000 (0x4000 16kB) not protected\n    #  5: 0x00014000 (0x4000 16kB) not protected\n    #  6: 0x00018000 (0x4000 16kB) not protected\n    #  7: 0x0001c000 (0x4000 16kB) not protected\nflash 'at91sam3' found at 0x00400000\nError: Invalid ACK (6) in DAP response\nError: Failed to read memory at 0x400e0a0c\nError: SAM3: Error performing Erase   Write page @ phys address 0x00400800\nwrote 38620 bytes from file blob/ch.bin to flash bank 0 at offset 0x00000000 in 1.256279s (30.021 KiB/s)\nInfo : JTAG tap: em357.cpu tap/device found: 0x3ba00477 (mfg: 0x23b (ARM Ltd.), part: 0xba00, ver: 0x3)\nInfo : JTAG tap: em357.bs tap/device found: 0x069aa62b (mfg: 0x315 (Ember Corporation), part: 0x69aa, ver: 0x0)\nInfo : JTAG tap: xc6sxl4.fpga.fpga tap/device found: 0x24000093 (mfg: 0x049 (Xilinx), part: 0x4000, ver: 0x2)\nInfo : JTAG tap: sam3n.cpu.cpu tap/device found: 0x4ba00477 (mfg: 0x23b (ARM Ltd.), part: 0xba00, ver: 0x4)\nError: xc6sxl4.fpga.fpga: IR capture error; saw 0x35 not 0x11\nWarn : Bypassing JTAG setup events due to errors\nWarn : Only resetting the Cortex-M core, use a reset-init event handler to reset any peripherals or configure     hardware srst support.\nshutdown command invoked  Flashing succeeded if you get the line \"wrote 38620 bytes from file blob/ch.bin to flash bank 0 at offset 0x00000000 in 1.256279s (30.021 KiB/s)\" in the previous output. A small LED next to the SAM3 MCU should start flashing once per second.  If flashing fails, please retry the flashing command.  Sample video  Questions? Post them on raspberrypi.stackexchange.com! Use the tag #matrix-creator", 
-            "title": "Sam3 MCU Programming"
-        }, 
-        {
-            "location": "/matrix-hal/components/pinout/", 
-            "text": "Creator V1 Pinout Rev 2\n\n\n\n\nCreator V1 Pinout - For Reference\n\n\nExpansion pinout\n\n\n\n\nExpansion location\n\n\n\n\nFPGA's UCF definition\n\n\nNET \nDF\n16\n LOC=\nP106\n;\nNET \nDF\n15\n LOC=\nP102\n;\nNET \nDF\n14\n LOC=\nP101\n;\nNET \nDF\n13\n LOC=\nP99\n;\nNET \nDF\n12\n LOC=\nP98\n;\nNET \nDF\n11\n LOC=\nP95\n;\nNET \nDF\n10\n LOC=\nP94\n;\nNET \nDF\n9\n LOC=\nP93\n;\nNET \nDF\n8\n LOC=\nP92\n;\nNET \nDF\n7\n LOC=\nP88\n;\nNET \nDF\n6\n LOC=\nP85\n;\nNET \nDF\n5\n LOC=\nP83\n;\nNET \nDF\n4\n LOC=\nP82\n;\nNET \nDF\n3\n LOC=\nP81\n;\nNET \nDF\n2\n LOC=\nP80\n;\nNET \nDF\n1\n LOC=\nP79\n;\nNET \nDF\n0\n LOC=\nP78\n;", 
-            "title": "Pinout"
-        }, 
-        {
-            "location": "/matrix-hal/components/pinout/#creator-v1-pinout-rev-2", 
-            "text": "", 
-            "title": "Creator V1 Pinout Rev 2"
-        }, 
-        {
-            "location": "/matrix-hal/components/pinout/#creator-v1-pinout-for-reference", 
-            "text": "", 
-            "title": "Creator V1 Pinout - For Reference"
-        }, 
-        {
-            "location": "/matrix-hal/components/pinout/#expansion-pinout", 
-            "text": "", 
-            "title": "Expansion pinout"
-        }, 
-        {
-            "location": "/matrix-hal/components/pinout/#expansion-location", 
-            "text": "", 
-            "title": "Expansion location"
-        }, 
-        {
-            "location": "/matrix-hal/components/pinout/#fpgas-ucf-definition", 
-            "text": "NET  DF 16  LOC= P106 ;\nNET  DF 15  LOC= P102 ;\nNET  DF 14  LOC= P101 ;\nNET  DF 13  LOC= P99 ;\nNET  DF 12  LOC= P98 ;\nNET  DF 11  LOC= P95 ;\nNET  DF 10  LOC= P94 ;\nNET  DF 9  LOC= P93 ;\nNET  DF 8  LOC= P92 ;\nNET  DF 7  LOC= P88 ;\nNET  DF 6  LOC= P85 ;\nNET  DF 5  LOC= P83 ;\nNET  DF 4  LOC= P82 ;\nNET  DF 3  LOC= P81 ;\nNET  DF 2  LOC= P80 ;\nNET  DF 1  LOC= P79 ;\nNET  DF 0  LOC= P78 ;", 
-            "title": "FPGA's UCF definition"
-        }, 
-        {
-            "location": "/matrix-hal/components/SPI/", 
-            "text": "SPI\n\n\nThe SPI bus is not enabled by default by Raspbian. To enable it you can follow the next steps.\n\n\nFirst, open raspi-config.\n\n\nsudo raspi-config\n\n\n\n\n\nThen navigate the interface to activate the SPI bus. Go to advanced options.\n\n\n\n\nSelect SPI.\n\n\n\n\nEnable SPI.\n\n\n\n\nVerify that SPI has been enabled.\n\n\n\n\nNow you can exit raspi-config and SPI will be permanently enabled.", 
-            "title": "SPI"
-        }, 
-        {
-            "location": "/matrix-hal/components/SPI/#spi", 
-            "text": "The SPI bus is not enabled by default by Raspbian. To enable it you can follow the next steps.  First, open raspi-config.  sudo raspi-config   Then navigate the interface to activate the SPI bus. Go to advanced options.   Select SPI.   Enable SPI.   Verify that SPI has been enabled.   Now you can exit raspi-config and SPI will be permanently enabled.", 
-            "title": "SPI"
-        }, 
-        {
-            "location": "/matrix-hal/tools/", 
-            "text": "Tools\n\n\nxc3sprog\n\n\nhttps://github.com/matrix-io/xc3sprog\n - xc3sprog for programming the FPGA\n\n\nOpenOCD\n\n\nhttps://github.com/matrix-io/matrix-creator-openocd\n - OpenOCD for programming the microcontroller", 
-            "title": "OpenOCD"
-        }, 
-        {
-            "location": "/matrix-hal/tools/#tools", 
-            "text": "", 
-            "title": "Tools"
-        }, 
-        {
-            "location": "/matrix-hal/tools/#xc3sprog", 
-            "text": "https://github.com/matrix-io/xc3sprog  - xc3sprog for programming the FPGA", 
-            "title": "xc3sprog"
-        }, 
-        {
-            "location": "/matrix-hal/tools/#openocd", 
-            "text": "https://github.com/matrix-io/matrix-creator-openocd  - OpenOCD for programming the microcontroller", 
-            "title": "OpenOCD"
-        }, 
-        {
-            "location": "/matrix-hal/tools/", 
-            "text": "Tools\n\n\nxc3sprog\n\n\nhttps://github.com/matrix-io/xc3sprog\n - xc3sprog for programming the FPGA\n\n\nOpenOCD\n\n\nhttps://github.com/matrix-io/matrix-creator-openocd\n - OpenOCD for programming the microcontroller", 
-            "title": "xc3sprog"
-        }, 
-        {
-            "location": "/matrix-hal/tools/#tools", 
-            "text": "", 
-            "title": "Tools"
-        }, 
-        {
-            "location": "/matrix-hal/tools/#xc3sprog", 
-            "text": "https://github.com/matrix-io/xc3sprog  - xc3sprog for programming the FPGA", 
-            "title": "xc3sprog"
-        }, 
-        {
-            "location": "/matrix-hal/tools/#openocd", 
-            "text": "https://github.com/matrix-io/matrix-creator-openocd  - OpenOCD for programming the microcontroller", 
-            "title": "OpenOCD"
-        }, 
-        {
             "location": "/matrix-hal/examples/hardware-demos/", 
             "text": "Sensor Tests\n\n\nWith the following instructions you will be able to run demos for the Everloop LED Array and for the IMU. These demos make use of the \nhardware abstraction layer\n. If you followed the \ngetting started\n steps the \nFPGA\n and the \nSAM3 MCU\n should be programmed and ready. Also, \nSPI should be enabled\n.\n\n\nThus you can get the required source code and build it:\n\n\ngit clone https://github.com/matrix-io/matrix-creator-hal.git\ncd matrix-creator-hal\nmkdir build \n cd build\ncmake .. \n make\n\n\n\nIf the project built with no issues you can run the demos. The demos run for ever, you can terminate them with Control+C.\n\n\nSpinning leds ( \nvideo\n ):\n\n\ndemos/everloop_demo\n\n\n\nArc demo ( \nvideo\n ) :\n\n\ndemos/arc_demo\n\n\n\nCompass demo:\n\n\ndemos/compass_demo\n\nyaw = -116.006  roll = 3.19588  pitch = 0.370596\nyaw = -116.577  roll = 3.61794  pitch = 0.210613\nyaw = -115.649  roll = 3.64227  pitch = 0.334733\nyaw = -115.468  roll = 3.34762  pitch = 0.42658\nyaw = -116.423  roll = 3.49536  pitch = 0.566351\n\n\n\nMicrophones:\n\n\ndemos/mic_demo\n\n52  29  54  74  74  49  39  60\n60  31  52  46  41  55  68  70\n60  44  55  43  53  68  62  62\n45  17  69  54  18  38  74  67\n\n(You get one value for each microphone)\n\n\n\nQuestions? Post them on \nraspberrypi.stackexchange.com\n! Use the tag #matrix-creator", 
             "title": "Sensor Tests"
@@ -3361,23 +3206,13 @@
             "title": "Sensor Tests"
         }, 
         {
-            "location": "/matrix-hal/troubleshooting/", 
-            "text": "Troubleshooting\n\n\nDrop your questions by the \ncommunity forum\n.", 
-            "title": "Troubleshooting"
-        }, 
-        {
-            "location": "/matrix-hal/troubleshooting/#troubleshooting", 
-            "text": "Drop your questions by the  community forum .", 
-            "title": "Troubleshooting"
-        }, 
-        {
             "location": "/help/", 
-            "text": "Support\n\n\n\n\nPost questions or comments on \ncommunity.matrix.one\n\n\nPost package issues on github under \nmatrix-io\n\n\nSubmit documentation issues or improvements at \nmatrix-io/matrix-documentation", 
+            "text": "Support\n\n\n\n\nPost questions or comments on \ncommunity.matrix.one\n\n\nAlert issues on our \nGitHub\n under the corresponding repository\n\n\nSubmit documentation issues or improvements to the \nMATRIX Documentation Repository", 
             "title": "Support"
         }, 
         {
             "location": "/help/#support", 
-            "text": "Post questions or comments on  community.matrix.one  Post package issues on github under  matrix-io  Submit documentation issues or improvements at  matrix-io/matrix-documentation", 
+            "text": "Post questions or comments on  community.matrix.one  Alert issues on our  GitHub  under the corresponding repository  Submit documentation issues or improvements to the  MATRIX Documentation Repository", 
             "title": "Support"
         }
     ]

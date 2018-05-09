@@ -63,16 +63,97 @@
 
   
 
+
+<!-- Children complicate things  -->
+
 <!-- link to depth-first url found  -->
   
 
-<!-- If there are no children, use the url (simple)  -->
-<li>
-  <a href="setup/" class="">
-    Device Setup
+<!-- print root node  -->
+<li class="">
+  <a href="matrix-creator/overview/" class="">
+    MATRIX Creator
   </a>
 </li>
 
+<ul class="subnav">
+   
+  <!-- only 1 deep, print menu items  -->
+   
+  <li><a href="matrix-creator/overview/" class="">Overview</a></li>
+     
+  <!-- only 1 deep, print menu items  -->
+   
+  <li><a href="matrix-creator/device-setup/" class="">Device Setup</a></li>
+     
+  <!-- 2 deep  -->
+  <!-- print subroot  -->
+  <li>
+    <a href="matrix-creator/resources/overview/" class="">
+      Resources
+    </a>
+  </li>
+
+  <ul class="subnav">
+        
+        
+        
+        
+        
+      
+  </ul>
+
+   
+</ul>
+
+  
+
+
+<!-- Children complicate things  -->
+
+<!-- link to depth-first url found  -->
+  
+
+<!-- print root node  -->
+<li class="">
+  <a href="matrix-voice/overview/" class="">
+    MATRIX Voice
+  </a>
+</li>
+
+<ul class="subnav">
+   
+  <!-- only 1 deep, print menu items  -->
+   
+  <li><a href="matrix-voice/overview/" class="">Overview</a></li>
+     
+  <!-- only 1 deep, print menu items  -->
+   
+  <li><a href="matrix-voice/device-setup/" class="">Device Setup</a></li>
+     
+  <!-- only 1 deep, print menu items  -->
+   
+  <li><a href="matrix-voice/esp32/" class="">ESP32</a></li>
+     
+  <!-- 2 deep  -->
+  <!-- print subroot  -->
+  <li>
+    <a href="matrix-voice/resources/overview/" class="">
+      Resources
+    </a>
+  </li>
+
+  <ul class="subnav">
+        
+        
+        
+        
+        
+      
+  </ul>
+
+   
+</ul>
 
   
 
@@ -158,6 +239,7 @@
   </li>
 
   <ul class="subnav">
+        
         
         
         
@@ -293,62 +375,9 @@
   </ul>
 
     
-  <!-- 2 deep  -->
-  <!-- print subroot  -->
-  <li>
-    <a href="matrix-hal/datasheets/creator/" class="">
-      Boards
-    </a>
-  </li>
-
-  <ul class="subnav">
-      
-        
-      
-  </ul>
-
-    
-  <!-- 2 deep  -->
-  <!-- print subroot  -->
-  <li>
-    <a href="matrix-hal/components/" class="">
-      Components
-    </a>
-  </li>
-
-  <ul class="subnav">
-        
-        
-        
-        
-        
-        
-      
-  </ul>
-
-    
-  <!-- 2 deep  -->
-  <!-- print subroot  -->
-  <li>
-    <a href="matrix-hal/tools/" class="">
-      Tools
-    </a>
-  </li>
-
-  <ul class="subnav">
-      
-        
-      
-  </ul>
-
-    
   <!-- only 1 deep, print menu items  -->
    
   <li><a href="matrix-hal/examples/hardware-demos/" class="">Sensor Tests</a></li>
-     
-  <!-- only 1 deep, print menu items  -->
-   
-  <li><a href="matrix-hal/troubleshooting/" class="">Troubleshooting</a></li>
     
 </ul>
 
@@ -371,37 +400,56 @@
         </div>
         <div id="content" class="col-lg-8 col-md-9">
            <h1 id="matrix-ecosystem-overview">MATRIX Ecosystem Overview</h1>
-<h5 id="objective-hardware-shouldnt-be-hard">Objective: Hardware shouldn't be hard</h5>
-<p>The MATRIX Ecosystem was created to make powerful hardware projects very approachable for software developers. The pillars of MATRIX, computer vision, hardware interfaces, distributed internet communication, and data-driven end-user clients, are all programming disciplines which require years for an individual to master, or for a team to build a solution around.</p>
-<p>MATRIX adds powerful capabilities to your Raspberry Pi, depending on your background and the kind of application you want to write, you may prefer to integrate with different layers. The documentation is organized according to these layers:</p>
-<ul>
-<li><a href="./#matrix-open-system">MATRIX OS Docs</a> (⚠️ UNDER MAINTENANCE)</li>
-<li><a href="./#matrix-core">MATRIX CORE Docs</a></li>
-<li><a href="./#matrix-hal">MATRIX HAL Docs</a></li>
-</ul>
+<p><h5 style="padding-top:0; font-weight:500;">Objective: Hardware shouldn't be hard</h5>
+The MATRIX Ecosystem was created to make powerful hardware projects very approachable for software developers. The pillars of MATRIX, computer vision, hardware interfaces, distributed internet communication, and data-driven end-user clients, are all programming disciplines which require years for an individual to master, or for a team to build a solution around.</p>
+<h2 id="programming-layers">Programming Layers</h2>
+<p>The MATRIX platform adds powerful capabilities to your Raspberry Pi, depending on your background and the kind of application you want to write, you may need to decide on which layer best fits your need. The documentation is organized according to these layers:</p>
 <p><img alt="MATRIX Ecosystem Overview" src="./img/overview-diagram.png" /></p>
-<h2 id="matrix-open-system">MATRIX Open System</h2>
-<p>Top-level application and connection layer integrating with MATRIX hardware via <strong>MATRIX CORE</strong>.</p>
-<p><a href="./matrix-os/overview/">Read more about MATRIX OS</a></p>
-<h2 id="matrix-core">MATRIX CORE</h2>
-<p>Abstraction layer for HAL. Hosts a ZeroMQ + Protobuf communication layer which makes device information accessible via high-level interfaces. Supports 40+ different languages, C++, Python, Ruby, PHP, Java, etc. </p>
-<p><a href="matrix-core/">Read more about MATRIX CORE</a></p>
-<h2 id="matrix-hal">MATRIX HAL</h2>
-<p>C++ drivers for sensors and available components. Tooling for accessing the FPGA and microcontrollers on the MATRIX device.</p>
-<p><a href="matrix-hal/">Read more about MATRIX HAL</a></p>
-<h2 id="what-do-you-need-to-get-started">What do you need to get started?</h2>
+<!-- <h3 style="font-weight:400; padding-top:0;">MATRIX Open System</h3> (Javascript) -->
+
+<h3 style="padding-top:0; font-weight:500;">MATRIX Open System (MOS)</h3>
+
+<p><strong>Language:</strong> Javascript</p>
+<p>Highest level of abstraction integrating with MATRIX hardware via <strong>MATRIX CORE</strong>. This layer requires an online connection and offers an integrated IoT environment that's easy to use.</p>
 <ul>
-<li><a href="https://www.raspberrypi.org">Raspberry Pi</a><ul>
-<li>Supported Versions: Raspberry Pi B+ or newer and all Raspberry Pi Zero's</li>
+<li>Remote App Deployment</li>
+<li>Mobile Interface</li>
+<li>Online Dashboard</li>
+<li>App Store</li>
 </ul>
-</li>
-<li><a href="https://creator.matrix.one">MATRIX Creator</a> or <a href="https://voice.matrix.one">MATRIX Voice</a></li>
-</ul>
+<p><a href="./matrix-os/overview/">Read more about MATRIX OS</a></p>
+<h3 style="padding-top:0; font-weight:500;">MATRIX CORE</h3>
+
+<p><strong>Languages:</strong> Over 40 (Examples in Javascript &amp; Python)</p>
+<p>Abstraction layer for <strong>MATRIX HAL</strong>. Hosts a ZeroMQ + Protobuf communication layer which makes device information accessible via high-level interfaces. Supports 40+ different languages through Protocol Buffers: C++, Python, Ruby, PHP, Java, etc.<br/></p>
+<p><a href="matrix-core/">Read more about MATRIX CORE</a></p>
+<h3 style="padding-top:0; font-weight:500;">MATRIX HAL</h3>
+
+<p><strong>Language:</strong> C++</p>
+<p>Interacts with the kernel modules by using C++ drivers, enabling it to access available sensors and components on your device.</p>
+<p><a href="matrix-hal/">Read more about MATRIX HAL</a></p>
+<h2 id="devices">Devices</h2>
+<p>Each programming layer in the MATRIX platform is compatible with each MATRIX product, excluding specific components on the boards.</p>
+<h3 style="padding-top:0; font-weight:500;">MATRIX Creator</h3>
+
+<!-- ![](img/matrix-creator.png) -->
+
+<p>A fully-featured development board for the Raspberry Pi with various sensors and communication protocols such as a 3D Gyroscope, Accelerometer, an 8 Microphone Array, zigbee, Z-Wave, and more!</p>
+<p><a href="matrix-creator/overview/">Read more about the MATRIX Creator</a></p>
+<h3 style="padding-top:0; font-weight:500;">MATRIX Voice</h3>
+
+<!-- ![](img/matrix-voice.png) -->
+
+<p>A voice and audio focused development board with an 8 microphone array that enables you to create your own audio driven applications or use voice assistants such as 
+<a href="https://www.hackster.io/matrix-labs/matrix-voice-and-matrix-creator-running-alexa-c-version-9b9d8d" target="_blank">Amazon Alexa</a>, 
+<a href="https://www.hackster.io/matrix-labs/matrix-voice-and-matrix-creator-running-google-assistant-e9751e" target="_blank">Google Assistant</a>, 
+PocketSphinx, etc.</p>
+<p><a href="matrix-voice/overview/">Read more about the MATRIX Voice</a></p>
 <h2 id="support">Support</h2>
 <ul>
-<li>Post questions or comments on <a href="http://community.matrix.one/">community.matrix.one</a></li>
-<li>Post package issues on github under <a href="https://github.com/matrix-io">matrix-io</a></li>
-<li>Submit documentation issues or improvements at <a href="https://github.com/matrix-io/matrix-documentation">matrix-io/matrix-documentation</a></li>
+<li>Post questions or comments on <a href="https://community.matrix.one" target="_blank">community.matrix.one</a></li>
+<li>Alert issues on our <a href="https://github.com/matrix-io" target="_blank">GitHub</a> under the corresponding repository</li>
+<li>Submit documentation issues or improvements to the <a href="https://github.com/matrix-io/matrix-documentation/issues" target="_blank">MATRIX Documentation Repository</a></li>
 </ul> 
         </div>
         <div class="toc-parent col-lg-2 col-md-3">
@@ -417,32 +465,14 @@
   <ul>
     
     <li>
-      <a class="nav-link" href="#objective-hardware-shouldnt-be-hard">
-        Objective: Hardware shouldn't be hard
+      <a class="nav-link" href="#programming-layers">
+        Programming Layers
       </a>
     </li>
     
     <li>
-      <a class="nav-link" href="#matrix-open-system">
-        MATRIX Open System
-      </a>
-    </li>
-    
-    <li>
-      <a class="nav-link" href="#matrix-core">
-        MATRIX CORE
-      </a>
-    </li>
-    
-    <li>
-      <a class="nav-link" href="#matrix-hal">
-        MATRIX HAL
-      </a>
-    </li>
-    
-    <li>
-      <a class="nav-link" href="#what-do-you-need-to-get-started">
-        What do you need to get started?
+      <a class="nav-link" href="#devices">
+        Devices
       </a>
     </li>
     
