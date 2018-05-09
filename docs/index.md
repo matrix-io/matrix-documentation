@@ -36,7 +36,7 @@ Interacts with the kernel modules by using C++ drivers, enabling it to access av
 [Read more about MATRIX HAL](matrix-hal/index.md)
 
 ## Devices
-Each programming layer in the MATRIX platform is compatible with each MATRIX product, excluding specific components on the boards.
+> Each programming layer in the MATRIX platform is compatible with each MATRIX product, excluding specific components on the boards.
 
 <h3 style="padding-top:0; font-weight:500;">MATRIX Creator</h3>
 
