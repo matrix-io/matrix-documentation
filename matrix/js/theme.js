@@ -4,7 +4,7 @@ $(function () {
     Prism.highlightElement(block);//apply highlight
   });
   
-  //Drop Down Menu\\
+  //Drop Down Submenu Menu\\
   $('.dropdown-submenu a.submenu').on("mouseover", function (e) {
     $('.dropdown-submenu > ul').hide();
     $(this).next('ul').toggle();

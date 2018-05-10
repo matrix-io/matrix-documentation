@@ -421,13 +421,13 @@ pre {
 }
 
 pre code {
-  line-height: normal;
+  line-height: 1.5;
   font-size: 1rem;
   color: #f8f8f2;
 }
 
 code {
-  line-height: normal;
+  font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
   font-size: 1rem;
 }
 

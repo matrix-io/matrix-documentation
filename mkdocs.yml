@@ -32,9 +32,9 @@ pages:
   - 'Overview': 'matrix-os/overview.md'
   - 'Getting Started':
       - 'Installation': 'matrix-os/getting-started/installation.md'
+      - 'Applications': 'matrix-os/getting-started/applications.md'
   #   - 'Mobile Apps': 'matrix-os/getting-started/mobile-applications.md'
   #   - 'Pairing' : 'matrix-os/getting-started/pairing.md' 
-  #   - 'Hello World': 'matrix-os/getting-started/hello-world.md'
   #   - 'Next Steps': 'matrix-os/getting-started/next-steps.md'
   # - 'Overview':
   #   - 'Overview': 'matrix-os/overview-old/index.md'

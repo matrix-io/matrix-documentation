@@ -2,13 +2,13 @@
 <h5 style="padding-top:0; font-weight:500;">Objective: Hardware shouldn't be hard</h5>
 The MATRIX Ecosystem was created to make powerful hardware projects very approachable for software developers. The pillars of MATRIX, computer vision, hardware interfaces, distributed internet communication, and data-driven end-user clients, are all programming disciplines which require years for an individual to master, or for a team to build a solution around.
 
+<br/>
 ## Programming Layers
 
 The MATRIX platform adds powerful capabilities to your Raspberry Pi, depending on your background and the kind of application you want to write, you may need to decide on which layer best fits your need. The documentation is organized according to these layers:
 
 ![MATRIX Ecosystem Overview](img/overview-diagram.png)
 
-<!-- <h3 style="font-weight:400; padding-top:0;">MATRIX Open System</h3> (Javascript) -->
 <h3 style="padding-top:0; font-weight:500;">MATRIX Open System (MOS)</h3>
 **Language:** Javascript
 
@@ -35,6 +35,7 @@ Interacts with the kernel modules by using C++ drivers, enabling it to access av
 
 [Read more about MATRIX HAL](matrix-hal/index.md)
 
+<br/>
 ## Devices
 > Each programming layer in the MATRIX platform is compatible with each MATRIX product, excluding specific components on the boards.
 
@@ -54,6 +55,7 @@ PocketSphinx, etc.
 
 [Read more about the MATRIX Voice](matrix-voice/overview.md)
 
+<br/>
 ## Support
 * Post questions or comments on <a href="https://community.matrix.one" target="_blank">community.matrix.one</a>
 * Alert issues on our <a href="https://github.com/matrix-io" target="_blank">GitHub</a> under the corresponding repository

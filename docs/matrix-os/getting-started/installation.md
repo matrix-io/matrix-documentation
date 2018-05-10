@@ -11,7 +11,6 @@
     * Linux: Terminal
 
 ## Computer Installation & Account Registration
-<!-- <h3 style="padding-top:0;">Setting Up Your Computer</h3> -->
 >We recommend running the following commands on your Desktop/Laptop and not on your Raspberry Pi.
 
 MOS contains a CLI (Command Line Interface) tool for controlling and managing your MATRIX devices. To install the tool, execute the following command in your personal computer's terminal.
@@ -67,7 +66,7 @@ source ~/.envrc
 node ~/matrix-os/index.js
 ```
 
->Starting MOS on boot is not yet implemented
+>Starting MOS on boot is not yet implemented.
 
 <br/>
 ##Check if everything works
@@ -97,4 +96,4 @@ matrix stop HelloWorld
 
 <br/>
 ##Next Steps
-Now that everything is properly installed, learn how to create your own MATRIX Apps [here](/).
+Now that everything is properly installed, learn how to create your own MATRIX app [here](/).
