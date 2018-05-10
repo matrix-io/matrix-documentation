@@ -1,4 +1,10 @@
 $(function () {
+  //Syntax Highlighting (prism.js)\\
+  $('pre code').each(function(i, block) {
+    Prism.highlightElement(block);//apply highlight
+  });
+  
+  //Drop Down Menu\\
   $('.dropdown-submenu a.submenu').on("mouseover", function (e) {
     $('.dropdown-submenu > ul').hide();
     $(this).next('ul').toggle();
@@ -6,6 +12,7 @@ $(function () {
     e.preventDefault();
   });
 
+  //User Scroll Tracking\\
   let latchY = 0
   let caught = false;
   let t;

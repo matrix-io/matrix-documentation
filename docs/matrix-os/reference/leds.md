@@ -8,7 +8,7 @@ A powerful tool for communicating with end users is the EverLoop LED circle. CLI
 ## Basic Operations
 
 ### String Notation & Render
-```js
+```language-js
 matrix.led('blue'); //does nothing
 
 matrix.led('green').render(); //lights change
@@ -44,7 +44,7 @@ start - ( arc only ), start light index
 ```
 
 #### Example Shape Object
-```
+```language-javascript
 {
   color: 'red'
   angle: 90
@@ -54,7 +54,7 @@ start - ( arc only ), start light index
 ### Chaining Operations
 These operate on the shapes and colors defined in the `led` object.
 
-```
+```language-javascript
 rotate(angle) - rotates whole shape by this many degrees 
 brighten(steps) - brighten light by this many steps ( 0 - 10 )
 darken(steps) - darken light by this many steps ( 0 - 10 )
@@ -65,7 +65,7 @@ darken(steps) - darken light by this many steps ( 0 - 10 )
 Use an array to include multiple shapes. Color strings can also be included and will be drawn as a single light whose index matches the strings index in the array provided.
 
 ## Examples
-```js
+```language-javascript
 var a = matrix.led({
   // degrees of arc [ 90° = quadrant ]   
   arc: 90,

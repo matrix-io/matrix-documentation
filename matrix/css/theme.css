@@ -413,16 +413,17 @@ img {
 
 pre {
   border: 1px dotted #bbb;
-  background: #EDEDED;
+  background: #141414;
+  /*background: #474949;*/
   border-radius: 5px;
-  padding: 20px 40px;
-  margin: 30px 0px;
+  padding: 1em;
+  margin: .5em 0;
 }
 
 pre code {
   line-height: normal;
   font-size: 1rem;
-  color: #4F4F4F;
+  color: #f8f8f2;
 }
 
 code {
