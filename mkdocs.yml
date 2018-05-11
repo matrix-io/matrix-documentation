@@ -35,10 +35,6 @@ pages:
       - 'Installation': 'matrix-os/getting-started/installation.md'
       - 'Applications': 'matrix-os/getting-started/applications.md'
       - 'Publishing Apps': 'matrix-os/getting-started/publishing.md'
-  - Examples:
-    - 'Examples': 'matrix-os/examples/index.md'
-    - 'IFTTT Integration': 'matrix-os/examples/ifttt.md'
-    - 'Dashboard': 'matrix-os/examples/dash-create.md'
   - Reference:
     - 'Index': 'matrix-os/reference/index.md'
     - 'Sensors': 'matrix-os/reference/sensors.md'
@@ -57,6 +53,10 @@ pages:
     - 'Data Types': 'matrix-os/reference/data-types.md'
     - 'System': 'matrix-os/reference/system.md'
     - 'Integrations': 'matrix-os/reference/integrations.md'
+  - Examples:
+    - 'Examples': 'matrix-os/examples/index.md'
+    - 'IFTTT Integration': 'matrix-os/examples/ifttt.md'
+    - 'Dashboard': 'matrix-os/examples/dash-create.md'
   - Troubleshooting: 'matrix-os/troubleshooting.md'
 - MATRIX CORE:
   - 'MATRIX CORE': 'matrix-core/index.md'
