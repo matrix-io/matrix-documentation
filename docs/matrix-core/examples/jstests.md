@@ -7,7 +7,7 @@ For an in-depth discussion of these tests, please examine the [Reference](../ref
 
 ### On the Raspberry Pi
 
-```bash
+```language-bash
 # Install npm (doesn't really matter what version, apt-get node is v0.10...)
 sudo apt-get install npm
 
@@ -22,7 +22,7 @@ node -v
 ```
 
 ## Download and Prepare CORE
-```bash
+```language-bash
 git clone https://github.com/matrix-io/matrix-creator-malos;
 cd matrix-creator-malos;
 git submodule update --init;
@@ -34,7 +34,7 @@ npm install;
 ### CORE Examples
 ##### Connecting to CORE with NodeJS
 **Note:** You'll need `protobufjs` and `zmq` npm packages, and protobuf as a submodule. See the [Everloop Example](https://github.com/matrix-io/matrix-creator-malos/blob/master/src/js_test/test_everloop.js) for the full implementation of the code below.
-```js
+```language-javascript
 // This is how we connect to the creator. IP and port.
 // The IP is the IP I'm using and you need to edit it.
 // By default, CORE has its 0MQ ports open to the world.
@@ -64,7 +64,7 @@ configSocket.connect('tcp://' + creator_ip + ':' + creator_everloop_base_port /*
 ```
 ##### Passing Commands to CORE
 Below is an example of Node interfacing with the Everloop via CORE. See the [Everloop Example](https://github.com/matrix-io/matrix-creator-malos/blob/master/src/js_test/test_everloop.js) for the full implementation of the code below.
-```js
+```language-javascript
 ...
 
 var max_intensity = 50
@@ -101,7 +101,7 @@ setInterval(function() {
 
 Below is a simple implementation via NodeJS to read a `humidity` from CORE via 0MQ. See [Humidity Example](https://github.com/matrix-io/matrix-creator-malos/blob/master/src/js_test/test_humidity.js) for the full example.
 
-```js
+```language-javascript
 // Start configuration for refresh rate, and heartbeat timeouts
 var configSocket = zmq.socket('push')
 configSocket.connect('tcp://' + creator_ip + ':' + creator_humidity_base_port)
@@ -130,51 +130,51 @@ updateSocket.on('message', function(buffer) {
 
 ### Drivers
 
-```bash
+```language-bash
 node test_driver_info.js
 ```
 ### Everloop
 
-```bash
+```language-bash
 node test_everloop.js
 ```
 ### Humidity
 
-```bash
+```language-bash
 node test_humidity.js
 ```
 ### IMU
 
-```bash
+```language-bash
 node test_imu.js
 ```
 ### IR Remote
 
-```bash
+```language-bash
 node test_ir_remote.js
 ```
 ### Pressure
 
-```bash
+```language-bash
 node test_pressure.js
 ```
 ### UV
 
-```bash
+```language-bash
 node test_uv.js
 ```
 ### Zigbee Bulb On/Off
 
-```bash
+```language-bash
 node test_zigbee_bulb.js
 ```
 ### Zigbee Bulb Color
 
-```bash
+```language-bash
 node test_zigbee_color.js
 ```
 ### Zigbee Bulb Brightness
 
-```bash
+```language-bash
 node test_zigbee_level.js
 ```

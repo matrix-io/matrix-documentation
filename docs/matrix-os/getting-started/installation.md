@@ -1,3 +1,5 @@
+<h1 style="padding-top: 0">Installing MOS</h1>
+
 ## Prerequisites
 >Make sure you have setup your 
 [MATRIX Creator](/matrix-creator/device-setup) or 
@@ -96,4 +98,4 @@ matrix stop HelloWorld
 
 <br/>
 ##Next Steps
-Now that everything is properly installed, learn how to create your own MATRIX app [here](/).
+Now that everything is properly installed, learn how to create your own MATRIX app [here](/matrix-os/getting-started/applications).

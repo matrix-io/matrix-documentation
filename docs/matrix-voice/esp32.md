@@ -67,7 +67,7 @@ export RPI_HOST=pi@RASPBERRY_IP_ADDRESS
 make deploy
 ```
 
-<b>Step 4: Finishing Up</b>
+## Step 4: Finishing Up
 
 ![](img/esp32-2.gif)
 

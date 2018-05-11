@@ -1,49 +1,31 @@
 ## MATRIX OS SDK
-####[Sensors](sensors.md)
-Sensor interfaces and data structures.
-
-####[Everloop](leds.md)
-Everloop interface.
-
-####[Filters](filters.md)
+<h4 style="padding-top:0;">[Sensors](sensors.md)</h4>
+Sensor interfaces and data structures
+<h4 style="padding-top:0;">[Everloop](leds.md)</h4>
+LED interface
+<h4 style="padding-top:0;">[Filters](filters.md)</h4>
 Filtering data
-
-####[Computer Vision](computer-vision.md)
-Computer Vision services.
-
-####[Microphones](microphone.md)
-Microphone Services.
-
-####[IR TX/RX](ir.md)
-IR receiving and transmitter services.
-
-####[GPIO](gpio.md)
-GPIO interfaces.
-
-####[Servos](gpio/#servos)
-Servo interfaces.
-
-####[Zigbee](zigbee.md)
-Zigbee interfaces.
+<h4 style="padding-top:0;">[Computer Vision](computer-vision.md)</h4>
+Computer Vision services
+<!-- <h4 style="padding-top:0;">[Microphones](microphone.md)</h4>
+Microphone Services. -->
+<h4 style="padding-top:0;">[GPIO](gpio.md)</h4>
+GPIO interfaces and servo function
+<h4 style="padding-top:0;">[Zigbee](zigbee.md)</h4>
+zigbee interfaces
 
 ## Configuration
-####[Settings](system/#settings)
-For application defaults or end-user configurable variables.
-
-####[Data Types](../overview/data/#data-types)
-Data structures and how to save to the infrastructure.
-
-####[Screens](screens.md)
-Dashboard creation and how to structure your widgets.
-
-####[Filters](filters.md)
-Dashboard filter configuration.
-
-####[Widgets](widgets.md)
-Dashboard widget configuration.
-
-####[Computer Vision Services](computer-vision.md)
-Available infrastructure services.
-
-####[Troubleshooting](../troubleshooting.md)
-Troubleshooting
+<h4 style="padding-top:0;">[Applications](configuration)</h4>
+Overview of the MOS app config.yml file.
+<h4 style="padding-top:0;">[CLI Tool](cli-tool)</h4>
+MOS command-line interface
+<h4 style="padding-top:0;">[Dashboard](dashboard.md)</h4>
+Explore data representation and input with
+<h4 style="padding-top:0;">[Widgets](widgets.md)</h4>
+Reference for all Dashboard Widgets
+<h4 style="padding-top:0;">[Cross Talk](crosstalk.md)</h4>
+Exchange information between apps and devices
+<h4 style="padding-top:0;">[Data Types](data-types.md)</h4>
+config.yml datatypes overview
+<h4 style="padding-top:0;">[Settings](system/#settings)</h4>
+For application defaults or end-user configurable variables

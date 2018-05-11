@@ -8,7 +8,7 @@ When an application requires a variable which should be user provided or will ch
 
 ### Example
 
-```bash
+```language-bash
 # in config.yaml
 name: appName
 settings:
@@ -17,13 +17,13 @@ settings:
 
 Every key in settings is exposed on the root `matrix` object. Here, `settings.apiKey` is available in the application environment as `matrix.apiKey`.
 
-```bash
+```language-bash
 # in app.js
 externalService.auth({ key:  matrix.apiKey }).then( ... );
 ```
 
 ### Dynamically Changing Settings from an application
-```js
+```language-js
 matrix.set({ apiKey: 'newkey' });
 ```
 
@@ -31,7 +31,7 @@ matrix.set({ apiKey: 'newkey' });
 
 After a user installs the application, they can change the settings from the CLI tool.
 
-```bash
+```language-bash
 matrix config appName apiKey=myrealapikeydontcopy
 ```
 
@@ -44,19 +44,19 @@ It is not recommended to set end user specific configurations here, and use `con
 
 ## Get
 
-```bash
+```language-js
 matrix.store.get(key, cb)
 ```
 
 ## Set
 
-```bash
+```language-js
 matrix.store.set(key, value, cb)
 ```
 
 ## Delete
 
-```bash
+```language-js
 matrix.store.delete(key, cb)
 ```
 
@@ -66,7 +66,7 @@ MATRIX applications utilize a shared file storage, so files saved with one appli
 
 ### Save
 
-```bash
+```language-js
 // url - publically accessible url
 // filename - what to save this file as
 // cb - function to call when save is complete
@@ -75,7 +75,7 @@ matrix.file.save( url, filename, cb )
 
 ### Load
 
-```bash
+```language-js
 // filename - file to load
 // cb - function to call after file is read, passed (err, data)
 matrix.file.load(filename, cb)
@@ -83,7 +83,7 @@ matrix.file.load(filename, cb)
 
 ### List
 
-```bash
+```language-js
 matrix.file.list(filename, function(err, files){
   // files is an array of file names
 })
@@ -91,7 +91,7 @@ matrix.file.list(filename, function(err, files){
 
 ### Remove
 
-```bash
+```language-js
 // filename - what file to Remove
 // cb - function to call when remove is complete
 matrix.file.remove( filename, cb )

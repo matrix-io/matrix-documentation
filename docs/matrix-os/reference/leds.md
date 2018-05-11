@@ -8,7 +8,7 @@ A powerful tool for communicating with end users is the EverLoop LED circle. CLI
 ## Basic Operations
 
 ### String Notation & Render
-```language-js
+```language-javascript
 matrix.led('blue'); //does nothing
 
 matrix.led('green').render(); //lights change
@@ -17,7 +17,7 @@ matrix.led('green').render(); //lights change
 matrix.led('rgb(255, 0, 100)').render();
 ```
 
-You can use any CSS color property, including [https://www.wikiwand.com/en/Web_colors#/X11_color_names](X11 Color Names). Darker colors on the Everloop generally display with more precision then lighter colors, which tend to get washed out. Please avoid `rgba` as alpha values do not render correctly. 
+You can use any CSS color property (color-name, rgb, and hex). Darker colors on the Everloop generally display with more precision then lighter colors, which tend to get washed out. Please avoid `rgba` as alpha values do not render correctly. 
 
 ## Intermediate Operation
 ### Object Notation - Shape Generators
@@ -56,9 +56,6 @@ These operate on the shapes and colors defined in the `led` object.
 
 ```language-javascript
 rotate(angle) - rotates whole shape by this many degrees 
-brighten(steps) - brighten light by this many steps ( 0 - 10 )
-darken(steps) - darken light by this many steps ( 0 - 10 )
-// brighten / darken are expensive operations and may not be suitable for rapidly updating displays
 ```
 
 ### Multiple shapes and pixel drawing
@@ -92,7 +89,7 @@ matrix.led([a, b]).rotate(90).render();
 ## Composition
 
 ### Shape Objects
-```js
+```language-javascript
 // make a smiley face
 matrix.led([
   {
@@ -113,7 +110,7 @@ matrix.led([
 
 ### Direct LED Manipulation
 Array index indicates the led to change
-```js
+```language-javascript
 matrix.led([0, 0, 0, 0, 'yellow', 0,
 0, 0, 0, 0, 0, 0, 0, 'yellow', 0, 0,
 0, 0, 0, 0, 0, 0, 'yellow', 'yellow',
@@ -123,7 +120,7 @@ matrix.led([0, 0, 0, 0, 'yellow', 0,
 
 
 ## Example clock
-```js
+```language-javascript
 setInterval(function(){
   var time = new Date();
   var h = time.getHours();

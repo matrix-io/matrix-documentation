@@ -3,14 +3,14 @@
 ### Available Sensors
 `temperature`, `humidity`, `pressure`, `uv`, `gyroscope`, `accelerometer`
 
-> You should have familiarity with [Configuration Files](../overview/configuration.md) before exploring Sensors. 
+> You should have familiarity with [Configuration Files](configuration.md) before exploring Sensors. 
 
 ### Configuration
 End users must explicitly authorize MOS applications to utilize hardware sensors.
 
 This requires that each application identify required sensors in `config.yaml`.
 
-```
+```language-yaml
 sensors:
   - temperature
   - uv
@@ -24,7 +24,7 @@ All sensors are initialized using the `sensor` method.
 * `sensorType`: Type of sensor you are initializing 
 * `options`: The options for that sensor. By default, all sensors support a `refresh` and `timeout` property.
 
-```
+```language-javascript
 var options = {
   refresh: 1000, //milliseconds between data points
   timeout: 10000 //how long before stopping this sensor
@@ -38,7 +38,7 @@ matrix.sensor('temperature', options).then(data => {
 ## Outputs
 ### Temperature
 Output for `temperature` (in &#8451;).
-```
+```language-javascript
 {
   value: 36.95899963378906,
   type: 'temperature'
@@ -47,7 +47,7 @@ Output for `temperature` (in &#8451;).
 
 ### Humidity
 Output for `humidity`.
-```
+```language-javascript
 {
   value: 30.409704208374023,
   type: 'humidity'
@@ -56,7 +56,7 @@ Output for `humidity`.
 
 ### Pressure
 Output for `pressure` (in mbars).
-```
+```language-javascript
 {
   value: 101692,
   type: 'pressure'
@@ -65,7 +65,7 @@ Output for `pressure` (in mbars).
 
 ### UV
 Output for `UV`.
-```
+```language-javascript
 {
    value: 0.0053547522984445095,
    risk: 'Low'
@@ -74,7 +74,7 @@ Output for `UV`.
 
 ### Gyroscope
 Output for `gyroscope`.
-```
+```language-javascript
 {
   yaw: 144.78964233398438,
   pitch: 2.112252950668335,
@@ -88,7 +88,7 @@ Output for `gyroscope`.
 ```
 ### Accelerometer
 Output for `accelerometer`
-```
+```language-javascript
 {
   x: 0.1,
   y: 0.23,
@@ -98,7 +98,7 @@ Output for `accelerometer`
 ```
 ### Magnetometer
 Output for `magnetometer`
-```
+```language-javascript
 {
   x: 0.51,
   y: 0.53,
