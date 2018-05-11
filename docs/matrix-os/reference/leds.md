@@ -1,5 +1,9 @@
 ## Everloop LEDS
 
+### Device Compatibility
+<img width="170" src="../../img/creator-icon.svg">
+<img width="170" src="../../img/voice-icon.svg">
+
 A powerful tool for communicating with end users is the EverLoop LED circle. CLICK VIDEO BELOW:
 
 [![Everloop Tutorial](../img/everloop-image.png)](https://www.youtube.com/watch?v=L4btaqw4HqM)

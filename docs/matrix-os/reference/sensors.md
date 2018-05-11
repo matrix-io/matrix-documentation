@@ -1,5 +1,8 @@
 ## Sensors
 
+### Device Compatibility
+<img width="170" src="../../img/creator-icon.svg">
+
 ### Available Sensors
 `temperature`, `humidity`, `pressure`, `uv`, `gyroscope`, `accelerometer`
 

@@ -1,5 +1,12 @@
 ## Computer Vision
+
+### Device Compatibility
+<img width="170" src="../../img/creator-icon.svg">
+<img width="170" src="../../img/voice-icon.svg">
+
 MATRIX OS is designed to integrate with computer vision in a powerful and robust way. You can use computer vision output to drive behavior, capture data for further analysis or anything you want!
+
+>Requires Raspberry Pi Camera
 
 ## Example
 From [faceTest MATRIX App](http://apps.matrix.one/#!/apps/facetest)
