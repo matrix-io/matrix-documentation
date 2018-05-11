@@ -3,7 +3,7 @@
 Defined in config.yaml, widgets display information from the device and allow you to send information via familiar interfaces, like dropdowns and buttons.
 
 ### Layout
-For details on how to arrange widgets on a dashboard, see [Screens](screens.md)
+For details on how to arrange widgets on a dashboard, see [screens](dashboard/#screens)
 
 Widgets are basically configuration objects which can be defined with the following options. 
 
@@ -20,7 +20,7 @@ Widgets come in two forms:
 Display widgets, like tables, charts and value outputs are only concerned with what data to display and how to display it.
 * `display` - which display widget to load
 * `key`/`keys` - show these keys from the data payload
-* `type` - select keys from this data segment (see [Overview > Sending Data](../overview/data.md) )
+* `type` - select keys from this data segment (see [Overview > Sending Data](data-types.md) )
 * `format` - filter the data. choose from `count`, `sum`, `avg`, `percent`, `max`, `min`, `fixed`, `round`.
 * `realtime` - defaults to true. set to false and use refresh option for manual updates.
 * `refresh` - how many seconds between data refresh. not set by default. use with realtime: false. 
@@ -40,7 +40,7 @@ The dashboard holds a central data store which the widgets receive or request da
 
 Default operation is for a widget to be updated with data in real time. This is represented by enabling the option `realtime`:
 
-```
+```language-yaml
 // To enable realtime updates
 widgets:
   testWidget:
@@ -49,7 +49,7 @@ widgets:
 
 The alternative is to have a widget manually refresh it's data on an interval by disabling `realtime`. Default `refresh` is 5 seconds. If you wanted to refresh a graph every minute:
 
-```
+```language-yaml
 // To disable realtime updates
 widgets:
   testWidget:
@@ -64,7 +64,7 @@ Widgets can be resized horizontally with the `size` attribute.
 Size is simply the percentage width you would like the widget to take. If size is not specified, then the widget will take up a equal proportion of the remaining width.
 
 ##### Example
-```
+```language-yaml
 widgets:
   halfWidth:
     size: 50
@@ -78,7 +78,7 @@ widgets:
 #### Display widgets
 Indicated via a `display` option.
 
-```
+```language-yaml
 widgets:
   barChart:
     display: bar
@@ -113,7 +113,7 @@ widgets:
 ## Interactive Widgets
 Indicated via a `control` option.
 
-```
+```language-yaml
 widgets:
   controlButton:
     control: button
@@ -144,7 +144,7 @@ widgets:
 
 ## Digit
 ![Digit](../img/ios/digit.png)
-```
+```language-yaml
 digitTest:
   display: digit
   type: monitor
@@ -154,7 +154,7 @@ digitTest:
 ```
 
 ###### Handling Code
-```
+```language-javascript
 matrix.type('monitor').send({
   'cpu': 2.4,
   'memory': 5.4 }
@@ -163,7 +163,7 @@ matrix.type('monitor').send({
 
 ## Label
 ![Label](../img/ios/label.PNG)
-```
+```language-yaml
 labelTest:
   display: label
   type: uv
@@ -172,7 +172,7 @@ labelTest:
 ```
 
 ###### Handling Code
-```
+```language-javascript
 matrix.type('uv').send({
   'value': 0.56773,
   'risk': 'Low' }
@@ -181,7 +181,7 @@ matrix.type('uv').send({
 
 ## Bar Chart
 ![Bar Chart](../img/ios/bar.png)
-```
+```language-yaml
 barChartTest:
   display: bar
   type: monitor
@@ -193,7 +193,7 @@ barChartTest:
 ```
 
 ###### Handling Code
-```
+```language-javascript
 matrix.type('monitor').send({
   'cpu': 7.03,
   'memory': 2.30 }
@@ -202,7 +202,7 @@ matrix.type('monitor').send({
 
 ## Line Chart
 ![Line Chart](../img/ios/line.png)
-```
+```language-yaml
 lineChartTest:
   display: line
   type: monitor
@@ -213,7 +213,7 @@ lineChartTest:
 ```
 
 ###### Handling Code
-```
+```language-javascript
 matrix.type('monitor').send({
   'cpu': 7.03,
   'memory': 2.30 }
@@ -222,7 +222,7 @@ matrix.type('monitor').send({
 
 ## Radar Chart
 ![Radar Chart](../img/ios/radar.png)
-```
+```language-yaml
 radarTest:
   display: radar
   type: emotions
@@ -231,7 +231,7 @@ radarTest:
 ```
 
 ###### Handling Code
-```
+```language-javascript
 matrix.type('emotions').send({
   'happy': 67,
   'sad': 50,
@@ -245,7 +245,7 @@ matrix.type('emotions').send({
 
 ## Pie Chart
 ![Radar Chart](../img/ios/pie.png)
-```
+```language-yaml
 pieChartTest:
   display: pie-chart
   type: gender
@@ -254,7 +254,7 @@ pieChartTest:
 ```
 
 ###### Handling Code
-```
+```language-javascript
 matrix.type('gender').send({
   'women': 76,
   'men': 45 }
@@ -263,7 +263,7 @@ matrix.type('gender').send({
 
 ## Polar Chart
 ![Polar Chart](../img/ios/polar.png)
-```
+```language-yaml
 polarTest:
   display: polar
   type: emotions
@@ -272,7 +272,7 @@ polarTest:
 ```
 
 ###### Handling Code
-```
+```language-javascript
 matrix.type('emotions').send({
   'happy': 67,
   'sad': 50,
@@ -286,7 +286,7 @@ matrix.type('emotions').send({
 
 ## Gauge
 ![Gauge](../img/ios/gauge.png)
-```
+```language-yaml
 gaugeTest:
   display: gauge
   type: detection
@@ -297,7 +297,7 @@ gaugeTest:
 ```
 
 ###### Handling Code
-```
+```language-javascript
 matrix.type('detection').send({
   'views': 60,
   'impressions': 100 }
@@ -306,7 +306,7 @@ matrix.type('detection').send({
 
 ## Indicator
 ![Indicator](../img/ios/indicator.png)
-```
+```language-yaml
 indicatorTest:
   display: indicator
   type: system
@@ -315,7 +315,7 @@ indicatorTest:
 ```
 
 ###### Handling Code
-```
+```language-javascript
 matrix.type('system').send({
   'isOn': true}
 );  
@@ -323,7 +323,7 @@ matrix.type('system').send({
 
 ## Map
 ![Map](../img/ios/map.png)
-```
+```language-yaml
 mapTest:
   display: map
   type: location
@@ -331,7 +331,7 @@ mapTest:
 ```
 
 ###### Handling Code
-```
+```language-javascript
 matrix.type('location').send({
   'latitude': 25.791632,
   'longitude': -80.1414447,
@@ -341,7 +341,7 @@ matrix.type('location').send({
 
 ## Lists
 ![List](../img/ios/list.png)
-```
+```language-yaml
 listTest:
   display: list
   type: device
@@ -350,7 +350,7 @@ listTest:
 ```
 
 ###### Handling Code
-```
+```language-javascript
 matrix.type('device').send({
   'Hostname': 'h7n.domain',
   'Type': 'Darwin',
@@ -363,7 +363,7 @@ matrix.type('device').send({
 
 ### Simple Group
 ![List Group](../img/listgroup.png)
-```
+```language-yaml
 info:
   display: list-group
   type: vehicleDetection
@@ -373,7 +373,7 @@ info:
 ```
 
 ###### Handling Code
-```
+```language-javascript
 matrix.type('vehicleDetection').send({
   'zoneId': 'zone1',
   'count': '4',
@@ -383,7 +383,7 @@ matrix.type('vehicleDetection').send({
 
 ### Group by Key
 ![List Group](../img/listgroupby.png)
-```
+```language-yaml
 info:
   display: list-group
   type: device
@@ -394,7 +394,7 @@ info:
 ```
 
 ###### Handling Code
-```
+```language-javascript
 matrix.type('vehicleDetection').send({
   'zoneId': 'zone1',
   'count': '4',
@@ -404,7 +404,7 @@ matrix.type('vehicleDetection').send({
 
 ## Links
 ![Link](../img/link.png)
-```
+```language-yaml
 link:
   display: link
   label: "Link display"
@@ -418,7 +418,7 @@ link:
 ### Single
 ![input](../img/ios/input.png)
 
-```
+```language-yaml
   inputTest:
     control: input
     event: testInput
@@ -427,7 +427,7 @@ link:
 ```
 
 ###### Handling Code
-```
+```language-javascript
 matrix.on('testInput', function(p){
  var text = p.value;
 })
@@ -436,7 +436,7 @@ matrix.on('testInput', function(p){
 ### Multiple
 ![button Map](../img/ios/inputMap.png)
 
-```
+```language-yaml
   inputMapTest:
     control: input
     map:
@@ -448,7 +448,7 @@ matrix.on('testInput', function(p){
 ```
 
 ###### Handling Code
-```
+```language-javscript
 matrix.on('testInput1', function(p){
  var text = p.value;
 })
@@ -464,7 +464,7 @@ matrix.on('testInput2', function(p){
 ### Single
 ![button](../img/ios/button.png)
 
-```
+```language-yaml
   buttonTest:
     control: button
     event: buttonInfo
@@ -473,7 +473,7 @@ matrix.on('testInput2', function(p){
 ```
 
 ###### Handling Code
-```
+```language-javascript
 matrix.on('buttonInfo', function(){
   // ...
 })
@@ -482,7 +482,7 @@ matrix.on('buttonInfo', function(){
 ### Multiple
 ![button Map](../img/ios/buttonMap.png)
 
-```
+```language-yaml
   buttonMapTest:
     control: button
     map:
@@ -504,7 +504,7 @@ matrix.on('buttonInfo', function(){
 ```
 
 ###### Handling Code
-```
+```language-javascript
 matrix.on('buttonUp', function(){
   // ...
 })
@@ -538,7 +538,7 @@ matrix.on('buttonFast', function(){
 
 ### Single
 ![switch](../img/ios/switch.png)
-```
+```language-yaml
   switchTest:
     control: switch
     event: ledEnabledChanged
@@ -547,7 +547,7 @@ matrix.on('buttonFast', function(){
 ```
 
 ###### Handling Code
-```
+```language-javascript
 matrix.on('ledEnabledChanged', function(p){
  var isOn = p.value;
 })
@@ -555,7 +555,7 @@ matrix.on('ledEnabledChanged', function(p){
 
 ### Multiple
 ![switch](../img/ios/switchMap.png)
-```
+```language-yaml
   switchMapTest:
     control: switch
     map:
@@ -567,7 +567,7 @@ matrix.on('ledEnabledChanged', function(p){
 ```
 
 ###### Handling Code
-```
+```language-javascript
 matrix.on('ledEnabledChanged', function(p){
  var isOn = p.value;
 })
@@ -579,7 +579,7 @@ matrix.on('detectionEnabledChanged', function(p){
 
 ## Radio
 ![radio](../img/ios/radio.png)
-```
+```language-yaml
   radioTest:
     control: radio
     map:
@@ -591,7 +591,7 @@ matrix.on('detectionEnabledChanged', function(p){
 ```
 
 ###### Handling Code
-```
+```language-javascript
 matrix.on('optionOneSelected', function(p){
   // ...
 })
@@ -603,7 +603,7 @@ matrix.on('optionTwoSelected', function(p){
 
 ## Drop Downs
 ![DropDown](../img/ios/dropdown.png)
-```
+```language-yaml
   dropDownTest:
     control: dropdown
     map:
@@ -615,7 +615,7 @@ matrix.on('optionTwoSelected', function(p){
 ```
 
 ###### Handling Code
-```
+```language-javascript
 matrix.on('optionOneSelected', function(){
  //...
 })
@@ -627,7 +627,7 @@ matrix.on('optionTwoSelected', function(){
 
 ## Range
 ![range](../img/ios/range.png)
-```
+```language-yaml
   rangeTest:
     control: range
     event: rangeChanged
@@ -637,7 +637,7 @@ matrix.on('optionTwoSelected', function(){
 ```
 
 ###### Handling Code
-```
+```language-javascript
 matrix.on('rangeChanged', function(p){
  var value = p.value;
 })
@@ -645,7 +645,7 @@ matrix.on('rangeChanged', function(p){
 
 ## XY
 ![xy](../img/ios/xy.png)
-```
+```language-yaml
   xyTest:
     control: xy
     event: xyChanging
@@ -656,7 +656,7 @@ matrix.on('rangeChanged', function(p){
 ```
 
 ###### Handling Code
-```
+```language-javascript
 matrix.on('xyChanging', function(p){
  var x = p.value.x;
  var y = p.value.y;
@@ -667,7 +667,7 @@ matrix.on('xyChanging', function(p){
 ### Single
 ![radial](../img/ios/radial.png)
 
-```
+```language-yaml
   radial:
     control: radial
     event: radialChanging
@@ -675,7 +675,7 @@ matrix.on('xyChanging', function(p){
 ```
 
 ###### Handling Code
-```
+```language-javascript
 matrix.on('radialChanging', function(p){
  var x = p.value.x; //from -1 to 1
  var y = p.value.y; //from -1 to 1
@@ -685,7 +685,7 @@ matrix.on('radialChanging', function(p){
 ### Multiple
 ![radial](../img/ios/radialMap.png)
 
-```
+```language-yaml
   radialMap:
     control: radial
     map:
@@ -697,7 +697,7 @@ matrix.on('radialChanging', function(p){
 ```
 
 ###### Handling Code
-```
+```language-javascript
 matrix.on('radialRChanging', function(p){
  var x = p.value.x; //from -1 to 1
  var y = p.value.y; //from -1 to 1
@@ -711,7 +711,7 @@ matrix.on('radialLChanging', function(p){
 
 ## Color
 ![color](../img/color.png) ![colorSelector](../img/colorSelector.png) 
-```
+```language-yaml
   color:
     control: color
     event: colorChange
@@ -720,7 +720,7 @@ matrix.on('radialLChanging', function(p){
 ```
 
 ###### Handling Code
-```
+```language-javascript
 matrix.on('colorChange', function(color){
   color = color.value;
   matrix.led(color).render();
@@ -728,7 +728,7 @@ matrix.on('colorChange', function(color){
 ```
 
 # Responsive Data Flow
-```
+```language-javascript
 matrix.on('buttonInfo', function(){
   matrix.type('device').send({
     'os_hostname': os.hostname(),
@@ -741,7 +741,7 @@ matrix.on('buttonInfo', function(){
 When `buttonInfo` is triggered, respond with information with a type `device`.
 
 The list looks for
-```
+```language-yaml
 widgets:
   list:
     type: device

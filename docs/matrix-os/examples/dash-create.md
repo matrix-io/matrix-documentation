@@ -4,7 +4,7 @@ In this example we will make this simple dashboard.
 
 ![](../img/dash-done.png)
 
-> Before attempting this example, you should have [CLI](../overview/cli.md) installed and are familiar with [application `create` and `deploy`](app-create.md) and [data types](../overview/data.md).
+> Before attempting this example, you should have [CLI](../reference/cli-tool) installed and are familiar with [application `create` and `deploy`](../getting-started/applications) and [data types](../reference/data-types).
 
 > For more details about what is covered in this example, please read about [widgets](../reference/widgets/) and [sensors](../reference/sensors/)
 
@@ -15,7 +15,7 @@ Dashboards serve two primary purposes:
 
 ### Make application
 
-```bash
+```language-bash
 $ matrix create ezDash
 # enter details
 $ cd ezDash
@@ -27,7 +27,7 @@ $ cd ezDash
 
 Data is sent and sorted via it's structure which is defined in `dataTypes`. In this example `motd` is the `type` of data which is parsed for a given key `msg` in the dashboard.
 
-```yaml
+```language-yaml
 dataTypes:
   motd:
     msg: string
@@ -37,7 +37,7 @@ dataTypes:
 
 Define a widget named `message` that holds options defining which data to display.
 
-```yaml
+```language-yaml
 widgets: 
   message: 
     display: label
@@ -49,14 +49,14 @@ widgets:
 #### Add to layout
 
 `message` is the widget name to add to the `screens` layout definition.
-```yaml
+```language-yaml
 screens:
   - - message
 ```
 
 #### Final Configuration File
 
-```yaml
+```language-yaml
 # config.yaml
 
 dataTypes:
@@ -77,14 +77,14 @@ screens:
 ### Application to send a Basic Message
 
 Here, we use the dataType `motd`, and send an object with a `msg` key to display in the dashboard.
-```js
+```language-javascript
 // app.js
 matrix.type('motd').send({msg: 'hello to dashboard'});
 ```
 
 ### Open the Dashboard
 
-Goto [MATRIX Dashboard](http://dash.matrix.one)
+Goto <a href="http://dash.matrix.one" target="_blank">MATRIX Dashboard</a>
 
 ### Starting the App
 
@@ -96,7 +96,7 @@ Adding a `display` widget and a `monitor` data type, the dashboard can begin to 
 
 #### Configuration Additions
 
-```yaml
+```language-yaml
 # config.yaml
 dataTypes:
   motd:
@@ -126,7 +126,7 @@ widgets:
 
 The following will send `cpu` and `mem` information to the `graph` widget to be charted.
 
-```js
+```language-javascript
 // app.js
 const os = require('os');
 
@@ -139,7 +139,7 @@ setInterval(function(){
 
 Adding interactivity through `control` widgets is how end users can interface directly with devices in real time. 
 
-```yaml
+```language-yaml
 # config.yaml
 screens:
   - - message
@@ -166,7 +166,7 @@ widgets:
 
 ### More Controls
 
-```yaml
+```language-yaml
 # config.yaml
   interface:
     control: button
@@ -179,7 +179,7 @@ widgets:
 ```
 ### Script For New Controls
 
-```js
+```language-javascript
 const os = require('os');
 
 let cpuOffset = 0;
@@ -201,7 +201,7 @@ matrix.on('decreasePower', () => {
 
 Make sure your registered MATRIX device is on, connected, and you have selected the proper device with `matrix use`
 
-```bash
+```language-bash
 # from /ezDash will upload code to device
 $ matrix deploy
 $ matrix start exDash

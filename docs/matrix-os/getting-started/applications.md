@@ -42,5 +42,5 @@ When the MOS app runs, your MATRIX device should look like the image below.
 
 ![](/matrix-os/img/green-led-test.png)
 
-## Next Steps
-View our [reference](/matrix-os/reference/) page to see what you can do with our MATRIX OS SDK.
+## [Next Steps](../reference)
+View our reference page to see what you can with the MATRIX OS SDK.

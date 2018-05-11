@@ -97,5 +97,5 @@ matrix stop HelloWorld
 > When an app is stopped, the LEDs will keep the last color they were set to until set to a different color.
 
 <br/>
-##Next Steps
-Now that everything is properly installed, learn how to create your own MATRIX app [here](/matrix-os/getting-started/applications).
+##[Next Steps](applications)
+Now that everything is properly installed, learn how to create your own MATRIX app.

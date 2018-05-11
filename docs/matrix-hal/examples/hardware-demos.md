@@ -1,6 +1,6 @@
 ## Sensor Tests
 
-With the following instructions you will be able to run demos for the Everloop LED Array and for the IMU. These demos make use of the [hardware abstraction layer](https://github.com/matrix-io/matrix-creator-hal/tree/master/cpp/driver). If you followed the [getting started](../getting-started/installation.md) steps the [FPGA](../components/fpga) and the [SAM3 MCU](../components/sam3mcu) should be programmed and ready. Also, [SPI should be enabled](../components/SPI).
+With the following instructions you will be able to run demos for the Everloop LED Array and for the IMU. These demos make use of the [hardware abstraction layer](https://github.com/matrix-io/matrix-creator-hal/tree/master/cpp/driver). Make sure you followed the [getting started](../getting-started/installation.md) steps.
 
 Thus you can get the required source code and build it:
 ```language-bash

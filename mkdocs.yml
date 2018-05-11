@@ -74,7 +74,7 @@ pages:
     - 'GPIO': 'matrix-core/reference/gpio.md'
     - 'Humidity': 'matrix-core/reference/humidity.md'
     - 'IMU': 'matrix-core/reference/imu.md'
-    - 'IR': 'matrix-core/reference/lirc.md'
+    # - 'IR': 'matrix-core/reference/lirc.md'
     - 'Pressure': 'matrix-core/reference/pressure.md'
     - 'Servo': 'matrix-core/reference/servo.md'
     - 'UV': 'matrix-core/reference/uv.md'

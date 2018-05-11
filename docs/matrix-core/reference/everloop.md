@@ -23,11 +23,11 @@ This driver doesn't send any data to a subscribed program.
 
 ### Example Usage
 
-This section provides an enhanced description of the relevant parts of the [sample source code](https://github.com/matrix-io/matrix-creator-malos/src/js_test/test_everloop.js).
+This section provides an enhanced description of the relevant parts of the <a href="https://github.com/matrix-io/matrix-creator-malos/tree/master/src/js_test" target="_blank">sample source code</a>.
 
 To run the source code of this example you need to execute the following commands:
 
-```
+```language-bash
 git clone https://github.com/matrix-io/matrix-creator-malos.git
 cd matrix-creator-malos
 git submodule update --init
@@ -58,8 +58,9 @@ as shown in the picture.
 ##### Individual LED state
 
 First, create the object.
- 
-    var ledValue = new matrixMalosBuilder.LedValue
+```language-javascript
+var ledValue = new matrixMalosBuilder.LedValue
+```
 
 Now fill out the state of a given led by calling the following functions on ledValue.
 Each of the following functions receives an integer in the range [0, 255].
@@ -72,33 +73,37 @@ Each of the following functions receives an integer in the range [0, 255].
 | SeWhite  | Set value of white component |
 
 That is, repeat 35 times:
+``` language-javascript
+ledValue.setRed(red_value)
+ledValue.setGreen(green_value)
+ledValue.setBlue(blue_value)
+ledValue.setWhite(white_value)
 
-    ledValue.setRed(red_value)
-    ledValue.setGreen(green_value)
-    ledValue.setBlue(blue_value)
-    ledValue.setWhite(white_value)
-
-    config.image.led.push(ledValue)
+config.image.led.push(ledValue)
+```
 
 ##### Send configuration
 
+```language-javascript
 configSocket.send(config.encode().toBuffer())
+```
 
 #### All steps combined
 
 The following snippet will make all the greens display the green color.
-
-    var config = new matrixMalosBuilder.DriverConfig
-    config.image = new matrixMalosBuilder.EverloopImage
-    for (var j = 0; j < 35; ++j) {
-      var ledValue = new matrixMalosBuilder.LedValue
-      ledValue.setRed(0)
-      ledValue.setGreen(30)
-      ledValue.setBlue(0)
-      ledValue.setWhite(0)
-      config.image.led.push(ledValue)
-    }
-    configSocket.send(config.encode().toBuffer())
+```language-javascript
+var config = new matrixMalosBuilder.DriverConfig
+config.image = new matrixMalosBuilder.EverloopImage
+for (var j = 0; j < 35; ++j) {
+    var ledValue = new matrixMalosBuilder.LedValue
+    ledValue.setRed(0)
+    ledValue.setGreen(30)
+    ledValue.setBlue(0)
+    ledValue.setWhite(0)
+    config.image.led.push(ledValue)
+}
+configSocket.send(config.encode().toBuffer())
+```
 
 
 
@@ -106,11 +111,11 @@ The following snippet will make all the greens display the green color.
 
 #### Protocol buffers
 
-In this section we get into the details of the [protocol buffers](https://developers.google.com/protocol-buffers/docs/proto3) used by the
+In this section we get into the details of the <a href="https://developers.google.com/protocol-buffers/docs/proto3)" target="_blank">protocol buffers</a> used by the
 JavaScript example to communicate with the Everloop driver.
-The messages used by this driver are defined in [driver.proto](https://github.com/matrix-io/protocol-buffers/blob/master/malos/driver.proto).
+The messages used by this driver are defined in <a href="https://github.com/matrix-io/protocol-buffers/blob/master/matrix_io/malos/v1/driver.proto" target="_blank">driver.proto</a>.
 
-```
+```language-javascript
 message EverloopImage {
   repeated LedValue led = 1;
 }
@@ -121,7 +126,7 @@ corresponding to each of the LEDs present in the Creator.
 
 The message LedValue holds the color values for each LED and each value is in the range [0, 255].
 
-```
+```language-protobuf
 message LedValue {
   uint32 red = 1;
   uint32 green = 2;

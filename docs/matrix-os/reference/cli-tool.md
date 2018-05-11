@@ -35,11 +35,9 @@ In order to manually set up your device, use:
 matrix register device
 ```
 
-For more details about registering devices, see [Getting Started > Installation > CLI Setup](../getting-started/installation.md#cli-setup)
+For more details about registering devices, see [Getting Started > Installation > CLI Setup](../getting-started/installation.md)
 
 This will ask for your device details and then provide you with an id and a secret, you need to set those ENV vars in your device so it can authenticate on boot. 
-
-For more information on running MATRIX OS manually, see [MATRIX OS > Overview > Manual Setup](manual-setup.md).
 
 ### Command list
 For a list of all the available options, use:
@@ -70,7 +68,7 @@ matrix use <device-name>
 ```
 
 ## Applications
-See [MATRIX OS > Overview > Applications](applications.md)
+See [MATRIX OS > Getting Started > Applications](../getting-started/applications.md)
 
 **All the application commands require an active device to be specified with `matrix use`.**
 
@@ -91,7 +89,7 @@ Creates a folder with a base matrix app template
 ```
 matrix create appName
 ```
-See [MATRIX OS > Overview > Applications](applications.md) for more information about writing MATRIX OS applications.
+See [MATRIX OS > Overview > Applications](../getting-started/applications.md) for more information about writing MATRIX OS applications.
 
 ### Deploy
 Uploads app folder to MatrixOS

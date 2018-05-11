@@ -1,7 +1,7 @@
 # GPIO
 
 The Servo driver on current version supports:
-<a href="https://github.com/matrix-io/matrix-creator-malos/blob/av/doc_servo/docs/servo_diagram.jpg"><img src="https://github.com/matrix-io/matrix-creator-malos/blob/av/doc_servo/docs/servo_diagram.jpg" align="right" width="320" ></a>
+<a href="https://github.com/matrix-io/matrix-creator-malos/blob/av/doc_servo/docs/servo_diagram.jpg"><img src="https://github.com/matrix-io/matrix-creator-malos/blob/av/doc_servo/docs/servo_diagram.jpg?raw=true" align="right" width="320" ></a>
 
 * Handle Servo via GPIO pin output
 * Set Servo angle (180ø servo for the moment)
@@ -10,12 +10,12 @@ The driver follows the [CORE protocol](../index.md#protocol).
 
 ### GPIO electrical characteristics
 
-* GPIO voltage: 0.60-4.10 VDC ([details](https://github.com/matrix-io/matrix-creator-quickstart/wiki/Data-Sheets))
+* GPIO voltage: 0.60-4.10 VDC (<a href="https://github.com/matrix-io/matrix-creator-quickstart/wiki/Data-Sheets" target="_blank">details</a>)
 * current 10mA max
 * all GPIO pins need pullups
 * requiere external source for servo
 
-<a href="https://github.com/matrix-io/matrix-creator-malos/blob/master/docs/gpio_diagram.jpg"><img src="https://github.com/matrix-io/matrix-creator-malos/blob/master/docs/gpio_diagram.jpg" align="right" width="400" ></a>
+<a href="https://github.com/matrix-io/matrix-creator-malos/blob/master/docs/gpio_diagram.jpg"><img src="https://github.com/matrix-io/matrix-creator-malos/blob/master/docs/gpio_diagram.jpg?raw=true" align="right" width="300"></a>
 
 
 ### 0MQ Port
@@ -24,7 +24,7 @@ The driver follows the [CORE protocol](../index.md#protocol).
 ```
 ### Protocol buffers
 
-``` javascript
+```language-protobuf
 // Servo handler params
 message ServoParams {
   // GPIO to config
@@ -34,7 +34,7 @@ message ServoParams {
   uint32 angle = 2; 
 }
 ```
-The message is defined in [driver.proto](https://github.com/matrix-io/protocol-buffers/blob/master/malos/driver.proto).
+The message is defined in <a href="https://github.com/matrix-io/protocol-buffers/blob/master/matrix_io/malos/v1/driver.proto" target="_blank">driver.proto</a>.
 
 ### Errors
 
@@ -48,7 +48,7 @@ All pins on matrix creator start as inputs. You need to change the default setti
 
 This is a sample output given by the example described below.
 
-``` bash
+```language-bash
 $ node test_servo.js 
 angle: 0
 angle: 10
@@ -62,21 +62,21 @@ angle: 40
 
 ### JavaScript example
 
-Enhanced description of the [sample source code](https://github.com/matrix-io/matrix-creator-malos/blob/master/src/js_test/test_servo.js).
+Enhanced description of the <a href="https://github.com/matrix-io/matrix-creator-malos/blob/master/src/js_test/test_servo.js" target="_blank">sample source code</a>.
 
 First, define the address of the MATRIX Creator. In this case we make it be `127.0.0.1`
 because we are connecting from the local host but it needs to be different if we
 connect from another computer. There is also the base port reserved by CORE for
 the Pressure driver.
 
-``` javascript
+```language-javascript
 var creator_ip = '127.0.0.1'
 var creator_servo_base_port = 20013 + 32
 ```
 
 #### Load the protocol buffers used in the example.
 
-``` javascript
+```language-javascript
 var protoBuf = require("protobufjs");
 // parse proto file
 var protoBuilder = protoBuf.loadProtoFile('../../protocol-buffers/malos/driver.proto')
@@ -85,15 +85,15 @@ var matrixMalosBuilder = protoBuilder.build("matrix_malos")
 ```
 
 #### Connection to servo driver
-``` javascript
+```language-javascript
 var zmq = require('zmq')
 var configSocket = zmq.socket('push')
 configSocket.connect('tcp://' + creator_ip + ':' + creator_servo_base_port /* config */)
 ```
 
 #### Configure Servo GPIO pin and send angle:
-All the drivers are configured using the message `driverconfig` (see [driver.proto](https://github.com/matrix-io/protocol-buffers/blob/master/malos/driver.proto)).
-``` javascript
+All the drivers are configured using the message `driverconfig` (see <a href="https://github.com/matrix-io/protocol-buffers/blob/master/matrix_io/malos/v1/driver.proto" target="_blank">driver.proto</a>).
+```language-javascript
 function sendServoCommand() {
   // build servo params message
   var servo_cfg_cmd = new matrixMalosBuilder.ServoParams;
@@ -117,7 +117,7 @@ function sendServoCommand() {
 
 #### Send continuous configuration:
 
-``` javascript
+```language-javascript
 sendServoCommand()
 setInterval(function() {
   sendServoCommand()
