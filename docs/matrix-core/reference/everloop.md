@@ -30,7 +30,6 @@ To run the source code of this example you need to execute the following command
 ```language-bash
 git clone https://github.com/matrix-io/matrix-creator-malos.git
 cd matrix-creator-malos
-git submodule update --init
 cd src/js_test/
 npm install
 node test_everloop.js

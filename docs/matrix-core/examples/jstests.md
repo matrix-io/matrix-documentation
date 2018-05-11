@@ -23,11 +23,10 @@ node -v
 
 ## Download and Prepare CORE
 ```language-bash
-git clone https://github.com/matrix-io/matrix-creator-malos;
-cd matrix-creator-malos;
-git submodule update --init;
-cd src/js_test;
-npm install;
+git clone https://github.com/matrix-io/matrix-creator-malos
+cd matrix-creator-malos
+cd src/js_test
+npm install
 ```
 
 # Using CORE

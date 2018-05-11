@@ -1,11 +1,10 @@
 ## Download and Prepare
 > You need [NodeJS, and the Node Package Manager (npm)](https://nodejs.org/en/download/) installed on the Raspberry Pi.
 ```language-bash
-git clone https://github.com/matrix-io/matrix-creator-malos;
-cd matrix-creator-malos;
-git submodule update --init;
-cd src/js_test;
-npm install;
+git clone https://github.com/matrix-io/matrix-creator-malos
+cd matrix-creator-malos
+cd src/js_test
+npm install
 ```
 
 ### Examples
