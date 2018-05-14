@@ -3,6 +3,7 @@
 ## Introduction
 MOS applications allow you to easily utilize the components and sensors of your MATRIX device through Javascript. This IoT platform enables you to create applications and integrate them with any third party API to expand the functionality of your MATRIX device.
 
+<br/>
 ## Initial Setup
 MOS apps are designed to be developed outside your MATRIX device and deployed when you want to run your app. All that's required from your Raspberry Pi is to have MOS running.
 >The following commands will be entered in the terminal that you installed the MATRIX CLI tool in.
@@ -42,5 +43,6 @@ When the MOS app runs, your MATRIX device should look like the image below.
 
 ![](/matrix-os/img/green-led-test.png)
 
-## [Next Steps](../reference)
-View our reference page to see what you can with the MATRIX OS SDK.
+<br/>
+## Next Steps
+View our [reference page](../reference) to see what you can with the MATRIX OS SDK or learn how to publish a MATRIX app [here](publishing).
