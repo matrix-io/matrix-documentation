@@ -39,7 +39,7 @@ pages:
     - 'Index': 'matrix-os/reference/index.md'
     - 'Sensors': 'matrix-os/reference/sensors.md'
     - 'Everloop': 'matrix-os/reference/leds.md'
-    - 'Filters' : 'matrix-os/reference/filters.md'
+    #- 'Filters' : 'matrix-os/reference/filters.md'
     - 'Computer Vision': 'matrix-os/reference/computer-vision.md'
     - 'GPIO': 'matrix-os/reference/gpio.md'
     - 'Zigbee': 'matrix-os/reference/zigbee.md'

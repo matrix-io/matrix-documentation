@@ -3,8 +3,8 @@
 Sensor interfaces and data structures
 <h4 style="padding-top:0;">[Everloop](leds.md)</h4>
 LED interface
-<h4 style="padding-top:0;">[Filters](filters.md)</h4>
-Filtering data
+<!-- <h4 style="padding-top:0;">[Filters](filters.md)</h4>
+Filtering data -->
 <h4 style="padding-top:0;">[Computer Vision](computer-vision.md)</h4>
 Computer Vision services
 <!-- <h4 style="padding-top:0;">[Microphones](microphone.md)</h4>

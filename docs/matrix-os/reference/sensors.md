@@ -20,23 +20,27 @@ sensors:
 ```
 
 ### Reading Sensors
-All sensors are initialized using the `sensor` method.
+All sensors are initialized using the `sensor` method. This method should only be used once per sensor.
 
 * `sensorType`: Type of sensor you are initializing 
 * `options`: The options for that sensor. By default, all sensors support a `refresh` and `timeout` property.
 
 ```language-javascript
+var temperatureValue = 0; //global variable to hold sensor value
+
 var options = {
   refresh: 1000, //milliseconds between data points
   timeout: 10000 //how long before stopping this sensor
 };
 
 matrix.sensor('temperature', options).then(data => {
-  //see below for data formats
+  temperatureValue = data.value; //update global variable
+  console.log(temperatureValue); //print new temperature value
 });
 ```
 
 ## Outputs
+Below are all the possible data formats for each sensor.
 <h3 style="padding-top:0">Temperature</h3>
 Output for `temperature` (in &#8451;).
 ```language-javascript
@@ -107,6 +111,3 @@ Output for `magnetometer`
   type: 'magnetometer'
 }
 ```
-
-<h3 style="padding-top:0">Filtering Sensor Data</h3>
-See [MATRIX OS > Reference > Filter](filters.md)
