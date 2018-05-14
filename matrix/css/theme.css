@@ -36,6 +36,15 @@ img {
   max-width: 100%;
 }
 
+/********** Custom Elements - BEGIN **********/
+.creator-compatibility-icon{
+  width: 170px;
+}
+.voice-compatibility-icon{
+  height: 62.5px;
+}
+/********** Custom Elements - END **********/
+
 
 /********** Navbar - BEGIN **********/
 
@@ -413,8 +422,8 @@ img {
 
 pre {
   border: 1px dotted #bbb;
-  background: #141414;
-  /*background: #474949;*/
+  /*background: #141414;*/
+  background: #333333;
   border-radius: 5px;
   padding: 1em;
   margin: .5em 0;

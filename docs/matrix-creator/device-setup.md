@@ -20,4 +20,4 @@
 3. Power Raspberry Pi with micro USB power supply
 
 ## Choosing A Programming Environment
-After your MATRIX Creator is setup, visit [Ecosystem Overview](/) for information about the three programming environments available to you in the MATRIX platform.
+After your MATRIX Creator is setup, visit [Ecosystem Overview](/#programming-layers) for information about the three programming environments available to you in the MATRIX platform.

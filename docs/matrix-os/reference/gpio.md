@@ -1,8 +1,8 @@
 ## GPIO
 
 ### Device Compatibility
-<img width="170" src="../../img/creator-icon.svg">
-<img width="170" src="../../img/voice-icon.svg">
+<img class="creator-compatibility-icon" src="../../img/creator-icon.svg">
+<img class="voice-compatibility-icon" src="../../img/voice-icon.svg">
 
 GPIO can be used to communicate or receive input from analog and digital components through the MATRIX Creator, or any other sensor leveraging Raspberry Pi's GPIOs.
 

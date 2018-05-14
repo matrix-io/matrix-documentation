@@ -26,6 +26,28 @@ This file:
 * `widgets` - widget definitions. see [Widgets](dashboard.md#widgets)
 * `services` - service definitions. see [Computer Vision](../reference/computer-vision.md)
 
+```language-yaml
+#example config.yaml
+
+name: example-app
+displayName: The Example App
+description: An example application config.yaml.
+
+imageUrls:
+  - http://image.com/1
+
+keywords:
+  - example
+  - configuration
+
+categories:
+  - entertainment
+
+sensors:
+  - temperature
+  - gyroscope
+```
+
 ### Usage Notes
 The `config.yaml` is standardized before installation, which will modify it somewhat, especially in the widget definations. Do not be alarmed if your installed `config.yaml` does not match the original, this is normal.
 

@@ -1,8 +1,8 @@
 ## Filters
 
 ### Device Compatibility
-<img width="170" src="../../img/creator-icon.svg">
-<img width="170" src="../../img/voice-icon.svg">
+<img class="creator-compatibility-icon" src="../../img/creator-icon.svg">
+<img class="voice-compatibility-icon" src="../../img/voice-icon.svg">
 
 MatrixOS sensors and computer vision algorithms provide data which can be filtered between the `sensor`, which can be regarded as the data source, and the `then`, which can be regarded as the data receiver. Between the two, we can use chaining methods to easily filter what data is received.
 

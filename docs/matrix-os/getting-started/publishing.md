@@ -1,5 +1,7 @@
 <h1 style="padding-top: 0">Publishing your Application</h1>
 
+>MATRIX App Store is in early development
+
 MATRIX applications can be published to the <a href="http://apps.matrix.one" target="_blank">MATRIX App Store</a> for users to share their IoT creations with the community.
 
 

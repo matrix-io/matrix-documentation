@@ -1,7 +1,7 @@
-## Sensors
+<h2 style="padding-top:0">Sensors</h2>
 
 ### Device Compatibility
-<img width="170" src="../../img/creator-icon.svg">
+<img class="creator-compatibility-icon" src="../../img/creator-icon.svg">
 
 ### Available Sensors
 `temperature`, `humidity`, `pressure`, `uv`, `gyroscope`, `accelerometer`
@@ -9,9 +9,9 @@
 > You should have familiarity with [Configuration Files](configuration.md) before exploring Sensors. 
 
 ### Configuration
-End users must explicitly authorize MOS applications to utilize hardware sensors.
+When downloading an app from the <a href="https://apps.matrix.one" target="_blank">MATRIX App Store</a>, End users must explicitly authorize MOS applications to utilize hardware sensors.
 
-This requires that each application identify required sensors in `config.yaml`.
+This requires that each application to identify the sensors it requires in `config.yaml`. Sensors will not work unless this is specified. Below is an example for an app that requires the temperature and UV sensor.
 
 ```language-yaml
 sensors:
@@ -19,9 +19,7 @@ sensors:
   - uv
 ```
 
-Otherwise sensors will not work.
-
-### matrix.sensor()
+### Reading Sensors
 All sensors are initialized using the `sensor` method.
 
 * `sensorType`: Type of sensor you are initializing 
@@ -39,7 +37,7 @@ matrix.sensor('temperature', options).then(data => {
 ```
 
 ## Outputs
-### Temperature
+<h3 style="padding-top:0">Temperature</h3>
 Output for `temperature` (in &#8451;).
 ```language-javascript
 {
@@ -48,7 +46,7 @@ Output for `temperature` (in &#8451;).
 }
 ```
 
-### Humidity
+<h3 style="padding-top:0">Humidity</h3>
 Output for `humidity`.
 ```language-javascript
 {
@@ -57,7 +55,7 @@ Output for `humidity`.
 }
 ```
 
-### Pressure
+<h3 style="padding-top:0">Pressure</h3>
 Output for `pressure` (in mbars).
 ```language-javascript
 {
@@ -66,7 +64,7 @@ Output for `pressure` (in mbars).
 }
 ```
 
-### UV
+<h3 style="padding-top:0">UV</h3>
 Output for `UV`.
 ```language-javascript
 {
@@ -75,7 +73,7 @@ Output for `UV`.
 }
 ```
 
-### Gyroscope
+<h3 style="padding-top:0">Gyroscope</h3>
 Output for `gyroscope`.
 ```language-javascript
 {
@@ -89,7 +87,7 @@ Output for `gyroscope`.
 }
 
 ```
-### Accelerometer
+<h3 style="padding-top:0">Accelerometer</h3>
 Output for `accelerometer`
 ```language-javascript
 {
@@ -99,7 +97,7 @@ Output for `accelerometer`
   type: 'accelerometer'
 }
 ```
-### Magnetometer
+<h3 style="padding-top:0">Magnetometer</h3>
 Output for `magnetometer`
 ```language-javascript
 {
@@ -110,5 +108,5 @@ Output for `magnetometer`
 }
 ```
 
-### Filtering Sensor Data
+<h3 style="padding-top:0">Filtering Sensor Data</h3>
 See [MATRIX OS > Reference > Filter](filters.md)

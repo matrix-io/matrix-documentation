@@ -1,7 +1,7 @@
 ### Zigbee
 
 ### Device Compatibility
-<img width="170" src="../../img/creator-icon.svg">
+<img class="creator-compatibility-icon" src="../../img/creator-icon.svg">
 
 Alpha API, subject to deprecation
 
