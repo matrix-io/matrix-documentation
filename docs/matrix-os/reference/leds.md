@@ -1,4 +1,4 @@
-## Everloop LEDs
+<h2 style="padding-top:0>Everloop LEDs</h2>
 
 ### Device Compatibility
 <img class="creator-compatibility-icon" src="../../img/creator-icon.svg">
@@ -7,10 +7,11 @@
 The Everloop is a powerful tool for visually communicating through LEDs. Click the video below to learn more.
 
 [![Everloop Tutorial](../img/everloop-image.png)](https://www.youtube.com/watch?v=L4btaqw4HqM)
-> matrix.darken() and matrix.brighten() have not been implemented.
+> `matrix.darken()` and `matrix.brighten()` have not been implemented.
 
 ## String Notation & Render
-You can use any CSS color property (color-name, rgb, and hex). Darker colors on the Everloop generally display with more precision then lighter colors, which tend to get washed out. The code below shows how to set the Everloop to green with each CSS property.
+You can use any CSS color property (color-name, rgb, and hex). Darker colors on the Everloop generally display with more precision then lighter colors, which tend to get washed out. The code below shows how to set the entire Everloop to green with each CSS property.
+> The `.render()` method must be included at the end of the `matrix.led()` method to update your MATRIX device's LEDs.
 ```language-javascript
 // String
 matrix.led('green').render();
@@ -21,86 +22,64 @@ matrix.led('rgb(0,255,0)').render();
 ```
 > Please avoid using `rgba`. Alpha values do not render correctly.
 
-## Object Notation - Shape Generators
+## Creating Shapes
+> Currently, shape manipulation on the MATRIX Voice does not render properly. Fix in progress!
 
-Shape objects `{Shape}` are the fastest way to get started with Everloop. We are always building, [let us know](http://community.matrix.one/) what shapes you want us to work on next!
+Shape objects are methods of manipulating multiple LEDs in the Everloop at once.  Shape creation is simple, you define the shape you want to make as an object and pass it into `matrix.led()` like the example below
 
-The object creation is simple, you combine global properties with specific properties into a single object that controls a single generator. To draw multiple shapes, see Multiple Shapes below.
-
-<h3 style="padding-top:0"> Available Shapes</h3>
-Include one of these properties to enable the shape generator.
-```
-arc - number of degrees to draw an arc, important for smile faces, supports negative values
-fade - similiar to arc, except lights fade out
-angle - draw a single light at this degree point
-```
-
-### Shape Properties
-Every Shape object must include a `color` property to render.
-```
-color - color strings, as specified above
-blend - mix lights to make angle positioning more precise
-spin - number of degrees by which to spin the hue ( 0 - 360 )
-start - ( arc only ), start light index
-```
-
-#### Example Shape Object
 ```language-javascript
-{
-  color: 'red'
-  angle: 90
-}
+matrix.led({
+  arc: 90, //arc shape that takes up 90° of Everloop 
+  color: green, //turn shape green
+  start: 0 //start shape at 0° of Everloop
+}).render();
 ```
 
-### Chaining Operations
+<h3 style="padding-top:0">Available Shapes</h3>
+Include one of these `shape` properties in your shape.
+```
+arc: 90 //number of degrees to draw an arc, supports negative values
+angle: 45 //degree number to draw a single point
+```
+
+<h3 style="padding-top:0">Shape Properties</h3>
+Every Shape object must include the `color` property to render.
+```
+color: 'red' //color strings, as specified above
+spin: 230 //rotate color hue ( 0 - 360 )
+start: 0  //degree at which shape begins, arc shape only
+```
+
+<h3 style="padding-top:0">Rotation Operation</h3>
 These operate on the shapes and colors defined in the `led` object.
 
 ```language-javascript
-rotate(angle) - rotates whole shape by this many degrees 
+.rotate(angle); //rotates whole shape by number of degrees 
 ```
-
-### Multiple shapes and pixel drawing
-Use an array to include multiple shapes. Color strings can also be included and will be drawn as a single light whose index matches the strings index in the array provided.
-
-## Examples
 ```language-javascript
-var a = matrix.led({
-  // degrees of arc [ 90° = quadrant ]   
-  arc: 90,
-
-  color: 'green',
-
-  // index to start drawing arc
-  start: 12
-}).render();
-
-
-// draw a point
-var b = matrix.led({
-  angle: 245,
-  color: 'white',
-  // blends interlight space if true, solid lights if false, default false
-  blend: true
-}).render();
-
-// rotate the lights clockwise by a specified angle
-matrix.led([a, b]).rotate(90).render();
+matrix.led({
+    arc: 45,
+    color: 'blue',
+    start: 50
+}).rotate(90).render();
 ```
 
-## Composition
-
-### Shape Objects
+<h3 style="padding-top:0">Multiple Shapes</h3>
+Use an array in the `matrix.led()` method to include multiple shapes.
 ```language-javascript
 // make a smiley face
 matrix.led([
+  //left eye angle
   {
     angle: 45,
     color: 'yellow'
   },
+  //right eye angle
   {
     angle: 135,
     color: 'yellow'
   },
+  //smile arc
   {
     arc: 90,
     color: 'yellow',
@@ -109,18 +88,19 @@ matrix.led([
 ]).render();
 ```
 
-### Direct LED Manipulation
-Array index indicates the led to change
+<h3 style="padding-top:0">Direct LED Manipulation</h3>
+Array index indicates the LED to change. The index of an LED is labeled directly above the LED on your MATRIX device (D1, D2, D3, D4, etc..). Use 0 to turn off the LED.
 ```language-javascript
 matrix.led([0, 0, 0, 0, 'yellow', 0,
 0, 0, 0, 0, 0, 0, 0, 'yellow', 0, 0,
 0, 0, 0, 0, 0, 0, 'yellow', 'yellow',
 'yellow', 'yellow', 'yellow', 'yellow',
-'yellow', 'yellow', 'yellow' ]).render();
+'yellow', 'yellow', 'yellow']).render();
 ```
 
 
-## Example clock
+## LED Animation
+By using a `setInterval()` method, you can animate the LEDs on the Everloop. Below is an example of an active clock that demonstrates this. 
 ```language-javascript
 setInterval(function(){
   var time = new Date();
@@ -144,7 +124,6 @@ setInterval(function(){
     // translate seconds (60) to angle (360)
     angle: s * 6,
     color: 'yellow',
-    blend: true
   };
 
   // will draw all three
@@ -154,17 +133,8 @@ setInterval(function(){
 ```
 
 ## Advanced Use
-Enable `SUN_MODE=true` as a flag when launching MATRIX OS to turn on the white LEDs (and the luminence calculations). Wear sunglasses or use another mode of protecting your eyes when using this while developing. It is intended for use behind coverings.
+Enable `SUN_MODE=true` as a flag, when launching MATRIX OS, to turn on the white LEDs (and the luminence calculations). Wear sunglasses or use another mode of protecting your eyes when using this while developing. It is intended for use behind coverings.
 
-
-## High Level Discussion
-
-MATRIX OS is an attempt at abstracting out the complexity of hardware to make it very accessible for end users. At the same time, one also wants to support those who might want to perform more complex operations. When designing a language, sometimes compromises between ease of use and features must be made.
-
-#### The problem
-Many applications might want to write to the LED. We can leave it up to chance as to which gets to write, or we can approach it intelligently to optimize the aesthetics and performance. We also want to be able to manage and optimize LED transformations from a system level. Normally, MATRIX OS enables very fast communication with the hardware and tries to get out of the way as much as possible. For LEDS, we still get out of the way, but we need to blend all the input from different applications, otherwise this creates flicker as multiple applications compete for the same light indices. To discretely manage this, we created a special channel and notation just for leds.
-
-#### The Solution
-```
-matrix.led
+```language-bash
+SUN_MODE=true node index
 ```
