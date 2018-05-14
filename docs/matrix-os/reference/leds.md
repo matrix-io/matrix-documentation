@@ -4,33 +4,30 @@
 <img class="creator-compatibility-icon" src="../../img/creator-icon.svg">
 <img class="voice-compatibility-icon" src="../../img/voice-icon.svg">
 
-A powerful tool for communicating with end users is the EverLoop LED circle. CLICK VIDEO BELOW:
+The Everloop is a powerful tool for visually communicating through LEDs. Click the video below to learn more.
 
 [![Everloop Tutorial](../img/everloop-image.png)](https://www.youtube.com/watch?v=L4btaqw4HqM)
+> matrix.darken() and matrix.brighten() have not been implemented.
 
-
-## Basic Operations
-
-### String Notation & Render
+## String Notation & Render
+You can use any CSS color property (color-name, rgb, and hex). Darker colors on the Everloop generally display with more precision then lighter colors, which tend to get washed out. The code below shows how to set the Everloop to green with each CSS property.
 ```language-javascript
-matrix.led('blue'); //does nothing
-
-matrix.led('green').render(); //lights change
-
-// supports css
-matrix.led('rgb(255, 0, 100)').render();
+// String
+matrix.led('green').render();
+// Hexadecimal
+matrix.led('#00ff00').render();
+// RGB
+matrix.led('rgb(0,255,0)').render();
 ```
+> Please avoid using `rgba`. Alpha values do not render correctly.
 
-You can use any CSS color property (color-name, rgb, and hex). Darker colors on the Everloop generally display with more precision then lighter colors, which tend to get washed out. Please avoid `rgba` as alpha values do not render correctly. 
-
-## Intermediate Operation
-### Object Notation - Shape Generators
+## Object Notation - Shape Generators
 
 Shape objects `{Shape}` are the fastest way to get started with Everloop. We are always building, [let us know](http://community.matrix.one/) what shapes you want us to work on next!
 
 The object creation is simple, you combine global properties with specific properties into a single object that controls a single generator. To draw multiple shapes, see Multiple Shapes below.
 
-### Available Shapes
+<h3 style="padding-top:0"> Available Shapes</h3>
 Include one of these properties to enable the shape generator.
 ```
 arc - number of degrees to draw an arc, important for smile faces, supports negative values

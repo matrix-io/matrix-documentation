@@ -49,7 +49,7 @@ pages:
     - 'CLI Tool': 'matrix-os/reference/cli-tool.md'
     - 'Dashboard': 'matrix-os/reference/dashboard.md'
     - 'Widgets': 'matrix-os/reference/widgets.md'
-    - 'Corss Talk': 'matrix-os/reference/crosstalk.md'
+    - 'Cross Talk': 'matrix-os/reference/crosstalk.md'
     - 'Data Types': 'matrix-os/reference/data-types.md'
     - 'System': 'matrix-os/reference/system.md'
     - 'Integrations': 'matrix-os/reference/integrations.md'
