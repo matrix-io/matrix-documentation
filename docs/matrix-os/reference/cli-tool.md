@@ -1,115 +1,80 @@
-## Command Line Interface (CLI)
+<h2 style="padding-top:0">Command Line Interface (CLI)</h2>
+The MATRIX CLI tool is a terminal interface for managing your MATRIX devices and applications. This includes deploying, downloading, and publishing applications.
 
-> MATRIX CLI requires [Node.js](https://nodejs.org/en/)
+> MATRIX CLI requires <a href="https://nodejs.org/en/" target="_blank">Node.js</a> on your personal computer.
 
-MATRIX devices can be managed via website, mobile phone applications or via CLI.
-
+<br/>
 ## Installation
-Install MATRIX CLI with `npm` and you're good to go.
-
-```
+To install the MATRIX CLI, execute the following command in your personal computer's terminal.
+```language-bash
 npm install -g matrix-cli
 ```
 
-##### Local vs Device
-MATRIX CLI was designed to be used from your local machine, or can be installed to and used from your Raspberry Pi.
+<br/>
+##Command list
 
-## Registration
+Typing `matrix` lists all the available MATRIX CLI commands. Each command for the CLI tool must begin with `matrix`.
 
-### User registration
-If you do not have an MATRIX Labs MATRIX account, use:
-```
-matrix register
-```
-Check your email to confirm the account then you can login.
+### Setup
+* `matrix register` - Register for a MATRIX Labs account.
 
-```
-matrix login
-```
+    ↳ `matrix register device` - Registers a MATRIX device to your account.
 
-##### Manual device registration
-This step can also be done via the MATRIX mobile application, which will automatically set the credentials.
+* `matrix account` - View MATRIX Labs account details.
+    
+    ↳ `matrix account profile` - Edit account details.
 
-In order to manually set up your device, use:
-```
-matrix register device
-```
+* `matrix remove YOUR_DEVICE_NAME_OR_ID` - Removes a MATRIX device from your account.
 
-For more details about registering devices, see [Getting Started > Installation > CLI Setup](../getting-started/installation.md)
+* `matrix login` - Sign into MATRIX Labs account.
 
-This will ask for your device details and then provide you with an id and a secret, you need to set those ENV vars in your device so it can authenticate on boot. 
+* `matrix logout` - Sign out of MATRIX Labs account.
 
-### Command list
-For a list of all the available options, use:
-```
-matrix
-```
+* `matrix upgrade` - Update current MATRIX CLI tool version.
 
-## Devices
-**How to register, use, and see your MATRIX devices**
+* `matrix use YOUR_DEVICE_NAME_OR_ID` - Select MATRIX device to use.
 
-### Device Registration
-Register a new device to your account
-```
-matrix register device
-```
+* `matrix set` - Set environment or locale.
 
-### List your Devices
-Lists all registered devices on your account
-```
-matrix list devices
-```
+    ↳   `matrix set env DESIRED_ENV` - Switch between **dev**, **rc**, and **production** environments. Recommended to stay in **rc**.
+    
+    ↳   `matrix set locale DESIRED_LOCALE` - Switch between **es** (spanish) and **en** (english) locale for the MATRIX CLI tool.
 
-### Use a Specific Device
-To use a specific device you can use either command below
-```
-matrix use <device-id>
-matrix use <device-name>
-```
+### Management
+* `matrix list` - Lists all MATRIX devices or apps.
+    
+    ↳ `matrix list devices` - Lists all registered devices.
+    
+    ↳ `matrix list apps` - Lists all installed MATRIX apps for the current device.
 
-## Applications
-See [MATRIX OS > Getting Started > Applications](../getting-started/applications.md)
+### Apps
+* `matrix search APP_NAME` - Check if a MATRIX app is listed in the app store
 
-**All the application commands require an active device to be specified with `matrix use`.**
+* `matrix install APP_NAME` - Install MATRIX app to your MATRIX device.
 
-### Install
-Install an app from the store to MatrixOS
-```
-matrix install appName
-```
+* `matrix uninstall APP_NAME` - Uninstall MATRIX app from your MATRIX device.
 
-### Uninstall
-Uninstall an app from your device
-```
-matrix uninstall appName
-```
+* `matrix config APP_NAME` - Check configuration of an installed MATRIX app.
 
-### Create
-Creates a folder with a base matrix app template
-```
-matrix create appName
-```
-See [MATRIX OS > Overview > Applications](../getting-started/applications.md) for more information about writing MATRIX OS applications.
+* `matrix start APP_NAME` - Starts an installed MATRIX app.
 
-### Deploy
-Uploads app folder to MatrixOS
-```
-matrix deploy appName
-```
-### Run
-Used to start an app
-```
-matrix start appName
-```
+* `matrix stop APP_NAME` - Stops an installed MATRIX app.
 
-### Stop
-Used to stop an app
-```
-matrix stop appName
-```
+* `matrix restarts APP_NAME` - Restarts an installed MATRIX app.
 
-### Restart
-Used to restart an app
-```
-matrix restart appName
-```
+### Development
+* `matrix create APP_NAME` - Creates folder with the necessary files for a MATRIX app.
+
+* `matrix deploy APP_FOLDER` - Installs MATRIX app to your MATRIX device.
+
+* `matrix publish APP_FOLDER` - Upload MATRIX app to the app store.
+
+* `matrix unPublish APP_NAME` - Remove MATRIX app from the app store.
+
+* `matrix trigger EVENT_TO_EMIT` - Emits a [Cross-talk](/matrix-os/reference/crosstalk/) event to each MATRIX device.
+
+* `matrix ping` - Flashes the lights on MATRIX device currently selected.
+
+* `matrix log` - Shows all console.log() outputs from your MATRIX device.
+
+> `matrix ping` has a known issue where it will output an error, but still ping the device.

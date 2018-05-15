@@ -6,9 +6,9 @@
 ### Available Sensors
 `temperature`, `humidity`, `pressure`, `uv`, `gyroscope`, `accelerometer`
 
+### Configuration
 > You should have familiarity with [Configuration Files](configuration.md) before exploring Sensors. 
 
-### Configuration
 When downloading an app from the <a href="https://apps.matrix.one" target="_blank">MATRIX App Store</a>, End users must explicitly authorize MOS applications to utilize hardware sensors.
 
 This requires that each application to identify the sensors it requires in `config.yaml`. Sensors will not work unless this is specified. Below is an example for an app that requires the temperature and UV sensor.

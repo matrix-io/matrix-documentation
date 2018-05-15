@@ -4,32 +4,56 @@
 <img class="creator-compatibility-icon" src="../../img/creator-icon.svg">
 <img class="voice-compatibility-icon" src="../../img/voice-icon.svg">
 
-MATRIX OS is designed to integrate with computer vision in a powerful and robust way. You can use computer vision output to drive behavior, capture data for further analysis or anything you want!
+MATRIX OS is designed to integrate with computer vision(CV) in a powerful and robust way. You can use computer vision output to drive behavior, capture data for further analysis or anything you want!
 
->Requires Raspberry Pi Camera
-
-## Example
-From [faceTest MATRIX App](http://apps.matrix.one/#!/apps/facetest)
-```language-javascript
-matrix.led('red').render();
-
-matrix.service('face').start().then(data => {
-  matrix.led('green').render();
-  setTimeout(function() {
-    matrix.led('black').render();
-  },2000);
-});
-```
+> Requires Raspberry Pi Camera
 
 ## Configuration
-To facilitate communication with the hardware,  CV services must be defined in `config.yaml` before they will be available to your application.
+> You should have familiarity with [Configuration Files](configuration.md) before exploring Sensors. 
+
+To allow for communication with the hardware, CV services must be defined in `config.yaml` before they will be available to your application.
 
 ```language-yaml
 services:
-  faceDetection:
-    engine: detection
-    type: face
+  matrix.led(['darkturquoise','deepskyblue','darkgreen','darkkhaki']).render();
+
+  matrix.service('face').start().then(function(data){
+    console.log('>>>>>>>>>>', data);
+    matrix.led('green').render();
+    setTimeout(function() {
+      matrix.led('black').render();
+    },2000);
+});
 ```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ## matrix.service
 The base `matrix.service` command is how you access computer vision services.
@@ -39,10 +63,6 @@ matrix.service( algorithm, options )
 
 ### basic algorithms
 `face` - triggers when it sees a face shape
-
-`fist` - gesture recognition for a closed fist
-
-`palm` - gesture recognition for an open palm
 
 ### `options`
 `refresh` - how many seconds before restarting the detection, default: 3

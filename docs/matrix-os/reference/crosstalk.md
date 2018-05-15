@@ -2,7 +2,7 @@
 Cross-Talk is a mechanism for applications to communicate, whether on the same device, or on different devices. Applications can exchange information with other applications, or with other instances of the same application. All messages get sent to all devices, so if you have the same app running on different devices, this is how to communicate between installations of the same app.
 
 ## Overview
-Cross talk events are publicly searchable by app, and allow MATRIX applications to easily exchange information between devices, or on the same device. For example, a face detection application could trigger a `face-in`, which is heard by a [configured](configuration.md) and [trained](computer-vision.md) recognition program.
+Cross talk events are publicly searchable by app, and allow MATRIX applications to easily exchange information between devices, or on the same device. For example, a face detection application could trigger a `face-in`, which is heard by a [configured](configuration.md) <!--and [trained](computer-vision.md)--> recognition program.
 
 ## Config Setup
 CrossTalk requires setup in configuration to execute successfully. This information is also used in the app store to determine which applications can communicate via events.

@@ -5,12 +5,12 @@ Sensor interfaces and data structures
 LED interface
 <!-- <h4 style="padding-top:0;">[Filters](filters.md)</h4>
 Filtering data -->
-<h4 style="padding-top:0;">[Computer Vision](computer-vision.md)</h4>
-Computer Vision services
+<!-- <h4 style="padding-top:0;">[Computer Vision](computer-vision.md)</h4>
+Computer Vision services -->
 <!-- <h4 style="padding-top:0;">[Microphones](microphone.md)</h4>
 Microphone Services. -->
-<h4 style="padding-top:0;">[GPIO](gpio.md)</h4>
-GPIO interfaces and servo function
+<!-- <h4 style="padding-top:0;">[GPIO](gpio.md)</h4>
+GPIO interfaces and servo function -->
 <h4 style="padding-top:0;">[zigbee](zigbee.md)</h4>
 zigbee interfaces
 
