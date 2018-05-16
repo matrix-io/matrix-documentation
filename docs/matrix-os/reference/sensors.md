@@ -7,35 +7,49 @@
 `temperature`, `humidity`, `pressure`, `uv`, `gyroscope`, `accelerometer`
 
 ### Configuration
-> You should have familiarity with [Configuration Files](configuration.md) before exploring Sensors. 
+> You should have familiarity with [Configuration Files](configuration.md) before exploring further. 
 
 When downloading an app from the <a href="https://apps.matrix.one" target="_blank">MATRIX App Store</a>, End users must explicitly authorize MOS applications to utilize hardware sensors.
 
-This requires that each application to identify the sensors it requires in `config.yaml`. Sensors will not work unless this is specified. Below is an example for an app that requires the temperature and UV sensor.
+This requires that each application to identify the sensors it requires in `config.yaml`. Sensors will not work unless this is specified. Below is an example for an app that requires the temperature and humidity sensor.
 
 ```language-yaml
 sensors:
   - temperature
-  - uv
+  - humidity
 ```
 
 ### Reading Sensors
-All sensors are initialized using the `sensor` method. This method should only be used once per sensor.
-
-* `sensorType`: Type of sensor you are initializing 
-* `options`: The options for that sensor. By default, all sensors support a `refresh` and `timeout` property.
+All sensors are initialized using the `sensor` method. This method should only be used once per sensor. Once called, your can use a `.then` promise to initiate a callback.
 
 ```language-javascript
-var temperatureValue = 0; //global variable to hold sensor value
+matrix.sensor(sensorType, options);
+```
 
+* `sensorType`: Type of sensor you are initializing 
+* `options`: The options for that sensor. All sensors support a `refresh` and `timeout` property.
+
+```language-javascript
+// Example
+var temperatureValue = 0; // global variable to hold sensor value
+var humidityValue = 0; // global variable to hold humidity value
+
+// Sensor options
 var options = {
-  refresh: 1000, //milliseconds between data points
-  timeout: 10000 //how long before stopping this sensor
+  refresh: 1000, // milliseconds between data points
+  timeout: 10000 // how long before stopping this sensor
 };
 
+// Begin calling temperature sensor
 matrix.sensor('temperature', options).then(data => {
-  temperatureValue = data.value; //update global variable
-  console.log(temperatureValue); //print new temperature value
+  temperatureValue = data.value; // update global variable
+  console.log(temperatureValue); // print new temperature value
+});
+
+// Begin calling humidity sensor
+matrix.sensor('humidity', options).then(data => {
+  humidityValue = data.value; // update global variable
+  console.log(humidityValue); // print new humidity value
 });
 ```
 

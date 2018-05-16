@@ -1,9 +1,9 @@
-## Cross-Talk
+<h2 style="padding-top:0">Cross-Talk</h2>
 
 Cross-Talk events allow MATRIX applications to exchange information between different devices, or on the same device. For example, a temperature monitor app can output an event to an alarm app to notify you when the current temperature is too high or low. Cross-Talk events will only be sent to MATRIX devices tied to the same MATRIX Labs account.
 
 ## Config Setup
-> You should have familiarity with [Configuration Files](configuration.md) before exploring Sensors.
+> You should have familiarity with [Configuration Files](configuration.md) before exploring further.
 
 CrossTalk requires each event, that will be emitted, in your app's configuration file to execute successfully. This information is also used in the app store to determine which applications can communicate via events.
 
@@ -12,7 +12,7 @@ Add the `events:` configuration to your app's config.yaml and give each event yo
 ```language-yaml
 events:
   - flashGreen
-  - flashBlue
+  - highTemperature
 ```
 
 <br/>
@@ -21,6 +21,8 @@ Once your app has its events properly defined, you can use `matrix.emit` to broa
 
 <h3 style="padding-top:0;">.emit(app, event, payload)</h3>
 Use this function in the application that has the events defined in the config.yaml file.
+
+> Events can also be emitted through the MATRIX CLI `matrix trigger` command [here](http://localhost:8000/matrix-os/reference/cli-tool/#development).
 
 * `app` MATRIX app you're sending the event to.
 * `event` Event being sent to MATRIX app.
@@ -44,17 +46,17 @@ Use this function in the application that will receive the events. Applications 
 ```language-javascript
 // Listen for CrossTalk events sent to this application
 matrix.on('event', function(payload) {
-  ...
+  //...
 });
 
 // Example 1
 matrix.on('flashGreen', function(){
-  ...
+  //...
 });
 
 // Example 2
 matrix.on('highTemperature', function(payload){
-  ...
+  //...
 });
 
 ```

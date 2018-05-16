@@ -1,10 +1,10 @@
-## Configuration
+<h2 style="padding-top: 0">Configuration</h2>
 
-Every MOS application has a configuration file `config.yaml`.
+Each MOS application has a configuration file `config.yaml` that's required to have, in order to run.
 
-This file:
+What this file does:
 
-1. Sets meta information for the application, which is used in the [MATRIX App Store](http://apps.matrix.one).
+1. Sets meta information for the application, which is used in the <a href="http://apps.matrix.one" target="_blank">MATRIX App Store</a>.
 1. Defines a schema for [sending data](data-types.md) from the device.
 1. Identifies which [sensors](../reference/sensors/#configuration), services<!--[services](../reference/computer-vision/#configuration)-->, [events](../reference/crosstalk.md ) and [integrations](../reference/integrations/#configuration) an application utilizes.
 1. Defines dynamic [settings](../reference/system/#settings) variables, which are available to the application and end-user modifiable.

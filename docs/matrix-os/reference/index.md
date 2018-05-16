@@ -11,8 +11,8 @@ Computer Vision services -->
 Microphone Services. -->
 <!-- <h4 style="padding-top:0;">[GPIO](gpio.md)</h4>
 GPIO interfaces and servo function -->
-<h4 style="padding-top:0;">[zigbee](zigbee.md)</h4>
-zigbee interfaces
+<!-- <h4 style="padding-top:0;">[zigbee](zigbee.md)</h4>
+zigbee interfaces -->
 
 ## Configuration
 <h4 style="padding-top:0;">[Applications](configuration)</h4>

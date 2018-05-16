@@ -9,7 +9,7 @@ MATRIX OS is designed to integrate with computer vision(CV) in a powerful and ro
 > Requires Raspberry Pi Camera
 
 ## Configuration
-> You should have familiarity with [Configuration Files](configuration.md) before exploring Sensors. 
+> You should have familiarity with [Configuration Files](configuration.md) before exploring further. 
 
 To allow for communication with the hardware, CV services must be defined in `config.yaml` before they will be available to your application.
 

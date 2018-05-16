@@ -42,7 +42,7 @@ pages:
     # - 'Filters' : 'matrix-os/reference/filters.md'
     # - 'Computer Vision': 'matrix-os/reference/computer-vision.md'
     # - 'GPIO': 'matrix-os/reference/gpio.md'
-    - 'Zigbee': 'matrix-os/reference/zigbee.md'
+    # - 'Zigbee': 'matrix-os/reference/zigbee.md'
     # - 'IR': 'matrix-os/reference/ir.md'
     # - 'Microphone': 'matrix-os/reference/microphone.md'
     - 'Configuration': 'matrix-os/reference/configuration.md'
@@ -55,7 +55,7 @@ pages:
     - 'Integrations': 'matrix-os/reference/integrations.md'
   - Examples:
     - 'Examples': 'matrix-os/examples/index.md'
-    - 'IFTTT Integration': 'matrix-os/examples/ifttt.md'
+    # - 'IFTTT Integration': 'matrix-os/examples/ifttt.md'
     - 'Dashboard': 'matrix-os/examples/dash-create.md'
   - Troubleshooting: 'matrix-os/troubleshooting.md'
 - MATRIX CORE:
