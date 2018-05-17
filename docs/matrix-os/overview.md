@@ -12,7 +12,7 @@ Look over the MATRIX Open System SDK to see the current libraries and features w
 
 ### [Examples](examples)
 
-Take a look at examples to show you how you can integrate IFTTT or creating a simple dashboard setup for you MOS application.
+Take a look at the example to show you how you can create a simple dashboard setup for your MOS application.
 
 ### Mobile Applications
 Access and manage your MATRIX devices with the mobile apps

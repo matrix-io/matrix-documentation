@@ -1,48 +1,54 @@
-## Dashboard
+<h2 style="padding-top:0">Dashboard</h2>
+> You should have familiarity with [Configuration Files](configuration.md) before exploring further. 
 
-Login to your [MATRIX Dashboard](http://dash.matrix.one).
+The MATRIX Dashboard is an online interface that can manage each of your MATRIX devices and applications. The dashboard itself consists of `widgets` which are defined in the [configuration file](configuration.md), `config.yaml`. Widgets provide representation for data coming from a MATRIX application and they can provide controls for users to modify how a MATRIX application operates. Each application can have its own dashboard view.
 
-### One dashboard per application
-Dashboards consist of widgets which are defined in a [configuration file](configuration.md), `config.yaml`. Widgets provide readouts for data coming from a MATRIX application, or widgets can provide controls for users to modify how applications operate.
+View your Dashboard <a href="https://dash.matrix.one/" target="_blank">here</a>.
 
-### Widgets
-Widgets are configured via `config.yaml` under the `widgets` key. See [Reference > Widget Examples](../reference/widgets.md) for more detailed information about widget configuration.
+## Screens
+Screens are where we define the placement of `widgets` on the dashboard (consists of rows and columns). Adding `screens` to your `config.yaml` file will require you to specify your widget names and dashboard placements. Below are some examples of how to defines your screens.
 
-### Screens
-Screens use structured data to represent layouts. One array represents a row, elements of that array are columns within that row. Widget names must be used in the `screens` array to link the layout with the configuration widget object.
+* `--` New row.
+* `-` New column.
 
-This means that every `screen` must be a nested array. In YAML, ``[[a, b]]`` is represented by
-
-```yaml
+```language-yaml
 screens:
-  - - a
-    - b
+  #Row 1 has 2 Columns
+  - - myTopLeftWidget
+    - myTopRightWidget
 ```
-It's not pretty, but it allows us much design flexibility in a configuration file. 
-
-For example, this creates a dashboard with two widgets in one row, each taking up 50% of the available width.
-```yaml
+```language-yaml
 screens:
-  - - leftWidget
-    - rightWidget
+  #Row 1 has 2 Columns
+  - - myTopLeftWidget
+    - myTopRightWidget
+  #Row 2 has 3 Columns
+  - - myBottomLeftWidget
+    - myBottomMiddleWidget
+    - myBottomRightWidget
+```
+Each `screens` item looks for a `widgets` item with the same name to show on the dashboard. The following example shows how to properly define these.
+
+![](img/dashboard-example.png)
+
+```language-yaml
+screens:
+  - - startButton
+    - readDeviceSensors
 
 widgets:
-  leftWidget: ...
-  rightWidget: ...
+  startButton:
+    control: button
+    event: buttonInfo
+    value: START
+    label: Turn LEDs On
+  readDeviceSensors:
+    control: switch
+    event: sensorsEnabled
+    value: Sensors Enabled
+    label: Send Sensor Data
 ```
 
-You can use nesting within the `screens` data structure to further customize the layout.
-
-This example would produce two rows, the first with two panels, the second with three.
-
-```yaml
-screens:
-  - - topLeft
-    - topRight
-  - - bottomLeft
-    - bottomCenter
-    - bottomRight
-```
-
-#### Devices and Applications
-Inside the dahsboard should be able to navigate to your active devices and applications. The dashboard for each application consists of widgets which display data from the selected devices.
+<br/>
+## Widgets
+Now that you know how to display widgets, learn which `widgets` are available in the dashboard and how to configure them [here](../reference/widgets.md).

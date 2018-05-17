@@ -1,31 +1,31 @@
 ## MATRIX OS SDK
-<h4 style="padding-top:0;">[Sensors](sensors.md)</h4>
+<h3 style="padding-top:0;">[Sensors](sensors.md)</h3>
 Sensor interfaces and data structures
-<h4 style="padding-top:0;">[Everloop](leds.md)</h4>
+<h3 style="padding-top:0;">[Everloop](leds.md)</h3>
 LED interface
-<!-- <h4 style="padding-top:0;">[Filters](filters.md)</h4>
+<!-- <h3 style="padding-top:0;">[Filters](filters.md)</h3>
 Filtering data -->
-<!-- <h4 style="padding-top:0;">[Computer Vision](computer-vision.md)</h4>
+<!-- <h3 style="padding-top:0;">[Computer Vision](computer-vision.md)</h3>
 Computer Vision services -->
-<!-- <h4 style="padding-top:0;">[Microphones](microphone.md)</h4>
+<!-- <h3 style="padding-top:0;">[Microphones](microphone.md)</h3>
 Microphone Services. -->
-<!-- <h4 style="padding-top:0;">[GPIO](gpio.md)</h4>
+<!-- <h3 style="padding-top:0;">[GPIO](gpio.md)</h3>
 GPIO interfaces and servo function -->
-<!-- <h4 style="padding-top:0;">[zigbee](zigbee.md)</h4>
+<!-- <h3 style="padding-top:0;">[zigbee](zigbee.md)</h3>
 zigbee interfaces -->
 
 ## Configuration
-<h4 style="padding-top:0;">[Applications](configuration)</h4>
-Overview of the MOS app config.yml file.
-<h4 style="padding-top:0;">[CLI Tool](cli-tool)</h4>
-MOS command-line interface
-<h4 style="padding-top:0;">[Dashboard](dashboard.md)</h4>
-Explore data representation and input with
-<h4 style="padding-top:0;">[Widgets](widgets.md)</h4>
-Reference for all Dashboard Widgets
-<h4 style="padding-top:0;">[Cross Talk](crosstalk.md)</h4>
-Exchange information between apps and devices
-<h4 style="padding-top:0;">[Data Types](data-types.md)</h4>
-config.yml datatypes overview
-<h4 style="padding-top:0;">[Settings](system/#settings)</h4>
-For application defaults or end-user configurable variables
+<h3 style="padding-top:0;">[Config.yaml](configuration)</h3>
+Overview of the MOS app config.yaml file.
+<h3 style="padding-top:0;">[CLI Tool](cli-tool)</h3>
+MOS command-line interface.
+<h3 style="padding-top:0;">[Dashboard](dashboard.md)</h3>
+Explore data representation and input with a live dashboard.
+<h3 style="padding-top:0;">[Widgets](widgets.md)</h3>
+Reference for all Dashboard Widgets.
+<h3 style="padding-top:0;">[Cross Talk](crosstalk.md)</h3>
+Exchange information between apps and devices.
+<h3 style="padding-top:0;">[Data Types](data-types.md)</h3>
+config.yaml datatypes overview.
+<h3 style="padding-top:0;">[System Methods](system/#settings)</h3>
+For application defaults or end-user configurable variables.

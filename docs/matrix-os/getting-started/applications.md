@@ -17,7 +17,7 @@ The file structure will look like this:
 ```
 YOUR_APP_FOLDER
     * app.js (Where you write your code)
-    * config.yml (Configuration file for application)
+    * config.yaml (Configuration file for application)
     * index.js (Imports MATRIX libraries for use in app.js)
     * package.json (Defines npm modules to install on your MATRIX Device)
     * README.MD (Readme file for MATRIX App Store)

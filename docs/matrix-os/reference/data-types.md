@@ -1,88 +1,60 @@
-# Sending Data From MATRIX Devices
+<h2 style="padding-top:0">Sending Data From MATRIX Devices</h2>
+<!-- object, string, float, integer, boolean -->
+> You should have familiarity with [Configuration Files](configuration.md) and [Widgets](widgets.md) before exploring further.
 
-MATRIX devices will only externally store data if it is explicitly sent via an application. If you want to use MATRIX Dashboard components to work with your data, it will need to be exported using the `send` command.
-
-Enabling a MATRIX application to save information using `send` requires a *Data Type* to be configured.
-
-> You should have familiarity with [Configuration Files](configuration.md) before exploring Data Types. 
+The MATRIX Dashboard's **display widgets** all require you to define `dataTypes` in your `config.yaml` file. `widgets` can only ready values from defined `dataTypes`. Your MATRIX app can push to these values with the `matrix.send` method.
 
 ## Data Types
-Simple applications can have a single, universal datatype, or a more complicated, keyed object. If you are familiar with database schemas, we have adopted a similiar approach.
+`dataTypes` can be thought of as javascript objects. Each data type can contain multiple values known as **keys**. These **keys** can hold the following values.
 
-### Single Datatype
+* `string` - can be defined as: `string` or `str` or `s`
+* `integer` - can be defined as: `integer` or `int` or `i`
+* `float` - can be defined as: `float` or `fl` or `f`
+* `boolean` - can be defined as: `b` or `bool` or `boolean`;
 
-```yaml
-# in app config.yaml 
+<h3 style="padding-top:0">Creating Datatypes</h3>
+In order to create your `dataTypes`, a *type* needs to be specified. Once created, your *type* needs at least one *key* to be able to hold data.
+```language-yaml
+# How to structure
 dataTypes:
-  foo: string
-  bar: integer
+  type1:
+    key1: string or integer or float or boolean
+    key2: string or integer or float or boolean
+  type2:
+    key1: string or integer or float or boolean
 ```
-
-### Complex Datatype
-
-```yaml
-# in config.yaml
+```language-yaml
+# Example
 dataTypes:
-  foo:
-    foo1 : integer
-    fooA : string
-  bar:
-    bar1: integer
-    barA: string
+  location:
+    latitude: float
+    longitude: float
+  statusAlert:
+    currentStatus: string
 ```
+> We do not currently support changing dataTypes for newer versions of an application. If you need to change `dataTypes` after an application is published on the MATRIX App Store, please release a new application until we can address this issue.
 
-In the above example `foo` and `bar` are *Types* available to extend the `send` command, and to use with Widgets in the Dashboard.
+<br/>
+## Sending Data
 
-### Migrations - IMPORTANT
+Once your `dataTypes` are defined, you can begin to send data to the MATRIX Dashboard in real-time. The code below shows an example of how to have your `app.js` and `config.yaml` configured for updating `dataTypes` by using `matrix.send()`.
 
-We do not currently support changing dataTypes for newer versions of an application. If you need to change dataTypes after an application is published, please release a new application until we can address this issue.
-
-
-## Send
-
-Once a datatype is defined, you can save data and make it accessible in realtime via dashboard. 
-
-### Simple Send Example
-
-```yaml
+```language-yaml
 # config.yaml
 dataTypes:
-  foo: integer
+  location:
+    latitude: float
+    longitude: float
 ```
 
-```js
+```language-js
 // app.js
 matrix.send({
-  foo: 123
+  'latitude': 40.285519,
+  'longitude': -76.650589
 })
 ```
 
-
-
-## Types
-
-Types are a mechanism for segmenting the data coming off MatrixOS and make it available in end user applications, dashboards and reports.
-
-### Complex Send Example
-
-```js
-matrix.type('bar').send({
-  foo: 123
-})
-
-```
-
-would be utilized with the following widget
-
-```
-name: fooApp
-dataTypes:
-  bar:
-    foo: integer
-
-widgets:
-  fooWidget:
-    display: digit,
-    type: bar
-    key: foo
-```
+<br/>
+## Widgets
+Learn how to use [widgets](widgets.md) to see how you can use `dataTypes` to display real-time information on your MATRIX Dashboard.
