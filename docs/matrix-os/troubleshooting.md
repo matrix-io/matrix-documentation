@@ -1,19 +1,18 @@
+<h2 style="padding-top:0;">Troubleshooting</h2>
 
-## Troubleshooting
-
+<br/>
+## Community
 Please visit our community support forums at:
 [community.matrix.one](http://community.matrix.one/)
 
-Starting MOS from your device, you will have access to more error messages with `DEBUG=*,-engine*,-Component*` prepended to the commands presented below. `engine`, refers to `engine.io`, sockets, and `Component`, is very verbose hardware communications, disable these filters as necessary.
+<br/>
+## MOS DEBUG Mode
+Run MOS, with the following command, in order to enable debug mode.
+```language-bash
+DEBUG=*,-engine*,-Component* node index
+```
 
-### Test applications
-Several applications are available in the [MATRIX App Store](https://apps.matrix.one).
-
-* `sensorTest` - Tests all sensors
-* `clock` - Runs a clock which tests the LEDs
-* `faceTest` - Face detection services via `malos-eye`.
-
-### Lights are spinning, but don't stop
+<!-- ### Lights are spinning, but don't stop
 
 Exits with message
 ```
@@ -22,9 +21,9 @@ Device Error undefined
 Solution. Run again with correct environment set. Users and made in `dev` environment do not cross over to `production`.
 ```
 NODE_ENV =dev node index.js
-```
+``` -->
 
-### MATRIX Vision Services not working
+<!-- ### MATRIX Vision Services not working
 Messages appear when `malos_eye` is running, and hardware is not properly installed. Please shut off device, firmly reconnect the camera connection, and restart.
 ```
 VIDIOC_STREAMON: Invalid argument
@@ -37,4 +36,4 @@ select timeout
 select timeout
 select timeout
 select timeout
-```
+``` -->

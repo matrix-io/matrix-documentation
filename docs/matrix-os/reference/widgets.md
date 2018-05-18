@@ -1,5 +1,5 @@
 <h2 style="padding-top:0">Widgets</h2>
-> You should have familiarity with [Data Types](data-types.md) and [Dashboard](dashboard.md) before exploring further. 
+> You should have familiarity with [Data Types](data-types.md), [Cross Talk](crosstalk.md) and [Dashboard](dashboard.md) before exploring further. 
 
 Widgets are what allow you to visualize and or control your MATRIX applications through the MATRIX Dashboard.
 

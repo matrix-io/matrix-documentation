@@ -1,214 +1,103 @@
-## Creating a Dashboard
+<h2 style="padding-top:0">Creating a Dashboard</h2>
 
-In this example we will make this simple dashboard.
+![](/matrix-os/img/dashboard-example-result.png)
 
-![](../img/dash-done.png)
+In this example we will demonstrate how to make a MATRIX Dashboard that can read and send data from your MATRIX device. The final result will your MATRIX device flickering its LEDs green and sending a random number to the dashboard, once the user presses a button.
 
-> Before attempting this example, you should have [CLI](../reference/cli-tool) installed and are familiar with [application `create` and `deploy`](../getting-started/applications) and [data types](../reference/data-types).
+> You should have familiarity with [Data Types](/matrix-os/reference/data-types.md), [Cross Talk](/matrix-os/reference/crosstalk.md), [Dashboard](/matrix-os/reference/dashboard.md), and the [Getting Started](/matrix-os/getting-started) section before exploring further. 
 
-> For more details about what is covered in this example, please read about [widgets](../reference/widgets/) and [sensors](../reference/sensors/)
-
-Dashboards serve two primary purposes:
-
-1. Presenting data patterns over time.
-1. Communicating with applications.
-
-### Make application
-
+## Setting Up Your Application
+<h3 style="padding-top:0">Create Your App</h3>
+With the, MATRIX CLI tool installed, go to the terminal on your personal computer and insert the following command.
 ```language-bash
-$ matrix create ezDash
-# enter details
-$ cd ezDash
+matrix create exampleDashboard
 ```
 
-### Configure application
+<h3 style="padding-top:0">Config.yaml</h3>
+We will be setting up the app's `config.yaml` page in order to define the layout of our dashboard, dataTypes, and events.
 
-#### Send data
+* `datatypes` - Will define the variable that will save the random number we create.
 
-Data is sent and sorted via it's structure which is defined in `dataTypes`. In this example `motd` is the `type` of data which is parsed for a given key `msg` in the dashboard.
+* `screens` - Determines the placement of widgets.
 
-```language-yaml
-dataTypes:
-  motd:
-    msg: string
-```
+* `widgets` - Our two dashboard components to visualize the random number we generate and command our MATRIX device to make that number.
 
-#### Widget Definition
-
-Define a widget named `message` that holds options defining which data to display.
+* `Events` - Events doesn't have to be specified here because we are not sending one from our app, but receiving it from the `startButton` widget we made. View [Cross Talk](/matrix-os/reference/crosstalk.md) to learn more.
 
 ```language-yaml
-widgets: 
-  message: 
-    display: label
-    type: motd
-    key: msg
-    label: from device
-```
+configVersion: 2
 
-#### Add to layout
-
-`message` is the widget name to add to the `screens` layout definition.
-```language-yaml
-screens:
-  - - message
-```
-
-#### Final Configuration File
-
-```language-yaml
-# config.yaml
+description: 'Example dashboard to learn from.'
+keywords: dashboard example
+name: exampleDashboard
+shortName: exampleDashboard
+displayName: Example Dashboard
 
 dataTypes:
-  motd:
-    msg: string
-
-widgets: 
-  message: 
-    display: label
-    type: motd
-    key: msg
-    label: from device
+  #Holds the value shown on the dashboard
+  randomNumber:
+    number: integer
 
 screens:
-  - - message
-```
-
-### Application to send a Basic Message
-
-Here, we use the dataType `motd`, and send an object with a `msg` key to display in the dashboard.
-```language-javascript
-// app.js
-matrix.type('motd').send({msg: 'hello to dashboard'});
-```
-
-### Open the Dashboard
-
-Goto <a href="http://dash.matrix.one" target="_blank">MATRIX Dashboard</a>
-
-### Starting the App
-
-Dashboard display real time information. If you open an application, it will not show data until you either query historical information or a device application sends information.
-
-### Charting Realtime Data
-
-Adding a `display` widget and a `monitor` data type, the dashboard can begin to show information over time.
-
-#### Configuration Additions
-
-```language-yaml
-# config.yaml
-dataTypes:
-  motd:
-    msg: string
-  monitor: # new data type
-    cpu: float
-    mem: integer
-
-screens:
-  - - message
-  - - graph # new screen
+#This will show both widgets in the same Row
+- - numberGenerator
+  - startButton
 
 widgets:
-  message:
-    display: label
-    type: motd
-    key: msg
-    label: from device 
-  graph: # new widget
-    display: line
-    type: monitor
-    keys: cpu, mem
-    label: Device Status
+  #Displays a randomly generated number
+  numberGenerator:
+    display: digit
+    type: randomNumber
+    key: number
+    label: Random Number
+  #Calls number generator
+  startButton:
+    control: button
+    event: generateNumber
+    value: Get Random Number
+    label: Start Number Generator
 ```
-
-#### Code for chart widget
-
-The following will send `cpu` and `mem` information to the `graph` widget to be charted.
+<br/>
+## Writing Your Application
+The following code below goes into your application's `app.js` file. The code can be split into two parts. The first is a simple function to turn on and off your MATRIX device's LEDs. The second part waits for the dashboard `generateNumber` event from the `startButton` widget. Once the event goes off, the previous function is called and a random number is created and sent to the dashboard's `numberGenerator` widget.
 
 ```language-javascript
-// app.js
-const os = require('os');
+// - Turn LEDs on and then off
+function flickerLights(color){
+    matrix.led(color).render();// Turn LEDs green
+    // Wait 1 second
+    setTimeout(function(){
+        matrix.led('black').render();// Turn LEDs off
+    },500);
+}
 
-setInterval(function(){
-  matrix.type('monitor').send({ cpu: os.loadavg()[0], mem: os.freemem() })
-}, 1000);
+// - On Dashboard Button Press
+matrix.on('generateNumber', function(){
+    flickerLights('green');// Flicker MATRIX Device LEDs
+
+    var randomNumber = Math.floor(Math.random()*100);// Generate a random number between 0 and 99
+    // Send Number To Dashboard
+    matrix.type('randomNumber').send({
+        'number': randomNumber
+    });
+});
+```
+<br/>
+## Deploying Your Application
+You application should now be ready to deploy. Use the following command, with the location of your app folder, to send the app to your MATRIX device.
+```
+matrix deploy PATH_TO_YOUR_APP_HERE
 ```
 
-### Controls
-
-Adding interactivity through `control` widgets is how end users can interface directly with devices in real time. 
-
-```language-yaml
-# config.yaml
-screens:
-  - - message
-  - - graph
-  - - interface # new screen
-
-widgets:
-  message:
-    display: label
-    type: motd
-    key: msg
-    label: from device
-  graph:
-    display: line
-    type: monitor
-    keys: cpu, mem
-    label: Device Status
-  interface: # new widget
-    control: button
-    event: increasePower
-    value: + CPU
-    label: Device Control
-```
-
-### More Controls
-
-```language-yaml
-# config.yaml
-  interface:
-    control: button
-    map:  
-      - event: increasePower
-        value: + CPU
-      - event: decreasePower
-        value: - CPU
-    label: Device Control
-```
-### Script For New Controls
-
-```language-javascript
-const os = require('os');
-
-let cpuOffset = 0;
-setInterval(function(){
-  matrix.type('monitor').send({ cpu: os.loadavg()[0] + cpuOffset, mem: os.freemem() })
-}, 1000);
-
-
-matrix.on('increasePower', () => {
-  cpuOffset++;
-})
-
-matrix.on('decreasePower', () => {
-  cpuOffset--;
-})
-```
-
-### Deploy & Start
-
-Make sure your registered MATRIX device is on, connected, and you have selected the proper device with `matrix use`
-
+After it's deployed, you can start the app with the final command below.
 ```language-bash
-# from /ezDash will upload code to device
-$ matrix deploy
-$ matrix start exDash
-
-# subsequent deploys shouldn't need start, will automagically restart if deployed while active
-$ matrix deploy
+matrix start exampleDashboard
 ```
+<h3 style="padding-top:0">Final Result</h3>
+Visit the [MATRIX Dashboard](https://dash.matrix.one) to see the example you've deployed. Use the "Get Random Number Button" to test the number generator and LEDs flashing. 
+![](/matrix-os/img/dashboard-example-demo.gif)
 
-### Usage Note
-If you visit the dashboard after starting the application, you will see the real time data, but not the message. Why? MOS applications are event based, and the message is sent on start. If the `send` for the message was placed inside the `setInterval` then it would show.
+Alternatively, you can use the following command if you want to test sending a Cross Talk command through the MATRIX CLI tool.
+```matrix-bash
+matrix trigger generateNumber
+```

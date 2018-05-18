@@ -49,7 +49,7 @@ dataTypes:
 
 ```language-js
 // app.js
-matrix.send({
+matrix.type('location').send({
   'latitude': 40.285519,
   'longitude': -76.650589
 })

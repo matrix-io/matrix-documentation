@@ -22,10 +22,10 @@ MOS command-line interface.
 <h3 style="padding-top:0;">[Dashboard](dashboard.md)</h3>
 Explore data representation and input with a live dashboard.
 <h3 style="padding-top:0;">[Widgets](widgets.md)</h3>
-Reference for all Dashboard Widgets.
+Reference for all dashboard widgets.
 <h3 style="padding-top:0;">[Cross Talk](crosstalk.md)</h3>
 Exchange information between apps and devices.
 <h3 style="padding-top:0;">[Data Types](data-types.md)</h3>
-config.yaml datatypes overview.
+config.yaml data types overview.
 <h3 style="padding-top:0;">[System Methods](system/#settings)</h3>
 For application defaults or end-user configurable variables.

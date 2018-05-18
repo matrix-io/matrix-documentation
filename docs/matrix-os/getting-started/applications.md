@@ -37,7 +37,7 @@ matrix start YOUR_APP_NAME_HERE
 ```
 <h3 style="padding-top: 0">Preview</h3>
 The interactive video below will show you the terminal outputs to expect from following this guide.
-<script src="https://asciinema.org/a/MtmfX3q0tZxtrI4QwJ6t0COFe.js" id="asciicast-MtmfX3q0tZxtrI4QwJ6t0COFe" async></script>
+<script src="https://asciinema.org/a/caUoEzLDhkKz8L00KLsCcwBY3.js" id="asciicast-caUoEzLDhkKz8L00KLsCcwBY3" async></script>
 <h3 style="padding-top: 0">Results</h3>
 When the MOS app runs, your MATRIX device should look like the image below.
 
