@@ -77,4 +77,4 @@ Typing `matrix` lists all the available MATRIX CLI commands. Each command for th
 
 * `matrix log` - Shows all console.log() outputs from your MATRIX device.
 
-> `matrix ping` has a known issue where it will output an error, but still ping the device.
+> `matrix ping` has a known <a href="https://github.com/matrix-io/matrix-cli/issues/116" target="_blank">issue</a> where it will output an error, but still ping the device.
