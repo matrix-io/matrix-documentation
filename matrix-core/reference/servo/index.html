@@ -7,6 +7,7 @@
   <link rel="shortcut icon" href="../../../img/favicon.ico">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
   <link rel="stylesheet" href="../../../css/theme.css">
+  <link rel="stylesheet" href="../../../css/prism.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
 </head>
@@ -165,7 +166,7 @@
 
 <!-- print root node  -->
 <li class="">
-  <a href="../../../matrix-os/" class="">
+  <a href="../../../matrix-os/overview/" class="">
     MATRIX OS
   </a>
 </li>
@@ -173,56 +174,18 @@
 <ul class="subnav">
    
   <!-- only 1 deep, print menu items  -->
+   
+  <li><a href="../../../matrix-os/overview/" class="">Overview</a></li>
      
   <!-- 2 deep  -->
   <!-- print subroot  -->
   <li>
-    <a href="../../../matrix-os/getting-started/prerequisites/" class="">
+    <a href="../../../matrix-os/getting-started/" class="">
       Getting Started
     </a>
   </li>
 
   <ul class="subnav">
-      
-        
-        
-        
-        
-        
-      
-  </ul>
-
-    
-  <!-- 2 deep  -->
-  <!-- print subroot  -->
-  <li>
-    <a href="../../../matrix-os/overview/" class="">
-      Overview
-    </a>
-  </li>
-
-  <ul class="subnav">
-        
-        
-        
-        
-        
-        
-        
-      
-  </ul>
-
-    
-  <!-- 2 deep  -->
-  <!-- print subroot  -->
-  <li>
-    <a href="../../../matrix-os/examples/" class="">
-      Examples
-    </a>
-  </li>
-
-  <ul class="subnav">
-        
         
         
         
@@ -248,9 +211,19 @@
         
         
         
-        
-        
-        
+      
+  </ul>
+
+    
+  <!-- 2 deep  -->
+  <!-- print subroot  -->
+  <li>
+    <a href="../../../matrix-os/examples/" class="">
+      Examples
+    </a>
+  </li>
+
+  <ul class="subnav">
         
       
   </ul>
@@ -336,9 +309,6 @@
     <li><a href="../imu/" class="">IMU</a></li>
         
     
-    <li><a href="../lirc/" class="">IR</a></li>
-        
-    
     <li><a href="../pressure/" class="">Pressure</a></li>
         
     
@@ -417,7 +387,7 @@
         <div id="content" class="col-lg-8 col-md-9">
            <h1 id="gpio">GPIO</h1>
 <p>The Servo driver on current version supports:
-<a href="https://github.com/matrix-io/matrix-creator-malos/blob/av/doc_servo/docs/servo_diagram.jpg"><img src="https://github.com/matrix-io/matrix-creator-malos/blob/av/doc_servo/docs/servo_diagram.jpg" align="right" width="320" ></a></p>
+<a href="https://github.com/matrix-io/matrix-creator-malos/blob/av/doc_servo/docs/servo_diagram.jpg"><img src="https://github.com/matrix-io/matrix-creator-malos/blob/av/doc_servo/docs/servo_diagram.jpg?raw=true" align="right" width="320" ></a></p>
 <ul>
 <li>Handle Servo via GPIO pin output</li>
 <li>Set Servo angle (180ø servo for the moment)</li>
@@ -425,18 +395,18 @@
 <p>The driver follows the <a href="../../#protocol">CORE protocol</a>.</p>
 <h3 id="gpio-electrical-characteristics">GPIO electrical characteristics</h3>
 <ul>
-<li>GPIO voltage: 0.60-4.10 VDC (<a href="https://github.com/matrix-io/matrix-creator-quickstart/wiki/Data-Sheets">details</a>)</li>
+<li>GPIO voltage: 0.60-4.10 VDC (<a href="https://github.com/matrix-io/matrix-creator-quickstart/wiki/Data-Sheets" target="_blank">details</a>)</li>
 <li>current 10mA max</li>
 <li>all GPIO pins need pullups</li>
 <li>requiere external source for servo</li>
 </ul>
-<p><a href="https://github.com/matrix-io/matrix-creator-malos/blob/master/docs/gpio_diagram.jpg"><img src="https://github.com/matrix-io/matrix-creator-malos/blob/master/docs/gpio_diagram.jpg" align="right" width="400" ></a></p>
+<p><a href="https://github.com/matrix-io/matrix-creator-malos/blob/master/docs/gpio_diagram.jpg"><img src="https://github.com/matrix-io/matrix-creator-malos/blob/master/docs/gpio_diagram.jpg?raw=true" align="right" width="300"></a></p>
 <h3 id="0mq-port">0MQ Port</h3>
 <pre><code>20045
 </code></pre>
 
 <h3 id="protocol-buffers">Protocol buffers</h3>
-<pre><code class="javascript">// Servo handler params
+<pre><code class="language-protobuf">// Servo handler params
 message ServoParams {
   // GPIO to config
   uint32 pin = 1;
@@ -446,13 +416,13 @@ message ServoParams {
 }
 </code></pre>
 
-<p>The message is defined in <a href="https://github.com/matrix-io/protocol-buffers/blob/master/malos/driver.proto">driver.proto</a>.</p>
+<p>The message is defined in <a href="https://github.com/matrix-io/protocol-buffers/blob/master/matrix_io/malos/v1/driver.proto" target="_blank">driver.proto</a>.</p>
 <h3 id="errors">Errors</h3>
 <p>This driver reports errors when an invalid configuration is sent.</p>
 <h3 id="write">Write</h3>
 <p>All pins on matrix creator start as inputs. You need to change the default settings. (see Javascript example below)</p>
 <p>This is a sample output given by the example described below.</p>
-<pre><code class="bash">$ node test_servo.js 
+<pre><code class="language-bash">$ node test_servo.js 
 angle: 0
 angle: 10
 angle: 20
@@ -462,17 +432,17 @@ angle: 40
 
 <p>(The servo motor will change by the different angles)</p>
 <h3 id="javascript-example">JavaScript example</h3>
-<p>Enhanced description of the <a href="https://github.com/matrix-io/matrix-creator-malos/blob/master/src/js_test/test_servo.js">sample source code</a>.</p>
+<p>Enhanced description of the <a href="https://github.com/matrix-io/matrix-creator-malos/blob/master/src/js_test/test_servo.js" target="_blank">sample source code</a>.</p>
 <p>First, define the address of the MATRIX Creator. In this case we make it be <code>127.0.0.1</code>
 because we are connecting from the local host but it needs to be different if we
 connect from another computer. There is also the base port reserved by CORE for
 the Pressure driver.</p>
-<pre><code class="javascript">var creator_ip = '127.0.0.1'
+<pre><code class="language-javascript">var creator_ip = '127.0.0.1'
 var creator_servo_base_port = 20013 + 32
 </code></pre>
 
 <h4 id="load-the-protocol-buffers-used-in-the-example">Load the protocol buffers used in the example.</h4>
-<pre><code class="javascript">var protoBuf = require(&quot;protobufjs&quot;);
+<pre><code class="language-javascript">var protoBuf = require(&quot;protobufjs&quot;);
 // parse proto file
 var protoBuilder = protoBuf.loadProtoFile('../../protocol-buffers/malos/driver.proto')
 // Parse matrix_malos package (namespace).
@@ -480,14 +450,14 @@ var matrixMalosBuilder = protoBuilder.build(&quot;matrix_malos&quot;)
 </code></pre>
 
 <h4 id="connection-to-servo-driver">Connection to servo driver</h4>
-<pre><code class="javascript">var zmq = require('zmq')
+<pre><code class="language-javascript">var zmq = require('zmq')
 var configSocket = zmq.socket('push')
 configSocket.connect('tcp://' + creator_ip + ':' + creator_servo_base_port /* config */)
 </code></pre>
 
 <h4 id="configure-servo-gpio-pin-and-send-angle">Configure Servo GPIO pin and send angle:</h4>
-<p>All the drivers are configured using the message <code>driverconfig</code> (see <a href="https://github.com/matrix-io/protocol-buffers/blob/master/malos/driver.proto">driver.proto</a>).</p>
-<pre><code class="javascript">function sendServoCommand() {
+<p>All the drivers are configured using the message <code>driverconfig</code> (see <a href="https://github.com/matrix-io/protocol-buffers/blob/master/matrix_io/malos/v1/driver.proto" target="_blank">driver.proto</a>).</p>
+<pre><code class="language-javascript">function sendServoCommand() {
   // build servo params message
   var servo_cfg_cmd = new matrixMalosBuilder.ServoParams;
   // Servo attached on GPIO13 (for example)
@@ -509,7 +479,7 @@ configSocket.connect('tcp://' + creator_ip + ':' + creator_servo_base_port /* co
 </code></pre>
 
 <h4 id="send-continuous-configuration">Send continuous configuration:</h4>
-<pre><code class="javascript">sendServoCommand()
+<pre><code class="language-javascript">sendServoCommand()
 setInterval(function() {
   sendServoCommand()
 }, 3000);
@@ -673,6 +643,7 @@ setInterval(function() {
   <script src="../../../js/jquery.ajaxchimp.min.js"></script>
   <script src="../../../js/jquery.ajaxchimp.langs.min.js"></script>
   <script src="../../../js/footer.js"></script>
+  <script src="../../../js/prism.js"></script>
 
   <!-- TOC Script -->
   <script>

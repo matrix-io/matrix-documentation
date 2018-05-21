@@ -36,6 +36,15 @@ img {
   max-width: 100%;
 }
 
+/********** Custom Elements - BEGIN **********/
+.creator-compatibility-icon{
+  width: 170px;
+}
+.voice-compatibility-icon{
+  height: 62.5px;
+}
+/********** Custom Elements - END **********/
+
 
 /********** Navbar - BEGIN **********/
 
@@ -413,20 +422,21 @@ img {
 
 pre {
   border: 1px dotted #bbb;
-  background: #EDEDED;
+  /*background: #141414;*/
+  background: #333333;
   border-radius: 5px;
-  padding: 20px 40px;
-  margin: 30px 0px;
+  padding: 1em;
+  margin: .5em 0;
 }
 
 pre code {
-  line-height: normal;
+  line-height: 1.5;
   font-size: 1rem;
-  color: #4F4F4F;
+  color: #f8f8f2;
 }
 
 code {
-  line-height: normal;
+  font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
   font-size: 1rem;
 }
 

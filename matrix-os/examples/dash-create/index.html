@@ -3,10 +3,11 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Basic Dashboard MATRIX</title>
+  <title>Dashboard MATRIX</title>
   <link rel="shortcut icon" href="../../../img/favicon.ico">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
   <link rel="stylesheet" href="../../../css/theme.css">
+  <link rel="stylesheet" href="../../../css/prism.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
 </head>
@@ -28,7 +29,7 @@
         <div class="row">
           <div class="col-sm-8">
             
-            <h1>Basic Dashboard</h1>
+            <h1>Dashboard</h1>
             
           </div>
           <div class="col-sm-4">
@@ -165,7 +166,7 @@
 
 <!-- print root node  -->
 <li class="">
-  <a href="../../" class="active">
+  <a href="../../overview/" class="active">
     MATRIX OS
   </a>
 </li>
@@ -173,67 +174,21 @@
 <ul class="subnav">
    
   <!-- only 1 deep, print menu items  -->
+   
+  <li><a href="../../overview/" class="">Overview</a></li>
      
   <!-- 2 deep  -->
   <!-- print subroot  -->
   <li>
-    <a href="../../getting-started/prerequisites/" class="">
+    <a href="../../getting-started/" class="">
       Getting Started
     </a>
   </li>
 
   <ul class="subnav">
-      
         
         
         
-        
-        
-      
-  </ul>
-
-    
-  <!-- 2 deep  -->
-  <!-- print subroot  -->
-  <li>
-    <a href="../../overview/" class="">
-      Overview
-    </a>
-  </li>
-
-  <ul class="subnav">
-        
-        
-        
-        
-        
-        
-        
-      
-  </ul>
-
-    
-  <!-- 2 deep  -->
-  <!-- print subroot  -->
-  <li>
-    <a href="../" class="active">
-      Examples
-    </a>
-  </li>
-
-  <ul class="subnav">
-        
-    
-    <li><a href="../app-create/" class="">Create an App</a></li>
-        
-    
-    <li><a href="./" class="active">Basic Dashboard</a></li>
-        
-    
-    <li><a href="../sensor-test/" class="">Sensor Tests</a></li>
-        
-    
-    <li><a href="../ifttt/" class="">IFTTT Integration</a></li>
       
   </ul>
 
@@ -256,10 +211,22 @@
         
         
         
+      
+  </ul>
+
+    
+  <!-- 2 deep  -->
+  <!-- print subroot  -->
+  <li>
+    <a href="../" class="active">
+      Examples
+    </a>
+  </li>
+
+  <ul class="subnav">
         
-        
-        
-        
+    
+    <li><a href="./" class="active">Dashboard</a></li>
       
   </ul>
 
@@ -337,7 +304,6 @@
         
         
         
-        
       
   </ul>
 
@@ -407,182 +373,110 @@
           </div>
         </div>
         <div id="content" class="col-lg-8 col-md-9">
-           <h2 id="creating-a-dashboard">Creating a Dashboard</h2>
-<p>In this example we will make this simple dashboard.</p>
-<p><img alt="" src="../../img/dash-done.png" /></p>
+           <h2 style="padding-top:0">Creating a Dashboard</h2>
+
+<p><img alt="" src="../../../matrix-os/img/dashboard-example-result.png" /></p>
+<p>In this example we will demonstrate how to make a MATRIX Dashboard that can read and send data from your MATRIX device. The final result will your MATRIX device flickering its LEDs green and sending a random number to the dashboard, once the user presses a button.</p>
 <blockquote>
-<p>Before attempting this example, you should have <a href="../../overview/cli/">CLI</a> installed and are familiar with <a href="../app-create/">application <code>create</code> and <code>deploy</code></a> and <a href="../../overview/data/">data types</a>.</p>
-<p>For more details about what is covered in this example, please read about <a href="../../reference/widgets/">widgets</a> and <a href="../../reference/sensors/">sensors</a></p>
+<p>You should have familiarity with <a href="../../reference/data-types/">Data Types</a>, <a href="../../reference/crosstalk/">Cross Talk</a>, <a href="../../reference/dashboard/">Dashboard</a>, and the <a href="../../../matrix-os/getting-started">Getting Started</a> section before exploring further. </p>
 </blockquote>
-<p>Dashboards serve two primary purposes:</p>
-<ol>
-<li>Presenting data patterns over time.</li>
-<li>Communicating with applications.</li>
-</ol>
-<h3 id="make-application">Make application</h3>
-<pre><code class="bash">$ matrix create ezDash
-# enter details
-$ cd ezDash
+<h2 id="setting-up-your-application">Setting Up Your Application</h2>
+<p><h3 style="padding-top:0">Create Your App</h3>
+With the, MATRIX CLI tool installed, go to the terminal on your personal computer and insert the following command.</p>
+<pre><code class="language-bash">matrix create exampleDashboard
 </code></pre>
 
-<h3 id="configure-application">Configure application</h3>
-<h4 id="send-data">Send data</h4>
-<p>Data is sent and sorted via it's structure which is defined in <code>dataTypes</code>. In this example <code>motd</code> is the <code>type</code> of data which is parsed for a given key <code>msg</code> in the dashboard.</p>
-<pre><code class="yaml">dataTypes:
-  motd:
-    msg: string
-</code></pre>
+<h3 style="padding-top:0">Config.yaml</h3>
 
-<h4 id="widget-definition">Widget Definition</h4>
-<p>Define a widget named <code>message</code> that holds options defining which data to display.</p>
-<pre><code class="yaml">widgets: 
-  message: 
-    display: label
-    type: motd
-    key: msg
-    label: from device
-</code></pre>
+<p>We will be setting up the app's <code>config.yaml</code> page in order to define the layout of our dashboard, dataTypes, and events.</p>
+<ul>
+<li>
+<p><code>datatypes</code> - Will define the variable that will save the random number we create.</p>
+</li>
+<li>
+<p><code>screens</code> - Determines the placement of widgets.</p>
+</li>
+<li>
+<p><code>widgets</code> - Our two dashboard components to visualize the random number we generate and command our MATRIX device to make that number.</p>
+</li>
+<li>
+<p><code>Events</code> - Events doesn't have to be specified here because we are not sending one from our app, but receiving it from the <code>startButton</code> widget we made. View <a href="../../reference/crosstalk/">Cross Talk</a> to learn more.</p>
+</li>
+</ul>
+<pre><code class="language-yaml">configVersion: 2
 
-<h4 id="add-to-layout">Add to layout</h4>
-<p><code>message</code> is the widget name to add to the <code>screens</code> layout definition.</p>
-<pre><code class="yaml">screens:
-  - - message
-</code></pre>
-
-<h4 id="final-configuration-file">Final Configuration File</h4>
-<pre><code class="yaml"># config.yaml
+description: 'Example dashboard to learn from.'
+keywords: dashboard example
+name: exampleDashboard
+shortName: exampleDashboard
+displayName: Example Dashboard
 
 dataTypes:
-  motd:
-    msg: string
-
-widgets: 
-  message: 
-    display: label
-    type: motd
-    key: msg
-    label: from device
+  #Holds the value shown on the dashboard
+  randomNumber:
+    number: integer
 
 screens:
-  - - message
-</code></pre>
-
-<h3 id="application-to-send-a-basic-message">Application to send a Basic Message</h3>
-<p>Here, we use the dataType <code>motd</code>, and send an object with a <code>msg</code> key to display in the dashboard.</p>
-<pre><code class="js">// app.js
-matrix.type('motd').send({msg: 'hello to dashboard'});
-</code></pre>
-
-<h3 id="open-the-dashboard">Open the Dashboard</h3>
-<p>Goto <a href="http://dash.matrix.one">MATRIX Dashboard</a></p>
-<h3 id="starting-the-app">Starting the App</h3>
-<p>Dashboard display real time information. If you open an application, it will not show data until you either query historical information or a device application sends information.</p>
-<h3 id="charting-realtime-data">Charting Realtime Data</h3>
-<p>Adding a <code>display</code> widget and a <code>monitor</code> data type, the dashboard can begin to show information over time.</p>
-<h4 id="configuration-additions">Configuration Additions</h4>
-<pre><code class="yaml"># config.yaml
-dataTypes:
-  motd:
-    msg: string
-  monitor: # new data type
-    cpu: float
-    mem: integer
-
-screens:
-  - - message
-  - - graph # new screen
+#This will show both widgets in the same Row
+- - numberGenerator
+  - startButton
 
 widgets:
-  message:
-    display: label
-    type: motd
-    key: msg
-    label: from device 
-  graph: # new widget
-    display: line
-    type: monitor
-    keys: cpu, mem
-    label: Device Status
-</code></pre>
-
-<h4 id="code-for-chart-widget">Code for chart widget</h4>
-<p>The following will send <code>cpu</code> and <code>mem</code> information to the <code>graph</code> widget to be charted.</p>
-<pre><code class="js">// app.js
-const os = require('os');
-
-setInterval(function(){
-  matrix.type('monitor').send({ cpu: os.loadavg()[0], mem: os.freemem() })
-}, 1000);
-</code></pre>
-
-<h3 id="controls">Controls</h3>
-<p>Adding interactivity through <code>control</code> widgets is how end users can interface directly with devices in real time. </p>
-<pre><code class="yaml"># config.yaml
-screens:
-  - - message
-  - - graph
-  - - interface # new screen
-
-widgets:
-  message:
-    display: label
-    type: motd
-    key: msg
-    label: from device
-  graph:
-    display: line
-    type: monitor
-    keys: cpu, mem
-    label: Device Status
-  interface: # new widget
+  #Displays a randomly generated number
+  numberGenerator:
+    display: digit
+    type: randomNumber
+    key: number
+    label: Random Number
+  #Calls number generator
+  startButton:
     control: button
-    event: increasePower
-    value: + CPU
-    label: Device Control
+    event: generateNumber
+    value: Get Random Number
+    label: Start Number Generator
 </code></pre>
 
-<h3 id="more-controls">More Controls</h3>
-<pre><code class="yaml"># config.yaml
-  interface:
-    control: button
-    map:  
-      - event: increasePower
-        value: + CPU
-      - event: decreasePower
-        value: - CPU
-    label: Device Control
+<p><br/></p>
+<h2 id="writing-your-application">Writing Your Application</h2>
+<p>The following code below goes into your application's <code>app.js</code> file. The code can be split into two parts. The first is a simple function to turn on and off your MATRIX device's LEDs. The second part waits for the dashboard <code>generateNumber</code> event from the <code>startButton</code> widget. Once the event goes off, the previous function is called and a random number is created and sent to the dashboard's <code>numberGenerator</code> widget.</p>
+<pre><code class="language-javascript">// - Turn LEDs on and then off
+function flickerLights(color){
+    matrix.led(color).render();// Turn LEDs green
+    // Wait 1 second
+    setTimeout(function(){
+        matrix.led('black').render();// Turn LEDs off
+    },500);
+}
+
+// - On Dashboard Button Press
+matrix.on('generateNumber', function(){
+    flickerLights('green');// Flicker MATRIX Device LEDs
+
+    var randomNumber = Math.floor(Math.random()*100);// Generate a random number between 0 and 99
+    // Send Number To Dashboard
+    matrix.type('randomNumber').send({
+        'number': randomNumber
+    });
+});
 </code></pre>
 
-<h3 id="script-for-new-controls">Script For New Controls</h3>
-<pre><code class="js">const os = require('os');
-
-let cpuOffset = 0;
-setInterval(function(){
-  matrix.type('monitor').send({ cpu: os.loadavg()[0] + cpuOffset, mem: os.freemem() })
-}, 1000);
-
-
-matrix.on('increasePower', () =&gt; {
-  cpuOffset++;
-})
-
-matrix.on('decreasePower', () =&gt; {
-  cpuOffset--;
-})
+<p><br/></p>
+<h2 id="deploying-your-application">Deploying Your Application</h2>
+<p>You application should now be ready to deploy. Use the following command, with the location of your app folder, to send the app to your MATRIX device.</p>
+<pre><code>matrix deploy PATH_TO_YOUR_APP_HERE
 </code></pre>
 
-<h3 id="deploy-start">Deploy &amp; Start</h3>
-<p>Make sure your registered MATRIX device is on, connected, and you have selected the proper device with <code>matrix use</code></p>
-<pre><code class="bash"># from /ezDash will upload code to device
-$ matrix deploy
-$ matrix start exDash
-
-# subsequent deploys shouldn't need start, will automagically restart if deployed while active
-$ matrix deploy
+<p>After it's deployed, you can start the app with the final command below.</p>
+<pre><code class="language-bash">matrix start exampleDashboard
 </code></pre>
 
-<h3 id="usage-note">Usage Note</h3>
-<p>If you visit the dashboard after starting the application, you will see the real time data, but not the message. Why? MOS applications are event based, and the message is sent on start. If the <code>send</code> for the message was placed inside the <code>setInterval</code> then it would show.</p> 
+<h3 style="padding-top:0">Final Result</h3>
+
+<p>Visit the <a href="https://dash.matrix.one">MATRIX Dashboard</a> to see the example you've deployed. Use the "Get Random Number Button" to test the number generator and LEDs flashing. 
+<img alt="" src="../../../matrix-os/img/dashboard-example-demo.gif" /></p>
+<p>Alternatively, you can use the following command if you want to test sending a Cross Talk command through the MATRIX CLI tool.</p>
+<pre><code class="matrix-bash">matrix trigger generateNumber
+</code></pre> 
         </div>
         <div class="toc-parent col-lg-2 col-md-3">
           <div class="toc">
@@ -590,79 +484,19 @@ $ matrix deploy
             <h3>Contents</h3>
             <ul class="nav flex-column">
                <li class='nav-item'>
-  <a href="#creating-a-dashboard" class="nav-link active">
-    Creating a Dashboard
+  <a href="#setting-up-your-application" class="nav-link active">
+    Setting Up Your Application
   </a>
   
-  <ul>
-    
-    <li>
-      <a class="nav-link" href="#make-application">
-        Make application
-      </a>
-    </li>
-    
-    <li>
-      <a class="nav-link" href="#configure-application">
-        Configure application
-      </a>
-    </li>
-    
-    <li>
-      <a class="nav-link" href="#application-to-send-a-basic-message">
-        Application to send a Basic Message
-      </a>
-    </li>
-    
-    <li>
-      <a class="nav-link" href="#open-the-dashboard">
-        Open the Dashboard
-      </a>
-    </li>
-    
-    <li>
-      <a class="nav-link" href="#starting-the-app">
-        Starting the App
-      </a>
-    </li>
-    
-    <li>
-      <a class="nav-link" href="#charting-realtime-data">
-        Charting Realtime Data
-      </a>
-    </li>
-    
-    <li>
-      <a class="nav-link" href="#controls">
-        Controls
-      </a>
-    </li>
-    
-    <li>
-      <a class="nav-link" href="#more-controls">
-        More Controls
-      </a>
-    </li>
-    
-    <li>
-      <a class="nav-link" href="#script-for-new-controls">
-        Script For New Controls
-      </a>
-    </li>
-    
-    <li>
-      <a class="nav-link" href="#deploy-start">
-        Deploy &amp; Start
-      </a>
-    </li>
-    
-    <li>
-      <a class="nav-link" href="#usage-note">
-        Usage Note
-      </a>
-    </li>
-    
-  </ul>
+</li>  <li class='nav-item'>
+  <a href="#writing-your-application" class="nav-link ">
+    Writing Your Application
+  </a>
+  
+</li>  <li class='nav-item'>
+  <a href="#deploying-your-application" class="nav-link ">
+    Deploying Your Application
+  </a>
   
 </li> 
             </ul>
@@ -772,6 +606,7 @@ $ matrix deploy
   <script src="../../../js/jquery.ajaxchimp.min.js"></script>
   <script src="../../../js/jquery.ajaxchimp.langs.min.js"></script>
   <script src="../../../js/footer.js"></script>
+  <script src="../../../js/prism.js"></script>
 
   <!-- TOC Script -->
   <script>

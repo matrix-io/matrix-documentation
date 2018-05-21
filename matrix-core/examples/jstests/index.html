@@ -7,6 +7,7 @@
   <link rel="shortcut icon" href="../../../img/favicon.ico">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
   <link rel="stylesheet" href="../../../css/theme.css">
+  <link rel="stylesheet" href="../../../css/prism.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
 </head>
@@ -165,7 +166,7 @@
 
 <!-- print root node  -->
 <li class="">
-  <a href="../../../matrix-os/" class="">
+  <a href="../../../matrix-os/overview/" class="">
     MATRIX OS
   </a>
 </li>
@@ -173,56 +174,18 @@
 <ul class="subnav">
    
   <!-- only 1 deep, print menu items  -->
+   
+  <li><a href="../../../matrix-os/overview/" class="">Overview</a></li>
      
   <!-- 2 deep  -->
   <!-- print subroot  -->
   <li>
-    <a href="../../../matrix-os/getting-started/prerequisites/" class="">
+    <a href="../../../matrix-os/getting-started/" class="">
       Getting Started
     </a>
   </li>
 
   <ul class="subnav">
-      
-        
-        
-        
-        
-        
-      
-  </ul>
-
-    
-  <!-- 2 deep  -->
-  <!-- print subroot  -->
-  <li>
-    <a href="../../../matrix-os/overview/" class="">
-      Overview
-    </a>
-  </li>
-
-  <ul class="subnav">
-        
-        
-        
-        
-        
-        
-        
-      
-  </ul>
-
-    
-  <!-- 2 deep  -->
-  <!-- print subroot  -->
-  <li>
-    <a href="../../../matrix-os/examples/" class="">
-      Examples
-    </a>
-  </li>
-
-  <ul class="subnav">
-        
         
         
         
@@ -248,9 +211,19 @@
         
         
         
-        
-        
-        
+      
+  </ul>
+
+    
+  <!-- 2 deep  -->
+  <!-- print subroot  -->
+  <li>
+    <a href="../../../matrix-os/examples/" class="">
+      Examples
+    </a>
+  </li>
+
+  <ul class="subnav">
         
       
   </ul>
@@ -326,7 +299,6 @@
   </li>
 
   <ul class="subnav">
-        
         
         
         
@@ -410,7 +382,7 @@
 <p>CORE is the program that sits between the low level hardware layer and MATRIX OS. This program allows MATRIX OS to access the board hardware via ZeroMQ sockets. You can also use it directly, as it is done with the examples below. The IPs are hardcoded in the examples to 127.0.0.1. Remember to edit them if you're accessing the Creator from another host and not from the Raspberry itself.</p>
 <p>For an in-depth discussion of these tests, please examine the <a href="../../reference/">Reference</a> sections for JavaScript details.</p>
 <h3 id="on-the-raspberry-pi">On the Raspberry Pi</h3>
-<pre><code class="bash"># Install npm (doesn't really matter what version, apt-get node is v0.10...)
+<pre><code class="language-bash"># Install npm (doesn't really matter what version, apt-get node is v0.10...)
 sudo apt-get install npm
 
 # n is a node version manager
@@ -424,18 +396,17 @@ node -v
 </code></pre>
 
 <h2 id="download-and-prepare-core">Download and Prepare CORE</h2>
-<pre><code class="bash">git clone https://github.com/matrix-io/matrix-creator-malos;
-cd matrix-creator-malos;
-git submodule update --init;
-cd src/js_test;
-npm install;
+<pre><code class="language-bash">git clone https://github.com/matrix-io/matrix-creator-malos
+cd matrix-creator-malos
+cd src/js_test
+npm install
 </code></pre>
 
 <h1 id="using-core">Using CORE</h1>
 <h3 id="core-examples">CORE Examples</h3>
 <h5 id="connecting-to-core-with-nodejs">Connecting to CORE with NodeJS</h5>
 <p><strong>Note:</strong> You'll need <code>protobufjs</code> and <code>zmq</code> npm packages, and protobuf as a submodule. See the <a href="https://github.com/matrix-io/matrix-creator-malos/blob/master/src/js_test/test_everloop.js">Everloop Example</a> for the full implementation of the code below.</p>
-<pre><code class="js">// This is how we connect to the creator. IP and port.
+<pre><code class="language-javascript">// This is how we connect to the creator. IP and port.
 // The IP is the IP I'm using and you need to edit it.
 // By default, CORE has its 0MQ ports open to the world.
 
@@ -465,7 +436,7 @@ configSocket.connect('tcp://' + creator_ip + ':' + creator_everloop_base_port /*
 
 <h5 id="passing-commands-to-core">Passing Commands to CORE</h5>
 <p>Below is an example of Node interfacing with the Everloop via CORE. See the <a href="https://github.com/matrix-io/matrix-creator-malos/blob/master/src/js_test/test_everloop.js">Everloop Example</a> for the full implementation of the code below.</p>
-<pre><code class="js">...
+<pre><code class="language-javascript">...
 
 var max_intensity = 50
 var intensity_value = max_intensity
@@ -499,7 +470,7 @@ setInterval(function() {
 
 <h5 id="reading-from-core">Reading from CORE</h5>
 <p>Below is a simple implementation via NodeJS to read a <code>humidity</code> from CORE via 0MQ. See <a href="https://github.com/matrix-io/matrix-creator-malos/blob/master/src/js_test/test_humidity.js">Humidity Example</a> for the full example.</p>
-<pre><code class="js">// Start configuration for refresh rate, and heartbeat timeouts
+<pre><code class="language-javascript">// Start configuration for refresh rate, and heartbeat timeouts
 var configSocket = zmq.socket('push')
 configSocket.connect('tcp://' + creator_ip + ':' + creator_humidity_base_port)
 // Send driver configuration.
@@ -524,43 +495,43 @@ updateSocket.on('message', function(buffer) {
 </code></pre>
 
 <h3 id="drivers">Drivers</h3>
-<pre><code class="bash">node test_driver_info.js
+<pre><code class="language-bash">node test_driver_info.js
 </code></pre>
 
 <h3 id="everloop">Everloop</h3>
-<pre><code class="bash">node test_everloop.js
+<pre><code class="language-bash">node test_everloop.js
 </code></pre>
 
 <h3 id="humidity">Humidity</h3>
-<pre><code class="bash">node test_humidity.js
+<pre><code class="language-bash">node test_humidity.js
 </code></pre>
 
 <h3 id="imu">IMU</h3>
-<pre><code class="bash">node test_imu.js
+<pre><code class="language-bash">node test_imu.js
 </code></pre>
 
 <h3 id="ir-remote">IR Remote</h3>
-<pre><code class="bash">node test_ir_remote.js
+<pre><code class="language-bash">node test_ir_remote.js
 </code></pre>
 
 <h3 id="pressure">Pressure</h3>
-<pre><code class="bash">node test_pressure.js
+<pre><code class="language-bash">node test_pressure.js
 </code></pre>
 
 <h3 id="uv">UV</h3>
-<pre><code class="bash">node test_uv.js
+<pre><code class="language-bash">node test_uv.js
 </code></pre>
 
 <h3 id="zigbee-bulb-onoff">Zigbee Bulb On/Off</h3>
-<pre><code class="bash">node test_zigbee_bulb.js
+<pre><code class="language-bash">node test_zigbee_bulb.js
 </code></pre>
 
 <h3 id="zigbee-bulb-color">Zigbee Bulb Color</h3>
-<pre><code class="bash">node test_zigbee_color.js
+<pre><code class="language-bash">node test_zigbee_color.js
 </code></pre>
 
 <h3 id="zigbee-bulb-brightness">Zigbee Bulb Brightness</h3>
-<pre><code class="bash">node test_zigbee_level.js
+<pre><code class="language-bash">node test_zigbee_level.js
 </code></pre> 
         </div>
         <div class="toc-parent col-lg-2 col-md-3">
@@ -771,6 +742,7 @@ updateSocket.on('message', function(buffer) {
   <script src="../../../js/jquery.ajaxchimp.min.js"></script>
   <script src="../../../js/jquery.ajaxchimp.langs.min.js"></script>
   <script src="../../../js/footer.js"></script>
+  <script src="../../../js/prism.js"></script>
 
   <!-- TOC Script -->
   <script>

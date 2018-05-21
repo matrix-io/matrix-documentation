@@ -7,6 +7,7 @@
   <link rel="shortcut icon" href="../../../img/favicon.ico">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
   <link rel="stylesheet" href="../../../css/theme.css">
+  <link rel="stylesheet" href="../../../css/prism.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
 </head>
@@ -165,7 +166,7 @@
 
 <!-- print root node  -->
 <li class="">
-  <a href="../../../matrix-os/" class="">
+  <a href="../../../matrix-os/overview/" class="">
     MATRIX OS
   </a>
 </li>
@@ -173,56 +174,18 @@
 <ul class="subnav">
    
   <!-- only 1 deep, print menu items  -->
+   
+  <li><a href="../../../matrix-os/overview/" class="">Overview</a></li>
      
   <!-- 2 deep  -->
   <!-- print subroot  -->
   <li>
-    <a href="../../../matrix-os/getting-started/prerequisites/" class="">
+    <a href="../../../matrix-os/getting-started/" class="">
       Getting Started
     </a>
   </li>
 
   <ul class="subnav">
-      
-        
-        
-        
-        
-        
-      
-  </ul>
-
-    
-  <!-- 2 deep  -->
-  <!-- print subroot  -->
-  <li>
-    <a href="../../../matrix-os/overview/" class="">
-      Overview
-    </a>
-  </li>
-
-  <ul class="subnav">
-        
-        
-        
-        
-        
-        
-        
-      
-  </ul>
-
-    
-  <!-- 2 deep  -->
-  <!-- print subroot  -->
-  <li>
-    <a href="../../../matrix-os/examples/" class="">
-      Examples
-    </a>
-  </li>
-
-  <ul class="subnav">
-        
         
         
         
@@ -248,9 +211,19 @@
         
         
         
-        
-        
-        
+      
+  </ul>
+
+    
+  <!-- 2 deep  -->
+  <!-- print subroot  -->
+  <li>
+    <a href="../../../matrix-os/examples/" class="">
+      Examples
+    </a>
+  </li>
+
+  <ul class="subnav">
         
       
   </ul>
@@ -336,9 +309,6 @@
     <li><a href="../imu/" class="">IMU</a></li>
         
     
-    <li><a href="../lirc/" class="">IR</a></li>
-        
-    
     <li><a href="../pressure/" class="">Pressure</a></li>
         
     
@@ -418,8 +388,8 @@
            <h1 id="uv">UV</h1>
 <p>The UV driver reports values for:</p>
 <ul>
-<li>UV Index scale used in the United States conforms with international guidelines for UVI reporting established by the World Health Organization.  From <a href="https://www.epa.gov/sunsafety/uv-index-scale-0">UV Index Scale</a> </li>
-<li>UV Risk scale established by World Health Organization. From <a href="https://www.epa.gov/sunsafety/uv-index-scale-0">UV Index Scale</a></li>
+<li>UV Index scale used in the United States conforms with international guidelines for UVI reporting established by the World Health Organization.  From <a href="https://www.epa.gov/sunsafety/uv-index-scale-0" target="_blank">UV Index Scale</a></li>
+<li>UV Risk scale established by World Health Organization. From <a href="https://www.epa.gov/sunsafety/uv-index-scale-0" target="_blank">UV Index Scale</a></li>
 </ul>
 <p>The driver follows the <a href="../../#protocol">CORE protocol</a>.</p>
 <h3 id="0mq-port">0MQ Port</h3>
@@ -427,28 +397,28 @@
 </code></pre>
 
 <h3 id="protocol-buffers">Protocol buffers</h3>
-<pre><code>message UV{
+<pre><code class="language-protobuf">message UV{
   float uv_index = 1;
   string oms_risk = 2;
 }
 </code></pre>
 
-<p>The message is defined in <a href="https://github.com/matrix-io/protocol-buffers/blob/master/malos/driver.proto">driver.proto</a>.</p>
+<p>The message is defined in <a href="https://github.com/matrix-io/protocol-buffers/blob/master/matrix_io/malos/v1/sense.proto" target="_blank">driver.proto</a></p>
 <h3 id="keep-alives">Keep-alives</h3>
-<p>This driver needs keep-alive messages <a href="https:////github.com/matrix-io/matrix-creator-malos/blob/master/README.md#keep-alive-port">as specified in the CORE protocol</a>.
+<p>This driver needs keep-alive messages <a href="https:////github.com/matrix-io/matrix-creator-malos/blob/master/README.md#keep-alive-port" target="_blank">as specified in the CORE protocol</a>.
 If you start sending keep-alive messages it will start returning data every second so you can omit the configuration for this device.</p>
 <h3 id="errors">Errors</h3>
 <p>This driver report errors when an invalid configuration is sent.</p>
 <h3 id="read">Read</h3>
 <p>The driver will send a serialized message of type<code>UV</code>.</p>
-<pre><code>message UV{
+<pre><code class="language-protobuf">message UV{
   float uv_index = 1;
   string oms_risk = 2;
 }
 </code></pre>
 
 <p>This is a sample output given by the example described below.</p>
-<pre><code>$ node test_uv.js 
+<pre><code class="language-bash">$ node test_uv.js 
 Sending pings every 5 seconds
 { uv_index: 0, oms_risk: 'Low' }
 { uv_index: 0, oms_risk: 'Low' }
@@ -457,17 +427,17 @@ Sending pings every 5 seconds
 </code></pre>
 
 <h3 id="javascript-example">JavaScript example</h3>
-<p>Enhanced description of the <a href="https://github.com/matrix-io/matrix-creator-malos/blob/master/src/js_test/test_uv.js">sample source code</a>.</p>
+<p>Enhanced description of the <a href="https://github.com/matrix-io/matrix-creator-malos/blob/master/src/js_test/test_uv.js" target="_blank">sample source code</a>.</p>
 <p>First, define the address of the MATRIX Creator. In this case we make it be <code>127.0.0.1</code>
 because we are connecting from the local host but it needs to be different if we
 connect from another computer. There is also the base port reserved by CORE for
 the UV driver.</p>
-<pre><code>var creator_ip = '127.0.0.1'
+<pre><code class="language-javascript">var creator_ip = '127.0.0.1'
 var creator_uv_base_port = 20013 + (4 * 4) 
 </code></pre>
 
 <p>Load the protocol buffers used in the example.</p>
-<pre><code>var protoBuf = require(&quot;protobufjs&quot;)
+<pre><code class="language-javascript">var protoBuf = require(&quot;protobufjs&quot;)
 
 // Parse proto file
 var protoBuilder = protoBuf.loadProtoFile('../../protocol-buffers/malos/driver.proto')
@@ -476,7 +446,7 @@ var matrixMalosBuilder = protoBuilder.build(&quot;matrix_malos&quot;)
 </code></pre>
 
 <p>Subscribe to the errors reported by the driver. </p>
-<pre><code>var zmq = require('zmq')
+<pre><code class="language-javascript">var zmq = require('zmq')
 
 var errorSocket = zmq.socket('sub')
 errorSocket.connect('tcp://' + creator_ip + ':' + (creator_uv_base_port + 2))
@@ -486,16 +456,17 @@ errorSocket.on('message', function(error_message) {
 });
 </code></pre>
 
-<p>All the drivers are configured using the message <code>DriverConfig</code> (see <a href="https://github.com/matrix-io/protocol-buffers/blob/master/malos/driver.proto">driver.proto</a>).
+<p>All the drivers are configured using the message <code>DriverConfig</code> (see <a href="https://github.com/matrix-io/protocol-buffers/blob/master/matrix_io/malos/v1/sense.proto" target="_blank">driver.proto</a>).
 This is what the message looks like if we omit the fields that are not used in this example.</p>
-<pre><code>message DriverConfig {
+<pre><code class="language-protobuf">message DriverConfig {
   float delay_between_updates = 1;
   float timeout_after_last_ping = 2;
 }
 </code></pre>
+
 <p>The following snippet is telling the driver to send an update each 2 seconds
 and stop sending updates if it doesn't receive a keep-alive message for 6 seconds.</p>
-<pre><code>var configSocket = zmq.socket('push')
+<pre><code class="language-javascript">var configSocket = zmq.socket('push')
 configSocket.connect('tcp://' + creator_ip + ':' + creator_uv_base_port)
 
 var driverConfigProto = new matrixMalosBuilder.DriverConfig
@@ -508,7 +479,7 @@ configSocket.send(driverConfigProto.encode().toBuffer())
 
 <p>Where is where the updates are received by subscribing to the <code>data update port</code> of the driver.
 The subscription is initiated by the line <code>updateSocket.subscribe('')</code>.</p>
-<pre><code>var updateSocket = zmq.socket('sub')
+<pre><code class="language-javascript">var updateSocket = zmq.socket('sub')
 updateSocket.connect('tcp://' + creator_ip + ':' + (creator_uv_base_port + 3))
 updateSocket.subscribe('')
 updateSocket.on('message', function(buffer) {
@@ -519,7 +490,7 @@ updateSocket.on('message', function(buffer) {
 
 <p>An empty keep-alive message is sent to the driver every 5 seconds to make sure it keeps
 sending data updates.</p>
-<pre><code>var pingSocket = zmq.socket('push')
+<pre><code class="language-javascript">var pingSocket = zmq.socket('push')
 pingSocket.connect('tcp://' + creator_ip + ':' + (creator_uv_base_port + 1))
 process.stdout.write(&quot;Sending pings every 5 seconds&quot;);
 pingSocket.send(''); // Ping the first time.
@@ -686,6 +657,7 @@ setInterval(function(){
   <script src="../../../js/jquery.ajaxchimp.min.js"></script>
   <script src="../../../js/jquery.ajaxchimp.langs.min.js"></script>
   <script src="../../../js/footer.js"></script>
+  <script src="../../../js/prism.js"></script>
 
   <!-- TOC Script -->
   <script>

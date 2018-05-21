@@ -7,6 +7,7 @@
   <link rel="shortcut icon" href="../../../img/favicon.ico">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
   <link rel="stylesheet" href="../../../css/theme.css">
+  <link rel="stylesheet" href="../../../css/prism.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
 </head>
@@ -165,7 +166,7 @@
 
 <!-- print root node  -->
 <li class="">
-  <a href="../../../matrix-os/" class="">
+  <a href="../../../matrix-os/overview/" class="">
     MATRIX OS
   </a>
 </li>
@@ -173,56 +174,18 @@
 <ul class="subnav">
    
   <!-- only 1 deep, print menu items  -->
+   
+  <li><a href="../../../matrix-os/overview/" class="">Overview</a></li>
      
   <!-- 2 deep  -->
   <!-- print subroot  -->
   <li>
-    <a href="../../../matrix-os/getting-started/prerequisites/" class="">
+    <a href="../../../matrix-os/getting-started/" class="">
       Getting Started
     </a>
   </li>
 
   <ul class="subnav">
-      
-        
-        
-        
-        
-        
-      
-  </ul>
-
-    
-  <!-- 2 deep  -->
-  <!-- print subroot  -->
-  <li>
-    <a href="../../../matrix-os/overview/" class="">
-      Overview
-    </a>
-  </li>
-
-  <ul class="subnav">
-        
-        
-        
-        
-        
-        
-        
-      
-  </ul>
-
-    
-  <!-- 2 deep  -->
-  <!-- print subroot  -->
-  <li>
-    <a href="../../../matrix-os/examples/" class="">
-      Examples
-    </a>
-  </li>
-
-  <ul class="subnav">
-        
         
         
         
@@ -248,9 +211,19 @@
         
         
         
-        
-        
-        
+      
+  </ul>
+
+    
+  <!-- 2 deep  -->
+  <!-- print subroot  -->
+  <li>
+    <a href="../../../matrix-os/examples/" class="">
+      Examples
+    </a>
+  </li>
+
+  <ul class="subnav">
         
       
   </ul>
@@ -322,7 +295,6 @@
   </li>
 
   <ul class="subnav">
-        
         
         
         
@@ -408,7 +380,7 @@
            <h3 id="installation">Installation</h3>
 <h4 id="install-from-package">Install from package</h4>
 <p>If you haven't already installed the required MATRIX packages that configure everything after each boot, please install:</p>
-<pre><code># Add repo and key
+<pre><code class="language-bash"># Add repo and key
 curl https://apt.matrix.one/doc/apt-key.gpg | sudo apt-key add -
 echo &quot;deb https://apt.matrix.one/raspbian $(lsb_release -sc) main&quot; | sudo tee /etc/apt/sources.list.d/matrixlabs.list
 
@@ -425,12 +397,12 @@ sudo reboot
 
 <h4 id="install-from-source">Install from source</h4>
 <h5 id="install-pre-requisites">Install Pre-Requisites</h5>
-<pre><code>sudo apt-get install cmake g++ git libfftw3-dev wiringpi libgflags-dev
+<pre><code class="language-bash">sudo apt-get install cmake g++ git libfftw3-dev wiringpi libgflags-dev
 </code></pre>
 
 <h5 id="clone-and-build">Clone and Build</h5>
 <p>To start working with HAL directly, you'll need to clone it and then build it. </p>
-<pre><code>git clone https://github.com/matrix-io/matrix-creator-hal.git
+<pre><code class="language-bash">git clone https://github.com/matrix-io/matrix-creator-hal.git
 cd matrix-creator-hal
 mkdir build
 cd build
@@ -584,6 +556,7 @@ make &amp;&amp; sudo make install
   <script src="../../../js/jquery.ajaxchimp.min.js"></script>
   <script src="../../../js/jquery.ajaxchimp.langs.min.js"></script>
   <script src="../../../js/footer.js"></script>
+  <script src="../../../js/prism.js"></script>
 
   <!-- TOC Script -->
   <script>

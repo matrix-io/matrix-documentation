@@ -7,6 +7,7 @@
   <link rel="shortcut icon" href="../../img/favicon.ico">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
   <link rel="stylesheet" href="../../css/theme.css">
+  <link rel="stylesheet" href="../../css/prism.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
 </head>
@@ -165,7 +166,7 @@
 
 <!-- print root node  -->
 <li class="">
-  <a href="../" class="active">
+  <a href="../overview/" class="active">
     MATRIX OS
   </a>
 </li>
@@ -173,56 +174,18 @@
 <ul class="subnav">
    
   <!-- only 1 deep, print menu items  -->
+   
+  <li><a href="../overview/" class="">Overview</a></li>
      
   <!-- 2 deep  -->
   <!-- print subroot  -->
   <li>
-    <a href="../getting-started/prerequisites/" class="">
+    <a href="../getting-started/" class="">
       Getting Started
     </a>
   </li>
 
   <ul class="subnav">
-      
-        
-        
-        
-        
-        
-      
-  </ul>
-
-    
-  <!-- 2 deep  -->
-  <!-- print subroot  -->
-  <li>
-    <a href="../overview/" class="">
-      Overview
-    </a>
-  </li>
-
-  <ul class="subnav">
-        
-        
-        
-        
-        
-        
-        
-      
-  </ul>
-
-    
-  <!-- 2 deep  -->
-  <!-- print subroot  -->
-  <li>
-    <a href="../examples/" class="">
-      Examples
-    </a>
-  </li>
-
-  <ul class="subnav">
-        
         
         
         
@@ -248,9 +211,19 @@
         
         
         
-        
-        
-        
+      
+  </ul>
+
+    
+  <!-- 2 deep  -->
+  <!-- print subroot  -->
+  <li>
+    <a href="../examples/" class="">
+      Examples
+    </a>
+  </li>
+
+  <ul class="subnav">
         
       
   </ul>
@@ -329,7 +302,6 @@
         
         
         
-        
       
   </ul>
 
@@ -399,29 +371,29 @@
           </div>
         </div>
         <div id="content" class="col-lg-8 col-md-9">
-           <h2 id="troubleshooting">Troubleshooting</h2>
+           <h2 style="padding-top:0;">Troubleshooting</h2>
+
+<p><br/></p>
+<h2 id="community">Community</h2>
 <p>Please visit our community support forums at:
 <a href="http://community.matrix.one/">community.matrix.one</a></p>
-<p>Starting MOS from your device, you will have access to more error messages with <code>DEBUG=*,-engine*,-Component*</code> prepended to the commands presented below. <code>engine</code>, refers to <code>engine.io</code>, sockets, and <code>Component</code>, is very verbose hardware communications, disable these filters as necessary.</p>
-<h3 id="test-applications">Test applications</h3>
-<p>Several applications are available in the <a href="https://apps.matrix.one">MATRIX App Store</a>.</p>
-<ul>
-<li><code>sensorTest</code> - Tests all sensors</li>
-<li><code>clock</code> - Runs a clock which tests the LEDs</li>
-<li><code>faceTest</code> - Face detection services via <code>malos-eye</code>.</li>
-</ul>
-<h3 id="lights-are-spinning-but-dont-stop">Lights are spinning, but don't stop</h3>
-<p>Exits with message</p>
-<pre><code>Device Error undefined
+<p><br/></p>
+<h2 id="mos-debug-mode">MOS DEBUG Mode</h2>
+<p>Run MOS, with the following command, in order to enable debug mode.</p>
+<pre><code class="language-bash">DEBUG=*,-engine*,-Component* node index
 </code></pre>
 
-<p>Solution. Run again with correct environment set. Users and made in <code>dev</code> environment do not cross over to <code>production</code>.</p>
-<pre><code>NODE_ENV =dev node index.js
-</code></pre>
+<!-- ### Lights are spinning, but don't stop
 
-<h3 id="matrix-vision-services-not-working">MATRIX Vision Services not working</h3>
-<p>Messages appear when <code>malos_eye</code> is running, and hardware is not properly installed. Please shut off device, firmly reconnect the camera connection, and restart.</p>
-<pre><code>VIDIOC_STREAMON: Invalid argument
+Exits with message
+
+wzxhzdk:1
+
+Solution. Run again with correct environment set. Users and made in `dev` environment do not cross over to `production`.
+
+wzxhzdk:2
+
+VIDIOC_STREAMON: Invalid argument
 VIDIOC_STREAMON: Invalid argument
 
 Message received: gesture error: Could not read frame
@@ -431,7 +403,7 @@ select timeout
 select timeout
 select timeout
 select timeout
-</code></pre> 
+``` --> 
         </div>
         <div class="toc-parent col-lg-2 col-md-3">
           <div class="toc">
@@ -439,31 +411,14 @@ select timeout
             <h3>Contents</h3>
             <ul class="nav flex-column">
                <li class='nav-item'>
-  <a href="#troubleshooting" class="nav-link active">
-    Troubleshooting
+  <a href="#community" class="nav-link active">
+    Community
   </a>
   
-  <ul>
-    
-    <li>
-      <a class="nav-link" href="#test-applications">
-        Test applications
-      </a>
-    </li>
-    
-    <li>
-      <a class="nav-link" href="#lights-are-spinning-but-dont-stop">
-        Lights are spinning, but don't stop
-      </a>
-    </li>
-    
-    <li>
-      <a class="nav-link" href="#matrix-vision-services-not-working">
-        MATRIX Vision Services not working
-      </a>
-    </li>
-    
-  </ul>
+</li>  <li class='nav-item'>
+  <a href="#mos-debug-mode" class="nav-link ">
+    MOS DEBUG Mode
+  </a>
   
 </li> 
             </ul>
@@ -573,6 +528,7 @@ select timeout
   <script src="../../js/jquery.ajaxchimp.min.js"></script>
   <script src="../../js/jquery.ajaxchimp.langs.min.js"></script>
   <script src="../../js/footer.js"></script>
+  <script src="../../js/prism.js"></script>
 
   <!-- TOC Script -->
   <script>

@@ -7,6 +7,7 @@
   <link rel="shortcut icon" href="../../img/favicon.ico">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
   <link rel="stylesheet" href="../../css/theme.css">
+  <link rel="stylesheet" href="../../css/prism.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
 </head>
@@ -165,7 +166,7 @@
 
 <!-- print root node  -->
 <li class="">
-  <a href="../../matrix-os/" class="">
+  <a href="../../matrix-os/overview/" class="">
     MATRIX OS
   </a>
 </li>
@@ -173,56 +174,18 @@
 <ul class="subnav">
    
   <!-- only 1 deep, print menu items  -->
+   
+  <li><a href="../../matrix-os/overview/" class="">Overview</a></li>
      
   <!-- 2 deep  -->
   <!-- print subroot  -->
   <li>
-    <a href="../../matrix-os/getting-started/prerequisites/" class="">
+    <a href="../../matrix-os/getting-started/" class="">
       Getting Started
     </a>
   </li>
 
   <ul class="subnav">
-      
-        
-        
-        
-        
-        
-      
-  </ul>
-
-    
-  <!-- 2 deep  -->
-  <!-- print subroot  -->
-  <li>
-    <a href="../../matrix-os/overview/" class="">
-      Overview
-    </a>
-  </li>
-
-  <ul class="subnav">
-        
-        
-        
-        
-        
-        
-        
-      
-  </ul>
-
-    
-  <!-- 2 deep  -->
-  <!-- print subroot  -->
-  <li>
-    <a href="../../matrix-os/examples/" class="">
-      Examples
-    </a>
-  </li>
-
-  <ul class="subnav">
-        
         
         
         
@@ -248,9 +211,19 @@
         
         
         
-        
-        
-        
+      
+  </ul>
+
+    
+  <!-- 2 deep  -->
+  <!-- print subroot  -->
+  <li>
+    <a href="../../matrix-os/examples/" class="">
+      Examples
+    </a>
+  </li>
+
+  <ul class="subnav">
         
       
   </ul>
@@ -322,7 +295,6 @@
   </li>
 
   <ul class="subnav">
-        
         
         
         
@@ -403,7 +375,7 @@
 <p>This guide will show you how to get started with the ESP32 module on the MATRIX Voice ESP32 version.</p>
 <h2 id="step-1-raspberry-pi-setup">Step 1: Raspberry Pi Setup</h2>
 <p>Run the following commands inside your Raspberry Pi terminal to install the MATRIX Voice Software. This will keep the FPGA firmware updated and install few tools to flash the ESP-WROOM-32.</p>
-<pre><code># Add repo and key
+<pre><code class="language-bash"># Add repo and key
 curl https://apt.matrix.one/doc/apt-key.gpg | sudo apt-key add -
 echo &quot;deb https://apt.matrix.one/raspbian $(lsb_release -sc) main&quot; | sudo tee /etc/apt/sources.list.d/matrixlabs.list
 # Update packages and install
@@ -434,14 +406,14 @@ sudo apt install matrixio-creator-init
 </ul>
 <p><b>Clone MATRIX Voice ESP32 repository</b></p>
 <p>This repository contains the necessary libraries to control the MATRIX Voice's components.</p>
-<pre><code># windows must be using MINGw32 terminal from toolchain step
+<pre><code class="language-bash"># windows must be using MINGw32 terminal from toolchain step
 git clone https://github.com/matrix-io/matrixio_hal_esp32.git
 </code></pre>
 
 <h2 id="step-3-build-and-deploy">Step 3: Build and Deploy</h2>
 <p>Here we will be deploying and running one of the example apps in the Repository we just downloaded.</p>
 <p><b>Configuring IDF (one time setup):</b></p>
-<pre><code>cd matrixio_hal_esp32/examples/mic_energy/
+<pre><code class="language-bash">cd matrixio_hal_esp32/examples/mic_energy/
 make menuconfig
 </code></pre>
 
@@ -449,11 +421,11 @@ make menuconfig
 <p>You will now be taken to the IDF Configuration screen, as shown above. Once there, select the <Exit> option to save default configuration.</p>
 <p><b>Running example project:</b></p>
 <p>To finish running the example, all that's left is to make and deploy the code to the Raspberry Pi. This requires the Pi's IP address and you will be prompted to insert the Pi's password as well.</p>
-<pre><code>export RPI_HOST=pi@RASPBERRY_IP_ADDRESS
+<pre><code class="language-bash">export RPI_HOST=pi@RASPBERRY_IP_ADDRESS
 make deploy
 </code></pre>
 
-<p><b>Step 4: Finishing Up</b></p>
+<h2 id="step-4-finishing-up">Step 4: Finishing Up</h2>
 <p><img alt="" src="../img/esp32-2.gif" /></p>
 <p>Your MATRIX Voice ESP32 should now be running the deployed example. With the program properly flashed in the ESP32, the Voice can now run without the Pi if you choose to do so. Ensure the MATRIX Voice and Pi are not powered before connecting or disconnecting.</p> 
         </div>
@@ -480,6 +452,11 @@ make deploy
 </li>  <li class='nav-item'>
   <a href="#step-3-build-and-deploy" class="nav-link ">
     Step 3: Build and Deploy
+  </a>
+  
+</li>  <li class='nav-item'>
+  <a href="#step-4-finishing-up" class="nav-link ">
+    Step 4: Finishing Up
   </a>
   
 </li> 
@@ -590,6 +567,7 @@ make deploy
   <script src="../../js/jquery.ajaxchimp.min.js"></script>
   <script src="../../js/jquery.ajaxchimp.langs.min.js"></script>
   <script src="../../js/footer.js"></script>
+  <script src="../../js/prism.js"></script>
 
   <!-- TOC Script -->
   <script>

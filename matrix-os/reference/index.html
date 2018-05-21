@@ -3,10 +3,11 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Reference MATRIX</title>
+  <title>Index MATRIX</title>
   <link rel="shortcut icon" href="../../img/favicon.ico">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
   <link rel="stylesheet" href="../../css/theme.css">
+  <link rel="stylesheet" href="../../css/prism.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
 </head>
@@ -28,7 +29,7 @@
         <div class="row">
           <div class="col-sm-8">
             
-            <h1>Reference</h1>
+            <h1>Index</h1>
             
           </div>
           <div class="col-sm-4">
@@ -165,7 +166,7 @@
 
 <!-- print root node  -->
 <li class="">
-  <a href="../" class="active">
+  <a href="../overview/" class="active">
     MATRIX OS
   </a>
 </li>
@@ -173,56 +174,18 @@
 <ul class="subnav">
    
   <!-- only 1 deep, print menu items  -->
+   
+  <li><a href="../overview/" class="">Overview</a></li>
      
   <!-- 2 deep  -->
   <!-- print subroot  -->
   <li>
-    <a href="../getting-started/prerequisites/" class="">
+    <a href="../getting-started/" class="">
       Getting Started
     </a>
   </li>
 
   <ul class="subnav">
-      
-        
-        
-        
-        
-        
-      
-  </ul>
-
-    
-  <!-- 2 deep  -->
-  <!-- print subroot  -->
-  <li>
-    <a href="../overview/" class="">
-      Overview
-    </a>
-  </li>
-
-  <ul class="subnav">
-        
-        
-        
-        
-        
-        
-        
-      
-  </ul>
-
-    
-  <!-- 2 deep  -->
-  <!-- print subroot  -->
-  <li>
-    <a href="../examples/" class="">
-      Examples
-    </a>
-  </li>
-
-  <ul class="subnav">
-        
         
         
         
@@ -241,43 +204,45 @@
   <ul class="subnav">
         
     
-    <li><a href="system/" class="">System</a></li>
-        
-    
     <li><a href="sensors/" class="">Sensors</a></li>
         
     
-    <li><a href="computer-vision/" class="">Computer Vision</a></li>
+    <li><a href="leds/" class="">Everloop</a></li>
         
     
-    <li><a href="leds/" class="">Leds</a></li>
+    <li><a href="configuration/" class="">Config.yaml</a></li>
         
     
-    <li><a href="crosstalk/" class="">Crosstalk</a></li>
+    <li><a href="cli-tool/" class="">CLI Tool</a></li>
         
     
-    <li><a href="zigbee/" class="">Zigbee</a></li>
-        
-    
-    <li><a href="gpio/" class="">GPIO</a></li>
-        
-    
-    <li><a href="ir/" class="">IR</a></li>
-        
-    
-    <li><a href="microphone/" class="">Microphone</a></li>
-        
-    
-    <li><a href="integrations/" class="">Integrations</a></li>
-        
-    
-    <li><a href="filters/" class="">Filters</a></li>
-        
-    
-    <li><a href="screens/" class="">Screens</a></li>
+    <li><a href="dashboard/" class="">Dashboard</a></li>
         
     
     <li><a href="widgets/" class="">Widgets</a></li>
+        
+    
+    <li><a href="crosstalk/" class="">Cross Talk</a></li>
+        
+    
+    <li><a href="data-types/" class="">Data Types</a></li>
+        
+    
+    <li><a href="system/" class="">System Methods</a></li>
+      
+  </ul>
+
+    
+  <!-- 2 deep  -->
+  <!-- print subroot  -->
+  <li>
+    <a href="../examples/" class="">
+      Examples
+    </a>
+  </li>
+
+  <ul class="subnav">
+        
       
   </ul>
 
@@ -355,7 +320,6 @@
         
         
         
-        
       
   </ul>
 
@@ -426,39 +390,35 @@
         </div>
         <div id="content" class="col-lg-8 col-md-9">
            <h2 id="matrix-os-sdk">MATRIX OS SDK</h2>
-<h4 id="sensors"><a href="sensors/">Sensors</a></h4>
-<p>Sensor interfaces and data structures.</p>
-<h4 id="everloop"><a href="leds/">Everloop</a></h4>
-<p>Everloop interface.</p>
-<h4 id="filters"><a href="filters/">Filters</a></h4>
-<p>Filtering data</p>
-<h4 id="computer-vision"><a href="computer-vision/">Computer Vision</a></h4>
-<p>Computer Vision services.</p>
-<h4 id="microphones"><a href="microphone/">Microphones</a></h4>
-<p>Microphone Services.</p>
-<h4 id="ir-txrx"><a href="ir/">IR TX/RX</a></h4>
-<p>IR receiving and transmitter services.</p>
-<h4 id="gpio"><a href="gpio/">GPIO</a></h4>
-<p>GPIO interfaces.</p>
-<h4 id="servos"><a href="./gpio/#servos">Servos</a></h4>
-<p>Servo interfaces.</p>
-<h4 id="zigbee"><a href="zigbee/">Zigbee</a></h4>
-<p>Zigbee interfaces.</p>
+<p><h3 style="padding-top:0;"><a href="sensors/">Sensors</a></h3>
+Sensor interfaces and data structures
+<h3 style="padding-top:0.6em;"><a href="leds/">Everloop</a></h3>
+LED interface
+<!-- <h3 style="padding-top:0.6em;"><a href="filters.md">Filters</a></h3>
+Filtering data -->
+<!-- <h3 style="padding-top:0.6em;"><a href="computer-vision.md">Computer Vision</a></h3>
+Computer Vision services -->
+<!-- <h3 style="padding-top:0.6em;"><a href="microphone.md">Microphones</a></h3>
+Microphone Services. -->
+<!-- <h3 style="padding-top:0.6em;"><a href="gpio.md">GPIO</a></h3>
+GPIO interfaces and servo function -->
+<!-- <h3 style="padding-top:0.6em;"><a href="zigbee.md">zigbee</a></h3>
+zigbee interfaces --></p>
 <h2 id="configuration">Configuration</h2>
-<h4 id="settings"><a href="./system/#settings">Settings</a></h4>
-<p>For application defaults or end-user configurable variables.</p>
-<h4 id="data-types"><a href="./../overview/data/#data-types">Data Types</a></h4>
-<p>Data structures and how to save to the infrastructure.</p>
-<h4 id="screens"><a href="screens/">Screens</a></h4>
-<p>Dashboard creation and how to structure your widgets.</p>
-<h4 id="filters_1"><a href="filters/">Filters</a></h4>
-<p>Dashboard filter configuration.</p>
-<h4 id="widgets"><a href="widgets/">Widgets</a></h4>
-<p>Dashboard widget configuration.</p>
-<h4 id="computer-vision-services"><a href="computer-vision/">Computer Vision Services</a></h4>
-<p>Available infrastructure services.</p>
-<h4 id="troubleshooting"><a href="../troubleshooting/">Troubleshooting</a></h4>
-<p>Troubleshooting</p> 
+<p><h3 style="padding-top:0;"><a href="./configuration">Config.yaml</a></h3>
+Overview of the MOS app config.yaml file.
+<h3 style="padding-top:0.6em;"><a href="./cli-tool">CLI Tool</a></h3>
+MOS command-line interface.
+<h3 style="padding-top:0.6em;"><a href="dashboard/">Dashboard</a></h3>
+Explore data representation and input with a live dashboard.
+<h3 style="padding-top:0.6em;"><a href="widgets/">Widgets</a></h3>
+Reference for all dashboard widgets.
+<h3 style="padding-top:0.6em;"><a href="crosstalk/">Cross Talk</a></h3>
+Exchange information between apps and devices.
+<h3 style="padding-top:0.6em;"><a href="data-types/">Data Types</a></h3>
+config.yaml data types overview.
+<h3 style="padding-top:0.6em;"><a href="./system/#settings">System Methods</a></h3>
+For application defaults or end-user configurable variables.</p> 
         </div>
         <div class="toc-parent col-lg-2 col-md-3">
           <div class="toc">
@@ -470,114 +430,10 @@
     MATRIX OS SDK
   </a>
   
-  <ul>
-    
-    <li>
-      <a class="nav-link" href="#sensors">
-        Sensors
-      </a>
-    </li>
-    
-    <li>
-      <a class="nav-link" href="#everloop">
-        Everloop
-      </a>
-    </li>
-    
-    <li>
-      <a class="nav-link" href="#filters">
-        Filters
-      </a>
-    </li>
-    
-    <li>
-      <a class="nav-link" href="#computer-vision">
-        Computer Vision
-      </a>
-    </li>
-    
-    <li>
-      <a class="nav-link" href="#microphones">
-        Microphones
-      </a>
-    </li>
-    
-    <li>
-      <a class="nav-link" href="#ir-txrx">
-        IR TX/RX
-      </a>
-    </li>
-    
-    <li>
-      <a class="nav-link" href="#gpio">
-        GPIO
-      </a>
-    </li>
-    
-    <li>
-      <a class="nav-link" href="#servos">
-        Servos
-      </a>
-    </li>
-    
-    <li>
-      <a class="nav-link" href="#zigbee">
-        Zigbee
-      </a>
-    </li>
-    
-  </ul>
-  
 </li>  <li class='nav-item'>
   <a href="#configuration" class="nav-link ">
     Configuration
   </a>
-  
-  <ul>
-    
-    <li>
-      <a class="nav-link" href="#settings">
-        Settings
-      </a>
-    </li>
-    
-    <li>
-      <a class="nav-link" href="#data-types">
-        Data Types
-      </a>
-    </li>
-    
-    <li>
-      <a class="nav-link" href="#screens">
-        Screens
-      </a>
-    </li>
-    
-    <li>
-      <a class="nav-link" href="#filters_1">
-        Filters
-      </a>
-    </li>
-    
-    <li>
-      <a class="nav-link" href="#widgets">
-        Widgets
-      </a>
-    </li>
-    
-    <li>
-      <a class="nav-link" href="#computer-vision-services">
-        Computer Vision Services
-      </a>
-    </li>
-    
-    <li>
-      <a class="nav-link" href="#troubleshooting">
-        Troubleshooting
-      </a>
-    </li>
-    
-  </ul>
   
 </li> 
             </ul>
@@ -687,6 +543,7 @@
   <script src="../../js/jquery.ajaxchimp.min.js"></script>
   <script src="../../js/jquery.ajaxchimp.langs.min.js"></script>
   <script src="../../js/footer.js"></script>
+  <script src="../../js/prism.js"></script>
 
   <!-- TOC Script -->
   <script>

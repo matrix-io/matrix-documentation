@@ -3,10 +3,11 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Leds MATRIX</title>
+  <title>Everloop MATRIX</title>
   <link rel="shortcut icon" href="../../../img/favicon.ico">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
   <link rel="stylesheet" href="../../../css/theme.css">
+  <link rel="stylesheet" href="../../../css/prism.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
 </head>
@@ -28,7 +29,7 @@
         <div class="row">
           <div class="col-sm-8">
             
-            <h1>Leds</h1>
+            <h1>Everloop</h1>
             
           </div>
           <div class="col-sm-4">
@@ -165,7 +166,7 @@
 
 <!-- print root node  -->
 <li class="">
-  <a href="../../" class="active">
+  <a href="../../overview/" class="active">
     MATRIX OS
   </a>
 </li>
@@ -173,56 +174,18 @@
 <ul class="subnav">
    
   <!-- only 1 deep, print menu items  -->
+   
+  <li><a href="../../overview/" class="">Overview</a></li>
      
   <!-- 2 deep  -->
   <!-- print subroot  -->
   <li>
-    <a href="../../getting-started/prerequisites/" class="">
+    <a href="../../getting-started/" class="">
       Getting Started
     </a>
   </li>
 
   <ul class="subnav">
-      
-        
-        
-        
-        
-        
-      
-  </ul>
-
-    
-  <!-- 2 deep  -->
-  <!-- print subroot  -->
-  <li>
-    <a href="../../overview/" class="">
-      Overview
-    </a>
-  </li>
-
-  <ul class="subnav">
-        
-        
-        
-        
-        
-        
-        
-      
-  </ul>
-
-    
-  <!-- 2 deep  -->
-  <!-- print subroot  -->
-  <li>
-    <a href="../../examples/" class="">
-      Examples
-    </a>
-  </li>
-
-  <ul class="subnav">
-        
         
         
         
@@ -241,43 +204,45 @@
   <ul class="subnav">
         
     
-    <li><a href="../system/" class="">System</a></li>
-        
-    
     <li><a href="../sensors/" class="">Sensors</a></li>
         
     
-    <li><a href="../computer-vision/" class="">Computer Vision</a></li>
+    <li><a href="./" class="active">Everloop</a></li>
         
     
-    <li><a href="./" class="active">Leds</a></li>
+    <li><a href="../configuration/" class="">Config.yaml</a></li>
         
     
-    <li><a href="../crosstalk/" class="">Crosstalk</a></li>
+    <li><a href="../cli-tool/" class="">CLI Tool</a></li>
         
     
-    <li><a href="../zigbee/" class="">Zigbee</a></li>
-        
-    
-    <li><a href="../gpio/" class="">GPIO</a></li>
-        
-    
-    <li><a href="../ir/" class="">IR</a></li>
-        
-    
-    <li><a href="../microphone/" class="">Microphone</a></li>
-        
-    
-    <li><a href="../integrations/" class="">Integrations</a></li>
-        
-    
-    <li><a href="../filters/" class="">Filters</a></li>
-        
-    
-    <li><a href="../screens/" class="">Screens</a></li>
+    <li><a href="../dashboard/" class="">Dashboard</a></li>
         
     
     <li><a href="../widgets/" class="">Widgets</a></li>
+        
+    
+    <li><a href="../crosstalk/" class="">Cross Talk</a></li>
+        
+    
+    <li><a href="../data-types/" class="">Data Types</a></li>
+        
+    
+    <li><a href="../system/" class="">System Methods</a></li>
+      
+  </ul>
+
+    
+  <!-- 2 deep  -->
+  <!-- print subroot  -->
+  <li>
+    <a href="../../examples/" class="">
+      Examples
+    </a>
+  </li>
+
+  <ul class="subnav">
+        
       
   </ul>
 
@@ -355,7 +320,6 @@
         
         
         
-        
       
   </ul>
 
@@ -425,92 +389,88 @@
           </div>
         </div>
         <div id="content" class="col-lg-8 col-md-9">
-           <h2 id="everloop-leds">Everloop LEDS</h2>
-<p>A powerful tool for communicating with end users is the EverLoop LED circle. CLICK VIDEO BELOW:</p>
+           <h2 style="padding-top:0">Everloop</h2>
+
+<h3 id="device-compatibility">Device Compatibility</h3>
+<p><img class="creator-compatibility-icon" src="../../img/creator-icon.svg">
+<img class="voice-compatibility-icon" src="../../img/voice-icon.svg"></p>
+<p>The Everloop is a powerful tool for visually communicating through LEDs. Click the video below to learn more.</p>
 <p><a href="https://www.youtube.com/watch?v=L4btaqw4HqM"><img alt="Everloop Tutorial" src="../../img/everloop-image.png" /></a></p>
-<h2 id="basic-operations">Basic Operations</h2>
-<h3 id="string-notation-render">String Notation &amp; Render</h3>
-<pre><code class="js">matrix.led('blue'); //does nothing
-
-matrix.led('green').render(); //lights change
-
-// supports css
-matrix.led('rgb(255, 0, 100)').render();
+<blockquote>
+<p><code>matrix.darken()</code> and <code>matrix.brighten()</code> have not been implemented.</p>
+</blockquote>
+<h2 id="string-notation-render">String Notation &amp; Render</h2>
+<p>You can use any CSS color property (color-name, rgb, and hex). Darker colors on the Everloop generally display with more precision then lighter colors, which tend to get washed out. The code below shows how to set the entire Everloop to green with each CSS property.</p>
+<blockquote>
+<p>The <code>.render()</code> method must be included at the end of the <code>matrix.led()</code> method to update your MATRIX device's LEDs.</p>
+</blockquote>
+<pre><code class="language-javascript">// String
+matrix.led('green').render();
+// Hexadecimal
+matrix.led('#00ff00').render();
+// RGB
+matrix.led('rgb(0,255,0)').render();
 </code></pre>
 
-<p>You can use any CSS color property, including <a href="../X11 Color Names">https://www.wikiwand.com/en/Web_colors#/X11_color_names</a>. Darker colors on the Everloop generally display with more precision then lighter colors, which tend to get washed out. Please avoid <code>rgba</code> as alpha values do not render correctly. </p>
-<h2 id="intermediate-operation">Intermediate Operation</h2>
-<h3 id="object-notation-shape-generators">Object Notation - Shape Generators</h3>
-<p>Shape objects <code>{Shape}</code> are the fastest way to get started with Everloop. We are always building, <a href="http://community.matrix.one/">let us know</a> what shapes you want us to work on next!</p>
-<p>The object creation is simple, you combine global properties with specific properties into a single object that controls a single generator. To draw multiple shapes, see Multiple Shapes below.</p>
-<h3 id="available-shapes">Available Shapes</h3>
-<p>Include one of these properties to enable the shape generator.</p>
-<pre><code>arc - number of degrees to draw an arc, important for smile faces, supports negative values
-fade - similiar to arc, except lights fade out
-angle - draw a single light at this degree point
+<blockquote>
+<p>Please avoid using <code>rgba</code>. Alpha values do not render correctly.</p>
+</blockquote>
+<h2 id="creating-shapes">Creating Shapes</h2>
+<blockquote>
+<p>Currently, shape manipulation on the MATRIX Voice does not render properly. Fix in progress!</p>
+</blockquote>
+<p>Shape objects are methods of manipulating multiple LEDs in the Everloop at once.  Shape creation is simple, you define the shape you want to make as an object and pass it into <code>matrix.led()</code> like the example below</p>
+<pre><code class="language-javascript">matrix.led({
+  arc: 90, //arc shape that takes up 90° of Everloop 
+  color: green, //turn shape green
+  start: 0 //start shape at 0° of Everloop
+}).render();
 </code></pre>
 
-<h3 id="shape-properties">Shape Properties</h3>
-<p>Every Shape object must include a <code>color</code> property to render.</p>
-<pre><code>color - color strings, as specified above
-blend - mix lights to make angle positioning more precise
-spin - number of degrees by which to spin the hue ( 0 - 360 )
-start - ( arc only ), start light index
+<h3 style="padding-top:0">Available Shapes</h3>
+
+<p>Include one of these <code>shape</code> properties in your shape.</p>
+<pre><code>arc: 90 //number of degrees to draw an arc, supports negative values
+angle: 45 //degree number to draw a single point
 </code></pre>
 
-<h4 id="example-shape-object">Example Shape Object</h4>
-<pre><code>{
-  color: 'red'
-  angle: 90
-}
+<h3 style="padding-top:0">Shape Properties</h3>
+
+<p>Every Shape object must include the <code>color</code> property to render.</p>
+<pre><code>color: 'red' //color strings, as specified above
+spin: 230 //rotate color hue ( 0 - 360 )
+start: 0  //degree at which shape begins, arc shape only
 </code></pre>
 
-<h3 id="chaining-operations">Chaining Operations</h3>
+<h3 style="padding-top:0">Rotation Operation</h3>
+
 <p>These operate on the shapes and colors defined in the <code>led</code> object.</p>
-<pre><code>rotate(angle) - rotates whole shape by this many degrees 
-brighten(steps) - brighten light by this many steps ( 0 - 10 )
-darken(steps) - darken light by this many steps ( 0 - 10 )
-// brighten / darken are expensive operations and may not be suitable for rapidly updating displays
+<pre><code class="language-javascript">.rotate(angle); //rotates whole shape by number of degrees 
 </code></pre>
 
-<h3 id="multiple-shapes-and-pixel-drawing">Multiple shapes and pixel drawing</h3>
-<p>Use an array to include multiple shapes. Color strings can also be included and will be drawn as a single light whose index matches the strings index in the array provided.</p>
-<h2 id="examples">Examples</h2>
-<pre><code class="js">var a = matrix.led({
-  // degrees of arc [ 90° = quadrant ]   
-  arc: 90,
-
-  color: 'green',
-
-  // index to start drawing arc
-  start: 12
-}).render();
-
-
-// draw a point
-var b = matrix.led({
-  angle: 245,
-  color: 'white',
-  // blends interlight space if true, solid lights if false, default false
-  blend: true
-}).render();
-
-// rotate the lights clockwise by a specified angle
-matrix.led([a, b]).rotate(90).render();
+<pre><code class="language-javascript">matrix.led({
+    arc: 45,
+    color: 'blue',
+    start: 50
+}).rotate(90).render();
 </code></pre>
 
-<h2 id="composition">Composition</h2>
-<h3 id="shape-objects">Shape Objects</h3>
-<pre><code class="js">// make a smiley face
+<h3 style="padding-top:0">Multiple Shapes</h3>
+
+<p>Use an array in the <code>matrix.led()</code> method to include multiple shapes.</p>
+<pre><code class="language-javascript">// make a smiley face
 matrix.led([
+  //left eye angle
   {
     angle: 45,
     color: 'yellow'
   },
+  //right eye angle
   {
     angle: 135,
     color: 'yellow'
   },
+  //smile arc
   {
     arc: 90,
     color: 'yellow',
@@ -519,17 +479,19 @@ matrix.led([
 ]).render();
 </code></pre>
 
-<h3 id="direct-led-manipulation">Direct LED Manipulation</h3>
-<p>Array index indicates the led to change</p>
-<pre><code class="js">matrix.led([0, 0, 0, 0, 'yellow', 0,
+<h3 style="padding-top:0">Direct LED Manipulation</h3>
+
+<p>Array index indicates the LED to change. The index of an LED is labeled directly above the LED on your MATRIX device (D1, D2, D3, D4, etc..). Use 0 to turn off the LED.</p>
+<pre><code class="language-javascript">matrix.led([0, 0, 0, 0, 'yellow', 0,
 0, 0, 0, 0, 0, 0, 0, 'yellow', 0, 0,
 0, 0, 0, 0, 0, 0, 'yellow', 'yellow',
 'yellow', 'yellow', 'yellow', 'yellow',
-'yellow', 'yellow', 'yellow' ]).render();
+'yellow', 'yellow', 'yellow']).render();
 </code></pre>
 
-<h2 id="example-clock">Example clock</h2>
-<pre><code class="js">setInterval(function(){
+<h2 id="led-animation">LED Animation</h2>
+<p>By using a <code>setInterval()</code> method, you can animate the LEDs on the Everloop. Below is an example of an active clock that demonstrates this. </p>
+<pre><code class="language-javascript">setInterval(function(){
   var time = new Date();
   var h = time.getHours();
   var m = time.getMinutes();
@@ -551,7 +513,6 @@ matrix.led([
     // translate seconds (60) to angle (360)
     angle: s * 6,
     color: 'yellow',
-    blend: true
   };
 
   // will draw all three
@@ -561,13 +522,8 @@ matrix.led([
 </code></pre>
 
 <h2 id="advanced-use">Advanced Use</h2>
-<p>Enable <code>SUN_MODE=true</code> as a flag when launching MATRIX OS to turn on the white LEDs (and the luminence calculations). Wear sunglasses or use another mode of protecting your eyes when using this while developing. It is intended for use behind coverings.</p>
-<h2 id="high-level-discussion">High Level Discussion</h2>
-<p>MATRIX OS is an attempt at abstracting out the complexity of hardware to make it very accessible for end users. At the same time, one also wants to support those who might want to perform more complex operations. When designing a language, sometimes compromises between ease of use and features must be made.</p>
-<h4 id="the-problem">The problem</h4>
-<p>Many applications might want to write to the LED. We can leave it up to chance as to which gets to write, or we can approach it intelligently to optimize the aesthetics and performance. We also want to be able to manage and optimize LED transformations from a system level. Normally, MATRIX OS enables very fast communication with the hardware and tries to get out of the way as much as possible. For LEDS, we still get out of the way, but we need to blend all the input from different applications, otherwise this creates flicker as multiple applications compete for the same light indices. To discretely manage this, we created a special channel and notation just for leds.</p>
-<h4 id="the-solution">The Solution</h4>
-<pre><code>matrix.led
+<p>Enable <code>SUN_MODE=true</code> as a flag, when launching MATRIX OS, to turn on the white LEDs (and the luminence calculations). Wear sunglasses or use another mode of protecting your eyes when using this while developing. It is intended for use behind coverings.</p>
+<pre><code class="language-bash">SUN_MODE=true node index
 </code></pre> 
         </div>
         <div class="toc-parent col-lg-2 col-md-3">
@@ -576,120 +532,29 @@ matrix.led([
             <h3>Contents</h3>
             <ul class="nav flex-column">
                <li class='nav-item'>
-  <a href="#everloop-leds" class="nav-link active">
-    Everloop LEDS
+  <a href="#device-compatibility" class="nav-link active">
+    Device Compatibility
   </a>
   
 </li>  <li class='nav-item'>
-  <a href="#basic-operations" class="nav-link ">
-    Basic Operations
-  </a>
-  
-  <ul>
-    
-    <li>
-      <a class="nav-link" href="#string-notation-render">
-        String Notation &amp; Render
-      </a>
-    </li>
-    
-  </ul>
-  
-</li>  <li class='nav-item'>
-  <a href="#intermediate-operation" class="nav-link ">
-    Intermediate Operation
-  </a>
-  
-  <ul>
-    
-    <li>
-      <a class="nav-link" href="#object-notation-shape-generators">
-        Object Notation - Shape Generators
-      </a>
-    </li>
-    
-    <li>
-      <a class="nav-link" href="#available-shapes">
-        Available Shapes
-      </a>
-    </li>
-    
-    <li>
-      <a class="nav-link" href="#shape-properties">
-        Shape Properties
-      </a>
-    </li>
-    
-    <li>
-      <a class="nav-link" href="#chaining-operations">
-        Chaining Operations
-      </a>
-    </li>
-    
-    <li>
-      <a class="nav-link" href="#multiple-shapes-and-pixel-drawing">
-        Multiple shapes and pixel drawing
-      </a>
-    </li>
-    
-  </ul>
-  
-</li>  <li class='nav-item'>
-  <a href="#examples" class="nav-link ">
-    Examples
+  <a href="#string-notation-render" class="nav-link ">
+    String Notation &amp; Render
   </a>
   
 </li>  <li class='nav-item'>
-  <a href="#composition" class="nav-link ">
-    Composition
+  <a href="#creating-shapes" class="nav-link ">
+    Creating Shapes
   </a>
   
-  <ul>
-    
-    <li>
-      <a class="nav-link" href="#shape-objects">
-        Shape Objects
-      </a>
-    </li>
-    
-    <li>
-      <a class="nav-link" href="#direct-led-manipulation">
-        Direct LED Manipulation
-      </a>
-    </li>
-    
-  </ul>
-  
 </li>  <li class='nav-item'>
-  <a href="#example-clock" class="nav-link ">
-    Example clock
+  <a href="#led-animation" class="nav-link ">
+    LED Animation
   </a>
   
 </li>  <li class='nav-item'>
   <a href="#advanced-use" class="nav-link ">
     Advanced Use
   </a>
-  
-</li>  <li class='nav-item'>
-  <a href="#high-level-discussion" class="nav-link ">
-    High Level Discussion
-  </a>
-  
-  <ul>
-    
-    <li>
-      <a class="nav-link" href="#the-problem">
-        The problem
-      </a>
-    </li>
-    
-    <li>
-      <a class="nav-link" href="#the-solution">
-        The Solution
-      </a>
-    </li>
-    
-  </ul>
   
 </li> 
             </ul>
@@ -799,6 +664,7 @@ matrix.led([
   <script src="../../../js/jquery.ajaxchimp.min.js"></script>
   <script src="../../../js/jquery.ajaxchimp.langs.min.js"></script>
   <script src="../../../js/footer.js"></script>
+  <script src="../../../js/prism.js"></script>
 
   <!-- TOC Script -->
   <script>

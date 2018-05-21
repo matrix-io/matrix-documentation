@@ -3,10 +3,11 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Crosstalk MATRIX</title>
+  <title>Cross Talk MATRIX</title>
   <link rel="shortcut icon" href="../../../img/favicon.ico">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
   <link rel="stylesheet" href="../../../css/theme.css">
+  <link rel="stylesheet" href="../../../css/prism.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
 </head>
@@ -28,7 +29,7 @@
         <div class="row">
           <div class="col-sm-8">
             
-            <h1>Crosstalk</h1>
+            <h1>Cross Talk</h1>
             
           </div>
           <div class="col-sm-4">
@@ -165,7 +166,7 @@
 
 <!-- print root node  -->
 <li class="">
-  <a href="../../" class="active">
+  <a href="../../overview/" class="active">
     MATRIX OS
   </a>
 </li>
@@ -173,56 +174,18 @@
 <ul class="subnav">
    
   <!-- only 1 deep, print menu items  -->
+   
+  <li><a href="../../overview/" class="">Overview</a></li>
      
   <!-- 2 deep  -->
   <!-- print subroot  -->
   <li>
-    <a href="../../getting-started/prerequisites/" class="">
+    <a href="../../getting-started/" class="">
       Getting Started
     </a>
   </li>
 
   <ul class="subnav">
-      
-        
-        
-        
-        
-        
-      
-  </ul>
-
-    
-  <!-- 2 deep  -->
-  <!-- print subroot  -->
-  <li>
-    <a href="../../overview/" class="">
-      Overview
-    </a>
-  </li>
-
-  <ul class="subnav">
-        
-        
-        
-        
-        
-        
-        
-      
-  </ul>
-
-    
-  <!-- 2 deep  -->
-  <!-- print subroot  -->
-  <li>
-    <a href="../../examples/" class="">
-      Examples
-    </a>
-  </li>
-
-  <ul class="subnav">
-        
         
         
         
@@ -241,43 +204,45 @@
   <ul class="subnav">
         
     
-    <li><a href="../system/" class="">System</a></li>
-        
-    
     <li><a href="../sensors/" class="">Sensors</a></li>
         
     
-    <li><a href="../computer-vision/" class="">Computer Vision</a></li>
+    <li><a href="../leds/" class="">Everloop</a></li>
         
     
-    <li><a href="../leds/" class="">Leds</a></li>
+    <li><a href="../configuration/" class="">Config.yaml</a></li>
         
     
-    <li><a href="./" class="active">Crosstalk</a></li>
+    <li><a href="../cli-tool/" class="">CLI Tool</a></li>
         
     
-    <li><a href="../zigbee/" class="">Zigbee</a></li>
-        
-    
-    <li><a href="../gpio/" class="">GPIO</a></li>
-        
-    
-    <li><a href="../ir/" class="">IR</a></li>
-        
-    
-    <li><a href="../microphone/" class="">Microphone</a></li>
-        
-    
-    <li><a href="../integrations/" class="">Integrations</a></li>
-        
-    
-    <li><a href="../filters/" class="">Filters</a></li>
-        
-    
-    <li><a href="../screens/" class="">Screens</a></li>
+    <li><a href="../dashboard/" class="">Dashboard</a></li>
         
     
     <li><a href="../widgets/" class="">Widgets</a></li>
+        
+    
+    <li><a href="./" class="active">Cross Talk</a></li>
+        
+    
+    <li><a href="../data-types/" class="">Data Types</a></li>
+        
+    
+    <li><a href="../system/" class="">System Methods</a></li>
+      
+  </ul>
+
+    
+  <!-- 2 deep  -->
+  <!-- print subroot  -->
+  <li>
+    <a href="../../examples/" class="">
+      Examples
+    </a>
+  </li>
+
+  <ul class="subnav">
+        
       
   </ul>
 
@@ -355,7 +320,6 @@
         
         
         
-        
       
   </ul>
 
@@ -425,94 +389,79 @@
           </div>
         </div>
         <div id="content" class="col-lg-8 col-md-9">
-           <h2 id="cross-talk">Cross-Talk</h2>
-<p>Cross-Talk is a mechanism for applications to communicate, whether on the same device, or on different devices. Applications can exchange information with other applications, or with other instances of the same application. All messages get sent to all devices, so if you have the same app running on different devices, this is how to communicate between installations of the same app.</p>
-<h2 id="overview">Overview</h2>
-<p>Cross talk events are publicly searchable by app, and allow MATRIX applications to easily exchange information between devices, or on the same device. For example, a face detection application could trigger a <code>face-in</code>, which is heard by a <a href="../../overview/configuration/">configured</a> and <a href="../computer-vision/">trained</a> recognition program.</p>
+           <h2 style="padding-top:0">Cross-Talk</h2>
+
+<p>Cross-Talk events allow MATRIX applications to exchange information between different devices, or on the same device. For example, a temperature monitor app can output an event to an alarm app to notify you when the current temperature is too high or low. Cross-Talk events will only be sent to MATRIX devices tied to the same MATRIX Labs account.</p>
 <h2 id="config-setup">Config Setup</h2>
-<p>CrossTalk requires setup in configuration to execute successfully. This information is also used in the app store to determine which applications can communicate via events.</p>
-<h3 id="global">Global</h3>
-<pre><code>events:
-  - globalEvent
+<blockquote>
+<p>You should have familiarity with <a href="../configuration/">Configuration Files</a> before exploring further.</p>
+</blockquote>
+<p>CrossTalk requires each event, that will be emitted, in your app's configuration file to execute successfully. This information is also used in the app store to determine which applications can communicate via events.</p>
+<h3 style="padding-top:0;">Defining An Event</h3>
+
+<p>Add the <code>events:</code> configuration to your app's config.yaml and give each event your app will emit. Do not add this to an app's configuration if they are only going to listen for events.</p>
+<pre><code class="language-yaml">events:
+  - flashGreen
+  - highTemperature
 </code></pre>
 
-<h3 id="app-targeted">App Targeted</h3>
-<pre><code>events:
-  - appName
-</code></pre>
+<p><br/></p>
+<h2 id="event-emitters-listeners">Event Emitters &amp; Listeners</h2>
+<p>Once your app has its events properly defined, you can use <code>matrix.emit</code> to broadcast the event to other MATRIX apps and <code>matrix.on</code> to receive them.</p>
+<h3 style="padding-top:0;">.emit(app, event, payload)</h3>
 
-<h3 id="appevent-targeted">App/Event Targeted</h3>
-<pre><code>events:
-  - appname:
-    - eventname
-</code></pre>
-
-<h2 id="global-emitters-listeners">Global Emitters &amp; Listeners</h2>
-<p>Global messages that can be received across applications, devices, and clients. e.g. Emit from one device, receive on another.</p>
-<h3 id="emitpayload">.emit(payload)</h3>
+<p>Use this function in the application that has the events defined in the config.yaml file.</p>
+<blockquote>
+<p>Events can also be emitted through the MATRIX CLI <code>matrix trigger</code> command <a href="http://localhost:8000/matrix-os/reference/cli-tool/#development">here</a>.</p>
+</blockquote>
 <ul>
-<li><code>payload</code> Object or string to pass through to retrieve with the listener.</li>
+<li><code>app</code> MATRIX app you're sending the event to.</li>
+<li><code>event</code> Event being sent to MATRIX app.</li>
+<li><code>payload</code> Optional object or string to attach to event being sent.</li>
 </ul>
-<pre><code>// Send a payload to all listeners
-matrix.emit(payload);
-</code></pre>
-
-<h3 id="oncb">.on(cb)</h3>
-<ul>
-<li><code>cb</code> Callback method with <code>payload</code> returned.</li>
-</ul>
-<pre><code>// Listen for global CrossTalk messages
-matrix.on(function(payload) { ... });
-</code></pre>
-
-<h2 id="app-specific-message">App Specific Message</h2>
-<p>Messages that can be shared across applications on a single device.</p>
-<h3 id="emitapp-payload">.emit(app, payload)</h3>
-<ul>
-<li><code>app</code> Label to later listen for.</li>
-<li><code>payload</code> Object or string to pass through to retrieve with the listener.</li>
-</ul>
-<pre><code>// Send a message to a particular application
-matrix.emit('app', payload);
-</code></pre>
-
-<h3 id="oncb_1">.on(cb)</h3>
-<ul>
-<li><code>cb</code> Callback method with payload returned.</li>
-</ul>
-<pre><code>// Listen for application specific CrossTalk messages
-matrix.on(function(payload) { ... });
-</code></pre>
-
-<h2 id="specific-event-within-app">Specific Event within App</h2>
-<p>Messages that can be filtered by application, and an event type.</p>
-<h3 id="emitapp-event-payload">.emit(app, event, payload)</h3>
-<ul>
-<li><code>app</code> Label to later listen for.</li>
-<li><code>event</code> Event scope within <code>app</code> to listen for.</li>
-<li><code>payload</code> Object or string to pass through to retrieve with the listener.</li>
-</ul>
-<pre><code>// Trigger an event in a specific application
+<pre><code class="language-javascript">// Trigger an event in a specific application
 matrix.emit('app', 'event', payload);
+
+// Example 1
+matrix.emit('ledControl', 'flashGreen');
+
+// Example 2
+matrix.emit('alarm', 'highTemperature', {temperature: 80.95899963378906}');
+
 </code></pre>
 
-<h3 id="onevent-cb">.on(event, cb)</h3>
+<h3 style="padding-top:0;">.on(event, callback)</h3>
+
+<p>Use this function in the application that will receive the events. Applications that receive events do not need to specify the events in its config.yaml.</p>
 <ul>
 <li><code>event</code> Event to listen on.</li>
-<li><code>cb</code> Callback method with payload returned.</li>
+<li><code>callback</code> Callback method with payload returned.</li>
 </ul>
-<pre><code>// Listen for CrossTalk events sent to this application
-matrix.on('event', function(payload) { ... });
+<pre><code class="language-javascript">// Listen for CrossTalk events sent to this application
+matrix.on('event', function(payload) {
+  //...
+});
+
+// Example 1
+matrix.on('flashGreen', function(){
+  //...
+});
+
+// Example 2
+matrix.on('highTemperature', function(payload){
+  //...
+});
+
 </code></pre>
 
+<p><br/></p>
 <h2 id="dashboard">Dashboard</h2>
-<p>Receive events from web or mobile by binding them to widget controls.</p>
-<pre><code>// Interface elements from Dashboards can also trigger CrossTalk events.
+<p>Receive events from the MATRIX Dashboard by binding them to widget controls.</p>
+<pre><code class="language-javascript">// Interface elements from Dashboards can also trigger CrossTalk events.
 matrix.on('buttonClick', function(payload) { ... });
 </code></pre>
 
-<h3 id="configuration-driven-events">Configuration-Driven Events</h3>
-<p>See <a href="../../reference/widgets#Buttons">Configuration &gt; Widgets</a></p> 
+<p>See <a href="../../reference/widgets#Buttons">Configuration &gt; Widgets</a> for the entire list.</p> 
         </div>
         <div class="toc-parent col-lg-2 col-md-3">
           <div class="toc">
@@ -520,119 +469,19 @@ matrix.on('buttonClick', function(payload) { ... });
             <h3>Contents</h3>
             <ul class="nav flex-column">
                <li class='nav-item'>
-  <a href="#cross-talk" class="nav-link active">
-    Cross-Talk
-  </a>
-  
-</li>  <li class='nav-item'>
-  <a href="#overview" class="nav-link ">
-    Overview
-  </a>
-  
-</li>  <li class='nav-item'>
-  <a href="#config-setup" class="nav-link ">
+  <a href="#config-setup" class="nav-link active">
     Config Setup
   </a>
   
-  <ul>
-    
-    <li>
-      <a class="nav-link" href="#global">
-        Global
-      </a>
-    </li>
-    
-    <li>
-      <a class="nav-link" href="#app-targeted">
-        App Targeted
-      </a>
-    </li>
-    
-    <li>
-      <a class="nav-link" href="#appevent-targeted">
-        App/Event Targeted
-      </a>
-    </li>
-    
-  </ul>
-  
 </li>  <li class='nav-item'>
-  <a href="#global-emitters-listeners" class="nav-link ">
-    Global Emitters &amp; Listeners
+  <a href="#event-emitters-listeners" class="nav-link ">
+    Event Emitters &amp; Listeners
   </a>
-  
-  <ul>
-    
-    <li>
-      <a class="nav-link" href="#emitpayload">
-        .emit(payload)
-      </a>
-    </li>
-    
-    <li>
-      <a class="nav-link" href="#oncb">
-        .on(cb)
-      </a>
-    </li>
-    
-  </ul>
-  
-</li>  <li class='nav-item'>
-  <a href="#app-specific-message" class="nav-link ">
-    App Specific Message
-  </a>
-  
-  <ul>
-    
-    <li>
-      <a class="nav-link" href="#emitapp-payload">
-        .emit(app, payload)
-      </a>
-    </li>
-    
-    <li>
-      <a class="nav-link" href="#oncb_1">
-        .on(cb)
-      </a>
-    </li>
-    
-  </ul>
-  
-</li>  <li class='nav-item'>
-  <a href="#specific-event-within-app" class="nav-link ">
-    Specific Event within App
-  </a>
-  
-  <ul>
-    
-    <li>
-      <a class="nav-link" href="#emitapp-event-payload">
-        .emit(app, event, payload)
-      </a>
-    </li>
-    
-    <li>
-      <a class="nav-link" href="#onevent-cb">
-        .on(event, cb)
-      </a>
-    </li>
-    
-  </ul>
   
 </li>  <li class='nav-item'>
   <a href="#dashboard" class="nav-link ">
     Dashboard
   </a>
-  
-  <ul>
-    
-    <li>
-      <a class="nav-link" href="#configuration-driven-events">
-        Configuration-Driven Events
-      </a>
-    </li>
-    
-  </ul>
   
 </li> 
             </ul>
@@ -742,6 +591,7 @@ matrix.on('buttonClick', function(payload) { ... });
   <script src="../../../js/jquery.ajaxchimp.min.js"></script>
   <script src="../../../js/jquery.ajaxchimp.langs.min.js"></script>
   <script src="../../../js/footer.js"></script>
+  <script src="../../../js/prism.js"></script>
 
   <!-- TOC Script -->
   <script>

@@ -7,6 +7,7 @@
   <link rel="shortcut icon" href="../../../img/favicon.ico">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
   <link rel="stylesheet" href="../../../css/theme.css">
+  <link rel="stylesheet" href="../../../css/prism.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
 </head>
@@ -165,7 +166,7 @@
 
 <!-- print root node  -->
 <li class="">
-  <a href="../../../matrix-os/" class="">
+  <a href="../../../matrix-os/overview/" class="">
     MATRIX OS
   </a>
 </li>
@@ -173,56 +174,18 @@
 <ul class="subnav">
    
   <!-- only 1 deep, print menu items  -->
+   
+  <li><a href="../../../matrix-os/overview/" class="">Overview</a></li>
      
   <!-- 2 deep  -->
   <!-- print subroot  -->
   <li>
-    <a href="../../../matrix-os/getting-started/prerequisites/" class="">
+    <a href="../../../matrix-os/getting-started/" class="">
       Getting Started
     </a>
   </li>
 
   <ul class="subnav">
-      
-        
-        
-        
-        
-        
-      
-  </ul>
-
-    
-  <!-- 2 deep  -->
-  <!-- print subroot  -->
-  <li>
-    <a href="../../../matrix-os/overview/" class="">
-      Overview
-    </a>
-  </li>
-
-  <ul class="subnav">
-        
-        
-        
-        
-        
-        
-        
-      
-  </ul>
-
-    
-  <!-- 2 deep  -->
-  <!-- print subroot  -->
-  <li>
-    <a href="../../../matrix-os/examples/" class="">
-      Examples
-    </a>
-  </li>
-
-  <ul class="subnav">
-        
         
         
         
@@ -248,9 +211,19 @@
         
         
         
-        
-        
-        
+      
+  </ul>
+
+    
+  <!-- 2 deep  -->
+  <!-- print subroot  -->
+  <li>
+    <a href="../../../matrix-os/examples/" class="">
+      Examples
+    </a>
+  </li>
+
+  <ul class="subnav">
         
       
   </ul>
@@ -336,9 +309,6 @@
     <li><a href="../imu/" class="">IMU</a></li>
         
     
-    <li><a href="../lirc/" class="">IR</a></li>
-        
-    
     <li><a href="../pressure/" class="">Pressure</a></li>
         
     
@@ -416,7 +386,7 @@
         </div>
         <div id="content" class="col-lg-8 col-md-9">
            <h1 id="gpio">GPIO</h1>
-<p>The GPIO driver on current version supports:<a href="https://github.com/matrix-io/matrix-creator-malos/blob/master/docs/gpio_diagram.jpg"><img src="https://github.com/matrix-io/matrix-creator-malos/blob/master/docs/gpio_diagram.jpg" align="right" width="420" ></a></p>
+<p>The GPIO driver on current version supports:<a href="https://github.com/matrix-io/matrix-creator-malos/blob/master/docs/gpio_diagram.jpg"><img src="https://github.com/matrix-io/matrix-creator-malos/blob/master/docs/gpio_diagram.jpg?raw=true" align="right" width="420" /></a></p>
 <ul>
 <li>GPIO pin input</li>
 <li>GPIO pin output</li>
@@ -425,7 +395,7 @@
 <p>The driver follows the <a href="../../#protocol">CORE protocol</a>.</p>
 <h3 id="gpio-electrical-characteristics">GPIO electrical characteristics</h3>
 <ul>
-<li>GPIO voltage: 0.60-4.10 VDC (<a href="https://github.com/matrix-io/matrix-creator-quickstart/wiki/Data-Sheets">details</a>)</li>
+<li>GPIO voltage: 0.60-4.10 VDC (<a href="https://github.com/matrix-io/matrix-creator-quickstart/wiki/Data-Sheets" target="_blank">details</a>)</li>
 <li>current 10mA max</li>
 <li>all GPIO pins need pullups</li>
 </ul>
@@ -434,7 +404,7 @@
 </code></pre>
 
 <h3 id="protocol-buffers">Protocol buffers</h3>
-<pre><code class="javascript">// GPIO handler params
+<pre><code class="language-protobuf">// GPIO handler params
 message GpioParams {
   // GPIO to config
   uint32 pin = 1;
@@ -454,10 +424,9 @@ message GpioParams {
 }
 </code></pre>
 
-<p>The message is defined in <a href="https://github.com/matrix-io/protocol-buffers/blob/master/malos/driver.proto">driver.proto</a>.</p>
+<p>The message is defined in <a href="https://github.com/matrix-io/protocol-buffers/blob/master/matrix_io/malos/v1/driver.proto" target="_blank">driver.proto</a>.</p>
 <h3 id="keep-alives">Keep-alives</h3>
-<p>This driver needs keep-alive messages <a href="../../../index/#keep-alive-port">as specified in the CORE protocol</a>.
-If you start sending keep-alive messages it will start returning data every second so you can omit the configuration for this device.</p>
+<p>If you start sending keep-alive messages it will start returning data every second so you can omit the configuration for this device.</p>
 <h3 id="errors">Errors</h3>
 <p>This driver reports errors when an invalid configuration is sent.</p>
 <h3 id="write">Write</h3>
@@ -465,14 +434,14 @@ If you start sending keep-alive messages it will start returning data every seco
 <h3 id="read">Read</h3>
 <p>The driver will send a serialized message of integer <em>values</em> which represents of state from all GPIO pins <a href="../gpio_diagram.jpg">see figure 1</a>. For example: <em>values=5</em> represents <em>101</em> (pin 0 on 1, pin 1 on 0 and pin 2 on 1).</p>
 <p>This is a sample output given by the example described below.</p>
-<pre><code class="bash">$ node test_gpio.js 
+<pre><code class="language-bash">$ node test_gpio.js 
 Sending pings every 5 seconds
 ==&gt; pin 0 set to: true
 &lt;== GPIO pins register:  1
 </code></pre>
 
 <p>(pin0 set on true and GPIO register return values field on 1, only pin 0 set 1)</p>
-<pre><code class="bash">$ node test_gpio.js 
+<pre><code class="language-bash">$ node test_gpio.js 
 Sending pings every 5 seconds
 ==&gt; pin 0 set to: true
 &lt;== GPIO pins register:  101
@@ -480,17 +449,17 @@ Sending pings every 5 seconds
 
 <p>(pin0 set on true and GPIO register return values field on 3 (binary 101) pin 0 on 1, pin 2 on 1 all then on 0)</p>
 <h3 id="javascript-example">JavaScript example</h3>
-<p>Enhanced description of the <a href="https://github.com/matrix-io/matrix-creator-malos/src/js_test/test_gpio.js">sample source code</a>.</p>
+<p>Enhanced description of the <a href="https://github.com/matrix-io/matrix-creator-malos/blob/master/src/js_test/test_gpio.js" target="_blank">sample source code</a>.</p>
 <p>First, define the address of the MATRIX Creator. In this case we make it be <code>127.0.0.1</code>
 because we are connecting from the local host but it needs to be different if we
 connect from another computer. There is also the base port reserved by CORE for
 the Pressure driver.</p>
-<pre><code class="javascript">var creator_ip = '127.0.0.1'
+<pre><code class="language-javascript">var creator_ip = '127.0.0.1'
 var creator_gpio_base_port = 20013 + 36
 </code></pre>
 
 <h4 id="load-the-protocol-buffers-used-in-the-example">Load the protocol buffers used in the example.</h4>
-<pre><code class="javascript">var protoBuf = require(&quot;protobufjs&quot;);
+<pre><code class="language-javascript">var protoBuf = require(&quot;protobufjs&quot;);
 // parse proto file
 var protoBuilder = protoBuf.loadProtoFile('../../protocol-buffers/malos/driver.proto')
 // Parse matrix_malos package (namespace).
@@ -498,7 +467,7 @@ var matrixMalosBuilder = protoBuilder.build(&quot;matrix_malos&quot;)
 </code></pre>
 
 <h4 id="subscribe-to-the-errors-reported-by-the-driver-optional">Subscribe to the errors reported by the driver (optional)</h4>
-<pre><code class="javascript">var zmq = require('zmq')
+<pre><code class="language-javascript">var zmq = require('zmq')
 
 var errorSocket = zmq.socket('sub')
 errorSocket.connect('tcp://' + creator_ip + ':' + (creator_gpio_base_port + 2))
@@ -509,61 +478,61 @@ errorSocket.on('message', function(error_message) {
 </code></pre>
 
 <h4 id="configure-gpio-pins-modes-and-set-values-for-gpio-outputs">Configure GPIO pins modes and set values for GPIO outputs:</h4>
-<p>All the drivers are configured using the message <code>DriverConfig</code> (see <a href="https://github.com/matrix-io/protocol-buffers/blob/master/malos/driver.proto">driver.proto</a>).</p>
+<p>All the drivers are configured using the message <code>DriverConfig</code> (see <a href="https://github.com/matrix-io/protocol-buffers/blob/master/matrix_io/malos/v1/driver.proto" target="_blank">driver.proto</a>).</p>
 <h5 id="output-mode">Output mode:</h5>
 <p>instance driver config object </p>
-<pre><code class="javascript">  var config = new matrixMalosBuilder.DriverConfig
+<pre><code class="language-javascript">  var config = new matrixMalosBuilder.DriverConfig
 </code></pre>
 
 <p>with GpioParams proto message set GPIO 0 to output mode </p>
-<pre><code class="javascript">  var gpio_cfg_cmd = new matrixMalosBuilder.GpioParams
+<pre><code class="language-javascript">  var gpio_cfg_cmd = new matrixMalosBuilder.GpioParams
   gpio_cfg_cmd.set_pin(0)
   gpio_cfg_cmd.set_mode(matrixMalosBuilder.GpioParams.EnumMode.OUTPUT)
 </code></pre>
 
 <p>set GPIO pin value (0 or 1)</p>
-<pre><code class="javascript">  gpio_cfg_cmd.set_value(1);
+<pre><code class="language-javascript">  gpio_cfg_cmd.set_value(1);
 </code></pre>
 
 <p>set on config driver params, encode and send</p>
-<pre><code class="javascript">  config.set_gpio(gpio_cfg_cmd)
+<pre><code class="language-javascript">  config.set_gpio(gpio_cfg_cmd)
   configSocket.send(config.encode().toBuffer())
 </code></pre>
 
 <h5 id="input-mode">Input mode:</h5>
 <p>instance driver config object </p>
-<pre><code class="javascript">  var config = new matrixMalosBuilder.DriverConfig
+<pre><code class="language-javascript">  var config = new matrixMalosBuilder.DriverConfig
 </code></pre>
 
 <p>set 250 ms between updates for example: (optional, default 1 second)</p>
-<pre><code class="javascript">  config.delay_between_updates = .250
+<pre><code class="language-javascript">  config.delay_between_updates = .250
 </code></pre>
 
 <p>configure sending updates 2 seconds after pings (optional)</p>
-<pre><code class="javascript">  config.timeout_after_last_ping = 2.0
+<pre><code class="language-javascript">  config.timeout_after_last_ping = 2.0
 </code></pre>
 
 <p>with <code>GpioParams</code> for example set GPIO 1 to input mode:</p>
-<pre><code class="javascript">  var gpio_cfg_cmd = new matrixMalosBuilder.GpioParams
+<pre><code class="language-javascript">  var gpio_cfg_cmd = new matrixMalosBuilder.GpioParams
   gpio_cfg_cmd.set_pin(1)
   gpio_cfg_cmd.set_mode(matrixMalosBuilder.GpioParams.EnumMode.INPUT)
 </code></pre>
 
 <p>set on config driver params, encode and send</p>
-<pre><code class="javascript">  config.set_gpio(gpio_cfg_cmd)
+<pre><code class="language-javascript">  config.set_gpio(gpio_cfg_cmd)
   configSocket.send(config.encode().toBuffer())
 </code></pre>
 
 <h4 id="subscribe-to-gpio-updates">Subscribe to GPIO updates</h4>
 <p>Where is where the updates are received by subscribing to the <code>data update port</code> of the driver.
 The subscription is initiated by the line <code>updateSocket.subscribe('')</code>.</p>
-<pre><code class="javascript">var updateSocket = zmq.socket('sub')
+<pre><code class="language-javascript">var updateSocket = zmq.socket('sub')
 updateSocket.connect('tcp://' + creator_ip + ':' + (creator_gpio_base_port + 3))
 updateSocket.subscribe('')
 </code></pre>
 
 <p>Register update callback:</p>
-<pre><code class="javascript">updateSocket.on('message', function(gpio_buffer) {
+<pre><code class="language-javascript">updateSocket.on('message', function(gpio_buffer) {
   var gpioData = new matrixMalosBuilder.GpioParams.decode(gpio_buffer)
   // output in binary format all 15 pins of GPIO
   console.log('&lt;== GPIO pins register: ',dec2bin(gpioData.values))
@@ -574,7 +543,7 @@ updateSocket.subscribe('')
 <h4 id="keep-alive-messages">Keep-alive messages</h4>
 <p>An empty keep-alive message is sent to the driver every 2 seconds to make sure it keeps
 sending data updates.</p>
-<pre><code class="javascript">var pingSocket = zmq.socket('push')
+<pre><code class="language-javascript">var pingSocket = zmq.socket('push')
 pingSocket.connect('tcp://' + creator_ip + ':' + (creator_gpio_base_port + 1))
 // Ping the first time.
 pingSocket.send(''); 
@@ -754,6 +723,7 @@ setInterval(function() {
   <script src="../../../js/jquery.ajaxchimp.min.js"></script>
   <script src="../../../js/jquery.ajaxchimp.langs.min.js"></script>
   <script src="../../../js/footer.js"></script>
+  <script src="../../../js/prism.js"></script>
 
   <!-- TOC Script -->
   <script>

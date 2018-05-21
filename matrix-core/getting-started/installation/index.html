@@ -7,6 +7,7 @@
   <link rel="shortcut icon" href="../../../img/favicon.ico">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
   <link rel="stylesheet" href="../../../css/theme.css">
+  <link rel="stylesheet" href="../../../css/prism.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
 </head>
@@ -165,7 +166,7 @@
 
 <!-- print root node  -->
 <li class="">
-  <a href="../../../matrix-os/" class="">
+  <a href="../../../matrix-os/overview/" class="">
     MATRIX OS
   </a>
 </li>
@@ -173,56 +174,18 @@
 <ul class="subnav">
    
   <!-- only 1 deep, print menu items  -->
+   
+  <li><a href="../../../matrix-os/overview/" class="">Overview</a></li>
      
   <!-- 2 deep  -->
   <!-- print subroot  -->
   <li>
-    <a href="../../../matrix-os/getting-started/prerequisites/" class="">
+    <a href="../../../matrix-os/getting-started/" class="">
       Getting Started
     </a>
   </li>
 
   <ul class="subnav">
-      
-        
-        
-        
-        
-        
-      
-  </ul>
-
-    
-  <!-- 2 deep  -->
-  <!-- print subroot  -->
-  <li>
-    <a href="../../../matrix-os/overview/" class="">
-      Overview
-    </a>
-  </li>
-
-  <ul class="subnav">
-        
-        
-        
-        
-        
-        
-        
-      
-  </ul>
-
-    
-  <!-- 2 deep  -->
-  <!-- print subroot  -->
-  <li>
-    <a href="../../../matrix-os/examples/" class="">
-      Examples
-    </a>
-  </li>
-
-  <ul class="subnav">
-        
         
         
         
@@ -248,9 +211,19 @@
         
         
         
-        
-        
-        
+      
+  </ul>
+
+    
+  <!-- 2 deep  -->
+  <!-- print subroot  -->
+  <li>
+    <a href="../../../matrix-os/examples/" class="">
+      Examples
+    </a>
+  </li>
+
+  <ul class="subnav">
         
       
   </ul>
@@ -337,7 +310,6 @@
         
         
         
-        
       
   </ul>
 
@@ -408,7 +380,7 @@
         </div>
         <div id="content" class="col-lg-8 col-md-9">
            <h2 id="installation">Installation</h2>
-<pre><code class="bash"># Add rep and key
+<pre><code class="language-bash"># Add rep and key
 curl https://apt.matrix.one/doc/apt-key.gpg | sudo apt-key add -
 echo &quot;deb https://apt.matrix.one/raspbian $(lsb_release -sc) main&quot; | sudo tee /etc/apt/sources.list.d/matrixlabs.list
 # update &amp; upgrade
@@ -423,22 +395,22 @@ sudo reboot
 <p>CORE should be running on next boot.</p>
 <h2 id="upgrades">Upgrades</h2>
 <p>If you need to upgrade your MATRIX CORE package at any time, please run the following commands and restart.</p>
-<pre><code class="bash">sudo apt-get update;
+<pre><code class="language-bash">sudo apt-get update;
 sudo apt-get upgrade;
 sudo shutdown -r now;
 </code></pre>
 
 <h2 id="start-stop-manually">Start / Stop manually</h2>
 <p>CORE runs as a service after boot. If you need to stop it use:</p>
-<pre><code class="bash">sudo pkill -9 malos
+<pre><code class="language-bash">sudo pkill -9 malos
 </code></pre>
 
 <p>To manually run it back again use:</p>
-<pre><code class="bash">malos &amp;
+<pre><code class="language-bash">malos &amp;
 </code></pre>
 
 <p>The output will be similar to:</p>
-<pre><code class="bash">pi@raspberrypi:~ $ malos &amp;
+<pre><code class="language-bash">pi@raspberrypi:~ $ malos &amp;
 [1] 24343
 pi@raspberrypi:~ $ **************
 MALOS starting
@@ -602,6 +574,7 @@ pi@raspberrypi:~ $
   <script src="../../../js/jquery.ajaxchimp.min.js"></script>
   <script src="../../../js/jquery.ajaxchimp.langs.min.js"></script>
   <script src="../../../js/footer.js"></script>
+  <script src="../../../js/prism.js"></script>
 
   <!-- TOC Script -->
   <script>

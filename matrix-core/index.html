@@ -7,6 +7,7 @@
   <link rel="shortcut icon" href="../img/favicon.ico">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
   <link rel="stylesheet" href="../css/theme.css">
+  <link rel="stylesheet" href="../css/prism.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
 </head>
@@ -165,7 +166,7 @@
 
 <!-- print root node  -->
 <li class="">
-  <a href="../matrix-os/" class="">
+  <a href="../matrix-os/overview/" class="">
     MATRIX OS
   </a>
 </li>
@@ -173,56 +174,18 @@
 <ul class="subnav">
    
   <!-- only 1 deep, print menu items  -->
+   
+  <li><a href="../matrix-os/overview/" class="">Overview</a></li>
      
   <!-- 2 deep  -->
   <!-- print subroot  -->
   <li>
-    <a href="../matrix-os/getting-started/prerequisites/" class="">
+    <a href="../matrix-os/getting-started/" class="">
       Getting Started
     </a>
   </li>
 
   <ul class="subnav">
-      
-        
-        
-        
-        
-        
-      
-  </ul>
-
-    
-  <!-- 2 deep  -->
-  <!-- print subroot  -->
-  <li>
-    <a href="../matrix-os/overview/" class="">
-      Overview
-    </a>
-  </li>
-
-  <ul class="subnav">
-        
-        
-        
-        
-        
-        
-        
-      
-  </ul>
-
-    
-  <!-- 2 deep  -->
-  <!-- print subroot  -->
-  <li>
-    <a href="../matrix-os/examples/" class="">
-      Examples
-    </a>
-  </li>
-
-  <ul class="subnav">
-        
         
         
         
@@ -248,9 +211,19 @@
         
         
         
-        
-        
-        
+      
+  </ul>
+
+    
+  <!-- 2 deep  -->
+  <!-- print subroot  -->
+  <li>
+    <a href="../matrix-os/examples/" class="">
+      Examples
+    </a>
+  </li>
+
+  <ul class="subnav">
         
       
   </ul>
@@ -329,7 +302,6 @@
         
         
         
-        
       
   </ul>
 
@@ -400,10 +372,10 @@
         </div>
         <div id="content" class="col-lg-8 col-md-9">
            <h1 id="matrix-core">MATRIX CORE</h1>
-<p>MATRIX CORE provides <a href="https://developers.google.com/protocol-buffers/">Protobufs</a> over <a href="http://zeromq.org/">ZeroMQ</a>. An intended target for this layer is <a href="http://github.com/matrix-io/matrix-os">MATRIX Open System</a>. You can also use CORE to query sensors and control any MATRIX Device from any language that supports protocol buffers (version 3.X) and 0MQ. </p>
+<p>MATRIX CORE provides <a href="https://developers.google.com/protocol-buffers/" target="_blank">Protobufs</a> over <a href="http://zeromq.org/" target="_blank">ZeroMQ</a>. An intended target for this layer is <a href="http://github.com/matrix-io/matrix-os" target="_blank">MATRIX Open System</a>. You can also use CORE to query sensors and control any MATRIX Device from any language that supports protocol buffers (version 3.X) and 0MQ. </p>
 <p>Connections to CORE can be made both from localhost (127.0.0.1) and from remote computers that are in the same network.</p>
 <h2 id="specification">Specification</h2>
-<p>Our <a href="http://github.com/matrix-io/protocol-buffers">Protocol Buffer Specifications</a> are currently defined in <code>proto</code> files. Please use these files to inform your ZMQ payloads. More information can be found in the examples below.</p>
+<p>Our <a href="http://github.com/matrix-io/protocol-buffers" target="_blank">Protocol Buffer Specifications</a> are currently defined in <code>proto</code> files. Please use these files to inform your ZMQ payloads. More information can be found in the examples below.</p>
 <h2 id="installation">Installation</h2>
 <p>See <a href="getting-started/installation/">Installation</a></p>
 <h2 id="examples">Examples</h2>
@@ -433,9 +405,9 @@ It is used to configure the device and it makes sense for the devices that suppo
 It is a 0MQ PULL port.
 To send a configuration you need to send a valid message (serialized to a string) for the given driver. For instance, the
 Everloop driver (LED array) uses a configuration message to set the LEDs.</p>
-<p>The message is named EverloopImage and it is in the file <a href="https://github.com/matrix-io/protocol-buffers/blob/master/malos/driver.proto">driver.proto</a>.
+<p>The message is named EverloopImage and it is in the file <a href="https://github.com/matrix-io/protocol-buffers/blob/master/matrix_io/malos/v1/driver.proto" target="_blank">driver.proto</a>.
 The message follows:</p>
-<pre><code>message LedValue {
+<pre><code class="language-protobuf">message LedValue {
   uint32 red = 1;
   uint32 green = 2;
   uint32 blue = 3;
@@ -461,7 +433,7 @@ Each of the LedValue messages would need to have the following values:</p>
 <p>If invalid values are used for the LED values of the number of LED values inside of EverloopImage is not 35 the configuration will be discarded and an error message will be generated and sent to the error channel described below.</p>
 <h3 id="error-port">Error port</h3>
 <p>Programs can subscribe to the 0MQ error port. It is a PUSH port. The port number is obtained by adding 2 to the base port (Also known as driver port).
-The errors are returned as strings but there's a pending task to change the error messages to a protocol buffer (<a href="https://github.com/matrix-io/matrix-creator-malos/issues/21">track issue</a>).
+The errors are returned as strings but there's a pending task to change the error messages to a protocol buffer <a href="https://github.com/matrix-io/matrix-creator-malos/issues/21" target="_blank">(track issue)</a>.
 Please do not depend on errors reported as strings as we will change the errors to protocol buffers soon.</p>
 <h3 id="keep-alive-port">Keep-alive port</h3>
 <p>The port number is obtained by adding 1 to the base port (Also known as driver port). It is a PUSH port.</p>
@@ -470,8 +442,7 @@ For most driveres it means that the driver keeps sending updates as fast as they
 The Everloop driver doesn't require keep-alive messages. The IMU driver does.</p>
 <p>Drivers that need keep-alive messages can be configured using the message that is used for all the configurations.
 The way to do it is set relevant field while doing other driver specific configuration (if this is required).</p>
-<pre><code>
-message DriverConfig {
+<pre><code class="language-protobuf">message DriverConfig {
   // Delay between updates. In seconds.
   float delay_between_updates = 1;
   // Timeout after last ping.
@@ -492,7 +463,7 @@ empty string "" makes for a good keep-alive message.</p>
 send data (for instance Humidity and UV). Each driver uses a different message to report data to programs that subscribe
 expecting updates.</p>
 <p>Let's use the UV driver as an example. The relevant message:</p>
-<pre><code>// Basic UV radiation lecture.
+<pre><code class="language-protobuf">// Basic UV radiation lecture.
 message UV{
   // UV index.
   float uv_index = 1;
@@ -517,15 +488,15 @@ Then this message needs to be deserialized and the values can be used.</p>
 <ul>
 <li><a href="reference/everloop/">Everloop</a></li>
 <li><a href="reference/humidity/">Humidity</a></li>
-<li><a href="reference/imu/">IMU</a></li>
-<li><a href="reference/lirc/">IR</a></li>
+<li><a href="reference/imu/">IMU</a>
+<!-- * <a href="reference/lirc.md">IR</a> --></li>
 <li><a href="reference/pressure/">Pressure</a></li>
 <li><a href="reference/uv/">UV</a></li>
 <li><a href="reference/gpio/">GPIO</a></li>
 </ul>
 <h3 id="examples_1">Examples</h3>
 <p><strong>Note:</strong> pre-requisite is NodeJS. Don't use the one shipped with Raspbian because it's a bit old. If you don't have it, please check a recipe included below.</p>
-<pre><code>git clone https://github.com/matrix-io/matrix-creator-malos.git &amp;&amp; cd matrix-creator-malos
+<pre><code class="language-bash">git clone https://github.com/matrix-io/matrix-creator-malos.git &amp;&amp; cd matrix-creator-malos
 git submodule init &amp;&amp; git submodule update
 cd src/js_test
 
@@ -692,6 +663,7 @@ node test_uv.js
   <script src="../js/jquery.ajaxchimp.min.js"></script>
   <script src="../js/jquery.ajaxchimp.langs.min.js"></script>
   <script src="../js/footer.js"></script>
+  <script src="../js/prism.js"></script>
 
   <!-- TOC Script -->
   <script>

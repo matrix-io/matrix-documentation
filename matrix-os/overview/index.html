@@ -7,6 +7,7 @@
   <link rel="shortcut icon" href="../../img/favicon.ico">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
   <link rel="stylesheet" href="../../css/theme.css">
+  <link rel="stylesheet" href="../../css/prism.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
 </head>
@@ -165,7 +166,7 @@
 
 <!-- print root node  -->
 <li class="">
-  <a href="../" class="active">
+  <a href="./" class="active">
     MATRIX OS
   </a>
 </li>
@@ -173,70 +174,18 @@
 <ul class="subnav">
    
   <!-- only 1 deep, print menu items  -->
+   
+  <li><a href="./" class="active">Overview</a></li>
      
   <!-- 2 deep  -->
   <!-- print subroot  -->
   <li>
-    <a href="../getting-started/prerequisites/" class="">
+    <a href="../getting-started/" class="">
       Getting Started
     </a>
   </li>
 
   <ul class="subnav">
-      
-        
-        
-        
-        
-        
-      
-  </ul>
-
-    
-  <!-- 2 deep  -->
-  <!-- print subroot  -->
-  <li>
-    <a href="./" class="active">
-      Overview
-    </a>
-  </li>
-
-  <ul class="subnav">
-        
-    
-    <li><a href="applications/" class="">Applications</a></li>
-        
-    
-    <li><a href="dashboard/" class="">Dashboard</a></li>
-        
-    
-    <li><a href="configuration/" class="">Configuration</a></li>
-        
-    
-    <li><a href="cli/" class="">Command Line</a></li>
-        
-    
-    <li><a href="data/" class="">Sending Data</a></li>
-        
-    
-    <li><a href="publishing/" class="">Publishing</a></li>
-        
-    
-    <li><a href="manual-setup/" class="">Manual Start</a></li>
-      
-  </ul>
-
-    
-  <!-- 2 deep  -->
-  <!-- print subroot  -->
-  <li>
-    <a href="../examples/" class="">
-      Examples
-    </a>
-  </li>
-
-  <ul class="subnav">
-        
         
         
         
@@ -262,9 +211,19 @@
         
         
         
-        
-        
-        
+      
+  </ul>
+
+    
+  <!-- 2 deep  -->
+  <!-- print subroot  -->
+  <li>
+    <a href="../examples/" class="">
+      Examples
+    </a>
+  </li>
+
+  <ul class="subnav">
         
       
   </ul>
@@ -343,7 +302,6 @@
         
         
         
-        
       
   </ul>
 
@@ -413,29 +371,27 @@
           </div>
         </div>
         <div id="content" class="col-lg-8 col-md-9">
-           <h1 id="overview">Overview</h1>
-<p>MATRIX Open System (MOS) is open source software for hosting IoT applications. MATRIX Open System runs on node.js, and initially, applications will be written in JavaScript, however, as we finish writing SDKs, other languages will be supported. Python is first up.</p>
-<h2 id="applications">Applications</h2>
-<p>Fundamentally, MATRIX OS applications logically connect hardware with machine learning abstractions. In this way, you can connect the output from a computer vision system to drive real-world behavior in the form of hardware signaling. You can also use third party API's and integrations, such as IFTTT to further customize your application, for yourself, or for end-users.</p>
-<p>Read more at <a href="applications/">Overview &gt; Applications</a></p>
-<h2 id="dashboard">Dashboard</h2>
-<p>MOS applications optionally include a dashboard for exploring data.</p>
-<p>Read more at <a href="dashboard/">Overview &gt; Dashboard</a></p>
-<h2 id="configuration">Configuration</h2>
-<p>In order to make MOS applications flexible, powerful, and discoverable, each application has an associated file, <code>config.yaml</code> which sets the meta information needed for an application to execute safely and consistently.</p>
-<p>Read more at <a href="configuration/">Overview &gt; Configuration</a></p>
-<h2 id="command-line-interface">Command Line Interface</h2>
-<p>Along with mobile applications and the dashboard, the Command Line Interface (CLI) enables you to manage your MATRIX device and associated applications. If you want to develop MATRIX OS applications, you need to use the CLI to manage different aspects of the development lifecycle. </p>
-<p>Read more at <a href="cli/">Overview &gt; Command Line Interface</a></p>
-<h2 id="sending-data">Sending Data</h2>
-<p>MATRIX devices will only externally store data if it is explicitly sent via an application. If you want to use MATRIX Dashboard components to work with your data, it will need to be exported using the <code>send</code> command.</p>
-<p>Read more at <a href="data/">Overview &gt; Sending Data</a></p>
-<h2 id="application-publishing">Application Publishing</h2>
-<p>You can freely publish MATRIX applications to the MATRIX App store. </p>
-<p>Read more at <a href="publishing/">Overview &gt; Publishing</a></p>
-<h2 id="manual-setup">Manual Setup</h2>
-<p>If you want to install MOS from scratch, start here.</p>
-<p>Read more at <a href="manual-setup/">Manual Setup</a></p> 
+           <h2 style="padding-top:0;">MATRIX Open System</h2>
+
+<p>MATRIX Open System (MOS) is open source software for hosting IoT applications. MATRIX Open System runs on node.js, and initially, applications will be written in JavaScript. The current workflow of this platform it to deploy and install apps into your MATRIX device, from a separate computer, anywhere in the world.</p>
+<h3 id="getting-started"><a href="../getting-started">Getting Started</a></h3>
+<p>Learn how to install MOS on your creator and create applications for your MATRIX device.</p>
+<h3 id="reference"><a href="../reference">Reference</a></h3>
+<p>Look over the MATRIX Open System SDK to see the current libraries and features we have to offer. This includes CLI tool commands, sensors/component references, dashboard, and many other vital configurations needed to take full advantage of MOS.</p>
+<h3 id="examples"><a href="../examples">Examples</a></h3>
+<p>Take a look at the example to show you how you can create a simple dashboard setup for your MOS application.</p>
+<h3 id="mobile-applications">Mobile Applications</h3>
+<p>Access and manage your MATRIX devices with the mobile apps</p>
+<p><button class="btn btn-outline-primary">
+<i class="fa fa-apple"></i>
+<a href="https://itunes.apple.com/us/app/matrix-labs/id1164127495?mt=8">Apple Store</a>
+</button>
+<button class="btn btn-outline-primary">
+<i class="fa fa-android"></i>
+<a href="https://play.google.com/store/apps/details?id=com.admobilize.matrix.app.android&amp;hl=en">Play Store</a>
+</button></p>
+<h3 id="troubleshooting"><a href="../troubleshooting">Troubleshooting</a></h3>
+<p>Look at common debugging solutions for any issues you encounter.</p> 
         </div>
         <div class="toc-parent col-lg-2 col-md-3">
           <div class="toc">
@@ -443,55 +399,29 @@
             <h3>Contents</h3>
             <ul class="nav flex-column">
                <li class='nav-item'>
-  <a href="#overview" class="nav-link active">
-    Overview
+  <a href="#getting-started" class="nav-link active">
+    Getting Started
   </a>
   
-  <ul>
-    
-    <li>
-      <a class="nav-link" href="#applications">
-        Applications
-      </a>
-    </li>
-    
-    <li>
-      <a class="nav-link" href="#dashboard">
-        Dashboard
-      </a>
-    </li>
-    
-    <li>
-      <a class="nav-link" href="#configuration">
-        Configuration
-      </a>
-    </li>
-    
-    <li>
-      <a class="nav-link" href="#command-line-interface">
-        Command Line Interface
-      </a>
-    </li>
-    
-    <li>
-      <a class="nav-link" href="#sending-data">
-        Sending Data
-      </a>
-    </li>
-    
-    <li>
-      <a class="nav-link" href="#application-publishing">
-        Application Publishing
-      </a>
-    </li>
-    
-    <li>
-      <a class="nav-link" href="#manual-setup">
-        Manual Setup
-      </a>
-    </li>
-    
-  </ul>
+</li>  <li class='nav-item'>
+  <a href="#reference" class="nav-link ">
+    Reference
+  </a>
+  
+</li>  <li class='nav-item'>
+  <a href="#examples" class="nav-link ">
+    Examples
+  </a>
+  
+</li>  <li class='nav-item'>
+  <a href="#mobile-applications" class="nav-link ">
+    Mobile Applications
+  </a>
+  
+</li>  <li class='nav-item'>
+  <a href="#troubleshooting" class="nav-link ">
+    Troubleshooting
+  </a>
   
 </li> 
             </ul>
@@ -601,6 +531,7 @@
   <script src="../../js/jquery.ajaxchimp.min.js"></script>
   <script src="../../js/jquery.ajaxchimp.langs.min.js"></script>
   <script src="../../js/footer.js"></script>
+  <script src="../../js/prism.js"></script>
 
   <!-- TOC Script -->
   <script>

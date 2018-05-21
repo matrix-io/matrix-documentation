@@ -7,6 +7,7 @@
   <link rel="shortcut icon" href="../../../img/favicon.ico">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
   <link rel="stylesheet" href="../../../css/theme.css">
+  <link rel="stylesheet" href="../../../css/prism.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
 </head>
@@ -165,7 +166,7 @@
 
 <!-- print root node  -->
 <li class="">
-  <a href="../../../matrix-os/" class="">
+  <a href="../../../matrix-os/overview/" class="">
     MATRIX OS
   </a>
 </li>
@@ -173,56 +174,18 @@
 <ul class="subnav">
    
   <!-- only 1 deep, print menu items  -->
+   
+  <li><a href="../../../matrix-os/overview/" class="">Overview</a></li>
      
   <!-- 2 deep  -->
   <!-- print subroot  -->
   <li>
-    <a href="../../../matrix-os/getting-started/prerequisites/" class="">
+    <a href="../../../matrix-os/getting-started/" class="">
       Getting Started
     </a>
   </li>
 
   <ul class="subnav">
-      
-        
-        
-        
-        
-        
-      
-  </ul>
-
-    
-  <!-- 2 deep  -->
-  <!-- print subroot  -->
-  <li>
-    <a href="../../../matrix-os/overview/" class="">
-      Overview
-    </a>
-  </li>
-
-  <ul class="subnav">
-        
-        
-        
-        
-        
-        
-        
-      
-  </ul>
-
-    
-  <!-- 2 deep  -->
-  <!-- print subroot  -->
-  <li>
-    <a href="../../../matrix-os/examples/" class="">
-      Examples
-    </a>
-  </li>
-
-  <ul class="subnav">
-        
         
         
         
@@ -248,9 +211,19 @@
         
         
         
-        
-        
-        
+      
+  </ul>
+
+    
+  <!-- 2 deep  -->
+  <!-- print subroot  -->
+  <li>
+    <a href="../../../matrix-os/examples/" class="">
+      Examples
+    </a>
+  </li>
+
+  <ul class="subnav">
         
       
   </ul>
@@ -334,9 +307,6 @@
         
     
     <li><a href="../imu/" class="">IMU</a></li>
-        
-    
-    <li><a href="../lirc/" class="">IR</a></li>
         
     
     <li><a href="../pressure/" class="">Pressure</a></li>
@@ -429,11 +399,10 @@ It follows the <a href="../../#protocol">CORE protocol</a>.</p>
 <h3 id="read">Read</h3>
 <p>This driver doesn't send any data to a subscribed program.</p>
 <h3 id="example-usage">Example Usage</h3>
-<p>This section provides an enhanced description of the relevant parts of the <a href="https://github.com/matrix-io/matrix-creator-malos/src/js_test/test_everloop.js">sample source code</a>.</p>
+<p>This section provides an enhanced description of the relevant parts of the <a href="https://github.com/matrix-io/matrix-creator-malos/tree/master/src/js_test" target="_blank">sample source code</a>.</p>
 <p>To run the source code of this example you need to execute the following commands:</p>
-<pre><code>git clone https://github.com/matrix-io/matrix-creator-malos.git
+<pre><code class="language-bash">git clone https://github.com/matrix-io/matrix-creator-malos.git
 cd matrix-creator-malos
-git submodule update --init
 cd src/js_test/
 npm install
 node test_everloop.js
@@ -453,8 +422,9 @@ as shown in the picture.</p>
 <p><img alt="Everloop LEDs" src="../creator-front-everloop-leds.png" /></p>
 <h5 id="individual-led-state">Individual LED state</h5>
 <p>First, create the object.</p>
-<pre><code>var ledValue = new matrixMalosBuilder.LedValue
+<pre><code class="language-javascript">var ledValue = new matrixMalosBuilder.LedValue
 </code></pre>
+
 <p>Now fill out the state of a given led by calling the following functions on ledValue.
 Each of the following functions receives an integer in the range [0, 255].</p>
 <table>
@@ -484,35 +454,39 @@ Each of the following functions receives an integer in the range [0, 255].</p>
 </tbody>
 </table>
 <p>That is, repeat 35 times:</p>
-<pre><code>ledValue.setRed(red_value)
+<pre><code class="language-javascript">ledValue.setRed(red_value)
 ledValue.setGreen(green_value)
 ledValue.setBlue(blue_value)
 ledValue.setWhite(white_value)
 
 config.image.led.push(ledValue)
 </code></pre>
+
 <h5 id="send-configuration">Send configuration</h5>
-<p>configSocket.send(config.encode().toBuffer())</p>
+<pre><code class="language-javascript">configSocket.send(config.encode().toBuffer())
+</code></pre>
+
 <h4 id="all-steps-combined">All steps combined</h4>
 <p>The following snippet will make all the greens display the green color.</p>
-<pre><code>var config = new matrixMalosBuilder.DriverConfig
+<pre><code class="language-javascript">var config = new matrixMalosBuilder.DriverConfig
 config.image = new matrixMalosBuilder.EverloopImage
 for (var j = 0; j &lt; 35; ++j) {
-  var ledValue = new matrixMalosBuilder.LedValue
-  ledValue.setRed(0)
-  ledValue.setGreen(30)
-  ledValue.setBlue(0)
-  ledValue.setWhite(0)
-  config.image.led.push(ledValue)
+    var ledValue = new matrixMalosBuilder.LedValue
+    ledValue.setRed(0)
+    ledValue.setGreen(30)
+    ledValue.setBlue(0)
+    ledValue.setWhite(0)
+    config.image.led.push(ledValue)
 }
 configSocket.send(config.encode().toBuffer())
 </code></pre>
+
 <h3 id="glossary">Glossary</h3>
 <h4 id="protocol-buffers">Protocol buffers</h4>
-<p>In this section we get into the details of the <a href="https://developers.google.com/protocol-buffers/docs/proto3">protocol buffers</a> used by the
+<p>In this section we get into the details of the <a href="https://developers.google.com/protocol-buffers/docs/proto3)" target="_blank">protocol buffers</a> used by the
 JavaScript example to communicate with the Everloop driver.
-The messages used by this driver are defined in <a href="https://github.com/matrix-io/protocol-buffers/blob/master/malos/driver.proto">driver.proto</a>.</p>
-<pre><code>message EverloopImage {
+The messages used by this driver are defined in <a href="https://github.com/matrix-io/protocol-buffers/blob/master/matrix_io/malos/v1/driver.proto" target="_blank">driver.proto</a>.</p>
+<pre><code class="language-javascript">message EverloopImage {
   repeated LedValue led = 1;
 }
 </code></pre>
@@ -520,7 +494,7 @@ The messages used by this driver are defined in <a href="https://github.com/matr
 <p>The message <code>EverloopImage</code> needs to have exactly 35 messages of type <code>LedValue</code> in the repeated field <code>led</code>,
 corresponding to each of the LEDs present in the Creator.</p>
 <p>The message LedValue holds the color values for each LED and each value is in the range [0, 255].</p>
-<pre><code>message LedValue {
+<pre><code class="language-protobuf">message LedValue {
   uint32 red = 1;
   uint32 green = 2;
   uint32 blue = 3;
@@ -686,6 +660,7 @@ corresponding to each of the LEDs present in the Creator.</p>
   <script src="../../../js/jquery.ajaxchimp.min.js"></script>
   <script src="../../../js/jquery.ajaxchimp.langs.min.js"></script>
   <script src="../../../js/footer.js"></script>
+  <script src="../../../js/prism.js"></script>
 
   <!-- TOC Script -->
   <script>

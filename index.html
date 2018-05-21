@@ -7,6 +7,7 @@
   <link rel="shortcut icon" href="./img/favicon.ico">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
   <link rel="stylesheet" href="./css/theme.css">
+  <link rel="stylesheet" href="./css/prism.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
 </head>
@@ -165,7 +166,7 @@
 
 <!-- print root node  -->
 <li class="">
-  <a href="matrix-os/" class="">
+  <a href="matrix-os/overview/" class="">
     MATRIX OS
   </a>
 </li>
@@ -173,56 +174,18 @@
 <ul class="subnav">
    
   <!-- only 1 deep, print menu items  -->
+   
+  <li><a href="matrix-os/overview/" class="">Overview</a></li>
      
   <!-- 2 deep  -->
   <!-- print subroot  -->
   <li>
-    <a href="matrix-os/getting-started/prerequisites/" class="">
+    <a href="matrix-os/getting-started/" class="">
       Getting Started
     </a>
   </li>
 
   <ul class="subnav">
-      
-        
-        
-        
-        
-        
-      
-  </ul>
-
-    
-  <!-- 2 deep  -->
-  <!-- print subroot  -->
-  <li>
-    <a href="matrix-os/overview/" class="">
-      Overview
-    </a>
-  </li>
-
-  <ul class="subnav">
-        
-        
-        
-        
-        
-        
-        
-      
-  </ul>
-
-    
-  <!-- 2 deep  -->
-  <!-- print subroot  -->
-  <li>
-    <a href="matrix-os/examples/" class="">
-      Examples
-    </a>
-  </li>
-
-  <ul class="subnav">
-        
         
         
         
@@ -248,9 +211,19 @@
         
         
         
-        
-        
-        
+      
+  </ul>
+
+    
+  <!-- 2 deep  -->
+  <!-- print subroot  -->
+  <li>
+    <a href="matrix-os/examples/" class="">
+      Examples
+    </a>
+  </li>
+
+  <ul class="subnav">
         
       
   </ul>
@@ -322,7 +295,6 @@
   </li>
 
   <ul class="subnav">
-        
         
         
         
@@ -402,12 +374,11 @@
            <h1 id="matrix-ecosystem-overview">MATRIX Ecosystem Overview</h1>
 <p><h5 style="padding-top:0; font-weight:500;">Objective: Hardware shouldn't be hard</h5>
 The MATRIX Ecosystem was created to make powerful hardware projects very approachable for software developers. The pillars of MATRIX, computer vision, hardware interfaces, distributed internet communication, and data-driven end-user clients, are all programming disciplines which require years for an individual to master, or for a team to build a solution around.</p>
+<p><br/></p>
 <h2 id="programming-layers">Programming Layers</h2>
 <p>The MATRIX platform adds powerful capabilities to your Raspberry Pi, depending on your background and the kind of application you want to write, you may need to decide on which layer best fits your need. The documentation is organized according to these layers:</p>
 <p><img alt="MATRIX Ecosystem Overview" src="./img/overview-diagram.png" /></p>
-<!-- <h3 style="font-weight:400; padding-top:0;">MATRIX Open System</h3> (Javascript) -->
-
-<h3 style="padding-top:0; font-weight:500;">MATRIX Open System (MOS)</h3>
+<h3 style="padding-top:0;">MATRIX Open System (MOS)</h3>
 
 <p><strong>Language:</strong> Javascript</p>
 <p>Highest level of abstraction integrating with MATRIX hardware via <strong>MATRIX CORE</strong>. This layer requires an online connection and offers an integrated IoT environment that's easy to use.</p>
@@ -418,25 +389,28 @@ The MATRIX Ecosystem was created to make powerful hardware projects very approac
 <li>App Store</li>
 </ul>
 <p><a href="./matrix-os/overview/">Read more about MATRIX OS</a></p>
-<h3 style="padding-top:0; font-weight:500;">MATRIX CORE</h3>
+<h3 style="padding-top:0;">MATRIX CORE</h3>
 
 <p><strong>Languages:</strong> Over 40 (Examples in Javascript &amp; Python)</p>
 <p>Abstraction layer for <strong>MATRIX HAL</strong>. Hosts a ZeroMQ + Protobuf communication layer which makes device information accessible via high-level interfaces. Supports 40+ different languages through Protocol Buffers: C++, Python, Ruby, PHP, Java, etc.<br/></p>
 <p><a href="matrix-core/">Read more about MATRIX CORE</a></p>
-<h3 style="padding-top:0; font-weight:500;">MATRIX HAL</h3>
+<h3 style="padding-top:0;">MATRIX HAL</h3>
 
 <p><strong>Language:</strong> C++</p>
 <p>Interacts with the kernel modules by using C++ drivers, enabling it to access available sensors and components on your device.</p>
 <p><a href="matrix-hal/">Read more about MATRIX HAL</a></p>
+<p><br/></p>
 <h2 id="devices">Devices</h2>
+<blockquote>
 <p>Each programming layer in the MATRIX platform is compatible with each MATRIX product, excluding specific components on the boards.</p>
-<h3 style="padding-top:0; font-weight:500;">MATRIX Creator</h3>
+</blockquote>
+<h3 style="padding-top:0;">MATRIX Creator</h3>
 
 <!-- ![](img/matrix-creator.png) -->
 
 <p>A fully-featured development board for the Raspberry Pi with various sensors and communication protocols such as a 3D Gyroscope, Accelerometer, an 8 Microphone Array, zigbee, Z-Wave, and more!</p>
 <p><a href="matrix-creator/overview/">Read more about the MATRIX Creator</a></p>
-<h3 style="padding-top:0; font-weight:500;">MATRIX Voice</h3>
+<h3 style="padding-top:0;">MATRIX Voice</h3>
 
 <!-- ![](img/matrix-voice.png) -->
 
@@ -445,6 +419,7 @@ The MATRIX Ecosystem was created to make powerful hardware projects very approac
 <a href="https://www.hackster.io/matrix-labs/matrix-voice-and-matrix-creator-running-google-assistant-e9751e" target="_blank">Google Assistant</a>, 
 PocketSphinx, etc.</p>
 <p><a href="matrix-voice/overview/">Read more about the MATRIX Voice</a></p>
+<p><br/></p>
 <h2 id="support">Support</h2>
 <ul>
 <li>Post questions or comments on <a href="https://community.matrix.one" target="_blank">community.matrix.one</a></li>
@@ -592,6 +567,7 @@ PocketSphinx, etc.</p>
   <script src="./js/jquery.ajaxchimp.min.js"></script>
   <script src="./js/jquery.ajaxchimp.langs.min.js"></script>
   <script src="./js/footer.js"></script>
+  <script src="./js/prism.js"></script>
 
   <!-- TOC Script -->
   <script>

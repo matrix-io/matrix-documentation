@@ -3,10 +3,11 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>System MATRIX</title>
+  <title>System Methods MATRIX</title>
   <link rel="shortcut icon" href="../../../img/favicon.ico">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
   <link rel="stylesheet" href="../../../css/theme.css">
+  <link rel="stylesheet" href="../../../css/prism.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
 </head>
@@ -28,7 +29,7 @@
         <div class="row">
           <div class="col-sm-8">
             
-            <h1>System</h1>
+            <h1>System Methods</h1>
             
           </div>
           <div class="col-sm-4">
@@ -165,7 +166,7 @@
 
 <!-- print root node  -->
 <li class="">
-  <a href="../../" class="active">
+  <a href="../../overview/" class="active">
     MATRIX OS
   </a>
 </li>
@@ -173,56 +174,18 @@
 <ul class="subnav">
    
   <!-- only 1 deep, print menu items  -->
+   
+  <li><a href="../../overview/" class="">Overview</a></li>
      
   <!-- 2 deep  -->
   <!-- print subroot  -->
   <li>
-    <a href="../../getting-started/prerequisites/" class="">
+    <a href="../../getting-started/" class="">
       Getting Started
     </a>
   </li>
 
   <ul class="subnav">
-      
-        
-        
-        
-        
-        
-      
-  </ul>
-
-    
-  <!-- 2 deep  -->
-  <!-- print subroot  -->
-  <li>
-    <a href="../../overview/" class="">
-      Overview
-    </a>
-  </li>
-
-  <ul class="subnav">
-        
-        
-        
-        
-        
-        
-        
-      
-  </ul>
-
-    
-  <!-- 2 deep  -->
-  <!-- print subroot  -->
-  <li>
-    <a href="../../examples/" class="">
-      Examples
-    </a>
-  </li>
-
-  <ul class="subnav">
-        
         
         
         
@@ -241,43 +204,45 @@
   <ul class="subnav">
         
     
-    <li><a href="./" class="active">System</a></li>
-        
-    
     <li><a href="../sensors/" class="">Sensors</a></li>
         
     
-    <li><a href="../computer-vision/" class="">Computer Vision</a></li>
+    <li><a href="../leds/" class="">Everloop</a></li>
         
     
-    <li><a href="../leds/" class="">Leds</a></li>
+    <li><a href="../configuration/" class="">Config.yaml</a></li>
         
     
-    <li><a href="../crosstalk/" class="">Crosstalk</a></li>
+    <li><a href="../cli-tool/" class="">CLI Tool</a></li>
         
     
-    <li><a href="../zigbee/" class="">Zigbee</a></li>
-        
-    
-    <li><a href="../gpio/" class="">GPIO</a></li>
-        
-    
-    <li><a href="../ir/" class="">IR</a></li>
-        
-    
-    <li><a href="../microphone/" class="">Microphone</a></li>
-        
-    
-    <li><a href="../integrations/" class="">Integrations</a></li>
-        
-    
-    <li><a href="../filters/" class="">Filters</a></li>
-        
-    
-    <li><a href="../screens/" class="">Screens</a></li>
+    <li><a href="../dashboard/" class="">Dashboard</a></li>
         
     
     <li><a href="../widgets/" class="">Widgets</a></li>
+        
+    
+    <li><a href="../crosstalk/" class="">Cross Talk</a></li>
+        
+    
+    <li><a href="../data-types/" class="">Data Types</a></li>
+        
+    
+    <li><a href="./" class="active">System Methods</a></li>
+      
+  </ul>
+
+    
+  <!-- 2 deep  -->
+  <!-- print subroot  -->
+  <li>
+    <a href="../../examples/" class="">
+      Examples
+    </a>
+  </li>
+
+  <ul class="subnav">
+        
       
   </ul>
 
@@ -355,7 +320,6 @@
         
         
         
-        
       
   </ul>
 
@@ -425,71 +389,124 @@
           </div>
         </div>
         <div id="content" class="col-lg-8 col-md-9">
-           <h1 id="system-methods">System Methods</h1>
-<p>Several methods are available for common computing use cases, like application instance settings, storing files or persistant data lookups. These will be localized to the device and are not available across all instances of the application.</p>
+           <h2 style="padding-top:0">System Methods</h2>
+
+<p>Several methods are available for common computing use cases, like saving application variables, storing files or local database. These will be localized to the device and are not available across all instances of the application.</p>
+<p><br/></p>
 <h2 id="settings">Settings</h2>
-<p>When an application requires a variable which should be user provided or will change between different installations, settings is a way to approach this problem.</p>
-<h3 id="example">Example</h3>
-<pre><code class="bash"># in config.yaml
-name: appName
-settings:
-  apiKey: 'enteryourapikey'
+<p>When an application requires a variable which should be user provided or will change between different instances, settings is a way to approach this problem.</p>
+<h3 style="padding-top:0">Config Setup</h3>
+
+<blockquote>
+<p>You should have familiarity with <a href="../configuration/">Configuration Files</a> before exploring further.</p>
+</blockquote>
+<p>Add the <code>settings:</code> configuration to your app's config.yaml and specify each setting your app will save.</p>
+<pre><code class="language-bash">settings:
+  apiKey: 'dfe972dc'
+  secretKey: 'ea9e2dab'
 </code></pre>
 
-<p>Every key in settings is exposed on the root <code>matrix</code> object. Here, <code>settings.apiKey</code> is available in the application environment as <code>matrix.apiKey</code>.</p>
-<pre><code class="bash"># in app.js
-externalService.auth({ key:  matrix.apiKey }).then( ... );
+<p>Every key in settings is exposed on the root <code>matrix</code> object. For example, <code>settings.apiKey</code> is accessible in your MATRIX app as <code>matrix.apiKey</code>.</p>
+<pre><code class="language-javascript">console.log(matrix.apiKey);// prints your apiKey setting
 </code></pre>
 
-<h3 id="dynamically-changing-settings-from-an-application">Dynamically Changing Settings from an application</h3>
-<pre><code class="js">matrix.set({ apiKey: 'newkey' });
+<h3 style="padding-top:0">Dynamically Changing Settings from an application</h3>
+
+<blockquote>
+<p>Currently, the setting will only be overwritten after the MATRIX app restarts.</p>
+</blockquote>
+<pre><code class="language-javascript">matrix.set({ apiKey: '3c3cce95' });// Overrides matrix.apiKey
+matrix.set({ secretKey: '08937cef' });// Overrides matrix.apiKey
 </code></pre>
 
-<h3 id="changing-application-instance-settings">Changing application instance settings</h3>
-<p>After a user installs the application, they can change the settings from the CLI tool.</p>
-<pre><code class="bash">matrix config appName apiKey=myrealapikeydontcopy
-</code></pre>
+<!-- 
+### Changing application instance settings
 
+After a user installs the application, they can change the settings from the CLI tool.
+
+
+wzxhzdk:3
+
+-->
+
+<p><br/></p>
 <h2 id="local-database">Local Database</h2>
-<p>MATRIX OS provides a local, file-based key-value store for app usage. This is available across applications.</p>
-<p>It is not recommended to set end user specific configurations here, and use <code>config.yaml&gt;settings</code> instead.</p>
-<h2 id="get">Get</h2>
-<pre><code class="bash">matrix.store.get(key, cb)
+<p>MATRIX OS provides a local, file-based key-value store for app usage. This storage is globally accessible to any application installed on the same device. </p>
+<blockquote>
+<p>It is not recommended to set end user specific configurations here. use <a href="#settings">settings</a> instead.</p>
+</blockquote>
+<h3 style="padding-top:0">Set</h3>
+
+<p>Defines the name of the a <code>key</code> and the <code>value</code> it'll hold in the local database.</p>
+<pre><code class="language-javascript">matrix.store.set(key, value, function(){
+  //...
+});
 </code></pre>
 
-<h2 id="set">Set</h2>
-<pre><code class="bash">matrix.store.set(key, value, cb)
+<h3 style="padding-top:0">Get</h3>
+
+<p>Obtains the <code>value</code> of a stored <code>key</code> in the local database. The value is passed to the <code>callback</code>.</p>
+<pre><code class="language-javascript">matrix.store.get(key, function(error, value){
+  console.log(value);// prints key value
+});
 </code></pre>
 
-<h2 id="delete">Delete</h2>
-<pre><code class="bash">matrix.store.delete(key, cb)
+<h3 style="padding-top:0">Delete</h3>
+
+<p>Remove a stored <code>key</code> from the local database.</p>
+<pre><code class="language-javascript">matrix.store.delete(key, function(){
+  //...
+});
 </code></pre>
 
+<p><br/></p>
 <h2 id="file-storage">File Storage</h2>
-<p>MATRIX applications utilize a shared file storage, so files saved with one application are accessible from another.</p>
-<h3 id="save">Save</h3>
-<pre><code class="bash">// url - publically accessible url
-// filename - what to save this file as
-// cb - function to call when save is complete
-matrix.file.save( url, filename, cb )
+<p>MATRIX applications utilize a local file storage for storing files. This enables MATRIX applications to dynamically download content that was not initially packaged with the app.</p>
+<h3 style="padding-top:0">Save</h3>
+
+<p>Downloads and stores a file specified through a URL.</p>
+<ul>
+<li><code>url</code> publicly accessible url.</li>
+<li><code>filename</code> name of the file being saved.</li>
+<li><code>callback</code> function to call when save is complete.</li>
+</ul>
+<pre><code class="language-javascript">matrix.file.save(url, filename, function(){
+  //..
+});
 </code></pre>
 
-<h3 id="load">Load</h3>
-<pre><code class="bash">// filename - file to load
-// cb - function to call after file is read, passed (err, data)
-matrix.file.load(filename, cb)
+<h3 style="padding-top:0">Load</h3>
+
+<p>Load the buffer of a file you saved.</p>
+<ul>
+<li><code>filename</code> file to load.</li>
+<li><code>callback</code> function to call after file is read</li>
+</ul>
+<pre><code class="language-javascript">matrix.file.load(filename, function(error, data){
+  console.log(data);// prints buffer of loaded file
+});
 </code></pre>
 
-<h3 id="list">List</h3>
-<pre><code class="bash">matrix.file.list(filename, function(err, files){
-  // files is an array of file names
+<h3 style="padding-top:0">List</h3>
+
+<p>See all currently stored files in application.</p>
+<ul>
+<li><code>callback</code> function to call after files are counted</li>
+</ul>
+<pre><code class="language-javascript">matrix.file.list(function(error, files){
+  console.log(files);// prints array of downloaded files
 })
 </code></pre>
 
-<h3 id="remove">Remove</h3>
-<pre><code class="bash">// filename - what file to Remove
-// cb - function to call when remove is complete
-matrix.file.remove( filename, cb )
+<h3 style="padding-top:0">Remove</h3>
+
+<ul>
+<li><code>filename</code> file to remove from application storage</li>
+<li><code>callback</code> function to call when remove is complete</li>
+</ul>
+<pre><code class="language-javascript">matrix.file.remove(filename, function(){
+  //..
+});
 </code></pre> 
         </div>
         <div class="toc-parent col-lg-2 col-md-3">
@@ -498,49 +515,19 @@ matrix.file.remove( filename, cb )
             <h3>Contents</h3>
             <ul class="nav flex-column">
                <li class='nav-item'>
-  <a href="#system-methods" class="nav-link active">
-    System Methods
+  <a href="#settings" class="nav-link active">
+    Settings
   </a>
   
-  <ul>
-    
-    <li>
-      <a class="nav-link" href="#settings">
-        Settings
-      </a>
-    </li>
-    
-    <li>
-      <a class="nav-link" href="#local-database">
-        Local Database
-      </a>
-    </li>
-    
-    <li>
-      <a class="nav-link" href="#get">
-        Get
-      </a>
-    </li>
-    
-    <li>
-      <a class="nav-link" href="#set">
-        Set
-      </a>
-    </li>
-    
-    <li>
-      <a class="nav-link" href="#delete">
-        Delete
-      </a>
-    </li>
-    
-    <li>
-      <a class="nav-link" href="#file-storage">
-        File Storage
-      </a>
-    </li>
-    
-  </ul>
+</li>  <li class='nav-item'>
+  <a href="#local-database" class="nav-link ">
+    Local Database
+  </a>
+  
+</li>  <li class='nav-item'>
+  <a href="#file-storage" class="nav-link ">
+    File Storage
+  </a>
   
 </li> 
             </ul>
@@ -650,6 +637,7 @@ matrix.file.remove( filename, cb )
   <script src="../../../js/jquery.ajaxchimp.min.js"></script>
   <script src="../../../js/jquery.ajaxchimp.langs.min.js"></script>
   <script src="../../../js/footer.js"></script>
+  <script src="../../../js/prism.js"></script>
 
   <!-- TOC Script -->
   <script>
