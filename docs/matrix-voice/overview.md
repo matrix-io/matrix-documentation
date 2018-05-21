@@ -6,13 +6,13 @@ The MATRIX Voice is a development board for building sound driven behaviors and 
 
 ## Overview
 
-<h4 style="padding-top:0"><a href="/matrix-voice/device-setup">Device Setup</a></h4>
+<h4 style="padding-top:0"><a href="../device-setup">Device Setup</a></h4>
 How to get started with your MATRIX Voice & MATRIX Voice ESP32 version
 
-<h4 style="padding-top:0"><a href="/matrix-voice/esp32">ESP32</a></h4>
+<h4 style="padding-top:0"><a href="../esp32">ESP32</a></h4>
 Instructions to setup your ESP32 module
 
-<h4 style="padding-top:0"><a href="/matrix-voice/resources/overview">Resources</a></h4>
+<h4 style="padding-top:0"><a href="../resources/overview">Resources</a></h4>
 View and download helpful information about the MATRIX Voice
 
 ## Board Versions
