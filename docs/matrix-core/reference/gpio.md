@@ -1,6 +1,6 @@
 # GPIO
 
-The GPIO driver on current version supports:<a href="https://github.com/matrix-io/matrix-creator-malos/blob/master/docs/gpio_diagram.jpg"><img src="https://github.com/matrix-io/matrix-creator-malos/blob/master/docs/gpio_diagram.jpg" align="right" width="420" ></a>
+The GPIO driver on current version supports:<a href="https://github.com/matrix-io/matrix-creator-malos/blob/master/docs/gpio_diagram.jpg"><img src="https://github.com/matrix-io/matrix-creator-malos/blob/master/docs/gpio_diagram.jpg?raw=true" align="right" width="420" /></a>
 
 * GPIO pin input
 * GPIO pin output
@@ -10,7 +10,7 @@ The driver follows the [CORE protocol](../index.md#protocol).
 
 ### GPIO electrical characteristics
 
-* GPIO voltage: 0.60-4.10 VDC ([details](https://github.com/matrix-io/matrix-creator-quickstart/wiki/Data-Sheets))
+* GPIO voltage: 0.60-4.10 VDC (<a href="https://github.com/matrix-io/matrix-creator-quickstart/wiki/Data-Sheets" target="_blank">details</a>)
 * current 10mA max
 * all GPIO pins need pullups
 
@@ -20,7 +20,7 @@ The driver follows the [CORE protocol](../index.md#protocol).
 ```
 ### Protocol buffers
 
-``` javascript
+```language-protobuf
 // GPIO handler params
 message GpioParams {
   // GPIO to config
@@ -40,11 +40,10 @@ message GpioParams {
   uint32 values = 4;
 }
 ```
-The message is defined in [driver.proto](https://github.com/matrix-io/protocol-buffers/blob/master/malos/driver.proto).
+The message is defined in <a href="https://github.com/matrix-io/protocol-buffers/blob/master/matrix_io/malos/v1/driver.proto" target="_blank">driver.proto</a>.
 
 ### Keep-alives
 
-This driver needs keep-alive messages [as specified in the CORE protocol](../../index/#keep-alive-port).
 If you start sending keep-alive messages it will start returning data every second so you can omit the configuration for this device.
 
 
@@ -65,7 +64,7 @@ The driver will send a serialized message of integer *values* which represents o
 
 This is a sample output given by the example described below.
 
-``` bash
+```language-bash
 $ node test_gpio.js 
 Sending pings every 5 seconds
 ==> pin 0 set to: true
@@ -73,7 +72,7 @@ Sending pings every 5 seconds
 ```
 (pin0 set on true and GPIO register return values field on 1, only pin 0 set 1)
 
-``` bash
+```language-bash
 $ node test_gpio.js 
 Sending pings every 5 seconds
 ==> pin 0 set to: true
@@ -84,21 +83,21 @@ Sending pings every 5 seconds
 
 ### JavaScript example
 
-Enhanced description of the [sample source code](https://github.com/matrix-io/matrix-creator-malos/src/js_test/test_gpio.js).
+Enhanced description of the <a href="https://github.com/matrix-io/matrix-creator-malos/blob/master/src/js_test/test_gpio.js" target="_blank">sample source code</a>.
 
 First, define the address of the MATRIX Creator. In this case we make it be `127.0.0.1`
 because we are connecting from the local host but it needs to be different if we
 connect from another computer. There is also the base port reserved by CORE for
 the Pressure driver.
 
-``` javascript
+```language-javascript
 var creator_ip = '127.0.0.1'
 var creator_gpio_base_port = 20013 + 36
 ```
 
 #### Load the protocol buffers used in the example.
 
-``` javascript
+```language-javascript
 var protoBuf = require("protobufjs");
 // parse proto file
 var protoBuilder = protoBuf.loadProtoFile('../../protocol-buffers/malos/driver.proto')
@@ -108,7 +107,7 @@ var matrixMalosBuilder = protoBuilder.build("matrix_malos")
 
 #### Subscribe to the errors reported by the driver (optional)
 
-``` javascript
+```language-javascript
 var zmq = require('zmq')
 
 var errorSocket = zmq.socket('sub')
@@ -120,28 +119,28 @@ errorSocket.on('message', function(error_message) {
 ```
 
 #### Configure GPIO pins modes and set values for GPIO outputs:
-All the drivers are configured using the message `DriverConfig` (see [driver.proto](https://github.com/matrix-io/protocol-buffers/blob/master/malos/driver.proto)).
+All the drivers are configured using the message `DriverConfig` (see <a href="https://github.com/matrix-io/protocol-buffers/blob/master/matrix_io/malos/v1/driver.proto" target="_blank">driver.proto</a>).
 ##### Output mode:
 
 instance driver config object 
-``` javascript
+```language-javascript
   var config = new matrixMalosBuilder.DriverConfig
 ```
 
 with GpioParams proto message set GPIO 0 to output mode 
-``` javascript
+```language-javascript
   var gpio_cfg_cmd = new matrixMalosBuilder.GpioParams
   gpio_cfg_cmd.set_pin(0)
   gpio_cfg_cmd.set_mode(matrixMalosBuilder.GpioParams.EnumMode.OUTPUT)
 ```
 
 set GPIO pin value (0 or 1)
-``` javascript
+```language-javascript
   gpio_cfg_cmd.set_value(1);
 ```
 
 set on config driver params, encode and send
-``` javascript
+```language-javascript
   config.set_gpio(gpio_cfg_cmd)
   configSocket.send(config.encode().toBuffer())
 ```
@@ -149,29 +148,29 @@ set on config driver params, encode and send
 ##### Input mode:
 
 instance driver config object 
-``` javascript
+```language-javascript
   var config = new matrixMalosBuilder.DriverConfig
 ```
 
 set 250 ms between updates for example: (optional, default 1 second)
-``` javascript
+```language-javascript
   config.delay_between_updates = .250
 ```
 
 configure sending updates 2 seconds after pings (optional)
-``` javascript
+```language-javascript
   config.timeout_after_last_ping = 2.0
 ```
 
 with `GpioParams` for example set GPIO 1 to input mode:
-``` javascript
+```language-javascript
   var gpio_cfg_cmd = new matrixMalosBuilder.GpioParams
   gpio_cfg_cmd.set_pin(1)
   gpio_cfg_cmd.set_mode(matrixMalosBuilder.GpioParams.EnumMode.INPUT)
 ```
 
 set on config driver params, encode and send
-``` javascript
+```language-javascript
   config.set_gpio(gpio_cfg_cmd)
   configSocket.send(config.encode().toBuffer())
 ```
@@ -181,14 +180,14 @@ set on config driver params, encode and send
 Where is where the updates are received by subscribing to the `data update port` of the driver.
 The subscription is initiated by the line `updateSocket.subscribe('')`.
 
-``` javascript
+```language-javascript
 var updateSocket = zmq.socket('sub')
 updateSocket.connect('tcp://' + creator_ip + ':' + (creator_gpio_base_port + 3))
 updateSocket.subscribe('')
 ```
 
 Register update callback:
-``` javascript
+```language-javascript
 updateSocket.on('message', function(gpio_buffer) {
   var gpioData = new matrixMalosBuilder.GpioParams.decode(gpio_buffer)
   // output in binary format all 15 pins of GPIO
@@ -202,7 +201,7 @@ The driver will send on callback a serialized message of integer *values* which 
 An empty keep-alive message is sent to the driver every 2 seconds to make sure it keeps
 sending data updates.
 
-``` javascript
+```language-javascript
 var pingSocket = zmq.socket('push')
 pingSocket.connect('tcp://' + creator_ip + ':' + (creator_gpio_base_port + 1))
 // Ping the first time.

@@ -1,5 +1,8 @@
 ### Zigbee
 
+### Device Compatibility
+<img class="creator-compatibility-icon" src="../../img/creator-icon.svg">
+
 Alpha API, subject to deprecation
 
 Version Introduced: 0.9.0
@@ -7,7 +10,7 @@ Version Introduced: 0.9.0
 #### Configuration
 Zigbee requires `zigbee` to be added to `integrations` in the `config.yaml`
 
-```yaml
+```language-yaml
 # config.yaml
 integrations:
   - zigbee
@@ -19,7 +22,7 @@ integrations:
 
 Returns an object which is used to activate other zigbee commands
 
-```
+```language-javascript
 var zb = matrix.zigbee();
 ```
 
@@ -47,7 +50,7 @@ currently, only zigbee lights are supported
 
 ### Example
 Use events to have precise control over your zigbee devices.
-```
+```language-javascript
 matrix.on('discover', function(){
   matrix.zigbee().discover();
 });

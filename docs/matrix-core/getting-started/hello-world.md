@@ -1,11 +1,10 @@
 ## Download and Prepare
 > You need [NodeJS, and the Node Package Manager (npm)](https://nodejs.org/en/download/) installed on the Raspberry Pi.
-```
-git clone https://github.com/matrix-io/matrix-creator-malos;
-cd matrix-creator-malos;
-git submodule update --init;
-cd src/js_test;
-npm install;
+```language-bash
+git clone https://github.com/matrix-io/matrix-creator-malos
+cd matrix-creator-malos
+cd src/js_test
+npm install
 ```
 
 ### Examples
@@ -13,7 +12,7 @@ MATRIX CORE is the program that sits between the low level hardware layer and MA
 
 ### Drivers
 
-```
+```language-bash
 node test_driver_info.js
 ```
 

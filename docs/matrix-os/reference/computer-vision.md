@@ -1,41 +1,68 @@
 ## Computer Vision
-MATRIX OS is designed to integrate with computer vision in a powerful and robust way. You can use computer vision output to drive behavior, capture data for further analysis or anything you want!
 
-## Example
-From [faceTest MATRIX App](http://apps.matrix.one/#!/apps/facetest)
-```
-matrix.led('red').render();
+### Device Compatibility
+<img class="creator-compatibility-icon" src="../../img/creator-icon.svg">
+<img class="voice-compatibility-icon" src="../../img/voice-icon.svg">
 
-matrix.service('face').start().then(data => {
-  matrix.led('green').render();
-  setTimeout(function() {
-    matrix.led('black').render();
-  },2000);
+MATRIX OS is designed to integrate with computer vision(CV) in a powerful and robust way. You can use computer vision output to drive behavior, capture data for further analysis or anything you want!
+
+> Requires Raspberry Pi Camera
+
+## Configuration
+> You should have familiarity with [Configuration Files](configuration.md) before exploring further. 
+
+To allow for communication with the hardware, CV services must be defined in `config.yaml` before they will be available to your application.
+
+```language-yaml
+services:
+  matrix.led(['darkturquoise','deepskyblue','darkgreen','darkkhaki']).render();
+
+  matrix.service('face').start().then(function(data){
+    console.log('>>>>>>>>>>', data);
+    matrix.led('green').render();
+    setTimeout(function() {
+      matrix.led('black').render();
+    },2000);
 });
 ```
 
-## Configuration
-To facilitate communication with the hardware,  CV services must be defined in `config.yaml` before they will be available to your application.
 
-```
-services:
-  faceDetection:
-    engine: detection
-    type: face
-```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ## matrix.service
 The base `matrix.service` command is how you access computer vision services.
-```
+```language-javascript
 matrix.service( algorithm, options )
 ```
 
 ### basic algorithms
 `face` - triggers when it sees a face shape
-
-`fist` - gesture recognition for a closed fist
-
-`palm` - gesture recognition for an open palm
 
 ### `options`
 `refresh` - how many seconds before restarting the detection, default: 3
@@ -45,14 +72,14 @@ matrix.service( algorithm, options )
 
 ### start()
 Starts a given CV algorithm with provided options.
-```
+```language-javascript
 matrix.service( algorithm, options ).start()
 ```
 
 
 ### stop()
 Stops running a CV algorithm.
-```
+```language-javascript
 var s = matrix.service( algorithm, options ).start();
 s.stop();
 
@@ -78,7 +105,7 @@ Returns the data, `Promise` style.
 Returns `tag`: `HAND_PALM`, `HAND_FIST`, or`FACE`
 
 #### Example
-```
+```language-javascript
 {
   location: {
    x: 333,
@@ -91,7 +118,7 @@ Returns `tag`: `HAND_PALM`, `HAND_FIST`, or`FACE`
 ```
 
 ### Complete Example
-```
+```language-javascript
 # app.js
 var algorithm = 'face';
 var options   = {};
@@ -110,7 +137,7 @@ matrix.service( algorithm, options ).start().then(function( data ){
 Use `demographics` for the service call and in `config>services>name>engine`
 
 ### Example Config.yaml
-```
+```language-yaml
 services:
   facelytics:
     engine: detection
@@ -118,14 +145,14 @@ services:
 ```
 ### Example app.js
 
-```
+```language-javascript
 matrix.service('demographics').start().then(function(output){
   // see output below
 });
 ```
 
 #### Demographics Output
-```
+```language-javascript
 { location: { x: 213, y: 221, width: 55, height: 55 },
  tag: 'FACE',
  trackId: 2,
@@ -171,27 +198,27 @@ MATRIX OS includes face recognition which turns a face into a series of numbers 
 Recognition only works from > ~4 ft away. Removing hats and glasses will result in more accurate results.
 
 ### Example Config.yaml
-```
+```language-yaml
 services:
   faceRecog:
     engine: recognition
     type: face
 ```
 ### Example app.js
-```
+```language-javascript
 matrix.service('recognition').start()
 ```
 
 By default, `recognition` works in `RECOGNITION` mode. Recognition requires training first.
 #### train()
 
-```
+```language-javascript
 matrix.service('recognition').train('test').then(data =>  { ... });
 ```
 This will associate a face with a particular tag. 
 
 ### Training Data Response
-```
+```language-javascript
 { 
   // number of trains performed
   count: 2,
@@ -202,7 +229,7 @@ This will associate a face with a particular tag.
 ```
 ### Training Data Example
 This will render a progress arc as training is completed.
-```
+```language-javascript
 matrix.service('recognition').train('test').then(function(d) {
   matrix.led({
     arc: Math.round(360 * (d.count / d.target)),
@@ -213,19 +240,19 @@ matrix.service('recognition').train('test').then(function(d) {
 ```
 #### start()
 After training, you can enable normal recognition as follows.
-```
+```language-javascript
 matrix.service('recognition').start().then(data => {...})
 ```
 
 #### Recognition Training Response
 Outputs a collection of tags and scores.
-```
+```language-javascript
 [{ tags : ['tagName'], score: 0.8 }, {...}]
 ```
 `tags` are the tags matched with each recognition. `score` is the measure of a match, lower numbers are better. `< 0.8` is a good metric to use for recognition.
 
 #### Recognition Example
-```
+```language-javascript
 
 matrix.service('recognition').start().then(data => {...})
 // select the best match out of all the responses
@@ -243,7 +270,7 @@ matrix.service('recognition').start().then(data => {...})
 
 ### Stop()
 If you need to explicitly stop a service, simply pass a `stop()` chained method.
-```
+```language-javascript
 matrix.service('recognition').stop()
 ```
 Please note, that while this will tell the service to stop working, data may still trigger callbacks for a few seconds more.

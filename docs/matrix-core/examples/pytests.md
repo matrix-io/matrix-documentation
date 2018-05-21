@@ -3,7 +3,7 @@
 ### Prerequisites
 
 After sucessfully installing [MATRIX Core](../getting-started/installation.md) in your Rapsberry Pi, clone matrix-creator-malos repository that contains Python examples:
-```
+```language-bash
 cd ~/
 git clone https://github.com/matrix-io/matrix-creator-malos.git
 ```
@@ -11,13 +11,13 @@ git clone https://github.com/matrix-io/matrix-creator-malos.git
 #### Install Python packages
 
 Install the following python packages dependencies:
-```
+```language-bash
 sudo apt-get install build-essential python-dev
 pip install -r requirements.txt
 ```
 
 If you're using [pipenv](https://github.com/kennethreitz/pipenv), then also install:
-```
+```language-bash
 pipenv install
 ```
 
@@ -25,7 +25,7 @@ pipenv install
 
 In this example the PIN 15 (in the MATRIX board external GPIOs) is set up in output mode and is then toggled with `0` and `1`.
 
-``` bash
+```language-bash
 cd ~/matrix-creator-malos/src/python_test
 python test_gpio.py
 ```
@@ -39,7 +39,7 @@ GPIO15=0
 ```
 
 When using [pipenv](https://github.com/kennethreitz/pipenv) use this instead:
-``` bash
+```language-bash
 $ pipenv run python test_gpio.py
 ```
 
@@ -47,68 +47,68 @@ $ pipenv run python test_gpio.py
 
 ### Driver_info
 
-``` bash
+```language-bash
 python test_driver_info.py
 ```
 
 ### Everloop
 
-```bash
+```language-bash
 python test_everloop.py
 ```
 
 ### Everloop color
 
 
-```bash
+```language-bash
 python test_set_everloop_color.py
 ```
 
 ### GPIO
 
-```bash
+```language-bash
 python test_gpio.py
 ```
 
 ### GPIO Read & Write
 
-```bash
+```language-bash
 python test_gpio_read_write.py
 ```
 
 ### Humidity
 
-```bash
+```language-bash
 python test_humidity.py
 ```
 
 ### Imu
 
-```bash
+```language-bash
 python test_imu.py
 ```
 
 ### IR
 
-```bash
+```language-bash
 python test_ir_remote.py
 ```
 
 ### Pressure
 
-```bash
+```language-bash
 python test_pressure.py
 ```
 
 ### Servo
 
-```bash
+```language-bash
 python test_servo.py
 ```
 
 ### UV
 
-```bash
+```language-bash
 python test_uv.py
 ```
 
@@ -134,7 +134,7 @@ First, define the address of the MATRIX Creator. In this case we make it be `127
 
 We also set the base port for the CORE Pressure driver (20013).
 
-``` python
+```language-python
 import zmq
 import time
 import driver_pb2 as driver_proto # proto buffer precompiled
@@ -164,7 +164,7 @@ MATRIX CORE layer uses ZMQ push/subscriptions to send driver configurations and 
 
 Enhanced description of the [sample source code](https://github.com/matrix-io/matrix-creator-malos/blob/master/src/python_test/test_gpio_read_write.py).
 
-``` python
+```language-python
 import zmq
 import time
 import driver_pb2 as driver_proto
@@ -255,7 +255,7 @@ if __name__ == "__main__":
 ```
 ### Protocol buffers
 
-``` javascript
+```language-python
 // GPIO handler params
 message GpioParams {
   // GPIO to config

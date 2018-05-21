@@ -22,7 +22,7 @@
 > The yellow startup LED sequence (with 1 LED off) will be removed when a programming environment is installed.
 
 ## Choosing A Programming Environment
-After your MATRIX Voice is setup, visit [Ecosystem Overview](/) for information about the three programming environments available to you in the MATRIX platform.
+After your MATRIX Voice is setup, visit [Ecosystem Overview](/#programming-layers) for information about the three programming environments available to you in the MATRIX platform.
 
 > All 3 programming environments are compatible with the MATRIX Voice & MATRIX Voice ESP32 version on a Raspberry Pi.  
 

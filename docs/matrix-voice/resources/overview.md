@@ -1,7 +1,16 @@
 ## Resources
 
-- [Pinout](/matrix-voice/resources/pinout.md): Lists and labels of the MATRIX Voice's Pinouts
-- [Microphone](/matrix-voice/resources/microphone.md): Microphone sample rate and board position
-- [Reference Models](/matrix-voice/resources/reference-models.md): Download or view the Matrix Voice's 3D models
-- [System Architecture](/matrix-voice/resources/system-architecture.md): View a technical diagram of the MATRIX Voice architecture
-- [Technical Datasheets](/matrix-voice/resources/technical-datasheets.md): PDFs of MATRIX Voice Components
+<h3><a href="/matrix-voice/resources/pinout">Pinout</a></h3>
+Lists and labels of the MATRIX Voice's Pinouts
+
+<h3 style="padding-top: 0"><a href="/matrix-voice/resources/microphone">Microphone</a></h3>
+Microphone sample rate and board position
+
+<h3 style="padding-top: 0"><a href="/matrix-voice/resources/reference-models">Reference Models</a></h3>
+Download or view the Matrix Voice's 3D models
+
+<h3 style="padding-top: 0"><a href="/matrix-voice/resources/system-architecture">System Architecture</a></h3>
+View a technical diagram of the MATRIX Voice architecture
+
+<h3 style="padding-top: 0"><a href="/matrix-voice/resources/technical-datasheets">Technical Datasheets</a></h3>
+PDFs of MATRIX Creator Components

@@ -1,81 +1,71 @@
-## Cross-Talk
-Cross-Talk is a mechanism for applications to communicate, whether on the same device, or on different devices. Applications can exchange information with other applications, or with other instances of the same application. All messages get sent to all devices, so if you have the same app running on different devices, this is how to communicate between installations of the same app.
+<h2 style="padding-top:0">Cross-Talk</h2>
 
-## Overview
-Cross talk events are publicly searchable by app, and allow MATRIX applications to easily exchange information between devices, or on the same device. For example, a face detection application could trigger a `face-in`, which is heard by a [configured](../overview/configuration.md) and [trained](computer-vision.md) recognition program.
+Cross-Talk events allow MATRIX applications to exchange information between different devices, or on the same device. For example, a temperature monitor app can output an event to an alarm app to notify you when the current temperature is too high or low. Cross-Talk events will only be sent to MATRIX devices tied to the same MATRIX Labs account.
 
 ## Config Setup
-CrossTalk requires setup in configuration to execute successfully. This information is also used in the app store to determine which applications can communicate via events.
+> You should have familiarity with [Configuration Files](configuration.md) before exploring further.
 
-### Global
-```
+CrossTalk requires each event, that will be emitted, in your app's configuration file to execute successfully. This information is also used in the app store to determine which applications can communicate via events.
+
+<h3 style="padding-top:0;">Defining An Event</h3>
+Add the `events:` configuration to your app's config.yaml and give each event your app will emit. Do not add this to an app's configuration if they are only going to listen for events.
+```language-yaml
 events:
-  - globalEvent
-```
-### App Targeted
-```
-events:
-  - appName
-```
-### App/Event Targeted
-```
-events:
-  - appname:
-    - eventname
+  - flashGreen
+  - highTemperature
 ```
 
-## Global Emitters & Listeners
-Global messages that can be received across applications, devices, and clients. e.g. Emit from one device, receive on another.
-###.emit(payload)
-* `payload` Object or string to pass through to retrieve with the listener.
-```
-// Send a payload to all listeners
-matrix.emit(payload);
-```
-###.on(cb)
-* `cb` Callback method with `payload` returned.
-```
-// Listen for global CrossTalk messages
-matrix.on(function(payload) { ... });
-```
+<br/>
+## Event Emitters & Listeners
+Once your app has its events properly defined, you can use `matrix.emit` to broadcast the event to other MATRIX apps and `matrix.on` to receive them.
 
-## App Specific Message
-Messages that can be shared across applications on a single device.
-###.emit(app, payload)
-* `app` Label to later listen for.
-* `payload` Object or string to pass through to retrieve with the listener.
-```
-// Send a message to a particular application
-matrix.emit('app', payload);
-```
-###.on(cb)
-* `cb` Callback method with payload returned.
-```
-// Listen for application specific CrossTalk messages
-matrix.on(function(payload) { ... });
-```
-## Specific Event within App
-Messages that can be filtered by application, and an event type.
-###.emit(app, event, payload)
-* `app` Label to later listen for.
-* `event` Event scope within `app` to listen for.
-* `payload` Object or string to pass through to retrieve with the listener.
-```
+<h3 style="padding-top:0;">.emit(app, event, payload)</h3>
+Use this function in the application that has the events defined in the config.yaml file.
+
+> Events can also be emitted through the MATRIX CLI `matrix trigger` command [here](http://localhost:8000/matrix-os/reference/cli-tool/#development).
+
+* `app` MATRIX app you're sending the event to.
+* `event` Event being sent to MATRIX app.
+* `payload` Optional object or string to attach to event being sent.
+```language-javascript
 // Trigger an event in a specific application
 matrix.emit('app', 'event', payload);
+
+// Example 1
+matrix.emit('ledControl', 'flashGreen');
+
+// Example 2
+matrix.emit('alarm', 'highTemperature', {temperature: 80.95899963378906}');
+
 ```
-###.on(event, cb)
+<h3 style="padding-top:0;">.on(event, callback)</h3>
+Use this function in the application that will receive the events. Applications that receive events do not need to specify the events in its config.yaml.
+
 * `event` Event to listen on.
-* `cb` Callback method with payload returned.
-```
+* `callback` Callback method with payload returned.
+```language-javascript
 // Listen for CrossTalk events sent to this application
-matrix.on('event', function(payload) { ... });
+matrix.on('event', function(payload) {
+  //...
+});
+
+// Example 1
+matrix.on('flashGreen', function(){
+  //...
+});
+
+// Example 2
+matrix.on('highTemperature', function(payload){
+  //...
+});
+
 ```
+
+<br/>
 ## Dashboard
-Receive events from web or mobile by binding them to widget controls.
-```
+Receive events from the MATRIX Dashboard by binding them to widget controls.
+```language-javascript
 // Interface elements from Dashboards can also trigger CrossTalk events.
 matrix.on('buttonClick', function(payload) { ... });
 ```
-### Configuration-Driven Events
-See [Configuration > Widgets](../reference/widgets#Buttons)
+See [Configuration > Widgets](../reference/widgets#Buttons) for the entire list.

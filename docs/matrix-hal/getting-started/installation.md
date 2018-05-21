@@ -4,7 +4,7 @@
 
 If you haven't already installed the required MATRIX packages that configure everything after each boot, please install:
 
-```
+```language-bash
 # Add repo and key
 curl https://apt.matrix.one/doc/apt-key.gpg | sudo apt-key add -
 echo "deb https://apt.matrix.one/raspbian $(lsb_release -sc) main" | sudo tee /etc/apt/sources.list.d/matrixlabs.list
@@ -24,7 +24,7 @@ sudo reboot
 
 ##### Install Pre-Requisites
 
-```
+```language-bash
 sudo apt-get install cmake g++ git libfftw3-dev wiringpi libgflags-dev
 ```
 
@@ -32,7 +32,7 @@ sudo apt-get install cmake g++ git libfftw3-dev wiringpi libgflags-dev
 
 To start working with HAL directly, you'll need to clone it and then build it. 
 
-```
+```language-bash
 git clone https://github.com/matrix-io/matrix-creator-hal.git
 cd matrix-creator-hal
 mkdir build

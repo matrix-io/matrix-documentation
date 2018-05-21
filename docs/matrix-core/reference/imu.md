@@ -15,7 +15,7 @@ The driver follows the [CORE protocol](../index.md#protocol).
 
 ### Protocol buffers
 
-```
+```language-protobuf
 message Imu {
   float yaw = 1;
   float pitch = 2;
@@ -23,11 +23,11 @@ message Imu {
 }
 ```
 
-The message is defined in [driver.proto](https://github.com/matrix-io/protocol-buffers/blob/master/malos/driver.proto).
+The message is defined in <a href="https://github.com/matrix-io/protocol-buffers/blob/master/matrix_io/malos/v1/sense.proto" target="_blank">driver.proto</a>.
 
 ### Keep-alives
 
-This driver needs keep-alive messages [as specified in the CORE protocol](https:////github.com/matrix-io/matrix-creator-malos/blob/master/README.md#keep-alive-port).
+This driver needs keep-alive messages <a href="https://github.com/matrix-io/matrix-creator-malos/blob/master/README.md#keep-alive-port" target="_blank">as specified in the CORE protocol</a>.
 If you start sending keep-alive messages it will start returning data every second so you can omit the configuration for this device.
 
 
@@ -39,7 +39,7 @@ This driver report errors when an invalid configuration is sent.
 
 The driver will send a serialized message of type`IMU`.
 
-```
+```language-protobuf
 message Imu {
   float yaw = 1;
   float pitch = 2;
@@ -49,7 +49,7 @@ message Imu {
 
 This is a sample output given by the example described below.
 
-```
+```language-bash
 $ node test_imu.js 
 Sending pings every 5 seconds
 { yaw: 164.5285186767578,
@@ -65,21 +65,21 @@ Sending pings every 5 seconds
 
 ### JavaScript example
 
-Enhanced description of the [sample source code](../src/js_test/test_imu.js).
+Enhanced description of the <a href="https://github.com/matrix-io/matrix-creator-malos/blob/master/src/js_test/test_imu.js" target="_blank">sample source code</a>.
 
 First, define the address of the MATRIX Creator. In this case we make it be `127.0.0.1`
 because we are connecting from the local host but it needs to be different if we
 connect from another computer. There is also the base port reserved by CORE for
 the IMU driver.
 
-```
+```language-javascript
 var creator_ip = '127.0.0.1'
 var creator_imu_base_port = 20013
 ```
 
 Load the protocol buffers used in the example.
 
-```
+```language-javascript
 var protoBuf = require("protobufjs")
 
 // Parse proto file
@@ -90,7 +90,7 @@ var matrixMalosBuilder = protoBuilder.build("matrix_malos")
 
 Subscribe to the errors reported by the driver. 
 
-```
+```language-javascript
 var zmq = require('zmq')
 
 var errorSocket = zmq.socket('sub')
@@ -100,18 +100,20 @@ errorSocket.on('message', function(error_message) {
   process.stdout.write('Message received: IMU error: ' + error_message.toString('utf8') + "\n")
 });
 ```
-All the drivers are configured using the message `DriverConfig` (see [driver.proto](https://github.com/matrix-io/protocol-buffers/blob/master/malos/driver.proto)).
+All the drivers are configured using the message `DriverConfig` (see <a href="https://github.com/matrix-io/protocol-buffers/blob/master/matrix_io/malos/v1/sense.proto" target="_blank">driver.proto</a>).
 This is what the message looks like if we omit the fields that are not used in this example.
 
-    message DriverConfig {
-      float delay_between_updates = 1;
-      float timeout_after_last_ping = 2;
-    }
+```language-protobuf
+message DriverConfig {
+  float delay_between_updates = 1;
+  float timeout_after_last_ping = 2;
+}
+```
 
 The following snippet is telling the driver to send an update each 2 seconds
 and stop sending updates if it doesn't receive a keep-alive message for 6 seconds.
 
-```
+```language-javascript
 var configSocket = zmq.socket('push')
 configSocket.connect('tcp://' + creator_ip + ':' + creator_imu_base_port)
 
@@ -126,7 +128,7 @@ configSocket.send(driverConfigProto.encode().toBuffer())
 Where is where the updates are received by subscribing to the `data update port` of the driver.
 The subscription is initiated by the line `updateSocket.subscribe('')`.
 
-```
+```language-javascript
 var updateSocket = zmq.socket('sub')
 updateSocket.connect('tcp://' + creator_ip + ':' + (creator_imu_base_port + 3))
 updateSocket.subscribe('')
@@ -138,7 +140,7 @@ updateSocket.on('message', function(buffer) {
 An empty keep-alive message is sent to the driver every 5 seconds to make sure it keeps
 sending data updates.
 
-```
+```language-javascript
 var pingSocket = zmq.socket('push')
 pingSocket.connect('tcp://' + creator_ip + ':' + (creator_imu_base_port + 1))
 process.stdout.write("Sending pings every 5 seconds");

@@ -1,65 +1,101 @@
+<h1 style="padding-top: 0">Installing MOS</h1>
 
-## Installation & Registration
+## Prerequisites
+>Make sure you have setup your 
+[MATRIX Creator](/matrix-creator/device-setup) or 
+[MATRIX Voice](/matrix-voice/device-setup) before continuing.
 
-> MATRIX Open System is currently targeted to run on Raspbian. 
+<h3 style="padding-top:0;">Software</h3>
+* <a href="https://nodejs.org/en/" target="_blank">Node.js</a>
+* Command Line Interface:
+    * macOS: Terminal
+    * Windows: <a href="https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html" target="_blank">PuTTY</a>
+    * Linux: Terminal
 
-Your MATRIX device may or may not have **MATRIX Open System** preinstalled on it. These instructions are included if you need to build your own MOS image.
+## Computer Installation & Account Registration
+>We recommend running the following commands on your Desktop/Laptop and not on your Raspberry Pi.
 
-### Set up your Personal Computer
+MOS contains a CLI (Command Line Interface) tool for controlling and managing your MATRIX devices. To install the tool, execute the following command in your personal computer's terminal.
 
-> You need [NodeJS, and the Node Package Manager (npm)](https://nodejs.org/en/download/) installed. See [pre-requisites](./prerequisites) for more details.
+``` language-bash
+npm install -g matrix-cli
+```
 
-These next instructions can be executed your personal computer or Raspberry Pi. We would recommend installing the [Command Line Interface](../overview/cli) (CLI) on your local computer, not the Raspberry Pi.
+Once installed, the CLI tool needs to be configured by registering and then logging into a MATRIX Labs account.
 
-1. Install the CLI via npm `npm install -g matrix-cli`
-1. `matrix login` if you have a MATRIX Labs account, otherwise `matrix register` to sign up
-1. Log into your account using `matrix login`
-1. Once registered an account, run `matrix register device`
-1. Enter a `device name` and (optional) `device description`
-1. After a few moments you will be provided with a `MATRIX_DEVICE_ID` and `MATRIX_DEVICE_SECRET`
+``` language-bash
+matrix register
+matrix login
+```
 
-#### Login Credentials
+With an account logged into the CLI tool, you can now register your MATRIX device. This will prompt you to enter a name and description for the device.
 
-```bash
-# example variables generated via registration,
-# yours will be different for each device you create.
+```language-bash
+matrix register device
+```
 
+After the device is created, a set of unique login credentials will be generated for you. Save these credentials because they are necessary to link your MATRIX Labs account to your MATRIX device. Below is an example of the generated credentials.
+
+```language-bash
 export MATRIX_DEVICE_ID=dc7a1a71be2d
 export MATRIX_DEVICE_SECRET=08629018e9d77h15i5n0t4r3alz0f06cd4f7e5544272b
 ```
+<br/>
+## Raspberry Pi Setup
+Access the terminal of your Raspberry Pi via an <a href="https://www.raspberrypi.org/documentation/remote-access/ssh/" target="_blank">SSH-session</a> or connect a screen, mouse, and keyboard. Then run the following commands to go into your home directory and install MOS on the Raspberry Pi. A reboot will occur when the installation is finished.
 
-**Note:** Save these for [device-registration](#device-registration).
-
-### Set up your Raspberry Pi
-
-> Your Pi needs a [clean Raspbian install](https://www.raspberrypi.org/downloads/raspbian/).
-
-Access a command prompt on your Pi. 
-
-#### MOS Installation
-
-This command will install the **MATRIX Open System** and required sub-components. Expect the device to reboot when finished.
-
-```bash
+```language-bash
+cd ~/
 curl https://raw.githubusercontent.com/matrix-io/matrix-creator-quickstart/master/install.sh | sh
 ```
 
-**Note:** [Watch Getting Started, Registration and Installation](https://www.youtube.com/watch?v=ckDD6HEjfAY) of MATRIX OS and MATRIX CLI on Youtube.
+<h3 style="padding-top:0;">Linking Device To MATRIX Labs Account</h3>
+To properly link your MATRIX device to your MATRIX Labs account, you need to create a file named **.envrc** in the home directory of the Raspberry Pi and then populate it with the device credentials you saved earlier. To create the **.envrc** file and add the device credentials, use the nano command below and paste your device credentials within the terminal editor. When you’re done, press **Ctrl+X**.
 
-#### Device Registration
+```language-bash
+nano ~/.envrc
+```
 
-1. Inside your home folder (`~`), create a file named `.envrc`. Type `touch .envrc` to create the file. 
-1. Copy and paste the id & secret exports exactly as shown in the section **Login Credentials** above.
-1. Run `source ~/.envrc` to make the variables available to the shell, which will then be used when starting MOS.
-1. Go to `matrix-os` folder with `cd ~/matrix-os` and run `node index.js` to start the OS.
+With the **.envrc** file created, you need to make the credentials within visible to the shell by running the command below. MOS will then be able to read it and properly register your MATRIX device.
 
-### Check if everything works
+```language-bash
+source ~/.envrc
+```
 
-1. On your Personal Computer, If you didn't do it earlier, in PuTTy, Terminal, or Command Prompt, type `matrix use {deviceId}` or `matrix use {deviceName}`
-1. Try `matrix ping`, the device should flash a few seconds later.
-1. Now you can issue commands and [deploy applications](../examples/app-create/#deploy.md) to your MATRIX OS from the [MATRIX CLI](../overview/cli.md).
+ Start MOS with the following command!
 
-### Continue
+```language-bash
+node ~/matrix-os/index.js
+```
 
-* See [Hello World](./hello-world.md) example
-* See [Manual Setup](../overview/manual-setup.md)
+>Starting MOS on boot is not yet implemented.
+
+<br/>
+##Check if everything works
+Open the terminal on your Desktop/Laptop and type the following command with the device name or ID. This selects the MATRIX device you want to interact with.
+
+```language-bash
+matrix use YOUR_DEVICE_NAME_OR_ID
+```
+
+Once your device is selected, run these commands to verify that everything has installed properly. This installs and runs the HelloWorld app from the <a href="https://apps.matrix.one/#!/apps" target="_blank">MATRIX App Store</a>.
+
+```language-bash
+matrix install HelloWorld
+matrix start HelloWorld
+```
+
+![](/matrix-os/img/hello-world.gif)
+
+You should now see a rainbow LED sequence, like the one above, on your MATRIX Device. 
+
+Use the following command to stop the app.
+
+```language-bash
+matrix stop HelloWorld
+```
+> When an app is stopped, the LEDs will keep the last color they were set to until set to a different color.
+
+<br/>
+##Next Steps
+Now that everything is properly installed, learn how to create your own MATRIX app [here](applications).

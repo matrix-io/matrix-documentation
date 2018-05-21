@@ -1,12 +1,12 @@
 # MATRIX CORE
 
-MATRIX CORE provides [Protobufs](https://developers.google.com/protocol-buffers/) over [ZeroMQ](http://zeromq.org/). An intended target for this layer is [MATRIX Open System](http://github.com/matrix-io/matrix-os). You can also use CORE to query sensors and control any MATRIX Device from any language that supports protocol buffers (version 3.X) and 0MQ. 
+MATRIX CORE provides <a href="https://developers.google.com/protocol-buffers/" target="_blank">Protobufs</a> over <a href="http://zeromq.org/" target="_blank">ZeroMQ</a>. An intended target for this layer is <a href="http://github.com/matrix-io/matrix-os" target="_blank">MATRIX Open System</a>. You can also use CORE to query sensors and control any MATRIX Device from any language that supports protocol buffers (version 3.X) and 0MQ. 
 
 Connections to CORE can be made both from localhost (127.0.0.1) and from remote computers that are in the same network.
 
 ## Specification
 
-Our [Protocol Buffer Specifications](http://github.com/matrix-io/protocol-buffers) are currently defined in `proto` files. Please use these files to inform your ZMQ payloads. More information can be found in the examples below.
+Our <a href="http://github.com/matrix-io/protocol-buffers" target="_blank">Protocol Buffer Specifications</a> are currently defined in `proto` files. Please use these files to inform your ZMQ payloads. More information can be found in the examples below.
 
 ## Installation
 
@@ -48,10 +48,10 @@ It is a 0MQ PULL port.
 To send a configuration you need to send a valid message (serialized to a string) for the given driver. For instance, the
 Everloop driver (LED array) uses a configuration message to set the LEDs.
 
-The message is named EverloopImage and it is in the file [driver.proto](https://github.com/matrix-io/protocol-buffers/blob/master/malos/driver.proto).
+The message is named EverloopImage and it is in the file <a href="https://github.com/matrix-io/protocol-buffers/blob/master/matrix_io/malos/v1/driver.proto" target="_blank">driver.proto</a>.
 The message follows:
 
-```
+```language-protobuf
 message LedValue {
   uint32 red = 1;
   uint32 green = 2;
@@ -84,7 +84,7 @@ If invalid values are used for the LED values of the number of LED values inside
 ### Error port
 
 Programs can subscribe to the 0MQ error port. It is a PUSH port. The port number is obtained by adding 2 to the base port (Also known as driver port).
-The errors are returned as strings but there's a pending task to change the error messages to a protocol buffer ([track issue](https://github.com/matrix-io/matrix-creator-malos/issues/21)).
+The errors are returned as strings but there's a pending task to change the error messages to a protocol buffer <a href="https://github.com/matrix-io/matrix-creator-malos/issues/21" target="_blank">(track issue)</a>.
 Please do not depend on errors reported as strings as we will change the errors to protocol buffers soon.
 
 ### Keep-alive port
@@ -99,8 +99,7 @@ Drivers that need keep-alive messages can be configured using the message that i
 The way to do it is set relevant field while doing other driver specific configuration (if this is required).
 
 
-```
-
+```language-protobuf
 message DriverConfig {
   // Delay between updates. In seconds.
   float delay_between_updates = 1;
@@ -128,7 +127,7 @@ expecting updates.
 
 Let's use the UV driver as an example. The relevant message:
 
-```
+```language-protobuf
 // Basic UV radiation lecture.
 message UV{
   // UV index.
@@ -157,7 +156,7 @@ Wrapping up the protocol section, a program that talks to CORE can:
 * [Everloop](reference/everloop.md)
 * [Humidity](reference/humidity.md)
 * [IMU](reference/imu.md)
-* [IR](reference/lirc.md)
+<!-- * [IR](reference/lirc.md) -->
 * [Pressure](reference/pressure.md)
 * [UV](reference/uv.md)
 * [GPIO](reference/gpio.md)
@@ -167,7 +166,7 @@ Wrapping up the protocol section, a program that talks to CORE can:
 
 ### Examples
 **Note:** pre-requisite is NodeJS. Don't use the one shipped with Raspbian because it's a bit old. If you don't have it, please check a recipe included below.
-```
+```language-bash
 git clone https://github.com/matrix-io/matrix-creator-malos.git && cd matrix-creator-malos
 git submodule init && git submodule update
 cd src/js_test

@@ -1,7 +1,7 @@
 
 ## Installation
 
-```bash
+```language-bash
 # Add rep and key
 curl https://apt.matrix.one/doc/apt-key.gpg | sudo apt-key add -
 echo "deb https://apt.matrix.one/raspbian $(lsb_release -sc) main" | sudo tee /etc/apt/sources.list.d/matrixlabs.list
@@ -20,7 +20,7 @@ CORE should be running on next boot.
 
 If you need to upgrade your MATRIX CORE package at any time, please run the following commands and restart.
 
-```bash
+```language-bash
 sudo apt-get update;
 sudo apt-get upgrade;
 sudo shutdown -r now;
@@ -30,19 +30,19 @@ sudo shutdown -r now;
 
 CORE runs as a service after boot. If you need to stop it use:
 
-```bash
+```language-bash
 sudo pkill -9 malos
 ```
 
 To manually run it back again use:
 
-```bash
+```language-bash
 malos &
 ```
 
 The output will be similar to:
 
-```bash
+```language-bash
 pi@raspberrypi:~ $ malos &
 [1] 24343
 pi@raspberrypi:~ $ **************

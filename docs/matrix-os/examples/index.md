@@ -1,13 +1,7 @@
 ## Examples
 
-### App Creation
-* Very basics of app creation, deployment and starting. - [[Example](app-create.md)] 
+<!-- <h3 stlye="padding-top:0;">IFTTT Integration</h3>
+*  Integrate with the online universe via IFTTT. - [[Example](ifttt.md)] -->
 
-### Sensor Test
-* The basics of connecting to sensors and using the LED. - [[Example](sensor-test.md)] 
-
-### IFTTT Integration
-*  Integrate with the online universe via IFTTT. - [[Example](ifttt.md)]
-
-### Dashboards
-* Make amazing data-driven dashboards. - [[Example]](dash-create.md)]
+<h3 stlye="padding-top:0;"><a href="dash-create">Dashboard</a></h3>
+Create a Dashboard for exploring data.
