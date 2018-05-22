@@ -59,25 +59,17 @@ pages:
     - 'Dashboard': 'matrix-os/examples/dash-create.md'
   - Troubleshooting: 'matrix-os/troubleshooting.md'
 - MATRIX CORE:
-  - 'MATRIX CORE': 'matrix-core/index.md'
-  - 'Getting Started':
-    - 'Prerequisities': 'matrix-core/getting-started/prerequisites.md'
-    - 'Installation': 'matrix-core/getting-started/installation.md'
-    - 'Hello World': 'matrix-core/getting-started/hello-world.md'
-    - 'Next Steps': 'matrix-core/getting-started/next-steps.md'
-  - Examples:
-    - 'Python' : 'matrix-core/examples/pytests.md'
-    - 'JavaScript' : 'matrix-core/examples/jstests.md'
-  - Reference:
-    - 'Index': 'matrix-core/reference/index.md'
-    - 'Everloop': 'matrix-core/reference/everloop.md'
-    - 'GPIO': 'matrix-core/reference/gpio.md'
-    - 'Humidity': 'matrix-core/reference/humidity.md'
-    - 'IMU': 'matrix-core/reference/imu.md'
-    # - 'IR': 'matrix-core/reference/lirc.md'
-    - 'Pressure': 'matrix-core/reference/pressure.md'
-    - 'Servo': 'matrix-core/reference/servo.md'
-    - 'UV': 'matrix-core/reference/uv.md'
+  - 'Overview': 'matrix-core/overview.md'
+  - Getting Started:
+    - 'Index': 'matrix-core/getting-started/index.md'
+    - 'Installation': 'matrix-core/getting-started/core-installation.md'
+    - 'Protocol': 'matrix-core/getting-started/protocol.md'
+    - 'Javascript Setup': 'matrix-core/getting-started/javascript-installation.md'
+    - 'Python Setup': 'matrix-core/getting-started/python-installation.md'
+  - Javascript References:
+    - 'Index': 'matrix-core/javascript-references/index.md'
+  - Python References:
+    - 'Index': 'matrix-core/python-references/index.md'
   - Troubleshooting: 'matrix-core/troubleshooting.md'
 - MATRIX HAL:
   - 'MATRIX HAL': 'matrix-hal/index.md'
