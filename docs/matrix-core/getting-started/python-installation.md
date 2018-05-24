@@ -60,7 +60,7 @@ def animation():
             ledValue.white = 0
             image.append(ledValue)
 
-        ## Send Eveloop Image ##
+        ## Send Everloop Image ##
         config = driver_pb2.DriverConfig()# Create an empty MATRIX configuration
         config.image.led.extend(image) # Store the Everloop image in MATRIX configuration
         config_socket.send(config.SerializeToString())# Send MATRIX configuration through ZMQ socket
