@@ -1,42 +1,50 @@
-<h1 style="padding-top: 0">Installing MATRIX CORE</h1>
+<h2 style="padding-top: 0">Installing MATRIX CORE</h2>
 
 >Make sure you have setup your 
 [MATRIX Creator](/matrix-creator/device-setup) or 
 [MATRIX Voice](/matrix-voice/device-setup) before continuing.
 
 ## Installation
-Before being able to program in MATRIX CORE, ensure you have access to the terminal of your Raspberry Pi via an <a href="https://www.raspberrypi.org/documentation/remote-access/ssh/" target="_blank">SSH-session</a> or a connected screen, mouse, and keyboard. Then insert the following commands to be inputted into your Raspberry Pi's terminal. This installs the MATRIX CORE package.
-
+Before starting, ensure you have access to the terminal of your Raspberry Pi via an <a href="https://www.raspberrypi.org/documentation/remote-access/ssh/" target="_blank">SSH-session</a> or a connected screen, mouse, and keyboard. Then insert and run the following commands into your Raspberry Pi's terminal, one at a time.
 ```language-bash
 curl https://apt.matrix.one/doc/apt-key.gpg | sudo apt-key add -
 echo "deb https://apt.matrix.one/raspbian $(lsb_release -sc) main" | sudo tee /etc/apt/sources.list.d/matrixlabs.list
-sudo apt-get update;
-sudo apt-get upgrade;
+sudo apt-get update
+sudo apt-get upgrade 
+```
+
+The next commands will install the MATRIX Core packages and reboot your Raspberry Pi. MATRIX CORE will then be running as a service each time your Raspberry Pi boots up.
+```language-bash
 sudo apt-get install matrixio-malos
 sudo reboot
 ```
 
-MATRIX CORE should now be running each time your Raspberry Pi boots.
+These remaining commands will install <a href="http://zeromq.org/" target="_blank">ZeroMQ</a>.
+```language-bash
+echo "deb http://download.opensuse.org/repositories/network:/messaging:/zeromq:/release-stable/Debian_9.0/ ./" >> /etc/apt/sources.list
+wget https://download.opensuse.org/repositories/network:/messaging:/zeromq:/release-stable/Debian_9.0/Release.key -O- | sudo apt-key add
+sudo apt-get install libzmq3-dev
+```
 
 <br/>
-## Upgrading
+## Helpful Information
+<h3 style="padding-top: 0">Upgrading</h3>
 
-If you need to upgrade your MATRIX CORE package at any time, please run the following commands and restart your Raspberry Pi.
+If you need to upgrade your MATRIX CORE package at any time, please run the following commands and restart your MATRIX device(Raspberry Pi).
 
 ```language-bash
-sudo apt-get update;
-sudo apt-get upgrade;
-sudo shutdown -r now;
+sudo apt-get update
+sudo apt-get upgrade
+sudo reboot
 ```
-<br/>
-## Stopping & Starting
-To manually stop MATRIX CORE use:
+<h3 style="padding-top: 0">Stopping & Starting</h3>
+If you need to manually stop MATRIX CORE use:
 
 ```language-bash
 sudo pkill -9 malos
 ```
 
-To manually start MATRIX CORE again use:
+If you need to manually start MATRIX CORE again use:
 
 ```language-bash
 malos &
@@ -44,4 +52,9 @@ malos &
 
 <br/>
 ## Next Steps
-Learn about what protocols you should expect in MATRIX CORE [here](/matrix-core/getting-started/protocol.md).
+Now that you have MATRIX CORE and ZeroMQ installed, all that's left is to setup a programming environment for your MATRIX device. 
+
+Currently, we have tutorials and examples for the following languages:
+
+* [Javascript](javascript-installation.md)
+* [Python](python-installation)
