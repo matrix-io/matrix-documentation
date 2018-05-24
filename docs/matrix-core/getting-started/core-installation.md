@@ -13,9 +13,13 @@ sudo apt-get update
 sudo apt-get upgrade 
 ```
 
-The next commands will install the MATRIX Core packages and reboot your Raspberry Pi. MATRIX CORE will then be running as a service each time your Raspberry Pi boots up.
+The next command will install the MATRIX Core packages.
 ```language-bash
 sudo apt-get install matrixio-malos
+```
+
+After the MATRIX Core packages are installed, use the command below to reboot your Raspberry Pi. MATRIX CORE will then be running as a service each time your Raspberry Pi boots up.
+```language-bash
 sudo reboot
 ```
 
@@ -52,7 +56,7 @@ malos &
 
 <br/>
 ## Next Steps
-Now that you have MATRIX CORE and ZeroMQ installed, all that's left is to setup a programming environment for your MATRIX device. 
+Now that you have MATRIX CORE and ZeroMQ installed, all that's left is to setup a programming environment for your preferred language. 
 
 Currently, we have tutorials and examples for the following languages:
 

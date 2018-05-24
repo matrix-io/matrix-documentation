@@ -15,25 +15,70 @@ nvm install 8.6
 Use the following commands to initialize a Node project folder, in the home directory `~/` of your MATRIX device.
 ```language-bash
 cd ~/
-mkdir matrix-core-projects
-cd matrix-core-projects
+mkdir js-matrix-core-app
+cd js-matrix-core-app
 npm init
 ```
 
 <h3 style="padding-top: 0">Installing npm Packages for ZMQ and Protocol Buffers</h3>
-The next commands install the ZMQ and MATRIX Protocol Buffers npm packages to use in your Node app.
+While staying inside your app folder, use the commands below to install the ZMQ and MATRIX Protocol Buffers npm packages. This allows you to interact with MATRIX Core through Node.js.
 ```language-bash
 npm install zmq --save
 npm install matrix-protos --save
 ```
 
-<!-- ## Download and Prepare CORE
-```language-bash
-git clone https://github.com/matrix-io/matrix-creator-malos
-cd matrix-creator-malos
-cd src/js_test
-npm install
-``` -->
-
 <br/>
 ## Check If Everything Works
+<h3 style="padding-top: 0">Creating app.js</h3>
+To ensure your installation has succeeded, create a file named app.js and paste the code below.
+
+```language-javascript
+// Set Initial Variables \\
+var zmq = require('zmq');// Asynchronous Messaging Framework
+var matrix_io = require('matrix-protos').matrix_io;// Protocol Buffers for MATRIX function
+var matrix_ip = '127.0.0.1';// Local IP
+var matrix_everloop_base_port = 20013 + 8// Port for Everloop driver
+
+// Interact With Everloop ZMQ Socket \\
+var configSocket = zmq.socket('push');// Create a Pusher socket (to later send LED values)
+configSocket.connect('tcp://' + matrix_ip + ':' + matrix_everloop_base_port);// Connect Pusher to configuration socket (where LED values are sent)
+
+// Create an empty Everloop image array
+var image = matrix_io.malos.v1.io.EverloopImage.create();
+
+// Loop every 50 milliseconds
+setInterval(function(){
+    // For each LED (currently required to send exactly 35)
+    for (var i = 0; i < 35; ++i) {
+        // Set individual LED value
+        image.led[i] = {
+            red: Math.floor(Math.random() * 200)+1,
+            green: Math.floor(Math.random() * 255)+1,
+            blue: Math.floor(Math.random() * 50)+1,
+            white:0
+        };
+    }
+  
+    // Store the Everloop image in MATRIX configuration
+    var config = matrix_io.malos.v1.driver.DriverConfig.create({
+        'image': image
+    });
+
+    // Send MATRIX configuration to MATRIX device
+    configSocket.send(matrix_io.malos.v1.driver.DriverConfig.encode(config).finish());
+},50);
+```
+
+<h3 style="padding-top: 0">Running app.js</h3>
+Once you have the app.js code copied, use the following command to run a simple hello world app.
+```language-bash
+node app.js
+```
+<h3 style="padding-top: 0">Result</h3>
+![](/matrix-core/img/js-setup-test.gif)
+
+## Next Steps
+Now that everything is properly installed, learn more about the Everloop and other Protocols MATRIX Core has to offer, or view more Javascript examples.
+
+* [Javascript Examples](../Javascript-examples)
+* [MATRIX CORE Protocols](../protocols)

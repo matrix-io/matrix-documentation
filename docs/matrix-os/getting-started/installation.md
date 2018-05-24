@@ -71,7 +71,7 @@ node ~/matrix-os/index.js
 >Starting MOS on boot is not yet implemented.
 
 <br/>
-##Check if everything works
+##Check If Everything Works
 Open the terminal on your Desktop/Laptop and type the following command with the device name or ID. This selects the MATRIX device you want to interact with.
 
 ```language-bash
