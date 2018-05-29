@@ -1,22 +1,26 @@
-# Humidity 
+<h2 style="padding-top:0">Humidity</h2>
 
+### Device Compatibility
+<img class="creator-compatibility-icon" src="/img/creator-icon.svg">
+
+## Overview
 The Humidity driver reports values for:
 
 * Relative Humidity on the Board 
 * Temperature in Celsius
 * RAW Values of temperature
 
+<h3 style="padding-top:0">Available ZeroMQ Ports</h3>
+* `Base port`: 20017
+
+* `Error port`: 20019
+
+* `Data update port`: 20020
+
 
 The Humidity can be configured with:
 * Current temperature in Celsius
 * Flag to set software calibration.
-
-The driver follows the [CORE protocol](../index.md#protocol).
-
-### 0MQ Port
-```
-20029
-```
 
 ### Protocol buffers
 

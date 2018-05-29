@@ -70,12 +70,12 @@ pages:
   - Protocols: 
     - 'Index': 'matrix-core/protocols/index.md'
     - 'Everloop': 'matrix-core/protocols/everloop.md'
-    - 'GPIO': 'matrix-core/protocols/gpio.md'
-    - 'Servo': 'matrix-core/protocols/servo.md'
-    - 'UV': 'matrix-core/protocols/uv.md'
     - 'Humidity': 'matrix-core/protocols/humidity.md'
     - 'IMU': 'matrix-core/protocols/imu.md'
     - 'Pressure': 'matrix-core/protocols/pressure.md'
+    - 'UV': 'matrix-core/protocols/uv.md'
+    # - 'Servo': 'matrix-core/protocols/servo.md'
+    - 'GPIO': 'matrix-core/protocols/gpio.md'
   - Javascript Examples:
     - 'Index': 'matrix-core/javascript-examples/index.md'
   - Python Examples:

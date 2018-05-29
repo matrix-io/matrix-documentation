@@ -1,14 +1,12 @@
 ## Overview
-MATRIX CORE functions by sending and receiving <a href="https://developers.google.com/protocol-buffers/" target="_blank">Protocol Buffers</a> over a <a href="http://zeromq.org/" target="_blank">ZeroMQ</a> connection. This can be used to query sensors and control any MATRIX Device from any language that supports Protocol Buffers(version 3.X) and ZeroMQ. This is the basis for how the [MATRIX Open System](/matrix-os/overview.md) layer can communicate with your MATRIX device. 
-
-<br/>
-## Protocol
+MATRIX CORE functions by sending and receiving <a href="https://developers.google.com/protocol-buffers/" target="_blank">Protocol Buffers</a> over a <a href="http://zeromq.org/" target="_blank">ZeroMQ</a> connection. This can be used to query sensors and control any MATRIX device from any language that supports Protocol Buffers (version 3.X) and ZeroMQ. This is the basis for how the [MATRIX OS](/matrix-os/overview.md) layer can communicate with your MATRIX device. 
 
 ![](/matrix-core/img/core-flow.png)
+<br/>
+## Ports & Protocol
+MATRIX CORE contains drivers (components & sensors) that communicate with your MATRIX device. This occurs by having each driver send or receive Protocol Buffers over a ZeroMQ driver port. Depending on the driver port it may allow for **read-only**, **write-only** or **read-write**.
 
-CORE contains drivers(components & sensors) that communicate with your MATRIX device. This occurs by having each driver sending or receiving Protocol Buffers over a ZeroMQ port. Driver ports allow for **read-only**, **write-only** or **read-write modes**.
-
-**Current Drivers:**
+**Current Driver Base Ports:**
 
 * `IMU` - **20013**
 * `Humidity` - **20017**
@@ -19,14 +17,19 @@ CORE contains drivers(components & sensors) that communicate with your MATRIX de
 * `MicArray_Alsa` - **20037**
 * `Lirc` - **20041**
 
-Above is a list of each driver's `base port`. Each driver reserves 3 extra ports, counting up from their `base port`.
+Each driver reserves 4 ports beginning with their `base port` as shown above. The other 3 ports are in sequential order counting up from the `base port`. Note, not all drivers utilize every port.
 
-<br/>
-## Ports
-The following list contains the port types in CORE that are currently defined.
+**All IMU Ports**
+
+* `IMU Base Port` - **20013**
+* `IMU Keep-Alive Port` - **20014**
+* `IMU Error Port` - **20015**
+* `IMU Data Update Port` - **20016**
+
+The following list contains the port types currently defined in MATRIX CORE.
 <!-- BASE PORT -->
 <details>
-<summary style="font-size: 1.75rem; font-weight: 300;">Base port</summary>
+<summary style="font-size: 1.75rem; font-weight: 300;">Base Port</summary>
 The `base port` is used to configure a driver on your MATRIX device. This port is a `ZeroMQ PULL port` that accepts a configuration which is created as a protocol buffer.
 
 To send a configuration you need to send a valid message for the given driver. For example, the Everloop driver (LED array) uses a configuration message to set the LEDs for your MATRIX device.
@@ -48,46 +51,29 @@ message EverloopImage {
 }
 ```
 
-Once `EverloopImage` message is filled out, it needs to be serialized as a string and sent to the 0MQ configuration port. The LEDs will then be configured to the colors that were defined in `EverloopImage`.
+Once the `EverloopImage` message is filled out, it needs to be serialized as a string and sent to the ZeroMQ configuration port. The LEDs will then be configured to the colors that were defined in `EverloopImage`.
 </details>
 <!-- KEEP-ALIVE PORT -->
 <details>
-<summary style="font-size: 1.75rem; font-weight: 300;">Keep-alive port</summary>
+<summary style="font-size: 1.75rem; font-weight: 300;">Keep-alive Port</summary>
 `Port`: `base port` + 1
 
-The Keep-alive port is a `ZeroMQ PUSH port` that is required for certain drivers to keep their function alive. Drivers that are pushing data need this in place to let it know if data will continue to be requested. For example, the Everloop driver doesn't require Keep-alive messages, but the Humidity driver does.
-
-Drivers that need Keep-alive messages can be configured using the message that is used for all the configurations. All that's needed is to set the relevant field along with any other driver specific configurations needed. The file can be seen <a href="https://github.com/matrix-io/protocol-buffers/blob/master/matrix_io/malos/v1/driver.proto#L33" target="_blank">here</a>.
-The message follows:
-
-```language-protobuf
-message DriverConfig {
-  // Delay between updates. In seconds.
-  float delay_between_updates = 1;
-  // Timeout after last ping.
-  float timeout_after_last_ping = 2;
-
-  // Other fields Omitted For Readability...
-}
-```
-Keep in mind, the field `timeout_after_last_ping` defaults to 5 seconds if no value is set. If a driver doesn't receive a Keep-alive message after the specified seconds, it will stop sending updates.
-
-Also, any message that is sent to the Keep-alive port will be discarded, so an empty string `""` makes for a good keep-alive message.
+The Keep-alive port is a `ZeroMQ PULL port` that is required for certain drivers to keep their function alive. Drivers that are pushing data need this in place to let it know if data will continue to be requested. For example, the Everloop driver doesn't require Keep-alive messages, but the Humidity driver does. Any message that is sent to the Keep-alive port will be discarded, so an empty string `""` makes for a good Keep-alive message.
 
 </details>
 <!-- ERROR PORT -->
 <details>
-<summary style="font-size: 1.75rem; font-weight: 300;">Error port</summary>
+<summary style="font-size: 1.75rem; font-weight: 300;">Error Port</summary>
 `Port`: `base port` + 2
 
-Programs can subscribe to this port to receive driver related errors. The Error port is a `ZeroMQ PUSH port` that will send you a string of any errors that it has encountered.
+Programs can subscribe to this port to receive driver related errors. The Error port is a `ZeroMQ PUSH port` that will send you a string with any errors that it has encountered.
 </details>
 <!-- DATA UPDATE PORT -->
 <details>
-<summary style="font-size: 1.75rem; font-weight: 300;">Data update port</summary>
+<summary style="font-size: 1.75rem; font-weight: 300;">Data Update Port</summary>
 `Port`: `base port` + 3
 
-This `ZeroMQ PUSH port` is used by drivers that send data (Humidity, UV, etc..). Each driver uses a different message to report data to programs that subscribe for these updates.
+This `ZeroMQ PUSH port` is used by drivers that send data (Humidity, UV, etc.). Each driver uses a different message to report data to programs that subscribe for these updates.
 
 To demonstrate, the UV driver will be used as an example. You can find the file <a href="https://github.com/matrix-io/protocol-buffers/blob/master/matrix_io/malos/v1/sense.proto#L52">here</a>.
 The message follows:
@@ -108,7 +94,7 @@ Applications that subscribe to UV driver updates will receive a string with seri
 
 <br/>
 ## Next Steps
-Learn to setup a programming language for communicating with CORE. Currently we have tutorials for the following languages:
+Learn to setup a programming language for communicating with MATRIX CORE. Currently we have tutorials for the following languages:
 
 * [Javascript](javascript-installation.md)
 * [Python](python-installation)
