@@ -36,7 +36,7 @@ from multiprocessing import Process
 from matrix_io.proto.malos.v1 import driver_pb2# Protocol Buffers for MATRIX functions
 from matrix_io.proto.malos.v1 import io_pb2# Protocol Buffers for MATRIX functions
 matrix_ip = '127.0.0.1'# Local IP
-matrix_everloop_base_port = 20013 + 8# Port for Everloop drive
+matrix_everloop_base_port = 2021# Port for Everloop drive
 
 ### Functions ###
 def animation():
@@ -52,7 +52,6 @@ def animation():
 
         # For each LED (currently required to send exactly 35)
         for led in range(35):
-
             ledValue = io_pb2.LedValue()
             ledValue.blue = randint(0, 50)
             ledValue.red = randint(0, 200)
@@ -82,7 +81,7 @@ Once you have the app.js code copied, use the following command to run a simple 
 python app.py
 ```
 <h3 style="padding-top: 0">Result</h3>
-![](/matrix-core/img/js-setup-test.gif)
+![](/matrix-core/img/install-setup-test.gif)
 
 ## Next Steps
 Now that everything is properly installed, learn more about the Everloop and other Protocols MATRIX Core has to offer, or view more Python examples.

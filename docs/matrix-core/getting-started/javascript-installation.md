@@ -2,7 +2,7 @@
 This setup will go through how to install <a href="https://nodejs.org/en/" target="_blank">Node.js</a> and the dependencies needed to create a Node application that can communicate with MATRIX CORE.
 
 Run the following commands on your MATRIX device(Raspberry Pi) to install <a href="https://github.com/creationix/nvm" target="_blank">Node Version Manager</a> which will then be used to install version `8.6` of Node.js.
-> Its **strongly** recommended to use version `8.6` of Node.js
+> It is **strongly** recommended to use version `8.6` of Node.js
 ```language-bash
 curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash
 . ~/.bashrc
@@ -37,7 +37,7 @@ To ensure your installation has succeeded, create a file named app.js and paste 
 var zmq = require('zmq');// Asynchronous Messaging Framework
 var matrix_io = require('matrix-protos').matrix_io;// Protocol Buffers for MATRIX function
 var matrix_ip = '127.0.0.1';// Local IP
-var matrix_everloop_base_port = 20013 + 8// Port for Everloop driver
+var matrix_everloop_base_port = 2021// Port for Everloop driver
 
 // Interact With Everloop ZMQ Socket \\
 var configSocket = zmq.socket('push');// Create a Pusher socket (to later send LED values)
@@ -75,7 +75,7 @@ Once you have the app.js code copied, use the following command to run a simple 
 node app.js
 ```
 <h3 style="padding-top: 0">Result</h3>
-![](/matrix-core/img/js-setup-test.gif)
+![](/matrix-core/img/install-setup-test.gif)
 
 ## Next Steps
 Now that everything is properly installed, learn more about the Everloop and other Protocols MATRIX Core has to offer, or view more Javascript examples.
