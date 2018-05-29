@@ -58,7 +58,7 @@ malos &
 ## Next Steps
 Now that you have MATRIX CORE and ZeroMQ installed, please take a look at Understanding CORE [here](understanding-core.md).
 
-If you're already familiar, you can learn how to setup a programming language to use in CORE. Currently we have tutorials for the following languages:
+If you're already familiar, you can learn how to setup a programming language for communicating with CORE. Currently we have tutorials for the following languages:
 
 * [Javascript](javascript-installation.md)
 * [Python](python-installation)
