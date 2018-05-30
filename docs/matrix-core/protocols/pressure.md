@@ -1,4 +1,9 @@
-# Pressure
+<h2 style="padding-top:0">Pressure</h2>
+
+### Device Compatibility
+<img class="creator-compatibility-icon" src="/img/creator-icon.svg">
+
+## Overview
 
 The Pressure driver reports values for:
 
@@ -6,139 +11,59 @@ The Pressure driver reports values for:
 * Altitude
 * Temperature
 
-The driver follows the [MATRIX CORE protocol](../index.md#protocol).
-
-### 0MQ Port
-```
-20025
-```
-
-### Protocol buffers
-
-```language-protobuf
-message Pressure {
-  float pressure = 1;
-  float altitude = 2;
-  float temperature = 3;
-}
-```
-
-The message is defined in <a href="https://github.com/matrix-io/protocol-buffers/blob/master/matrix_io/malos/v1/sense.proto" target="_blank">driver.proto</a>.
-
-### Keep-alives
-
-This driver needs keep-alive messages [as specified in the MATRIX CORE protocol](https://github.com/matrix-io/matrix-creator-malos/blob/master/README.md#keep-alive-port).
-If you start sending keep-alive messages it will start returning data every second so you can omit the configuration for this device.
+<h3 style="padding-top:0">Available ZeroMQ Ports</h3>
+* `Base port`: 20025
+* `Keep-alive port`: 20026
+* `Error port`: 20027
+* `Data Update port`: 20028
 
 
-### Errors
+## Protocol
 
-This driver report errors when an invalid configuration is sent.
+<!-- Base PORT -->
+<details>
+<summary style="font-size: 1.75rem; font-weight: 300;">Base Port</summary>
+This port accepts 2 configurations for communicating with the Pressure driver. 
 
-### Read
+* `delay_between_updates` - controls the output speed of messages from the **Data Update port**. 
 
-The driver will send a serialized message of type `Pressure`.
-
-```language-protobuf
-message Pressure {
-  float pressure = 1;
-  float altitude = 2;
-  float temperature = 3;
-}
-```
-
-This is a sample output given by the example described below.
-
-```language-bash
-$ node test_pressure.js 
-Sending pings every 5 seconds
-{ pressure: 74773.5, altitude: 2490.375, temperature: 35.9375 }
-{ pressure: 74776, altitude: 2490.3125, temperature: 35.9375 }
-```
-
-### JavaScript example
-
-Enhanced description of the <a href="https://github.com/matrix-io/matrix-creator-malos/blob/master/src/js_test/test_pressure.js" target="_blank">sample source code</a>.
-
-First, define the address of the MATRIX Creator. In this case we make it be `127.0.0.1`
-because we are connecting from the local host but it needs to be different if we
-connect from another computer. There is also the base port reserved by MATRIX CORE for
-the Pressure driver.
-
-```language-javascript
-var creator_ip = '127.0.0.1'
-var creator_pressure_base_port = 20013 + (4 * 3)
-```
-
-Load the protocol buffers used in the example.
-
-```language-javascript
-var protoBuf = require("protobufjs")
-
-// Parse proto file
-var protoBuilder = protoBuf.loadProtoFile('../../protocol-buffers/malos/driver.proto')
-// Parse MATRIX matrix_CORE package (namespace).
-var matrixMalosBuilder = protoBuilder.build("matrix_malos")
-```
-
-Subscribe to the errors reported by the driver. 
-
-```language-javascript
-var zmq = require('zmq')
-
-var errorSocket = zmq.socket('sub')
-errorSocket.connect('tcp://' + creator_ip + ':' + (creator_pressure_base_port + 2))
-errorSocket.subscribe('')
-errorSocket.on('message', function(error_message) {
-  process.stdout.write('Message received: Pressure error: ' + error_message.toString('utf8') + "\n")
-});
-```
-All the drivers are configured using the message `DriverConfig` (see <a href="https://github.com/matrix-io/protocol-buffers/blob/master/matrix_io/malos/v1/sense.proto" target="_blank">driver.proto</a>).
-This is what the message looks like if we omit the fields that are not used in this example.
+* `timeout_after_last_ping` - stops sending messages from the **Data Update port** if nothing has been sent to the **Keep-alive port** after the specified amount of seconds.
 
 ```language-protobuf
 message DriverConfig {
+  // Delay between updates in seconds
   float delay_between_updates = 1;
+  // Timeout after last ping
   float timeout_after_last_ping = 2;
+```
+</details>
+
+<!-- Keep-alive PORT -->
+<details>
+<summary style="font-size: 1.75rem; font-weight: 300;">Keep-alive Port</summary>
+This driver needs keep-alive messages in order to send data to your application. It's recommended to send an empty string `""` because the contents of a keep-alive message are never read.
+</details>
+
+<!-- Error PORT -->
+<details>
+<summary style="font-size: 1.75rem; font-weight: 300;">Error Port</summary>
+Applications can subscribe to this port to receive driver related errors.
+</details>
+
+<!-- Data Update PORT -->
+<details>
+<summary style="font-size: 1.75rem; font-weight: 300;">Data Update Port</summary>
+Applications can subscribe to this port for pressure data. The output will be a serialized message of type `Pressure` with the following information.
+```language-protobuf
+message Pressure {
+  // Pressure
+  float pressure = 1;
+
+  // Altimeter
+  float altitude = 2;
+
+  // Temperature
+  float temperature = 3;
 }
 ```
-
-The following snippet is telling the driver to send an update each 2 seconds
-and stop sending updates if it doesn't receive a keep-alive message for 6 seconds.
-
-```language-javascript
-var configSocket = zmq.socket('push')
-configSocket.connect('tcp://' + creator_ip + ':' + creator_pressure_base_port)
-
-var driverConfigProto = new matrixMalosBuilder.DriverConfig
-
-driverConfigProto.delay_between_updates = 2.0
-driverConfigProto.timeout_after_last_ping = 6.0
-
-configSocket.send(driverConfigProto.encode().toBuffer())
-```
-
-Where is where the updates are received by subscribing to the `data update port` of the driver.
-The subscription is initiated by the line `updateSocket.subscribe('')`.
-
-```language-javascript
-var updateSocket = zmq.socket('sub')
-updateSocket.connect('tcp://' + creator_ip + ':' + (creator_pressure_base_port + 3))
-updateSocket.subscribe('')
-updateSocket.on('message', function(buffer) {
-  var data = new matrixMalosBuilder.Pressure.decode(buffer)
-  console.log(data)
-});
-```
-An empty keep-alive message is sent to the driver every 5 seconds to make sure it keeps
-sending data updates.
-
-```language-javascript
-var pingSocket = zmq.socket('push')
-pingSocket.connect('tcp://' + creator_ip + ':' + (creator_pressure_base_port + 1))
-process.stdout.write("Sending pings every 5 seconds");
-pingSocket.send(''); // Ping the first time.
-setInterval(function(){
-  pingSocket.send('');
-}, 5000);
-```
+</details>

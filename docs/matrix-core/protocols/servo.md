@@ -1,126 +1,47 @@
-# GPIO
+<h2 style="padding-top:0">Servo</h2>
 
-The Servo driver on current version supports:
-<a href="https://github.com/matrix-io/matrix-creator-malos/blob/av/doc_servo/docs/servo_diagram.jpg"><img src="https://github.com/matrix-io/matrix-creator-malos/blob/av/doc_servo/docs/servo_diagram.jpg?raw=true" align="right" width="320" ></a>
+### Device Compatibility
+<img class="creator-compatibility-icon" src="/img/creator-icon.svg">
+> MATRIX Voice compatibility in development.
 
-* Handle Servo via GPIO pin output
-* Set Servo angle (180ø servo for the moment)
+## Overview
 
-The driver follows the [CORE protocol](../index.md#protocol).
+The Servo driver can set the angle of your servos through the pins of your MATRIX device.
 
-### GPIO electrical characteristics
+**Device Pinouts**:
 
-* GPIO voltage: 0.60-4.10 VDC (<a href="https://github.com/matrix-io/matrix-creator-quickstart/wiki/Data-Sheets" target="_blank">details</a>)
-* current 10mA max
-* all GPIO pins need pullups
-* requiere external source for servo
+* [MATRIX Creator](/matrix-creator/resources/pinout.md)
+* [MATRIX Voice](/matrix-voice/resources/pinout.md)
 
-<a href="https://github.com/matrix-io/matrix-creator-malos/blob/master/docs/gpio_diagram.jpg"><img src="https://github.com/matrix-io/matrix-creator-malos/blob/master/docs/gpio_diagram.jpg?raw=true" align="right" width="300"></a>
+<h3 style="padding-top:0">Available ZeroMQ Ports</h3>
+* `Base port`: 20045
+* `Error port`: 20047
 
+## Protocol
 
-### 0MQ Port
-```
-20045
-```
-### Protocol buffers
+<!-- Base PORT -->
+<details>
+<summary style="font-size: 1.75rem; font-weight: 300;">Base Port</summary>
+This port accepts 2 configurations for communicating with the Servo driver. 
+
+* `pin` - Selects the pin you want to use on your MATRIX device. 
+
+* `angle` - Sets the angle
 
 ```language-protobuf
 // Servo handler params
 message ServoParams {
-  // GPIO to config
+  // Pin to configure
   uint32 pin = 1;
 
-  // Servo mode
-  uint32 angle = 2; 
+  // Servo angle
+  uint32 angle = 2;
 }
 ```
-The message is defined in <a href="https://github.com/matrix-io/protocol-buffers/blob/master/matrix_io/malos/v1/driver.proto" target="_blank">driver.proto</a>.
+</details>
 
-### Errors
-
-This driver reports errors when an invalid configuration is sent.
-
-
-### Write
-
-All pins on matrix creator start as inputs. You need to change the default settings. (see Javascript example below)
-
-
-This is a sample output given by the example described below.
-
-```language-bash
-$ node test_servo.js 
-angle: 0
-angle: 10
-angle: 20
-angle: 30
-angle: 40
-```
-
-(The servo motor will change by the different angles)
-
-
-### JavaScript example
-
-Enhanced description of the <a href="https://github.com/matrix-io/matrix-creator-malos/blob/master/src/js_test/test_servo.js" target="_blank">sample source code</a>.
-
-First, define the address of the MATRIX Creator. In this case we make it be `127.0.0.1`
-because we are connecting from the local host but it needs to be different if we
-connect from another computer. There is also the base port reserved by CORE for
-the Pressure driver.
-
-```language-javascript
-var creator_ip = '127.0.0.1'
-var creator_servo_base_port = 20013 + 32
-```
-
-#### Load the protocol buffers used in the example.
-
-```language-javascript
-var protoBuf = require("protobufjs");
-// parse proto file
-var protoBuilder = protoBuf.loadProtoFile('../../protocol-buffers/malos/driver.proto')
-// Parse matrix_malos package (namespace).
-var matrixMalosBuilder = protoBuilder.build("matrix_malos")
-```
-
-#### Connection to servo driver
-```language-javascript
-var zmq = require('zmq')
-var configSocket = zmq.socket('push')
-configSocket.connect('tcp://' + creator_ip + ':' + creator_servo_base_port /* config */)
-```
-
-#### Configure Servo GPIO pin and send angle:
-All the drivers are configured using the message `driverconfig` (see <a href="https://github.com/matrix-io/protocol-buffers/blob/master/matrix_io/malos/v1/driver.proto" target="_blank">driver.proto</a>).
-```language-javascript
-function sendServoCommand() {
-  // build servo params message
-  var servo_cfg_cmd = new matrixMalosBuilder.ServoParams;
-  // Servo attached on GPIO13 (for example)
-  servo_cfg_cmd.set_pin(13);
-  
-  // change angle on each tick
-  process.nextTick(function() {count=count+10});
-  var angle=count%180;
-  console.log('angle:',angle);
-
-  // set servo angle
-  servo_cfg_cmd.set_angle(angle);
- 
-  // build DriverConfig message
-  var config = new matrixMalosBuilder.DriverConfig;
-  config.set_servo(servo_cfg_cmd);
-  configSocket.send(config.encode().toBuffer());
-}
-```
-
-#### Send continuous configuration:
-
-```language-javascript
-sendServoCommand()
-setInterval(function() {
-  sendServoCommand()
-}, 3000);
-```
-
+<!-- Error PORT -->
+<details>
+<summary style="font-size: 1.75rem; font-weight: 300;">Error Port</summary>
+Applications can subscribe to this port to receive driver related errors.
+</details>

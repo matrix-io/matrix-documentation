@@ -23,7 +23,7 @@ npm init
 <h3 style="padding-top: 0">Installing npm Packages for ZMQ and Protocol Buffers</h3>
 While staying inside your app folder, use the commands below to install the ZMQ and MATRIX Protocol Buffers npm packages. This allows you to interact with MATRIX Core through Node.js.
 ```language-bash
-npm install zmq --save
+npm install zeromq --save
 npm install matrix-protos --save
 ```
 

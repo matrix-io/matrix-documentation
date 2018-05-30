@@ -1,4 +1,4 @@
-<h2 style="padding-top:0">Inertial Measurement Unit</h2>
+<h2 style="padding-top:0">Inertial Measurement Unit (IMU)</h2>
 
 ### Device Compatibility
 <img class="creator-compatibility-icon" src="/img/creator-icon.svg">
@@ -18,9 +18,7 @@ The IMU driver reports values for:
 * `Error port`: 20015
 * `Data Update port`: 20016
 
-
 ## Protocol
-
 <!-- Base PORT -->
 <details>
 <summary style="font-size: 1.75rem; font-weight: 300;">Base Port</summary>
@@ -80,5 +78,6 @@ message Imu {
   float mag_x = 10;
   float mag_y = 11;
   float mag_z = 12;
+}
 ```
 </details>

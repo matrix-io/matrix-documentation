@@ -1,8 +1,8 @@
 ## Overview
 MATRIX CORE functions by sending and receiving <a href="https://developers.google.com/protocol-buffers/" target="_blank">Protocol Buffers</a> over a <a href="http://zeromq.org/" target="_blank">ZeroMQ</a> connection. This can be used to query sensors and control any MATRIX device from any language that supports Protocol Buffers (version 3.X) and ZeroMQ. This is the basis for how the [MATRIX OS](/matrix-os/overview.md) layer can communicate with your MATRIX device. 
 
-![](/matrix-core/img/core-flow.png)
-<br/>
+![](/matrix-core/img/core-flow.jpg)
+
 ## Ports & Protocol
 MATRIX CORE contains drivers (components & sensors) that communicate with your MATRIX device. This occurs by having each driver send or receive Protocol Buffers over a ZeroMQ driver port. Depending on the driver port it may allow for **read-only**, **write-only** or **read-write**.
 
