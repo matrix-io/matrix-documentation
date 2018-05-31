@@ -84,7 +84,4 @@ python app.py
 ![](/matrix-core/img/install-setup-test.gif)
 
 ## Next Steps
-Now that everything is properly installed, learn more about the Everloop and other Protocols MATRIX Core has to offer, or view more Python examples.
-
-* [Python Examples](../python-examples)
-* [MATRIX CORE Protocols](../protocols)
+Now that everything is properly installed, learn more about the Everloop and other [Driver Protocols](../protocols) MATRIX Core has to offer, or view the available [Python examples](../python-examples).

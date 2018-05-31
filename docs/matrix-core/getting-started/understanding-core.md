@@ -14,7 +14,9 @@ MATRIX CORE contains drivers (components & sensors) that communicate with your M
 * `Pressure` - **20025**
 * `UV` - **20029**
 * `ZigbeeBulb` - **20033**
-* `MicArray_Alsa` - **20037**
+<!-- * `MicArray_Alsa` - **20037** -->
+* `Servo` - **20045**
+* `GPIO` - **20049**
 
 Each driver reserves 4 ports beginning with their `base port` as shown above. The other 3 ports are in sequential order counting up from the `base port`. Below is an example of all IMU ports Note, not all drivers utilize every port.
 
@@ -32,7 +34,7 @@ The following list contains the port types currently defined in MATRIX CORE.
 The `base port` is used to configure a driver on your MATRIX device. This port is a `ZeroMQ PULL port` that accepts a configuration which is created as a protocol buffer.
 
 To send a configuration you need to send a valid message for the given driver. For example, the Everloop driver (LED array) uses a configuration message to set the LEDs for your MATRIX device.
-That configuration message is named `EverloopImage` and it requires 35 instances of the `LEDValue` message added to it. The file for where this is defined can be seen <a href="https://github.com/matrix-io/protocol-buffers/blob/master/matrix_io/malos/v1/io.proto#L26" target="_blank">here</a>.
+That configuration message is named `EverloopImage` and it requires 35 instances of the `LEDValue` message added to it. The file for where this is defined can be seen <a href="https://github.com/matrix-io/protocol-buffers/blob/master/matrix_io/malos/v1/io.proto" target="_blank">here</a>.
 The message follows:
 
 ```language-protobuf
@@ -74,7 +76,7 @@ Programs can subscribe to this port to receive driver related errors. The Error 
 
 This `ZeroMQ PUSH port` is used by drivers that send data (Humidity, UV, etc.). Each driver uses a different message to report data to programs that subscribe for these updates.
 
-To demonstrate, the UV driver will be used as an example. You can find the file <a href="https://github.com/matrix-io/protocol-buffers/blob/master/matrix_io/malos/v1/sense.proto#L52">here</a>.
+To demonstrate, the UV driver will be used as an example. You can find the file <a href="https://github.com/matrix-io/protocol-buffers/blob/master/matrix_io/malos/v1/sense.proto">here</a>.
 The message follows:
 
 ```language-protobuf
@@ -93,7 +95,10 @@ Applications that subscribe to UV driver updates will receive a string with seri
 
 <br/>
 ## Next Steps
-Learn to setup a programming language for communicating with MATRIX CORE. Currently we have tutorials for the following languages:
+
+We currently provide libraries and examples for the following languages:
 
 * [Javascript](javascript-installation.md)
 * [Python](python-installation)
+
+If you want to use another protocol buffer supported programming language then we suggest you view the <a href="https://developers.google.com/protocol-buffers/" target="_blank">Protocol Buffers Documentation</a> for the language you want to use in MATRIX CORE. Remember to use <a href="http://zeromq.org/" target="_blank">ZeroMQ</a> for sending these Protocol Buffers. You can view the protocols for each of our drivers [here](./../protocols).

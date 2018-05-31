@@ -11,6 +11,8 @@ The Pressure driver reports values for:
 * Altitude
 * Temperature
 
+>Based on component location, the temperature values from the [Humidity driver](./humidity) are recommended over the Pressure driver
+
 <h3 style="padding-top:0">Available ZeroMQ Ports</h3>
 * `Base port`: 20025
 * `Keep-alive port`: 20026
@@ -36,6 +38,7 @@ message DriverConfig {
   // Timeout after last ping
   float timeout_after_last_ping = 2;
 ```
+View the defined message <a href="https://github.com/matrix-io/protocol-buffers/blob/master/matrix_io/malos/v1/driver.proto" target="_blank">here</a>.
 </details>
 
 <!-- Keep-alive PORT -->
@@ -66,4 +69,5 @@ message Pressure {
   float temperature = 3;
 }
 ```
+View the defined message <a href="https://github.com/matrix-io/protocol-buffers/blob/65397022e73ac98ec2b217937f133a9eefbd8f01/matrix_io/malos/v1/sense.proto" target="_blank">here</a>.
 </details>

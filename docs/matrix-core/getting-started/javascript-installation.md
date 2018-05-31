@@ -34,10 +34,10 @@ To ensure your installation has succeeded, create a file named app.js and paste 
 
 ```language-javascript
 // Set Initial Variables \\
-var zmq = require('zmq');// Asynchronous Messaging Framework
+var zmq = require('zeromq');// Asynchronous Messaging Framework
 var matrix_io = require('matrix-protos').matrix_io;// Protocol Buffers for MATRIX function
 var matrix_ip = '127.0.0.1';// Local IP
-var matrix_everloop_base_port = 2021// Port for Everloop driver
+var matrix_everloop_base_port = 20021// Port for Everloop driver
 
 // Interact With Everloop ZMQ Socket \\
 var configSocket = zmq.socket('push');// Create a Pusher socket (to later send LED values)
@@ -78,7 +78,4 @@ node app.js
 ![](/matrix-core/img/install-setup-test.gif)
 
 ## Next Steps
-Now that everything is properly installed, learn more about the Everloop and other Protocols MATRIX Core has to offer, or view more Javascript examples.
-
-* [Javascript Examples](../Javascript-examples)
-* [MATRIX CORE Protocols](../protocols)
+Now that everything is properly installed, learn more about the Everloop and other [Driver Protocols](../protocols) MATRIX Core has to offer, or view the available [Javascript examples](../javascript-examples).

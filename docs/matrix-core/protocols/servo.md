@@ -38,6 +38,7 @@ message ServoParams {
   uint32 angle = 2;
 }
 ```
+View the defined message <a href="https://github.com/matrix-io/protocol-buffers/blob/65397022e73ac98ec2b217937f133a9eefbd8f01/matrix_io/malos/v1/io.proto" target="_blank">here</a>.
 </details>
 
 <!-- Error PORT -->

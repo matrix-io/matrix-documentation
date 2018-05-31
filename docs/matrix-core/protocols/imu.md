@@ -35,6 +35,7 @@ message DriverConfig {
   // Timeout after last ping
   float timeout_after_last_ping = 2;
 ```
+View the defined message <a href="https://github.com/matrix-io/protocol-buffers/blob/master/matrix_io/malos/v1/driver.proto" target="_blank">here</a>.
 </details>
 
 <!-- Keep-alive PORT -->
@@ -80,4 +81,5 @@ message Imu {
   float mag_z = 12;
 }
 ```
+View the defined message <a href="https://github.com/matrix-io/protocol-buffers/blob/65397022e73ac98ec2b217937f133a9eefbd8f01/matrix_io/malos/v1/sense.proto" target="_blank">here</a>.
 </details>

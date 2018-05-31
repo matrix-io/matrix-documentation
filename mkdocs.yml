@@ -67,10 +67,10 @@ pages:
     - 'Understanding CORE': 'matrix-core/getting-started/understanding-core.md'
     - 'Javascript Setup': 'matrix-core/getting-started/javascript-installation.md'
     - 'Python Setup': 'matrix-core/getting-started/python-installation.md'
-  - Protocols: 
+  - Driver Protocols: 
     - 'Index': 'matrix-core/protocols/index.md'
     - 'Everloop': 'matrix-core/protocols/everloop.md'
-    # - 'Humidity': 'matrix-core/protocols/humidity.md'
+    - 'Humidity': 'matrix-core/protocols/humidity.md'
     - 'IMU': 'matrix-core/protocols/imu.md'
     - 'Pressure': 'matrix-core/protocols/pressure.md'
     - 'UV': 'matrix-core/protocols/uv.md'
