@@ -27,7 +27,6 @@ These remaining commands will install <a href="http://zeromq.org/" target="_blan
 ```language-bash
 echo "deb http://download.opensuse.org/repositories/network:/messaging:/zeromq:/release-stable/Debian_9.0/ ./" >> /etc/apt/sources.list
 wget https://download.opensuse.org/repositories/network:/messaging:/zeromq:/release-stable/Debian_9.0/Release.key -O- | sudo apt-key add
-sudo apt-get install libzmq3-dev
 ```
 
 <br/>
@@ -58,7 +57,7 @@ malos &
 ## Next Steps
 Now that you have MATRIX CORE and ZeroMQ installed, please take a look at Understanding CORE [here](understanding-core.md).
 
-If you're already familiar, you can learn how to setup a programming language for communicating with CORE. Currently we have tutorials for the following languages:
+If you're already familiar, you can learn how to setup a programming language for communicating with CORE.  We currently have tutorials for the following languages:
 
 * [Javascript](javascript-installation.md)
 * [Python](python-installation)
