@@ -4,7 +4,7 @@ MATRIX Open System (MOS) is open source software for hosting IoT applications. M
 
 ### [Getting Started](getting-started)
 
-Learn how to install MOS on your creator and create applications for your MATRIX device.
+Learn how to install MOS and create applications for your MATRIX device.
 
 ### [Reference](reference)
 
