@@ -33,26 +33,21 @@ The following list contains the port types currently defined in MATRIX CORE.
 <summary style="font-size: 1.75rem; font-weight: 300;">Base Port</summary>
 The `base port` is used to configure a driver on your MATRIX device. This port is a `ZeroMQ PULL port` that accepts a configuration which is created as a protocol buffer.
 
-To send a configuration you need to send a valid message for the given driver. For example, the Everloop driver (LED array) uses a configuration message to set the LEDs for your MATRIX device.
-That configuration message is named `EverloopImage` and it requires multiple instances of the `LEDValue` message added to it. The file for where this is defined can be seen <a href="https://github.com/matrix-io/protocol-buffers/blob/master/matrix_io/malos/v1/io.proto" target="_blank">here</a>.
-The message follows:
+To send a configuration you need to create a valid message for each driver. For example, the UV driver uses a configuration message to set the refresh rate and timeout for sending UV data.
 
+Configuration messages are named `DriverConfig`. The file for where this is defined can be seen <a href="https://github.com/matrix-io/protocol-buffers/blob/master/matrix_io/malos/v1/io.proto" target="_blank">here</a>.
+
+Below is an example for a UV configuration message:
 ```language-protobuf
-// RGBW values for a single LED
-message LedValue {
-  uint32 red = 1;
-  uint32 green = 2;
-  uint32 blue = 3;
-  uint32 white = 4;
-}
-
-// Everloop image that will hold each LedValue
-message EverloopImage {
-  repeated LedValue led = 1;
+message DriverConfig {
+  // Delay between updates. In seconds.
+  float delay_between_updates = 1;
+  // Timeout after last ping.
+  float timeout_after_last_ping = 2;
 }
 ```
 
-Once the `EverloopImage` message is filled out, it needs to be serialized as a string and sent to the ZeroMQ configuration port. The LEDs will then be configured to the colors that were defined in `EverloopImage`.
+Once the `DriverConfig` message is filled out, it needs to be serialized as a string and sent to the ZeroMQ configuration port.
 </details>
 <!-- KEEP-ALIVE PORT -->
 <details>
