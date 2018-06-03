@@ -22,11 +22,23 @@ The Servo driver can set the angle of your servos through the pins of your MATRI
 <!-- Base PORT -->
 <details>
 <summary style="font-size: 1.75rem; font-weight: 300;">Base Port</summary>
-This port accepts 2 configurations for communicating with the Servo driver. 
+This port accepts a single configuration for communicating with the Servo driver. 
+
+* `servo` - the servo configuration that's created from a `ServoParams` message.
+
+```language-protobuf
+message DriverConfig {
+  // ServoMotor service configuration
+  matrix_io.malos.v1.io.ServoParams servo = 7;
+}
+```
+View the defined message <a href="https://github.com/matrix-io/protocol-buffers/blob/master/matrix_io/malos/v1/driver.proto" target="_blank">here</a>.
+
+`ServoParams`
 
 * `pin` - Selects the pin you want to use on your MATRIX device. 
 
-* `angle` - Sets the angle
+* `angle` - emits a signal input that represents the angle set.
 
 ```language-protobuf
 // Servo handler params

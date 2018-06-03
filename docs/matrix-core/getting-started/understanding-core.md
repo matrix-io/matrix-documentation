@@ -34,7 +34,7 @@ The following list contains the port types currently defined in MATRIX CORE.
 The `base port` is used to configure a driver on your MATRIX device. This port is a `ZeroMQ PULL port` that accepts a configuration which is created as a protocol buffer.
 
 To send a configuration you need to send a valid message for the given driver. For example, the Everloop driver (LED array) uses a configuration message to set the LEDs for your MATRIX device.
-That configuration message is named `EverloopImage` and it requires 35 instances of the `LEDValue` message added to it. The file for where this is defined can be seen <a href="https://github.com/matrix-io/protocol-buffers/blob/master/matrix_io/malos/v1/io.proto" target="_blank">here</a>.
+That configuration message is named `EverloopImage` and it requires multiple instances of the `LEDValue` message added to it. The file for where this is defined can be seen <a href="https://github.com/matrix-io/protocol-buffers/blob/master/matrix_io/malos/v1/io.proto" target="_blank">here</a>.
 The message follows:
 
 ```language-protobuf
@@ -84,7 +84,7 @@ The message follows:
 message UV{
   // UV index
   float uv_index = 1;
-  // 
+  // OMS risk
   string oms_risk = 2;
 }
 ```
