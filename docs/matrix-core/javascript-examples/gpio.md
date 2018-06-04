@@ -1,55 +1,68 @@
-<h2 style="padding-top:0">Everloop</h2>
+<h2 style="padding-top:0">General Purpose Input Output (GPIO)</h2>
 
 ### Device Compatibility
 <img class="creator-compatibility-icon" src="/img/creator-icon.svg">
-<img class="voice-compatibility-icon" src="/img/voice-icon.svg">
+> MATRIX Voice compatibility in development.
 
 ## Overview
 
-The Everloop driver allows for:
+The GPIO driver on current version supports:<a 
 
-* Reading amount of LEDs your MATRIX device has.
-* Setting the RGBW colors for each individual LED.
+* Pin input.
+* Pin output.
+* Updates for the current state of all GPIO pins.
+
+**Device Pinouts**:
+
+* [MATRIX Creator](/matrix-creator/resources/pinout.md)
+* [MATRIX Voice](/matrix-voice/resources/pinout.md)
 
 <h3 style="padding-top:0">Available ZeroMQ Ports</h3>
-
-* `Base port`: 20021
-* `Keep-alive port`: 20022
-* `Error port`: 20023
-* `Data update port`: 20024
+* `Base port`: 20049
+* `Keep-alive port`: 20050
+* `Error port`: 20051
+* `Data Update port`: 20052
 
 ## Protocol
 
 <!-- Base PORT -->
 <details>
 <summary style="font-size: 1.75rem; font-weight: 300;">Base Port</summary>
-This port accepts a single configuration for communicating with the Everloop driver. 
+This port accepts a single configuration for communicating with the Servo driver.
 
-* `image` - the everloop configuration that's created from an `EverloopImage` message.
+* `gpio` - the gpio configuration that's created from a `GpioParams` message.
 
 ```language-protobuf
 message DriverConfig {
-  matrix_io.malos.v1.io.EverloopImage image = 3;
+  // Gpio service configuration
+  matrix_io.malos.v1.io.GpioParams gpio = 8;
 }
 ```
 View the defined message <a href="https://github.com/matrix-io/protocol-buffers/blob/master/matrix_io/malos/v1/driver.proto" target="_blank">here</a>.
 
-`EverloopImage` 
+`GpioParams`
 
-* `led` - Must hold the value for each LED on your MATRIX device. Each LED is defined as one `LedValue`.
+* `pin` - Selects the pin you want to use on your MATRIX device. 
+
+* `EnumMode` - Determines input or output mode for GPIO pins.
+
+* `value` - Set as 1 or 0 to signify on/off.
 
 ```language-protobuf
-// Value for an led that ranges from 0 to 255 for each color
-message LedValue {
-  uint32 red = 1;
-  uint32 green = 2;
-  uint32 blue = 3;
-  uint32 white = 4;
-}
+// GPIO handler params
+message GpioParams {
+  // GPIO to config
+  uint32 pin = 1;
 
-// The led array.
-message EverloopImage {
-  repeated LedValue led = 1;
+  // GPIO mode input/output
+  enum EnumMode {
+    INPUT = 0;
+    OUTPUT = 1;
+  }
+  EnumMode mode = 2;
+
+  // GPIO value
+  uint32 value = 3;
 }
 ```
 View the defined message <a href="https://github.com/matrix-io/protocol-buffers/blob/65397022e73ac98ec2b217937f133a9eefbd8f01/matrix_io/malos/v1/io.proto" target="_blank">here</a>.
@@ -70,15 +83,12 @@ Applications can subscribe to this port to receive driver related errors.
 <!-- Data Update PORT -->
 <details>
 <summary style="font-size: 1.75rem; font-weight: 300;">Data Update Port</summary>
-Applications can subscribe to this port for Everloop data. The output will be a serialized message of type `EverloopImage` with the following information.
-
+Applications can subscribe to this port for GPIO data. The output will be a serialized message of type `GpioParams` with the following information.
 ```language-protobuf
-// The led array.
-message EverloopImage {
-  repeated LedValue led = 1;
-
-  // Number of leds in the Everloop
-  int32 everloop_length = 2;
+// GPIO handler params
+message GpioParams {
+  // GPIO vector value
+  uint32 values = 4;
 }
 ```
 View the defined message <a href="https://github.com/matrix-io/protocol-buffers/blob/65397022e73ac98ec2b217937f133a9eefbd8f01/matrix_io/malos/v1/io.proto" target="_blank">here</a>.

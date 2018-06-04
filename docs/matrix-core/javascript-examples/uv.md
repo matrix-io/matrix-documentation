@@ -1,36 +1,30 @@
-<h2 style="padding-top:0">Humidity</h2>
->**Humidity is currently under maintenance**
+<h2 style="padding-top:0">UV</h2>
 
 ### Device Compatibility
 <img class="creator-compatibility-icon" src="/img/creator-icon.svg">
 
 ## Overview
 
-The Humidity driver allows for:
+The UV driver reports values for:
 
-* Reading relative humidity on the board
-* Obtaining temperature in Celsius and raw values
-* Calibrating temperature
+* UV Index scale used in the United States conforms with international guidelines for UVI reporting established by the World Health Organization.  From <a href="https://www.epa.gov/sunsafety/uv-index-scale-0" target="_blank">UV Index Scale</a>
+* UV Risk scale established by World Health Organization. From <a href="https://www.epa.gov/sunsafety/uv-index-scale-0" target="_blank">UV Index Scale</a>
 
 <h3 style="padding-top:0">Available ZeroMQ Ports</h3>
-
-* `Base port`: 20017
-* `Keep-alive port`: 20018
-* `Error port`: 20019
-* `Data update port`: 20020
+* `Base port`: 20029
+* `Keep-alive port`: 20030
+* `Error port`: 20031
+* `Data Update port`: 20032
 
 ## Protocol
-
 <!-- Base PORT -->
 <details>
 <summary style="font-size: 1.75rem; font-weight: 300;">Base Port</summary>
-This port accepts three configurations for communicating with the Humidity driver. 
+This port accepts 2 configurations for communicating with the UV driver. 
 
 * `delay_between_updates` - controls the output speed of messages from the **Data Update port**. 
 
 * `timeout_after_last_ping` - stops sending messages from the **Data Update port** if nothing has been sent to the **Keep-alive port** after the specified amount of seconds.
-
-* `humidity` - the humidity configuration that's created from a `HumidityParams` message.
 
 ```language-protobuf
 message DriverConfig {
@@ -38,25 +32,9 @@ message DriverConfig {
   float delay_between_updates = 1;
   // Timeout after last ping
   float timeout_after_last_ping = 2;
-  // Humidity configuration
-  matrix_io.malos.v1.sense.HumidityParams humidity = 9;
 ```
 View the defined message <a href="https://github.com/matrix-io/protocol-buffers/blob/master/matrix_io/malos/v1/driver.proto" target="_blank">here</a>.
-
-`HumidityParams`
-
-* `current_temperature` - a reference of the current temperature for calibration.
-
-```language-protobuf
-message HumidityParams{
-  // Current temperature °C used for calibration.
-  float current_temperature = 1;
-}
-```
-View the defined message <a href="https://github.com/matrix-io/protocol-buffers/blob/master/matrix_io/malos/v1/sense.proto" target="_blank">here</a>.
 </details>
-
-
 
 <!-- Keep-alive PORT -->
 <details>
@@ -73,21 +51,15 @@ Applications can subscribe to this port to receive driver related errors.
 <!-- Data Update PORT -->
 <details>
 <summary style="font-size: 1.75rem; font-weight: 300;">Data Update Port</summary>
-Applications can subscribe to this port for humidity data. The output will be a serialized message of type `Humidity` with the following information.
-
+Applications can subscribe to this port for UV data. The output will be a serialized message of type `UV` with the following information.
 ```language-protobuf
-message Humidity {
-  // Humidity
-  float humidity = 1;
+message UV{
+  // UV index.
+  float uv_index = 1;
 
-  // Temperature
-  float temperature = 2;
-
-  // Raw temperature value from the sensor
-  float temperature_raw = 3;
-
-  //  Flag that tells if the temperature is calibrated
-  bool temperature_is_calibrated = 4;
+  // Risk of harm from unprotected sun exposure, for the average adult.
+  // According to the OMS table. https://www.epa.gov/sunsafety/uv-index-scale-0
+  string oms_risk = 2;
 }
 ```
 View the defined message <a href="https://github.com/matrix-io/protocol-buffers/blob/65397022e73ac98ec2b217937f133a9eefbd8f01/matrix_io/malos/v1/sense.proto" target="_blank">here</a>.

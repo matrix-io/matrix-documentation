@@ -41,17 +41,17 @@ var matrix_everloop_base_port = 20021// Port for Everloop driver
 var matrix_device_leds = 0;// Holds amount of LEDs on MATRIX device
 
 // ERROR PORT \\
-var errorSocket = zmq.socket('sub')// Create a Subscriber socket
-errorSocket.connect('tcp://' + matrix_ip + ':' + (matrix_everloop_base_port + 2))
-errorSocket.subscribe('')// Connect Subscriber to Error port
+var errorSocket = zmq.socket('sub');// Create a Subscriber socket
+errorSocket.connect('tcp://' + matrix_ip + ':' + (matrix_everloop_base_port + 2));// Connect Subscriber to Error port
+errorSocket.subscribe('');// Connect Subscriber to Error port
 // On Message
 errorSocket.on('message', (error_message) => {
-	console.log('Error received: ' + error_message.toString('utf8'))
+	console.log('Error received: ' + error_message.toString('utf8'));// Log error
 });
 
 // DATA UPDATE PORT \\
-var updateSocket = zmq.socket('sub')// Create a Subscriber socket
-updateSocket.connect('tcp://' + matrix_ip + ':' + (matrix_everloop_base_port + 3))// Connect Subscriber to Data Update port
+var updateSocket = zmq.socket('sub');// Create a Subscriber socket
+updateSocket.connect('tcp://' + matrix_ip + ':' + (matrix_everloop_base_port + 3));// Connect Subscriber to Data Update port
 updateSocket.subscribe('');// Subscribe to messages
 // On Message
 updateSocket.on('message', (buffer) => {
@@ -60,7 +60,7 @@ updateSocket.on('message', (buffer) => {
 });
 
 // KEEP-ALIVE PORT \\
-var pingSocket = zmq.socket('push')// Create a Pusher socket
+var pingSocket = zmq.socket('push');// Create a Pusher socket
 pingSocket.connect('tcp://' + matrix_ip + ':' + (matrix_everloop_base_port + 1));// Connect Pusher to Keep-alive port
 pingSocket.send('');// Send a single ping
 

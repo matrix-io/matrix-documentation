@@ -78,6 +78,13 @@ pages:
     - 'GPIO': 'matrix-core/protocols/gpio.md'
   - Javascript Examples:
     - 'Index': 'matrix-core/javascript-examples/index.md'
+    - 'Everloop': 'matrix-core/javascript-examples/everloop.md'
+    - 'Humidity': 'matrix-core/javascript-examples/humidity.md'
+    - 'IMU': 'matrix-core/javascript-examples/imu.md'
+    - 'Pressure': 'matrix-core/javascript-examples/pressure.md'
+    # - 'UV': 'matrix-core/javascript-examples/uv.md'
+    # - 'Servo': 'matrix-core/javascript-examples/servo.md'
+    # - 'GPIO': 'matrix-core/javascript-examples/gpio.md'
   - Python Examples:
     - 'Index': 'matrix-core/python-examples/index.md'
   - Troubleshooting: 'matrix-core/troubleshooting.md'
