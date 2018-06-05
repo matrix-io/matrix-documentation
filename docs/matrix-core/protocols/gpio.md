@@ -28,12 +28,20 @@ The GPIO driver on current version supports:<a
 <!-- Base PORT -->
 <details>
 <summary style="font-size: 1.75rem; font-weight: 300;">Base Port</summary>
-This port accepts a single configuration for communicating with the Servo driver.
+This port accepts 3 configuration for communicating with the GPIO driver.
+
+* `delay_between_updates` - controls the output speed of messages from the **Data Update port**. 
+
+* `timeout_after_last_ping` - stops sending messages from the **Data Update port** if nothing has been sent to the **Keep-alive port** after the specified amount of seconds.
 
 * `gpio` - the gpio configuration that's created from a `GpioParams` message.
 
 ```language-protobuf
 message DriverConfig {
+  // Delay between updates in seconds
+  float delay_between_updates = 1;
+  // Timeout after last ping
+  float timeout_after_last_ping = 2;
   // Gpio service configuration
   matrix_io.malos.v1.io.GpioParams gpio = 8;
 }
@@ -47,6 +55,7 @@ View the defined message <a href="https://github.com/matrix-io/protocol-buffers/
 * `EnumMode` - Determines input or output mode for GPIO pins.
 
 * `value` - Set as 1 or 0 to signify on/off.
+> Each `pin` will save its last set `value` until the next device boot.
 
 ```language-protobuf
 // GPIO handler params
@@ -87,7 +96,7 @@ Applications can subscribe to this port for GPIO data. The output will be a seri
 ```language-protobuf
 // GPIO handler params
 message GpioParams {
-  // GPIO vector value
+  // Integer to represent all pin values (Convert to 16bit for readability)
   uint32 values = 4;
 }
 ```

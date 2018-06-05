@@ -91,7 +91,7 @@ pingSocket.send('');
 <!-- Error PORT -->
 <details>
 <summary style="font-size: 1.75rem; font-weight: 300;">Error Port</summary>
-Connecting to the **Error Port** is optional, but highly recommended if you want to log any errors that occur with MATRIX CORE.
+Connecting to the **Error Port** is optional, but highly recommended if you want to log any errors that occur within MATRIX CORE.
 ```language-javascript
 // Create a Subscriber socket
 var errorSocket = zmq.socket('sub');

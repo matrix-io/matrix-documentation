@@ -83,8 +83,8 @@ pages:
     - 'IMU': 'matrix-core/javascript-examples/imu.md'
     - 'Pressure': 'matrix-core/javascript-examples/pressure.md'
     - 'UV': 'matrix-core/javascript-examples/uv.md'
-    # - 'Servo': 'matrix-core/javascript-examples/servo.md'
-    # - 'GPIO': 'matrix-core/javascript-examples/gpio.md'
+    - 'Servo': 'matrix-core/javascript-examples/servo.md'
+    - 'GPIO': 'matrix-core/javascript-examples/gpio.md'
   - Python Examples:
     - 'Index': 'matrix-core/python-examples/index.md'
   - Troubleshooting: 'matrix-core/troubleshooting.md'
