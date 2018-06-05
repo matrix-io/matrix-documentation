@@ -18,7 +18,7 @@ Ultraviolet light sensor.
 Adjust servo positions.
 
 <h3 style="padding-top:0.6em;"><a href="gpio">GPIO</a></h3>
-General Purpose Input/Output
+General Purpose Input/Output.
 
 <h3 style="padding-top:0.6em;">zigbee</h3>
 documentation underway...
