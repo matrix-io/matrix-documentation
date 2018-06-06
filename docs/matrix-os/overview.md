@@ -1,4 +1,5 @@
 <h2 style="padding-top:0;">MATRIX Open System</h2>
+⚠️ **CURRENTLY UNDER MAINTENANCE** ⚠️
 
 MATRIX Open System (MOS) is open source software for hosting IoT applications. MATRIX Open System runs on node.js, and initially, applications will be written in JavaScript. The current workflow of this platform it to deploy and install apps into your MATRIX device, from a separate computer, anywhere in the world.
 

@@ -85,7 +85,7 @@ errorSocket.connect('tcp://' + matrix_ip + ':' + (matrix_imu_base_port + 2));
 errorSocket.subscribe('');
 // On Message
 errorSocket.on('message', function(error_message){
-    console.log('Error received: ' + error_message.toString('utf8'));// Log error
+  console.log('Error received: ' + error_message.toString('utf8'));// Log error
 });
 ```
 </details>

@@ -51,25 +51,25 @@ var image = matrix_io.malos.v1.io.EverloopImage.create();
 
 // Loop every 50 milliseconds
 setInterval(function(){
-    // For each device LED
-    for (var i = 0; i < matrix_device_leds; ++i) {
-        // Set individual LED value
-        image.led[i] = {
-            red: Math.floor(Math.random() * 200)+1,
-            green: Math.floor(Math.random() * 255)+1,
-            blue: Math.floor(Math.random() * 50)+1,
-            white: 0
-        };
-    }
+  // For each device LED
+  for (var i = 0; i < matrix_device_leds; ++i) {
+    // Set individual LED value
+    image.led[i] = {
+      red: Math.floor(Math.random() * 200)+1,
+      green: Math.floor(Math.random() * 255)+1,
+      blue: Math.floor(Math.random() * 50)+1,
+      white: 0
+    };
+  }
 
-    // Store the Everloop image in MATRIX configuration
-    var config = matrix_io.malos.v1.driver.DriverConfig.create({
-        'image': image
-	});
-	
-    // Send MATRIX configuration to MATRIX device
-    if(matrix_device_leds > 0)
-        configSocket.send(matrix_io.malos.v1.driver.DriverConfig.encode(config).finish());
+  // Store the Everloop image in MATRIX configuration
+  var config = matrix_io.malos.v1.driver.DriverConfig.create({
+    'image': image
+  });
+    
+  // Send MATRIX configuration to MATRIX device
+  if(matrix_device_leds > 0)
+    configSocket.send(matrix_io.malos.v1.driver.DriverConfig.encode(config).finish());
 },50);
 ```
 </details>
@@ -101,7 +101,7 @@ errorSocket.connect('tcp://' + matrix_ip + ':' + (matrix_everloop_base_port + 2)
 errorSocket.subscribe('');
 // On Message
 errorSocket.on('message', (error_message) => {
-	console.log('Error received: ' + error_message.toString('utf8'));// Log error
+  console.log('Error received: ' + error_message.toString('utf8'));// Log error
 });
 ```
 </details>
@@ -120,8 +120,8 @@ updateSocket.connect('tcp://' + matrix_ip + ':' + (matrix_everloop_base_port + 3
 updateSocket.subscribe('');
 // On Message
 updateSocket.on('message', (buffer) => {
-	var data = matrix_io.malos.v1.io.EverloopImage.decode(buffer);// Extract message
-	matrix_device_leds = data.everloopLength;// Save MATRIX device LED count
+  var data = matrix_io.malos.v1.io.EverloopImage.decode(buffer);// Extract message
+  matrix_device_leds = data.everloopLength;// Save MATRIX device LED count
 });
 ```
 <h2>Data Output</h2>

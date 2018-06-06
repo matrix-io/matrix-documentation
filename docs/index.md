@@ -19,6 +19,7 @@ Highest level of abstraction integrating with MATRIX hardware via **MATRIX CORE*
 * Online Dashboard
 * App Store
 
+⚠️ **CURRENTLY UNDER MAINTENANCE** ⚠️<br/>
 [Read more about MATRIX OS](matrix-os/overview/)
 
 <h3 style="padding-top:0;">MATRIX CORE</h3>
