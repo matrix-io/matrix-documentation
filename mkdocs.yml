@@ -89,7 +89,7 @@ pages:
     - 'Index': 'matrix-core/python-examples/index.md'
     - 'Everloop': 'matrix-core/python-examples/everloop.md'
     - 'Humidity': 'matrix-core/python-examples/humidity.md'
-    # - 'IMU': 'matrix-core/python-examples/imu.md'
+    - 'IMU': 'matrix-core/python-examples/imu.md'
     # - 'Pressure': 'matrix-core/python-examples/pressure.md'
     # - 'UV': 'matrix-core/python-examples/uv.md'
     # - 'Servo': 'matrix-core/python-examples/servo.md'

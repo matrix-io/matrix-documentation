@@ -28,16 +28,16 @@ The following sections show how to implement a connection to each of the Humidit
 <summary style="font-size: 1.75rem; font-weight: 300;">Initial Variables</summary>
 Before we go into connecting to each port, the variables defined below are needed in order to access the ZeroMQ and MATRIX Protocol Buffer libraries for Python. We also define a few helpful variables for easy references.
 ```language-python
-import os# Miscellaneous operating system interface
-import zmq# Asynchronous messaging framework
-import time# Time access and conversions
-import sys# System-specific parameters and functions
-from matrix_io.proto.malos.v1 import driver_pb2# MATRIX Protocol Buffer driver library
-from matrix_io.proto.malos.v1 import sense_pb2# MATRIX Protocol Buffer sensor library
-from multiprocessing import Process# Allow for multiple processes at once
-from zmq.eventloop import ioloop# Asynchronous events through ZMQ
-matrix_ip = '127.0.0.1'# Local device ip
-humidity_port = 20013 + 4# Driver Base port
+import os # Miscellaneous operating system interface
+import zmq # Asynchronous messaging framework
+import time # Time access and conversions
+import sys # System-specific parameters and functions
+from matrix_io.proto.malos.v1 import driver_pb2 # MATRIX Protocol Buffer driver library
+from matrix_io.proto.malos.v1 import sense_pb2 # MATRIX Protocol Buffer sensor library
+from multiprocessing import Process # Allow for multiple processes at once
+from zmq.eventloop import ioloop # Asynchronous events through ZMQ
+matrix_ip = '127.0.0.1' # Local device ip
+humidity_port = 20017 # Driver Base port
 # Handy functions for connecting to the keep-Alive, Data Update, & Error port 
 from utils import driver_keep_alive, register_data_callback, register_error_callback
 ```
@@ -79,7 +79,7 @@ The next step is to connect and send a message to the **Keep-alive Port**. That 
 <!-- Error PORT -->
 <details>
 <summary style="font-size: 1.75rem; font-weight: 300;">Error Port</summary>
-Connecting to the **Error Port** is optional, but highly recommended if you want to log any errors that occur within MATRIX CORE.
+The **Error Port** connection is also taken care of by the `utils import`. Below we define a function to be called and given any error messages that occur within MATRIX CORE.
 ```language-python
 def humidity_error_callback(error):
     # Log error
@@ -90,7 +90,7 @@ def humidity_error_callback(error):
 <!-- Data Update PORT -->
 <details>
 <summary style="font-size: 1.75rem; font-weight: 300;">Data Update Port</summary>
-A connection to the **Data Update Port** will allow us to receive the current humidity data we want.
+A connection to the **Data Update Port** will allow us to receive the current humidity data we want. The `utils import` takes care of this as well. We can define a function and expect humidity data to be passed to it.
 
 ```language-python
 def humidity_data_callback(data):
@@ -99,8 +99,8 @@ def humidity_data_callback(data):
     # Log data 
     print('{0}'.format(data))
 ```
-<h2>Data Output</h2>
-The javascript object below is an example output you'll receive from the **Data Update Port**.
+<h4>Data Output</h4>
+The Python object below is an example output you'll receive from the **Data Update Port**.
 ```language-python
 humidity: 29.0049991608
 temperature: 23.4913063049
@@ -112,7 +112,7 @@ temperature_is_calibrated: true
 <!-- Start Process -->
 <details>
 <summary style="font-size: 1.75rem; font-weight: 300;">Start Processes</summary>
-A connection to the **Data Update Port** will allow us to receive the current humidity data we want.
+This is where we begin the asynchronous events for each of the driver ports and where we define the functions we want to use for each port.
 
 ```language-python
 if __name__ == '__main__':

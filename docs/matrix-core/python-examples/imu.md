@@ -1,5 +1,5 @@
 <h2 style="padding-top:0">Inertial Measurement Unit (IMU)</h2>
-<h4 style="padding-top:0">Javascript Example</h4>
+<h4 style="padding-top:0">Python Example</h4>
 
 ### Device Compatibility
 <img class="creator-compatibility-icon" src="/img/creator-icon.svg">
@@ -25,105 +25,109 @@ The following sections show how to implement a connection to each of the IMU dri
 <!-- Initial Variables -->
 <details>
 <summary style="font-size: 1.75rem; font-weight: 300;">Initial Variables</summary>
-Before we go into connecting to each port, the variables defined below are needed in order to access the ZeroMQ and MATRIX Protocol Buffer libraries for Javascript. We also define a few helpful variables for easy references.
-```language-javascript
-var zmq = require('zeromq');// Asynchronous Messaging Framework
-var matrix_io = require('matrix-protos').matrix_io;// Protocol Buffers for MATRIX function
-var matrix_ip = '127.0.0.1';// Local IP
-var matrix_imu_base_port = 20013;// Port for IMU driver
+Before we go into connecting to each port, the variables defined below are needed in order to access the ZeroMQ and MATRIX Protocol Buffer libraries for Python. We also define a few helpful variables for easy references.
+```language-python
+import os # Miscellaneous operating system interface
+import zmq # Asynchronous messaging framework
+import time # Time access and conversions
+import sys # System-specific parameters and functions
+from matrix_io.proto.malos.v1 import driver_pb2 # MATRIX Protocol Buffer driver library
+from matrix_io.proto.malos.v1 import sense_pb2 # MATRIX Protocol Buffer sensor library
+from multiprocessing import Process # Allow for multiple processes at once
+from zmq.eventloop import ioloop # Asynchronous events through ZMQ
+matrix_ip = '127.0.0.1' # Local device ip
+imu_port = 20013 # Driver Base port
+# Handy functions for connecting to the keep-Alive, Data Update, & Error port 
+from utils import driver_keep_alive, register_data_callback, register_error_callback
 ```
 </details>
 
 <!-- Base PORT -->
 <details>
 <summary style="font-size: 1.75rem; font-weight: 300;">Base Port</summary>
-Here is where the configuration for our IMU example goes. Once we connect to the **Base Port**, We will pass a configuration to the IMU driver. With this we can set the update rate and timeout configuration.
-```language-javascript
-// Create a Pusher socket
-var configSocket = zmq.socket('push');
-// Connect Pusher to Base port
-configSocket.connect('tcp://' + matrix_ip + ':' + matrix_imu_base_port);
-// Create driver configuration
-var config = matrix_io.malos.v1.driver.DriverConfig.create({
-  // Update rate configuration
-  delayBetweenUpdates: 2.0,// 2 seconds between updates
-  timeoutAfterLastPing: 6.0,// Stop sending updates 6 seconds after pings.
-});
-// Send driver configuration
-configSocket.send(matrix_io.malos.v1.driver.DriverConfig.encode(config).finish());
+Here is where the configuration for our IMU example goes. Once we connect to the **Base Port**, We will pass a configuration to the IMU driver. With this we can set the update rate, timeout, and temperature configuration.
+```language-python
+def config_socket():
+    # Define zmq socket
+    context = zmq.Context()
+    # Create a Pusher socket
+    socket = context.socket(zmq.PUSH)
+    # Connect Pusher to configuration socket
+    socket.connect('tcp://{0}:{1}'.format(matrix_ip, imu_port))
+
+    # Create a new driver config
+    driver_config_proto = driver_pb2.DriverConfig()
+    # Delay between updates in seconds
+    driver_config_proto.delay_between_updates = 0.05
+    # Timeout after last ping
+    driver_config_proto.timeout_after_last_ping = 6.0
+
+    # Send driver configuration through ZMQ socket
+    socket.send(driver_config_proto.SerializeToString())
 ```
 </details>
 
 <!-- Keep-alive PORT -->
 <details>
 <summary style="font-size: 1.75rem; font-weight: 300;">Keep-alive Port</summary>
-The next step is to connect and send a message to the **Keep-alive Port**. That message, an empty string, will grant us a response from the **Data Update Port** for the current IMU values. An interval for pinging is then set to continuously obtain that data.
-```language-javascript
-// Create a Pusher socket
-var pingSocket = zmq.socket('push');
-// Connect Pusher to Keep-alive port
-pingSocket.connect('tcp://' + matrix_ip + ':' + (matrix_imu_base_port + 1));
-// Send initial ping
-pingSocket.send('');
-// Send ping every 5 seconds
-setInterval(function(){
-  pingSocket.send('');
-}, 5000);
-```
+The next step is to connect and send a message to the **Keep-alive Port**. That message will grant us a response from the **Data Update Port** for the current IMU value. The `utils import` from the **Initial Variables** section takes care of this.
 </details>
 
 <!-- Error PORT -->
 <details>
 <summary style="font-size: 1.75rem; font-weight: 300;">Error Port</summary>
-Connecting to the **Error Port** is optional, but highly recommended if you want to log any errors that occur within MATRIX CORE.
-```language-javascript
-// Create a Subscriber socket
-var errorSocket = zmq.socket('sub');
-// Connect Subscriber to Error port
-errorSocket.connect('tcp://' + matrix_ip + ':' + (matrix_imu_base_port + 2));
-// Connect Subscriber to Error port
-errorSocket.subscribe('');
-// On Message
-errorSocket.on('message', function(error_message){
-    console.log('Error received: ' + error_message.toString('utf8'));// Log error
-});
+The **Error Port** connection is also taken care of by the `utils import`. Below we define a function to be called and given any error messages that occur within MATRIX CORE.
+```language-python
+def imu_error_callback(error):
+    # Log error
+    print('{0}'.format(error))
 ```
 </details>
 
 <!-- Data Update PORT -->
 <details>
 <summary style="font-size: 1.75rem; font-weight: 300;">Data Update Port</summary>
-A connection to the **Data Update Port** is then made to allow us to receive the current IMU data we want.
+A connection to the **Data Update Port** will allow us to receive the current IMU data we want. The `utils import` takes care of this as well. We can define a function and expect IMU data to be passed to it.
 
-```language-javascript
-// Create a Subscriber socket
-var updateSocket = zmq.socket('sub');
-// Connect Subscriber to Data Update port
-updateSocket.connect('tcp://' + matrix_ip + ':' + (matrix_imu_base_port + 3));
-// Subscribe to messages
-updateSocket.subscribe('');
-// On Message
-updateSocket.on('message', function(buffer){
-  var data = matrix_io.malos.v1.sense.Imu.decode(buffer);// Extract message
-    console.log(data);// Log new IMU data
-});
+```language-python
+def imu_data_callback(data):
+    # Extract data
+    data = sense_pb2.Imu().FromString(data[0])
+    # Log data 
+    print('{0}'.format(data))
 ```
-<h2>Data Output</h2>
-The javascript object below is an example output you'll receive from the **Data Update Port**.
-```language-javascript
-{
-  yaw: 29.820072174072266,
-  pitch: 9.994316101074219,
-  roll: -179.4230194091797,
-  accelX: -0.17499999701976776,
-  accelY: -0.009999999776482582,
-  accelZ: -0.9929999709129333,
-  gyroX: 2.871000051498413,
-  gyroY: 0.3059999942779541,
-  gyroZ: 0.8069999814033508,
-  magX: -0.0820000022649765,
-  magY: 0.04699999839067459,
-  magZ: 0.11299999803304672
-}
+<h4>Data Output</h4>
+The Python object below is an example output you'll receive from the **Data Update Port**.
+```language-python
+yaw: 151.336044312
+roll: 0.174327388406
+accel_y: 0.00300000002608
+accel_z: 0.986000001431
+gyro_x: 2.58599996567
+gyro_y: 0.0289999991655
+gyro_z: 0.84399998188
+mag_x: 0.300000011921
+mag_y: 0.16400000453
+mag_z: -0.0780000016093
+```
+</details>
+
+<!-- Start Process -->
+<details>
+<summary style="font-size: 1.75rem; font-weight: 300;">Start Processes</summary>
+This is where we begin the asynchronous events for each of the driver ports and where we define the functions we want to use for each port.
+
+```language-python
+if __name__ == '__main__':
+    # Initiate asynchronous events
+    ioloop.install()
+    # Send Base Port configuration 
+    config_socket()
+    # Start Error Port connection
+    Process(target=register_error_callback, args=(imu_error_callback, matrix_ip, imu_port)).start()
+    # Start Data Update Port connection
+    Process(target=register_data_callback, args=(imu_data_callback, matrix_ip, imu_port)).start()
+    # Start Keep-alive Port connection
+    Process(target=driver_keep_alive, args=(matrix_ip, imu_port)).start()
 ```
 </details>

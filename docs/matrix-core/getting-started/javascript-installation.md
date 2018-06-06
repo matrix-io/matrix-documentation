@@ -1,3 +1,5 @@
+> Ensure you have [MATRIX CORE](core-installation.md) installed, before moving on.
+
 ## Installing Node.js
 This setup will go through how to install <a href="https://nodejs.org/en/" target="_blank">Node.js</a> and the dependencies needed to create a Node application that can communicate with MATRIX CORE.
 

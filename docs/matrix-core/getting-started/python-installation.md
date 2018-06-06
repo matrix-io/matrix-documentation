@@ -1,4 +1,7 @@
+> Ensure you have [MATRIX CORE](core-installation.md) installed, before moving on.
+
 ## Creating A Python Project
+
 This setup will go through how to install all the necessary python packages needed to program with MATRIX CORE.
 
 First, use the commands below to create a folder, inside in the home directory `~/` of your MATRIX device(Raspberry Pi). This will be where you'll put your python scripts.

@@ -29,7 +29,7 @@ Each driver reserves 4 ports beginning with their `base port` as shown above. Th
 
 The following list contains the port types currently defined in MATRIX CORE.
 <!-- BASE PORT -->
-<details>
+<details open>
 <summary style="font-size: 1.75rem; font-weight: 300;">Base Port</summary>
 The `base port` is used to configure a driver on your MATRIX device. This port is a `ZeroMQ PULL port` that accepts a configuration which is created as a protocol buffer.
 
@@ -50,7 +50,7 @@ message DriverConfig {
 Once the `DriverConfig` message is filled out, it needs to be serialized as a string and sent to the ZeroMQ configuration port.
 </details>
 <!-- KEEP-ALIVE PORT -->
-<details>
+<details open>
 <summary style="font-size: 1.75rem; font-weight: 300;">Keep-alive Port</summary>
 `Port`: `base port` + 1
 
@@ -58,14 +58,14 @@ The Keep-alive port is a `ZeroMQ PULL port` that is required for certain drivers
 
 </details>
 <!-- ERROR PORT -->
-<details>
+<details open>
 <summary style="font-size: 1.75rem; font-weight: 300;">Error Port</summary>
 `Port`: `base port` + 2
 
 Programs can subscribe to this port to receive driver related errors. The Error port is a `ZeroMQ PUSH port` that will send you a string with any errors that it has encountered.
 </details>
 <!-- DATA UPDATE PORT -->
-<details>
+<details open>
 <summary style="font-size: 1.75rem; font-weight: 300;">Data Update Port</summary>
 `Port`: `base port` + 3
 
