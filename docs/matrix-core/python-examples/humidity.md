@@ -21,7 +21,7 @@ The Humidity driver allows for:
 * `Data update port`: 20020
 
 ## Code Example
-The following sections show how to implement a connection to each of the Humidity driver's ports.
+The following sections show how to implement a connection to each of the humidity driver's ports.
 
 <!-- Initial Variables -->
 <details>
@@ -46,7 +46,7 @@ from utils import driver_keep_alive, register_data_callback, register_error_call
 <!-- Base PORT -->
 <details>
 <summary style="font-size: 1.75rem; font-weight: 300;">Base Port</summary>
-Here is where the configuration for our Humidity example goes. Once we connect to the **Base Port**, We will pass a configuration to the humidity driver. With this we can set the update rate, timeout, and temperature configuration.
+Here is where the configuration for our humidity example goes. Once we connect to the **Base Port**, We will pass a configuration to the humidity driver. With this we can set the update rate, timeout, and temperature configuration.
 ```language-python
 def config_socket():
     # Define zmq socket

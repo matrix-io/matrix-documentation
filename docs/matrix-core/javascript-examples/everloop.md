@@ -124,7 +124,7 @@ updateSocket.on('message', (buffer) => {
   matrix_device_leds = data.everloopLength;// Save MATRIX device LED count
 });
 ```
-<h2>Data Output</h2>
+<h4>Data Output</h4>
 The javascript object below is an example output you'll receive from the **Data Update Port**.
 ```language-javascript
 {

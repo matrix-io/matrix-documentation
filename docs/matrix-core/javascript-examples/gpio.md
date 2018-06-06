@@ -140,7 +140,7 @@ updateSocket.on('message', function(buffer){
   console.log('GPIO PINS-->[0-15]\n'+'['+gpioValues.toString()+']');
 });
 ```
-<h2>Data Output</h2>
+<h4>Data Output</h4>
 The javascript object below is an example output you'll receive from the **Data Update Port**. For readability, this example has already converted the output as a 16-bit value.
 ```language-javascript
 {

@@ -1,4 +1,4 @@
-<h2 style="padding-top:0">Humidity</h2>
+4<h2 style="padding-top:0">Humidity</h2>
 <h4 style="padding-top:0">Javascript Example</h4>
 >**Humidity is currently under maintenance**
 
@@ -113,7 +113,7 @@ updateSocket.on('message', function(buffer){
 	console.log(data);// Log new humidity data
 });
 ```
-<h2>Data Output</h2>
+<h4>Data Output</h4>
 The javascript object below is an example output you'll receive from the **Data Update Port**.
 ```language-javascript
 {
