@@ -20,7 +20,7 @@ The Servo driver can set the angle of your servos through the pins of your MATRI
 ## Protocol
 
 <!-- Base PORT -->
-<details>
+<details open>
 <summary style="font-size: 1.75rem; font-weight: 300;">Base Port</summary>
 This port accepts a single configuration for communicating with the Servo driver. 
 
@@ -54,7 +54,7 @@ View the defined message <a href="https://github.com/matrix-io/protocol-buffers/
 </details>
 
 <!-- Error PORT -->
-<details>
+<details open>
 <summary style="font-size: 1.75rem; font-weight: 300;">Error Port</summary>
 Applications can subscribe to this port to receive driver related errors.
 </details>

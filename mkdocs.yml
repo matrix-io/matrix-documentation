@@ -58,7 +58,6 @@ pages:
     # - 'IFTTT Integration': 'matrix-os/examples/ifttt.md'
     - 'Dashboard': 'matrix-os/examples/dash-create.md'
   - Troubleshooting: 'matrix-os/troubleshooting.md'
-####################################################################################
 - MATRIX CORE:
   - 'Overview': 'matrix-core/overview.md'
   - Getting Started:
@@ -93,9 +92,8 @@ pages:
     - 'Pressure': 'matrix-core/python-examples/pressure.md'
     - 'UV': 'matrix-core/python-examples/uv.md'
     - 'Servo': 'matrix-core/python-examples/servo.md'
-    # - 'GPIO': 'matrix-core/python-examples/gpio.md'
+    - 'GPIO': 'matrix-core/python-examples/gpio.md'
   - Troubleshooting: 'matrix-core/troubleshooting.md'
-####################################################################################
 - MATRIX HAL:
   - 'MATRIX HAL': 'matrix-hal/index.md'
   - 'Getting Started':

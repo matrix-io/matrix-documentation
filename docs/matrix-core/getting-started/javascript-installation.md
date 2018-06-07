@@ -45,7 +45,7 @@ var matrix_device_leds = 0;// Holds amount of LEDs on MATRIX device
 // ERROR PORT \\
 var errorSocket = zmq.socket('sub');// Create a Subscriber socket
 errorSocket.connect('tcp://' + matrix_ip + ':' + (matrix_everloop_base_port + 2));// Connect Subscriber to Error port
-errorSocket.subscribe('');// Connect Subscriber to Error port
+errorSocket.subscribe('');// Subscribe to messages
 // On Message
 errorSocket.on('message', (error_message) => {
 	console.log('Error received: ' + error_message.toString('utf8'));// Log error

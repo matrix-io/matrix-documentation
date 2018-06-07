@@ -21,7 +21,7 @@ The UV driver reports values for:
 The following sections show how to implement a connection to each of the UV driver's ports.
 
 <!-- Initial Variables -->
-<details>
+<details open>
 <summary style="font-size: 1.75rem; font-weight: 300;">Initial Variables</summary>
 Before we go into connecting to each port, the variables defined below are needed in order to access the ZeroMQ and MATRIX Protocol Buffer libraries for Python. We also define a few helpful variables for easy references.
 ```language-python
@@ -41,7 +41,7 @@ from utils import driver_keep_alive, register_data_callback, register_error_call
 </details>
 
 <!-- Base PORT -->
-<details>
+<details open>
 <summary style="font-size: 1.75rem; font-weight: 300;">Base Port</summary>
 Here is where the configuration for our UV example goes. Once we connect to the **Base Port**, We will pass a configuration to the UV driver. With this we can set the update rate, timeout, and temperature configuration.
 ```language-python
@@ -66,13 +66,13 @@ def config_socket():
 </details>
 
 <!-- Keep-alive PORT -->
-<details>
+<details open>
 <summary style="font-size: 1.75rem; font-weight: 300;">Keep-alive Port</summary>
 The next step is to connect and send a message to the **Keep-alive Port**. That message will grant us a response from the **Data Update Port** for the current UV value. The `utils import` from the **Initial Variables** section takes care of this.
 </details>
 
 <!-- Error PORT -->
-<details>
+<details open>
 <summary style="font-size: 1.75rem; font-weight: 300;">Error Port</summary>
 The **Error Port** connection is also taken care of by the `utils import`. Below we define a function to be called and given any error messages that occur within MATRIX CORE.
 ```language-python
@@ -83,7 +83,7 @@ def uv_error_callback(error):
 </details>
 
 <!-- Data Update PORT -->
-<details>
+<details open>
 <summary style="font-size: 1.75rem; font-weight: 300;">Data Update Port</summary>
 A connection to the **Data Update Port** will allow us to receive the current UV data we want. The `utils import` takes care of this as well. We can define a function and expect UV data to be passed to it.
 
@@ -103,7 +103,7 @@ oms_risk: "Low"
 </details>
 
 <!-- Start Process -->
-<details>
+<details open>
 <summary style="font-size: 1.75rem; font-weight: 300;">Start Processes</summary>
 This is where we begin the asynchronous events for each of the driver ports and where we define the functions we want to use for each port.
 

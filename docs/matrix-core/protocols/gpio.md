@@ -6,11 +6,11 @@
 
 ## Overview
 
-The GPIO driver on current version supports:<a 
+The GPIO driver supports:<a 
 
-* Pin input.
-* Pin output.
-* Updates for the current state of all GPIO pins.
+* Pin input
+* Pin output
+* Updates for the current state of all GPIO pins
 
 **Device Pinouts**:
 
@@ -26,7 +26,7 @@ The GPIO driver on current version supports:<a
 ## Protocol
 
 <!-- Base PORT -->
-<details>
+<details open>
 <summary style="font-size: 1.75rem; font-weight: 300;">Base Port</summary>
 This port accepts 3 configuration for communicating with the GPIO driver.
 
@@ -78,19 +78,19 @@ View the defined message <a href="https://github.com/matrix-io/protocol-buffers/
 </details>
 
 <!-- Keep-alive PORT -->
-<details>
+<details open>
 <summary style="font-size: 1.75rem; font-weight: 300;">Keep-alive Port</summary>
 This driver needs keep-alive messages in order to send data to your application. It's recommended to send an empty string `""` because the contents of a keep-alive message are never read.
 </details>
 
 <!-- Error PORT -->
-<details>
+<details open>
 <summary style="font-size: 1.75rem; font-weight: 300;">Error Port</summary>
 Applications can subscribe to this port to receive driver related errors.
 </details>
 
 <!-- Data Update PORT -->
-<details>
+<details open>
 <summary style="font-size: 1.75rem; font-weight: 300;">Data Update Port</summary>
 Applications can subscribe to this port for GPIO data. The output will be a serialized message of type `GpioParams` with the following information.
 ```language-protobuf
