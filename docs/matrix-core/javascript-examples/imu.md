@@ -20,7 +20,7 @@ The IMU driver reports values for:
 * `Data Update port`: 20016
 
 ## Code Example
-The following sections show how to implement a connection to each of the IMU driver's ports.
+The following sections show how to implement a connection to each of the IMU driver's ports. You can download this example <a href="https://github.com/matrix-io/matrix-core-examples/blob/master/javascript/imu.js" target="_blank">here</a>.
 
 <!-- Initial Variables -->
 <details open>

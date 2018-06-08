@@ -18,7 +18,7 @@ The UV driver reports values for:
 * `Data Update port`: 20032
 
 ## Code Example
-The following sections show how to implement a connection to each of the UV driver's ports.
+The following sections show how to implement a connection to each of the UV driver's ports. You can download this example <a href="https://github.com/matrix-io/matrix-core-examples/blob/master/javascript/uv.js" target="_blank">here</a>.
 
 <!-- Initial Variables -->
 <details open>

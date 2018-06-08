@@ -19,7 +19,7 @@ The Servo driver can set the angle of your servos through the pins of your MATRI
 * `Error port`: 20047
 
 ## Code Example
-The following sections show how to implement a connection to each of the Servo driver's ports.
+The following sections show how to implement a connection to each of the Servo driver's ports. You can download this example <a href="https://github.com/matrix-io/matrix-core-examples/blob/master/python/servo.py" target="_blank">here</a>.
 
 <!-- Initial Variables -->
 <details open>
@@ -35,7 +35,7 @@ from matrix_io.proto.malos.v1 import driver_pb2 # MATRIX Protocol Buffer driver 
 from multiprocessing import Process # Allow for multiple processes at once
 from zmq.eventloop import ioloop # Asynchronous events through ZMQ
 matrix_ip = '127.0.0.1' # Local device ip
-servo_port = 20045# Driver Base port
+servo_port = 20045 # Driver Base port
 # Handy function for connecting to the Error port 
 from utils import register_error_callback
 ```

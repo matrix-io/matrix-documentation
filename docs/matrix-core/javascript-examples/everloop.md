@@ -21,7 +21,7 @@ The Everloop driver allows for:
 * `Data update port`: 20024
 
 ## Code Example
-The following sections show how to implement a connection to each of the Everloop driver's ports.
+The following sections show how to implement a connection to each of the Everloop driver's ports. You can download this example <a href="https://github.com/matrix-io/matrix-core-examples/blob/master/javascript/everloop.js" target="_blank">here</a>.
 
 <!-- Initial Variables -->
 <details open>
@@ -100,7 +100,7 @@ errorSocket.connect('tcp://' + matrix_ip + ':' + (matrix_everloop_base_port + 2)
 // Connect Subscriber to Error port
 errorSocket.subscribe('');
 // On Message
-errorSocket.on('message', (error_message) => {
+errorSocket.on('message', function(error_message){
   console.log('Error received: ' + error_message.toString('utf8'));// Log error
 });
 ```
@@ -119,7 +119,7 @@ updateSocket.connect('tcp://' + matrix_ip + ':' + (matrix_everloop_base_port + 3
 // Subscribe to messages
 updateSocket.subscribe('');
 // On Message
-updateSocket.on('message', (buffer) => {
+updateSocket.on('message', function(buffer){
   var data = matrix_io.malos.v1.io.EverloopImage.decode(buffer);// Extract message
   matrix_device_leds = data.everloopLength;// Save MATRIX device LED count
 });

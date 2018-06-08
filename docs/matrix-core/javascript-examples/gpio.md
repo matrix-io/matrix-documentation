@@ -24,7 +24,7 @@ The GPIO driver supports:
 * `Data Update port`: 20052
 
 ## Code Example
-The following sections show how to implement a connection to each of the GPIO driver's ports.
+The following sections show how to implement a connection to each of the GPIO driver's ports. You can download this example <a href="https://github.com/matrix-io/matrix-core-examples/blob/master/javascript/gpio.js" target="_blank">here</a>.
 
 <!-- Initial Variables -->
 <details open>
