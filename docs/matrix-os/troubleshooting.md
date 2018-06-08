@@ -1,6 +1,3 @@
-<h2 style="padding-top:0;">Troubleshooting</h2>
-
-<br/>
 ## Community
 Please visit our community support forums at:
 [community.matrix.one](http://community.matrix.one/)
