@@ -110,7 +110,9 @@ def update_socket():
         led_count = io_pb2.LedValue().FromString(data[0]).green
         # Log LEDs
         print('{0} LEDs counted'.format(led_count))
+        # If LED count obtained
         if led_count > 0:
+            # Close Data Update Port connection
             ioloop.IOLoop.instance().stop()
             print('LED count obtained. Disconnecting from data publisher {0}'.format(everloop_port+3))
     # Call updateLedCount() once data is received
