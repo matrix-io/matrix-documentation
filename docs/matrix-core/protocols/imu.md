@@ -8,9 +8,9 @@
 The IMU driver reports values for:
 
 * Yaw, Pitch, and Roll
-* Acceleration for xyz
-* Gyroscope for xyz
-* Magnetometer for xy
+* Acceleration for **x**, **y**, **z** axes
+* Gyroscope for **x**, **y**, **z** axes
+* Magnetometer for **x**, **y**, **z** axes
 
 <h3 style="padding-top:0">Available ZeroMQ Ports</h3>
 * `Base port`: 20013

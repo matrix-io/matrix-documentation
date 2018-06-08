@@ -13,12 +13,12 @@ MATRIX CORE contains drivers (components & sensors) that communicate with your M
 * `Everloop` - **20021**
 * `Pressure` - **20025**
 * `UV` - **20029**
-* `ZigbeeBulb` - **20033**
+<!-- * `ZigbeeBulb` - **20033** -->
 <!-- * `MicArray_Alsa` - **20037** -->
 * `Servo` - **20045**
 * `GPIO` - **20049**
 
-Each driver reserves 4 ports beginning with their `base port` as shown above. The other 3 ports are in sequential order counting up from the `base port`. Below is an example of all IMU ports Note, not all drivers utilize every port.
+Each driver reserves 4 ports beginning with their `base port` as shown above. The other 3 ports are in sequential order counting up from the `base port`. Below is an example of all IMU ports. Note, not all drivers utilize every port.
 
 **All IMU Ports**
 
