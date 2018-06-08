@@ -22,8 +22,7 @@ The Pressure driver reports values for:
 
 
 ## Code Example
-The following sections show how to implement a connection to each of the Pressure driver's ports.
-
+The following sections show how to implement a connection to each of the Pressure driver's ports. You can download this example <a href="https://github.com/matrix-io/matrix-core-examples/blob/master/javascript/pressure.js" target="_blank">here</a>.
 <!-- Initial Variables -->
 <details open>
 <summary style="font-size: 1.75rem; font-weight: 300;">Initial Variables</summary>

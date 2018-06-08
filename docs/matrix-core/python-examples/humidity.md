@@ -21,7 +21,7 @@ The Humidity driver allows for:
 * `Data update port`: 20020
 
 ## Code Example
-The following sections show how to implement a connection to each of the humidity driver's ports.
+The following sections show how to implement a connection to each of the Humidity driver's ports. You can download this example <a href="https://github.com/matrix-io/matrix-core-examples/blob/master/python/humidity.py" target="_blank">here</a>.
 
 <!-- Initial Variables -->
 <details open>
@@ -62,7 +62,7 @@ def config_socket():
     driver_config_proto.delay_between_updates = 2.0
     # Timeout after last ping
     driver_config_proto.timeout_after_last_ping = 6.0
-    # Current temperature in °C for calibration
+    # Current temperature in Celsius for calibration
     driver_config_proto.humidity.current_temperature = 23
 
     # Send driver configuration through ZMQ socket

@@ -19,7 +19,7 @@ The Servo driver can set the angle of your servos through the pins of your MATRI
 * `Error port`: 20047
 
 ## Code Example
-The following sections show how to implement a connection to each of the Servo driver's ports.
+The following sections show how to implement a connection to each of the Servo driver's ports. You can download this example <a href="https://github.com/matrix-io/matrix-core-examples/blob/master/javascript/servo.js" target="_blank">here</a>.
 
 <!-- Initial Variables -->
 <details open>

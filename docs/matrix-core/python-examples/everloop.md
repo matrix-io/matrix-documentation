@@ -20,7 +20,7 @@ The Everloop driver allows for:
 * `Data update port`: 20024
 
 ## Code Example
-The following sections show how to implement a connection to each of the Everloop driver's ports.
+The following sections show how to implement a connection to each of the Everloop driver's ports. You can download this example <a href="https://github.com/matrix-io/matrix-core-examples/blob/master/python/everloop.py" target="_blank">here</a>.
 
 <!-- Initial Variables -->
 <details open>
@@ -77,7 +77,7 @@ def config_socket(ledCount):
 
         # Send driver configuration through ZMQ socket
         socket.send(driver_config_proto.SerializeToString())
-        #Wait before restarting loop
+        # Wait before restarting loop
         time.sleep(0.05)
 ```
 </details>

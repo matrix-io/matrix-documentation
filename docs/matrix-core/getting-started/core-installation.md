@@ -13,12 +13,12 @@ sudo apt-get update
 sudo apt-get upgrade 
 ```
 
-The next command will install the MATRIX Core packages.
+The next command will install the MATRIX CORE packages.
 ```language-bash
 sudo apt-get install matrixio-malos
 ```
 
-After the MATRIX Core packages are installed, use the command below to reboot your Raspberry Pi. MATRIX CORE will then be running as a service each time your Raspberry Pi boots up.
+After the MATRIX CORE packages are installed, use the command below to reboot your Raspberry Pi. MATRIX CORE will then be running as a service each time your Raspberry Pi boots up.
 ```language-bash
 sudo reboot
 ```

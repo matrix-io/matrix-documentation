@@ -21,7 +21,7 @@ The Pressure driver reports values for:
 * `Data Update port`: 20028
 
 ## Code Example
-The following sections show how to implement a connection to each of the pressure driver's ports.
+The following sections show how to implement a connection to each of the Pressure driver's ports. You can download this example <a href="https://github.com/matrix-io/matrix-core-examples/blob/master/python/pressure.py" target="_blank">here</a>.
 
 <!-- Initial Variables -->
 <details open>
