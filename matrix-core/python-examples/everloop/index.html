@@ -434,7 +434,7 @@
 <li><code>Data update port</code>: 20024</li>
 </ul>
 <h2 id="code-example">Code Example</h2>
-<p>The following sections show how to implement a connection to each of the Everloop driver's ports.</p>
+<p>The following sections show how to implement a connection to each of the Everloop driver's ports. You can download this example <a href="https://github.com/matrix-io/matrix-core-examples/blob/master/python/everloop.py" target="_blank">here</a>.</p>
 <!-- Initial Variables -->
 
 <p><details open>
@@ -490,7 +490,7 @@ Here is where the configuration for our Everloop example goes. Once we connect t
 
         # Send driver configuration through ZMQ socket
         socket.send(driver_config_proto.SerializeToString())
-        #Wait before restarting loop
+        # Wait before restarting loop
         time.sleep(0.05)
 </code></pre>
 
