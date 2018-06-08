@@ -1,8 +1,8 @@
 <h2 style="padding-top:0">General Purpose Input Output (GPIO)</h2>
 
 ### Device Compatibility
-<img class="creator-compatibility-icon" src="/img/creator-icon.svg">
-> MATRIX Voice compatibility in development.
+<img class="creator-compatibility-icon" src="../../img/creator-icon.svg">
+<img class="voice-compatibility-icon" src="../../img/voice-icon.svg">
 
 ## Overview
 

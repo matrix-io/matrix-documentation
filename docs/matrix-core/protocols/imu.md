@@ -1,7 +1,7 @@
 <h2 style="padding-top:0">Inertial Measurement Unit (IMU)</h2>
 
 ### Device Compatibility
-<img class="creator-compatibility-icon" src="/img/creator-icon.svg">
+<img class="creator-compatibility-icon" src="../../img/creator-icon.svg">
 
 ## Overview
 

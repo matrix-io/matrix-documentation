@@ -2,7 +2,7 @@
 <h4 style="padding-top:0">Python Example</h4>
 
 ### Device Compatibility
-<img class="creator-compatibility-icon" src="/img/creator-icon.svg">
+<img class="creator-compatibility-icon" src="../../img/creator-icon.svg">
 
 ## Overview
 
