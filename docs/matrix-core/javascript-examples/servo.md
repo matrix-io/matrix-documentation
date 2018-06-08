@@ -3,7 +3,7 @@
 
 ### Device Compatibility
 <img class="creator-compatibility-icon" src="/img/creator-icon.svg">
-> MATRIX Voice compatibility in development.
+<img class="voice-compatibility-icon" src="/img/voice-icon.svg">
 
 ## Overview
 
@@ -54,7 +54,7 @@ var config = matrix_io.malos.v1.driver.DriverConfig.create({
 // Loop every second
 setInterval(function(){
   // Pick number from 1-180
-  var angle = Math.floor(Math.random() * 200)+1;
+  var angle = Math.floor(Math.random() * 180)+1;
   // Set number as new random angle
   config.servo.angle = angle;
   // Log angle
