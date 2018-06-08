@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Understanding CORE MATRIX</title>
+  <link rel="shortcut icon" href="../../../img/favicon.ico">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../../../css/theme.css">
+  <link rel="stylesheet" href="../../../css/prism.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
+</head>
+
+<body data-spy="scroll">
+  <nav class="navbar navbar-expand-lg navbar-light container">
+  <a class="navbar-brand" href="../../..">
+    <img src="../../../img/everloop.png" width="38" height="38" class="d-inline-block align-top" alt="">
+    <span>MATRIX</span>
+  </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
+  	<span class="navbar-toggler-icon"></span>
+  </button>
+</nav>
+
+  <div class="header">
+    <div class="container">
+      <div class="jumbotron">
+        <div class="row">
+          <div class="col-sm-8">
+            
+            <h1>Understanding CORE</h1>
+            
+          </div>
+          <div class="col-sm-4">
+            <form action="../../../search.html" method="get">
+              <input class="form-control" type="search" name="q" placeholder="Search" />
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="content">
+    <div class="container">
+      <div class="row">
+        <div class="sidebar col-lg-2">
+          <div class="collapse navbar-collapse" id="navbar-menu">
+            <h3>Documentation</h3>
+            <ul>
+                
+
+<!-- link to depth-first url found  -->
+  
+
+<!-- If there are no children, use the url (simple)  -->
+<li>
+  <a href="../../.." class="">
+    Overview
+  </a>
+</li>
+
+
+  
+
+
+<!-- Children complicate things  -->
+
+<!-- link to depth-first url found  -->
+  
+
+<!-- print root node  -->
+<li class="">
+  <a href="../../../matrix-creator/overview/" class="">
+    MATRIX Creator
+  </a>
+</li>
+
+<ul class="subnav">
+   
+  <!-- only 1 deep, print menu items  -->
+   
+  <li><a href="../../../matrix-creator/overview/" class="">Overview</a></li>
+     
+  <!-- only 1 deep, print menu items  -->
+   
+  <li><a href="../../../matrix-creator/device-setup/" class="">Device Setup</a></li>
+     
+  <!-- 2 deep  -->
+  <!-- print subroot  -->
+  <li>
+    <a href="../../../matrix-creator/resources/overview/" class="">
+      Resources
+    </a>
+  </li>
+
+  <ul class="subnav">
+        
+        
+        
+        
+        
+      
+  </ul>
+
+   
+</ul>
+
+  
+
+
+<!-- Children complicate things  -->
+
+<!-- link to depth-first url found  -->
+  
+
+<!-- print root node  -->
+<li class="">
+  <a href="../../../matrix-voice/overview/" class="">
+    MATRIX Voice
+  </a>
+</li>
+
+<ul class="subnav">
+   
+  <!-- only 1 deep, print menu items  -->
+   
+  <li><a href="../../../matrix-voice/overview/" class="">Overview</a></li>
+     
+  <!-- only 1 deep, print menu items  -->
+   
+  <li><a href="../../../matrix-voice/device-setup/" class="">Device Setup</a></li>
+     
+  <!-- only 1 deep, print menu items  -->
+   
+  <li><a href="../../../matrix-voice/esp32/" class="">ESP32</a></li>
+     
+  <!-- 2 deep  -->
+  <!-- print subroot  -->
+  <li>
+    <a href="../../../matrix-voice/resources/overview/" class="">
+      Resources
+    </a>
+  </li>
+
+  <ul class="subnav">
+        
+        
+        
+        
+        
+      
+  </ul>
+
+   
+</ul>
+
+  
+
+
+<!-- Children complicate things  -->
+
+<!-- link to depth-first url found  -->
+  
+
+<!-- print root node  -->
+<li class="">
+  <a href="../../../matrix-os/overview/" class="">
+    MATRIX OS
+  </a>
+</li>
+
+<ul class="subnav">
+   
+  <!-- only 1 deep, print menu items  -->
+   
+  <li><a href="../../../matrix-os/overview/" class="">Overview</a></li>
+     
+  <!-- 2 deep  -->
+  <!-- print subroot  -->
+  <li>
+    <a href="../../../matrix-os/getting-started/" class="">
+      Getting Started
+    </a>
+  </li>
+
+  <ul class="subnav">
+        
+        
+        
+      
+  </ul>
+
+    
+  <!-- 2 deep  -->
+  <!-- print subroot  -->
+  <li>
+    <a href="../../../matrix-os/reference/" class="">
+      Reference
+    </a>
+  </li>
+
+  <ul class="subnav">
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+  </ul>
+
+    
+  <!-- 2 deep  -->
+  <!-- print subroot  -->
+  <li>
+    <a href="../../../matrix-os/examples/" class="">
+      Examples
+    </a>
+  </li>
+
+  <ul class="subnav">
+        
+      
+  </ul>
+
+    
+  <!-- only 1 deep, print menu items  -->
+   
+  <li><a href="../../../matrix-os/troubleshooting/" class="">Troubleshooting</a></li>
+    
+</ul>
+
+  
+
+
+<!-- Children complicate things  -->
+
+<!-- link to depth-first url found  -->
+  
+
+<!-- print root node  -->
+<li class="">
+  <a href="../../overview/" class="active">
+    MATRIX CORE
+  </a>
+</li>
+
+<ul class="subnav">
+   
+  <!-- only 1 deep, print menu items  -->
+   
+  <li><a href="../../overview/" class="">Overview</a></li>
+     
+  <!-- 2 deep  -->
+  <!-- print subroot  -->
+  <li>
+    <a href="../" class="active">
+      Getting Started
+    </a>
+  </li>
+
+  <ul class="subnav">
+        
+    
+    <li><a href="../core-installation/" class="">Installation</a></li>
+        
+    
+    <li><a href="./" class="active">Understanding CORE</a></li>
+        
+    
+    <li><a href="../javascript-installation/" class="">Javascript Setup</a></li>
+        
+    
+    <li><a href="../python-installation/" class="">Python Setup</a></li>
+      
+  </ul>
+
+    
+  <!-- 2 deep  -->
+  <!-- print subroot  -->
+  <li>
+    <a href="../../protocols/" class="">
+      Driver Protocols
+    </a>
+  </li>
+
+  <ul class="subnav">
+        
+        
+        
+        
+        
+        
+        
+      
+  </ul>
+
+    
+  <!-- 2 deep  -->
+  <!-- print subroot  -->
+  <li>
+    <a href="../../javascript-examples/" class="">
+      Javascript Examples
+    </a>
+  </li>
+
+  <ul class="subnav">
+        
+        
+        
+        
+        
+        
+        
+      
+  </ul>
+
+    
+  <!-- 2 deep  -->
+  <!-- print subroot  -->
+  <li>
+    <a href="../../python-examples/" class="">
+      Python Examples
+    </a>
+  </li>
+
+  <ul class="subnav">
+        
+        
+        
+        
+        
+        
+        
+      
+  </ul>
+
+    
+  <!-- only 1 deep, print menu items  -->
+   
+  <li><a href="../../troubleshooting/" class="">Troubleshooting</a></li>
+    
+</ul>
+
+  
+
+
+<!-- Children complicate things  -->
+
+<!-- link to depth-first url found  -->
+  
+
+<!-- print root node  -->
+<li class="">
+  <a href="../../../matrix-hal/" class="">
+    MATRIX HAL
+  </a>
+</li>
+
+<ul class="subnav">
+   
+  <!-- only 1 deep, print menu items  -->
+     
+  <!-- 2 deep  -->
+  <!-- print subroot  -->
+  <li>
+    <a href="../../../matrix-hal/getting-started/installation/" class="">
+      Getting Started
+    </a>
+  </li>
+
+  <ul class="subnav">
+      
+        
+        
+      
+  </ul>
+
+    
+  <!-- only 1 deep, print menu items  -->
+   
+  <li><a href="../../../matrix-hal/examples/hardware-demos/" class="">Sensor Tests</a></li>
+    
+</ul>
+
+  
+
+<!-- link to depth-first url found  -->
+  
+
+<!-- If there are no children, use the url (simple)  -->
+<li>
+  <a href="../../../help/" class="">
+    Support
+  </a>
+</li>
+
+
+ 
+            </ul>
+          </div>
+        </div>
+        <div id="content" class="col-lg-8 col-md-9">
+           <h2 id="overview">Overview</h2>
+<p>MATRIX CORE functions by sending and receiving <a href="https://developers.google.com/protocol-buffers/" target="_blank">Protocol Buffers</a> over a <a href="http://zeromq.org/" target="_blank">ZeroMQ</a> connection. This can be used to query sensors and control any MATRIX device from any language that supports Protocol Buffers (version 3.X) and ZeroMQ. This is the basis for how the <a href="../../../matrix-os/overview/">MATRIX OS</a> layer can communicate with your MATRIX device. </p>
+<p><img alt="" src="../../../matrix-core/img/core-flow.jpg" /></p>
+<h2 id="ports-protocol">Ports &amp; Protocol</h2>
+<p>MATRIX CORE contains drivers (components &amp; sensors) that communicate with your MATRIX device. This occurs by having each driver send or receive Protocol Buffers over a ZeroMQ driver port. Depending on the driver port it may allow for <strong>read-only</strong>, <strong>write-only</strong> or <strong>read-write</strong>.</p>
+<p><strong>Current Driver Base Ports:</strong></p>
+<ul>
+<li><code>IMU</code> - <strong>20013</strong></li>
+<li><code>Humidity</code> - <strong>20017</strong></li>
+<li><code>Everloop</code> - <strong>20021</strong></li>
+<li><code>Pressure</code> - <strong>20025</strong></li>
+<li><code>UV</code> - <strong>20029</strong>
+<!-- * <code>ZigbeeBulb</code> - **20033** -->
+<!-- * <code>MicArray_Alsa</code> - **20037** --></li>
+<li><code>Servo</code> - <strong>20045</strong></li>
+<li><code>GPIO</code> - <strong>20049</strong></li>
+</ul>
+<p>Each driver reserves 4 ports beginning with their <code>base port</code> as shown above. The other 3 ports are in sequential order counting up from the <code>base port</code>. Below is an example of all IMU ports. Note, not all drivers utilize every port.</p>
+<p><strong>All IMU Ports</strong></p>
+<ul>
+<li><code>IMU Base Port</code> - <strong>20013</strong></li>
+<li><code>IMU Keep-Alive Port</code> - <strong>20014</strong></li>
+<li><code>IMU Error Port</code> - <strong>20015</strong></li>
+<li><code>IMU Data Update Port</code> - <strong>20016</strong></li>
+</ul>
+<p>The following list contains the port types currently defined in MATRIX CORE.
+<!-- BASE PORT -->
+<details open>
+<summary style="font-size: 1.75rem; font-weight: 300;">Base Port</summary>
+The <code>base port</code> is used to configure a driver on your MATRIX device. This port is a <code>ZeroMQ PULL port</code> that accepts a configuration which is created as a protocol buffer.</p>
+<p>To send a configuration you need to create a valid message for each driver. For example, the UV driver uses a configuration message to set the refresh rate and timeout for sending UV data.</p>
+<p>Configuration messages are named <code>DriverConfig</code>. The file for where this is defined can be seen <a href="https://github.com/matrix-io/protocol-buffers/blob/master/matrix_io/malos/v1/io.proto" target="_blank">here</a>.</p>
+<p>Below is an example for a UV configuration message:</p>
+<pre><code class="language-protobuf">message DriverConfig {
+  // Delay between updates. In seconds.
+  float delay_between_updates = 1;
+  // Timeout after last ping.
+  float timeout_after_last_ping = 2;
+}
+</code></pre>
+
+<p>Once the <code>DriverConfig</code> message is filled out, it needs to be serialized as a string and sent to the ZeroMQ configuration port.
+</details>
+<!-- KEEP-ALIVE PORT -->
+<details open>
+<summary style="font-size: 1.75rem; font-weight: 300;">Keep-alive Port</summary>
+<code>Port</code>: <code>base port</code> + 1</p>
+<p>The Keep-alive port is a <code>ZeroMQ PULL port</code> that is required for certain drivers to keep their function alive. Drivers that are pushing data need this in place to let it know if data will continue to be requested. For example, the Everloop driver doesn't require Keep-alive messages, but the Humidity driver does. Any message that is sent to the Keep-alive port will be discarded, so an empty string <code>""</code> makes for a good Keep-alive message.</p>
+<p></details>
+<!-- ERROR PORT -->
+<details open>
+<summary style="font-size: 1.75rem; font-weight: 300;">Error Port</summary>
+<code>Port</code>: <code>base port</code> + 2</p>
+<p>Programs can subscribe to this port to receive driver related errors. The Error port is a <code>ZeroMQ PUSH port</code> that will send you a string with any errors that it has encountered.
+</details>
+<!-- DATA UPDATE PORT -->
+<details open>
+<summary style="font-size: 1.75rem; font-weight: 300;">Data Update Port</summary>
+<code>Port</code>: <code>base port</code> + 3</p>
+<p>This <code>ZeroMQ PUSH port</code> is used by drivers that send data (Humidity, UV, etc.). Each driver uses a different message to report data to programs that subscribe for these updates.</p>
+<p>To demonstrate, the UV driver will be used as an example. You can find the file <a href="https://github.com/matrix-io/protocol-buffers/blob/master/matrix_io/malos/v1/sense.proto">here</a>.
+The message follows:</p>
+<pre><code class="language-protobuf">// Basic UV radiation lecture.
+message UV{
+  // UV index
+  float uv_index = 1;
+  // OMS risk
+  string oms_risk = 2;
+}
+</code></pre>
+
+<p>Applications that subscribe to UV driver updates will receive a string with serialized messages of type UV. Once received, the message needs to be deserialized by the application for the values can be used.</p>
+<p></details></p>
+<p><br/></p>
+<h2 id="next-steps">Next Steps</h2>
+<p>We currently provide libraries and examples for the following languages:</p>
+<ul>
+<li><a href="../javascript-installation/">Javascript</a></li>
+<li><a href="../python-installation">Python</a></li>
+</ul>
+<p>If you want to use another protocol buffer supported programming language then we suggest you view the <a href="https://developers.google.com/protocol-buffers/" target="_blank">Protocol Buffers Documentation</a> for the language you want to use in MATRIX CORE. Remember to use <a href="http://zeromq.org/" target="_blank">ZeroMQ</a> for sending these Protocol Buffers. You can view the protocols for each of our drivers <a href="../../protocols">here</a>.</p> 
+        </div>
+        <div class="toc-parent col-lg-2 col-md-3">
+          <div class="toc">
+            
+            <h3>Contents</h3>
+            <ul class="nav flex-column">
+               <li class='nav-item'>
+  <a href="#overview" class="nav-link active">
+    Overview
+  </a>
+  
+</li>  <li class='nav-item'>
+  <a href="#ports-protocol" class="nav-link ">
+    Ports &amp; Protocol
+  </a>
+  
+</li>  <li class='nav-item'>
+  <a href="#next-steps" class="nav-link ">
+    Next Steps
+  </a>
+  
+</li> 
+            </ul>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+
+  <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8">
+        <div class="row">
+          <div class="col-sm-4">
+            <h5>MATRIX</h5>
+            <ul>
+              <li>
+                <a href="https://matrix.one/products/home" target="_blank">For Home</a>
+              </li>
+              <li>
+                <a href="https://matrix.one/products/creator" target="_blank">Creator</a>
+              </li>
+              <li>
+                <a href="https://matrix.one/products/voice" target="_blank">Voice</a>
+              </li>
+              <li>
+                <a href="https://apps.matrix.one/" target="_blank">Apps</a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-sm-4">
+            <h5>Learn</h5>
+            <ul>
+              <li>
+                <a href="http://blog.matrix.one/" target="_blank">Blog</a>
+              </li>
+              <li>
+                <a href="http://community.matrix.one/" target="_blank">Community</a>
+              </li>
+              <li>
+                <a href="../../..">Docs</a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-sm-4">
+            <h5>Social Network</h5>
+            <ul>
+              <li>
+                <a href="https://www.facebook.com/MATRIXCreator" target="_blank">Facebook</a>
+              </li>
+              <li>
+                <a href="https://twitter.com/matrix_creator" target="_blank">Twitter</a>
+              </li>
+              <li>
+                <a href="https://www.youtube.com/channel/UCBIqR8r0tfY6W-4-YpZ7NeQ" target="_blank">YouTube</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <h5>Contact</h5>
+        <ul>
+          <li>
+            <a href="https://matrix.one/contact">Contact Us</a>
+          </li>
+          <li class="subscribe-box">
+            <form id="newsletter-form">
+              <div class="input-group">
+                <input id="newsletter-email" type="email" class="form-control" placeholder="Subscribe for Updates">
+                <button type="submit" class="btn btn-success">Subscribe</button>
+              </div>
+              <label for="newsletter-email"></label>
+            </form>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-6">
+        <a href="https://creator.matrix.one" class="company-logo">
+          <img src="../../../img/everloop.png" width="38" height="38" class="d-inline-block align-top" alt="">
+          <span>MATRIX</span>
+        </a>
+        <small class="copyright">
+          2017 &copy; MATRIX - All rights reserved
+        </small>
+      </div>
+      <div class="col-sm-6">
+        <div class="utility-links">
+          <a href="https://matrix.one/policies/terms">Terms of Service</a>
+          <a href="https://matrix.one/policies/privacy">Privacy Policy</a>
+          <a href="https://matrix.one/policies/cookie">Cookie Policy</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+  <script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+  <script src="../../../js/theme.js"></script>
+  <script src="https://use.fontawesome.com/21aeb6fedc.js"></script>
+  <script src="../../../js/jquery.ajaxchimp.min.js"></script>
+  <script src="../../../js/jquery.ajaxchimp.langs.min.js"></script>
+  <script src="../../../js/footer.js"></script>
+  <script src="../../../js/prism.js"></script>
+
+  <!-- TOC Script -->
+  <script>
+    jQuery(function($) {
+      $('.toc-parent ul li a').on('click', function() {
+        var removedElement = $(this)
+          .closest('.toc-parent ul li')
+          .find('a.active')
+          .removeClass('active');
+
+        if (removedElement.length == 0) {
+          $('.toc-parent ul li').find('a.active').removeClass('active');
+        }
+
+        $(this).addClass('active');
+      });
+    });
+  </script>
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-38180903-26', 'auto');
+    ga('send', 'pageview');
+  </script>
+  
+</body>
+
+</html>
