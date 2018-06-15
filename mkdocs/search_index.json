@@ -92,8 +92,8 @@
         }, 
         {
             "location": "/matrix-creator/resources/microphone/", 
-            "text": "Microphone Array on MATRIX Creator\n\n\n\n\nAudio Specifications\n\n\nSample Rate: 8 to 96 kHz\nBit Depth: Signed 16 bit\n\n\nPosition [x,y] of each mic in the array (mm)\n\n\n\n\n\n\n\n\n\nMic\n\n\nX\n\n\nY\n\n\n\n\n\n\n\n\n\n\nM1\n\n\n20.0908795\n\n\n-48.5036755\n\n\n\n\n\n\nM2\n\n\n-20.0908795\n\n\n-48.5036755\n\n\n\n\n\n\nM3\n\n\n-48.5036755\n\n\n-20.0908795\n\n\n\n\n\n\nM4\n\n\n-48.5036755\n\n\n20.0908795\n\n\n\n\n\n\nM5\n\n\n-20.0908795\n\n\n48.5036755\n\n\n\n\n\n\nM6\n\n\n20.0908795\n\n\n48.5036755\n\n\n\n\n\n\nM7\n\n\n48.5036755\n\n\n20.0908795\n\n\n\n\n\n\nM8\n\n\n48.5036755\n\n\n-20.0908795\n\n\n\n\n\n\n\n\nConnection to the FPGA\n\n\n\nYou can check the physical connection between the FPGA and other components in \n\ncreator.ucf\n\n\n\n\n\n\n\n\nMic\n\n\nFPGA pin\n\n\nPDM_Data\n\n\n\n\n\n\n\n\n\n\nM1\n\n\nP45\n\n\npdm_data\n0\n\n\n\n\n\n\nM2\n\n\nP46\n\n\npdm_data\n1\n\n\n\n\n\n\nM3\n\n\nP47\n\n\npdm_data\n2\n\n\n\n\n\n\nM4\n\n\nP58\n\n\npdm_data\n3\n\n\n\n\n\n\nM5\n\n\nP59\n\n\npdm_data\n4\n\n\n\n\n\n\nM6\n\n\nP64\n\n\npdm_data\n5\n\n\n\n\n\n\nM7\n\n\nP65\n\n\npdm_data\n6\n\n\n\n\n\n\nM8\n\n\nP44\n\n\npdm_data\n7\n\n\n\n\n\n\nCLK\n\n\nP47\n\n\npdm_clk", 
-            "title": "Microphone"
+            "text": "Microphone Array on MATRIX Creator\n\n\n\n\nUsage\n\n\nDriver installation\n\nFollow the instructions below for allowing your MATRIX Creator to register as a microphone for your Raspberry Pi.\n\n\ncurl https://apt.matrix.one/doc/apt-key.gpg | sudo apt-key add -\necho \ndeb https://apt.matrix.one/raspbian $(lsb_release -sc) main\n | sudo tee /etc/apt/sources.list.d/matrixlabs.list\nsudo apt-get update\nsudo apt-get upgrade\n\n\n\n\nA reboot will be required after the MATRIX packages above are installed.\n\n\nsudo reboot\n\n\n\n\nThe next commands will install the MATRIX kernel modules, overriding the stock Raspbian kernel.\n\n\nsudo apt install matrixio-kernel-modules\n\n\n\n\nA second reboot will be required.\n\n\nsudo reboot\n\n\n\n\nCheck If Everything Works\n\n\n\nYour Raspberry Pi should now treat your MATRIX Creator as a regular microphone. You can test this by using the following commands to record and play a 5 second long audio file on your Raspberry Pi.\n\n\n\n\nBe sure to have something connected to the Raspberry Pi's audio output.\n\n\n\n\narecord recording.wav -f S16_LE -r 16000 -d 5\naplay recording.wav\n\n\n\n\nALSA Configuration\n\n\n\nThe microphones can be grabbed using ALSA. Multiple libraries that support ALSA use these configurations to read microphone data with ALSA.\n\n\nDevice name - \nhw:2,0\n\n\nRates(Hz) - \n8000\n \n12000\n \n16000\n \n22050\n \n24000\n \n32000\n \n44100\n \n48000\n \n96000\n\n\nChannels for each microphone - \n1\n \n2\n \n3\n \n4\n \n5\n \n6\n \n7\n \n8\n\n\nAudio Specifications\n\n\nSample Rate:\n 8 to 96 kHz\n\n\nBit Depth:\n Signed 16 bit\n\n\nPosition [x,y] of each mic in the array (mm)\n\n\n\n\n\n\n\n\n\nMic\n\n\nX\n\n\nY\n\n\n\n\n\n\n\n\n\n\nM1\n\n\n20.0908795\n\n\n-48.5036755\n\n\n\n\n\n\nM2\n\n\n-20.0908795\n\n\n-48.5036755\n\n\n\n\n\n\nM3\n\n\n-48.5036755\n\n\n-20.0908795\n\n\n\n\n\n\nM4\n\n\n-48.5036755\n\n\n20.0908795\n\n\n\n\n\n\nM5\n\n\n-20.0908795\n\n\n48.5036755\n\n\n\n\n\n\nM6\n\n\n20.0908795\n\n\n48.5036755\n\n\n\n\n\n\nM7\n\n\n48.5036755\n\n\n20.0908795\n\n\n\n\n\n\nM8\n\n\n48.5036755\n\n\n-20.0908795\n\n\n\n\n\n\n\n\nConnection to the FPGA\n\n\n\nYou can check the physical connection between the FPGA and other components in \n\ncreator.ucf\n\n\n\n\n\n\n\n\nMic\n\n\nFPGA pin\n\n\nPDM_Data\n\n\n\n\n\n\n\n\n\n\nM1\n\n\nP45\n\n\npdm_data\n0\n\n\n\n\n\n\nM2\n\n\nP46\n\n\npdm_data\n1\n\n\n\n\n\n\nM3\n\n\nP47\n\n\npdm_data\n2\n\n\n\n\n\n\nM4\n\n\nP58\n\n\npdm_data\n3\n\n\n\n\n\n\nM5\n\n\nP59\n\n\npdm_data\n4\n\n\n\n\n\n\nM6\n\n\nP64\n\n\npdm_data\n5\n\n\n\n\n\n\nM7\n\n\nP65\n\n\npdm_data\n6\n\n\n\n\n\n\nM8\n\n\nP44\n\n\npdm_data\n7\n\n\n\n\n\n\nCLK\n\n\nP47\n\n\npdm_clk", 
+            "title": "Microphones"
         }, 
         {
             "location": "/matrix-creator/resources/microphone/#microphone-array-on-matrix-creator", 
@@ -101,8 +101,13 @@
             "title": "Microphone Array on MATRIX Creator"
         }, 
         {
+            "location": "/matrix-creator/resources/microphone/#usage", 
+            "text": "", 
+            "title": "Usage"
+        }, 
+        {
             "location": "/matrix-creator/resources/microphone/#audio-specifications", 
-            "text": "Sample Rate: 8 to 96 kHz\nBit Depth: Signed 16 bit", 
+            "text": "Sample Rate:  8 to 96 kHz  Bit Depth:  Signed 16 bit", 
             "title": "Audio Specifications"
         }, 
         {
@@ -247,8 +252,8 @@
         }, 
         {
             "location": "/matrix-voice/resources/microphone/", 
-            "text": "Microphone Array on MATRIX Voice\n\n\n\n\nAudio specs\n\n\nSample Rate: 8 to 96 kHz\nBit Depth: Signed 16 bit\n\n\nPosition [x,y] of each mic in the array (mm)\n\n\n\n\n\n\n\n\n\nMic\n\n\nX\n\n\nY\n\n\n\n\n\n\n\n\n\n\nM1\n\n\n00.00\n\n\n0.00\n\n\n\n\n\n\nM2\n\n\n-38.13\n\n\n3.58\n\n\n\n\n\n\nM3\n\n\n-20.98\n\n\n32.04\n\n\n\n\n\n\nM4\n\n\n11.97\n\n\n36.38\n\n\n\n\n\n\nM5\n\n\n35.91\n\n\n13.32\n\n\n\n\n\n\nM6\n\n\n32.81\n\n\n-19.77\n\n\n\n\n\n\nM7\n\n\n5.00\n\n\n-37.97\n\n\n\n\n\n\nM8\n\n\n-26.57\n\n\n-27.58\n\n\n\n\n\n\n\n\nConnection to the FPGA\n\n\n\n\n\n\n\n\n\nMic\n\n\nFPGA pin\n\n\nPDM_Data\n\n\n\n\n\n\n\n\n\n\nM1\n\n\nE6\n\n\npdm_data\n0\n\n\n\n\n\n\nM2\n\n\nB8\n\n\npdm_data\n1\n\n\n\n\n\n\nM3\n\n\nA8\n\n\npdm_data\n2\n\n\n\n\n\n\nM4\n\n\nC7\n\n\npdm_data\n3\n\n\n\n\n\n\nM5\n\n\nA7\n\n\npdm_data\n4\n\n\n\n\n\n\nM6\n\n\nA6\n\n\npdm_data\n5\n\n\n\n\n\n\nM7\n\n\nB6\n\n\npdm_data\n6\n\n\n\n\n\n\nM8\n\n\nA5\n\n\npdm_data\n7\n\n\n\n\n\n\nCLK\n\n\nB5\n\n\npdm_clk", 
-            "title": "Microphone"
+            "text": "Microphone Array on MATRIX Voice\n\n\n\n\nUsage\n\n\nDriver installation\n\nFollow the instructions below for allowing your MATRIX Voice to register as a microphone for your Raspberry Pi.\n\n\ncurl https://apt.matrix.one/doc/apt-key.gpg | sudo apt-key add -\necho \ndeb https://apt.matrix.one/raspbian $(lsb_release -sc) main\n | sudo tee /etc/apt/sources.list.d/matrixlabs.list\nsudo apt-get update\nsudo apt-get upgrade\n\n\n\n\nA reboot will be required after the MATRIX packages above are installed.\n\n\nsudo reboot\n\n\n\n\nThe next commands will install the MATRIX kernel modules, overriding the stock Raspbian kernel.\n\n\nsudo apt install matrixio-kernel-modules\n\n\n\n\nA second reboot will be required.\n\n\nsudo reboot\n\n\n\n\nCheck If Everything Works\n\n\n\nYour Raspberry Pi should now treat your MATRIX Voice as a regular microphone. You can test this by using the following commands to record and play a 5 second long audio file on your Raspberry Pi.\n\n\n\n\nBe sure to have something connected to the Raspberry Pi's audio output.\n\n\n\n\narecord recording.wav -f S16_LE -r 16000 -d 5\naplay recording.wav\n\n\n\n\nALSA Configuration\n\n\n\nThe microphones can be grabbed using ALSA. Multiple libraries that support ALSA use these configurations to read microphone data with ALSA.\n\n\nDevice name - \nhw:2,0\n\n\nRates(Hz) - \n8000\n \n12000\n \n16000\n \n22050\n \n24000\n \n32000\n \n44100\n \n48000\n \n96000\n\n\nChannels for each microphone - \n1\n \n2\n \n3\n \n4\n \n5\n \n6\n \n7\n \n8\n\n\nAudio specs\n\n\nSample Rate:\n 8 to 96 kHz\n\n\nBit Depth:\n Signed 16 bit\n\n\nPosition [x,y] of each mic in the array (mm)\n\n\n\n\n\n\n\n\n\nMic\n\n\nX\n\n\nY\n\n\n\n\n\n\n\n\n\n\nM1\n\n\n00.00\n\n\n0.00\n\n\n\n\n\n\nM2\n\n\n-38.13\n\n\n3.58\n\n\n\n\n\n\nM3\n\n\n-20.98\n\n\n32.04\n\n\n\n\n\n\nM4\n\n\n11.97\n\n\n36.38\n\n\n\n\n\n\nM5\n\n\n35.91\n\n\n13.32\n\n\n\n\n\n\nM6\n\n\n32.81\n\n\n-19.77\n\n\n\n\n\n\nM7\n\n\n5.00\n\n\n-37.97\n\n\n\n\n\n\nM8\n\n\n-26.57\n\n\n-27.58\n\n\n\n\n\n\n\n\nConnection to the FPGA\n\n\n\n\n\n\n\n\n\nMic\n\n\nFPGA pin\n\n\nPDM_Data\n\n\n\n\n\n\n\n\n\n\nM1\n\n\nE6\n\n\npdm_data\n0\n\n\n\n\n\n\nM2\n\n\nB8\n\n\npdm_data\n1\n\n\n\n\n\n\nM3\n\n\nA8\n\n\npdm_data\n2\n\n\n\n\n\n\nM4\n\n\nC7\n\n\npdm_data\n3\n\n\n\n\n\n\nM5\n\n\nA7\n\n\npdm_data\n4\n\n\n\n\n\n\nM6\n\n\nA6\n\n\npdm_data\n5\n\n\n\n\n\n\nM7\n\n\nB6\n\n\npdm_data\n6\n\n\n\n\n\n\nM8\n\n\nA5\n\n\npdm_data\n7\n\n\n\n\n\n\nCLK\n\n\nB5\n\n\npdm_clk", 
+            "title": "Microphones"
         }, 
         {
             "location": "/matrix-voice/resources/microphone/#microphone-array-on-matrix-voice", 
@@ -256,8 +261,13 @@
             "title": "Microphone Array on MATRIX Voice"
         }, 
         {
+            "location": "/matrix-voice/resources/microphone/#usage", 
+            "text": "", 
+            "title": "Usage"
+        }, 
+        {
             "location": "/matrix-voice/resources/microphone/#audio-specs", 
-            "text": "Sample Rate: 8 to 96 kHz\nBit Depth: Signed 16 bit", 
+            "text": "Sample Rate:  8 to 96 kHz  Bit Depth:  Signed 16 bit", 
             "title": "Audio specs"
         }, 
         {

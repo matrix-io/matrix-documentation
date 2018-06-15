@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Microphone MATRIX</title>
+  <title>Microphones MATRIX</title>
   <link rel="shortcut icon" href="../../../img/favicon.ico">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
   <link rel="stylesheet" href="../../../css/theme.css">
@@ -29,7 +29,7 @@
         <div class="row">
           <div class="col-sm-8">
             
-            <h1>Microphone</h1>
+            <h1>Microphones</h1>
             
           </div>
           <div class="col-sm-4">
@@ -101,7 +101,7 @@
     <li><a href="../pinout/" class="">Pinout</a></li>
         
     
-    <li><a href="./" class="active">Microphone</a></li>
+    <li><a href="./" class="active">Microphones</a></li>
         
     
     <li><a href="../reference-models/" class="">Reference Models</a></li>
@@ -410,9 +410,46 @@
         <div id="content" class="col-lg-8 col-md-9">
            <h2 id="microphone-array-on-matrix-creator">Microphone Array on MATRIX Creator</h2>
 <p><img alt="Mic Position" src="../../img/mic_creator_position.png" /></p>
+<h2 id="usage">Usage</h2>
+<p><h3 style="padding-top:0;">Driver installation</h3>
+Follow the instructions below for allowing your MATRIX Creator to register as a microphone for your Raspberry Pi.</p>
+<pre><code class="language-bash">curl https://apt.matrix.one/doc/apt-key.gpg | sudo apt-key add -
+echo &quot;deb https://apt.matrix.one/raspbian $(lsb_release -sc) main&quot; | sudo tee /etc/apt/sources.list.d/matrixlabs.list
+sudo apt-get update
+sudo apt-get upgrade
+</code></pre>
+
+<p>A reboot will be required after the MATRIX packages above are installed.</p>
+<pre><code class="language-bash">sudo reboot
+</code></pre>
+
+<p>The next commands will install the MATRIX kernel modules, overriding the stock Raspbian kernel.</p>
+<pre><code class="language-bash">sudo apt install matrixio-kernel-modules
+</code></pre>
+
+<p>A second reboot will be required.</p>
+<pre><code class="language-bash">sudo reboot
+</code></pre>
+
+<h3 style="padding-top:0;">Check If Everything Works</h3>
+
+<p>Your Raspberry Pi should now treat your MATRIX Creator as a regular microphone. You can test this by using the following commands to record and play a 5 second long audio file on your Raspberry Pi.</p>
+<blockquote>
+<p>Be sure to have something connected to the Raspberry Pi's audio output.</p>
+</blockquote>
+<pre><code class="language-batch">arecord recording.wav -f S16_LE -r 16000 -d 5
+aplay recording.wav
+</code></pre>
+
+<h3 style="padding-top:0;">ALSA Configuration</h3>
+
+<p>The microphones can be grabbed using ALSA. Multiple libraries that support ALSA use these configurations to read microphone data with ALSA.</p>
+<p>Device name - <code>hw:2,0</code></p>
+<p>Rates(Hz) - <code>8000</code> <code>12000</code> <code>16000</code> <code>22050</code> <code>24000</code> <code>32000</code> <code>44100</code> <code>48000</code> <code>96000</code></p>
+<p>Channels for each microphone - <code>1</code> <code>2</code> <code>3</code> <code>4</code> <code>5</code> <code>6</code> <code>7</code> <code>8</code></p>
 <h2 id="audio-specifications">Audio Specifications</h2>
-<p>Sample Rate: 8 to 96 kHz
-Bit Depth: Signed 16 bit</p>
+<p><strong>Sample Rate:</strong> 8 to 96 kHz</p>
+<p><strong>Bit Depth:</strong> Signed 16 bit</p>
 <h3 style="padding-top:0;">Position [x,y] of each mic in the array (mm)</h3>
 
 <table>
@@ -535,6 +572,11 @@ Bit Depth: Signed 16 bit</p>
                <li class='nav-item'>
   <a href="#microphone-array-on-matrix-creator" class="nav-link active">
     Microphone Array on MATRIX Creator
+  </a>
+  
+</li>  <li class='nav-item'>
+  <a href="#usage" class="nav-link ">
+    Usage
   </a>
   
 </li>  <li class='nav-item'>
