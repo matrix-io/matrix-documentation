@@ -21,7 +21,20 @@ wget "https://github.com/matrix-io/matrix-creator-malos/blob/master/src/python_t
 wget "https://raw.githubusercontent.com/matrix-io/matrix-creator-malos/master/src/python_test/requirements.txt" -O requirements.txt 
 wget "https://raw.githubusercontent.com/matrix-io/matrix-creator-malos/master/src/python_test/utils.py" -O utils.py 
 sudo apt-get install build-essential python-dev
+```
+<h4 style="padding-top: 0">Python 2 Packages</h4>
+Required packages for Python 2 can be installed by using the following command.
+```language-bash
 pip install -r requirements.txt
+```
+<h4 style="padding-top: 0">Python 3 Packages</h4>
+Instead of pip, Python 3 packages will require pip3 which can be installed with the command below.
+```language-bash
+sudo apt-get install python3-pip
+```
+You can now install the required packages for Python 3.
+```language-bash
+pip3 install -r requirements.txt
 ```
 
 <br/>
@@ -89,6 +102,11 @@ def ping_socket():
     # Ping with empty string to let the drive know we're still listening
     ping_socket.send_string('')
 
+## ERROR PORT ##
+def everloop_error_callback(error):
+    # Log error
+    print('{0}'.format(error))
+
 ## DATA UPDATE PORT ##
 def update_socket():
     # Define zmq socket
@@ -106,7 +124,6 @@ def update_socket():
     def updateLedCount(data):
         # Extract data and pass into led_count global variable
         global led_count
-        print io_pb2.LedValue().FromString(data[0])
         led_count = io_pb2.LedValue().FromString(data[0]).green
         # Log LEDs
         print('{0} LEDs counted'.format(led_count))
@@ -121,11 +138,6 @@ def update_socket():
     # Log and begin event loop for ZMQ connection to Data Update Port
     print('Connected to data publisher with port {0}'.format(everloop_port+3))
     ioloop.IOLoop.instance().start()
-
-## ERROR PORT ##
-def everloop_error_callback(error):
-    # Log error
-    print('{0}'.format(error))
 
 ## START  PROCESSES ##
 if __name__ == '__main__':

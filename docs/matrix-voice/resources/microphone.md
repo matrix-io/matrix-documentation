@@ -1,12 +1,12 @@
 ## Microphone Array on MATRIX Voice
 ![Mic Position](../img/mic_voice_position.png)
 
-## Audio specs:
+## Audio specs
 
 Sample Rate: 8 to 96 kHz
 Bit Depth: Signed 16 bit
 
-<h2 style="padding-top:0;">Position [x,y] of each mic in the array (mm):</h2>
+<h3 style="padding-top:0;">Position [x,y] of each mic in the array (mm)</h3>
 
 | Mic  |      X      |      Y      |  
 | ---- | ----------- | ----------- |  
@@ -19,7 +19,7 @@ Bit Depth: Signed 16 bit
 |  M7  |     5.00    |   -37.97    |
 |  M8  |   -26.57    |   -27.58    |
 
-<h2 style="padding-top:0;">Connection to the FPGA:</h2>
+<h3 style="padding-top:0;">Connection to the FPGA</h3>
 
 | Mic  |   FPGA pin  |   PDM_Data  |  
 | ---- | ----------- | ----------- |  
