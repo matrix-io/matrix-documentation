@@ -13,7 +13,7 @@ MATRIX CORE contains drivers (components & sensors) that communicate with your M
 * `Everloop` - **20021**
 * `Pressure` - **20025**
 * `UV` - **20029**
-<!-- * `ZigbeeBulb` - **20033** -->
+<!-- * `ZigbeeBulb` - **40001** -->
 <!-- * `MicArray_Alsa` - **20037** -->
 * `Servo` - **20045**
 * `GPIO` - **20049**

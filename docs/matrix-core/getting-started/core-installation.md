@@ -33,13 +33,17 @@ wget https://download.opensuse.org/repositories/network:/messaging:/zeromq:/rele
 ## Helpful Information
 <h3 style="padding-top: 0">Upgrading</h3>
 
-If you need to upgrade your MATRIX CORE package at any time, please run the following commands and restart your MATRIX device(Raspberry Pi).
+If you need to upgrade your MATRIX CORE package at any time, please run the following commands on your Raspberry Pi.
 
 ```language-bash
 sudo apt-get update
 sudo apt-get upgrade
+```
+A reboot will be required after upgrading your packages.
+```language-bash
 sudo reboot
 ```
+
 <h3 style="padding-top: 0">Stopping & Starting</h3>
 If you need to manually stop MATRIX CORE use:
 
