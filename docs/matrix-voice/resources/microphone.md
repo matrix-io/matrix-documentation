@@ -41,8 +41,9 @@ Channels for each microphone - `1` `2` `3` `4` `5` `6` `7` `8`
 
 ## Audio specs
 
-Sample Rate: 8 to 96 kHz
-Bit Depth: Signed 16 bit
+**Sample Rate:** 8 to 96 kHz
+
+**Bit Depth:** Signed 16 bit
 
 <h3 style="padding-top:0;">Position [x,y] of each mic in the array (mm)</h3>
 
