@@ -11,7 +11,7 @@ pages:
   - Resources:
     - 'Overview': 'matrix-creator/resources/overview.md'
     - 'Pinout': 'matrix-creator/resources/pinout.md'
-    - 'Microphone': 'matrix-creator/resources/microphone.md'
+    - 'Microphones': 'matrix-creator/resources/microphone.md'
     - 'Reference Models': 'matrix-creator/resources/reference-models.md'
     - 'System Architecture': 'matrix-creator/resources/system-architecture.md'
     - 'Technical Datasheets': 'matrix-creator/resources/technical-datasheets.md'
@@ -22,7 +22,7 @@ pages:
   - Resources:
     - 'Overview': 'matrix-voice/resources/overview.md'
     - 'Pinout': 'matrix-voice/resources/pinout.md'
-    - 'Microphone': 'matrix-voice/resources/microphone.md'
+    - 'Microphones': 'matrix-voice/resources/microphone.md'
     - 'Reference Models': 'matrix-voice/resources/reference-models.md'
     - 'System Architecture': 'matrix-voice/resources/system-architecture.md'
     - 'Technical Datasheets': 'matrix-voice/resources/technical-datasheets.md'
