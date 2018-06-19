@@ -75,6 +75,8 @@ pages:
     - 'UV': 'matrix-core/protocols/uv.md'
     - 'Servo': 'matrix-core/protocols/servo.md'
     - 'GPIO': 'matrix-core/protocols/gpio.md'
+    - 'Wakeword': 'matrix-core/protocols/wakeword.md'
+
   - Javascript Examples:
     - 'Index': 'matrix-core/javascript-examples/index.md'
     - 'Everloop': 'matrix-core/javascript-examples/everloop.md'

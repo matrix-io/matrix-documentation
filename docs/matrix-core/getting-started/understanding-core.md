@@ -17,6 +17,7 @@ MATRIX CORE contains drivers (components & sensors) that communicate with your M
 <!-- * `MicArray_Alsa` - **20037** -->
 * `Servo` - **20045**
 * `GPIO` - **20049**
+* `Wakeword` - **60001**
 
 Each driver reserves 4 ports beginning with their `base port` as shown above. The other 3 ports are in sequential order counting up from the `base port`. Below is an example of all IMU ports. Note, not all drivers utilize every port.
 
