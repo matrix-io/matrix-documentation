@@ -14,7 +14,6 @@ The Wakeword driver allows for:
 <h3 style="padding-top:0">Available ZeroMQ Ports</h3>
 
 * `Base port`: 60001
-* `Keep-alive port`: 60002
 * `Error port`: 60003
 * `Data update port`: 60004
 
@@ -35,9 +34,9 @@ sudo reboot
 ```
 
 ## Creating Custom Phrases
-To create custom phrases, you must upload a .txt file to <a href="http://www.speech.cs.cmu.edu/tools/lmtool-new.html" target="_blank">Sphinx Knowledge Base</a> and download the files it gives you in response.
+To create custom phrases, you must upload a `.txt` file to <a href="http://www.speech.cs.cmu.edu/tools/lmtool-new.html" target="_blank">Sphinx Knowledge Base</a>.
 
-Below is an example text file that has each phrase separated by a line break. Once this is uploaded to the Sphinx Knowledge base, you will receive the necessary language and dictation file you need to use the Wakeword Driver.
+Below is an example text file that has each phrase separated by a line break. Once this is uploaded to the Sphinx Knowledge base, you will need to download the language model `.lm` and dictation `.dic` files for the Wakeword Driver.
 
 ```
 matrix start action
@@ -53,20 +52,12 @@ matrix ring clear
 <!-- Base PORT -->
 <details open>
 <summary style="font-size: 1.75rem; font-weight: 300;">Base Port</summary>
-This port accepts three configurations for communicating with the Wakeword driver. 
-
-* `delay_between_updates` - controls the output speed of messages from the **Data Update port**. 
-
-* `timeout_after_last_ping` - stops sending messages from the **Data Update port** if nothing has been sent to the **Keep-alive port** after the specified amount of seconds.
+This port accepts a single configuration for communicating with the Wakeword driver. 
 
 * `wakeword` - the wakeword configuration that's created from a `WakeWordParams` message.
 
 ```language-protobuf
 message DriverConfig {
-  // Delay between updates in seconds
-  float delay_between_updates = 1;
-  // Timeout after last ping
-  float timeout_after_last_ping = 2;
   // Wakeword service configuration
   matrix_io.malos.v1.io.WakeWordParams wakeword = 12;
 }
@@ -77,9 +68,9 @@ View the defined message <a href="https://github.com/matrix-io/protocol-buffers/
 
 * `MicChannel` - Desired MATRIX device microphone to use.
 
-* `lm_path` - File path for language model.
+* `lm_path` - File path for language model. **Obtained from Sphinx Knowledge Base**.
 
-* `dic_path` - File path for dictation.
+* `dic_path` - File path for dictation. **Obtained from Sphinx Knowledge Base**.
 
 * `enable_verbose` - Boolean to send output to stdout.
 
@@ -105,7 +96,7 @@ message WakeWordParams {
   // http://www.speech.cs.cmu.edu/tools/lmtool-new.html
   // Language model path
   string lm_path = 3;
-  // dictionary path from lmtool
+  // Dictation path
   string dic_path = 4;
 
   // enable pocketsphinx verbose mode
@@ -118,10 +109,10 @@ message WakeWordParams {
 View the defined message <a href="https://github.com/matrix-io/protocol-buffers/blob/65397022e73ac98ec2b217937f133a9eefbd8f01/matrix_io/malos/v1/io.proto" target="_blank">here</a>.
 </details>
 
-<!-- Keep-alive PORT -->
+<!-- Keep-Alive PORT -->
 <details open>
 <summary style="font-size: 1.75rem; font-weight: 300;">Keep-alive Port</summary>
-This driver needs keep-alive messages in order to send data to your application. It's recommended to send an empty string `""` because the contents of a keep-alive message are never read.
+Unlike other drivers, the Wakeword driver does not need a Keep-alive port.
 </details>
 
 <!-- Error PORT -->

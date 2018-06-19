@@ -76,7 +76,6 @@ pages:
     - 'Servo': 'matrix-core/protocols/servo.md'
     - 'GPIO': 'matrix-core/protocols/gpio.md'
     - 'Wakeword': 'matrix-core/protocols/wakeword.md'
-
   - Javascript Examples:
     - 'Index': 'matrix-core/javascript-examples/index.md'
     - 'Everloop': 'matrix-core/javascript-examples/everloop.md'
@@ -86,6 +85,7 @@ pages:
     - 'UV': 'matrix-core/javascript-examples/uv.md'
     - 'Servo': 'matrix-core/javascript-examples/servo.md'
     - 'GPIO': 'matrix-core/javascript-examples/gpio.md'
+    - 'Wakeword': 'matrix-core/javascript-examples/wakeword.md'
   - Python Examples:
     - 'Index': 'matrix-core/python-examples/index.md'
     - 'Everloop': 'matrix-core/python-examples/everloop.md'
