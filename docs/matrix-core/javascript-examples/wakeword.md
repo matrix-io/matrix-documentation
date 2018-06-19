@@ -105,11 +105,11 @@ updateSocket.on('message', function(wakeword_buffer) {
   var wakeWordData = matrix_io.malos.v1.io.WakeWordParams.decode(wakeword_buffer);
   // Run actions based on the phrase heard
   switch(wakeWordData.wakeWord) {
-    // Play audio file voice command
+    // CHANGE TO YOUR PHRASE
     case "MATRIX START":
       console.log('STARTING WHATEVER YOU WANT!');
       break;
-    // Test wakeword voice command
+    // CHANGE TO YOUR PHRASE
     case "MATRIX STOP":
       console.log('STOPPING WHATEVER YOU WANT!');
       break;
