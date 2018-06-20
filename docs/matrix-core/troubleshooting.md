@@ -1,18 +1,25 @@
+## Community
+Please visit our community support forums at:
+[community.matrix.one](http://community.matrix.one/)
 
-### Check MATRIX CORE Services are Running
+## Check Active MATRIX CORE Services
 
-Run the following command on your Raspberry Pi to confirm your MATRIX Services are running.
-```
-$ ps aux | grep 'malos'
-```
-
-This should return something along the lines of:
-```
-root       445  0.0  0.6 126240  5964 ?        Ssl  16:51   0:00 /usr/bin/malos_eye
-root       449  5.3  0.8 853204  8352 ?        Ssl  16:51   4:41 /usr/bin/malos
+Run the following command on your Raspberry Pi's terminal to see the MATRIX Services currently running.
+```language-bash
+ps aux | grep 'malos'
 ```
 
-### Running Services Manually
+## Audio Open Error
+If you encounter the error log below, your microphones are being used by the Pocketsphinx service for the [Wakeword Driver](protocols/wakeword).
+```
+arecord: main:788: audio open error: Device or resource busy
+```
+You can solve this by running the following command to kill the service.
+```language-bash
+sudo pkill malos_wakeword
+```
+
+<!-- ### Running Services Manually
 
 If your services are not listed as shown above, you can run them manually using the following terminal commands:
 
@@ -31,9 +38,4 @@ $ malos_eye
 
 $ pkill -9 malos
 $ pkill -9 malos_eye
-```
-
-### Support
-* Post questions or comments on [community.matrix.one](http://community.matrix.one/)
-* Post package issues on github under [matrix-io](https://github.com/matrix-io)
-* Submit documentation issues or improvements at [matrix-io/matrix-documentation](https://github.com/matrix-io/matrix-documentation)
+``` -->
