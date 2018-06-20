@@ -469,7 +469,7 @@ from utils import driver_keep_alive, register_data_callback, register_error_call
 
 <p><details open>
 <summary style="font-size: 1.75rem; font-weight: 300;">Base Port</summary>
-Here is where the configuration for our GPIO example goes. Once we connect to the <strong>Base Port</strong>, we will pass a configuration to the GPIO driver. With this, we can set the update rate, timeout, and pin configuration. This example will use <code>pin: 0</code> and use a function toggle the pin state between on&amp;off.</p>
+Here is where the configuration for our GPIO example goes. Once we connect to the <strong>Base Port</strong>, we will pass a configuration to the GPIO driver. With this, we can set the update rate, timeout, and pin configuration. This example will use <code>pin: 0</code> and <strong>toggle the pin state between on&amp;off</strong> through a <code>toggle()</code> function.</p>
 <blockquote>
 <p>Each <code>pin</code> will save its last set <code>value</code> until the next device boot.</p>
 </blockquote>
