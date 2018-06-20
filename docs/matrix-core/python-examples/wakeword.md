@@ -22,7 +22,7 @@ The Wakeword driver allows for:
 The following sections show how to implement a connection to each of the IMU driver's ports. You can download this example <a href="https://github.com/matrix-io/matrix-core-examples/blob/master/python/wakeword.py" target="_blank">here</a>.
 
 <!-- Setup -->
-> Before moving on, please take a look at the Wakeword driver's protocol page and follow the [Installation](./../protocols/wakeword#http://localhost:8000/matrix-core/protocols/wakeword/#installation) & [Creating Custom Phrases](http://localhost:8000/matrix-core/protocols/wakeword/#creating-custom-phrases) sections.
+> Before moving on, please take a look at the Wakeword driver's protocol page and follow the [Installation](./../protocols/wakeword#installation) & [Creating Custom Phrases](./../protocols/wakeword#installation#creating-custom-phrases) sections.
 
 <!-- Initial Variables -->
 <details open>
