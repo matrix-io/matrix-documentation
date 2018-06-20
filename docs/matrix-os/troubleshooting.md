@@ -1,6 +1,6 @@
 ## Community
-Please visit our community support forums at:
-[community.matrix.one](http://community.matrix.one/)
+Please visit our community support forums at
+<a href="http://community.matrix.one/" target="_blank">community.matrix.one</a>
 
 <br/>
 ## MOS DEBUG Mode
