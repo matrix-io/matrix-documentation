@@ -42,7 +42,7 @@ var counter = 1;// Counter for gpio value toggle
 <!-- Base PORT -->
 <details open>
 <summary style="font-size: 1.75rem; font-weight: 300;">Base Port</summary>
-Here is where the configuration for our GPIO example goes. Once we connect to the **Base Port**, We will pass a configuration to the GPIO driver. With this, we can set the update rate, timeout, and pin configuration. This example will use `pin: 0` and use a function toggle the pin state between on&off.
+Here is where the configuration for our GPIO example goes. Once we connect to the **Base Port**, we will pass a configuration to the GPIO driver. With this, we can set the update rate, timeout, and pin configuration. This example will use `pin: 0` and **toggle the pin state between on&off** through a `toggle()` function.
 
 > Each `pin` will save its last set `value` until the next device boot.
 

@@ -46,7 +46,7 @@ from utils import driver_keep_alive, register_data_callback, register_error_call
 <!-- Base PORT -->
 <details open>
 <summary style="font-size: 1.75rem; font-weight: 300;">Base Port</summary>
-Here is where the configuration for our pressure example goes. Once we connect to the **Base Port**, We will pass a configuration to the pressure driver. With this we can set the update rate, timeout, and temperature configuration.
+Here is where the configuration for our pressure example goes. Once we connect to the **Base Port**, we will pass a configuration to the pressure driver. With this we can set the update rate, timeout, and temperature configuration.
 ```language-python
 def config_socket():
     # Define zmq socket

@@ -37,7 +37,7 @@ var matrix_imu_base_port = 20013;// Port for IMU driver
 <!-- Base PORT -->
 <details open>
 <summary style="font-size: 1.75rem; font-weight: 300;">Base Port</summary>
-Here is where the configuration for our IMU example goes. Once we connect to the **Base Port**, We will pass a configuration to the IMU driver. With this we can set the update rate and timeout configuration.
+Here is where the configuration for our IMU example goes. Once we connect to the **Base Port**, we will pass a configuration to the IMU driver. With this we can set the update rate and timeout configuration.
 ```language-javascript
 // Create a Pusher socket
 var configSocket = zmq.socket('push');

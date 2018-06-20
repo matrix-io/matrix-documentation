@@ -38,7 +38,7 @@ var matrix_humidity_base_port = 20017;// Port for Humidity driver
 <!-- Base PORT -->
 <details open>
 <summary style="font-size: 1.75rem; font-weight: 300;">Base Port</summary>
-Here is where the configuration for our Humidity example goes. Once we connect to the **Base Port**, We will pass a configuration to the humidity driver. With this we can set the update rate, timeout, and temperature configuration.
+Here is where the configuration for our Humidity example goes. Once we connect to the **Base Port**, we will pass a configuration to the humidity driver. With this we can set the update rate, timeout, and temperature configuration.
 ```language-javascript
 // Create a Pusher socket
 var configSocket = zmq.socket('push');

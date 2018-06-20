@@ -49,7 +49,7 @@ DIC_PATH = 'INSERT_PATH_TO_YOUR_FILE.dic'# Dictation File
 <!-- Base PORT -->
 <details open>
 <summary style="font-size: 1.75rem; font-weight: 300;">Base Port</summary>
-Here is where the configuration for our wakeword example goes. Once we connect to the **Base Port**, We will pass a configuration to the Wakeword driver. With this we can set our wakeword configurations.
+Here is where the configuration for our wakeword example goes. Once we connect to the **Base Port**, we will pass a configuration to the Wakeword driver. With this we can set our wakeword configurations.
 ```language-python
 def config_socket():
     # Define zmq socket
