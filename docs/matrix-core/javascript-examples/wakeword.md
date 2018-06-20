@@ -1,4 +1,5 @@
 <h2 style="padding-top:0">Wakeword</h2>
+<h4 style="padding-top:0">Javascript Example</h4>
 
 ### Device Compatibility
 <img class="creator-compatibility-icon" src="../../img/creator-icon.svg">
@@ -21,7 +22,7 @@ The Wakeword driver allows for:
 The following sections show how to implement a connection to each of the Wakeword driver's ports. You can download this example <a href="https://github.com/matrix-io/matrix-core-examples/blob/master/javascript/wakeword.js" target="_blank">here</a>.
 
 <!-- Setup -->
-Before moving on, please take a look at the Wakeword Driver's protocol page and follow the [Installation](./../protocols/wakeword#http://localhost:8000/matrix-core/protocols/wakeword/#installation) & [Creating Custom Phrases](http://localhost:8000/matrix-core/protocols/wakeword/#creating-custom-phrases) sections.
+Before moving on, please take a look at the Wakeword Driver Protocol page and follow the [Installation](./../protocols/wakeword#http://localhost:8000/matrix-core/protocols/wakeword/#installation) & [Creating Custom Phrases](http://localhost:8000/matrix-core/protocols/wakeword/#creating-custom-phrases) sections.
 
 <!-- Initial Variables -->
 <details open>
@@ -32,15 +33,15 @@ var matrix_ip = '127.0.0.1';// Local Device IP
 var matrix_wakeword_base_port = 60001; // Wakeword base port
 var matrix_io = require('matrix-protos').matrix_io;// MATRIX Protocol Buffers
 var zmq = require('zeromq');// Asynchronous Messaging Framework
-const LM_PATH = 'PATH_TO_YOUR_FILE.lm';// Language Model File
-const DIC_PATH = 'PATH_TO_YOUR_FILE.dic';// Dictation File
+const LM_PATH = 'INSERT_PATH_TO_YOUR_FILE.lm';// Language Model File
+const DIC_PATH = 'INSERT_PATH_TO_YOUR_FILE.dic';// Dictation File
 ```
 </details>
 
 <!-- Base PORT -->
 <details open>
 <summary style="font-size: 1.75rem; font-weight: 300;">Base Port</summary>
-Here is where the configuration for our wakeword example goes. Once we connect to the **Base Port**, We will pass a configuration to the Wakeword driver. With this we can set the update rate, timeout, and wakeword configurations.
+Here is where the configuration for our wakeword example goes. Once we connect to the **Base Port**, We will pass a configuration to the Wakeword driver. With this we can set our wakeword configurations.
 ```language-javascript
 // Create a Pusher socket
 var configSocket = zmq.socket('push');
@@ -103,15 +104,17 @@ updateSocket.subscribe('');
 updateSocket.on('message', function(wakeword_buffer) {
   // Extract message
   var wakeWordData = matrix_io.malos.v1.io.WakeWordParams.decode(wakeword_buffer);
+  // Log message
+  console.log(wakeWordData);
   // Run actions based on the phrase heard
   switch(wakeWordData.wakeWord) {
     // CHANGE TO YOUR PHRASE
     case "MATRIX START":
-      console.log('STARTING WHATEVER YOU WANT!');
+      console.log('I HEARD MATRIX START!');
       break;
     // CHANGE TO YOUR PHRASE
     case "MATRIX STOP":
-      console.log('STOPPING WHATEVER YOU WANT!');
+      console.log('I HEARD MATRIX STOP!');
       break;
   }
 });

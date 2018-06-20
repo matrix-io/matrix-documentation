@@ -95,6 +95,7 @@ pages:
     - 'UV': 'matrix-core/python-examples/uv.md'
     - 'Servo': 'matrix-core/python-examples/servo.md'
     - 'GPIO': 'matrix-core/python-examples/gpio.md'
+    - 'Wakeword': 'matrix-core/python-examples/wakeword.md'
   - Troubleshooting: 'matrix-core/troubleshooting.md'
 - MATRIX HAL:
   - 'MATRIX HAL': 'matrix-hal/index.md'
