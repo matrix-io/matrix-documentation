@@ -667,12 +667,12 @@
         }, 
         {
             "location": "/matrix-os/troubleshooting/", 
-            "text": "Community\n\n\nPlease visit our community support forums at:\n\ncommunity.matrix.one\n\n\n\n\nMOS DEBUG Mode\n\n\nRun MOS, with the following command, in order to enable debug mode.\n\n\nDEBUG=*,-engine*,-Component* node index", 
+            "text": "Community\n\n\nPlease visit our community support forums at\n\ncommunity.matrix.one\n\n\n\n\nMOS DEBUG Mode\n\n\nRun MOS, with the following command, in order to enable debug mode.\n\n\nDEBUG=*,-engine*,-Component* node index", 
             "title": "Troubleshooting"
         }, 
         {
             "location": "/matrix-os/troubleshooting/#community", 
-            "text": "Please visit our community support forums at: community.matrix.one", 
+            "text": "Please visit our community support forums at community.matrix.one", 
             "title": "Community"
         }, 
         {
@@ -1327,12 +1327,12 @@
         }, 
         {
             "location": "/matrix-core/troubleshooting/", 
-            "text": "Community\n\n\nPlease visit our community support forums at:\n\ncommunity.matrix.one\n\n\nCheck Active MATRIX CORE Services\n\n\nRun the following command on your Raspberry Pi's terminal to see the MATRIX Services currently running.\n\n\nps aux | grep 'malos'\n\n\n\n\nAudio Open Error\n\n\nIf you encounter the error log below, your microphones are being used by the Pocketsphinx service for the \nWakeword Driver\n.\n\n\narecord: main:788: audio open error: Device or resource busy\n\n\n\n\nYou can solve this by running the following command to kill the service.\n\n\nsudo pkill malos_wakeword", 
+            "text": "Community\n\n\nPlease visit our community support forums at\n\ncommunity.matrix.one\n\n\nCheck Active MATRIX CORE Services\n\n\nRun the following command on your Raspberry Pi's terminal to see the MATRIX Services currently running.\n\n\nps aux | grep 'malos'\n\n\n\n\nAudio Open Error\n\n\nIf you encounter the error log below, your microphones are being used by the Pocketsphinx service for the \nWakeword Driver\n.\n\n\narecord: main:788: audio open error: Device or resource busy\n\n\n\n\nYou can solve this by running the following command to kill the service.\n\n\nsudo pkill malos_wakeword", 
             "title": "Troubleshooting"
         }, 
         {
             "location": "/matrix-core/troubleshooting/#community", 
-            "text": "Please visit our community support forums at: community.matrix.one", 
+            "text": "Please visit our community support forums at community.matrix.one", 
             "title": "Community"
         }, 
         {
