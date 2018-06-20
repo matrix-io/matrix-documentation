@@ -289,6 +289,7 @@
         
         
         
+        
       
   </ul>
 
@@ -309,6 +310,7 @@
         
         
         
+        
       
   </ul>
 
@@ -322,6 +324,7 @@
   </li>
 
   <ul class="subnav">
+        
         
         
         
@@ -398,38 +401,39 @@
           </div>
         </div>
         <div id="content" class="col-lg-8 col-md-9">
-           <h3 id="check-matrix-core-services-are-running">Check MATRIX CORE Services are Running</h3>
-<p>Run the following command on your Raspberry Pi to confirm your MATRIX Services are running.</p>
-<pre><code>$ ps aux | grep 'malos'
+           <h2 id="community">Community</h2>
+<p>Please visit our community support forums at:
+<a href="http://community.matrix.one/">community.matrix.one</a></p>
+<h2 id="check-active-matrix-core-services">Check Active MATRIX CORE Services</h2>
+<p>Run the following command on your Raspberry Pi's terminal to see the MATRIX Services currently running.</p>
+<pre><code class="language-bash">ps aux | grep 'malos'
 </code></pre>
 
-<p>This should return something along the lines of:</p>
-<pre><code>root       445  0.0  0.6 126240  5964 ?        Ssl  16:51   0:00 /usr/bin/malos_eye
-root       449  5.3  0.8 853204  8352 ?        Ssl  16:51   4:41 /usr/bin/malos
+<h2 id="audio-open-error">Audio Open Error</h2>
+<p>If you encounter the error log below, your microphones are being used by the Pocketsphinx service for the <a href="../protocols/wakeword">Wakeword Driver</a>.</p>
+<pre><code>arecord: main:788: audio open error: Device or resource busy
 </code></pre>
 
-<h3 id="running-services-manually">Running Services Manually</h3>
-<p>If your services are not listed as shown above, you can run them manually using the following terminal commands:</p>
-<pre><code># Running MATRIX CORE Sensors &amp; Comm. Services
-$ malos
-
-# Running MATRIX CORE Vision Services
-$ malos_eye
+<p>You can solve this by running the following command to kill the service.</p>
+<pre><code class="language-bash">sudo pkill malos_wakeword
 </code></pre>
 
-<h3 id="stopping-services">Stopping Services</h3>
-<pre><code># Stopping the services altogether
+<!-- ### Running Services Manually
+
+If your services are not listed as shown above, you can run them manually using the following terminal commands:
+
+
+wzxhzdk:3
+
+
+### Stopping Services
+
+```
+# Stopping the services altogether
 
 $ pkill -9 malos
 $ pkill -9 malos_eye
-</code></pre>
-
-<h3 id="support">Support</h3>
-<ul>
-<li>Post questions or comments on <a href="http://community.matrix.one/">community.matrix.one</a></li>
-<li>Post package issues on github under <a href="https://github.com/matrix-io">matrix-io</a></li>
-<li>Submit documentation issues or improvements at <a href="https://github.com/matrix-io/matrix-documentation">matrix-io/matrix-documentation</a></li>
-</ul> 
+``` --> 
         </div>
         <div class="toc-parent col-lg-2 col-md-3">
           <div class="toc">
@@ -437,23 +441,18 @@ $ pkill -9 malos_eye
             <h3>Contents</h3>
             <ul class="nav flex-column">
                <li class='nav-item'>
-  <a href="#check-matrix-core-services-are-running" class="nav-link active">
-    Check MATRIX CORE Services are Running
+  <a href="#community" class="nav-link active">
+    Community
   </a>
   
 </li>  <li class='nav-item'>
-  <a href="#running-services-manually" class="nav-link ">
-    Running Services Manually
+  <a href="#check-active-matrix-core-services" class="nav-link ">
+    Check Active MATRIX CORE Services
   </a>
   
 </li>  <li class='nav-item'>
-  <a href="#stopping-services" class="nav-link ">
-    Stopping Services
-  </a>
-  
-</li>  <li class='nav-item'>
-  <a href="#support" class="nav-link ">
-    Support
+  <a href="#audio-open-error" class="nav-link ">
+    Audio Open Error
   </a>
   
 </li> 
