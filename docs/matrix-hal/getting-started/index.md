@@ -1,0 +1,17 @@
+## Getting Started
+
+<h3 style="padding-top:0.6em;"></h3>
+
+>We recommend beginners install MATRIX HAL from package.
+
+<h3 style="padding-top:0.6em;"><a href="installation-package">Installation from package</a>
+</h3>
+Learn how to install MATRIX HAL from package.
+
+<h3 style="padding-top:0.6em;"><a href="installation-source">Installation from source</a>
+</h3>
+Learn how to install MATRIX HAL from source.
+
+<h3 style="padding-top:0.6em;"><a href="programs">Compiling your Program</a>
+</h3>
+Create and compile a sample program for your MATRIX device.
