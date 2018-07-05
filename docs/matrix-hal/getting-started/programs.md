@@ -119,7 +119,7 @@ int main() {
 
 ## Compiling your Program
 
-When compiling your program you must link the `libmatrix_creator_hal.so` file. With g++ the `-l` flag links a library and so `-lmatrix_creator_hal` links the `libmatrix_creator_hal.so` file.
+The command below will use g++ to link the `libmatrix_creator_hal.so` library file when compiling your program.
 
 ```language-bash
 g++ -o app.out app.cpp -std=c++11 -lmatrix_creator_hal
@@ -141,6 +141,8 @@ cd ~/matrix-hal-project
 <h2 style="padding-top: 0">Result</h2>
 ![](/matrix-hal/img/everloop_rainbow.gif)
 
+<br/>
+
 ## Next Steps
 
-Now that everything is properly installed, view our [examples](../examples) to see what you can do with MATRIX HAL, or view the [references](../references)
+Now that everything is properly installed, view our function [references](../reference) to see what you can do with MATRIX HAL, or view the code [examples](../examples).
