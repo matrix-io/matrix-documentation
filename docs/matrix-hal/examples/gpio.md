@@ -1,5 +1,5 @@
 <h2 style="padding-top:0">General Purpose Input Output (GPIO)</h2>
-style="padding-top:0">HAL Example</h4>
+<h4 style="padding-top:0">HAL Example</h4>
 
 ### Device Compatibility
 

@@ -1,10 +1,10 @@
 ## Installing HAL From Package
 
->Make sure you have setup your 
-[MATRIX Creator](/matrix-creator/device-setup) or 
-[MATRIX Voice](/matrix-voice/device-setup) before continuing.
+> Make sure you have setup your
+> [MATRIX Creator](/matrix-creator/device-setup) or
+> [MATRIX Voice](/matrix-voice/device-setup) before continuing.
 
-Gain access to the terminal of your Raspberry Pi via an <a href="https://www.raspberrypi.org/documentation/remote-access/ssh/" target="_blank">SSH-session</a> or connect a screen, mouse, and keyboard. Once you've opened the terminal, insert and run the following commands one at a time.
+Before starting, ensure you have access to the terminal of your Raspberry Pi via an <a href="https://www.raspberrypi.org/documentation/remote-access/ssh/" target="_blank">SSH-session</a> or connect a screen, mouse, and keyboard. Once you've opened the terminal, insert and run the following commands one at a time.
 
 ```language-bash
 curl https://apt.matrix.one/doc/apt-key.gpg | sudo apt-key add -
@@ -31,4 +31,5 @@ MATRIX HAL header files are installed in /usr/include/matrix_hal and the compile
 <br/>
 
 ## Next Steps
+
 Now that HAL is properly installed, learn how to create and compile your own MATRIX programs [here](programs).

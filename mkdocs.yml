@@ -103,7 +103,7 @@ pages:
     - 'Index': 'matrix-hal/getting-started/index.md'
     - 'Install HAL From Package': 'matrix-hal/getting-started/installation-package.md'
     - 'Install HAL From Source': 'matrix-hal/getting-started/installation-source.md'
-    - 'Running Programs': 'matrix-hal/getting-started/programs.md'
+    - 'Compiling Programs': 'matrix-hal/getting-started/programs.md'
   - References :
     - 'Index': 'matrix-hal/reference/index.md'
     - 'Everloop': 'matrix-hal/reference/everloop.md'
