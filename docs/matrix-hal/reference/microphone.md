@@ -2,6 +2,7 @@
 
 ### Device Compatibility
 <img class="creator-compatibility-icon" src="../../img/creator-icon.svg">
+<img class="voice-compatibility-icon" src="../../img/voice-icon.svg">
 
 ## Overview
 
@@ -60,7 +61,7 @@ bool Read();
 
 ```language-cpp
 // Reading 8-mics buffer from the FPGA
-mics.Read();
+microphone_array.Read();
 ```
 </details>
 
@@ -75,7 +76,7 @@ uint32_t SamplingRate() { return sampling_frequency_; }
 
 ```language-cpp
 // Return the stored sampling rate
-uint32_t SamplingRate = mics.SamplingRate();
+uint32_t SamplingRate = microphone_array.SamplingRate();
 ```
 </details>
 
@@ -90,7 +91,7 @@ uint16_t Gain() { return gain_; }
 
 ```language-cpp
 // Return the stored gain
-uint32_t Gain = mics.Gain();
+uint32_t Gain = microphone_array.Gain();
 ```
 </details>
 
@@ -105,7 +106,7 @@ bool SetSamplingRate(uint32_t sampling_frequency);
 
 ```language-cpp
 // Set the sampling rate
-mics.SetSamplingRate(sampling_rate);
+microphone_array.SetSamplingRate(sampling_rate);
 ```
 </details>
 
@@ -120,7 +121,7 @@ bool SetGain(uint16_t gain);
 
 ```language-cpp
 // Set the gain
-mics.SetGain(gain);
+microphone_array.SetGain(gain);
 ```
 </details>
 
@@ -135,7 +136,7 @@ bool GetSamplingRate();
 
 ```language-cpp
 // Update sampling_frequency_ from microphone array
-mics.GetSamplingRate();
+microphone_array.GetSamplingRate();
 ```
 </details>
 
@@ -150,7 +151,7 @@ bool GetGain();
 
 ```language-cpp
 // Update gain_ from microphone array
-mics.GetGain();
+microphone_array.GetGain();
 ```
 </details>
 
@@ -166,7 +167,7 @@ void ReadConfValues();
 
 ```language-cpp
 // Update values from microphone array
-mics.ReadConfValues();
+microphone_array.ReadConfValues();
 ```
 </details>
 
@@ -181,7 +182,7 @@ void ShowConfiguration();
 
 ```language-cpp
 // Output `gain_` and `sampling_frequency_` values
-mics.void ShowConfiguration();
+microphone_array.void ShowConfiguration();
 
 ```language-cpp
 // Style of output
@@ -202,7 +203,7 @@ uint16_t Channels() { return kMicrophoneChannels; }
 
 ```language-cpp
 // Return the number of channels
-uint16_t Channels = mics.Channels();
+uint16_t Channels = microphone_array.Channels();
 ```
 </details>
 
@@ -219,7 +220,7 @@ uint32_t NumberOfSamples() {
 
 ```language-cpp
 // Return the number of samples
-uint16_t SampleAmount = mics.NumberOfSamples();
+uint16_t SampleAmount = microphone_array.NumberOfSamples();
 ```
 </details>
 
@@ -236,7 +237,7 @@ int16_t &At(int16_t sample, int16_t channel) {
 
 ```language-cpp
 // Return a single sample
-int16_t sample = mics.At(s, c);
+int16_t sample = microphone_array.At(s, c);
 ```
 </details>
 
@@ -251,7 +252,7 @@ int16_t &Beam(int16_t sample) { return beamformed_[sample]; }
 
 ```language-cpp
 // Return a single sample
-int16_t sample = mics.Beam(s);
+int16_t sample = microphone_array.Beam(s);
 ```
 </details>
 
@@ -268,7 +269,7 @@ void CalculateDelays(float azimutal_angle, float polar_angle,
 
 ```language-cpp
 // Calculate and set up beamforming delays
-mics.CalculateDelays(0, 0, 1000, 320 * 1000);
+microphone_array.CalculateDelays(0, 0, 1000, 320 * 1000);
 ```
 </details>
 
@@ -280,7 +281,7 @@ mics.CalculateDelays(0, 0, 1000, 320 * 1000);
 
 ```language-cpp
 // Constructor declaration in header file
-MicrophoneCore(MicrophoneArray &mics);
+MicrophoneCore(MicrophoneArray &microphone_array);
 ```
 
 ```language-cpp
@@ -306,8 +307,25 @@ microphone_core.Setup(&bus);
 </details>
 
 <details>
+<summary style="font-size: 1.5rem; font-weight: 300;">.SetFIRCoeff</summary>
+`SetFIRCoeff` is a **function** that sends the `fir_coeff_` array in the `MicrophoneCore` object to the FPGA.
+
+```language-cpp
+// Function declaration in header file
+bool SetFIRCoeff();
+```
+
+```language-cpp
+// Sends fir_coeff_ to FPGA
+microphone_core.SetFIRCoeff();
+```
+</details>
+
+<details>
 <summary style="font-size: 1.5rem; font-weight: 300;">.SetCustomFIRCoeff</summary>
 `SetCustomFIRCoeff` is a **function** that sets the `fir_coeff_` array in the `MicrophoneCore` object.
+
+If input is valid then the function also calls `SetFIRCoeff` to send the `fir_coeff_` array in the `MicrophoneCore` object to the FPGA.
 
 ```language-cpp
 bool SetCustomFIRCoeff(const std::valarray<int16_t> custom_fir);
@@ -321,7 +339,9 @@ microphone_core.SetCustomFIRCoeff(custom_fir);
 
 <details>
 <summary style="font-size: 1.5rem; font-weight: 300;">.SelectFIRCoeff</summary>
-`SelectFIRCoeff` is a **function** that sets the `fir_coeff_` array in the `MicrophoneCore` object.
+`SelectFIRCoeff` is a **function** that sets the `fir_coeff_` array in the `MicrophoneCore` object. 
+
+If input is valid then the function also calls `SetFIRCoeff` to send the `fir_coeff_` array in the `MicrophoneCore` object to the FPGA.
 
 This function accepts a FIRCoeff struct, which is defined below.
 
@@ -340,21 +360,6 @@ bool SelectFIRCoeff(FIRCoeff *FIR_coeff);
 ```language-cpp
 // Sets fir_coeff_ from FIR_default[0]
 microphone_core.SelectFIRCoeff(&FIR_default[0]);
-```
-</details>
-
-<details>
-<summary style="font-size: 1.5rem; font-weight: 300;">.SetFIRCoeff</summary>
-`SetFIRCoeff` is a **function** that sends the `fir_coeff_` array in the `MicrophoneCore` object to the FPGA.
-
-```language-cpp
-// Function declaration in header file
-bool SetFIRCoeff();
-```
-
-```language-cpp
-// Sends fir_coeff_ to FPGA
-microphone_core.SetFIRCoeff();
 ```
 </details>
 

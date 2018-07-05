@@ -1,21 +1,22 @@
 <h2 style="padding-top:0">General Purpose Input Output (GPIO)</h2>
 
 ### Device Compatibility
+
 <img class="creator-compatibility-icon" src="../../img/creator-icon.svg">
 <img class="voice-compatibility-icon" src="../../img/voice-icon.svg">
 
 ## Overview
 
-The GPIO interface supports: 
+The GPIO interface supports:
 
-* Pin I/O input
-* Pin I/O output
-* Pin PWM output
+- Pin I/O input
+- Pin I/O output
+- Pin PWM output
 
 **Device Pinouts**:
 
-* [MATRIX Creator](/matrix-creator/resources/pinout.md)
-* [MATRIX Voice](/matrix-voice/resources/pinout.md)
+- [MATRIX Creator](/matrix-creator/resources/pinout.md)
+- [MATRIX Voice](/matrix-voice/resources/pinout.md)
 
 ## References
 
@@ -36,6 +37,7 @@ These header files are required to use GPIO.
 // Create GPIOControl object
 matrix_hal::GPIOControl gpio;
 ```
+
 The functions below are part of `GPIOControl`.
 
 <details>
@@ -51,6 +53,7 @@ void Setup(MatrixIOBus *bus);
 // Set gpio to use MatrixIOBus bus
 gpio.Setup(&bus);
 ```
+
 </details>
 
 <details>
@@ -66,6 +69,7 @@ GPIOBank &Bank(uint16_t bank) { return banks_[bank]; }
 // Returns banks_[index]
 gpio.Banks(index);
 ```
+
 </details>
 
 <details>
@@ -74,6 +78,7 @@ gpio.Banks(index);
 `SetMode` is overloaded, and there are two definitions for the function.
 
 For setting single GPIO pin.
+
 ```language-cpp
 // Function declaration in header file
 // For setting single GPIO pin
@@ -88,6 +93,7 @@ gpio.SetMode(0, 0);
 ```
 
 For setting multiple GPIO pins.
+
 ```language-cpp
 // Function declaration in header file
 // For setting multiple pins
@@ -103,6 +109,7 @@ gpio.SetMode(inputPinList, sizeof(inputPinList), 0);
 // Sets pins in outputPinList to output
 gpio.SetMode(outputPinList, sizeof(outputPinList), 1);
 ```
+
 </details>
 
 <details>
@@ -120,6 +127,7 @@ gpio.SetFunction(0, 0);
 // Sets pin 0 to PWM mode
 gpio.SetFunction(0, 1);
 ```
+
 </details>
 
 <details>
@@ -135,6 +143,7 @@ uint16_t GetGPIOValue(uint16_t pin);
 // Gets value of pin 0
 bool value = gpio.GetGPIOValue(0);
 ```
+
 </details>
 
 <details>
@@ -150,6 +159,7 @@ uint16_t GetGPIOValues();
 // Gets all pin values
 uint16_t values = gpio.GetGPIOValues();
 ```
+
 </details>
 
 <details>
@@ -167,6 +177,7 @@ gpio.SetGPIOValue(0, 1);
 // Sets pin 0 to off
 gpio.SetGPIOValue(0, 0);
 ```
+
 </details>
 
 <details>
@@ -187,6 +198,7 @@ gpio.SetGPIOValues(onPinList, sizeof(onPinList), 1);
 // Sets pins in offPinList to off
 gpio.SetGPIOValues(offPinList, sizeof(offPinList), 0);
 ```
+
 </details>
 
 <details>
@@ -203,6 +215,7 @@ bool SetPrescaler(uint16_t bank, uint16_t prescaler);
 // 2^5 = 32
 gpio.SetPrescaler(0, 5);
 ```
+
 </details>
 
 <details>
@@ -218,11 +231,12 @@ bool Set9GServoAngle(float angle, uint16_t pin);
 // Set servo angle to 70° on pin 0
 gpio.SetPrescaler(70, 0);
 ```
+
 </details>
 
 <details>
 <summary style="font-size: 1.5rem; font-weight: 300;">.SetServoAngle</summary>
-`SetServoAngle` is a **function** that sets a servo angle. It it based on the min_pulse_ms entered.
+`SetServoAngle` is a **function** that sets a servo angle. It is based on the min_pulse_ms entered.
 
 ```language-cpp
 // Function declaration in header file
@@ -234,6 +248,7 @@ bool SetServoAngle(float angle, float min_pulse_ms, uint16_t pin);
 // For a servo that accepts a minimum pulse of 0.8ms
 gpio.SetServoAngle(70, 0.8, 0);
 ```
+
 </details>
 
 <details>
@@ -249,9 +264,10 @@ bool SetPWM(float frequency, float percentage, uint16_t pin);
 // Set PWM output to 50Hz, with a 25% duty cycle on pin 0
 gpio.SetPWM(50, 25, 0);
 ```
+
 </details>
 </details>
- 
+
 <details open>
 <summary style="font-size: 1.75rem; font-weight: 300;">GPIOBank</summary>
 `GPIOBank` is an **object** that contains functions to interface with GPIO PWM. `GPIOControl` contains an array of `GPIOBank` objects, called `banks`_
@@ -273,6 +289,7 @@ bool SetPeriod(uint16_t period);
 // Set PWM period for bank 0 to 50000 FPGA clock ticks
 gpio.Banks(0).SetPeriod(50000);
 ```
+
 </details>
 
 <details>
@@ -288,6 +305,7 @@ bool SetDuty(uint16_t channel, uint16_t duty);
 // Set PWM duty for channel 0 of bank 0 to 10000 FPGA clock ticks
 gpio.Banks(0).SetDuty(0, 10000);
 ```
+
 </details>
 
 <details>
@@ -300,6 +318,7 @@ gpio.Banks(0).SetDuty(0, 10000);
 // Function declaration in header file
 bool SetupTimer(uint16_t channel, uint16_t init_event, uint16_t final_event);
 ```
+
 </details>
 
 <details>
@@ -312,5 +331,6 @@ bool SetupTimer(uint16_t channel, uint16_t init_event, uint16_t final_event);
 // Function declaration in header file
 uint16_t GetTimerCounter(uint16_t channel);
 ```
+
 </details>
 </details>

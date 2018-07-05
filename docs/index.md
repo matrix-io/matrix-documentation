@@ -34,7 +34,7 @@ Abstraction layer for **MATRIX HAL**. Hosts a ZeroMQ + Protobuf communication la
 
 Interacts with the kernel modules by using C++ drivers, enabling it to access available sensors and components on your device.
 
-[Read more about MATRIX HAL](matrix-hal/index.md)
+[Read more about MATRIX HAL](matrix-hal/overview)
 
 <br/>
 ## Devices

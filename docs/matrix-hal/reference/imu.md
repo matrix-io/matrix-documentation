@@ -1,16 +1,17 @@
 <h2 style="padding-top:0">Inertial Measurement Unit (IMU)</h2>
 
 ### Device Compatibility
+
 <img class="creator-compatibility-icon" src="../../img/creator-icon.svg">
 
 ## Overview
 
 The IMU sensor reports values for:
 
-* Yaw, Pitch, and Roll
-* Acceleration for **x**, **y**, **z** axes
-* Gyroscope for **x**, **y**, **z** axes
-* Magnetometer for **x**, **y**, **z** axes
+- Yaw, Pitch, and Roll
+- Acceleration for **x**, **y**, **z** axes
+- Gyroscope for **x**, **y**, **z** axes
+- Magnetometer for **x**, **y**, **z** axes
 
 ## References
 
@@ -45,6 +46,7 @@ float accel_Z = imu_data.accel_z;
 float gyro_X = imu_data.gyro_x;
 float gyro_Y = imu_data.gyro_y;
 float gyro_Z = imu_data.gyro_z;
+// Yaw, Pitch, Roll Output
 float yaw = imu_data.yaw;
 float pitch = imu_data.pitch;
 float roll = imu_data.roll;
@@ -53,6 +55,7 @@ float mag_X = imu_data.mag_x;
 float mag_Y = imu_data.mag_y;
 float mag_Z = imu_data.mag_z; // Z-axis points upward
 ```
+
 </details>
 
 <details open>
@@ -63,6 +66,7 @@ float mag_Z = imu_data.mag_z; // Z-axis points upward
 // Create IMUSensor object
 matrix_hal::IMUSensor imu_sensor;
 ```
+
 The functions below are part of `IMUSensor`.
 
 <details>
@@ -78,6 +82,7 @@ void Setup(MatrixIOBus *bus);
 // Set imu_sensor to use MatrixIOBus bus
 imu_sensor.Setup(&bus);
 ```
+
 </details>
 
 <details>
@@ -93,5 +98,6 @@ bool Read(IMUData *data);
 // Overwrites imu_data with new data from IMU sensor
 imu_sensor.Read(&imu_data);
 ```
+
 </details>
 </details>
