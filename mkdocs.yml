@@ -122,6 +122,7 @@ pages:
     - 'Pressure': 'matrix-hal/examples/pressure.md'
     - 'GPIO': 'matrix-hal/examples/gpio.md'
     - 'Microphone': 'matrix-hal/examples/microphone.md'
+  - Troubleshooting: 'matrix-hal/troubleshooting.md'
 - Support : 'help.md'
 #   - App Publishing: 'intro/app-publishing.md'
 #   - App API:

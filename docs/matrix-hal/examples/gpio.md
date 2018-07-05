@@ -19,7 +19,9 @@ The GPIO interface supports:
 - [MATRIX Creator](/matrix-creator/resources/pinout.md)
 - [MATRIX Voice](/matrix-voice/resources/pinout.md)
 
-## Code Example
+## Code Examples
+
+Function references can be found [here](/matrix-hal/reference).
 
 <details>
 <summary style="font-size: 1.75rem; font-weight: 300;">GPIO I/O</summary>
@@ -80,16 +82,6 @@ int main() {
 <details open>
 <summary style="font-size: 1.5rem; font-weight: 300;">Main Setup</summary>
 Now we will create our `GPIOControl` object and use it to output and input a digital GPIO signal.
-
-- `GPIOControl` - **Object** that contains functions to interface with GPIO.
-
-  - `.Setup` - **Function** that takes `MatrixIOBus` object as parameter and sets that object as the bus to use for communicating with MATRIX device.
-
-  - `.SetMode` - **Function** that sets GPIO pin(s) to output or input. Function parameters: (uint16_t pin, uint16_t value).
-
-  - `.SetGPIOValue` - **Function** that sets a GPIO value. Function parameters: (uint16_t pin, uint16_t value).
-
-  - `.GetGPIOValue` - **Function** that returns a GPIO value. Function parameters: (uint16_t pin).
 
 ```language-cpp
   // The following code is part of main()
@@ -205,16 +197,6 @@ int main() {
 <summary style="font-size: 1.5rem; font-weight: 300;">Main Setup</summary>
 Now we will create our `GPIOControl` object and use it to output and input a digital GPIO signal.
 
-- `GPIOControl` - **Object** that contains functions to interface with GPIO.
-
-  - `.Setup` - **Function** that takes `MatrixIOBus` object as parameter and sets that object as the bus to use for communicating with MATRIX device.
-
-  - `.SetMode` - **Function** that sets GPIO pin(s) to output or input. Function parameters: (uint16_t pin, uint16_t value).
-
-  - `.SetFunction` - **Function** that sets a single GPIO pin to I/O or PWM mode. Function parameters: (uint16_t pin, uint16_t value).
-
-  - `.SetPWM` - **Function** that sets a PWM output. Function parameters: (float frequency, float percentage, uint16_t pin).
-
 ```language-cpp
   // The following code is part of main()
 
@@ -326,16 +308,6 @@ Now we will create our `GPIOControl` object and use it to output and input a dig
 
 Servo neutral position is achieved with a 1.5ms pulse, so by taking the minimum servo pulse (ms) the SetServoAngle function calibrates servo angle.
 If unsure of min_pulse_ms enter `0.8`.
-
-- `GPIOControl` - **Object** that contains functions to interface with GPIO.
-
-  - `.Setup` - **Function** that takes `MatrixIOBus` object as parameter and sets that object as the bus to use for communicating with MATRIX device.
-
-  - `.SetMode` - **Function** that sets GPIO pin(s) to output or input. Function parameters: (uint16_t pin, uint16_t value).
-
-  - `.SetFunction` - **Function** that sets a single GPIO pin to I/O or PWM mode. Function parameters: (uint16_t pin, uint16_t value).
-
-  - `.SetServoAngle` - **Function** that sets a servo angle. It is based on the min_pulse_ms entered. Function parameters: (float angle, float min_pulse_ms, uint16_t pin).
 
 ```language-cpp
   // The following code is part of main()

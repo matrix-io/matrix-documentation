@@ -1,6 +1,7 @@
 <h2 style="padding-top:0">Everloop</h2>
 
 ### Device Compatibility
+
 <img class="creator-compatibility-icon" src="../../img/creator-icon.svg">
 <img class="voice-compatibility-icon" src="../../img/voice-icon.svg">
 
@@ -8,7 +9,7 @@
 
 The Everloop interface supports:
 
-* Setting the RGBW colors for each individual LED.
+- Setting the RGBW colors for each individual LED.
 
 ## References
 
@@ -25,8 +26,8 @@ These header files are required to use the Everloop.
 
 <details open>
 <summary style="font-size: 1.75rem; font-weight: 300;">EverloopImage</summary>
-`EverloopImage` is a required **object** that contains an array of `LedValue` objects. 
-The `EverloopImage` constructor takes in an integer representing the amount of RGBW leds your MATRIX device has. 
+`EverloopImage` is a required **object** that contains an array of `LedValue` objects.
+The `EverloopImage` constructor takes in an integer representing the amount of RGBW leds your MATRIX device has.
 
 The MatrixIOBus function `bus.MatrixLeds` outputs the number of leds on your creator.
 
@@ -39,7 +40,7 @@ matrix_hal::EverloopImage everloop_image(ledCount);
 
 The `LedValue` object in `EverloopImage` contains the properties `red`, `green`, `blue`, `white`. These color properties accept an RGBW integer between 0-255.
 
-The following code shows how to set each led on your MATRIX device to green.
+The following code shows how to set each led in everloop_image to green.
 
 ```language-cpp
 // For each led, set RGBW colors
@@ -51,6 +52,7 @@ for (hal::LedValue &led : everloop_image.leds) {
   led.white = 0;
 }
 ```
+
 </details>
 
 <details open>
@@ -61,6 +63,7 @@ for (hal::LedValue &led : everloop_image.leds) {
 // Create Everloop object
 matrix_hal::Everloop everloop;
 ```
+
 The functions below are part of `Everloop`.
 
 <details>
@@ -76,6 +79,7 @@ void Setup(MatrixIOBus *bus);
 // Set everloop to use MatrixIOBus bus
 everloop.Setup(&bus);
 ```
+
 </details>
 
 <details>
@@ -89,7 +93,8 @@ bool Write(EverloopImage *everloop_image;
 
 ```language-cpp
 // Updates the Everloop on the MATRIX device
-everloop.Write(&everloop_image); 
+everloop.Write(&everloop_image);
 ```
+
 </details>
 </details>
