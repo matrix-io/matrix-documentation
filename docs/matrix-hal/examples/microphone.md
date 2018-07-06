@@ -36,15 +36,15 @@ To convert the `.raw` files outputted by this example to playable `.wav` files r
 
 ```language-bash
 sudo apt-get install sox alsa-utils
-sox -r sampling_rate -c 1 -e signed -c 1 -e signed -b 16 mic_16000_s16le_channel_0.raw channel_0.wav
-sox -r sampling_rate -c 1 -e signed -c 1 -e signed -b 16 mic_16000_s16le_channel_1.raw channel_1.wav
-sox -r sampling_rate -c 1 -e signed -c 1 -e signed -b 16 mic_16000_s16le_channel_2.raw channel_2.wav
-sox -r sampling_rate -c 1 -e signed -c 1 -e signed -b 16 mic_16000_s16le_channel_3.raw channel_3.wav
-sox -r sampling_rate -c 1 -e signed -c 1 -e signed -b 16 mic_16000_s16le_channel_4.raw channel_4.wav
-sox -r sampling_rate -c 1 -e signed -c 1 -e signed -b 16 mic_16000_s16le_channel_5.raw channel_5.wav
-sox -r sampling_rate -c 1 -e signed -c 1 -e signed -b 16 mic_16000_s16le_channel_6.raw channel_6.wav
-sox -r sampling_rate -c 1 -e signed -c 1 -e signed -b 16 mic_16000_s16le_channel_7.raw channel_7.wav
-sox -r sampling_rate -c 1 -e signed -c 1 -e signed -b 16 mic_16000_s16le_channel_8.raw channel_8.wav
+sox -r sampling_rate -c 1 -e signed -c 1 -e signed -b 16 mic_sampling_rate_s16le_channel_0.raw channel_0.wav
+sox -r sampling_rate -c 1 -e signed -c 1 -e signed -b 16 mic_sampling_rate_s16le_channel_1.raw channel_1.wav
+sox -r sampling_rate -c 1 -e signed -c 1 -e signed -b 16 mic_sampling_rate_s16le_channel_2.raw channel_2.wav
+sox -r sampling_rate -c 1 -e signed -c 1 -e signed -b 16 mic_sampling_rate_s16le_channel_3.raw channel_3.wav
+sox -r sampling_rate -c 1 -e signed -c 1 -e signed -b 16 mic_sampling_rate_s16le_channel_4.raw channel_4.wav
+sox -r sampling_rate -c 1 -e signed -c 1 -e signed -b 16 mic_sampling_rate_s16le_channel_5.raw channel_5.wav
+sox -r sampling_rate -c 1 -e signed -c 1 -e signed -b 16 mic_sampling_rate_s16le_channel_6.raw channel_6.wav
+sox -r sampling_rate -c 1 -e signed -c 1 -e signed -b 16 mic_sampling_rate_s16le_channel_7.raw channel_7.wav
+sox -r sampling_rate -c 1 -e signed -c 1 -e signed -b 16 mic_sampling_rate_s16le_channel_8.raw channel_8.wav
 ```
 
 <details open>
@@ -250,8 +250,14 @@ To record from beamforming channel (channel 8) for 5 seconds using `arecord`, ru
 
 ```language-bash
 rm -rf/tmp/matrix_micarray_channel_*
-./mic_record_pipe --sampling_frequency 16000
+./mic_record_pipe --sampling_frequency 16000 &
 arecord channel8.wav -f S16_LE -r 16000 -d 5 --device=mic_channel8
+```
+
+To stop the example from running, run this command.
+
+```language-bash
+sudo killall mic_record_pipe
 ```
 
 <details open>

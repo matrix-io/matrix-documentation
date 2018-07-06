@@ -2,7 +2,7 @@
 
 ### Download Examples
 
-The following code downloads and compiles the examples.
+The following commands download and compile the examples.
 
 ```language-bash
 git clone https://github.com/matrix-io/matrix-hal-examples.git
