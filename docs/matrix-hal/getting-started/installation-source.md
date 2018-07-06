@@ -26,7 +26,7 @@ cd matrix-creator-hal
 mkdir build
 cd build
 cmake ..
-make && sudo make install
+make -j4 && sudo make install
 ```
 
 After commands are complete a reboot is required.

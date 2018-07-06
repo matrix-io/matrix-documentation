@@ -2,15 +2,16 @@
 
 ### Download Examples
 
-The following commands download and compile the examples.
+The following commands download and compile all the examples.
 
 ```language-bash
+sudo apt-get install cmake g++ git
 git clone https://github.com/matrix-io/matrix-hal-examples.git
 cd matrix-hal-examples
 mkdir build
 cd build
 cmake ..
-make
+make -j4
 ```
 
 <h3 style="padding-top:0.6em;"><a href="everloop">Everloop</a></h3>

@@ -315,7 +315,14 @@ Now we will create our `EverloopImage` and `Everloop` object and use it to set t
       led.green =
           (std::sin(freq * counter + (M_PI / 180 * 120)) * 155 + 100) / 10;
       led.blue = (std::sin(freq * counter + 0) * 155 + 100) / 10;
-      counter = counter + 0.51;
+      // If MATRIX Creator, increment by 0.51
+      if (ledCount == 35) {
+        counter = counter + 0.51;
+      }
+      // If MATRIX Voice, increment by 1.01
+      if (ledCount == 18) {
+        counter = counter + 1.01;
+      }
     }
 
     // Updates the LEDs

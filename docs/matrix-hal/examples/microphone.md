@@ -71,8 +71,6 @@ To begin working with the Microphone Array you need to include these header file
 #include "matrix_hal/microphone_array.h"
 // Enables using FIR filter with microphone array
 #include "matrix_hal/microphone_core.h"
-// Imports default FIR filter
-#include "matrix_hal/microphone_core_fir.h"
 ```
 
 </details>
@@ -243,6 +241,7 @@ The following commands copy a modified `asound.conf` file into `/etc/`, which al
 
 ```language-bash
 wget https://raw.githubusercontent.com/matrix-io/matrix-hal-examples/master/microphone_array/asound.conf
+sudo mv -f /etc/asound.conf /etc/asound.conf_old
 sudo mv -f ./asound.conf /etc/
 ```
 
