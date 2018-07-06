@@ -32,19 +32,19 @@ The command below will compile the example.
 g++ -o mic_record_file mic_record_file.cpp -std=c++11 -lmatrix_creator_hal -lgflags
 ```
 
-To convert the `.raw` files outputted by this example to playable `.wav` files run these commands, replacing `sampling_rate` with selected sampling rate.
+To convert the `.raw` files outputted by this example to playable `.wav` files run these commands, replacing `16000` with selected sampling rate.
 
 ```language-bash
 sudo apt-get install sox alsa-utils
-sox -r sampling_rate -c 1 -e signed -c 1 -e signed -b 16 mic_sampling_rate_s16le_channel_0.raw channel_0.wav
-sox -r sampling_rate -c 1 -e signed -c 1 -e signed -b 16 mic_sampling_rate_s16le_channel_1.raw channel_1.wav
-sox -r sampling_rate -c 1 -e signed -c 1 -e signed -b 16 mic_sampling_rate_s16le_channel_2.raw channel_2.wav
-sox -r sampling_rate -c 1 -e signed -c 1 -e signed -b 16 mic_sampling_rate_s16le_channel_3.raw channel_3.wav
-sox -r sampling_rate -c 1 -e signed -c 1 -e signed -b 16 mic_sampling_rate_s16le_channel_4.raw channel_4.wav
-sox -r sampling_rate -c 1 -e signed -c 1 -e signed -b 16 mic_sampling_rate_s16le_channel_5.raw channel_5.wav
-sox -r sampling_rate -c 1 -e signed -c 1 -e signed -b 16 mic_sampling_rate_s16le_channel_6.raw channel_6.wav
-sox -r sampling_rate -c 1 -e signed -c 1 -e signed -b 16 mic_sampling_rate_s16le_channel_7.raw channel_7.wav
-sox -r sampling_rate -c 1 -e signed -c 1 -e signed -b 16 mic_sampling_rate_s16le_channel_8.raw channel_8.wav
+sox -r 16000 -c 1 -e signed -c 1 -e signed -b 16 mic_16000_s16le_channel_0.raw channel_0.wav
+sox -r 16000 -c 1 -e signed -c 1 -e signed -b 16 mic_16000_s16le_channel_1.raw channel_1.wav
+sox -r 16000 -c 1 -e signed -c 1 -e signed -b 16 mic_16000_s16le_channel_2.raw channel_2.wav
+sox -r 16000 -c 1 -e signed -c 1 -e signed -b 16 mic_16000_s16le_channel_3.raw channel_3.wav
+sox -r 16000 -c 1 -e signed -c 1 -e signed -b 16 mic_16000_s16le_channel_4.raw channel_4.wav
+sox -r 16000 -c 1 -e signed -c 1 -e signed -b 16 mic_16000_s16le_channel_5.raw channel_5.wav
+sox -r 16000 -c 1 -e signed -c 1 -e signed -b 16 mic_16000_s16le_channel_6.raw channel_6.wav
+sox -r 16000 -c 1 -e signed -c 1 -e signed -b 16 mic_16000_s16le_channel_7.raw channel_7.wav
+sox -r 16000 -c 1 -e signed -c 1 -e signed -b 16 mic_16000_s16le_channel_8.raw channel_8.wav
 ```
 
 <details open>
