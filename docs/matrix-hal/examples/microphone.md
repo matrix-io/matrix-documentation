@@ -245,18 +245,18 @@ sudo mv -f /etc/asound.conf /etc/asound.conf_old
 sudo mv -f ./asound.conf /etc/
 ```
 
-To record from beamforming channel (channel 8) for 5 seconds using `arecord`, run these commands. 
+To record from microphone channel 0 for 5 seconds using `arecord`, run these commands. 
 
 ```language-bash
 rm -rf/tmp/matrix_micarray_channel_*
 ./mic_record_pipe --sampling_frequency 16000 &
-arecord channel8.wav -f S16_LE -r 16000 -d 5 --device=mic_channel8
+arecord channel0.wav -f S16_LE -r 16000 -d 5 --device=mic_channel0
 ```
 
 To stop the example from running, run this command.
 
 ```language-bash
-sudo killall mic_record_pipe
+killall mic_record_pipe
 ```
 
 <details open>
