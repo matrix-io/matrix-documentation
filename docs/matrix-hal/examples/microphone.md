@@ -231,6 +231,8 @@ Now we will read microphone array data, send to a buffer, and write to file.
 <summary style="font-size: 1.75rem; font-weight: 300;">Microphone Array Record to Pipe</summary>
 The following section shows how to record data from the microphone array to a linux FIFO pipe. You can download this example <a href="https://raw.githubusercontent.com/matrix-io/matrix-hal-examples/master/microphone_array/mic_record_pipe.cpp" target="_blank">here</a>.
 
+> When beamformed input (channel 8) is read from a FIFO pipe distortion may occur.
+
 The command below will compile the example.
 
 ```language-bash
@@ -245,18 +247,18 @@ sudo mv -f /etc/asound.conf /etc/asound.conf_old
 sudo mv -f ./asound.conf /etc/
 ```
 
-To record from beamforming channel (channel 8) for 5 seconds using `arecord`, run these commands. 
+To record from microphone channel 0 for 5 seconds using `arecord`, run these commands. 
 
 ```language-bash
 rm -rf/tmp/matrix_micarray_channel_*
 ./mic_record_pipe --sampling_frequency 16000 &
-arecord channel8.wav -f S16_LE -r 16000 -d 5 --device=mic_channel8
+arecord channel0.wav -f S16_LE -r 16000 -d 5 --device=mic_channel0
 ```
 
 To stop the example from running, run this command.
 
 ```language-bash
-sudo killall mic_record_pipe
+killall mic_record_pipe
 ```
 
 <details open>
