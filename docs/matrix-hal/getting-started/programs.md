@@ -115,8 +115,6 @@ int main() {
 }
 ```
 
-<br/>
-
 ## Compiling your Program
 
 The command below will use g++ to link the `libmatrix_creator_hal.so` library file when compiling your program.
@@ -124,8 +122,6 @@ The command below will use g++ to link the `libmatrix_creator_hal.so` library fi
 ```language-bash
 g++ -o app app.cpp -std=c++11 -lmatrix_creator_hal
 ```
-
-<br/>
 
 ## Running your Program
 
@@ -136,12 +132,8 @@ cd ~/matrix-hal-project
 ./app
 ```
 
-<br/>
-
 <h2 style="padding-top: 0">Result</h2>
 ![](/matrix-hal/img/everloop_rainbow.gif)
-
-<br/>
 
 ## Next Steps
 

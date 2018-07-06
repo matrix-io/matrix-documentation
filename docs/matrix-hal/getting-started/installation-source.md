@@ -37,8 +37,6 @@ sudo reboot
 
 MATRIX HAL header files are installed in `/usr/include/matrix_hal` and the compiled MATRIX HAL library file is installed in `/usr/lib/libmatrix_creator_hal.so`
 
-<br/>
-
 ## Next Steps
 
 Now that HAL is properly installed, learn how to create and compile your own MATRIX programs [here](programs).
