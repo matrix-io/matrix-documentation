@@ -26,7 +26,7 @@ After commands are complete a reboot is required.
 sudo reboot
 ```
 
-MATRIX HAL header files are installed in /usr/include/matrix_hal and the compiled MATRIX HAL library file is installed in /usr/lib/libmatrix_creator_hal.so
+MATRIX HAL header files are installed in `/usr/include/matrix_hal` and the compiled MATRIX HAL library file is installed in `/usr/lib/libmatrix_creator_hal.so`
 
 <br/>
 

@@ -122,7 +122,7 @@ int main() {
 The command below will use g++ to link the `libmatrix_creator_hal.so` library file when compiling your program.
 
 ```language-bash
-g++ -o app.out app.cpp -std=c++11 -lmatrix_creator_hal
+g++ -o app app.cpp -std=c++11 -lmatrix_creator_hal
 ```
 
 <br/>
@@ -133,7 +133,7 @@ Run the following command to start the demo program.
 
 ```language-bash
 cd ~/matrix-hal-project
-./app.out
+./app
 ```
 
 <br/>

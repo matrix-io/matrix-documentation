@@ -1,20 +1,32 @@
 <h2 style="padding-top:0">Humidity</h2>
+<h4 style="padding-top:0">HAL Example</h4>
 
 ### Device Compatibility
 <img class="creator-compatibility-icon" src="../../img/creator-icon.svg">
 
 ## Overview
 
-The Humidity driver supports:
+The humidity sensor reports values for:
 
-* Reading relative humidity
-* Reading temperature in Celsius
+* Humidity
+* Temperature
 
-## Humidity Sensor Setup
+## Code Example
 
+Function references can be found [here](/matrix-hal/reference/humidity).
+
+The following section shows how to receive data from the humidity sensor. You can download this example <a href="https://raw.githubusercontent.com/matrix-io/matrix-hal-examples/master/sensors/humidity_sensor.cpp" target="_blank">here</a>.
+
+<details open>
+<summary style="font-size: 1.5rem; font-weight: 300;">Include Statements</summary>
 To begin working with the humidity sensor you need to include these header files.
 
 ```language-cpp
+// System calls
+#include <unistd.h>
+// Input/output streams and functions
+#include <iostream>
+
 // Interfaces with humidity sensor
 #include "matrix_hal/humidity_sensor.h"
 // Holds data from humidity sensor
@@ -23,52 +35,57 @@ To begin working with the humidity sensor you need to include these header files
 #include "matrix_hal/matrixio_bus.h"
 ```
 
+</details>
+
+<details open>
+<summary style="font-size: 1.5rem; font-weight: 300;">Initial Setup</summary>
 You'll then need to setup `MatrixIOBus` in order to communicate with the hardware on your MATRIX device.
 
 ```language-cpp
-// Create a bus object for hardware communication
-matrix_hal::MatrixIOBus bus;
-// Initialize bus and exit program if error
-if (!bus.Init()) return false;
+int main() {
+  // Create MatrixIOBus object for hardware communication
+  matrix_hal::MatrixIOBus bus;
+  // Initialize bus and exit program if error occurs
+  if (!bus.Init()) return false;
 ```
 
-Now we will create our `HumiditySensor` and `HumidityData` objects.
+</details>
 
-* `HumidityData` - **Object** that contains all parameters of the humidity sensor.
+<details open>
+<summary style="font-size: 1.5rem; font-weight: 300;">Main Setup</summary>
+Now we will create our `HumidityData` and `HumiditySensor` object and use it to receive data from the humidity sensor.
 
-    * `humidity` - **Float** that holds humidity data.
-
-    * `temperature` - **Float** that holds temperature data.
-
-    <div class="inline-bullet-fix" style="margin-top:15.6px;"/>
-
-* `HumiditySensor` - **Object** that contains the functions for getting data from the humidity sensor.
+```language-cpp
+  // The following code is part of main()
   
-    * `.Setup(MatrixIOBus)` - **Function** that takes `MatrixIOBus` object as parameter and sets that object as the bus to use for communicating with MATRIX device.
+  // Create HumidityData object
+  matrix_hal::HumidityData humidity_data;
+  // Create HumiditySensor object
+  matrix_hal::HumiditySensor humidity_sensor;
+  // Set humidity_sensor to use MatrixIOBus bus
+  humidity_sensor.Setup(&bus);
+  
+  // Endless loop
+  while (true) {
+    // Overwrites humidity_data with new data from humidity sensor
+    humidity_sensor.Read(&humidity_data);
+    // Humidity output is represented in %
+    float humidity = humidity_data.humidity;
+    // Temperature output is represented in °C
+    float temperature = humidity_data.temperature;
+    // Clear console
+    std::system("clear");
+    // Output sensor data to console
+    std::cout << " [ Humidity Sensor Output ]" << std::endl;
+    std::cout << " [ Humidity (%) : " << humidity
+              << " ] [ Temperature (°C) : " << temperature << "]" << std::endl;
 
-    * `.Read(PressureData)` **Function** that takes `HumidityData` object as a parameter and writes humidity sensor data to `HumidityData` object.
+    // Sleep for 20000 microseconds
+    usleep(20000);
+  }
 
-```language-cpp
-// Make HumidityData object
-matrix_hal::HumidityData humidity_data;
-// Make HumiditySensor object
-matrix_hal::HumiditySensor humidity_sensor; 
-// Specify the MatrixIOBus object that the HumiditySensor object will use
-humidity_sensor.Setup(&bus);
+  return 0;
+}
 ```
 
-The following code updates `HumidityData` with the data from `HumiditySensor`.
-
-```language-cpp
-// Overwrites HumidityData object with new data
-humidity_sensor.Read(&humidity_data); 
-```
-
-The following code accesses the stored data from the sensor.
-
-```language-cpp
-// In %
-float humidity = humidity_data.humidity; 
-// In °C
-float temperature = humidity_data.temperature; 
-```
+</details>

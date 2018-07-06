@@ -21,11 +21,13 @@ The GPIO interface supports:
 
 ## Code Examples
 
-Function references can be found [here](/matrix-hal/reference).
+Function references can be found [here](/matrix-hal/reference/gpio).
 
 <details>
 <summary style="font-size: 1.75rem; font-weight: 300;">GPIO I/O</summary>
 The following section shows how to use GPIO in digital I/O mode for output and input. You can download this example <a href="https://raw.githubusercontent.com/matrix-io/matrix-hal-examples/master/gpio/gpio_io.cpp" target="_blank">here</a>.
+
+This example outputs raw audio files.
 
 <details open>
 <summary style="font-size: 1.5rem; font-weight: 300;">Include Statements</summary>

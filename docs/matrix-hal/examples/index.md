@@ -1,22 +1,35 @@
 ## MATRIX HAL Examples
 
-<h3 style="padding-top:0.6em;"><a href="everloop">Everloop</a></h3>
-LED interface
+### Download Examples
 
-<h3 style="padding-top:0.6em;"><a href="uv">UV</a></h3>
-UV sensor interface and data structure
+The following code downloads and compiles the examples.
+
+```language-bash
+git clone https://github.com/matrix-io/matrix-hal-examples.git
+cd matrix-hal-examples
+mkdir build
+cd build
+cmake ..
+make
+```
+
+<h3 style="padding-top:0.6em;"><a href="everloop">Everloop</a></h3>
+LED interface.
 
 <h3 style="padding-top:0.6em;"><a href="humidity">Humidity</a></h3>
-Humidity sensor interface and data structure
+Humidity and temperature measurement.
 
 <h3 style="padding-top:0.6em;"><a href="imu">IMU</a></h3>
-Inertial Measurement Unit (IMU) sensor interface and data structure
+Inertial Measurement Unit.
 
 <h3 style="padding-top:0.6em;"><a href="pressure">Pressure</a></h3>
-Pressure sensor interface and data structure
+Pressure, altitude and temperature measurement.
+
+<h3 style="padding-top:0.6em;"><a href="uv">UV</a></h3>
+Ultraviolet light sensor.
 
 <h3 style="padding-top:0.6em;"><a href="gpio">GPIO</a></h3>
-GPIO interface
+General Purpose Input/Output.
 
 <h3 style="padding-top:0.6em;"><a href="microphone">Microphone</a></h3>
-Microphone Array interface
+Microphone Array.
