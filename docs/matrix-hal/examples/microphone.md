@@ -26,6 +26,12 @@ Function references can be found [here](/matrix-hal/reference/microphone).
 <summary style="font-size: 1.75rem; font-weight: 300;">Microphone Array Record to File</summary>
 The following section shows how to record data from the microphone array to a file. You can download this example <a href="https://raw.githubusercontent.com/matrix-io/matrix-hal-examples/master/microphone_array/mic_record_file.cpp" target="_blank">here</a>.
 
+The command below will compile the example.
+
+```language-bash
+g++ -o mic_record_file mic_record_file.cpp -std=c++11 -lmatrix_creator_hal -lgflags
+```
+
 To convert the `.raw` files outputted by this example to playable `.wav` files run these commands, replacing `sampling_rate` with selected sampling rate.
 
 ```language-bash
@@ -225,20 +231,26 @@ Now we will read microphone array data, send to a buffer, and write to file.
 
 <details>
 <summary style="font-size: 1.75rem; font-weight: 300;">Microphone Array Record to Pipe</summary>
-The following section shows how to record data from the microphone array to a linux FIFO pipe. You can download this example <a href="https://raw.githubusercontent.com/matrix-io/matrix-hal-examples/master/microphone_array/mic_record_file.cpp" target="_blank">here</a>.
+The following section shows how to record data from the microphone array to a linux FIFO pipe. You can download this example <a href="https://raw.githubusercontent.com/matrix-io/matrix-hal-examples/master/microphone_array/mic_record_pipe.cpp" target="_blank">here</a>.
 
-To use this example with `arecord` you'll need to a copy a modified `asound.conf` file into `/etc/`.
+The command below will compile the example.
+
+```language-bash
+g++ -o mic_record_pipe mic_record_pipe.cpp -std=c++11 -lmatrix_creator_hal -lgflags
+```
+
+The following commands copy a modified `asound.conf` file into `/etc/`, which allows `arecord` to record from the pipe.
 
 ```language-bash
 wget https://raw.githubusercontent.com/matrix-io/matrix-hal-examples/master/microphone_array/asound.conf
 sudo mv -f ./asound.conf /etc/
 ```
 
-To record from beamforming channel (channel 8) for 5 seconds using arecord.
+To record from beamforming channel (channel 8) for 5 seconds using `arecord`, run these commands. 
 
 ```language-bash
 rm -rf/tmp/matrix_micarray_channel_*
-matrix-hal-examples/build/microphone_array/mic_record_pipe --sampling_frequency 16000
+./mic_record_pipe --sampling_frequency 16000
 arecord channel8.wav -f S16_LE -r 16000 -d 5 --device=mic_channel8
 ```
 

@@ -17,7 +17,13 @@ The IMU driver reports values for:
 
 Function references can be found [here](/matrix-hal/reference/imu).
 
-The following section shows how to receive data from the IMU sensor. You can download this example <a href="https://raw.githubusercontent.com/matrix-io/matrix-hal-examples/master/sensors/humidity_sensor.cpp" target="_blank">here</a>.
+The following section shows how to receive data from the IMU sensor. You can download this example <a href="https://raw.githubusercontent.com/matrix-io/matrix-hal-examples/master/sensors/imu_sensor.cpp" target="_blank">here</a>.
+
+The command below will compile the example.
+
+```language-bash
+g++ -o imu_sensor imu_sensor.cpp -std=c++11 -lmatrix_creator_hal
+```
 
 <details open>
 <summary style="font-size: 1.5rem; font-weight: 300;">Include Statements</summary>

@@ -16,6 +16,12 @@ Function references can be found [here](/matrix-hal/reference/uv).
 
 The following section shows how to receive data from the UV sensor. You can download this example <a href="https://raw.githubusercontent.com/matrix-io/matrix-hal-examples/master/sensors/uv_sensor.cpp" target="_blank">here</a>.
 
+The command below will compile the example.
+
+```language-bash
+g++ -o uv_sensor uv_sensor.cpp -std=c++11 -lmatrix_creator_hal
+```
+
 <details open>
 <summary style="font-size: 1.5rem; font-weight: 300;">Include Statements</summary>
 To begin working with the UV sensor you need to include these header files.
