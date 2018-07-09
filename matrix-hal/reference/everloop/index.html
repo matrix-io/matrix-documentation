@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Sensor Tests MATRIX</title>
+  <title>Everloop MATRIX</title>
   <link rel="shortcut icon" href="../../../img/favicon.ico">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
   <link rel="stylesheet" href="../../../css/theme.css">
@@ -29,7 +29,7 @@
         <div class="row">
           <div class="col-sm-8">
             
-            <h1>Sensor Tests</h1>
+            <h1>Everloop</h1>
             
           </div>
           <div class="col-sm-4">
@@ -352,7 +352,7 @@
 
 <!-- print root node  -->
 <li class="">
-  <a href="../../" class="active">
+  <a href="../../overview/" class="active">
     MATRIX HAL
   </a>
 </li>
@@ -360,17 +360,73 @@
 <ul class="subnav">
    
   <!-- only 1 deep, print menu items  -->
+   
+  <li><a href="../../overview/" class="">Overview</a></li>
      
   <!-- 2 deep  -->
   <!-- print subroot  -->
   <li>
-    <a href="../../getting-started/installation/" class="">
+    <a href="../../getting-started/" class="">
       Getting Started
     </a>
   </li>
 
   <ul class="subnav">
+        
+        
+        
       
+  </ul>
+
+    
+  <!-- 2 deep  -->
+  <!-- print subroot  -->
+  <li>
+    <a href="../" class="active">
+      References
+    </a>
+  </li>
+
+  <ul class="subnav">
+        
+    
+    <li><a href="./" class="active">Everloop</a></li>
+        
+    
+    <li><a href="../humidity/" class="">Humidity</a></li>
+        
+    
+    <li><a href="../imu/" class="">IMU</a></li>
+        
+    
+    <li><a href="../pressure/" class="">Pressure</a></li>
+        
+    
+    <li><a href="../uv/" class="">UV</a></li>
+        
+    
+    <li><a href="../gpio/" class="">GPIO</a></li>
+        
+    
+    <li><a href="../microphone/" class="">Microphone</a></li>
+      
+  </ul>
+
+    
+  <!-- 2 deep  -->
+  <!-- print subroot  -->
+  <li>
+    <a href="../../examples/" class="">
+      Examples
+    </a>
+  </li>
+
+  <ul class="subnav">
+        
+        
+        
+        
+        
         
         
       
@@ -379,7 +435,7 @@
     
   <!-- only 1 deep, print menu items  -->
    
-  <li><a href="./" class="active">Sensor Tests</a></li>
+  <li><a href="../../troubleshooting/" class="">Troubleshooting</a></li>
     
 </ul>
 
@@ -401,42 +457,84 @@
           </div>
         </div>
         <div id="content" class="col-lg-8 col-md-9">
-           <h2 id="sensor-tests">Sensor Tests</h2>
-<p>With the following instructions you will be able to run demos for the Everloop LED Array and for the IMU. These demos make use of the <a href="https://github.com/matrix-io/matrix-creator-hal/tree/master/cpp/driver">hardware abstraction layer</a>. Make sure you followed the <a href="../../getting-started/installation/">getting started</a> steps.</p>
-<p>Thus you can get the required source code and build it:</p>
-<pre><code class="language-bash">    git clone https://github.com/matrix-io/matrix-creator-hal.git
-    cd matrix-creator-hal
-    mkdir build &amp;&amp; cd build
-    cmake .. &amp;&amp; make
+           <h2 style="padding-top:0">Everloop</h2>
+
+<h3 id="device-compatibility">Device Compatibility</h3>
+<p><img class="creator-compatibility-icon" src="../../img/creator-icon.svg">
+<img class="voice-compatibility-icon" src="../../img/voice-icon.svg"></p>
+<h2 id="overview">Overview</h2>
+<p>The Everloop interface supports:</p>
+<ul>
+<li>Setting the RGBW colors for each individual LED.</li>
+</ul>
+<h2 id="references">References</h2>
+<p>Below is the overview of the Everloop implementation. Code examples can be found <a href="../../../matrix-hal/examples/everloop">here</a>.</p>
+<p>These header files are required to use the Everloop.</p>
+<pre><code class="language-cpp">// Interfaces with Everloop
+#include &quot;matrix_hal/everloop.h&quot;
+// Holds data for Everloop
+#include &quot;matrix_hal/everloop_image.h&quot;
+// Communicates with MATRIX device
+#include &quot;matrix_hal/matrixio_bus.h&quot;
 </code></pre>
 
-<p>If the project built with no issues you can run the demos. The demos run for ever, you can terminate them with Control+C.</p>
-<p>Spinning leds ( <a href="https://www.youtube.com/watch?v=0cEtEyCdVI4">video</a> ):</p>
-<pre><code>demos/everloop_demo
+<p><details open>
+<summary style="font-size: 1.75rem; font-weight: 300;">EverloopImage</summary>
+<code>EverloopImage</code> is a required <strong>object</strong> that contains an array of <code>LedValue</code> objects.
+The <code>EverloopImage</code> constructor takes in an integer representing the amount of RGBW leds your MATRIX device has.</p>
+<p>The MatrixIOBus function <code>bus.MatrixLeds</code> outputs the number of leds on your creator.</p>
+<pre><code class="language-cpp">// Holds the number of LEDs on MATRIX device
+int ledCount = bus.MatrixLeds();
+// Create EverloopImage object, with size of ledCount
+matrix_hal::EverloopImage everloop_image(ledCount);
 </code></pre>
-<p>Arc demo ( <a href="https://www.youtube.com/watch?v=1UFFT1JSw4Q">video</a> ) :</p>
-<pre><code>demos/arc_demo
-</code></pre>
-<p>Compass demo:</p>
-<pre><code>demos/compass_demo
 
-yaw = -116.006  roll = 3.19588  pitch = 0.370596
-yaw = -116.577  roll = 3.61794  pitch = 0.210613
-yaw = -115.649  roll = 3.64227  pitch = 0.334733
-yaw = -115.468  roll = 3.34762  pitch = 0.42658
-yaw = -116.423  roll = 3.49536  pitch = 0.566351
+<p><code>EverloopImage</code> holds an array full of <code>LedValue</code> objects. The <code>LedValue</code> object contains the properties <code>red</code>, <code>green</code>, <code>blue</code>, <code>white</code>. These color properties accept an RGBW integer between 0-255.</p>
+<p>The following code shows how to set each led in everloop_image to green.</p>
+<pre><code class="language-cpp">// For each led, set RGBW colors
+// This sets all leds to green
+for (matrix_hal::LedValue &amp;led : everloop_image.leds) {
+  led.red = 0;
+  led.green = 100;
+  led.blue = 0;
+  led.white = 0;
+}
 </code></pre>
-<p>Microphones:</p>
-<pre><code>demos/mic_demo
 
-52  29  54  74  74  49  39  60
-60  31  52  46  41  55  68  70
-60  44  55  43  53  68  62  62
-45  17  69  54  18  38  74  67
-
-(You get one value for each microphone)
+<p></details></p>
+<p><details open>
+<summary style="font-size: 1.75rem; font-weight: 300;">Everloop</summary>
+<code>Everloop</code> is a required <strong>object</strong> that contains functions to interface with the Everloop on the MATRIX device.</p>
+<pre><code class="language-cpp">// Create Everloop object
+matrix_hal::Everloop everloop;
 </code></pre>
-<p>Questions? Post them on <a href="http://raspberrypi.stackexchange.com">raspberrypi.stackexchange.com</a>! Use the tag #matrix-creator</p> 
+
+<p>The functions below are part of <code>Everloop</code>.</p>
+<p><details>
+<summary style="font-size: 1.5rem; font-weight: 300;">.Setup</summary>
+<code>Setup</code> is a <strong>function</strong> that takes <code>MatrixIOBus</code> object as parameter and sets that object as the bus to use for communicating with MATRIX device.</p>
+<pre><code class="language-cpp">// Function declaration in header file
+void Setup(MatrixIOBus *bus);
+</code></pre>
+
+<pre><code class="language-cpp">// Set everloop to use MatrixIOBus bus
+everloop.Setup(&amp;bus);
+</code></pre>
+
+<p></details></p>
+<p><details>
+<summary style="font-size: 1.5rem; font-weight: 300;">.Write</summary>
+<code>Write</code> is a <strong>function</strong> that takes an <code>EverloopImage</code> object as a parameter and updates the Everloop on the MATRIX device.</p>
+<pre><code class="language-cpp">// Function declaration in header file
+bool Write(EverloopImage *everloop_image;
+</code></pre>
+
+<pre><code class="language-cpp">// Updates the Everloop on the MATRIX device
+everloop.Write(&amp;everloop_image);
+</code></pre>
+
+<p></details>
+</details></p> 
         </div>
         <div class="toc-parent col-lg-2 col-md-3">
           <div class="toc">
@@ -444,8 +542,18 @@ yaw = -116.423  roll = 3.49536  pitch = 0.566351
             <h3>Contents</h3>
             <ul class="nav flex-column">
                <li class='nav-item'>
-  <a href="#sensor-tests" class="nav-link active">
-    Sensor Tests
+  <a href="#device-compatibility" class="nav-link active">
+    Device Compatibility
+  </a>
+  
+</li>  <li class='nav-item'>
+  <a href="#overview" class="nav-link ">
+    Overview
+  </a>
+  
+</li>  <li class='nav-item'>
+  <a href="#references" class="nav-link ">
+    References
   </a>
   
 </li> 

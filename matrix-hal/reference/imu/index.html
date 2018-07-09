@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Installation MATRIX</title>
+  <title>IMU MATRIX</title>
   <link rel="shortcut icon" href="../../../img/favicon.ico">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
   <link rel="stylesheet" href="../../../css/theme.css">
@@ -29,7 +29,7 @@
         <div class="row">
           <div class="col-sm-8">
             
-            <h1>Installation</h1>
+            <h1>IMU</h1>
             
           </div>
           <div class="col-sm-4">
@@ -352,7 +352,7 @@
 
 <!-- print root node  -->
 <li class="">
-  <a href="../../" class="active">
+  <a href="../../overview/" class="active">
     MATRIX HAL
   </a>
 </li>
@@ -360,32 +360,82 @@
 <ul class="subnav">
    
   <!-- only 1 deep, print menu items  -->
+   
+  <li><a href="../../overview/" class="">Overview</a></li>
      
   <!-- 2 deep  -->
   <!-- print subroot  -->
   <li>
-    <a href="./" class="active">
+    <a href="../../getting-started/" class="">
       Getting Started
     </a>
   </li>
 
   <ul class="subnav">
+        
+        
+        
       
+  </ul>
+
     
-    <li><a href="./" class="active">Installation</a></li>
+  <!-- 2 deep  -->
+  <!-- print subroot  -->
+  <li>
+    <a href="../" class="active">
+      References
+    </a>
+  </li>
+
+  <ul class="subnav">
         
     
-    <li><a href="../hello-world/" class="">Hello World</a></li>
+    <li><a href="../everloop/" class="">Everloop</a></li>
         
     
-    <li><a href="../next-steps/" class="">Next Steps</a></li>
+    <li><a href="../humidity/" class="">Humidity</a></li>
+        
+    
+    <li><a href="./" class="active">IMU</a></li>
+        
+    
+    <li><a href="../pressure/" class="">Pressure</a></li>
+        
+    
+    <li><a href="../uv/" class="">UV</a></li>
+        
+    
+    <li><a href="../gpio/" class="">GPIO</a></li>
+        
+    
+    <li><a href="../microphone/" class="">Microphone</a></li>
+      
+  </ul>
+
+    
+  <!-- 2 deep  -->
+  <!-- print subroot  -->
+  <li>
+    <a href="../../examples/" class="">
+      Examples
+    </a>
+  </li>
+
+  <ul class="subnav">
+        
+        
+        
+        
+        
+        
+        
       
   </ul>
 
     
   <!-- only 1 deep, print menu items  -->
    
-  <li><a href="../../examples/hardware-demos/" class="">Sensor Tests</a></li>
+  <li><a href="../../troubleshooting/" class="">Troubleshooting</a></li>
     
 </ul>
 
@@ -407,45 +457,89 @@
           </div>
         </div>
         <div id="content" class="col-lg-8 col-md-9">
-           <h3 id="installation">Installation</h3>
-<h4 id="install-from-package">Install from package</h4>
-<p>If you haven't already installed the required MATRIX packages that configure everything after each boot, please install:</p>
-<pre><code class="language-bash"># Add repo and key
-curl https://apt.matrix.one/doc/apt-key.gpg | sudo apt-key add -
-echo &quot;deb https://apt.matrix.one/raspbian $(lsb_release -sc) main&quot; | sudo tee /etc/apt/sources.list.d/matrixlabs.list
+           <h2 style="padding-top:0">Inertial Measurement Unit (IMU)</h2>
 
-# Update packages and install
-sudo apt-get update
-sudo apt-get upgrade
-
-# Installation
-sudo apt-get install matrixio-creator-init libmatrixio-creator-hal libmatrixio-creator-hal-dev
-
-# Reboot after installation
-sudo reboot
+<h3 id="device-compatibility">Device Compatibility</h3>
+<p><img class="creator-compatibility-icon" src="../../img/creator-icon.svg"></p>
+<h2 id="overview">Overview</h2>
+<p>The IMU sensor reports values for:</p>
+<ul>
+<li>Yaw, Pitch, and Roll</li>
+<li>Acceleration for <strong>x</strong>, <strong>y</strong>, <strong>z</strong> axes</li>
+<li>Gyroscope for <strong>x</strong>, <strong>y</strong>, <strong>z</strong> axes</li>
+<li>Magnetometer for <strong>x</strong>, <strong>y</strong>, <strong>z</strong> axes</li>
+</ul>
+<h2 id="references">References</h2>
+<p>Below is the overview of the IMU sensor implementation. Code example can be found <a href="../../../matrix-hal/examples/imu">here</a>.</p>
+<p>These header files are required to use the IMU sensor.</p>
+<pre><code class="language-cpp">// Interfaces with IMU sensor
+#include &quot;matrix_hal/imu_sensor.h&quot;
+// Holds data from IMU sensor
+#include &quot;matrix_hal/imu_data.h&quot;
+// Communicates with MATRIX device
+#include &quot;matrix_hal/matrixio_bus.h&quot;
 </code></pre>
 
-<h4 id="install-from-source">Install from source</h4>
-<h5 id="install-pre-requisites">Install Pre-Requisites</h5>
-<pre><code class="language-bash">sudo apt-get install cmake g++ git libfftw3-dev wiringpi libgflags-dev
+<p><details open>
+<summary style="font-size: 1.75rem; font-weight: 300;">IMUData</summary>
+<code>IMUData</code> is a required <strong>object</strong> that contains the IMU sensor's supported data parameters.</p>
+<pre><code class="language-cpp">// Create IMUData object
+matrix_hal::IMUData imu_data;
 </code></pre>
 
-<h5 id="clone-and-build">Clone and Build</h5>
-<p>To start working with HAL directly, you'll need to clone it and then build it. </p>
-<pre><code class="language-bash">git clone https://github.com/matrix-io/matrix-creator-hal.git
-cd matrix-creator-hal
-mkdir build
-cd build
-cmake ..
-make &amp;&amp; sudo make install
+<p>The following code accesses the parameters of <code>IMUData</code>.</p>
+<pre><code class="language-cpp">// Accelerometer
+float accel_X = imu_data.accel_x;
+float accel_Y = imu_data.accel_y;
+float accel_Z = imu_data.accel_z;
+// Gyroscope
+float gyro_X = imu_data.gyro_x;
+float gyro_Y = imu_data.gyro_y;
+float gyro_Z = imu_data.gyro_z;
+// Yaw, Pitch, Roll Output
+float yaw = imu_data.yaw;
+float pitch = imu_data.pitch;
+float roll = imu_data.roll;
+// Magnetometer
+float mag_X = imu_data.mag_x;
+float mag_Y = imu_data.mag_y;
+float mag_Z = imu_data.mag_z; // Z-axis points upward
 </code></pre>
 
-<h3 id="continue">Continue</h3>
-<ol>
-<li>Do <a href="../hello-world/">Hello World</a></li>
-<li>Try out the <a href="../../examples/hardware-demos/">hardware demos</a> available inside the <code>demos</code> directory.</li>
-<li>Write and run your own HAL abstraction layer by using our <a href="../../components/">Component</a> documentation.</li>
-</ol> 
+<p></details></p>
+<p><details open>
+<summary style="font-size: 1.75rem; font-weight: 300;">IMUSensor</summary>
+<code>IMUSensor</code> is a required <strong>object</strong> that contains functions to interface with the IMU sensor.</p>
+<pre><code class="language-cpp">// Create IMUSensor object
+matrix_hal::IMUSensor imu_sensor;
+</code></pre>
+
+<p>The functions below are part of <code>IMUSensor</code>.</p>
+<p><details>
+<summary style="font-size: 1.5rem; font-weight: 300;">.Setup</summary>
+<code>Setup</code> is a <strong>function</strong> that takes a <code>MatrixIOBus</code> object as a parameter and sets that object as the bus to use for communicating with MATRIX device.</p>
+<pre><code class="language-cpp">// Function declaration
+void Setup(MatrixIOBus *bus);
+</code></pre>
+
+<pre><code class="language-cpp">// Set imu_sensor to use MatrixIOBus bus
+imu_sensor.Setup(&amp;bus);
+</code></pre>
+
+<p></details></p>
+<p><details>
+<summary style="font-size: 1.5rem; font-weight: 300;">.Read</summary>
+<code>Read</code> is a <strong>function</strong> that takes an <code>IMUData</code> object as a parameter and writes the current IMU sensor data into the <code>IMUData</code> object.</p>
+<pre><code class="language-cpp">// Function declaration
+bool Read(IMUData *data);
+</code></pre>
+
+<pre><code class="language-cpp">// Overwrites imu_data with new data from IMU sensor
+imu_sensor.Read(&amp;imu_data);
+</code></pre>
+
+<p></details>
+</details></p> 
         </div>
         <div class="toc-parent col-lg-2 col-md-3">
           <div class="toc">
@@ -453,29 +547,18 @@ make &amp;&amp; sudo make install
             <h3>Contents</h3>
             <ul class="nav flex-column">
                <li class='nav-item'>
-  <a href="#installation" class="nav-link active">
-    Installation
+  <a href="#device-compatibility" class="nav-link active">
+    Device Compatibility
   </a>
   
-  <ul>
-    
-    <li>
-      <a class="nav-link" href="#install-from-package">
-        Install from package
-      </a>
-    </li>
-    
-    <li>
-      <a class="nav-link" href="#install-from-source">
-        Install from source
-      </a>
-    </li>
-    
-  </ul>
+</li>  <li class='nav-item'>
+  <a href="#overview" class="nav-link ">
+    Overview
+  </a>
   
 </li>  <li class='nav-item'>
-  <a href="#continue" class="nav-link ">
-    Continue
+  <a href="#references" class="nav-link ">
+    References
   </a>
   
 </li> 

@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Hello World MATRIX</title>
+  <title>Pressure MATRIX</title>
   <link rel="shortcut icon" href="../../../img/favicon.ico">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
   <link rel="stylesheet" href="../../../css/theme.css">
@@ -29,7 +29,7 @@
         <div class="row">
           <div class="col-sm-8">
             
-            <h1>Hello World</h1>
+            <h1>Pressure</h1>
             
           </div>
           <div class="col-sm-4">
@@ -352,7 +352,7 @@
 
 <!-- print root node  -->
 <li class="">
-  <a href="../../" class="active">
+  <a href="../../overview/" class="active">
     MATRIX HAL
   </a>
 </li>
@@ -360,32 +360,82 @@
 <ul class="subnav">
    
   <!-- only 1 deep, print menu items  -->
+   
+  <li><a href="../../overview/" class="">Overview</a></li>
      
   <!-- 2 deep  -->
   <!-- print subroot  -->
   <li>
-    <a href="../installation/" class="active">
+    <a href="../../getting-started/" class="">
       Getting Started
     </a>
   </li>
 
   <ul class="subnav">
+        
+        
+        
       
+  </ul>
+
     
-    <li><a href="../installation/" class="">Installation</a></li>
+  <!-- 2 deep  -->
+  <!-- print subroot  -->
+  <li>
+    <a href="../" class="active">
+      References
+    </a>
+  </li>
+
+  <ul class="subnav">
         
     
-    <li><a href="./" class="active">Hello World</a></li>
+    <li><a href="../everloop/" class="">Everloop</a></li>
         
     
-    <li><a href="../next-steps/" class="">Next Steps</a></li>
+    <li><a href="../humidity/" class="">Humidity</a></li>
+        
+    
+    <li><a href="../imu/" class="">IMU</a></li>
+        
+    
+    <li><a href="./" class="active">Pressure</a></li>
+        
+    
+    <li><a href="../uv/" class="">UV</a></li>
+        
+    
+    <li><a href="../gpio/" class="">GPIO</a></li>
+        
+    
+    <li><a href="../microphone/" class="">Microphone</a></li>
+      
+  </ul>
+
+    
+  <!-- 2 deep  -->
+  <!-- print subroot  -->
+  <li>
+    <a href="../../examples/" class="">
+      Examples
+    </a>
+  </li>
+
+  <ul class="subnav">
+        
+        
+        
+        
+        
+        
+        
       
   </ul>
 
     
   <!-- only 1 deep, print menu items  -->
    
-  <li><a href="../../examples/hardware-demos/" class="">Sensor Tests</a></li>
+  <li><a href="../../troubleshooting/" class="">Troubleshooting</a></li>
     
 </ul>
 
@@ -407,20 +457,81 @@
           </div>
         </div>
         <div id="content" class="col-lg-8 col-md-9">
-           <h2 id="basic-examples">Basic Examples</h2>
-<p>Basic examples can be found inside the <code>demo</code> directory inside of the repository that you cloned during <a href="../installation">installation</a>. Below we'll get you started with the Everloop demo which should turn the LEDs a <code>blue</code> color.</p>
-<pre><code class="language-bash"># should already be in ~/matrix-creator-hal/build directory.
-cd demos
+           <h2 style="padding-top:0">Pressure</h2>
 
-# run the everloop demo
-./everloop_demo
-
-# see the rest of the examples
-ls -l
+<h3 id="device-compatibility">Device Compatibility</h3>
+<p><img class="creator-compatibility-icon" src="../../img/creator-icon.svg"></p>
+<h2 id="overview">Overview</h2>
+<p>The pressure sensor reports values for:</p>
+<ul>
+<li>Pressure</li>
+<li>Altitude</li>
+<li>Temperature</li>
+</ul>
+<blockquote>
+<p>Based on component location, the temperature values from the <a href="../humidity">humidity sensor</a> are recommended over the pressure sensor.</p>
+</blockquote>
+<h2 id="references">References</h2>
+<p>Below is the overview of the pressure sensor implementation. Code example can be found <a href="../../../matrix-hal/examples/pressure">here</a>.</p>
+<p>These header files are required to use the pressure sensor.</p>
+<pre><code class="language-cpp">// Interfaces with pressure sensor
+#include &quot;matrix_hal/pressure_sensor.h&quot;
+// Holds data from pressure sensor
+#include &quot;matrix_hal/pressure_data.h&quot;
+// Communicates with MATRIX device
+#include &quot;matrix_hal/matrixio_bus.h&quot;
 </code></pre>
 
-<h3 id="continue">Continue</h3>
-<p>Move onto the rest of the <a href="https://github.com/matrix-io/matrix-creator-hal/tree/master/demos" target="_blank">C++ examples</a>.</p> 
+<p><details open>
+<summary style="font-size: 1.75rem; font-weight: 300;">PressureData</summary>
+<code>PressureData</code> is a required <strong>object</strong> that contains the pressure sensor's supported data parameters.</p>
+<pre><code class="language-cpp">// Create PressureData object
+matrix_hal::PressureData pressure_data;
+</code></pre>
+
+<p>The following code accesses the parameters of <code>PressureData</code>.</p>
+<pre><code class="language-cpp">// Output is represented in meters
+float altitude = pressure_data.altitude;
+// Output is represented in kPa
+float pressure = pressure_data.pressure;
+// Output is represented in °C
+float temperature = pressure_data.temperature;
+</code></pre>
+
+<p></details></p>
+<p><details open>
+<summary style="font-size: 1.75rem; font-weight: 300;">PressureSensor</summary>
+<code>PressureSensor</code> is a required <strong>object</strong> that contains functions to interface with the pressure sensor.</p>
+<pre><code class="language-cpp">// Create PressureSensor object
+matrix_hal::PressureSensor pressure_sensor;
+</code></pre>
+
+<p>The functions below are part of <code>PressureSensor</code>.</p>
+<p><details>
+<summary style="font-size: 1.5rem; font-weight: 300;">.Setup</summary>
+<code>Setup</code> is a <strong>function</strong> that takes a <code>MatrixIOBus</code> object as a parameter and sets that object as the bus to use for communicating with MATRIX device.</p>
+<pre><code class="language-cpp">// Function declaration
+void Setup(MatrixIOBus *bus);
+</code></pre>
+
+<pre><code class="language-cpp">// Set pressure_sensor to use MatrixIOBus bus
+pressure_sensor.Setup(&amp;bus);
+</code></pre>
+
+<p></details></p>
+<p><details>
+<summary style="font-size: 1.5rem; font-weight: 300;">.Read</summary>
+<code>Read</code> is a <strong>function</strong> that takes a <code>PressureData</code> object as a parameter and writes the current pressure sensor data into the <code>PressureData</code> object.</p>
+<pre><code class="language-cpp">// Function declaration
+bool Read(PressureData *data);
+</code></pre>
+
+<pre><code class="language-cpp">// Overwrites pressure_data with new data from pressure sensor
+pressure_sensor.Read(&amp;pressure_data);
+</code></pre>
+
+<p></details>
+</details></p> 
         </div>
         <div class="toc-parent col-lg-2 col-md-3">
           <div class="toc">
@@ -428,19 +539,19 @@ ls -l
             <h3>Contents</h3>
             <ul class="nav flex-column">
                <li class='nav-item'>
-  <a href="#basic-examples" class="nav-link active">
-    Basic Examples
+  <a href="#device-compatibility" class="nav-link active">
+    Device Compatibility
   </a>
   
-  <ul>
-    
-    <li>
-      <a class="nav-link" href="#continue">
-        Continue
-      </a>
-    </li>
-    
-  </ul>
+</li>  <li class='nav-item'>
+  <a href="#overview" class="nav-link ">
+    Overview
+  </a>
+  
+</li>  <li class='nav-item'>
+  <a href="#references" class="nav-link ">
+    References
+  </a>
   
 </li> 
             </ul>

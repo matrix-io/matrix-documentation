@@ -1,0 +1,936 @@
+<!DOCTYPE html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>GPIO MATRIX</title>
+  <link rel="shortcut icon" href="../../../img/favicon.ico">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../../../css/theme.css">
+  <link rel="stylesheet" href="../../../css/prism.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
+</head>
+
+<body data-spy="scroll">
+  <nav class="navbar navbar-expand-lg navbar-light container">
+  <a class="navbar-brand" href="../../..">
+    <img src="../../../img/everloop.png" width="38" height="38" class="d-inline-block align-top" alt="">
+    <span>MATRIX</span>
+  </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
+  	<span class="navbar-toggler-icon"></span>
+  </button>
+</nav>
+
+  <div class="header">
+    <div class="container">
+      <div class="jumbotron">
+        <div class="row">
+          <div class="col-sm-8">
+            
+            <h1>GPIO</h1>
+            
+          </div>
+          <div class="col-sm-4">
+            <form action="../../../search.html" method="get">
+              <input class="form-control" type="search" name="q" placeholder="Search" />
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="content">
+    <div class="container">
+      <div class="row">
+        <div class="sidebar col-lg-2">
+          <div class="collapse navbar-collapse" id="navbar-menu">
+            <h3>Documentation</h3>
+            <ul>
+                
+
+<!-- link to depth-first url found  -->
+  
+
+<!-- If there are no children, use the url (simple)  -->
+<li>
+  <a href="../../.." class="">
+    Overview
+  </a>
+</li>
+
+
+  
+
+
+<!-- Children complicate things  -->
+
+<!-- link to depth-first url found  -->
+  
+
+<!-- print root node  -->
+<li class="">
+  <a href="../../../matrix-creator/overview/" class="">
+    MATRIX Creator
+  </a>
+</li>
+
+<ul class="subnav">
+   
+  <!-- only 1 deep, print menu items  -->
+   
+  <li><a href="../../../matrix-creator/overview/" class="">Overview</a></li>
+     
+  <!-- only 1 deep, print menu items  -->
+   
+  <li><a href="../../../matrix-creator/device-setup/" class="">Device Setup</a></li>
+     
+  <!-- 2 deep  -->
+  <!-- print subroot  -->
+  <li>
+    <a href="../../../matrix-creator/resources/overview/" class="">
+      Resources
+    </a>
+  </li>
+
+  <ul class="subnav">
+        
+        
+        
+        
+        
+      
+  </ul>
+
+   
+</ul>
+
+  
+
+
+<!-- Children complicate things  -->
+
+<!-- link to depth-first url found  -->
+  
+
+<!-- print root node  -->
+<li class="">
+  <a href="../../../matrix-voice/overview/" class="">
+    MATRIX Voice
+  </a>
+</li>
+
+<ul class="subnav">
+   
+  <!-- only 1 deep, print menu items  -->
+   
+  <li><a href="../../../matrix-voice/overview/" class="">Overview</a></li>
+     
+  <!-- only 1 deep, print menu items  -->
+   
+  <li><a href="../../../matrix-voice/device-setup/" class="">Device Setup</a></li>
+     
+  <!-- only 1 deep, print menu items  -->
+   
+  <li><a href="../../../matrix-voice/esp32/" class="">ESP32</a></li>
+     
+  <!-- 2 deep  -->
+  <!-- print subroot  -->
+  <li>
+    <a href="../../../matrix-voice/resources/overview/" class="">
+      Resources
+    </a>
+  </li>
+
+  <ul class="subnav">
+        
+        
+        
+        
+        
+      
+  </ul>
+
+   
+</ul>
+
+  
+
+
+<!-- Children complicate things  -->
+
+<!-- link to depth-first url found  -->
+  
+
+<!-- print root node  -->
+<li class="">
+  <a href="../../../matrix-os/overview/" class="">
+    MATRIX OS
+  </a>
+</li>
+
+<ul class="subnav">
+   
+  <!-- only 1 deep, print menu items  -->
+   
+  <li><a href="../../../matrix-os/overview/" class="">Overview</a></li>
+     
+  <!-- 2 deep  -->
+  <!-- print subroot  -->
+  <li>
+    <a href="../../../matrix-os/getting-started/" class="">
+      Getting Started
+    </a>
+  </li>
+
+  <ul class="subnav">
+        
+        
+        
+      
+  </ul>
+
+    
+  <!-- 2 deep  -->
+  <!-- print subroot  -->
+  <li>
+    <a href="../../../matrix-os/reference/" class="">
+      Reference
+    </a>
+  </li>
+
+  <ul class="subnav">
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+  </ul>
+
+    
+  <!-- 2 deep  -->
+  <!-- print subroot  -->
+  <li>
+    <a href="../../../matrix-os/examples/" class="">
+      Examples
+    </a>
+  </li>
+
+  <ul class="subnav">
+        
+      
+  </ul>
+
+    
+  <!-- only 1 deep, print menu items  -->
+   
+  <li><a href="../../../matrix-os/troubleshooting/" class="">Troubleshooting</a></li>
+    
+</ul>
+
+  
+
+
+<!-- Children complicate things  -->
+
+<!-- link to depth-first url found  -->
+  
+
+<!-- print root node  -->
+<li class="">
+  <a href="../../../matrix-core/overview/" class="">
+    MATRIX CORE
+  </a>
+</li>
+
+<ul class="subnav">
+   
+  <!-- only 1 deep, print menu items  -->
+   
+  <li><a href="../../../matrix-core/overview/" class="">Overview</a></li>
+     
+  <!-- 2 deep  -->
+  <!-- print subroot  -->
+  <li>
+    <a href="../../../matrix-core/getting-started/" class="">
+      Getting Started
+    </a>
+  </li>
+
+  <ul class="subnav">
+        
+        
+        
+        
+      
+  </ul>
+
+    
+  <!-- 2 deep  -->
+  <!-- print subroot  -->
+  <li>
+    <a href="../../../matrix-core/protocols/" class="">
+      Driver Protocols
+    </a>
+  </li>
+
+  <ul class="subnav">
+        
+        
+        
+        
+        
+        
+        
+        
+      
+  </ul>
+
+    
+  <!-- 2 deep  -->
+  <!-- print subroot  -->
+  <li>
+    <a href="../../../matrix-core/javascript-examples/" class="">
+      Javascript Examples
+    </a>
+  </li>
+
+  <ul class="subnav">
+        
+        
+        
+        
+        
+        
+        
+        
+      
+  </ul>
+
+    
+  <!-- 2 deep  -->
+  <!-- print subroot  -->
+  <li>
+    <a href="../../../matrix-core/python-examples/" class="">
+      Python Examples
+    </a>
+  </li>
+
+  <ul class="subnav">
+        
+        
+        
+        
+        
+        
+        
+        
+      
+  </ul>
+
+    
+  <!-- only 1 deep, print menu items  -->
+   
+  <li><a href="../../../matrix-core/troubleshooting/" class="">Troubleshooting</a></li>
+    
+</ul>
+
+  
+
+
+<!-- Children complicate things  -->
+
+<!-- link to depth-first url found  -->
+  
+
+<!-- print root node  -->
+<li class="">
+  <a href="../../overview/" class="active">
+    MATRIX HAL
+  </a>
+</li>
+
+<ul class="subnav">
+   
+  <!-- only 1 deep, print menu items  -->
+   
+  <li><a href="../../overview/" class="">Overview</a></li>
+     
+  <!-- 2 deep  -->
+  <!-- print subroot  -->
+  <li>
+    <a href="../../getting-started/" class="">
+      Getting Started
+    </a>
+  </li>
+
+  <ul class="subnav">
+        
+        
+        
+      
+  </ul>
+
+    
+  <!-- 2 deep  -->
+  <!-- print subroot  -->
+  <li>
+    <a href="../../reference/" class="">
+      References
+    </a>
+  </li>
+
+  <ul class="subnav">
+        
+        
+        
+        
+        
+        
+        
+      
+  </ul>
+
+    
+  <!-- 2 deep  -->
+  <!-- print subroot  -->
+  <li>
+    <a href="../" class="active">
+      Examples
+    </a>
+  </li>
+
+  <ul class="subnav">
+        
+    
+    <li><a href="../everloop/" class="">Everloop</a></li>
+        
+    
+    <li><a href="../humidity/" class="">Humidity</a></li>
+        
+    
+    <li><a href="../imu/" class="">IMU</a></li>
+        
+    
+    <li><a href="../pressure/" class="">Pressure</a></li>
+        
+    
+    <li><a href="../uv/" class="">UV</a></li>
+        
+    
+    <li><a href="./" class="active">GPIO</a></li>
+        
+    
+    <li><a href="../microphone/" class="">Microphone</a></li>
+      
+  </ul>
+
+    
+  <!-- only 1 deep, print menu items  -->
+   
+  <li><a href="../../troubleshooting/" class="">Troubleshooting</a></li>
+    
+</ul>
+
+  
+
+<!-- link to depth-first url found  -->
+  
+
+<!-- If there are no children, use the url (simple)  -->
+<li>
+  <a href="../../../help/" class="">
+    Support
+  </a>
+</li>
+
+
+ 
+            </ul>
+          </div>
+        </div>
+        <div id="content" class="col-lg-8 col-md-9">
+           <h2 style="padding-top:0">General Purpose Input Output (GPIO)</h2>
+
+<h4 style="padding-top:0">HAL Example</h4>
+
+<h3 id="device-compatibility">Device Compatibility</h3>
+<p><img class="creator-compatibility-icon" src="../../img/creator-icon.svg">
+<img class="voice-compatibility-icon" src="../../img/voice-icon.svg"></p>
+<h2 id="overview">Overview</h2>
+<p>The GPIO interface supports:</p>
+<ul>
+<li>Pin I/O input</li>
+<li>Pin I/O output</li>
+<li>Pin PWM output</li>
+</ul>
+<p><strong>Device Pinouts</strong>:</p>
+<ul>
+<li><a href="../../../matrix-creator/resources/pinout/">MATRIX Creator</a></li>
+<li><a href="../../../matrix-voice/resources/pinout/">MATRIX Voice</a></li>
+</ul>
+<h2 id="code-examples">Code Examples</h2>
+<p>Below are examples of how to interface with the GPIO in MATRIX HAL.</p>
+<p>GPIO function references can be found <a href="../../../matrix-hal/reference/gpio">here</a>.</p>
+<p>The command below will compile each example. Be sure to pass in your C++ file and desired output file.</p>
+<pre><code class="language-cpp">g++ -o YOUR_OUTPUT_FILE YOUR_CPP_FILE -std=c++11 -lmatrix_creator_hal
+</code></pre>
+
+<p><details>
+<summary style="font-size: 1.75rem; font-weight: 300;">GPIO I/O</summary>
+The following section shows how to use GPIO in digital I/O mode for output and input. You can download this example <a href="https://github.com/matrix-io/matrix-hal-examples/blob/master/gpio/gpio_io.cpp" target="_blank">here</a>.</p>
+<p><details open>
+<summary style="font-size: 1.5rem; font-weight: 300;">Include Statements</summary>
+To begin working with the GPIO you need to include these header files.</p>
+<pre><code class="language-cpp">// System calls
+#include &lt;unistd.h&gt;
+// Input/output streams and functions
+#include &lt;iostream&gt;
+
+// Interfaces with GPIO
+#include &quot;matrix_hal/gpio_control.h&quot;
+// Communicates with MATRIX device
+#include &quot;matrix_hal/matrixio_bus.h&quot;
+</code></pre>
+
+<p></details></p>
+<p><details open>
+<summary style="font-size: 1.5rem; font-weight: 300;">Initial Variables</summary>
+These initial variables are used in the example.</p>
+<pre><code class="language-cpp">// GPIOOutputMode is 1
+const uint16_t GPIOOutputMode = 1;
+// GPIOInputMode is 0
+const uint16_t GPIOInputMode = 0;
+
+// Holds desired GPIO pin for output [0-15]
+uint16_t pin_out;
+// Holds desired output state
+uint16_t pin_out_state;
+// Holds desired GPIO pin for input [0-15]
+uint16_t pin_in;
+</code></pre>
+
+<p></details></p>
+<p><details open>
+<summary style="font-size: 1.5rem; font-weight: 300;">Initial Setup</summary>
+You'll then need to setup <code>MatrixIOBus</code> in order to communicate with the hardware on your MATRIX device.</p>
+<pre><code class="language-cpp">int main() {
+  // Create MatrixIOBus object for hardware communication
+  matrix_hal::MatrixIOBus bus;
+  // Initialize bus and exit program if error occurs
+  if (!bus.Init()) return false;
+</code></pre>
+
+<p></details></p>
+<p><details open>
+<summary style="font-size: 1.5rem; font-weight: 300;">Main Setup</summary>
+Now we will create our <code>GPIOControl</code> object and use it to output and input a digital GPIO signal.</p>
+<pre><code class="language-cpp">  // The following code is part of main()
+
+  // Create GPIOControl object
+  matrix_hal::GPIOControl gpio;
+  // Set gpio to use MatrixIOBus bus
+  gpio.Setup(&amp;bus);
+
+  // Prompt user for GPIO pin
+  std::cout &lt;&lt; &quot;Select Pin [0-15] For Output: &quot;;
+  // Log user input
+  std::cin &gt;&gt; pin_out;
+  // Prompt user for GPIO state
+  std::cout &lt;&lt; &quot;Pin Output State [0-1] : &quot;;
+  // Log user input
+  std::cin &gt;&gt; pin_out_state;
+  // Prompt user for GPIO pin
+  std::cout &lt;&lt; &quot;Select Pin [0-15] For Input: &quot;;
+  // Log user input
+  std::cin &gt;&gt; pin_in;
+
+  // Set pin_out mode to output
+  gpio.SetMode(pin_out, GPIOOutputMode);
+
+  // Set pin_in mode to input
+  gpio.SetMode(pin_in, GPIOInputMode);
+
+  // Set pin_out to output pin_out_state
+  gpio.SetGPIOValue(pin_out, pin_out_state);
+
+  // Endless loop
+  while (true) {
+    // Get state of pin_in
+    uint16_t pin_in_state = gpio.GetGPIOValue(pin_in);
+    // Clear console
+    std::system(&quot;clear&quot;);
+    // Output pin_out info to console
+    std::cout &lt;&lt; &quot;[ Output Pin : &quot; &lt;&lt; pin_out &lt;&lt; &quot; ]&quot;
+              &lt;&lt; &quot; [ Output State : &quot; &lt;&lt; pin_out_state &lt;&lt; &quot; ]&quot; &lt;&lt; std::endl;
+    // Output pin_in info to console
+    std::cout &lt;&lt; &quot;[ Input Pin : &quot; &lt;&lt; pin_in &lt;&lt; &quot; ]&quot;
+              &lt;&lt; &quot; [ Input State : &quot; &lt;&lt; pin_in_state &lt;&lt; &quot; ]&quot; &lt;&lt; std::endl;
+    // Sleep for 10000 microseconds
+    usleep(10000);
+  }
+
+  return 0;
+}
+</code></pre>
+
+<p></details></p>
+<p></details></p>
+<p><details>
+<summary style="font-size: 1.75rem; font-weight: 300;">GPIO PWM</summary>
+The following section shows how to use GPIO in PWM mode for PWM output. You can download this example <a href="https://github.com/matrix-io/matrix-hal-examples/blob/master/gpio/gpio_pwm.cpp" target="_blank">here</a>.</p>
+<p><details open>
+<summary style="font-size: 1.5rem; font-weight: 300;">Include Statements</summary>
+To begin working with the GPIO you need to include these header files.</p>
+<pre><code class="language-cpp">// Input/output streams and functions
+#include &lt;iostream&gt;
+
+// Interfaces with GPIO
+#include &quot;matrix_hal/gpio_control.h&quot;
+// Communicates with MATRIX device
+#include &quot;matrix_hal/matrixio_bus.h&quot;
+</code></pre>
+
+<p></details></p>
+<p><details open>
+<summary style="font-size: 1.5rem; font-weight: 300;">Initial Variables</summary>
+These initial variables are used in the example.</p>
+<pre><code class="language-cpp">// GPIOOutputMode is 1
+const uint16_t GPIOOutputMode = 1;
+// GPIOInputMode is 0
+const uint16_t GPIOInputMode = 0;
+// PWMFunction is 1
+const uint16_t PWMFunction = 1;
+
+// Holds desired PWM frequency
+float frequency;
+// Holds desired PWM duty percentage
+float percentage;
+// Holds desired GPIO pin [0-15]
+uint16_t pin;
+</code></pre>
+
+<p></details></p>
+<p><details open>
+<summary style="font-size: 1.5rem; font-weight: 300;">Initial Setup</summary>
+You'll then need to setup <code>MatrixIOBus</code> in order to communicate with the hardware on your MATRIX device.</p>
+<pre><code class="language-cpp">int main() {
+  // Create MatrixIOBus object for hardware communication
+  matrix_hal::MatrixIOBus bus;
+  // Initialize bus and exit program if error occurs
+  if (!bus.Init()) return false;
+</code></pre>
+
+<p></details></p>
+<p><details open>
+<summary style="font-size: 1.5rem; font-weight: 300;">Main Setup</summary>
+Now we will create our <code>GPIOControl</code> object and use it to output and input a digital GPIO signal.</p>
+<pre><code class="language-cpp">  // The following code is part of main()
+
+  // Create GPIOControl object
+  matrix_hal::GPIOControl gpio;
+  // Set gpio to use MatrixIOBus bus
+  gpio.Setup(&amp;bus);
+
+  // Prompt user for GPIO pin
+  std::cout &lt;&lt; &quot;Select Pin [0-15] : &quot;;
+  // Log user input
+  std::cin &gt;&gt; pin;
+  // Prompt user for PWM frequency
+  std::cout &lt;&lt; &quot;Select Frequency (in Hz) : &quot;;
+  // Log user input
+  std::cin &gt;&gt; frequency;
+  // Prompt user for PWM duty percentage
+  std::cout &lt;&lt; &quot;Select Duty Percentage : &quot;;
+  // Log user input
+  std::cin &gt;&gt; percentage;
+
+  // Set pin mode to output
+  gpio.SetMode(pin, GPIOOutputMode);
+  // Set pin function to PWM
+  gpio.SetFunction(pin, PWMFunction);
+
+  // If setting PWM returns an error, log it
+  // SetPWM function carries out PWM logic and outputs PWM signal
+  if (!gpio.SetPWM(frequency, percentage, pin))
+    // Output error to console
+    std::cerr &lt;&lt; &quot;ERROR: invalid input&quot; &lt;&lt; std::endl;
+  else
+    // Else output GPIO PWM info to console
+    std::cout &lt;&lt; &quot;[ Pin : &quot; &lt;&lt; pin &lt;&lt; &quot; ] [ Frequency : &quot; &lt;&lt; frequency
+              &lt;&lt; &quot; ] [ Duty Percentage : &quot; &lt;&lt; percentage &lt;&lt; &quot; ]&quot; &lt;&lt; std::endl;
+
+  return 0;
+}
+</code></pre>
+
+<p></details></p>
+<p></details></p>
+<p><details>
+<summary style="font-size: 1.75rem; font-weight: 300;">GPIO Servo</summary>
+The following section shows how to use GPIO in PWM mode for controlling a servo. You can download this example <a href="https://github.com/matrix-io/matrix-hal-examples/blob/master/gpio/gpio_servo.cpp" target="_blank">here</a>.</p>
+<p><details open>
+<summary style="font-size: 1.5rem; font-weight: 300;">Include Statements</summary>
+To begin working with the GPIO you need to include these header files.</p>
+<pre><code class="language-cpp">// Input/output streams and functions
+#include &lt;iostream&gt;
+
+// Interfaces with GPIO
+#include &quot;matrix_hal/gpio_control.h&quot;
+// Communicates with MATRIX device
+#include &quot;matrix_hal/matrixio_bus.h&quot;
+</code></pre>
+
+<p></details></p>
+<p><details open>
+<summary style="font-size: 1.5rem; font-weight: 300;">Initial Variables</summary>
+These initial variables are used in the example.</p>
+<pre><code class="language-cpp">// GPIOOutputMode is 1
+const uint16_t GPIOOutputMode = 1;
+// GPIOInputMode is 0
+const uint16_t GPIOInputMode = 0;
+
+// PWMFunction is 1
+const uint16_t PWMFunction = 1;
+
+// Holds desired PWM frequency
+float frequency;
+// Holds desired PWM duty percentage
+float percentage;
+// Holds desired GPIO pin [0-15]
+uint16_t pin;
+// Holds desired servo angle
+float angle;
+// Holds servo minimum pulse length (for calibration)
+float min_pulse_ms;
+</code></pre>
+
+<p></details></p>
+<p><details open>
+<summary style="font-size: 1.5rem; font-weight: 300;">Initial Setup</summary>
+You'll then need to setup <code>MatrixIOBus</code> in order to communicate with the hardware on your MATRIX device.</p>
+<pre><code class="language-cpp">int main() {
+  // Create MatrixIOBus object for hardware communication
+  matrix_hal::MatrixIOBus bus;
+  // Initialize bus and exit program if error occurs
+  if (!bus.Init()) return false;
+</code></pre>
+
+<p></details></p>
+<p><details open>
+<summary style="font-size: 1.5rem; font-weight: 300;">Main Setup</summary>
+Now we will create our <code>GPIOControl</code> object and use it to output and input a digital GPIO signal.</p>
+<p>Servo neutral position is achieved with a 1.5ms pulse, so by taking the minimum servo pulse (ms) the SetServoAngle function calibrates servo angle.
+If unsure of min_pulse_ms enter <code>0.8</code>.</p>
+<pre><code class="language-cpp">  // The following code is part of main()
+
+  // Create GPIOControl object
+  matrix_hal::GPIOControl gpio;
+  // Set gpio to use MatrixIOBus bus
+  gpio.Setup(&amp;bus);
+
+  // Prompt user for GPIO pin
+  std::cout &lt;&lt; &quot;Select Pin [0-15] : &quot;;
+  // Log user input
+  std::cin &gt;&gt; pin;
+  // Prompt user for servo angle
+  std::cout &lt;&lt; &quot;Servo Angle : &quot;;
+  // Log user input
+  std::cin &gt;&gt; angle;
+  // Prompt user for servo minimum pulse length in ms (for calibration)
+  std::cout &lt;&lt; &quot;Servo Min Pulse (ms) : &quot;;
+  // Log user input
+  std::cin &gt;&gt; min_pulse_ms;
+
+  // Set pin mode to output
+  gpio.SetMode(pin, GPIOOutputMode);
+  // Set pin function to PWM
+  gpio.SetFunction(pin, PWMFunction);
+
+  // If setting servo angle returns an error, log it
+  // SetServoAngle function sets a servo angle based on the min_pulse_ms
+  if (!gpio.SetServoAngle(angle, min_pulse_ms, pin))
+    // Output error to console
+    std::cerr &lt;&lt; &quot;ERROR: invalid input&quot; &lt;&lt; std::endl;
+  else
+    // Else output servo control info to console
+    std::cout &lt;&lt; &quot;[ Pin : &quot; &lt;&lt; pin &lt;&lt; &quot; ]&quot;
+              &lt;&lt; &quot; [ Servo Angle : &quot; &lt;&lt; angle
+              &lt;&lt; &quot; ] [ Servo Min Pulse (ms) : &quot; &lt;&lt; min_pulse_ms &lt;&lt; &quot; ] &quot;
+              &lt;&lt; std::endl;
+
+  return 0;
+}
+</code></pre>
+
+<p></details></p>
+<p></details></p> 
+        </div>
+        <div class="toc-parent col-lg-2 col-md-3">
+          <div class="toc">
+            
+            <h3>Contents</h3>
+            <ul class="nav flex-column">
+               <li class='nav-item'>
+  <a href="#device-compatibility" class="nav-link active">
+    Device Compatibility
+  </a>
+  
+</li>  <li class='nav-item'>
+  <a href="#overview" class="nav-link ">
+    Overview
+  </a>
+  
+</li>  <li class='nav-item'>
+  <a href="#code-examples" class="nav-link ">
+    Code Examples
+  </a>
+  
+</li> 
+            </ul>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+
+  <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8">
+        <div class="row">
+          <div class="col-sm-4">
+            <h5>MATRIX</h5>
+            <ul>
+              <li>
+                <a href="https://matrix.one/products/home" target="_blank">For Home</a>
+              </li>
+              <li>
+                <a href="https://matrix.one/products/creator" target="_blank">Creator</a>
+              </li>
+              <li>
+                <a href="https://matrix.one/products/voice" target="_blank">Voice</a>
+              </li>
+              <li>
+                <a href="https://apps.matrix.one/" target="_blank">Apps</a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-sm-4">
+            <h5>Learn</h5>
+            <ul>
+              <li>
+                <a href="http://blog.matrix.one/" target="_blank">Blog</a>
+              </li>
+              <li>
+                <a href="http://community.matrix.one/" target="_blank">Community</a>
+              </li>
+              <li>
+                <a href="../../..">Docs</a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-sm-4">
+            <h5>Social Network</h5>
+            <ul>
+              <li>
+                <a href="https://www.facebook.com/MATRIXCreator" target="_blank">Facebook</a>
+              </li>
+              <li>
+                <a href="https://twitter.com/matrix_creator" target="_blank">Twitter</a>
+              </li>
+              <li>
+                <a href="https://www.youtube.com/channel/UCBIqR8r0tfY6W-4-YpZ7NeQ" target="_blank">YouTube</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <h5>Contact</h5>
+        <ul>
+          <li>
+            <a href="https://matrix.one/contact">Contact Us</a>
+          </li>
+          <li class="subscribe-box">
+            <form id="newsletter-form">
+              <div class="input-group">
+                <input id="newsletter-email" type="email" class="form-control" placeholder="Subscribe for Updates">
+                <button type="submit" class="btn btn-success">Subscribe</button>
+              </div>
+              <label for="newsletter-email"></label>
+            </form>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-6">
+        <a href="https://creator.matrix.one" class="company-logo">
+          <img src="../../../img/everloop.png" width="38" height="38" class="d-inline-block align-top" alt="">
+          <span>MATRIX</span>
+        </a>
+        <small class="copyright">
+          2017 &copy; MATRIX - All rights reserved
+        </small>
+      </div>
+      <div class="col-sm-6">
+        <div class="utility-links">
+          <a href="https://matrix.one/policies/terms">Terms of Service</a>
+          <a href="https://matrix.one/policies/privacy">Privacy Policy</a>
+          <a href="https://matrix.one/policies/cookie">Cookie Policy</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+  <script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+  <script src="../../../js/theme.js"></script>
+  <script src="https://use.fontawesome.com/21aeb6fedc.js"></script>
+  <script src="../../../js/jquery.ajaxchimp.min.js"></script>
+  <script src="../../../js/jquery.ajaxchimp.langs.min.js"></script>
+  <script src="../../../js/footer.js"></script>
+  <script src="../../../js/prism.js"></script>
+
+  <!-- TOC Script -->
+  <script>
+    jQuery(function($) {
+      $('.toc-parent ul li a').on('click', function() {
+        var removedElement = $(this)
+          .closest('.toc-parent ul li')
+          .find('a.active')
+          .removeClass('active');
+
+        if (removedElement.length == 0) {
+          $('.toc-parent ul li').find('a.active').removeClass('active');
+        }
+
+        $(this).addClass('active');
+      });
+    });
+  </script>
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-38180903-26', 'auto');
+    ga('send', 'pageview');
+  </script>
+  
+</body>
+
+</html>

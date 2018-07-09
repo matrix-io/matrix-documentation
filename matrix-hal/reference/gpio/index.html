@@ -1,0 +1,883 @@
+<!DOCTYPE html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>GPIO MATRIX</title>
+  <link rel="shortcut icon" href="../../../img/favicon.ico">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../../../css/theme.css">
+  <link rel="stylesheet" href="../../../css/prism.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
+</head>
+
+<body data-spy="scroll">
+  <nav class="navbar navbar-expand-lg navbar-light container">
+  <a class="navbar-brand" href="../../..">
+    <img src="../../../img/everloop.png" width="38" height="38" class="d-inline-block align-top" alt="">
+    <span>MATRIX</span>
+  </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
+  	<span class="navbar-toggler-icon"></span>
+  </button>
+</nav>
+
+  <div class="header">
+    <div class="container">
+      <div class="jumbotron">
+        <div class="row">
+          <div class="col-sm-8">
+            
+            <h1>GPIO</h1>
+            
+          </div>
+          <div class="col-sm-4">
+            <form action="../../../search.html" method="get">
+              <input class="form-control" type="search" name="q" placeholder="Search" />
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="content">
+    <div class="container">
+      <div class="row">
+        <div class="sidebar col-lg-2">
+          <div class="collapse navbar-collapse" id="navbar-menu">
+            <h3>Documentation</h3>
+            <ul>
+                
+
+<!-- link to depth-first url found  -->
+  
+
+<!-- If there are no children, use the url (simple)  -->
+<li>
+  <a href="../../.." class="">
+    Overview
+  </a>
+</li>
+
+
+  
+
+
+<!-- Children complicate things  -->
+
+<!-- link to depth-first url found  -->
+  
+
+<!-- print root node  -->
+<li class="">
+  <a href="../../../matrix-creator/overview/" class="">
+    MATRIX Creator
+  </a>
+</li>
+
+<ul class="subnav">
+   
+  <!-- only 1 deep, print menu items  -->
+   
+  <li><a href="../../../matrix-creator/overview/" class="">Overview</a></li>
+     
+  <!-- only 1 deep, print menu items  -->
+   
+  <li><a href="../../../matrix-creator/device-setup/" class="">Device Setup</a></li>
+     
+  <!-- 2 deep  -->
+  <!-- print subroot  -->
+  <li>
+    <a href="../../../matrix-creator/resources/overview/" class="">
+      Resources
+    </a>
+  </li>
+
+  <ul class="subnav">
+        
+        
+        
+        
+        
+      
+  </ul>
+
+   
+</ul>
+
+  
+
+
+<!-- Children complicate things  -->
+
+<!-- link to depth-first url found  -->
+  
+
+<!-- print root node  -->
+<li class="">
+  <a href="../../../matrix-voice/overview/" class="">
+    MATRIX Voice
+  </a>
+</li>
+
+<ul class="subnav">
+   
+  <!-- only 1 deep, print menu items  -->
+   
+  <li><a href="../../../matrix-voice/overview/" class="">Overview</a></li>
+     
+  <!-- only 1 deep, print menu items  -->
+   
+  <li><a href="../../../matrix-voice/device-setup/" class="">Device Setup</a></li>
+     
+  <!-- only 1 deep, print menu items  -->
+   
+  <li><a href="../../../matrix-voice/esp32/" class="">ESP32</a></li>
+     
+  <!-- 2 deep  -->
+  <!-- print subroot  -->
+  <li>
+    <a href="../../../matrix-voice/resources/overview/" class="">
+      Resources
+    </a>
+  </li>
+
+  <ul class="subnav">
+        
+        
+        
+        
+        
+      
+  </ul>
+
+   
+</ul>
+
+  
+
+
+<!-- Children complicate things  -->
+
+<!-- link to depth-first url found  -->
+  
+
+<!-- print root node  -->
+<li class="">
+  <a href="../../../matrix-os/overview/" class="">
+    MATRIX OS
+  </a>
+</li>
+
+<ul class="subnav">
+   
+  <!-- only 1 deep, print menu items  -->
+   
+  <li><a href="../../../matrix-os/overview/" class="">Overview</a></li>
+     
+  <!-- 2 deep  -->
+  <!-- print subroot  -->
+  <li>
+    <a href="../../../matrix-os/getting-started/" class="">
+      Getting Started
+    </a>
+  </li>
+
+  <ul class="subnav">
+        
+        
+        
+      
+  </ul>
+
+    
+  <!-- 2 deep  -->
+  <!-- print subroot  -->
+  <li>
+    <a href="../../../matrix-os/reference/" class="">
+      Reference
+    </a>
+  </li>
+
+  <ul class="subnav">
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+  </ul>
+
+    
+  <!-- 2 deep  -->
+  <!-- print subroot  -->
+  <li>
+    <a href="../../../matrix-os/examples/" class="">
+      Examples
+    </a>
+  </li>
+
+  <ul class="subnav">
+        
+      
+  </ul>
+
+    
+  <!-- only 1 deep, print menu items  -->
+   
+  <li><a href="../../../matrix-os/troubleshooting/" class="">Troubleshooting</a></li>
+    
+</ul>
+
+  
+
+
+<!-- Children complicate things  -->
+
+<!-- link to depth-first url found  -->
+  
+
+<!-- print root node  -->
+<li class="">
+  <a href="../../../matrix-core/overview/" class="">
+    MATRIX CORE
+  </a>
+</li>
+
+<ul class="subnav">
+   
+  <!-- only 1 deep, print menu items  -->
+   
+  <li><a href="../../../matrix-core/overview/" class="">Overview</a></li>
+     
+  <!-- 2 deep  -->
+  <!-- print subroot  -->
+  <li>
+    <a href="../../../matrix-core/getting-started/" class="">
+      Getting Started
+    </a>
+  </li>
+
+  <ul class="subnav">
+        
+        
+        
+        
+      
+  </ul>
+
+    
+  <!-- 2 deep  -->
+  <!-- print subroot  -->
+  <li>
+    <a href="../../../matrix-core/protocols/" class="">
+      Driver Protocols
+    </a>
+  </li>
+
+  <ul class="subnav">
+        
+        
+        
+        
+        
+        
+        
+        
+      
+  </ul>
+
+    
+  <!-- 2 deep  -->
+  <!-- print subroot  -->
+  <li>
+    <a href="../../../matrix-core/javascript-examples/" class="">
+      Javascript Examples
+    </a>
+  </li>
+
+  <ul class="subnav">
+        
+        
+        
+        
+        
+        
+        
+        
+      
+  </ul>
+
+    
+  <!-- 2 deep  -->
+  <!-- print subroot  -->
+  <li>
+    <a href="../../../matrix-core/python-examples/" class="">
+      Python Examples
+    </a>
+  </li>
+
+  <ul class="subnav">
+        
+        
+        
+        
+        
+        
+        
+        
+      
+  </ul>
+
+    
+  <!-- only 1 deep, print menu items  -->
+   
+  <li><a href="../../../matrix-core/troubleshooting/" class="">Troubleshooting</a></li>
+    
+</ul>
+
+  
+
+
+<!-- Children complicate things  -->
+
+<!-- link to depth-first url found  -->
+  
+
+<!-- print root node  -->
+<li class="">
+  <a href="../../overview/" class="active">
+    MATRIX HAL
+  </a>
+</li>
+
+<ul class="subnav">
+   
+  <!-- only 1 deep, print menu items  -->
+   
+  <li><a href="../../overview/" class="">Overview</a></li>
+     
+  <!-- 2 deep  -->
+  <!-- print subroot  -->
+  <li>
+    <a href="../../getting-started/" class="">
+      Getting Started
+    </a>
+  </li>
+
+  <ul class="subnav">
+        
+        
+        
+      
+  </ul>
+
+    
+  <!-- 2 deep  -->
+  <!-- print subroot  -->
+  <li>
+    <a href="../" class="active">
+      References
+    </a>
+  </li>
+
+  <ul class="subnav">
+        
+    
+    <li><a href="../everloop/" class="">Everloop</a></li>
+        
+    
+    <li><a href="../humidity/" class="">Humidity</a></li>
+        
+    
+    <li><a href="../imu/" class="">IMU</a></li>
+        
+    
+    <li><a href="../pressure/" class="">Pressure</a></li>
+        
+    
+    <li><a href="../uv/" class="">UV</a></li>
+        
+    
+    <li><a href="./" class="active">GPIO</a></li>
+        
+    
+    <li><a href="../microphone/" class="">Microphone</a></li>
+      
+  </ul>
+
+    
+  <!-- 2 deep  -->
+  <!-- print subroot  -->
+  <li>
+    <a href="../../examples/" class="">
+      Examples
+    </a>
+  </li>
+
+  <ul class="subnav">
+        
+        
+        
+        
+        
+        
+        
+      
+  </ul>
+
+    
+  <!-- only 1 deep, print menu items  -->
+   
+  <li><a href="../../troubleshooting/" class="">Troubleshooting</a></li>
+    
+</ul>
+
+  
+
+<!-- link to depth-first url found  -->
+  
+
+<!-- If there are no children, use the url (simple)  -->
+<li>
+  <a href="../../../help/" class="">
+    Support
+  </a>
+</li>
+
+
+ 
+            </ul>
+          </div>
+        </div>
+        <div id="content" class="col-lg-8 col-md-9">
+           <h2 style="padding-top:0">General Purpose Input Output (GPIO)</h2>
+
+<h3 id="device-compatibility">Device Compatibility</h3>
+<p><img class="creator-compatibility-icon" src="../../img/creator-icon.svg">
+<img class="voice-compatibility-icon" src="../../img/voice-icon.svg"></p>
+<h2 id="overview">Overview</h2>
+<p>The GPIO interface supports:</p>
+<ul>
+<li>Pin I/O input</li>
+<li>Pin I/O output</li>
+<li>Pin PWM output</li>
+</ul>
+<p><strong>Device Pinouts</strong>:</p>
+<ul>
+<li><a href="../../../matrix-creator/resources/pinout/">MATRIX Creator</a></li>
+<li><a href="../../../matrix-voice/resources/pinout/">MATRIX Voice</a></li>
+</ul>
+<h2 id="references">References</h2>
+<p>Below is the overview of the GPIO implementation. Code examples can be found <a href="../../../matrix-hal/examples/gpio">here</a>.</p>
+<p>These header files are required to use GPIO.</p>
+<pre><code class="language-cpp">// Interfaces with GPIO
+#include &quot;matrix_hal/gpio_control.h&quot;
+// Communicates with MATRIX device
+#include &quot;matrix_hal/matrixio_bus.h&quot;
+</code></pre>
+
+<p><details open>
+<summary style="font-size: 1.75rem; font-weight: 300;">GPIOControl</summary>
+<code>GPIOControl</code> is a required <strong>object</strong> that contains functions to interface with GPIO.</p>
+<pre><code class="language-cpp">// Create GPIOControl object
+matrix_hal::GPIOControl gpio;
+</code></pre>
+
+<p>The functions below are part of <code>GPIOControl</code>.</p>
+<p><details>
+<summary style="font-size: 1.5rem; font-weight: 300;">.Setup</summary>
+<code>Setup</code> is a <strong>function</strong> that takes a <code>MatrixIOBus</code> object as a parameter and sets that object as the bus to use for communicating with MATRIX device.</p>
+<pre><code class="language-cpp">// Function declaration in header file
+void Setup(MatrixIOBus *bus);
+</code></pre>
+
+<pre><code class="language-cpp">// Set gpio to use MatrixIOBus bus
+gpio.Setup(&amp;bus);
+</code></pre>
+
+<p></details></p>
+<p><details>
+<summary style="font-size: 1.5rem; font-weight: 300;">.Banks</summary>
+<code>Banks</code> is a <strong>function</strong> that returns a <code>banks_</code> array of <code>GPIOBank</code> objects.</p>
+<pre><code class="language-cpp">// Function declaration in header file
+GPIOBank &amp;Bank(uint16_t bank) { return banks_[bank]; }
+</code></pre>
+
+<pre><code class="language-cpp">// Returns banks_[index]
+gpio.Banks(index);
+</code></pre>
+
+<p></details></p>
+<p><details>
+<summary style="font-size: 1.5rem; font-weight: 300;">.SetMode</summary>
+<code>SetMode</code> is a <strong>function</strong> that sets GPIO pin(s) to output or input.
+<code>SetMode</code> is overloaded, and there are two definitions for the function.</p>
+<p>For setting single GPIO pin.</p>
+<pre><code class="language-cpp">// Function declaration in header file
+// For setting single GPIO pin
+bool SetMode(uint16_t pin, uint16_t mode);
+</code></pre>
+
+<pre><code class="language-cpp">// Sets pin 0 to output
+gpio.SetMode(0, 1);
+// Sets pin 0 to input
+gpio.SetMode(0, 0);
+</code></pre>
+
+<p>For setting multiple GPIO pins.</p>
+<pre><code class="language-cpp">// Function declaration in header file
+// For setting multiple pins
+bool SetMode(unsigned char *pinList, int length, uint16_t mode);
+</code></pre>
+
+<pre><code class="language-cpp">unsigned char inputPinList[8] = {0, 2, 4, 6, 8, 10, 12, 14};
+unsigned char outputPinList[8] = {1, 3, 5, 7, 9, 11, 13, 15};
+
+// Sets pins in inputPinList to input
+gpio.SetMode(inputPinList, sizeof(inputPinList), 0);
+// Sets pins in outputPinList to output
+gpio.SetMode(outputPinList, sizeof(outputPinList), 1);
+</code></pre>
+
+<p></details></p>
+<p><details>
+<summary style="font-size: 1.5rem; font-weight: 300;">.SetFunction</summary>
+<code>SetFunction</code> is a <strong>function</strong> that sets a single GPIO pin to I/O or PWM mode.</p>
+<pre><code class="language-cpp">// Function declaration in header file
+bool SetFunction(uint16_t pin, uint16_t function);
+</code></pre>
+
+<pre><code class="language-cpp">// Sets pin 0 to I/O mode
+gpio.SetFunction(0, 0);
+// Sets pin 0 to PWM mode
+gpio.SetFunction(0, 1);
+</code></pre>
+
+<p></details></p>
+<p><details>
+<summary style="font-size: 1.5rem; font-weight: 300;">.GetGPIOValue</summary>
+<code>GetGPIOValue</code> is a <strong>function</strong> that returns a GPIO value.</p>
+<pre><code class="language-cpp">// Function declaration in header file
+uint16_t GetGPIOValue(uint16_t pin);
+</code></pre>
+
+<pre><code class="language-cpp">// Gets value of pin 0
+bool value = gpio.GetGPIOValue(0);
+</code></pre>
+
+<p></details></p>
+<p><details>
+<summary style="font-size: 1.5rem; font-weight: 300;">.GetGPIOValues</summary>
+<code>GetGPIOValues</code> is a <strong>function</strong> that returns all GPIO values, each bit of the returned 16bit integer represents a pin.</p>
+<pre><code class="language-cpp">// Function declaration in header file
+uint16_t GetGPIOValues();
+</code></pre>
+
+<pre><code class="language-cpp">// Gets all pin values
+uint16_t values = gpio.GetGPIOValues();
+</code></pre>
+
+<p></details></p>
+<p><details>
+<summary style="font-size: 1.5rem; font-weight: 300;">.SetGPIOValue</summary>
+<code>SetGPIOValue</code> is a <strong>function</strong> that sets a GPIO value.</p>
+<pre><code class="language-cpp">// Function declaration in header file
+bool SetGPIOValue(uint16_t pin, uint16_t value);
+</code></pre>
+
+<pre><code class="language-cpp">// Sets pin 0 to on
+gpio.SetGPIOValue(0, 1);
+// Sets pin 0 to off
+gpio.SetGPIOValue(0, 0);
+</code></pre>
+
+<p></details></p>
+<p><details>
+<summary style="font-size: 1.5rem; font-weight: 300;">.SetGPIOValues</summary>
+<code>SetGPIOValues</code> is a <strong>function</strong> that sets multiple GPIO values.</p>
+<pre><code class="language-cpp">// Function declaration in header file
+bool SetGPIOValues(unsigned char *pinList, int length, uint16_t value);
+</code></pre>
+
+<pre><code class="language-cpp">unsigned char onPinList[8] = {0, 2, 4, 6, 8, 10, 12, 14};
+unsigned char offPinList[8] = {1, 3, 5, 7, 9, 11, 13, 15};
+
+// Sets pins in onPinList to on
+gpio.SetGPIOValues(onPinList, sizeof(onPinList), 1);
+// Sets pins in offPinList to off
+gpio.SetGPIOValues(offPinList, sizeof(offPinList), 0);
+</code></pre>
+
+<p></details></p>
+<p><details>
+<summary style="font-size: 1.5rem; font-weight: 300;">.SetPrescaler</summary>
+<code>SetPrescaler</code> is a <strong>function</strong> that sets the prescaler for the FPGA clock.</p>
+<pre><code class="language-cpp">// Function declaration in header file
+bool SetPrescaler(uint16_t bank, uint16_t prescaler);
+</code></pre>
+
+<pre><code class="language-cpp">// Set prescaler for bank 0 to 32
+// 2^5 = 32
+gpio.SetPrescaler(0, 5);
+</code></pre>
+
+<p></details></p>
+<p><details>
+<summary style="font-size: 1.5rem; font-weight: 300;">.Set9GServoAngle</summary>
+<code>Set9GServoAngle</code> is a <strong>function</strong> that sets a servo angle. It is based on SG90 servo calibration.</p>
+<pre><code class="language-cpp">// Function declaration in header file
+bool Set9GServoAngle(float angle, uint16_t pin);
+</code></pre>
+
+<pre><code class="language-cpp">// Set servo angle to 70° on pin 0
+gpio.SetPrescaler(70, 0);
+</code></pre>
+
+<p></details></p>
+<p><details>
+<summary style="font-size: 1.5rem; font-weight: 300;">.SetServoAngle</summary>
+<code>SetServoAngle</code> is a <strong>function</strong> that sets a servo angle. It is based on the min_pulse_ms entered.</p>
+<pre><code class="language-cpp">// Function declaration in header file
+bool SetServoAngle(float angle, float min_pulse_ms, uint16_t pin);
+</code></pre>
+
+<pre><code class="language-cpp">// Set servo angle to 70° on pin 0
+// For a servo that accepts a minimum pulse of 0.8ms
+gpio.SetServoAngle(70, 0.8, 0);
+</code></pre>
+
+<p></details></p>
+<p><details>
+<summary style="font-size: 1.5rem; font-weight: 300;">.SetPWM</summary>
+<code>SetPWM</code> is a <strong>function</strong> that sets a PWM output.</p>
+<pre><code class="language-cpp">// Function declaration in header file
+bool SetPWM(float frequency, float percentage, uint16_t pin);
+</code></pre>
+
+<pre><code class="language-cpp">// Set PWM output to 50Hz, with a 25% duty cycle on pin 0
+gpio.SetPWM(50, 25, 0);
+</code></pre>
+
+<p></details>
+</details></p>
+<p><details open>
+<summary style="font-size: 1.75rem; font-weight: 300;">GPIOBank</summary>
+<code>GPIOBank</code> is an <strong>object</strong> that contains functions to interface with GPIO PWM. <code>GPIOControl</code> contains an array of <code>GPIOBank</code> objects, called <code>banks</code>_</p>
+<p>PWM Frequency is set by bank. A bank is a set of 4 pins, starting from pin 0 and going in order. Bank 0 is pin 0-3, Bank 1 is pin 4-7 etc.</p>
+<p>The functions below are part of <code>GPIOBank</code>.</p>
+<p><details>
+<summary style="font-size: 1.5rem; font-weight: 300;">.SetPeriod</summary>
+<code>SetPeriod</code> is a <strong>function</strong> that sets the PWM period.</p>
+<pre><code class="language-cpp">// Function declaration in header file
+bool SetPeriod(uint16_t period);
+</code></pre>
+
+<pre><code class="language-cpp">// Set PWM period for bank 0 to 50000 FPGA clock ticks
+gpio.Banks(0).SetPeriod(50000);
+</code></pre>
+
+<p></details></p>
+<p><details>
+<summary style="font-size: 1.5rem; font-weight: 300;">.SetDuty</summary>
+<code>SetDuty</code> is a <strong>function</strong> that sets the PWM duty.</p>
+<pre><code class="language-cpp">// Function declaration in header file
+bool SetDuty(uint16_t channel, uint16_t duty);
+</code></pre>
+
+<pre><code class="language-cpp">// Set PWM duty for channel 0 of bank 0 to 10000 FPGA clock ticks
+gpio.Banks(0).SetDuty(0, 10000);
+</code></pre>
+
+<p></details></p>
+<p><details>
+<summary style="font-size: 1.5rem; font-weight: 300;">.SetupTimer</summary></p>
+<blockquote>
+<p>Under Maintenance</p>
+</blockquote>
+<p><code>SetupTimer</code> is a <strong>function</strong> that sets up the timer.</p>
+<pre><code class="language-cpp">// Function declaration in header file
+bool SetupTimer(uint16_t channel, uint16_t init_event, uint16_t final_event);
+</code></pre>
+
+<p></details></p>
+<p><details>
+<summary style="font-size: 1.5rem; font-weight: 300;">.GetTimerCounter</summary></p>
+<blockquote>
+<p>Under Maintenance</p>
+</blockquote>
+<p><code>GetTimerCounter</code> is a <strong>function</strong> that returns the timer counter.</p>
+<pre><code class="language-cpp">// Function declaration in header file
+uint16_t GetTimerCounter(uint16_t channel);
+</code></pre>
+
+<p></details>
+</details></p> 
+        </div>
+        <div class="toc-parent col-lg-2 col-md-3">
+          <div class="toc">
+            
+            <h3>Contents</h3>
+            <ul class="nav flex-column">
+               <li class='nav-item'>
+  <a href="#device-compatibility" class="nav-link active">
+    Device Compatibility
+  </a>
+  
+</li>  <li class='nav-item'>
+  <a href="#overview" class="nav-link ">
+    Overview
+  </a>
+  
+</li>  <li class='nav-item'>
+  <a href="#references" class="nav-link ">
+    References
+  </a>
+  
+</li> 
+            </ul>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+
+  <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8">
+        <div class="row">
+          <div class="col-sm-4">
+            <h5>MATRIX</h5>
+            <ul>
+              <li>
+                <a href="https://matrix.one/products/home" target="_blank">For Home</a>
+              </li>
+              <li>
+                <a href="https://matrix.one/products/creator" target="_blank">Creator</a>
+              </li>
+              <li>
+                <a href="https://matrix.one/products/voice" target="_blank">Voice</a>
+              </li>
+              <li>
+                <a href="https://apps.matrix.one/" target="_blank">Apps</a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-sm-4">
+            <h5>Learn</h5>
+            <ul>
+              <li>
+                <a href="http://blog.matrix.one/" target="_blank">Blog</a>
+              </li>
+              <li>
+                <a href="http://community.matrix.one/" target="_blank">Community</a>
+              </li>
+              <li>
+                <a href="../../..">Docs</a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-sm-4">
+            <h5>Social Network</h5>
+            <ul>
+              <li>
+                <a href="https://www.facebook.com/MATRIXCreator" target="_blank">Facebook</a>
+              </li>
+              <li>
+                <a href="https://twitter.com/matrix_creator" target="_blank">Twitter</a>
+              </li>
+              <li>
+                <a href="https://www.youtube.com/channel/UCBIqR8r0tfY6W-4-YpZ7NeQ" target="_blank">YouTube</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <h5>Contact</h5>
+        <ul>
+          <li>
+            <a href="https://matrix.one/contact">Contact Us</a>
+          </li>
+          <li class="subscribe-box">
+            <form id="newsletter-form">
+              <div class="input-group">
+                <input id="newsletter-email" type="email" class="form-control" placeholder="Subscribe for Updates">
+                <button type="submit" class="btn btn-success">Subscribe</button>
+              </div>
+              <label for="newsletter-email"></label>
+            </form>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-6">
+        <a href="https://creator.matrix.one" class="company-logo">
+          <img src="../../../img/everloop.png" width="38" height="38" class="d-inline-block align-top" alt="">
+          <span>MATRIX</span>
+        </a>
+        <small class="copyright">
+          2017 &copy; MATRIX - All rights reserved
+        </small>
+      </div>
+      <div class="col-sm-6">
+        <div class="utility-links">
+          <a href="https://matrix.one/policies/terms">Terms of Service</a>
+          <a href="https://matrix.one/policies/privacy">Privacy Policy</a>
+          <a href="https://matrix.one/policies/cookie">Cookie Policy</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+  <script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+  <script src="../../../js/theme.js"></script>
+  <script src="https://use.fontawesome.com/21aeb6fedc.js"></script>
+  <script src="../../../js/jquery.ajaxchimp.min.js"></script>
+  <script src="../../../js/jquery.ajaxchimp.langs.min.js"></script>
+  <script src="../../../js/footer.js"></script>
+  <script src="../../../js/prism.js"></script>
+
+  <!-- TOC Script -->
+  <script>
+    jQuery(function($) {
+      $('.toc-parent ul li a').on('click', function() {
+        var removedElement = $(this)
+          .closest('.toc-parent ul li')
+          .find('a.active')
+          .removeClass('active');
+
+        if (removedElement.length == 0) {
+          $('.toc-parent ul li').find('a.active').removeClass('active');
+        }
+
+        $(this).addClass('active');
+      });
+    });
+  </script>
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-38180903-26', 'auto');
+    ga('send', 'pageview');
+  </script>
+  
+</body>
+
+</html>
