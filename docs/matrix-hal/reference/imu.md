@@ -15,6 +15,8 @@ The IMU sensor reports values for:
 
 ## References
 
+Below is the overview of the IMU sensor implementation. Code example can be found [here](/matrix-hal/examples/imu).
+
 These header files are required to use the IMU sensor.
 
 ```language-cpp

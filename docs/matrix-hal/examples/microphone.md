@@ -8,7 +8,7 @@
 
 ## Overview
 
-The Microphone Array interface supports:
+The microphone array interface supports:
 
 - Accepting input from individual microphones
 - Accepting input from beamformed microphone
@@ -20,17 +20,19 @@ The Microphone Array interface supports:
 
 ## Code Examples
 
-Function references can be found [here](/matrix-hal/reference/microphone).
+Below are examples of how to interface with the microphone array in MATRIX HAL.
+
+Microphone array function references can be found [here](/matrix-hal/reference/microphone).
+
+The command below will compile each example. Be sure to pass in your C++ file and desired output file.
+
+```language-cpp
+g++ -o YOUR_OUTPUT_FILE YOUR_CPP_FILE -std=c++11 -lmatrix_creator_hal -lgflags
+```
 
 <details>
 <summary style="font-size: 1.75rem; font-weight: 300;">Microphone Array Record to File</summary>
 The following section shows how to record data from the microphone array to a file. You can download this example <a href="https://raw.githubusercontent.com/matrix-io/matrix-hal-examples/master/microphone_array/mic_record_file.cpp" target="_blank">here</a>.
-
-The command below will compile the example.
-
-```language-bash
-g++ -o mic_record_file mic_record_file.cpp -std=c++11 -lmatrix_creator_hal -lgflags
-```
 
 To convert the `.raw` files outputted by this example to playable `.wav` files run these commands, replacing `16000` with selected sampling rate.
 
@@ -232,12 +234,6 @@ Now we will read microphone array data, send to a buffer, and write to file.
 The following section shows how to record data from the microphone array to a linux FIFO pipe. You can download this example <a href="https://raw.githubusercontent.com/matrix-io/matrix-hal-examples/master/microphone_array/mic_record_pipe.cpp" target="_blank">here</a>.
 
 > When beamformed input (channel 8) is read from a FIFO pipe distortion may occur.
-
-The command below will compile the example.
-
-```language-bash
-g++ -o mic_record_pipe mic_record_pipe.cpp -std=c++11 -lmatrix_creator_hal -lgflags
-```
 
 The following commands copy a modified `asound.conf` file into `/etc/`, which allows `arecord` to record from the pipe.
 

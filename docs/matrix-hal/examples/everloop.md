@@ -14,17 +14,19 @@ The Everloop interface supports:
 
 ## Code Examples
 
-Function references can be found [here](/matrix-hal/reference/everloop).
+Below are examples of how to interface with the Everloop in MATRIX HAL.
+
+Everloop function references can be found [here](/matrix-hal/reference/everloop).
+
+The command below will compile each example. Be sure to pass in your C++ file and desired output file.
+
+```language-cpp
+g++ -o YOUR_OUTPUT_FILE YOUR_CPP_FILE -std=c++11 -lmatrix_creator_hal
+```
 
 <details>
 <summary style="font-size: 1.75rem; font-weight: 300;">Everloop Green</summary>
 The following section shows how to set the Everloop to green. You can download this example <a href="https://raw.githubusercontent.com/matrix-io/matrix-hal-examples/master/everloop/everloop_green.cpp" target="_blank">here</a>.
-
-The command below will compile the example.
-
-```language-bash
-g++ -o everloop_green everloop_green.cpp -std=c++11 -lmatrix_creator_hal
-```
 
 <h4 style="padding-top:0">Result</h4>
 
@@ -125,12 +127,6 @@ Now we will create our `EverloopImage` and `Everloop` object and use it to set t
 <details>
 <summary style="font-size: 1.75rem; font-weight: 300;">Everloop Yellow/Purple</summary>
 The following section shows how to set the Everloop to yellow and purple (with color blending). You can download this example <a href="https://raw.githubusercontent.com/matrix-io/matrix-hal-examples/master/everloop/everloop_yellow_purple.cpp" target="_blank">here</a>.
-
-The command below will compile the example.
-
-```language-bash
-g++ -o everloop_yellow_purple everloop_yellow_purple.cpp -std=c++11 -lmatrix_creator_hal
-```
 
 <h4 style="padding-top:0">Result</h4>
 
@@ -238,12 +234,6 @@ Now we will create our `EverloopImage` and `Everloop` object and use it to set t
 <details>
 <summary style="font-size: 1.75rem; font-weight: 300;">Everloop Rainbow</summary>
 The following section shows how to set the Everloop to rainbow. You can download this example <a href="https://raw.githubusercontent.com/matrix-io/matrix-hal-examples/master/everloop/everloop_rainbow.cpp" target="_blank">here</a>.
-
-The command below will compile the example.
-
-```language-bash
-g++ -o everloop_rainbow everloop_rainbow.cpp -std=c++11 -lmatrix_creator_hal
-```
 
 <h4 style="padding-top:0">Result</h4>
 
@@ -368,12 +358,6 @@ Now we will create our `EverloopImage` and `Everloop` object and use it to set t
 <details>
 <summary style="font-size: 1.75rem; font-weight: 300;">Everloop Moving Dots</summary>
 The following section shows how to set the Everloop to moving dots. You can download this example <a href="https://raw.githubusercontent.com/matrix-io/matrix-hal-examples/master/everloop/everloop_moving_dots.cpp" target="_blank">here</a>.
-
-The command below will compile the example.
-
-```language-bash
-g++ -o everloop_moving_dots everloop_moving_dots.cpp -std=c++11 -lmatrix_creator_hal
-```
 
 <h4 style="padding-top:0">Result</h4>
 

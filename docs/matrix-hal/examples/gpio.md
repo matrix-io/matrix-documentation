@@ -21,17 +21,19 @@ The GPIO interface supports:
 
 ## Code Examples
 
-Function references can be found [here](/matrix-hal/reference/gpio).
+Below are examples of how to interface with the GPIO in MATRIX HAL.
+
+GPIO function references can be found [here](/matrix-hal/reference/gpio).
+
+The command below will compile each example. Be sure to pass in your C++ file and desired output file.
+
+```language-cpp
+g++ -o YOUR_OUTPUT_FILE YOUR_CPP_FILE -std=c++11 -lmatrix_creator_hal
+```
 
 <details>
 <summary style="font-size: 1.75rem; font-weight: 300;">GPIO I/O</summary>
 The following section shows how to use GPIO in digital I/O mode for output and input. You can download this example <a href="https://raw.githubusercontent.com/matrix-io/matrix-hal-examples/master/gpio/gpio_io.cpp" target="_blank">here</a>.
-
-The command below will compile the example.
-
-```language-bash
-g++ -o gpio_io gpio_io.cpp -std=c++11 -lmatrix_creator_hal
-```
 
 <details open>
 <summary style="font-size: 1.5rem; font-weight: 300;">Include Statements</summary>
@@ -147,12 +149,6 @@ Now we will create our `GPIOControl` object and use it to output and input a dig
 <summary style="font-size: 1.75rem; font-weight: 300;">GPIO PWM</summary>
 The following section shows how to use GPIO in PWM mode for PWM output. You can download this example <a href="https://raw.githubusercontent.com/matrix-io/matrix-hal-examples/master/gpio/gpio_pwm.cpp" target="_blank">here</a>.
 
-The command below will compile the example.
-
-```language-bash
-g++ -o gpio_pwm gpio_pwm.cpp -std=c++11 -lmatrix_creator_hal
-```
-
 <details open>
 <summary style="font-size: 1.5rem; font-weight: 300;">Include Statements</summary>
 To begin working with the GPIO you need to include these header files.
@@ -256,12 +252,6 @@ Now we will create our `GPIOControl` object and use it to output and input a dig
 <details>
 <summary style="font-size: 1.75rem; font-weight: 300;">GPIO Servo</summary>
 The following section shows how to use GPIO in PWM mode for controlling a servo. You can download this example <a href="https://raw.githubusercontent.com/matrix-io/matrix-hal-examples/master/gpio/gpio_servo.cpp" target="_blank">here</a>.
-
-The command below will compile the example.
-
-```language-bash
-g++ -o gpio_servo gpio_servo.cpp -std=c++11 -lmatrix_creator_hal
-```
 
 <details open>
 <summary style="font-size: 1.5rem; font-weight: 300;">Include Statements</summary>

@@ -13,6 +13,8 @@ The Everloop interface supports:
 
 ## References
 
+Below is the overview of the Everloop implementation. Code examples can be found [here](/matrix-hal/examples/everloop).
+
 These header files are required to use the Everloop.
 
 ```language-cpp
@@ -38,14 +40,14 @@ int ledCount = bus.MatrixLeds();
 matrix_hal::EverloopImage everloop_image(ledCount);
 ```
 
-The `LedValue` object in `EverloopImage` contains the properties `red`, `green`, `blue`, `white`. These color properties accept an RGBW integer between 0-255.
+`EverloopImage` holds an array full of `LedValue` objects. The `LedValue` object contains the properties `red`, `green`, `blue`, `white`. These color properties accept an RGBW integer between 0-255.
 
 The following code shows how to set each led in everloop_image to green.
 
 ```language-cpp
 // For each led, set RGBW colors
 // This sets all leds to green
-for (hal::LedValue &led : everloop_image.leds) {
+for (matrix_hal::LedValue &led : everloop_image.leds) {
   led.red = 0;
   led.green = 100;
   led.blue = 0;

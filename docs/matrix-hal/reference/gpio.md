@@ -20,6 +20,8 @@ The GPIO interface supports:
 
 ## References
 
+Below is the overview of the GPIO implementation. Code examples can be found [here](/matrix-hal/examples/gpio).
+
 These header files are required to use GPIO.
 
 ```language-cpp

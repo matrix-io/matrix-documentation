@@ -6,12 +6,14 @@
 
 ## Overview
 
-The Microphone Array interface supports:
+The microphone array interface supports:
 
 * Accepting input from individual microphones
 * Accepting input from beamformed microphone
 
 ## References
+
+Below is the overview of the microphone array implementation. Code examples can be found [here](/matrix-hal/examples/humidity).
 
 These header files are required to use the microphone array.
 

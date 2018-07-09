@@ -11,6 +11,8 @@ The UV sensor reports values for:
 
 ## References
 
+Below is the overview of the UV sensor implementation. Code example can be found [here](/matrix-hal/examples/uv).
+
 These header files are required to use the UV sensor.
 
 ```language-cpp

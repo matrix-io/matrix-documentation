@@ -12,6 +12,8 @@ The humidity sensor reports values for:
 
 ## References
 
+Below is the overview of the humidity sensor implementation. Code example can be found [here](/matrix-hal/examples/humidity).
+
 These header files are required to use the humidity sensor.
 
 ```language-cpp

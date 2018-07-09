@@ -6,7 +6,7 @@
 
 ## Overview
 
-The Pressure sensor reports values for:
+The pressure sensor reports values for:
 
 * Pressure
 * Altitude
@@ -14,14 +14,16 @@ The Pressure sensor reports values for:
 
 ## Code Example
 
-Function references can be found [here](/matrix-hal/reference/pressure).
+Below is an example of how to interface with the pressure sensor in MATRIX HAL.
+
+Pressure sensor function references can be found [here](/matrix-hal/reference/pressure).
 
 The following section shows how to receive data from the pressure sensor. You can download this example <a href="https://raw.githubusercontent.com/matrix-io/matrix-hal-examples/master/sensors/pressure_sensor.cpp" target="_blank">here</a>.
 
-The command below will compile the example.
+The command below will compile the example. Be sure to pass in your C++ file and desired output file.
 
-```language-bash
-g++ -o pressure_sensor pressure_sensor.cpp -std=c++11 -lmatrix_creator_hal
+```language-cpp
+g++ -o YOUR_OUTPUT_FILE YOUR_CPP_FILE -std=c++11 -lmatrix_creator_hal
 ```
 
 <details open>

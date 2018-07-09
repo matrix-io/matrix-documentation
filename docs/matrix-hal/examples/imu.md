@@ -6,7 +6,7 @@
 
 ## Overview
 
-The IMU driver reports values for:
+The IMU sensor reports values for:
 
 * Yaw, Pitch, and Roll
 * Acceleration for **x**, **y**, **z** axes
@@ -15,14 +15,16 @@ The IMU driver reports values for:
 
 ## Code Example
 
-Function references can be found [here](/matrix-hal/reference/imu).
+Below is an example of how to interface with the IMU sensor in MATRIX HAL.
+
+IMU sensor function references can be found [here](/matrix-hal/reference/imu).
 
 The following section shows how to receive data from the IMU sensor. You can download this example <a href="https://raw.githubusercontent.com/matrix-io/matrix-hal-examples/master/sensors/imu_sensor.cpp" target="_blank">here</a>.
 
-The command below will compile the example.
+The command below will compile the example. Be sure to pass in your C++ file and desired output file.
 
-```language-bash
-g++ -o imu_sensor imu_sensor.cpp -std=c++11 -lmatrix_creator_hal
+```language-cpp
+g++ -o YOUR_OUTPUT_FILE YOUR_CPP_FILE -std=c++11 -lmatrix_creator_hal
 ```
 
 <details open>

@@ -15,6 +15,8 @@ The pressure sensor reports values for:
 
 ## References
 
+Below is the overview of the pressure sensor implementation. Code example can be found [here](/matrix-hal/examples/pressure).
+
 These header files are required to use the pressure sensor.
 
 ```language-cpp

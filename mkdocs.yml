@@ -101,8 +101,8 @@ pages:
   - 'Overview': 'matrix-hal/overview.md'
   - Getting Started:
     - 'Index': 'matrix-hal/getting-started/index.md'
-    - 'Install HAL From Package': 'matrix-hal/getting-started/installation-package.md'
-    - 'Install HAL From Source': 'matrix-hal/getting-started/installation-source.md'
+    - 'Installation From Package': 'matrix-hal/getting-started/installation-package.md'
+    - 'Installation From Source': 'matrix-hal/getting-started/installation-source.md'
     - 'Compiling Programs': 'matrix-hal/getting-started/programs.md'
   - References :
     - 'Index': 'matrix-hal/reference/index.md'
