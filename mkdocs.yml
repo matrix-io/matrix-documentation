@@ -98,12 +98,31 @@ pages:
     - 'Wakeword': 'matrix-core/python-examples/wakeword.md'
   - Troubleshooting: 'matrix-core/troubleshooting.md'
 - MATRIX HAL:
-  - 'MATRIX HAL': 'matrix-hal/index.md'
-  - 'Getting Started':
-    - 'Installation': 'matrix-hal/getting-started/installation.md'
-    - 'Hello World': 'matrix-hal/getting-started/hello-world.md'
-    - 'Next Steps': 'matrix-hal/getting-started/next-steps.md'
-  - Sensor Tests: 'matrix-hal/examples/hardware-demos.md'
+  - 'Overview': 'matrix-hal/overview.md'
+  - Getting Started:
+    - 'Index': 'matrix-hal/getting-started/index.md'
+    - 'Installation From Package': 'matrix-hal/getting-started/installation-package.md'
+    - 'Installation From Source': 'matrix-hal/getting-started/installation-source.md'
+    - 'Compiling Programs': 'matrix-hal/getting-started/programs.md'
+  - References :
+    - 'Index': 'matrix-hal/reference/index.md'
+    - 'Everloop': 'matrix-hal/reference/everloop.md'
+    - 'Humidity': 'matrix-hal/reference/humidity.md'
+    - 'IMU': 'matrix-hal/reference/imu.md'
+    - 'Pressure': 'matrix-hal/reference/pressure.md'
+    - 'UV': 'matrix-hal/reference/uv.md'
+    - 'GPIO': 'matrix-hal/reference/gpio.md'
+    - 'Microphone': 'matrix-hal/reference/microphone.md'
+  - Examples :
+    - 'Index': 'matrix-hal/examples/index.md'
+    - 'Everloop': 'matrix-hal/examples/everloop.md'
+    - 'Humidity': 'matrix-hal/examples/humidity.md'
+    - 'IMU': 'matrix-hal/examples/imu.md'
+    - 'Pressure': 'matrix-hal/examples/pressure.md'
+    - 'UV': 'matrix-hal/examples/uv.md'
+    - 'GPIO': 'matrix-hal/examples/gpio.md'
+    - 'Microphone': 'matrix-hal/examples/microphone.md'
+  - Troubleshooting: 'matrix-hal/troubleshooting.md'
 - Support : 'help.md'
 #   - App Publishing: 'intro/app-publishing.md'
 #   - App API:

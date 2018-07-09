@@ -7,7 +7,7 @@ The MATRIX Ecosystem was created to make powerful hardware projects very approac
 
 The MATRIX platform adds powerful capabilities to your Raspberry Pi, depending on your background and the kind of application you want to write, you may need to decide on which layer best fits your need. The documentation is organized according to these layers:
 
-![MATRIX Ecosystem Overview](img/overview-diagram.png)
+<!-- ![MATRIX Ecosystem Overview](img/overview-diagram.png) -->
 
 <h3 style="padding-top:0;">MATRIX Open System (MOS)</h3>
 **Language:** Javascript
@@ -34,7 +34,7 @@ Abstraction layer for **MATRIX HAL**. Hosts a ZeroMQ + Protobuf communication la
 
 Interacts with the kernel modules by using C++ drivers, enabling it to access available sensors and components on your device.
 
-[Read more about MATRIX HAL](matrix-hal/index.md)
+[Read more about MATRIX HAL](matrix-hal/overview)
 
 <br/>
 ## Devices
