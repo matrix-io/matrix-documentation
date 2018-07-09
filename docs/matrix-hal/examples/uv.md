@@ -16,7 +16,7 @@ Below is an example of how to interface with the UV sensor in MATRIX HAL.
 
 UV sensor function references can be found [here](/matrix-hal/reference/uv).
 
-The following section shows how to receive data from the UV sensor. You can download this example <a href="https://raw.githubusercontent.com/matrix-io/matrix-hal-examples/master/sensors/uv_sensor.cpp" target="_blank">here</a>.
+The following section shows how to receive data from the UV sensor. You can download this example <a href="https://github.com/matrix-io/matrix-hal-examples/blob/master/sensors/uv_sensor.cpp" target="_blank">here</a>.
 
 The command below will compile the example. Be sure to pass in your C++ file and desired output file.
 

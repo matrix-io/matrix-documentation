@@ -32,7 +32,7 @@ g++ -o YOUR_OUTPUT_FILE YOUR_CPP_FILE -std=c++11 -lmatrix_creator_hal -lgflags
 
 <details>
 <summary style="font-size: 1.75rem; font-weight: 300;">Microphone Array Record to File</summary>
-The following section shows how to record data from the microphone array to a file. You can download this example <a href="https://raw.githubusercontent.com/matrix-io/matrix-hal-examples/master/microphone_array/mic_record_file.cpp" target="_blank">here</a>.
+The following section shows how to record data from the microphone array to a file. You can download this example <a href="https://github.com/matrix-io/matrix-hal-examples/blob/master/microphone_array/mic_record_file.cpp" target="_blank">here</a>.
 
 To convert the `.raw` files outputted by this example to playable `.wav` files run these commands, replacing `16000` with selected sampling rate.
 
@@ -231,14 +231,14 @@ Now we will read microphone array data, send to a buffer, and write to file.
 
 <details>
 <summary style="font-size: 1.75rem; font-weight: 300;">Microphone Array Record to Pipe</summary>
-The following section shows how to record data from the microphone array to a linux FIFO pipe. You can download this example <a href="https://raw.githubusercontent.com/matrix-io/matrix-hal-examples/master/microphone_array/mic_record_pipe.cpp" target="_blank">here</a>.
+The following section shows how to record data from the microphone array to a linux FIFO pipe. You can download this example <a href="https://github.com/matrix-io/matrix-hal-examples/blob/master/microphone_array/mic_record_pipe.cpp" target="_blank">here</a>.
 
 > When beamformed input (channel 8) is read from a FIFO pipe distortion may occur.
 
 The following commands copy a modified `asound.conf` file into `/etc/`, which allows `arecord` to record from the pipe.
 
 ```language-bash
-wget https://raw.githubusercontent.com/matrix-io/matrix-hal-examples/master/microphone_array/asound.conf
+wget https://github.com/matrix-io/matrix-hal-examples/blob/master/microphone_array/asound.conf
 sudo mv -f /etc/asound.conf /etc/asound.conf_old
 sudo mv -f ./asound.conf /etc/
 ```
