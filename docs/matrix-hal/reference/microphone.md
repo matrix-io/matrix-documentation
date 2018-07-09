@@ -13,7 +13,7 @@ The microphone array interface supports:
 
 ## References
 
-Below is the overview of the microphone array implementation. Code examples can be found [here](/matrix-hal/examples/humidity).
+Below is the overview of the microphone array implementation. Code examples can be found [here](/matrix-hal/examples/microphone).
 
 These header files are required to use the microphone array.
 
