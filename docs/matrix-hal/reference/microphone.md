@@ -185,6 +185,7 @@ void ShowConfiguration();
 ```language-cpp
 // Output `gain_` and `sampling_frequency_` values
 microphone_array.void ShowConfiguration();
+```
 
 ```language-cpp
 // Style of output

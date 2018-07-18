@@ -64,7 +64,7 @@ The functions below are part of `PressureSensor`.
 `Setup` is a **function** that takes a `MatrixIOBus` object as a parameter and sets that object as the bus to use for communicating with MATRIX device.
 
 ```language-cpp
-// Function declaration
+// Function declaration in header file
 void Setup(MatrixIOBus *bus);
 ```
 
@@ -79,7 +79,7 @@ pressure_sensor.Setup(&bus);
 `Read` is a **function** that takes a `PressureData` object as a parameter and writes the current pressure sensor data into the `PressureData` object.
 
 ```language-cpp
-// Function declaration
+// Function declaration in header file
 bool Read(PressureData *data);
 ```
 

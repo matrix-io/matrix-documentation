@@ -243,10 +243,10 @@ sudo mv -f /etc/asound.conf /etc/asound.conf_old
 sudo mv -f ./asound.conf /etc/
 ```
 
-To record from microphone channel 0 for 5 seconds using `arecord`, run these commands. 
+To record from microphone channel 0 for 5 seconds at 16KHz using `arecord`, run these commands. 
 
 ```language-bash
-rm -rf/tmp/matrix_micarray_channel_*
+rm -rf /tmp/matrix_micarray_channel_*
 ./mic_record_pipe --sampling_frequency 16000 &
 arecord channel0.wav -f S16_LE -r 16000 -d 5 --device=mic_channel0
 ```

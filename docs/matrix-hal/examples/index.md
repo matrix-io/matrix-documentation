@@ -5,6 +5,7 @@
 The following commands download and compile all the examples.
 
 ```language-bash
+cd ~/
 sudo apt-get install cmake g++ git
 git clone https://github.com/matrix-io/matrix-hal-examples.git
 cd matrix-hal-examples

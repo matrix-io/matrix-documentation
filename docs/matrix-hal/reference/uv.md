@@ -56,7 +56,7 @@ The functions below are part of `UVSensor`.
 `Setup` is a **function** that takes a `MatrixIOBus` object as a parameter and sets that object as the bus to use for communicating with MATRIX device.
 
 ```language-cpp
-// Function declaration
+// Function declaration in header file
 void Setup(MatrixIOBus *bus);
 ```
 
@@ -71,7 +71,7 @@ uv_sensor.Setup(&bus);
 `Read` is a **function** that takes a `UVData` object as a parameter and writes the current humidity sensor data into the `UVData` object.
 
 ```language-cpp
-// Function declaration
+// Function declaration in header file
 bool Read(UVData *data);
 ```
 

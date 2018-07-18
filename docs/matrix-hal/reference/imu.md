@@ -76,7 +76,7 @@ The functions below are part of `IMUSensor`.
 `Setup` is a **function** that takes a `MatrixIOBus` object as a parameter and sets that object as the bus to use for communicating with MATRIX device.
 
 ```language-cpp
-// Function declaration
+// Function declaration in header file
 void Setup(MatrixIOBus *bus);
 ```
 
@@ -92,7 +92,7 @@ imu_sensor.Setup(&bus);
 `Read` is a **function** that takes an `IMUData` object as a parameter and writes the current IMU sensor data into the `IMUData` object.
 
 ```language-cpp
-// Function declaration
+// Function declaration in header file
 bool Read(IMUData *data);
 ```
 
