@@ -62,7 +62,7 @@
         }, 
         {
             "location": "/matrix-creator/resources/overview/", 
-            "text": "Resources\n\n\nPinout\n\n\n\nLists and labels of the MATRIX Creator's Pinouts\n\n\nMicrophones\n\n\n\nMicrophone drivers, sample rate, and board position\n\n\nReference Models\n\n\n\nDownload or view the Matrix Creator's 3D models and case\n\n\nSystem Architecture\n\n\n\nView a technical diagram of the MATRIX Creator architecture.\n\n\nTechnical Datasheets\n\n\n\nPDFs of MATRIX Creator Components", 
+            "text": "Resources\n\n\nPinout\n\n\n\nLists and labels of the MATRIX Creator's Pinouts\n\n\nMicrophones\n\n\n\nMicrophone drivers, sample rate, and board position\n\n\nReference Models\n\n\n\nDownload or view the Matrix Creator's 3D models and case\n\n\nSystem Architecture\n\n\n\nView a technical diagram of the MATRIX Creator architecture.\n\n\nTechnical Datasheets\n\n\n\nPDFs of MATRIX Creator Components\n\n\nTools\n\n\n\nUtilities for programming FPGA and MCU", 
             "title": "Overview"
         }, 
         {
@@ -146,6 +146,16 @@
             "title": "Datasheets:"
         }, 
         {
+            "location": "/matrix-creator/resources/tools/", 
+            "text": "Tools\n\n\n\n\n\u26a0\ufe0fThese tools are for advanced users\u26a0\ufe0f\n\n\n\n\nxc3sprog\n\n\n\nUtility for programming the Xilinx FPGA\n\n\nOpenOCD\n\n\n\nUtility for programming the EM3588 SoC and the SAM3S microcontroller", 
+            "title": "Tools"
+        }, 
+        {
+            "location": "/matrix-creator/resources/tools/#tools", 
+            "text": "\u26a0\ufe0fThese tools are for advanced users\u26a0\ufe0f", 
+            "title": "Tools"
+        }, 
+        {
             "location": "/matrix-voice/overview/", 
             "text": "MATRIX Voice\n\n\n\n\nThe MATRIX Voice is a development board for building sound driven behaviors and interfaces. MATRIX Voice was built with a mission to give every maker, tinkerer, and developer around the world a complete, affordable, and user-friendly tool for simple to complex Internet of Things (IoT) voice app creation.\n\n\nOverview\n\n\nDevice Setup\n\n\n\nHow to get started with your MATRIX Voice \n MATRIX Voice ESP32 version\n\n\nESP32\n\n\n\nInstructions to setup your ESP32 module\n\n\nResources\n\n\n\nView and download helpful information about the MATRIX Voice\n\n\nBoard Versions\n\n\nBoth versions of these boards run the same on a Raspberry Pi, however, the MATRIX Voice ESP32 version has the option to run standalone by programming the ESP32 module.", 
             "title": "Overview"
@@ -222,7 +232,7 @@
         }, 
         {
             "location": "/matrix-voice/resources/overview/", 
-            "text": "Resources\n\n\nPinout\n\n\n\nLists and labels of the MATRIX Voice's Pinouts\n\n\nMicrophones\n\n\n\nMicrophone drivers, sample rate, and board position\n\n\nReference Models\n\n\n\nDownload or view the Matrix Voice's 3D models\n\n\nSystem Architecture\n\n\n\nView a technical diagram of the MATRIX Voice architecture\n\n\nTechnical Datasheets\n\n\n\nPDFs of MATRIX Creator Components", 
+            "text": "Resources\n\n\nPinout\n\n\n\nLists and labels of the MATRIX Voice's Pinouts\n\n\nMicrophones\n\n\n\nMicrophone drivers, sample rate, and board position\n\n\nReference Models\n\n\n\nDownload or view the Matrix Voice's 3D models\n\n\nSystem Architecture\n\n\n\nView a technical diagram of the MATRIX Voice architecture\n\n\nTechnical Datasheets\n\n\n\nPDFs of MATRIX Creator Components\n\n\nTools\n\n\n\nUtilities for programming FPGA and MCU", 
             "title": "Overview"
         }, 
         {
@@ -299,6 +309,16 @@
             "location": "/matrix-voice/resources/technical-datasheets/#datasheets", 
             "text": "Xilinx Spartan 6 FPGA - XC6SLX9-2FTG256C    8 MEMS audio sensor digital microphones - MP34DB02    Serial Flash 64MBIT - MX25L6406E    DDR2 SDRAM 512MBIT - MT47H32M16    3W Stereo Class-D Audio Amplifier and Class-AB Headphone Driver - PAM8019    RGBW LED - SK6812RGBW    ESP32-WROOM", 
             "title": "Datasheets:"
+        }, 
+        {
+            "location": "/matrix-voice/resources/tools/", 
+            "text": "Tools\n\n\n\n\n\u26a0\ufe0fThese tools are for advanced users\u26a0\ufe0f\n\n\n\n\nxc3sprog\n\n\n\nUtility for programming the Xilinx FPGA\n\n\nOpenOCD\n\n\n\nUtility for programming the EM3588 SoC and the SAM3S microcontroller", 
+            "title": "Tools"
+        }, 
+        {
+            "location": "/matrix-voice/resources/tools/#tools", 
+            "text": "\u26a0\ufe0fThese tools are for advanced users\u26a0\ufe0f", 
+            "title": "Tools"
         }, 
         {
             "location": "/matrix-os/overview/", 
