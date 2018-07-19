@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Microphone MATRIX</title>
+  <title>MCU MATRIX</title>
   <link rel="shortcut icon" href="../../../img/favicon.ico">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
   <link rel="stylesheet" href="../../../css/theme.css">
@@ -29,7 +29,7 @@
         <div class="row">
           <div class="col-sm-8">
             
-            <h1>Microphone</h1>
+            <h1>MCU</h1>
             
           </div>
           <div class="col-sm-4">
@@ -72,7 +72,7 @@
 
 <!-- print root node  -->
 <li class="">
-  <a href="../../../matrix-creator/overview/" class="">
+  <a href="../../overview/" class="active">
     MATRIX Creator
   </a>
 </li>
@@ -81,28 +81,42 @@
    
   <!-- only 1 deep, print menu items  -->
    
-  <li><a href="../../../matrix-creator/overview/" class="">Overview</a></li>
+  <li><a href="../../overview/" class="">Overview</a></li>
      
   <!-- only 1 deep, print menu items  -->
    
-  <li><a href="../../../matrix-creator/device-setup/" class="">Device Setup</a></li>
+  <li><a href="../../device-setup/" class="">Device Setup</a></li>
      
   <!-- 2 deep  -->
   <!-- print subroot  -->
   <li>
-    <a href="../../../matrix-creator/resources/overview/" class="">
+    <a href="../overview/" class="active">
       Resources
     </a>
   </li>
 
   <ul class="subnav">
         
+    
+    <li><a href="../pinout/" class="">Pinout</a></li>
         
+    
+    <li><a href="../microphone/" class="">Microphones</a></li>
         
+    
+    <li><a href="../reference-models/" class="">Reference Models</a></li>
         
+    
+    <li><a href="../system-architecture/" class="">System Architecture</a></li>
         
+    
+    <li><a href="../technical-datasheets/" class="">Technical Datasheets</a></li>
         
+    
+    <li><a href="../tools/" class="">Tools</a></li>
         
+    
+    <li><a href="./" class="active">MCU</a></li>
       
   </ul>
 
@@ -355,7 +369,7 @@
 
 <!-- print root node  -->
 <li class="">
-  <a href="../../overview/" class="active">
+  <a href="../../../matrix-hal/overview/" class="">
     MATRIX HAL
   </a>
 </li>
@@ -364,12 +378,12 @@
    
   <!-- only 1 deep, print menu items  -->
    
-  <li><a href="../../overview/" class="">Overview</a></li>
+  <li><a href="../../../matrix-hal/overview/" class="">Overview</a></li>
      
   <!-- 2 deep  -->
   <!-- print subroot  -->
   <li>
-    <a href="../../getting-started/" class="">
+    <a href="../../../matrix-hal/getting-started/" class="">
       Getting Started
     </a>
   </li>
@@ -385,7 +399,7 @@
   <!-- 2 deep  -->
   <!-- print subroot  -->
   <li>
-    <a href="../../reference/" class="">
+    <a href="../../../matrix-hal/reference/" class="">
       References
     </a>
   </li>
@@ -405,40 +419,26 @@
   <!-- 2 deep  -->
   <!-- print subroot  -->
   <li>
-    <a href="../" class="active">
+    <a href="../../../matrix-hal/examples/" class="">
       Examples
     </a>
   </li>
 
   <ul class="subnav">
         
-    
-    <li><a href="../everloop/" class="">Everloop</a></li>
         
-    
-    <li><a href="../humidity/" class="">Humidity</a></li>
         
-    
-    <li><a href="../imu/" class="">IMU</a></li>
         
-    
-    <li><a href="../pressure/" class="">Pressure</a></li>
         
-    
-    <li><a href="../uv/" class="">UV</a></li>
         
-    
-    <li><a href="../gpio/" class="">GPIO</a></li>
         
-    
-    <li><a href="./" class="active">Microphone</a></li>
       
   </ul>
 
     
   <!-- only 1 deep, print menu items  -->
    
-  <li><a href="../../troubleshooting/" class="">Troubleshooting</a></li>
+  <li><a href="../../../matrix-hal/troubleshooting/" class="">Troubleshooting</a></li>
     
 </ul>
 
@@ -460,22 +460,25 @@
           </div>
         </div>
         <div id="content" class="col-lg-8 col-md-9">
-           <h2 style="padding-top:0">Microphone Array</h2>
+           <h2 style="padding-top:0">Microcontroller (MCU)</h2>
 
 <h4 style="padding-top:0">HAL Example</h4>
 
+<blockquote>
+<p>⚠️Advanced Users Only⚠️</p>
+</blockquote>
 <h3 id="device-compatibility">Device Compatibility</h3>
 <p><img class="creator-compatibility-icon" src="../../img/creator-icon.svg">
 <img class="voice-compatibility-icon" src="../../img/voice-icon.svg"></p>
 <h2 id="overview">Overview</h2>
-<p>The microphone array interface supports:</p>
+<p>The MCU handles:</p>
 <ul>
 <li>Accepting input from individual microphones</li>
 <li>Accepting input from beamformed microphone</li>
 </ul>
 <p><strong>Device Pinouts</strong>:</p>
 <ul>
-<li><a href="../../../matrix-creator/resources/pinout/">MATRIX Creator</a></li>
+<li><a href="../pinout/">MATRIX Creator</a></li>
 <li><a href="../../../matrix-voice/resources/pinout/">MATRIX Voice</a></li>
 </ul>
 <h2 id="code-examples">Code Examples</h2>

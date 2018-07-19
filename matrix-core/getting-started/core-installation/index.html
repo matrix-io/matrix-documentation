@@ -102,6 +102,7 @@
         
         
         
+        
       
   </ul>
 
@@ -456,7 +457,7 @@
            <h2 style="padding-top: 0">Installing MATRIX CORE</h2>
 
 <blockquote>
-<p>Make sure you have setup your 
+<p>Make sure you have setup your
 <a href="../../../matrix-creator/device-setup">MATRIX Creator</a> or 
 <a href="../../../matrix-voice/device-setup">MATRIX Voice</a> before continuing.</p>
 </blockquote>
@@ -477,7 +478,7 @@ sudo apt-get upgrade
 </code></pre>
 
 <p>These remaining commands will install <a href="http://zeromq.org/" target="_blank">ZeroMQ</a>.</p>
-<pre><code class="language-bash">echo &quot;deb http://download.opensuse.org/repositories/network:/messaging:/zeromq:/release-stable/Debian_9.0/ ./&quot; &gt;&gt; /etc/apt/sources.list
+<pre><code class="language-bash">echo &quot;deb http://download.opensuse.org/repositories/network:/messaging:/zeromq:/release-stable/Debian_9.0/ ./&quot; | sudo tee /etc/apt/sources.list.d/zeromq.list
 wget https://download.opensuse.org/repositories/network:/messaging:/zeromq:/release-stable/Debian_9.0/Release.key -O- | sudo apt-key add
 </code></pre>
 

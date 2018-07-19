@@ -102,6 +102,7 @@
         
         
         
+        
       
   </ul>
 
@@ -503,7 +504,7 @@ matrix_hal::UVSensor uv_sensor;
 <p><details>
 <summary style="font-size: 1.5rem; font-weight: 300;">.Setup</summary>
 <code>Setup</code> is a <strong>function</strong> that takes a <code>MatrixIOBus</code> object as a parameter and sets that object as the bus to use for communicating with MATRIX device.</p>
-<pre><code class="language-cpp">// Function declaration
+<pre><code class="language-cpp">// Function declaration in header file
 void Setup(MatrixIOBus *bus);
 </code></pre>
 
@@ -515,7 +516,7 @@ uv_sensor.Setup(&amp;bus);
 <p><details>
 <summary style="font-size: 1.5rem; font-weight: 300;">.Read</summary>
 <code>Read</code> is a <strong>function</strong> that takes a <code>UVData</code> object as a parameter and writes the current humidity sensor data into the <code>UVData</code> object.</p>
-<pre><code class="language-cpp">// Function declaration
+<pre><code class="language-cpp">// Function declaration in header file
 bool Read(UVData *data);
 </code></pre>
 
