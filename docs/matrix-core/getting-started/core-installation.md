@@ -1,6 +1,6 @@
 <h2 style="padding-top: 0">Installing MATRIX CORE</h2>
 
->Make sure you have setup your 
+>Make sure you have setup your
 [MATRIX Creator](/matrix-creator/device-setup) or 
 [MATRIX Voice](/matrix-voice/device-setup) before continuing.
 
@@ -25,7 +25,7 @@ sudo reboot
 
 These remaining commands will install <a href="http://zeromq.org/" target="_blank">ZeroMQ</a>.
 ```language-bash
-echo "deb http://download.opensuse.org/repositories/network:/messaging:/zeromq:/release-stable/Debian_9.0/ ./" >> /etc/apt/sources.list
+echo "deb http://download.opensuse.org/repositories/network:/messaging:/zeromq:/release-stable/Debian_9.0/ ./" | sudo tee /etc/apt/sources.list.d/zeromq.list
 wget https://download.opensuse.org/repositories/network:/messaging:/zeromq:/release-stable/Debian_9.0/Release.key -O- | sudo apt-key add
 ```
 
