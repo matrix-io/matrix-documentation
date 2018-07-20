@@ -121,7 +121,7 @@ Inside raspi-config, navigate to `Interfacing Options` >> `1-Wire` >> `NO`.
 
 ## Hardware Tests
 
-These tests will check if your MATRIX Voice is functioning properly.
+These tests will check if your MATRIX Creator is functioning properly.
 
 We first need to install matrixio-creator-init, which handles the flashing of FPGA.
 
