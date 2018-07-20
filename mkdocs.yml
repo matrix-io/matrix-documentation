@@ -16,6 +16,9 @@ pages:
     - 'System Architecture': 'matrix-creator/resources/system-architecture.md'
     - 'Technical Datasheets': 'matrix-creator/resources/technical-datasheets.md'
     - 'Tools': 'matrix-creator/resources/tools.md'
+    - 'FPGA': 'matrix-creator/resources/fpga.md'
+    - 'MCU': 'matrix-creator/resources/mcu.md'
+  - 'Troubleshooting': 'matrix-creator/troubleshooting.md'
 - MATRIX Voice:
   - 'Overview': 'matrix-voice/overview.md'
   - 'Device Setup': 'matrix-voice/device-setup.md'
@@ -28,6 +31,8 @@ pages:
     - 'System Architecture': 'matrix-voice/resources/system-architecture.md'
     - 'Technical Datasheets': 'matrix-voice/resources/technical-datasheets.md'
     - 'Tools': 'matrix-voice/resources/tools.md'
+    - 'FPGA': 'matrix-voice/resources/fpga.md'
+  - 'Troubleshooting': 'matrix-voice/troubleshooting.md'
 # Ecosystem
 - MATRIX OS:
   # Index pages are hidden by template, child[0].url is loaded when user clicks on category

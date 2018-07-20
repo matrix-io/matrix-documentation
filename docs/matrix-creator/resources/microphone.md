@@ -10,7 +10,7 @@ echo "deb https://apt.matrix.one/raspbian $(lsb_release -sc) main" | sudo tee /e
 sudo apt-get update
 sudo apt-get upgrade
 ```
-A reboot will be required after the MATRIX packages above are installed.
+A reboot will be required after following the steps above.
 ```language-bash
 sudo reboot
 ```

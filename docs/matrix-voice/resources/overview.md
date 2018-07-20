@@ -17,3 +17,6 @@ PDFs of MATRIX Creator Components
 
 <h3 style="padding-top: 0"><a href="../tools">Tools</a></h3>
 Utilities for programming FPGA and MCU
+
+<h3 style="padding-top: 0"><a href="../fpga">FPGA</a></h3>
+FPGA source and flashing guide
