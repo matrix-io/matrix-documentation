@@ -9,6 +9,24 @@ Run the following command on your Raspberry Pi's terminal to see the MATRIX Serv
 ps aux | grep 'malos'
 ```
 
+## Reinstall MATRIX CORE
+
+If you experience strange behavior, reinstall MATRIX CORE.
+
+Uninstall the `matrixio-malos` package.
+
+```language-bash
+sudo apt-get --purge remove matrixio-malos
+```
+
+Reboot your device.
+
+```language-bash
+sudo reboot
+```
+
+Install MATRIX CORE [here](/matrix-core/getting-started/core-installation).
+
 ## Audio Open Error
 If you encounter the error log below, your microphones are being used by the Pocketsphinx service for the [Wakeword Driver](protocols/wakeword).
 ```
