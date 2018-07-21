@@ -15,8 +15,8 @@ pages:
     - 'Reference Models': 'matrix-creator/resources/reference-models.md'
     - 'System Architecture': 'matrix-creator/resources/system-architecture.md'
     - 'Technical Datasheets': 'matrix-creator/resources/technical-datasheets.md'
-    - 'FPGA': 'matrix-creator/resources/fpga.md'
     - 'MCU': 'matrix-creator/resources/mcu.md'
+    - 'FPGA': 'matrix-creator/resources/fpga.md'
   - 'Troubleshooting': 'matrix-creator/troubleshooting.md'
 - MATRIX Voice:
   - 'Overview': 'matrix-voice/overview.md'

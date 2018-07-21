@@ -7,7 +7,7 @@ Please visit our community support forums at
 
 If you experience strange behavior, reinstall the MATRIX init package.
 
-Uninstall the `matrixio-creator-init` and `matrixio-kernel-modules` package.
+Uninstall the `matrixio-creator-init` package.
 
 ```language-bash
 sudo apt-get --purge remove matrixio-creator-init
