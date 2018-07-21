@@ -457,8 +457,8 @@
            <h2 id="community">Community</h2>
 <p>Please visit our community support forums at
 <a href="http://community.matrix.one/" target="_blank">community.matrix.one</a></p>
-<h2 id="reinstall-matrix-init-package">Reinstall MATRIX Init Package</h2>
-<p>If you experience strange behavior, reinstall the MATRIX init package.</p>
+<h2 id="reinstall-matrix-init-package-and-reflash-fpga-and-mcu">Reinstall MATRIX Init Package and Reflash FPGA and MCU</h2>
+<p>If you experience strange behavior, reinstall the MATRIX init package and reflash FPGA and MCU.</p>
 <p>Uninstall the <code>matrixio-creator-init</code> package.</p>
 <pre><code class="language-bash">sudo apt-get --purge remove matrixio-creator-init
 </code></pre>
@@ -479,6 +479,68 @@ sudo apt-get upgrade
 
 <p>Install the <code>matrixio-creator-init</code> package.</p>
 <pre><code class="language-bash">sudo apt-get install matrixio-creator-init
+</code></pre>
+
+<p>Reboot your device.</p>
+<pre><code class="language-bash">sudo reboot
+</code></pre>
+
+<blockquote>
+<p>FPGA will be reflashed with stock firmware.</p>
+</blockquote>
+<p>Now you can flash the FPGA.</p>
+<p>Reset the FPGA.</p>
+<pre><code class="language-bash">echo 18 &gt; /sys/class/gpio/export 2&gt;/dev/null
+echo out &gt; /sys/class/gpio/gpio18/direction
+echo 1 &gt; /sys/class/gpio/gpio18/value
+echo 0 &gt; /sys/class/gpio/gpio18/value
+echo 1 &gt; /sys/class/gpio/gpio18/value
+</code></pre>
+
+<p>Flash the FPGA.</p>
+<pre><code class="language-bash">cd /usr/share/matrixlabs/matrixio-devices/
+xc3sprog -c matrix_creator blob/system_creator.bit -p 1
+</code></pre>
+
+<p>You should receive the following.</p>
+<pre><code class="language-bash">XC3SPROG (c) 2004-2011 xc3sprog project $Rev: 774 $ OS: Linux
+Free software: If you contribute nothing, expect nothing!
+Feedback on success/failure/enhancement requests:
+        http://sourceforge.net/mail/?group_id=170565
+Check Sourceforge for updates:
+        http://sourceforge.net/projects/xc3sprog/develop
+
+DNA is 0x99a9bca3325faafd
+</code></pre>
+
+<p>Reset the FPGA.</p>
+<pre><code class="language-bash">echo 26 &gt; /sys/class/gpio/export 2&gt;/dev/null
+echo out &gt; /sys/class/gpio/gpio26/direction  
+echo 1 &gt; /sys/class/gpio/gpio26/value  
+echo 0 &gt; /sys/class/gpio/gpio26/value  
+echo 1 &gt; /sys/class/gpio/gpio26/value
+</code></pre>
+
+<p>Reboot your device.</p>
+<pre><code class="language-bash">sudo reboot
+</code></pre>
+
+<blockquote>
+<p>MCU will be reflashed with stock firmware.</p>
+</blockquote>
+<p>Now you can flash the MCU.</p>
+<pre><code class="language-bash">cd /usr/share/matrixlabs/matrixio-devices/
+sudo openocd -f cfg/sam3s_rpi_sysfs.cfg
+</code></pre>
+
+<p>The last part of the <code>openocd</code> flashing command output should be the following.</p>
+<pre><code class="language-bash">flash 'at91sam3' found at 0x00400000
+wrote 36636 bytes from file blob/ch.bin to flash bank 0 at offset 0x00000000 in 4.665386s (7.669 KiB/s)
+Info : JTAG tap: em358.cpu tap/device found: 0x3ba00477 (mfg: 0x23b (ARM Ltd.), part: 0xba00, ver: 0x3)
+Info : JTAG tap: em357.bs tap/device found: 0x069aa62b (mfg: 0x315 (Ember Corporation), part: 0x69aa, ver: 0x0)Info : JTAG tap: xc6sxl4.fpga.fpga tap/device found: 0x24000093 (mfg: 0x049 (Xilinx), part: 0x4000, ver: 0x2)
+Info : JTAG tap: sam3n.cpu.cpu tap/device found: 0x4ba00477 (mfg: 0x23b (ARM Ltd.), part: 0xba00, ver: 0x4)
+Warn : Only resetting the Cortex-M core, use a reset-init event handler to reset any peripherals or configure hardware srst support.
+shutdown command invoked
 </code></pre>
 
 <p>Reboot your device.</p>
@@ -639,8 +701,8 @@ FPGA VERSION = 1000a
   </a>
   
 </li>  <li class='nav-item'>
-  <a href="#reinstall-matrix-init-package" class="nav-link ">
-    Reinstall MATRIX Init Package
+  <a href="#reinstall-matrix-init-package-and-reflash-fpga-and-mcu" class="nav-link ">
+    Reinstall MATRIX Init Package and Reflash FPGA and MCU
   </a>
   
 </li>  <li class='nav-item'>

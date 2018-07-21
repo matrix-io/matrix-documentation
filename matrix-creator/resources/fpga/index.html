@@ -485,6 +485,11 @@
 <li>Connections between board components</li>
 <li>Microphone processing (not provided in source code)</li>
 </ul>
+<h2 id="fpga-source">FPGA Source</h2>
+<blockquote>
+<p>⚠️FPGA source does not contain audio processing code⚠️</p>
+</blockquote>
+<p>FPGA source code is located <a href="https://github.com/matrix-io/matrix-creator-fpga" target="_blank">here</a>.</p>
 <h2 id="fpga-flashing">FPGA Flashing</h2>
 <p>Below is a guide on how to flash a premade user-provided FPGA bitstream onto the Xilinx Spartan-6 FPGA for the MATRIX Creator.</p>
 <p>We first need to install a few prerequisites.</p>
@@ -507,7 +512,8 @@ sudo apt-get upgrade
 </code></pre>
 
 <p>Copy your built <code>system_creator.bit</code> FPGA bitstream file to the blob folder.</p>
-<pre><code class="language-bash">sudo cp ./path/to/your/file /usr/share/matrixlabs/matrixio-devices/blob/system_creator.bit
+<pre><code class="language-bash">sudo mv /usr/share/matrixlabs/matrixio-devices/blob/system_creator.bit /usr/share/matrixlabs/matrixio-devices/blob/system_creator_stock.bit
+sudo cp /path/to/your/file /usr/share/matrixlabs/matrixio-devices/blob/system_creator.bit
 </code></pre>
 
 <p>Now you can flash the FPGA.</p>
@@ -536,42 +542,59 @@ DNA is 0x99a9bca3325faafd
 </code></pre>
 
 <p>Reset the FPGA.</p>
-<pre><code class="language-bash">echo 26 &gt; /sys/class/gpio/export 2&gt;/dev/null
-echo out &gt; /sys/class/gpio/gpio26/direction  
-echo 1 &gt; /sys/class/gpio/gpio26/value  
-echo 0 &gt; /sys/class/gpio/gpio26/value  
-echo 1 &gt; /sys/class/gpio/gpio26/value
+<pre><code class="language-bash">echo 18 &gt; /sys/class/gpio/export 2&gt;/dev/null
+echo out &gt; /sys/class/gpio/gpio18/direction
+echo 1 &gt; /sys/class/gpio/gpio18/value
+echo 0 &gt; /sys/class/gpio/gpio18/value
+echo 1 &gt; /sys/class/gpio/gpio18/value
+</code></pre>
+
+<p>Reboot your device.</p>
+<pre><code class="language-bash">sudo reboot
 </code></pre>
 
 <h2 id="restore-original-firmware">Restore Original Firmware</h2>
-<p>To restore the original firmware reinstall the required MATRIX packages.</p>
-<p>Uninstall the <code>matrixio-creator-init</code> package.</p>
-<pre><code class="language-bash">sudo apt-get --purge remove matrixio-creator-init
+<p>To restore the original firmware, restore the stock <code>system_creator.bit</code> file in the blob folder.</p>
+<pre><code class="language-bash">sudo rm /usr/share/matrixlabs/matrixio-devices/blob/system_creator.bit
+sudo mv /usr/share/matrixlabs/matrixio-devices/blob/system_creator_stock.bit /usr/share/matrixlabs/matrixio-devices/blob/system_creator.bit
+</code></pre>
+
+<p>Now you can flash the FPGA.</p>
+<p>Reset the FPGA.</p>
+<pre><code class="language-bash">echo 18 &gt; /sys/class/gpio/export 2&gt;/dev/null
+echo out &gt; /sys/class/gpio/gpio18/direction
+echo 1 &gt; /sys/class/gpio/gpio18/value
+echo 0 &gt; /sys/class/gpio/gpio18/value
+echo 1 &gt; /sys/class/gpio/gpio18/value
+</code></pre>
+
+<p>Flash the FPGA.</p>
+<pre><code class="language-bash">cd /usr/share/matrixlabs/matrixio-devices/
+xc3sprog -c matrix_creator blob/system_creator.bit -p 1
+</code></pre>
+
+<p>You should receive the following.</p>
+<pre><code class="language-bash">XC3SPROG (c) 2004-2011 xc3sprog project $Rev: 774 $ OS: Linux
+Free software: If you contribute nothing, expect nothing!
+Feedback on success/failure/enhancement requests:
+        http://sourceforge.net/mail/?group_id=170565
+Check Sourceforge for updates:
+        http://sourceforge.net/projects/xc3sprog/develop
+
+DNA is 0x99a9bca3325faafd
+</code></pre>
+
+<p>Reset the FPGA.</p>
+<pre><code class="language-bash">echo 18 &gt; /sys/class/gpio/export 2&gt;/dev/null
+echo out &gt; /sys/class/gpio/gpio18/direction
+echo 1 &gt; /sys/class/gpio/gpio18/value
+echo 0 &gt; /sys/class/gpio/gpio18/value
+echo 1 &gt; /sys/class/gpio/gpio18/value
 </code></pre>
 
 <p>Reboot your device.</p>
 <pre><code class="language-bash">sudo reboot
-</code></pre>
-
-<p>Add the MATRIX repository and key.</p>
-<pre><code class="language-bash">curl https://apt.matrix.one/doc/apt-key.gpg | sudo apt-key add -
-echo &quot;deb https://apt.matrix.one/raspbian $(lsb_release -sc) main&quot; | sudo tee /etc/apt/sources.list.d/matrixlabs.list
-</code></pre>
-
-<p>Update your repository and packages.</p>
-<pre><code class="language-bash">sudo apt-get update
-sudo apt-get upgrade
-</code></pre>
-
-<p>Install the <code>matrixio-creator-init</code> package.</p>
-<pre><code class="language-bash">sudo apt-get install matrixio-creator-init matrixio-kernel-modules
-</code></pre>
-
-<p>Reboot your device.</p>
-<pre><code class="language-bash">sudo reboot
-</code></pre>
-
-<p>Upon reboot the <code>matrixio-creator-init</code> package will flash the FPGA.</p> 
+</code></pre> 
         </div>
         <div class="toc-parent col-lg-2 col-md-3">
           <div class="toc">
@@ -586,6 +609,11 @@ sudo apt-get upgrade
 </li>  <li class='nav-item'>
   <a href="#overview" class="nav-link ">
     Overview
+  </a>
+  
+</li>  <li class='nav-item'>
+  <a href="#fpga-source" class="nav-link ">
+    FPGA Source
   </a>
   
 </li>  <li class='nav-item'>
