@@ -6,19 +6,27 @@
 
 Before starting, ensure you have access to the terminal of your Raspberry Pi via an <a href="https://www.raspberrypi.org/documentation/remote-access/ssh/" target="_blank">SSH-session</a> or connect a screen, mouse, and keyboard. Once you've opened the terminal, insert and run the following commands.
 
+Add the MATRIX repository and key.
+
 ```language-bash
 curl https://apt.matrix.one/doc/apt-key.gpg | sudo apt-key add -
 echo "deb https://apt.matrix.one/raspbian $(lsb_release -sc) main" | sudo tee /etc/apt/sources.list.d/matrixlabs.list
+```
 
+Update your repository and packages.
+
+```language-bash
 sudo apt-get update
 sudo apt-get upgrade
 ```
 
-The next command will install the MATRIX init package and tools needed to build MATRIX HAL.
+Install the MATRIX init package and tools needed to build MATRIX HAL.
 
 ```language-bash
 sudo apt-get install cmake g++ git libfftw3-dev wiringpi libgflags-dev matrixio-creator-init
 ```
+
+Clone, build, and install MATRIX HAL.
 
 ```language-bash
 cd ~/
@@ -30,7 +38,7 @@ cmake ..
 make -j4 && sudo make install
 ```
 
-After the MATRIX HAL packages are installed, use the command below to reboot your Raspberry Pi.
+Reboot your device.
 
 ```language-bash
 sudo reboot

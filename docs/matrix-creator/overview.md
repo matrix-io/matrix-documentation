@@ -10,3 +10,6 @@ How to get started with your MATRIX Creator
 
 <h4 style="padding-top:0"><a href="../resources/overview">Resources</a></h4>
 View and download helpful information about the MATRIX Creator
+
+<h4 style="padding-top:0"><a href="../troubleshooting">Troubleshooting</a></h4>
+Look at common debugging solutions and test the hardware on your MATRIX Creator
