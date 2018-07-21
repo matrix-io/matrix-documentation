@@ -3,9 +3,9 @@
 Please visit our community support forums at
 <a href="http://community.matrix.one/" target="_blank">community.matrix.one</a>
 
-## Reinstall MATRIX Init Package
+## Reinstall MATRIX Init Package and Reflash FPGA and MCU
 
-If you experience strange behavior, reinstall the MATRIX init package.
+If you experience strange behavior, reinstall the MATRIX init package and reflash FPGA and MCU.
 
 Uninstall the `matrixio-creator-init` package.
 
@@ -37,6 +37,83 @@ Install the `matrixio-creator-init` package.
 
 ```language-bash
 sudo apt-get install matrixio-creator-init
+```
+
+Reboot your device.
+
+```language-bash
+sudo reboot
+```
+
+> FPGA will be reflashed with stock firmware.
+
+Now you can flash the FPGA.
+
+Reset the FPGA.
+
+```language-bash
+echo 18 > /sys/class/gpio/export 2>/dev/null
+echo out > /sys/class/gpio/gpio18/direction
+echo 1 > /sys/class/gpio/gpio18/value
+echo 0 > /sys/class/gpio/gpio18/value
+echo 1 > /sys/class/gpio/gpio18/value
+```
+
+Flash the FPGA.
+
+```language-bash
+cd /usr/share/matrixlabs/matrixio-devices/
+xc3sprog -c matrix_creator blob/system_creator.bit -p 1
+```
+
+You should receive the following.
+
+```language-bash
+XC3SPROG (c) 2004-2011 xc3sprog project $Rev: 774 $ OS: Linux
+Free software: If you contribute nothing, expect nothing!
+Feedback on success/failure/enhancement requests:
+        http://sourceforge.net/mail/?group_id=170565
+Check Sourceforge for updates:
+        http://sourceforge.net/projects/xc3sprog/develop
+
+DNA is 0x99a9bca3325faafd
+```
+
+Reset the FPGA.
+
+```language-bash
+echo 26 > /sys/class/gpio/export 2>/dev/null
+echo out > /sys/class/gpio/gpio26/direction  
+echo 1 > /sys/class/gpio/gpio26/value  
+echo 0 > /sys/class/gpio/gpio26/value  
+echo 1 > /sys/class/gpio/gpio26/value
+```
+
+Reboot your device.
+
+```language-bash
+sudo reboot
+```
+
+> MCU will be reflashed with stock firmware.
+
+Now you can flash the MCU.
+
+```language-bash
+cd /usr/share/matrixlabs/matrixio-devices/
+sudo openocd -f cfg/sam3s_rpi_sysfs.cfg
+```
+
+The last part of the `openocd` flashing command output should be the following.
+
+```language-bash
+flash 'at91sam3' found at 0x00400000
+wrote 36636 bytes from file blob/ch.bin to flash bank 0 at offset 0x00000000 in 4.665386s (7.669 KiB/s)
+Info : JTAG tap: em358.cpu tap/device found: 0x3ba00477 (mfg: 0x23b (ARM Ltd.), part: 0xba00, ver: 0x3)
+Info : JTAG tap: em357.bs tap/device found: 0x069aa62b (mfg: 0x315 (Ember Corporation), part: 0x69aa, ver: 0x0)Info : JTAG tap: xc6sxl4.fpga.fpga tap/device found: 0x24000093 (mfg: 0x049 (Xilinx), part: 0x4000, ver: 0x2)
+Info : JTAG tap: sam3n.cpu.cpu tap/device found: 0x4ba00477 (mfg: 0x23b (ARM Ltd.), part: 0xba00, ver: 0x4)
+Warn : Only resetting the Cortex-M core, use a reset-init event handler to reset any peripherals or configure hardware srst support.
+shutdown command invoked
 ```
 
 Reboot your device.

@@ -3,9 +3,9 @@
 Please visit our community support forums at
 <a href="http://community.matrix.one/" target="_blank">community.matrix.one</a>
 
-## Reinstall MATRIX Init Package
+## Reinstall MATRIX Init Package and Reflash FPGA
 
-If you experience strange behavior, reinstall the MATRIX init package.
+If you experience strange behavior, reinstall the MATRIX init package and reflash FPGA.
 
 Uninstall the `matrixio-creator-init` package.
 
@@ -37,6 +37,77 @@ Install the `matrixio-creator-init` package.
 
 ```language-bash
 sudo apt-get install matrixio-creator-init
+```
+
+Reboot your device.
+
+```language-bash
+sudo reboot
+```
+
+> FPGA will be reflashed with stock firmware.
+
+Now you can flash the FPGA.
+
+Reset the FPGA.
+
+```language-bash
+echo 26 > /sys/class/gpio/export 2>/dev/null
+echo out > /sys/class/gpio/gpio26/direction  
+echo 1 > /sys/class/gpio/gpio26/value  
+echo 0 > /sys/class/gpio/gpio26/value  
+echo 1 > /sys/class/gpio/gpio26/value
+```
+
+Flash the SPI Flash bootloader onto FPGA.
+
+```language-bash
+xc3sprog -c matrix_voice blob/bscan_spi_s6lx9_ftg256.bit
+```
+
+You should receive the following.
+
+```language-bash
+XC3SPROG (c) 2004-2011 xc3sprog project $Rev: 774 $ OS: Linux
+Free software: If you contribute nothing, expect nothing!
+Feedback on success/failure/enhancement requests:
+        http://sourceforge.net/mail/?group_id=170565
+Check Sourceforge for updates:
+        http://sourceforge.net/projects/xc3sprog/develop
+
+DNA is 0xf9d61a1ecbb64401
+```
+
+Flash the SPI Flash.
+
+```language-bash
+xc3sprog -c matrix_voice -I blob/system_voice.bit
+```
+
+You should receive the following.
+
+```language-bash
+XC3SPROG (c) 2004-2011 xc3sprog project $Rev: 774 $ OS: Linux
+Free software: If you contribute nothing, expect nothing!
+Feedback on success/failure/enhancement requests:
+        http://sourceforge.net/mail/?group_id=170565
+Check Sourceforge for updates:
+        http://sourceforge.net/projects/xc3sprog/develop
+
+JEDEC: c2 20 0x17 0xc2
+Found Macronix MX25L Device, Device ID 0x2017
+256 bytes/page, 262144 pages = 67108864 bytes total
+Verify: Success!
+```
+
+Reset the FPGA.
+
+```language-bash
+echo 26 > /sys/class/gpio/export 2>/dev/null
+echo out > /sys/class/gpio/gpio26/direction  
+echo 1 > /sys/class/gpio/gpio26/value  
+echo 0 > /sys/class/gpio/gpio26/value  
+echo 1 > /sys/class/gpio/gpio26/value
 ```
 
 Reboot your device.
