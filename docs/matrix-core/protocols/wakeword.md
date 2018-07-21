@@ -112,7 +112,7 @@ View the defined message <a href="https://github.com/matrix-io/protocol-buffers/
 <!-- Keep-Alive PORT -->
 <details open>
 <summary style="font-size: 1.75rem; font-weight: 300;">Keep-alive Port</summary>
-Unlike other drivers, the Wakeword driver does not need a Keep-alive port.
+This driver needs keep-alive messages in order to send data to your application. It's recommended to send an empty string `""` because the contents of a keep-alive message are never read.
 </details>
 
 <!-- Error PORT -->

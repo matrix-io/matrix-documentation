@@ -66,14 +66,27 @@ console.log('Listening for wakewords');
 <!-- Keep-alive PORT -->
 <details open>
 <summary style="font-size: 1.75rem; font-weight: 300;">Keep-alive Port</summary>
-Unlike other drivers, the Wakeword driver does not need a **Keep-alive Port**.
+The next step is to connect and send a message to the **Keep-alive Port**. That message will grant us a response from the Data Update Port with the wake words that were understood.
+```language-javascript
+// Create a Pusher socket
+var pingSocket = zmq.socket('push');
+// Connect Pusher to Keep-alive port
+pingSocket.connect('tcp://' + matrix_ip + ':' + (matrix_wakeword_base_port + 1));
+// Send initial ping
+pingSocket.send('');
+// Send a ping every 2 seconds
+setInterval(function(){
+  pingSocket.send('');// Send ping
+}, 2000);
 
+```
 </details>
 
 <!-- Error PORT -->
 <details open>
 <summary style="font-size: 1.75rem; font-weight: 300;">Error Port</summary>
 Connecting to the **Error Port** is optional, but highly recommended if you want to log any errors that occur within MATRIX CORE.
+> The Error Port is currently reporting false errors. 
 ```language-javascript
 // Create a Subscriber socket
 var errorSocket = zmq.socket('sub');
