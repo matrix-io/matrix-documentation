@@ -583,7 +583,7 @@ This port accepts a single configuration for communicating with the Wakeword dri
 
 <p><details open>
 <summary style="font-size: 1.75rem; font-weight: 300;">Keep-alive Port</summary>
-Unlike other drivers, the Wakeword driver does not need a Keep-alive port.
+This driver needs keep-alive messages in order to send data to your application. It's recommended to send an empty string <code>""</code> because the contents of a keep-alive message are never read.
 </details></p>
 <!-- Error PORT -->
 
