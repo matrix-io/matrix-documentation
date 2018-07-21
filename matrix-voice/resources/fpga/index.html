@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Tools MATRIX</title>
+  <title>FPGA MATRIX</title>
   <link rel="shortcut icon" href="../../../img/favicon.ico">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
   <link rel="stylesheet" href="../../../css/theme.css">
@@ -29,7 +29,7 @@
         <div class="row">
           <div class="col-sm-8">
             
-            <h1>Tools</h1>
+            <h1>FPGA</h1>
             
           </div>
           <div class="col-sm-4">
@@ -72,8 +72,59 @@
 
 <!-- print root node  -->
 <li class="">
-  <a href="../../overview/" class="active">
+  <a href="../../../matrix-creator/overview/" class="">
     MATRIX Creator
+  </a>
+</li>
+
+<ul class="subnav">
+   
+  <!-- only 1 deep, print menu items  -->
+   
+  <li><a href="../../../matrix-creator/overview/" class="">Overview</a></li>
+     
+  <!-- only 1 deep, print menu items  -->
+   
+  <li><a href="../../../matrix-creator/device-setup/" class="">Device Setup</a></li>
+     
+  <!-- 2 deep  -->
+  <!-- print subroot  -->
+  <li>
+    <a href="../../../matrix-creator/resources/overview/" class="">
+      Resources
+    </a>
+  </li>
+
+  <ul class="subnav">
+        
+        
+        
+        
+        
+        
+        
+      
+  </ul>
+
+    
+  <!-- only 1 deep, print menu items  -->
+   
+  <li><a href="../../../matrix-creator/troubleshooting/" class="">Troubleshooting</a></li>
+    
+</ul>
+
+  
+
+
+<!-- Children complicate things  -->
+
+<!-- link to depth-first url found  -->
+  
+
+<!-- print root node  -->
+<li class="">
+  <a href="../../overview/" class="active">
+    MATRIX Voice
   </a>
 </li>
 
@@ -86,6 +137,10 @@
   <!-- only 1 deep, print menu items  -->
    
   <li><a href="../../device-setup/" class="">Device Setup</a></li>
+     
+  <!-- only 1 deep, print menu items  -->
+   
+  <li><a href="../../esp32/" class="">ESP32</a></li>
      
   <!-- 2 deep  -->
   <!-- print subroot  -->
@@ -113,64 +168,15 @@
     <li><a href="../technical-datasheets/" class="">Technical Datasheets</a></li>
         
     
-    <li><a href="./" class="active">Tools</a></li>
-        
+    <li><a href="./" class="active">FPGA</a></li>
+      
+  </ul>
+
     
-    <li><a href="../mcu/" class="">MCU</a></li>
-      
-  </ul>
-
-   
-</ul>
-
-  
-
-
-<!-- Children complicate things  -->
-
-<!-- link to depth-first url found  -->
-  
-
-<!-- print root node  -->
-<li class="">
-  <a href="../../../matrix-voice/overview/" class="">
-    MATRIX Voice
-  </a>
-</li>
-
-<ul class="subnav">
-   
   <!-- only 1 deep, print menu items  -->
    
-  <li><a href="../../../matrix-voice/overview/" class="">Overview</a></li>
-     
-  <!-- only 1 deep, print menu items  -->
-   
-  <li><a href="../../../matrix-voice/device-setup/" class="">Device Setup</a></li>
-     
-  <!-- only 1 deep, print menu items  -->
-   
-  <li><a href="../../../matrix-voice/esp32/" class="">ESP32</a></li>
-     
-  <!-- 2 deep  -->
-  <!-- print subroot  -->
-  <li>
-    <a href="../../../matrix-voice/resources/overview/" class="">
-      Resources
-    </a>
-  </li>
-
-  <ul class="subnav">
-        
-        
-        
-        
-        
-        
-      
-  </ul>
-
-   
+  <li><a href="../../troubleshooting/" class="">Troubleshooting</a></li>
+    
 </ul>
 
   
@@ -460,16 +466,132 @@
           </div>
         </div>
         <div id="content" class="col-lg-8 col-md-9">
-           <h2 id="tools">Tools</h2>
+           <h2 style="padding-top:0">FPGA</h2>
+
+<h4 style="padding-top:0">Flashing Guide</h4>
+
 <blockquote>
-<p>⚠️These tools are for advanced users⚠️</p>
+<p>⚠️Modifying FPGA source may have unintended consequences⚠️</p>
 </blockquote>
-<h3 style="padding-top: 0"><a href="https://github.com/matrix-io/xc3sprog" target="_blank">xc3sprog</a></h3>
+<h3 id="device-compatibility">Device Compatibility</h3>
+<p><img class="voice-compatibility-icon" src="../../img/voice-icon.svg"></p>
+<h2 id="overview">Overview</h2>
+<p>The FPGA handles:</p>
+<ul>
+<li>GPIO output</li>
+<li>UART for Zigbee and Z-Wave</li>
+<li>Connections between board components</li>
+<li>Microphone processing (not provided in source code)</li>
+</ul>
+<h2 id="fpga-source">FPGA Source</h2>
+<blockquote>
+<p>⚠️FPGA source does not contain audio processing code⚠️</p>
+</blockquote>
+<p>FPGA Source code is located <a href="https://github.com/matrix-io/matrix-voice-fpga" target="_blank">here</a></p>
+<h2 id="fpga-flashing">FPGA Flashing</h2>
+<p>Below is a guide on how to flash a premade user-provided FPGA bitstream onto the Xilinx Spartan-6 FPGA for the MATRIX Voice.</p>
+<p>We first need to install a few prerequisites.</p>
+<p>Add the MATRIX repository and key.</p>
+<pre><code class="language-bash">curl https://apt.matrix.one/doc/apt-key.gpg | sudo apt-key add -
+echo &quot;deb https://apt.matrix.one/raspbian $(lsb_release -sc) main&quot; | sudo tee /etc/apt/sources.list.d/matrixlabs.list
+</code></pre>
 
-<p>Utility for programming the Xilinx FPGA</p>
-<h3 style="padding-top: 0"><a href="https://github.com/matrix-io/matrix-creator-openocd" target="_blank">OpenOCD</a></h3>
+<p>Update your repository and packages.</p>
+<pre><code class="language-bash">sudo apt-get update
+sudo apt-get upgrade
+</code></pre>
 
-<p>Utility for programming the EM3588 SoC and the SAM3S microcontroller</p> 
+<p>Install the required packages.</p>
+<pre><code class="language-bash">sudo apt-get install matrixio-creator-init
+</code></pre>
+
+<p>Reboot your device.</p>
+<pre><code class="language-bash">sudo reboot
+</code></pre>
+
+<p>Copy your built <code>system_voice.bit</code> FPGA bitstream file to the blob folder.</p>
+<pre><code class="language-bash">sudo cp ./path/to/your/file /usr/share/matrixlabs/matrixio-devices/blob/system_voice.bit
+</code></pre>
+
+<p>Now you can flash the FPGA.</p>
+<p>Reset the FPGA.</p>
+<pre><code class="language-bash">echo 26 &gt; /sys/class/gpio/export 2&gt;/dev/null
+echo out &gt; /sys/class/gpio/gpio26/direction  
+echo 1 &gt; /sys/class/gpio/gpio26/value  
+echo 0 &gt; /sys/class/gpio/gpio26/value  
+echo 1 &gt; /sys/class/gpio/gpio26/value
+</code></pre>
+
+<p>Flash the SPI Flash bootloader onto FPGA.</p>
+<pre><code class="language-bash">xc3sprog -c matrix_voice blob/bscan_spi_s6lx9_ftg256.bit
+</code></pre>
+
+<p>You should receive the following (may vary due to user-provided file).</p>
+<pre><code class="language-bash">XC3SPROG (c) 2004-2011 xc3sprog project $Rev: 774 $ OS: Linux
+Free software: If you contribute nothing, expect nothing!
+Feedback on success/failure/enhancement requests:
+        http://sourceforge.net/mail/?group_id=170565
+Check Sourceforge for updates:
+        http://sourceforge.net/projects/xc3sprog/develop
+
+DNA is 0xf9d61a1ecbb64401
+</code></pre>
+
+<p>Flash the SPI Flash</p>
+<pre><code class="language-bash">xc3sprog -c matrix_voice -I blob/system_voice.bit
+</code></pre>
+
+<p>You should receive the following (may vary due to user-provided file).</p>
+<pre><code class="language-bash">XC3SPROG (c) 2004-2011 xc3sprog project $Rev: 774 $ OS: Linux
+Free software: If you contribute nothing, expect nothing!
+Feedback on success/failure/enhancement requests:
+        http://sourceforge.net/mail/?group_id=170565
+Check Sourceforge for updates:
+        http://sourceforge.net/projects/xc3sprog/develop
+
+JEDEC: c2 20 0x17 0xc2
+Found Macronix MX25L Device, Device ID 0x2017
+256 bytes/page, 262144 pages = 67108864 bytes total
+Verify: Success!
+</code></pre>
+
+<p>Reset the FPGA.</p>
+<pre><code class="language-bash">echo 26 &gt; /sys/class/gpio/export 2&gt;/dev/null
+echo out &gt; /sys/class/gpio/gpio26/direction  
+echo 1 &gt; /sys/class/gpio/gpio26/value  
+echo 0 &gt; /sys/class/gpio/gpio26/value  
+echo 1 &gt; /sys/class/gpio/gpio26/value
+</code></pre>
+
+<h2 id="restore-original-firmware">Restore Original Firmware</h2>
+<p>To restore the original firmware reinstall the required MATRIX packages.</p>
+<p>Uninstall the <code>matrixio-creator-init</code> package.</p>
+<pre><code class="language-bash">sudo apt-get --purge remove matrixio-creator-init
+</code></pre>
+
+<p>Reboot your device.</p>
+<pre><code class="language-bash">sudo reboot
+</code></pre>
+
+<p>Add the MATRIX repository and key.</p>
+<pre><code class="language-bash">curl https://apt.matrix.one/doc/apt-key.gpg | sudo apt-key add -
+echo &quot;deb https://apt.matrix.one/raspbian $(lsb_release -sc) main&quot; | sudo tee /etc/apt/sources.list.d/matrixlabs.list
+</code></pre>
+
+<p>Update your repository and packages.</p>
+<pre><code class="language-bash">sudo apt-get update
+sudo apt-get upgrade
+</code></pre>
+
+<p>Install the <code>matrixio-creator-init</code> package.</p>
+<pre><code class="language-bash">sudo apt-get install matrixio-creator-init matrixio-kernel-modules
+</code></pre>
+
+<p>Reboot your device.</p>
+<pre><code class="language-bash">sudo reboot
+</code></pre>
+
+<p>Upon reboot the <code>matrixio-creator-init</code> package will flash the FPGA.</p> 
         </div>
         <div class="toc-parent col-lg-2 col-md-3">
           <div class="toc">
@@ -477,8 +599,28 @@
             <h3>Contents</h3>
             <ul class="nav flex-column">
                <li class='nav-item'>
-  <a href="#tools" class="nav-link active">
-    Tools
+  <a href="#device-compatibility" class="nav-link active">
+    Device Compatibility
+  </a>
+  
+</li>  <li class='nav-item'>
+  <a href="#overview" class="nav-link ">
+    Overview
+  </a>
+  
+</li>  <li class='nav-item'>
+  <a href="#fpga-source" class="nav-link ">
+    FPGA Source
+  </a>
+  
+</li>  <li class='nav-item'>
+  <a href="#fpga-flashing" class="nav-link ">
+    FPGA Flashing
+  </a>
+  
+</li>  <li class='nav-item'>
+  <a href="#restore-original-firmware" class="nav-link ">
+    Restore Original Firmware
   </a>
   
 </li> 
