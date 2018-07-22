@@ -557,11 +557,12 @@ sudo mv /usr/share/matrixlabs/matrixio-devices/mcu_firmware.version /usr/share/m
 <pre><code class="language-bash">sudo apt-mark hold matrixio-creator-init
 </code></pre>
 
-<p>Wait 8 seconds for your device to power off and unplug the power cable from your device.</p>
+<p>Power off your device.</p>
 <pre><code class="language-bash">sudo poweroff
 </code></pre>
 
-<p>Plug the power cable back into your device.</p>
+<p>Wait until the green led on your Raspberry Pi blinks 10 times, then unplug the power cable from your Raspberry Pi.</p>
+<p>Plug the power cable back into your Raspberry Pi.</p>
 <h2 id="restore-original-firmware">Restore Original Firmware</h2>
 <p>To restore the original firmware, restore the stock <code>ch.bin</code> file in the blob folder.</p>
 <pre><code class="language-bash">sudo rm /usr/share/matrixlabs/matrixio-devices/blob/ch.bin
@@ -592,11 +593,12 @@ sudo cp /usr/share/matrixlabs/matrixio-devices/mcu_firmware_stock.version /usr/s
 <pre><code class="language-bash">sudo apt-mark unhold matrixio-creator-init
 </code></pre>
 
-<p>Wait 8 seconds for your device to power off and unplug the power cable from your device.</p>
+<p>Power off your device.</p>
 <pre><code class="language-bash">sudo poweroff
 </code></pre>
 
-<p>Plug the power cable back into your device.</p> 
+<p>Wait until the green led on your Raspberry Pi blinks 10 times, then unplug the power cable from your Raspberry Pi.</p>
+<p>Plug the power cable back into your Raspberry Pi.</p> 
         </div>
         <div class="toc-parent col-lg-2 col-md-3">
           <div class="toc">
