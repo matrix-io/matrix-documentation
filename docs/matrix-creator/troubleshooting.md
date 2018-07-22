@@ -89,12 +89,6 @@ echo 0 > /sys/class/gpio/gpio26/value
 echo 1 > /sys/class/gpio/gpio26/value
 ```
 
-Reboot your device.
-
-```language-bash
-sudo reboot
-```
-
 > MCU will be reflashed with stock firmware.
 
 Now you can flash the MCU.
@@ -116,11 +110,13 @@ Warn : Only resetting the Cortex-M core, use a reset-init event handler to reset
 shutdown command invoked
 ```
 
-Reboot your device.
+Wait 8 seconds for your device to power off and unplug the power cable from your device.
 
 ```language-bash
-sudo reboot
+sudo poweroff
 ```
+
+Plug the power cable back into your device.
 
 ## Reinstall MATRIX Kernel Modules
 

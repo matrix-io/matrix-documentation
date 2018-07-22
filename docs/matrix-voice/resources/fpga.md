@@ -52,11 +52,15 @@ Reboot your device.
 ```language-bash
 sudo reboot
 ```
+Backup the stock `system_voice.bit` file.
+
+```language-bash
+sudo mv /usr/share/matrixlabs/matrixio-devices/blob/system_voice.bit /usr/share/matrixlabs/matrixio-devices/blob/system_voice_stock.bit
+```
 
 Copy your built `system_voice.bit` FPGA bitstream file to the blob folder.
  
 ```language-bash
-sudo mv /usr/share/matrixlabs/matrixio-devices/blob/system_voice.bit /usr/share/matrixlabs/matrixio-devices/blob/system_voice_stock.bit
 sudo cp /path/to/your/file /usr/share/matrixlabs/matrixio-devices/blob/system_voice.bit
 ```
 
@@ -123,11 +127,29 @@ echo 0 > /sys/class/gpio/gpio26/value
 echo 1 > /sys/class/gpio/gpio26/value
 ```
 
-Reboot your device.
+In order to maintain compatibility with the `matrixio-creator-init` package, you'll need to backup the original `voice.version` file, and create your own.
 
 ```language-bash
-sudo reboot
+cd /usr/share/matrixlabs/matrixio-devices/
+sudo mv /usr/share/matrixlabs/matrixio-devices/voice.version /usr/share/matrixlabs/matrixio-devices/voice_stock.version
+(./fpga_info | grep FPGA) | sudo tee voice.version
 ```
+
+Updating the `matrixio-creator-init` package will cause the stock FPGA bitstream to be flashed upon next boot.
+
+You can stop `sudo apt-get upgrade` from automatically updating the `matrixio-creator-init` package with the following command.
+
+```language-bash
+sudo apt-mark hold matrixio-creator-init
+```
+
+Wait 8 seconds for your device to power off and unplug the power cable from your device.
+
+```language-bash
+sudo poweroff
+```
+
+Plug the power cable back into your device.
 
 ## Restore Original Firmware
 
@@ -201,8 +223,23 @@ echo 0 > /sys/class/gpio/gpio26/value
 echo 1 > /sys/class/gpio/gpio26/value
 ```
 
-Reboot your device.
+Restore the stock `voice.version` file.
 
 ```language-bash
-sudo reboot
+sudo rm /usr/share/matrixlabs/matrixio-devices/voice.version
+sudo cp /usr/share/matrixlabs/matrixio-devices/voice_stock.version /usr/share/matrixlabs/matrixio-devices/voice.version
 ```
+
+Allow `sudo apt-get upgrade` to update the `matrixio-creator-init` package.
+
+```language-bash
+sudo apt-mark unhold matrixio-creator-init
+```
+
+Wait 8 seconds for your device to power off and unplug the power cable from your device.
+
+```language-bash
+sudo poweroff
+```
+
+Plug the power cable back into your device.

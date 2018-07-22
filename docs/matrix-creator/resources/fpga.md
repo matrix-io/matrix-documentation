@@ -54,10 +54,15 @@ Reboot your device.
 sudo reboot
 ```
 
-Copy your built `system_creator.bit` FPGA bitstream file to the blob folder.
+Backup the stock `system_creator.bit` file.
 
 ```language-bash
 sudo mv /usr/share/matrixlabs/matrixio-devices/blob/system_creator.bit /usr/share/matrixlabs/matrixio-devices/blob/system_creator_stock.bit
+```
+
+Copy your built `system_creator.bit` FPGA bitstream file to the blob folder.
+
+```language-bash
 sudo cp /path/to/your/file /usr/share/matrixlabs/matrixio-devices/blob/system_creator.bit
 ```
 
@@ -103,11 +108,21 @@ echo 0 > /sys/class/gpio/gpio18/value
 echo 1 > /sys/class/gpio/gpio18/value
 ```
 
-Reboot your device.
+Updating the `matrixio-creator-init` package will cause the stock FPGA bitstream to be flashed upon next boot.
+
+You can stop `sudo apt-get upgrade` from automatically updating the `matrixio-creator-init` package with the following command.
 
 ```language-bash
-sudo reboot
+sudo apt-mark hold matrixio-creator-init
 ```
+
+Wait 8 seconds for your device to power off and unplug the power cable from your device.
+
+```language-bash
+sudo poweroff
+```
+
+Plug the power cable back into your device.
 
 ## Restore Original Firmware
 
@@ -115,7 +130,7 @@ To restore the original firmware, restore the stock `system_creator.bit` file in
 
 ```language-bash
 sudo rm /usr/share/matrixlabs/matrixio-devices/blob/system_creator.bit
-sudo mv /usr/share/matrixlabs/matrixio-devices/blob/system_creator_stock.bit /usr/share/matrixlabs/matrixio-devices/blob/system_creator.bit
+sudo cp /usr/share/matrixlabs/matrixio-devices/blob/system_creator_stock.bit /usr/share/matrixlabs/matrixio-devices/blob/system_creator.bit
 ```
 
 Now you can flash the FPGA.
@@ -160,8 +175,16 @@ echo 0 > /sys/class/gpio/gpio18/value
 echo 1 > /sys/class/gpio/gpio18/value
 ```
 
-Reboot your device.
+Allow `sudo apt-get upgrade` to update the `matrixio-creator-init` package.
 
 ```language-bash
-sudo reboot
+sudo apt-mark unhold matrixio-creator-init
 ```
+
+Wait 8 seconds for your device to power off and unplug the power cable from your device.
+
+```language-bash
+sudo poweroff
+```
+
+Plug the power cable back into your device.

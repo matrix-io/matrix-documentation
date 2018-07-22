@@ -110,11 +110,13 @@ echo 0 > /sys/class/gpio/gpio26/value
 echo 1 > /sys/class/gpio/gpio26/value
 ```
 
-Reboot your device.
+Wait 8 seconds for your device to power off and unplug the power cable from your device.
 
 ```language-bash
-sudo reboot
+sudo poweroff
 ```
+
+Plug the power cable back into your device.
 
 ## Reinstall MATRIX Kernel Modules
 
