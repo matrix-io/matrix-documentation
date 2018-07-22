@@ -511,9 +511,12 @@ sudo apt-get upgrade
 <pre><code class="language-bash">sudo reboot
 </code></pre>
 
-<p>Copy your built <code>system_creator.bit</code> FPGA bitstream file to the blob folder.</p>
+<p>Backup the stock <code>system_creator.bit</code> file.</p>
 <pre><code class="language-bash">sudo mv /usr/share/matrixlabs/matrixio-devices/blob/system_creator.bit /usr/share/matrixlabs/matrixio-devices/blob/system_creator_stock.bit
-sudo cp /path/to/your/file /usr/share/matrixlabs/matrixio-devices/blob/system_creator.bit
+</code></pre>
+
+<p>Copy your built <code>system_creator.bit</code> FPGA bitstream file to the blob folder.</p>
+<pre><code class="language-bash">sudo cp /path/to/your/file /usr/share/matrixlabs/matrixio-devices/blob/system_creator.bit
 </code></pre>
 
 <p>Now you can flash the FPGA.</p>
@@ -549,14 +552,20 @@ echo 0 &gt; /sys/class/gpio/gpio18/value
 echo 1 &gt; /sys/class/gpio/gpio18/value
 </code></pre>
 
-<p>Reboot your device.</p>
-<pre><code class="language-bash">sudo reboot
+<p>Updating the <code>matrixio-creator-init</code> package will cause the stock FPGA bitstream to be flashed upon next boot.</p>
+<p>You can stop <code>sudo apt-get upgrade</code> from automatically updating the <code>matrixio-creator-init</code> package with the following command.</p>
+<pre><code class="language-bash">sudo apt-mark hold matrixio-creator-init
 </code></pre>
 
+<p>Wait 8 seconds for your device to power off and unplug the power cable from your device.</p>
+<pre><code class="language-bash">sudo poweroff
+</code></pre>
+
+<p>Plug the power cable back into your device.</p>
 <h2 id="restore-original-firmware">Restore Original Firmware</h2>
 <p>To restore the original firmware, restore the stock <code>system_creator.bit</code> file in the blob folder.</p>
 <pre><code class="language-bash">sudo rm /usr/share/matrixlabs/matrixio-devices/blob/system_creator.bit
-sudo mv /usr/share/matrixlabs/matrixio-devices/blob/system_creator_stock.bit /usr/share/matrixlabs/matrixio-devices/blob/system_creator.bit
+sudo cp /usr/share/matrixlabs/matrixio-devices/blob/system_creator_stock.bit /usr/share/matrixlabs/matrixio-devices/blob/system_creator.bit
 </code></pre>
 
 <p>Now you can flash the FPGA.</p>
@@ -592,9 +601,15 @@ echo 0 &gt; /sys/class/gpio/gpio18/value
 echo 1 &gt; /sys/class/gpio/gpio18/value
 </code></pre>
 
-<p>Reboot your device.</p>
-<pre><code class="language-bash">sudo reboot
-</code></pre> 
+<p>Allow <code>sudo apt-get upgrade</code> to update the <code>matrixio-creator-init</code> package.</p>
+<pre><code class="language-bash">sudo apt-mark unhold matrixio-creator-init
+</code></pre>
+
+<p>Wait 8 seconds for your device to power off and unplug the power cable from your device.</p>
+<pre><code class="language-bash">sudo poweroff
+</code></pre>
+
+<p>Plug the power cable back into your device.</p> 
         </div>
         <div class="toc-parent col-lg-2 col-md-3">
           <div class="toc">

@@ -521,10 +521,6 @@ echo 0 &gt; /sys/class/gpio/gpio26/value
 echo 1 &gt; /sys/class/gpio/gpio26/value
 </code></pre>
 
-<p>Reboot your device.</p>
-<pre><code class="language-bash">sudo reboot
-</code></pre>
-
 <blockquote>
 <p>MCU will be reflashed with stock firmware.</p>
 </blockquote>
@@ -543,10 +539,11 @@ Warn : Only resetting the Cortex-M core, use a reset-init event handler to reset
 shutdown command invoked
 </code></pre>
 
-<p>Reboot your device.</p>
-<pre><code class="language-bash">sudo reboot
+<p>Wait 8 seconds for your device to power off and unplug the power cable from your device.</p>
+<pre><code class="language-bash">sudo poweroff
 </code></pre>
 
+<p>Plug the power cable back into your device.</p>
 <h2 id="reinstall-matrix-kernel-modules">Reinstall MATRIX Kernel Modules</h2>
 <p>If you experience strange behavior, reinstall the MATRIX kernel modules.</p>
 <p>Uninstall the <code>matrixio-kernel-modules</code> package.</p>

@@ -521,10 +521,13 @@ cd matrix-creator-mcu/creator/
 make
 </code></pre>
 
+<p>Backup the stock <code>ch.bin</code> file.</p>
+<pre><code class="language-bash">sudo mv /usr/share/matrixlabs/matrixio-devices/blob/ch.bin /usr/share/matrixlabs/matrixio-devices/blob/ch_stock.bin
+</code></pre>
+
 <p>Copy your built <code>ch.bin</code> file to the blob folder.</p>
 <pre><code class="language-bash">cd ~/
 cd matrix-creator-mcu/creator/
-sudo mv /usr/share/matrixlabs/matrixio-devices/blob/ch.bin /usr/share/matrixlabs/matrixio-devices/blob/ch_stock.bin
 sudo cp ./build/ch.bin /usr/share/matrixlabs/matrixio-devices/blob/ch.bin
 </code></pre>
 
@@ -543,14 +546,26 @@ Warn : Only resetting the Cortex-M core, use a reset-init event handler to reset
 shutdown command invoked
 </code></pre>
 
-<p>Reboot your device.</p>
-<pre><code class="language-bash">sudo reboot
+<p>In order to maintain compatibility with the <code>matrixio-creator-init</code> package, you'll need to backup the original <code>mcu_firmware.version</code> file, and create your own.</p>
+<pre><code class="language-bash">cd /usr/share/matrixlabs/matrixio-devices/
+sudo mv /usr/share/matrixlabs/matrixio-devices/mcu_firmware.version /usr/share/matrixlabs/matrixio-devices/mcu_firmware_stock.version
+(./firmware_info | grep MCU) | sudo tee mcu_firmware.version
 </code></pre>
 
+<p>Updating the <code>matrixio-creator-init</code> package will cause the stock FPGA bitstream to be flashed upon next boot.</p>
+<p>You can stop <code>sudo apt-get upgrade</code> from automatically updating the <code>matrixio-creator-init</code> package with the following command.</p>
+<pre><code class="language-bash">sudo apt-mark hold matrixio-creator-init
+</code></pre>
+
+<p>Wait 8 seconds for your device to power off and unplug the power cable from your device.</p>
+<pre><code class="language-bash">sudo poweroff
+</code></pre>
+
+<p>Plug the power cable back into your device.</p>
 <h2 id="restore-original-firmware">Restore Original Firmware</h2>
 <p>To restore the original firmware, restore the stock <code>ch.bin</code> file in the blob folder.</p>
 <pre><code class="language-bash">sudo rm /usr/share/matrixlabs/matrixio-devices/blob/ch.bin
-sudo mv /usr/share/matrixlabs/matrixio-devices/blob/ch_stock.bin /usr/share/matrixlabs/matrixio-devices/blob/ch.bin
+sudo cp /usr/share/matrixlabs/matrixio-devices/blob/ch_stock.bin /usr/share/matrixlabs/matrixio-devices/blob/ch.bin
 </code></pre>
 
 <p>Now you can flash the MCU.</p>
@@ -568,9 +583,20 @@ Warn : Only resetting the Cortex-M core, use a reset-init event handler to reset
 shutdown command invoked
 </code></pre>
 
-<p>Reboot your device.</p>
-<pre><code class="language-bash">sudo reboot
-</code></pre> 
+<p>Restore the stock <code>mcu_firmware.version</code> file.</p>
+<pre><code class="language-bash">sudo rm /usr/share/matrixlabs/matrixio-devices/mcu_firmware.version
+sudo cp /usr/share/matrixlabs/matrixio-devices/mcu_firmware_stock.version /usr/share/matrixlabs/matrixio-devices/mcu_firmware.version
+</code></pre>
+
+<p>Allow <code>sudo apt-get upgrade</code> to update the <code>matrixio-creator-init</code> package.</p>
+<pre><code class="language-bash">sudo apt-mark unhold matrixio-creator-init
+</code></pre>
+
+<p>Wait 8 seconds for your device to power off and unplug the power cable from your device.</p>
+<pre><code class="language-bash">sudo poweroff
+</code></pre>
+
+<p>Plug the power cable back into your device.</p> 
         </div>
         <div class="toc-parent col-lg-2 col-md-3">
           <div class="toc">
