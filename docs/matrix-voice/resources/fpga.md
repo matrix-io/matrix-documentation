@@ -143,13 +143,15 @@ You can stop `sudo apt-get upgrade` from automatically updating the `matrixio-cr
 sudo apt-mark hold matrixio-creator-init
 ```
 
-Wait 8 seconds for your device to power off and unplug the power cable from your device.
+Power off your device.
 
 ```language-bash
 sudo poweroff
 ```
 
-Plug the power cable back into your device.
+Wait until the green led on your Raspberry Pi blinks 10 times, then unplug the power cable from your Raspberry Pi.
+
+Plug the power cable back into your Raspberry Pi.
 
 ## Restore Original Firmware
 
@@ -236,10 +238,12 @@ Allow `sudo apt-get upgrade` to update the `matrixio-creator-init` package.
 sudo apt-mark unhold matrixio-creator-init
 ```
 
-Wait 8 seconds for your device to power off and unplug the power cable from your device.
+Power off your device.
 
 ```language-bash
 sudo poweroff
 ```
 
-Plug the power cable back into your device.
+Wait until the green led on your Raspberry Pi blinks 10 times, then unplug the power cable from your Raspberry Pi.
+
+Plug the power cable back into your Raspberry Pi.

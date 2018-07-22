@@ -110,13 +110,15 @@ echo 0 > /sys/class/gpio/gpio26/value
 echo 1 > /sys/class/gpio/gpio26/value
 ```
 
-Wait 8 seconds for your device to power off and unplug the power cable from your device.
+Power off your device.
 
 ```language-bash
 sudo poweroff
 ```
 
-Plug the power cable back into your device.
+Wait until the green led on your Raspberry Pi blinks 10 times, then unplug the power cable from your Raspberry Pi.
+
+Plug the power cable back into your Raspberry Pi.
 
 ## Reinstall MATRIX Kernel Modules
 

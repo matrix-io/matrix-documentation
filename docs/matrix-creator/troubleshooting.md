@@ -110,13 +110,15 @@ Warn : Only resetting the Cortex-M core, use a reset-init event handler to reset
 shutdown command invoked
 ```
 
-Wait 8 seconds for your device to power off and unplug the power cable from your device.
+Power off your device.
 
 ```language-bash
 sudo poweroff
 ```
 
-Plug the power cable back into your device.
+Wait until the green led on your Raspberry Pi blinks 10 times, then unplug the power cable from your Raspberry Pi.
+
+Plug the power cable back into your Raspberry Pi.
 
 ## Reinstall MATRIX Kernel Modules
 
