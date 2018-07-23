@@ -159,7 +159,7 @@ To restore the original firmware, restore the stock `system_voice.bit` file in t
 
 ```language-bash
 sudo rm /usr/share/matrixlabs/matrixio-devices/blob/system_voice.bit
-sudo mv /usr/share/matrixlabs/matrixio-devices/blob/system_voice_stock.bit /usr/share/matrixlabs/matrixio-devices/blob/system_voice.bit
+sudo cp /usr/share/matrixlabs/matrixio-devices/blob/system_voice_stock.bit /usr/share/matrixlabs/matrixio-devices/blob/system_voice.bit
 ```
 
 Now you can flash the FPGA.
