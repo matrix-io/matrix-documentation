@@ -586,7 +586,7 @@ sudo mv /usr/share/matrixlabs/matrixio-devices/voice.version /usr/share/matrixla
 <h2 id="restore-original-firmware">Restore Original Firmware</h2>
 <p>To restore the original firmware, restore the stock <code>system_voice.bit</code> file in the blob folder.</p>
 <pre><code class="language-bash">sudo rm /usr/share/matrixlabs/matrixio-devices/blob/system_voice.bit
-sudo mv /usr/share/matrixlabs/matrixio-devices/blob/system_voice_stock.bit /usr/share/matrixlabs/matrixio-devices/blob/system_voice.bit
+sudo cp /usr/share/matrixlabs/matrixio-devices/blob/system_voice_stock.bit /usr/share/matrixlabs/matrixio-devices/blob/system_voice.bit
 </code></pre>
 
 <p>Now you can flash the FPGA.</p>
