@@ -159,9 +159,15 @@ if __name__ == '__main__':
 ```
 
 <h3 style="padding-top: 0">Running app.js</h3>
-Once you have the app.js code copied, use the following command to run a simple hello world app.
+Once you have the app.js code copied, use one of the following commands to run a simple hello world app.
+
+<h4 style="padding-top: 0">Python 2</h4>
 ```language-bash
 python app.py
+```
+<h4 style="padding-top: 0">Python 3</h4>
+```language-bash
+python3 app.py
 ```
 <h3 style="padding-top: 0">Result</h3>
 ![](/matrix-core/img/install-setup-test.gif)
