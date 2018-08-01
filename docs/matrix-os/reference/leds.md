@@ -2,7 +2,8 @@
 
 ### Device Compatibility
 <img class="creator-compatibility-icon" src="../../img/creator-icon.svg">
-<img class="voice-compatibility-icon" src="../../img/voice-icon.svg">
+<!-- <img class="voice-compatibility-icon" src="../../img/voice-icon.svg"> -->
+> MATRIX Voice is currently experiencing issues with LEDs in the MATRIX Open System.
 
 The Everloop is a powerful tool for visually communicating through LEDs. Click the video below to learn more.
 

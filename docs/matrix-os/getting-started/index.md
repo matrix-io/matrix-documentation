@@ -1,4 +1,6 @@
 ## Getting Started
+⚠️ **CURRENTLY UNDER MAINTENANCE** ⚠️
+> During this maintenance we **strongly** suggest that you use [MATRIX CORE](../matrix-core/overview) or [MATRIX HAL](../matrix-hal/overview) as an alternative.
 
 <h3><a href="installation">Installation</a>
 </h3>
