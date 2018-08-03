@@ -158,8 +158,8 @@ if __name__ == '__main__':
         print(' quit')
 ```
 
-<h3 style="padding-top: 0">Running app.js</h3>
-Once you have the app.js code copied, use one of the following commands to run a simple hello world app.
+<h3 style="padding-top: 0">Running app.py</h3>
+Once you have the app.py code copied, use one of the following commands to run a simple hello world app.
 
 <h4 style="padding-top: 0">Python 2</h4>
 ```language-bash
