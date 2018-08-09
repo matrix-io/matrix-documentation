@@ -314,7 +314,7 @@ int main() {
 <summary style="font-size: 1.5rem; font-weight: 300;">Main Setup</summary>
 Now we will create our `GPIOControl` object and use it to output and input a digital GPIO signal.
 
-Servo neutral position is achieved with a 1.5ms pulse, so by taking the minimum servo pulse (ms) the SetServoAngle function calibrates servo angle.
+Servo neutral position is achieved with a 1.5 milliseconds pulse, so by taking the minimum servo pulse (in milliseconds) the SetServoAngle function calibrates servo angle.
 If unsure of min_pulse_ms enter `0.8`.
 
 ```language-cpp
