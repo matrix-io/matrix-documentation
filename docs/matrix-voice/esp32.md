@@ -5,17 +5,27 @@ This guide will show you how to get started with the ESP32 module on the MATRIX 
 
 Run the following commands inside your Raspberry Pi terminal to install the MATRIX Voice Software. This will keep the FPGA firmware updated and install few tools to flash the ESP-WROOM-32.
 
+Add the MATRIX repository and key.
 ```language-bash
-# Add repo and key
 curl https://apt.matrix.one/doc/apt-key.gpg | sudo apt-key add -
 echo "deb https://apt.matrix.one/raspbian $(lsb_release -sc) main" | sudo tee /etc/apt/sources.list.d/matrixlabs.list
-# Update packages and install
+```
+
+Update your repository and packages.
+```language-bash
 sudo apt-get update
 sudo apt-get upgrade
-# Installation
+```
+
+Install the MATRIX init package.
+```language-bash
 sudo apt install matrixio-creator-init
 ```
-Reboot your Raspberry Pi to make sure all the required services are running.
+
+Reboot your Raspberry Pi.
+```language-bash
+sudo reboot
+```
 
 ## Step 2: Personal Computer Setup
 
