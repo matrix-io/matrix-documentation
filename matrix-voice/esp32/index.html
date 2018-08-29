@@ -459,17 +459,24 @@
 <p>This guide will show you how to get started with the ESP32 module on the MATRIX Voice ESP32 version.</p>
 <h2 id="step-1-raspberry-pi-setup">Step 1: Raspberry Pi Setup</h2>
 <p>Run the following commands inside your Raspberry Pi terminal to install the MATRIX Voice Software. This will keep the FPGA firmware updated and install few tools to flash the ESP-WROOM-32.</p>
-<pre><code class="language-bash"># Add repo and key
-curl https://apt.matrix.one/doc/apt-key.gpg | sudo apt-key add -
+<p>Add the MATRIX repository and key.</p>
+<pre><code class="language-bash">curl https://apt.matrix.one/doc/apt-key.gpg | sudo apt-key add -
 echo &quot;deb https://apt.matrix.one/raspbian $(lsb_release -sc) main&quot; | sudo tee /etc/apt/sources.list.d/matrixlabs.list
-# Update packages and install
-sudo apt-get update
-sudo apt-get upgrade
-# Installation
-sudo apt install matrixio-creator-init
 </code></pre>
 
-<p>Reboot your Raspberry Pi to make sure all the required services are running.</p>
+<p>Update your repository and packages.</p>
+<pre><code class="language-bash">sudo apt-get update
+sudo apt-get upgrade
+</code></pre>
+
+<p>Install the MATRIX init package.</p>
+<pre><code class="language-bash">sudo apt install matrixio-creator-init
+</code></pre>
+
+<p>Reboot your Raspberry Pi.</p>
+<pre><code class="language-bash">sudo reboot
+</code></pre>
+
 <h2 id="step-2-personal-computer-setup">Step 2: Personal Computer Setup</h2>
 <p>Here we're installing the requirements needed to allow your pc to develop and compile ESP32 projects.</p>
 <p><b>Install Git:</b></p>
@@ -629,7 +636,7 @@ make deploy
           <span>MATRIX</span>
         </a>
         <small class="copyright">
-          2017 &copy; MATRIX - All rights reserved
+          2018 &copy; MATRIX - All rights reserved
         </small>
       </div>
       <div class="col-sm-6">
