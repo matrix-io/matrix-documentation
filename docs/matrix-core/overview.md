@@ -6,7 +6,7 @@ MATRIX CORE is an abstraction layer for **MATRIX HAL** and the foundation for **
 
 ### [Getting Started](getting-started)
 
-Learn how to install MATRIX CORE and gain a deeper understanding of how this layer interacts with your MATRIX device. Setup tutorials and hello world examples for Javascript & Python are available here.
+Learn how to install MATRIX CORE and gain a deeper understanding of how this layer interacts with your MATRIX device. Setup tutorials and hello world examples for Javascript, Python, and Golang are available here.
 
 ### [Driver Protocols](protocols)
 
