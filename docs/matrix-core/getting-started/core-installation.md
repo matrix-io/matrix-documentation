@@ -78,4 +78,5 @@ Now that you have MATRIX CORE and ZeroMQ installed, please take a look at Unders
 If you're already familiar, you can learn how to setup a programming language for communicating with CORE.  We currently have tutorials for the following languages:
 
 * [Javascript](javascript-installation.md)
-* [Python](python-installation)
+* [Python](python-installation.md)
+* [Golang](golang-installation.md)

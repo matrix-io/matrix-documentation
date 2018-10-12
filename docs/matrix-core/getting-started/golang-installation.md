@@ -20,12 +20,12 @@ Next, the Go environment variables need to be setup.
 echo -e "\n##Golang Environment Variables##" | sudo tee -a /etc/profile
 echo 'export PATH=$PATH:/usr/local/go/bin' | sudo tee -a /etc/profile
 echo 'export GOBIN="$GOPATH/bin"' | sudo tee -a /etc/profile
-source ~/.profile
+source /etc/profile
 ```
 
-Go should now be properly installed on your Raspberry Pi! Run the command below to make sure it's properly installed.
+Go should now be properly installed on your Raspberry Pi! Run the command below to make sure it's properly installed. The output you should receive is `go version go1.11 linux/arm`.
 ```language-bash
-go -version
+go version
 ```
 
 
