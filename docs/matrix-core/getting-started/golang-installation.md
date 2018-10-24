@@ -8,18 +8,20 @@ Before downloading Go, you'll need to make sure you have `git` installed.
 sudo apt-get install git
 ```
 
-With `wget` now installed, you can begin downloading <a href="https://golang.org/dl/" target="_blank">Go v1.11.1</a>.
+With `wget` now installed, you can downlaod<a href="https://golang.org/dl/" target="_blank">Go v1.11.1</a>.
 ```language-bash
 wget https://dl.google.com/go/go1.11.linux-armv6l.tar.gz
 sudo tar -C /usr/local -xvzf go1.11.linux-armv6l.tar.gz
 rm go1.11.linux-armv6l.tar.gz
 ```
 
-Next, the Go environment variables need to be setup.
+Next, the `GOPATH` folder and Go environment variables need to be setup.
 ```language-bash
+mkdir -p ~/go/{bin,src,pkg}
 echo -e "\n##Golang Environment Variables##" | sudo tee -a /etc/profile
 echo 'export PATH=$PATH:/usr/local/go/bin' | sudo tee -a /etc/profile
 echo 'export GOBIN="$GOPATH/bin"' | sudo tee -a /etc/profile
+echo 'export GOPATH=$HOME/go' | sudo tee -a /etc/profile
 source /etc/profile
 ```
 
