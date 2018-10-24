@@ -8,7 +8,7 @@ Before downloading Go, you'll need to make sure you have `git` installed.
 sudo apt-get install git
 ```
 
-With `wget` now installed, you can downlaod<a href="https://golang.org/dl/" target="_blank">Go v1.11.1</a>.
+With `wget` now installed, you can downlaod <a href="https://golang.org/dl/" target="_blank">Go v1.11.1</a>.
 ```language-bash
 wget https://dl.google.com/go/go1.11.linux-armv6l.tar.gz
 sudo tar -C /usr/local -xvzf go1.11.linux-armv6l.tar.gz
