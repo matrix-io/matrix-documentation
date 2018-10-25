@@ -63,66 +63,140 @@ go get github.com/matrix-io/matrix-protos-go
 To ensure your installation has succeeded, create a file named main.go and paste the code below.
 
 ```language-go
-// Set Initial Variables \\
-var zmq = require('zeromq');// Asynchronous Messaging Framework
-var matrix_io = require('matrix-protos').matrix_io;// Protocol Buffers for MATRIX function
-var matrix_ip = '127.0.0.1';// Local IP
-var matrix_everloop_base_port = 20021// Port for Everloop driver
-var matrix_device_leds = 0;// Holds amount of LEDs on MATRIX device
+package main
 
-// ERROR PORT \\
-var errorSocket = zmq.socket('sub');// Create a Subscriber socket
-errorSocket.connect('tcp://' + matrix_ip + ':' + (matrix_everloop_base_port + 2));// Connect Subscriber to Error port
-errorSocket.subscribe('');// Subscribe to messages
-// On Message
-errorSocket.on('message', (error_message) => {
-	console.log('Error received: ' + error_message.toString('utf8'));// Log error
-});
+// 20021
+import (
+	"fmt"
+	"math/rand"
+	"time"
 
-// DATA UPDATE PORT \\
-var updateSocket = zmq.socket('sub');// Create a Subscriber socket
-updateSocket.connect('tcp://' + matrix_ip + ':' + (matrix_everloop_base_port + 3));// Connect Subscriber to Data Update port
-updateSocket.subscribe('');// Subscribe to messages
-// On Message
-updateSocket.on('message', (buffer) => {
-	var data = matrix_io.malos.v1.io.EverloopImage.decode(buffer);// Extract message
-	matrix_device_leds = data.everloopLength;// Save MATRIX device LED count
-});
+	"github.com/golang/protobuf/proto"
+	matrix "github.com/matrix-io/matrix-protos-go/matrix_io/malos/v1"
+	zmq "github.com/pebbe/zmq4"
+)
 
-// KEEP-ALIVE PORT \\
-var pingSocket = zmq.socket('push');// Create a Pusher socket
-pingSocket.connect('tcp://' + matrix_ip + ':' + (matrix_everloop_base_port + 1));// Connect Pusher to Keep-alive port
-pingSocket.send('');// Send a single ping
+// Global Channel
+var portStatus = make(chan string, 4)
+
+// Global Vars
+var everloop = matrix.EverloopImage{}
+
+func main() {
+	fmt.Println("Starting GO")
+
+	// Asynchronously Call MATRIX CORE Ports
+	go keepAlivePort()
+	go errorPort()
+	go dataUpdatePort()
+
+	// Wait For Each Port Connection
+	for portStatus := range portStatus {
+		fmt.Println("received", portStatus)
+	}
+}
 
 // BASE PORT \\
-var configSocket = zmq.socket('push');// Create a Pusher socket
-configSocket.connect('tcp://' + matrix_ip + ':' + matrix_everloop_base_port);// Connect Pusher to Base port
+func basePort() {
+	// Connect ZMQ Socket To MATRIX CORE
+	pusher, _ := zmq.NewSocket(zmq.PUSH)    // Create A Pusher Socket
+	pusher.Connect("tcp://127.0.0.1:20021") // Connect Pusher To Data Update Port
 
-// Create an empty Everloop image
-var image = matrix_io.malos.v1.io.EverloopImage.create();
+	// Notify That Port Is Ready
+	portStatus <- "Base Port: CONNECTED"
 
-// Loop every 50 milliseconds
-setInterval(function(){
-    // For each device LED
-    for (var i = 0; i < matrix_device_leds; ++i) {
-        // Set individual LED value
-        image.led[i] = {
-            red: Math.floor(Math.random() * 200)+1,
-            green: Math.floor(Math.random() * 255)+1,
-            blue: Math.floor(Math.random() * 50)+1,
-            white: 0
-        };
-    }
+	// Keep Sending Everloop Image
+	for {
+		// Reset Array
+		everloop.Led = []*matrix.LedValue{}
+		// Create x Amount Of Randomly Colored LEDs
+		for i := int32(0); i < everloop.EverloopLength; i++ {
+			led := matrix.LedValue{
+				Red:   (uint32)(rand.Int31n(200) + 1),
+				Green: (uint32)(rand.Int31n(255) + 1),
+				Blue:  (uint32)(rand.Int31n(50) + 1),
+				White: 0,
+			}
+			// Add New LED to Everloop LED Array
+			everloop.Led = append(everloop.Led, &led)
+		}
 
-    // Store the Everloop image in MATRIX configuration
-    var config = matrix_io.malos.v1.driver.DriverConfig.create({
-        'image': image
-	});
-	
-    // Send MATRIX configuration to MATRIX device
-    if(matrix_device_leds > 0)
-        configSocket.send(matrix_io.malos.v1.driver.DriverConfig.encode(config).finish());
-},50);
+		// Create Everloop Driver Configuration Protocol
+		configuration := matrix.DriverConfig{
+			Image:                &everloop,
+			TimeoutAfterLastPing: 6.0,
+			DelayBetweenUpdates:  6.0,
+		}
+		//Encode Protocol Buffer
+		var encodedConfiguration, _ = proto.Marshal(&configuration)
+		// Send Protocol Buffer
+		pusher.Send(string((encodedConfiguration)), 1)
+
+		time.Sleep(50 * time.Millisecond) // Wait 2 Seconds
+	}
+}
+
+// KEEP-ALIVE PORT \\
+func keepAlivePort() {
+	// Connect ZMQ Socket To MATRIX CORE
+	pusher, _ := zmq.NewSocket(zmq.PUSH)    // Create A Pusher Socket
+	pusher.Connect("tcp://127.0.0.1:20022") // Connect Pusher To Data Update Port
+
+	// Notify That Port Is Ready
+	portStatus <- "Keep-Alive Port: CONNECTED"
+
+	// Keep Sending Keep Alive Message
+	for everloop.EverloopLength <= 0 {
+		fmt.Println("Sending Ping")
+		pusher.Send("", 1)                  // Send Empty String
+		time.Sleep(2000 * time.Millisecond) // Wait 2 Seconds
+	}
+
+	go basePort() // Send Configuration Message
+
+}
+
+// ERROR PORT \\
+func errorPort() {
+	// Connect ZMQ Socket To MATRIX CORE
+	subscriber, _ := zmq.NewSocket(zmq.SUB)     // Create A Subscriber Socket
+	subscriber.Connect("tcp://127.0.0.1:20023") // Connect Subscriber To Data Update Port
+	subscriber.SetSubscribe("")                 // Subscribe To Data Update Port Messages
+
+	// Notify That Port Is Ready
+	portStatus <- "Error Port: CONNECTED"
+
+	// Wait For Error
+	for {
+		// On Error
+		message, _ := subscriber.Recv(2)
+		// Print Error
+		fmt.Println("ERROR:", message)
+	}
+}
+
+// DATA UPDATE PORT \\
+func dataUpdatePort() {
+	// Connect ZMQ Socket To MATRIX CORE
+	subscriber, _ := zmq.NewSocket(zmq.SUB)     // Create A Subscriber Socket
+	subscriber.Connect("tcp://127.0.0.1:20024") // Connect Subscriber To Data Update Port
+	subscriber.SetSubscribe("")                 // Subscribe To Data Update Port Messages
+
+	// Notify That Port Is Ready
+	portStatus <- "Data Update Port: CONNECTED"
+
+	// Wait For Data
+	for {
+		// On Data
+		message, _ := subscriber.Recv(2)
+		// Decode Protocol Buffer
+		proto.Unmarshal([]byte(message), &everloop)
+		// Print Data
+		fmt.Print("\nEverloop Length:", everloop.EverloopLength, "\n\n")
+		// Close Data Update Port
+		return
+	}
+}
 ```
 
 <h3 style="padding-top: 0">Running main.go</h3>
