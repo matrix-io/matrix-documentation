@@ -1,6 +1,8 @@
 > Ensure you have [MATRIX CORE](core-installation.md) installed, before moving on.
 
 ## Installing Golang
+<img src="/matrix-core/img/golang-mascot.png" width=400 />
+
 This setup will go through how to install <a href="https://golang.org/" target="_blank">Golang</a> and the dependencies needed to create a Go application that can communicate with MATRIX CORE. Run the following on your Raspberry Pi.
 
 Before downloading Go, you'll need to make sure you have `git` installed.
@@ -8,7 +10,7 @@ Before downloading Go, you'll need to make sure you have `git` installed.
 sudo apt-get install git
 ```
 
-With `git` now installed, you can downlaod <a href="https://golang.org/dl/" target="_blank">Go v1.11.1</a>.
+You can then download and install <a href="https://golang.org/dl/" target="_blank">Go v1.11.1</a>.
 ```language-bash
 wget https://dl.google.com/go/go1.11.linux-armv6l.tar.gz
 sudo tar -C /usr/local -xvzf go1.11.linux-armv6l.tar.gz
@@ -65,27 +67,24 @@ To ensure your installation has succeeded, create a file named main.go and paste
 ```language-go
 package main
 
-// 20021
 import (
 	"fmt"
 	"math/rand"
 	"time"
 
 	"github.com/golang/protobuf/proto"
-	matrix "github.com/matrix-io/matrix-protos-go/matrix_io/malos/v1"
+	core "github.com/matrix-io/matrix-protos-go/matrix_io/malos/v1"
 	zmq "github.com/pebbe/zmq4"
 )
 
-// Global Channel
-var portStatus = make(chan string, 4)
-
 // Global Vars
-var everloop = matrix.EverloopImage{}
+var portStatus = make(chan string, 4)
+var everloop = core.EverloopImage{}
 
 func main() {
-	fmt.Println("Starting GO")
+	fmt.Println("Starting MATRIX CORE Everloop")
 
-	// Asynchronously Call MATRIX CORE Ports
+	// Asynchronously Start MATRIX CORE Ports
 	go keepAlivePort()
 	go errorPort()
 	go dataUpdatePort()
@@ -107,11 +106,9 @@ func basePort() {
 
 	// Keep Sending Everloop Image
 	for {
-		// Reset Array
-		everloop.Led = []*matrix.LedValue{}
-		// Create x Amount Of Randomly Colored LEDs
+		// Create (x) Amount Of Randomly Colored LEDs
 		for i := int32(0); i < everloop.EverloopLength; i++ {
-			led := matrix.LedValue{
+			led := core.LedValue{
 				Red:   (uint32)(rand.Int31n(200) + 1),
 				Green: (uint32)(rand.Int31n(255) + 1),
 				Blue:  (uint32)(rand.Int31n(50) + 1),
@@ -122,17 +119,18 @@ func basePort() {
 		}
 
 		// Create Everloop Driver Configuration Protocol
-		configuration := matrix.DriverConfig{
-			Image:                &everloop,
-			TimeoutAfterLastPing: 6.0,
-			DelayBetweenUpdates:  6.0,
+		configuration := core.DriverConfig{
+			Image: &everloop,
 		}
 		//Encode Protocol Buffer
 		var encodedConfiguration, _ = proto.Marshal(&configuration)
 		// Send Protocol Buffer
 		pusher.Send(string((encodedConfiguration)), 1)
 
-		time.Sleep(50 * time.Millisecond) // Wait 2 Seconds
+		// Reset Everloop Array
+		everloop.Led = []*core.LedValue{}
+		// Loop delay
+		time.Sleep(50 * time.Millisecond)
 	}
 }
 
@@ -145,15 +143,8 @@ func keepAlivePort() {
 	// Notify That Port Is Ready
 	portStatus <- "Keep-Alive Port: CONNECTED"
 
-	// Keep Sending Keep Alive Message
-	for everloop.EverloopLength <= 0 {
-		fmt.Println("Sending Ping")
-		pusher.Send("", 1)                  // Send Empty String
-		time.Sleep(2000 * time.Millisecond) // Wait 2 Seconds
-	}
-
-	go basePort() // Send Configuration Message
-
+	// Send Keep Alive Message
+	pusher.Send("", 1)
 }
 
 // ERROR PORT \\
@@ -193,10 +184,14 @@ func dataUpdatePort() {
 		proto.Unmarshal([]byte(message), &everloop)
 		// Print Data
 		fmt.Print("\nEverloop Length:", everloop.EverloopLength, "\n\n")
+
+		// Start Base Port
+		go basePort() // Send Configuration Message
 		// Close Data Update Port
 		return
 	}
 }
+
 ```
 
 <h3 style="padding-top: 0">Running main.go</h3>
@@ -208,4 +203,6 @@ go run main.go
 ![](/matrix-core/img/install-setup-test.gif)
 
 ## Next Steps
-Now that everything is properly installed, learn more about the Everloop and other [Driver Protocols](../protocols) MATRIX Core has to offer, or view the available [Go examples](../go-examples).
+ Now that everything is properly installed, learn more about the Everloop and other [Driver Protocols](../protocols) MATRIX Core has to offer. **Go examples coming soon!**
+
+<!-- Now that everything is properly installed, learn more about the Everloop and other [Driver Protocols](../protocols) MATRIX Core has to offer, or view the available [Go examples](../go-examples). -->

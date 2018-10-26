@@ -43,6 +43,16 @@ wget https://download.opensuse.org/repositories/network:/messaging:/zeromq:/rele
 ```
 
 <br/>
+## Next Steps
+Now that you have MATRIX CORE and ZeroMQ installed, please take a look at Understanding CORE [here](understanding-core.md).
+
+If you're already familiar, you can learn how to setup a programming language for communicating with CORE.  We currently have tutorials for the following languages:
+
+* [Javascript](javascript-installation.md)
+* [Python](python-installation.md)
+* [Golang](golang-installation.md)
+
+<br/>
 ## Helpful Information
 <h3 style="padding-top: 0">Upgrading</h3>
 
@@ -70,13 +80,3 @@ If you need to manually start MATRIX CORE again use:
 ```language-bash
 malos &
 ```
-
-<br/>
-## Next Steps
-Now that you have MATRIX CORE and ZeroMQ installed, please take a look at Understanding CORE [here](understanding-core.md).
-
-If you're already familiar, you can learn how to setup a programming language for communicating with CORE.  We currently have tutorials for the following languages:
-
-* [Javascript](javascript-installation.md)
-* [Python](python-installation.md)
-* [Golang](golang-installation.md)
