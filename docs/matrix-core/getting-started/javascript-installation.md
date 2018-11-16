@@ -34,7 +34,7 @@ npm install matrix-protos --save
 <br/>
 ## Check If Everything Works
 <h3 style="padding-top: 0">Creating app.js</h3>
-To ensure your installation has succeeded, create a file named app.js and paste the code below.
+To ensure your installation has succeeded, create a file named `app.js` and paste the code below.
 
 ```language-javascript
 // Set Initial Variables \\

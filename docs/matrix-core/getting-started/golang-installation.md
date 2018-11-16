@@ -10,11 +10,11 @@ Before downloading Go, you'll need to make sure you have `git` installed.
 sudo apt-get install git
 ```
 
-You can then download and install <a href="https://golang.org/dl/" target="_blank">Go v1.11.1</a>.
+You can then download and install <a href="https://golang.org/dl/" target="_blank">Go v1.11.2</a>.
 ```language-bash
-wget https://dl.google.com/go/go1.11.linux-armv6l.tar.gz
-sudo tar -C /usr/local -xvzf go1.11.linux-armv6l.tar.gz
-rm go1.11.linux-armv6l.tar.gz
+wget https://dl.google.com/go/go1.11.2.linux-armv6l.tar.gz
+sudo tar -C /usr/local -xvzf go1.11.2.linux-armv6l.tar.gz
+rm go1.11.2.linux-armv6l.tar.gz
 ```
 
 Next, the `GOPATH` folder and Go environment variables need to be setup.
@@ -22,8 +22,9 @@ Next, the `GOPATH` folder and Go environment variables need to be setup.
 mkdir -p ~/go/{bin,src,pkg}
 echo -e "\n##Golang Environment Variables##" | sudo tee -a /etc/profile
 echo 'export PATH=$PATH:/usr/local/go/bin' | sudo tee -a /etc/profile
-echo 'export GOBIN="$GOPATH/bin"' | sudo tee -a /etc/profile
 echo 'export GOPATH=$HOME/go' | sudo tee -a /etc/profile
+echo 'export GOBIN=$GOPATH/bin' | sudo tee -a /etc/profile
+echo 'export PATH=$PATH:$GOBIN' | sudo tee -a /etc/profile
 source /etc/profile
 ```
 
@@ -37,7 +38,7 @@ go version
 ## Installing ZMQ Dependency
 Although ZMQ has already been installed, Go needs an extra dependency in order to utilize it.
 ```language-bash
-sudo apt-get install libsodium-dev;
+sudo apt-get install libsodium-dev
 ```
 
 
@@ -62,7 +63,7 @@ go get github.com/matrix-io/matrix-protos-go
 <br/>
 ## Check If Everything Works
 <h3 style="padding-top: 0">Creating main.go</h3>
-To ensure your installation has succeeded, create a file named main.go and paste the code below.
+To ensure your installation has succeeded, create a file named `main.go` and paste the code below.
 
 ```language-go
 package main

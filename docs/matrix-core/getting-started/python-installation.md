@@ -41,7 +41,7 @@ pip3 install -r requirements.txt
 <br/>
 ## Check If Everything Works
 <h3 style="padding-top: 0">Creating app.py</h3>
-To ensure your installation has succeeded, create a file named app.py and paste the code below.
+To ensure your installation has succeeded, create a file named `app.py` and paste the code below.
 
 ```language-python
 ## Set Initial Variables ##
