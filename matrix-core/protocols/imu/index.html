@@ -516,28 +516,50 @@ This port accepts 2 configurations for communicating with the IMU driver. </p>
 </details></p>
 <!-- Keep-alive PORT -->
 
-<details open>
+<p><details open>
 <summary style="font-size: 1.75rem; font-weight: 300;">Keep-alive Port</summary>
-This driver needs keep-alive messages in order to send data to your application. It's recommended to send an empty string `""` because the contents of a keep-alive message are never read.
-</details>
-
+This driver needs keep-alive messages in order to send data to your application. It's recommended to send an empty string <code>""</code> because the contents of a keep-alive message are never read.
+</details></p>
 <!-- Error PORT -->
 
-<details open>
+<p><details open>
 <summary style="font-size: 1.75rem; font-weight: 300;">Error Port</summary>
 Applications can subscribe to this port to receive driver related errors.
-</details>
-
+</details></p>
 <!-- Data Update PORT -->
 
-<details open>
+<p><details open>
 <summary style="font-size: 1.75rem; font-weight: 300;">Data Update Port</summary>
-Applications can subscribe to this port for IMU data. The output will be a serialized message of type `Imu` with the following information.
+Applications can subscribe to this port for IMU data. The output will be a serialized message of type <code>Imu</code> with the following information.</p>
+<pre><code class="language-protobuf">message Imu {
+  //Vertical axis (yaw)
+  float yaw = 1;
 
-wzxhzdk:1
+  //Lateral axis (pitch)
+  float pitch = 2;
 
-View the defined message <a href="https://github.com/matrix-io/protocol-buffers/blob/65397022e73ac98ec2b217937f133a9eefbd8f01/matrix_io/malos/v1/sense.proto" target="_blank">here</a>.
-</details> 
+  //Longitudinal axis (roll)
+  float roll = 3;
+
+  // Acceleration
+  float accel_x = 4;
+  float accel_y = 5;
+  float accel_z = 6;
+
+  // Gyroscope
+  float gyro_x = 7;
+  float gyro_y = 8;
+  float gyro_z = 9;
+
+  // Magnetometer
+  float mag_x = 10;
+  float mag_y = 11;
+  float mag_z = 12;
+}
+</code></pre>
+
+<p>View the defined message <a href="https://github.com/matrix-io/protocol-buffers/blob/65397022e73ac98ec2b217937f133a9eefbd8f01/matrix_io/malos/v1/sense.proto" target="_blank">here</a>.
+</details></p> 
         </div>
         <div class="toc-parent col-lg-2 col-md-3">
           <div class="toc">
