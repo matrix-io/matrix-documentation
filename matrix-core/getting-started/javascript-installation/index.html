@@ -288,6 +288,9 @@
         
     
     <li><a href="../python-installation/" class="">Python Setup</a></li>
+        
+    
+    <li><a href="../golang-installation/" class="">Golang Setup</a></li>
       
   </ul>
 
@@ -467,6 +470,7 @@
 <p>Ensure you have <a href="../core-installation/">MATRIX CORE</a> installed, before moving on.</p>
 </blockquote>
 <h2 id="installing-nodejs">Installing Node.js</h2>
+<p><img src="/matrix-core/img/nodejs-logo.png" width=400 /></p>
 <p>This setup will go through how to install <a href="https://nodejs.org/en/" target="_blank">Node.js</a> and the dependencies needed to create a Node application that can communicate with MATRIX CORE.</p>
 <p>Run the following commands on your MATRIX device(Raspberry Pi) to install <a href="https://github.com/creationix/nvm" target="_blank">Node Version Manager</a> which will then be used to install version <code>8.6</code> of Node.js.</p>
 <blockquote>
@@ -497,7 +501,7 @@ npm install matrix-protos --save
 <p><br/></p>
 <h2 id="check-if-everything-works">Check If Everything Works</h2>
 <p><h3 style="padding-top: 0">Creating app.js</h3>
-To ensure your installation has succeeded, create a file named app.js and paste the code below.</p>
+To ensure your installation has succeeded, create a file named <code>app.js</code> and paste the code below.</p>
 <pre><code class="language-javascript">// Set Initial Variables \\
 var zmq = require('zeromq');// Asynchronous Messaging Framework
 var matrix_io = require('matrix-protos').matrix_io;// Protocol Buffers for MATRIX function

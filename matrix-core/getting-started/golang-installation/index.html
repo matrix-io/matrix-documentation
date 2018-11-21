@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Humidity MATRIX</title>
+  <title>Golang Setup MATRIX</title>
   <link rel="shortcut icon" href="../../../img/favicon.ico">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
   <link rel="stylesheet" href="../../../css/theme.css">
@@ -29,7 +29,7 @@
         <div class="row">
           <div class="col-sm-8">
             
-            <h1>Humidity</h1>
+            <h1>Golang Setup</h1>
             
           </div>
           <div class="col-sm-4">
@@ -270,17 +270,27 @@
   <!-- 2 deep  -->
   <!-- print subroot  -->
   <li>
-    <a href="../../getting-started/" class="">
+    <a href="../" class="active">
       Getting Started
     </a>
   </li>
 
   <ul class="subnav">
         
+    
+    <li><a href="../core-installation/" class="">Installation</a></li>
         
+    
+    <li><a href="../understanding-core/" class="">Understanding CORE</a></li>
         
+    
+    <li><a href="../javascript-installation/" class="">Javascript Setup</a></li>
         
+    
+    <li><a href="../python-installation/" class="">Python Setup</a></li>
         
+    
+    <li><a href="./" class="active">Golang Setup</a></li>
       
   </ul>
 
@@ -330,36 +340,20 @@
   <!-- 2 deep  -->
   <!-- print subroot  -->
   <li>
-    <a href="../" class="active">
+    <a href="../../python-examples/" class="">
       Python Examples
     </a>
   </li>
 
   <ul class="subnav">
         
-    
-    <li><a href="../everloop/" class="">Everloop</a></li>
         
-    
-    <li><a href="./" class="active">Humidity</a></li>
         
-    
-    <li><a href="../imu/" class="">IMU</a></li>
         
-    
-    <li><a href="../pressure/" class="">Pressure</a></li>
         
-    
-    <li><a href="../uv/" class="">UV</a></li>
         
-    
-    <li><a href="../servo/" class="">Servo</a></li>
         
-    
-    <li><a href="../gpio/" class="">GPIO</a></li>
         
-    
-    <li><a href="../wakeword/" class="">Wakeword</a></li>
       
   </ul>
 
@@ -472,93 +466,203 @@
           </div>
         </div>
         <div id="content" class="col-lg-8 col-md-9">
-           <h2 style="padding-top:0">Humidity</h2>
-
-<h4 style="padding-top:0">Python Example</h4>
-
-<blockquote>
-<p><strong>Humidity is currently under maintenance</strong></p>
+           <blockquote>
+<p>Ensure you have <a href="../core-installation/">MATRIX CORE</a> installed, before moving on.</p>
 </blockquote>
-<h3 id="device-compatibility">Device Compatibility</h3>
-<p><img class="creator-compatibility-icon" src="../../img/creator-icon.svg"></p>
-<h2 id="overview">Overview</h2>
-<p>The Humidity driver allows for:</p>
-<ul>
-<li>Reading relative humidity on the board</li>
-<li>Obtaining temperature in Celsius and raw values</li>
-<li>Calibrating temperature</li>
-</ul>
-<h3 style="padding-top:0">Available ZeroMQ Ports</h3>
+<h2 id="installing-golang">Installing Golang</h2>
+<p><img src="/matrix-core/img/golang-mascot.png" width=400 /></p>
+<p>This setup will go through how to install <a href="https://golang.org/" target="_blank">Golang</a> and the dependencies needed to create a Go application that can communicate with MATRIX CORE. Run the following on your Raspberry Pi.</p>
+<p>Before downloading Go, you'll need to make sure you have <code>git</code> installed.</p>
+<pre><code class="language-bash">sudo apt-get install git
+</code></pre>
 
-<ul>
-<li><code>Base port</code>: 20017</li>
-<li><code>Keep-alive port</code>: 20018</li>
-<li><code>Error port</code>: 20019</li>
-<li><code>Data update port</code>: 20020</li>
-</ul>
-<h2 id="code-example">Code Example</h2>
-<p>The following sections show how to implement a connection to each of the Humidity driver's ports. You can download this example <a href="https://github.com/matrix-io/matrix-core-examples/blob/master/python/humidity.py" target="_blank">here</a>.</p>
-<!-- Initial Variables -->
+<p>You can now download and install <a href="https://golang.org/dl/" target="_blank">Go v1.11.2</a>.</p>
+<pre><code class="language-bash">wget https://dl.google.com/go/go1.11.2.linux-armv6l.tar.gz
+sudo tar -C /usr/local -xvzf go1.11.2.linux-armv6l.tar.gz
+rm go1.11.2.linux-armv6l.tar.gz
+</code></pre>
 
-<details open>
-<summary style="font-size: 1.75rem; font-weight: 300;">Initial Variables</summary>
-Before we go into connecting to each port, the variables defined below are needed in order to access the ZeroMQ and MATRIX Protocol Buffer libraries for Python. We also define a few helpful variables for easy references.
+<p>The <code>GOPATH</code> directory and environment variables will then need to be setup.</p>
+<pre><code class="language-bash">mkdir -p ~/go/{bin,src,pkg}
+echo -e &quot;\n##Golang Environment Variables##&quot; | sudo tee -a /etc/profile
+echo 'export PATH=$PATH:/usr/local/go/bin' | sudo tee -a /etc/profile
+echo 'export GOPATH=$HOME/go' | sudo tee -a /etc/profile
+echo 'export PATH=$PATH:$GOPATH/bin' | sudo tee -a /etc/profile
+source /etc/profile
+</code></pre>
 
-wzxhzdk:0
+<p>Go should now be properly installed on your Raspberry Pi! Run the command below to make sure it's properly installed. The output you should receive is <code>go version go1.11 linux/arm</code>.</p>
+<pre><code class="language-bash">go version
+</code></pre>
 
-</details>
+<p><br/></p>
+<h2 id="installing-zmq-dependency">Installing ZMQ Dependency</h2>
+<p>Although ZMQ has already been installed, Go requires an extra dependency.</p>
+<pre><code class="language-bash">sudo apt-get install libsodium-dev
+</code></pre>
 
-<!-- Base PORT -->
+<p><br/></p>
+<h2 id="creating-a-go-application">Creating A Go Application</h2>
+<p><h3 style="padding-top: 0">Making Your Project Directory</h3>
+Use the following commands to initialize a Go project folder, in the home directory <code>~/</code> of your MATRIX device.</p>
+<pre><code class="language-bash">cd ~/
+mkdir go-matrix-core-app
+cd go-matrix-core-app
+go mod init go-matrix-core-app
+</code></pre>
 
-<details open>
-<summary style="font-size: 1.75rem; font-weight: 300;">Base Port</summary>
-Here is where the configuration for our humidity example goes. Once we connect to the **Base Port**, we will pass a configuration to the humidity driver. With this we can set the update rate, timeout, and temperature configuration.
+<h3 style="padding-top: 0">Installing Go Packages for ZMQ and Protocol Buffers</h3>
 
-wzxhzdk:1
+<p>While staying inside your app folder, use the commands below to install the ZMQ and MATRIX Protocol Buffers npm packages. This allows you to interact with MATRIX Core through Node.js.</p>
+<pre><code class="language-bash">go get github.com/pebbe/zmq4
+go get github.com/matrix-io/matrix-protos-go
+</code></pre>
 
-</details>
+<p><br/></p>
+<h2 id="check-if-everything-works">Check If Everything Works</h2>
+<p><h3 style="padding-top: 0">Creating main.go</h3>
+To ensure your installation has succeeded, create a file named <code>main.go</code> and paste the code below.</p>
+<pre><code class="language-go">package main
 
-<!-- Keep-alive PORT -->
+import (
+    &quot;fmt&quot;
+    &quot;math/rand&quot;
+    &quot;time&quot;
 
-<details open>
-<summary style="font-size: 1.75rem; font-weight: 300;">Keep-alive Port</summary>
-The next step is to connect and send a message to the **Keep-alive Port**. That message will grant us a response from the **Data Update Port** for the current humidity value. The `utils import` from the **Initial Variables** section takes care of this.
-</details>
+    &quot;github.com/golang/protobuf/proto&quot;
+    core &quot;github.com/matrix-io/matrix-protos-go/matrix_io/malos/v1&quot;
+    zmq &quot;github.com/pebbe/zmq4&quot;
+)
 
-<!-- Error PORT -->
+// Global Vars
+var portStatus = make(chan string, 4) // Channel To Ensure Port Goroutines Are Called
+var everloop = core.EverloopImage{}   // State Of All MATRIX LEDs
 
-<details open>
-<summary style="font-size: 1.75rem; font-weight: 300;">Error Port</summary>
-The **Error Port** connection is also taken care of by the `utils import`. Below we define a function to be called and given any error messages that occur within MATRIX CORE.
+func main() {
+    fmt.Println(&quot;Starting MATRIX CORE Everloop&quot;)
 
-wzxhzdk:2
+    // Asynchronously Start MATRIX CORE Ports
+    go keepAlivePort()  // Ping Once
+    go errorPort()      // Report Any Errors
+    go dataUpdatePort() // Receive # Of Leds &amp; Starts basePort()
 
-</details>
+    // Wait For Each Port Connection (ensures each goroutine is able to run)
+    for portStatus := range portStatus {
+        fmt.Println(&quot;received&quot;, portStatus)
+    }
+}
 
-<!-- Data Update PORT -->
+// BASE PORT \\ (port where configurations are sent)
+func basePort() {
+    // Connect ZMQ Socket To MATRIX CORE
+    pusher, _ := zmq.NewSocket(zmq.PUSH)    // Create A Pusher Socket
+    pusher.Connect(&quot;tcp://127.0.0.1:20021&quot;) // Connect Pusher To Data Update Port
 
-<details open>
-<summary style="font-size: 1.75rem; font-weight: 300;">Data Update Port</summary>
-A connection to the **Data Update Port** will allow us to receive the current humidity data we want. The `utils import` takes care of this as well. We can define a function and expect humidity data to be passed to it.
+    // Notify That Port Is Ready
+    portStatus &lt;- &quot;Base Port: CONNECTED&quot;
 
-wzxhzdk:3
+    // Keep Sending Everloop Image
+    for {
+        // Create (x) Amount Of Randomly Colored LEDs
+        for i := int32(0); i &lt; everloop.EverloopLength; i++ {
+            led := core.LedValue{
+                Red:   (uint32)(rand.Int31n(200) + 1),
+                Green: (uint32)(rand.Int31n(255) + 1),
+                Blue:  (uint32)(rand.Int31n(50) + 1),
+                White: 0,
+            }
+            // Add New LED to Everloop LED Array
+            everloop.Led = append(everloop.Led, &amp;led)
+        }
 
-<h4>Data Output</h4>
-The Python object below is an example output you'll receive from the **Data Update Port**.
+        // Create Everloop Driver Configuration Protocol
+        configuration := core.DriverConfig{
+            Image: &amp;everloop,
+        }
+        //Encode Protocol Buffer
+        var encodedConfiguration, _ = proto.Marshal(&amp;configuration)
+        // Send Protocol Buffer
+        pusher.Send(string((encodedConfiguration)), 1)
 
-wzxhzdk:4
+        // Reset Everloop Array
+        everloop.Led = []*core.LedValue{}
+        // Loop delay
+        time.Sleep(50 * time.Millisecond)
+    }
+}
 
-</details>
+// KEEP-ALIVE PORT \\ (port where pings are sent)
+func keepAlivePort() {
+    // Connect ZMQ Socket To MATRIX CORE
+    pusher, _ := zmq.NewSocket(zmq.PUSH)    // Create A Pusher Socket
+    pusher.Connect(&quot;tcp://127.0.0.1:20022&quot;) // Connect Pusher To Data Update Port
 
-<!-- Start Process -->
+    // Notify That Port Is Ready
+    portStatus &lt;- &quot;Keep-Alive Port: CONNECTED&quot;
 
-<details open>
-<summary style="font-size: 1.75rem; font-weight: 300;">Start Processes</summary>
-This is where we begin the asynchronous events for each of the driver ports and where we define the functions we want to use for each port.
+    // Send Keep Alive Message
+    pusher.Send(&quot;&quot;, 1)
+}
 
-wzxhzdk:5
+// ERROR PORT \\ (port where errors are received)
+func errorPort() {
+    // Connect ZMQ Socket To MATRIX CORE
+    subscriber, _ := zmq.NewSocket(zmq.SUB)     // Create A Subscriber Socket
+    subscriber.Connect(&quot;tcp://127.0.0.1:20023&quot;) // Connect Subscriber To Data Update Port
+    subscriber.SetSubscribe(&quot;&quot;)                 // Subscribe To Data Update Port Messages
 
-</details> 
+    // Notify That Port Is Ready
+    portStatus &lt;- &quot;Error Port: CONNECTED&quot;
+
+    // Wait For Error
+    for {
+        // On Error
+        message, _ := subscriber.Recv(2)
+        // Print Error
+        fmt.Println(&quot;ERROR:&quot;, message)
+    }
+}
+
+// DATA UPDATE PORT \\ (port where updates are received)
+func dataUpdatePort() {
+    // Connect ZMQ Socket To MATRIX CORE
+    subscriber, _ := zmq.NewSocket(zmq.SUB)     // Create A Subscriber Socket
+    subscriber.Connect(&quot;tcp://127.0.0.1:20024&quot;) // Connect Subscriber To Data Update Port
+    subscriber.SetSubscribe(&quot;&quot;)                 // Subscribe To Data Update Port Messages
+
+    // Notify That Port Is Ready
+    portStatus &lt;- &quot;Data Update Port: CONNECTED&quot;
+
+    // Wait For Data
+    for {
+        // On Data
+        message, _ := subscriber.Recv(2)
+        // Decode Protocol Buffer &amp; Update everloop Struct LED Count
+        proto.Unmarshal([]byte(message), &amp;everloop)
+        // Print Data
+        fmt.Print(&quot;\nEverloop Length: &quot;, everloop.EverloopLength, &quot;\n\n&quot;)
+
+        // Start Base Port
+        go basePort() // Send Configuration Message
+
+        // Close Data Update Port
+        return
+    }
+}
+</code></pre>
+
+<h3 style="padding-top: 0">Running main.go</h3>
+
+<p>Once you have the main.go code copied, use the following command to run a simple hello world app.</p>
+<pre><code class="language-bash">go run main.go
+</code></pre>
+
+<h3 style="padding-top: 0">Result</h3>
+
+<p><img alt="" src="../../../matrix-core/img/install-setup-test.gif" /></p>
+<h2 id="next-steps">Next Steps</h2>
+<p>Now that everything is properly installed, learn more about the Everloop and other <a href="../../protocols">Driver Protocols</a> MATRIX Core has to offer. <strong>Go examples coming soon!</strong></p>
+<!-- Now that everything is properly installed, learn more about the Everloop and other [Driver Protocols](../protocols) MATRIX Core has to offer, or view the available [Go examples](../go-examples). --> 
         </div>
         <div class="toc-parent col-lg-2 col-md-3">
           <div class="toc">
@@ -566,18 +670,28 @@ This is where we begin the asynchronous events for each of the driver ports and 
             <h3>Contents</h3>
             <ul class="nav flex-column">
                <li class='nav-item'>
-  <a href="#device-compatibility" class="nav-link active">
-    Device Compatibility
+  <a href="#installing-golang" class="nav-link active">
+    Installing Golang
   </a>
   
 </li>  <li class='nav-item'>
-  <a href="#overview" class="nav-link ">
-    Overview
+  <a href="#installing-zmq-dependency" class="nav-link ">
+    Installing ZMQ Dependency
   </a>
   
 </li>  <li class='nav-item'>
-  <a href="#code-example" class="nav-link ">
-    Code Example
+  <a href="#creating-a-go-application" class="nav-link ">
+    Creating A Go Application
+  </a>
+  
+</li>  <li class='nav-item'>
+  <a href="#check-if-everything-works" class="nav-link ">
+    Check If Everything Works
+  </a>
+  
+</li>  <li class='nav-item'>
+  <a href="#next-steps" class="nav-link ">
+    Next Steps
   </a>
   
 </li> 
