@@ -10,14 +10,14 @@ Before downloading Go, you'll need to make sure you have `git` installed.
 sudo apt-get install git
 ```
 
-You can now download and install <a href="https://golang.org/dl/" target="_blank">Go v1.11.2</a>.
+Download and install <a href="https://golang.org/dl/" target="_blank">Go v1.11.2</a>.
 ```language-bash
 wget https://dl.google.com/go/go1.11.2.linux-armv6l.tar.gz
 sudo tar -C /usr/local -xvzf go1.11.2.linux-armv6l.tar.gz
 rm go1.11.2.linux-armv6l.tar.gz
 ```
 
-The `GOPATH` directory and environment variables will then need to be setup.
+Setup the `GOPATH` directory and environment variables.
 ```language-bash
 mkdir -p ~/go/{bin,src,pkg}
 echo -e "\n##Golang Environment Variables##" | sudo tee -a /etc/profile
@@ -27,7 +27,7 @@ echo 'export PATH=$PATH:$GOPATH/bin' | sudo tee -a /etc/profile
 source /etc/profile
 ```
 
-Go should now be properly installed on your Raspberry Pi! Run the command below to make sure it's properly installed. The output you should receive is `go version go1.11 linux/arm`.
+Make sure Go is properly installed. The command below should output `go version go1.11 linux/arm`.
 ```language-bash
 go version
 ```
@@ -53,7 +53,7 @@ go mod init go-matrix-core-app
 ```
 
 <h3 style="padding-top: 0">Installing Go Packages for ZMQ and Protocol Buffers</h3>
-While staying inside your app folder, use the commands below to install the ZMQ and MATRIX Protocol Buffers npm packages. This allows you to interact with MATRIX Core through Node.js.
+While inside your project folder, use the commands below to install the required dependencies for interacting with MATRIX CORE.
 ```language-bash
 go get github.com/pebbe/zmq4
 go get github.com/matrix-io/matrix-protos-go
@@ -195,7 +195,7 @@ func dataUpdatePort() {
 ```
 
 <h3 style="padding-top: 0">Running main.go</h3>
-Once you have the main.go code copied, use the following command to run a simple hello world app.
+Once you have main.go ready, use the following command to run a simple hello world app.
 ```language-bash
 go run main.go
 ```
