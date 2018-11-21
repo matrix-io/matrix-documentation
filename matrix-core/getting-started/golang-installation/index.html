@@ -476,13 +476,13 @@
 <pre><code class="language-bash">sudo apt-get install git
 </code></pre>
 
-<p>You can now download and install <a href="https://golang.org/dl/" target="_blank">Go v1.11.2</a>.</p>
+<p>Download and install <a href="https://golang.org/dl/" target="_blank">Go v1.11.2</a>.</p>
 <pre><code class="language-bash">wget https://dl.google.com/go/go1.11.2.linux-armv6l.tar.gz
 sudo tar -C /usr/local -xvzf go1.11.2.linux-armv6l.tar.gz
 rm go1.11.2.linux-armv6l.tar.gz
 </code></pre>
 
-<p>The <code>GOPATH</code> directory and environment variables will then need to be setup.</p>
+<p>Setup the <code>GOPATH</code> directory and environment variables.</p>
 <pre><code class="language-bash">mkdir -p ~/go/{bin,src,pkg}
 echo -e &quot;\n##Golang Environment Variables##&quot; | sudo tee -a /etc/profile
 echo 'export PATH=$PATH:/usr/local/go/bin' | sudo tee -a /etc/profile
@@ -491,7 +491,7 @@ echo 'export PATH=$PATH:$GOPATH/bin' | sudo tee -a /etc/profile
 source /etc/profile
 </code></pre>
 
-<p>Go should now be properly installed on your Raspberry Pi! Run the command below to make sure it's properly installed. The output you should receive is <code>go version go1.11 linux/arm</code>.</p>
+<p>Make sure Go is properly installed. The command below should output <code>go version go1.11 linux/arm</code>.</p>
 <pre><code class="language-bash">go version
 </code></pre>
 
@@ -513,7 +513,7 @@ go mod init go-matrix-core-app
 
 <h3 style="padding-top: 0">Installing Go Packages for ZMQ and Protocol Buffers</h3>
 
-<p>While staying inside your app folder, use the commands below to install the ZMQ and MATRIX Protocol Buffers npm packages. This allows you to interact with MATRIX Core through Node.js.</p>
+<p>While inside your project folder, use the commands below to install the required dependencies for interacting with MATRIX CORE.</p>
 <pre><code class="language-bash">go get github.com/pebbe/zmq4
 go get github.com/matrix-io/matrix-protos-go
 </code></pre>
@@ -653,7 +653,7 @@ func dataUpdatePort() {
 
 <h3 style="padding-top: 0">Running main.go</h3>
 
-<p>Once you have the main.go code copied, use the following command to run a simple hello world app.</p>
+<p>Once you have main.go ready, use the following command to run a simple hello world app.</p>
 <pre><code class="language-bash">go run main.go
 </code></pre>
 
