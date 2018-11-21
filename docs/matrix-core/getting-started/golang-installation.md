@@ -10,21 +10,20 @@ Before downloading Go, you'll need to make sure you have `git` installed.
 sudo apt-get install git
 ```
 
-You can then download and install <a href="https://golang.org/dl/" target="_blank">Go v1.11.2</a>.
+You can now download and install <a href="https://golang.org/dl/" target="_blank">Go v1.11.2</a>.
 ```language-bash
 wget https://dl.google.com/go/go1.11.2.linux-armv6l.tar.gz
 sudo tar -C /usr/local -xvzf go1.11.2.linux-armv6l.tar.gz
 rm go1.11.2.linux-armv6l.tar.gz
 ```
 
-Next, the `GOPATH` folder and Go environment variables need to be setup.
+The `GOPATH` directory and environment variables will then need to be setup.
 ```language-bash
 mkdir -p ~/go/{bin,src,pkg}
 echo -e "\n##Golang Environment Variables##" | sudo tee -a /etc/profile
 echo 'export PATH=$PATH:/usr/local/go/bin' | sudo tee -a /etc/profile
 echo 'export GOPATH=$HOME/go' | sudo tee -a /etc/profile
-echo 'export GOBIN=$GOPATH/bin' | sudo tee -a /etc/profile
-echo 'export PATH=$PATH:$GOBIN' | sudo tee -a /etc/profile
+echo 'export PATH=$PATH:$GOPATH/bin' | sudo tee -a /etc/profile
 source /etc/profile
 ```
 
@@ -36,7 +35,7 @@ go version
 
 <br/>
 ## Installing ZMQ Dependency
-Although ZMQ has already been installed, Go needs an extra dependency in order to utilize it.
+Although ZMQ has already been installed, Go requires an extra dependency.
 ```language-bash
 sudo apt-get install libsodium-dev
 ```
@@ -79,24 +78,24 @@ import (
 )
 
 // Global Vars
-var portStatus = make(chan string, 4)
-var everloop = core.EverloopImage{}
+var portStatus = make(chan string, 4) // Channel To Ensure Port Goroutines Are Called
+var everloop = core.EverloopImage{}   // State Of All MATRIX LEDs
 
 func main() {
 	fmt.Println("Starting MATRIX CORE Everloop")
 
 	// Asynchronously Start MATRIX CORE Ports
-	go keepAlivePort()
-	go errorPort()
-	go dataUpdatePort()
+	go keepAlivePort()  // Ping Once
+	go errorPort()      // Report Any Errors
+	go dataUpdatePort() // Receive # Of Leds & Starts basePort()
 
-	// Wait For Each Port Connection
+	// Wait For Each Port Connection (ensures each goroutine is able to run)
 	for portStatus := range portStatus {
 		fmt.Println("received", portStatus)
 	}
 }
 
-// BASE PORT \\
+// BASE PORT \\ (port where configurations are sent)
 func basePort() {
 	// Connect ZMQ Socket To MATRIX CORE
 	pusher, _ := zmq.NewSocket(zmq.PUSH)    // Create A Pusher Socket
@@ -135,7 +134,7 @@ func basePort() {
 	}
 }
 
-// KEEP-ALIVE PORT \\
+// KEEP-ALIVE PORT \\ (port where pings are sent)
 func keepAlivePort() {
 	// Connect ZMQ Socket To MATRIX CORE
 	pusher, _ := zmq.NewSocket(zmq.PUSH)    // Create A Pusher Socket
@@ -148,7 +147,7 @@ func keepAlivePort() {
 	pusher.Send("", 1)
 }
 
-// ERROR PORT \\
+// ERROR PORT \\ (port where errors are received)
 func errorPort() {
 	// Connect ZMQ Socket To MATRIX CORE
 	subscriber, _ := zmq.NewSocket(zmq.SUB)     // Create A Subscriber Socket
@@ -167,7 +166,7 @@ func errorPort() {
 	}
 }
 
-// DATA UPDATE PORT \\
+// DATA UPDATE PORT \\ (port where updates are received)
 func dataUpdatePort() {
 	// Connect ZMQ Socket To MATRIX CORE
 	subscriber, _ := zmq.NewSocket(zmq.SUB)     // Create A Subscriber Socket
@@ -181,18 +180,18 @@ func dataUpdatePort() {
 	for {
 		// On Data
 		message, _ := subscriber.Recv(2)
-		// Decode Protocol Buffer
+		// Decode Protocol Buffer & Update everloop Struct LED Count
 		proto.Unmarshal([]byte(message), &everloop)
 		// Print Data
-		fmt.Print("\nEverloop Length:", everloop.EverloopLength, "\n\n")
+		fmt.Print("\nEverloop Length: ", everloop.EverloopLength, "\n\n")
 
 		// Start Base Port
 		go basePort() // Send Configuration Message
+
 		// Close Data Update Port
 		return
 	}
 }
-
 ```
 
 <h3 style="padding-top: 0">Running main.go</h3>
