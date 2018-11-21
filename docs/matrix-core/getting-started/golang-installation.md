@@ -1,7 +1,7 @@
 > Ensure you have [MATRIX CORE](core-installation.md) installed, before moving on.
 
 ## Installing Golang
-<img src="/matrix-core/img/golang-mascot.png" width=400 />
+<img src="../../img/golang-mascot.png" width=400 />
 
 This setup will go through how to install <a href="https://golang.org/" target="_blank">Golang</a> and the dependencies needed to create a Go application that can communicate with MATRIX CORE. Run the following on your Raspberry Pi.
 

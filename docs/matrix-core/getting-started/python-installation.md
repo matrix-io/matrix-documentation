@@ -1,7 +1,7 @@
 > Ensure you have [MATRIX CORE](core-installation.md) installed, before moving on.
 
 ## Creating A Python Project
-<img src="/matrix-core/img/python-logo.png" width=400 />
+<img src="../../img/python-logo.png" width=400 />
 
 This setup will go through how to install all the necessary python packages needed to program with MATRIX CORE.
 
