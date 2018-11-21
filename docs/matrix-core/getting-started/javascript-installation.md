@@ -1,6 +1,8 @@
 > Ensure you have [MATRIX CORE](core-installation.md) installed, before moving on.
 
 ## Installing Node.js
+<img src="/matrix-core/img/nodejs-logo.png" width=400 />
+
 This setup will go through how to install <a href="https://nodejs.org/en/" target="_blank">Node.js</a> and the dependencies needed to create a Node application that can communicate with MATRIX CORE.
 
 Run the following commands on your MATRIX device(Raspberry Pi) to install <a href="https://github.com/creationix/nvm" target="_blank">Node Version Manager</a> which will then be used to install version `8.6` of Node.js.
@@ -32,7 +34,7 @@ npm install matrix-protos --save
 <br/>
 ## Check If Everything Works
 <h3 style="padding-top: 0">Creating app.js</h3>
-To ensure your installation has succeeded, create a file named app.js and paste the code below.
+To ensure your installation has succeeded, create a file named `app.js` and paste the code below.
 
 ```language-javascript
 // Set Initial Variables \\

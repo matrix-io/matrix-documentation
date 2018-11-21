@@ -1,6 +1,7 @@
 > Ensure you have [MATRIX CORE](core-installation.md) installed, before moving on.
 
 ## Creating A Python Project
+<img src="/matrix-core/img/python-logo.png" width=400 />
 
 This setup will go through how to install all the necessary python packages needed to program with MATRIX CORE.
 
@@ -40,7 +41,7 @@ pip3 install -r requirements.txt
 <br/>
 ## Check If Everything Works
 <h3 style="padding-top: 0">Creating app.py</h3>
-To ensure your installation has succeeded, create a file named app.py and paste the code below.
+To ensure your installation has succeeded, create a file named `app.py` and paste the code below.
 
 ```language-python
 ## Set Initial Variables ##

@@ -71,6 +71,7 @@ pages:
     - 'Understanding CORE': 'matrix-core/getting-started/understanding-core.md'
     - 'Javascript Setup': 'matrix-core/getting-started/javascript-installation.md'
     - 'Python Setup': 'matrix-core/getting-started/python-installation.md'
+    - 'Golang Setup': 'matrix-core/getting-started/golang-installation.md'
   - Driver Protocols: 
     - 'Index': 'matrix-core/protocols/index.md'
     - 'Everloop': 'matrix-core/protocols/everloop.md'
