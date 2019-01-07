@@ -99,7 +99,7 @@ func main() {
 func basePort() {
 	// Connect ZMQ Socket To MATRIX CORE
 	pusher, _ := zmq.NewSocket(zmq.PUSH)    // Create A Pusher Socket
-	pusher.Connect("tcp://127.0.0.1:20021") // Connect Pusher To Data Update Port
+	pusher.Connect("tcp://127.0.0.1:20021") // Connect Pusher To Base Port
 
 	// Notify That Port Is Ready
 	portStatus <- "Base Port: CONNECTED"
@@ -138,7 +138,7 @@ func basePort() {
 func keepAlivePort() {
 	// Connect ZMQ Socket To MATRIX CORE
 	pusher, _ := zmq.NewSocket(zmq.PUSH)    // Create A Pusher Socket
-	pusher.Connect("tcp://127.0.0.1:20022") // Connect Pusher To Data Update Port
+	pusher.Connect("tcp://127.0.0.1:20022") // Connect Pusher To Keep-Alive Port
 
 	// Notify That Port Is Ready
 	portStatus <- "Keep-Alive Port: CONNECTED"
@@ -152,7 +152,7 @@ func errorPort() {
 	// Connect ZMQ Socket To MATRIX CORE
 	subscriber, _ := zmq.NewSocket(zmq.SUB)     // Create A Subscriber Socket
 	subscriber.Connect("tcp://127.0.0.1:20023") // Connect Subscriber To Data Update Port
-	subscriber.SetSubscribe("")                 // Subscribe To Data Update Port Messages
+	subscriber.SetSubscribe("")                 // Subscribe To Error Port Messages
 
 	// Notify That Port Is Ready
 	portStatus <- "Error Port: CONNECTED"
