@@ -1,3 +1,9 @@
+addons:
+  ssh_known_hosts:
+  - ssh.github.com
+  - gist.github.com
+  - github.com
+
 language: python
 python:
   - '2.7'
@@ -5,6 +11,7 @@ python:
 branches:
   only:
   - master
+  - cc/travis
 
 install:
   - pip install -r requirements.txt
@@ -25,4 +32,4 @@ deploy:
   skip_cleanup: true
   script: if [ "${TRAVIS_PULL_REQUEST}" = "false" ]; then echo "Pushing to github"; PYTHONPATH=src/ mkdocs gh-deploy -v --clean --remote-name gh-token; git push gh-token gh-pages; fi;
   on:
-    branch: master
+    branch: cc/travis
