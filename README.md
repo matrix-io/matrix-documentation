@@ -20,11 +20,4 @@ mkdocs serve
 ```
 
 ### Deployment
-
-```
-mkdocs gh-deploy --clean
-```
-
-That's it.
-
-http://matrix-io.github.io/matrix-documentation
+The master branch will automatically be built and pushed to GitHub Pages.
