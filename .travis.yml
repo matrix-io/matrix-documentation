@@ -15,12 +15,15 @@ branches:
 
 install:
   - pip install -r requirements.txt
+
+script: 
+  - mkdocs build
   
 before_deploy:
-- openssl aes-256-cbc -K $encrypted_cf83979854f7_key -iv $encrypted_cf83979854f7_iv -in deploy-key.enc -out deploy-key -d
+- openssl aes-256-cbc -K $encrypted_cf83979854f7_key -iv $encrypted_cf83979854f7_iv -in deploy-key.enc -out /tmp/deploy-key -d
 - eval "$(ssh-agent -s)"
-- chmod 600 deploy-key
-- ssh-add deploy-key
+- chmod 600 /tmp/deploy-key
+- ssh-add /tmp/deploy-key
 - git remote add gh-token "git@github.com:matrix-io/matrix-documentation.git";
 - git fetch gh-token && git fetch gh-token gh-pages:gh-pages;
 
