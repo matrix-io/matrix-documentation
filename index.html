@@ -462,8 +462,16 @@ The MATRIX Ecosystem was created to make powerful hardware projects very approac
 <p><br/></p>
 <h2 id="programming-layers">Programming Layers</h2>
 <p>The MATRIX platform adds powerful capabilities to your Raspberry Pi, depending on your background and the kind of application you want to write, you may need to decide on which layer best fits your need. The documentation is organized according to these layers:</p>
-<!-- ![MATRIX Ecosystem Overview](img/overview-diagram.png) -->
+<h3 style="padding-top:0;">MATRIX HAL</h3>
 
+<p><strong>Language:</strong> C++</p>
+<p>Interacts with the kernel modules by using C++ drivers, enabling it to access available sensors and components on your device.</p>
+<p><a href="./matrix-hal/overview">Read more about MATRIX HAL</a></p>
+<h3 style="padding-top:0;">MATRIX CORE</h3>
+
+<p><strong>Languages:</strong> Over 40 (Examples in Javascript &amp; Python)</p>
+<p>Abstraction layer for <strong>MATRIX HAL</strong>. Hosts a ZeroMQ + Protobuf communication layer which makes device information accessible via high-level interfaces. Supports 40+ different languages through Protocol Buffers: C++, Python, Ruby, PHP, Java, etc.<br/></p>
+<p><a href="./matrix-core/overview">Read more about MATRIX CORE</a></p>
 <h3 style="padding-top:0;">MATRIX Open System (MOS)</h3>
 
 <p><strong>Language:</strong> Javascript</p>
@@ -476,16 +484,6 @@ The MATRIX Ecosystem was created to make powerful hardware projects very approac
 </ul>
 <p>⚠️ <strong>CURRENTLY UNDER MAINTENANCE</strong> ⚠️<br/>
 <a href="./matrix-os/overview/">Read more about MATRIX OS</a></p>
-<h3 style="padding-top:0;">MATRIX CORE</h3>
-
-<p><strong>Languages:</strong> Over 40 (Examples in Javascript &amp; Python)</p>
-<p>Abstraction layer for <strong>MATRIX HAL</strong>. Hosts a ZeroMQ + Protobuf communication layer which makes device information accessible via high-level interfaces. Supports 40+ different languages through Protocol Buffers: C++, Python, Ruby, PHP, Java, etc.<br/></p>
-<p><a href="./matrix-core/overview">Read more about MATRIX CORE</a></p>
-<h3 style="padding-top:0;">MATRIX HAL</h3>
-
-<p><strong>Language:</strong> C++</p>
-<p>Interacts with the kernel modules by using C++ drivers, enabling it to access available sensors and components on your device.</p>
-<p><a href="./matrix-hal/overview">Read more about MATRIX HAL</a></p>
 <p><br/></p>
 <h2 id="devices">Devices</h2>
 <blockquote>
