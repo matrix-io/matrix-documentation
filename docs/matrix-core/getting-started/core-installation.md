@@ -56,7 +56,7 @@ If you're already familiar, you can learn how to setup a programming language fo
 ## Helpful Information
 <h3 style="padding-top: 0">Upgrading</h3>
 
-If you need to upgrade your MATRIX CORE package at any time, run the following commands on your Raspberry Pi.
+If you need to upgrade your MATRIX CORE package at any time, please run the following commands on your Raspberry Pi.
 
 ```language-bash
 sudo apt-get update
