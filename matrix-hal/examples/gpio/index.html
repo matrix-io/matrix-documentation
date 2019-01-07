@@ -496,295 +496,138 @@
 <pre><code class="language-cpp">g++ -o YOUR_OUTPUT_FILE YOUR_CPP_FILE -std=c++11 -lmatrix_creator_hal
 </code></pre>
 
-<p><details>
+<details>
 <summary style="font-size: 1.75rem; font-weight: 300;">GPIO I/O</summary>
-The following section shows how to use GPIO in digital I/O mode for output and input. You can download this example <a href="https://github.com/matrix-io/matrix-hal-examples/blob/master/gpio/gpio_io.cpp" target="_blank">here</a>.</p>
-<p><details open>
+The following section shows how to use GPIO in digital I/O mode for output and input. You can download this example <a href="https://github.com/matrix-io/matrix-hal-examples/blob/master/gpio/gpio_io.cpp" target="_blank">here</a>.
+
+<details open>
 <summary style="font-size: 1.5rem; font-weight: 300;">Include Statements</summary>
-To begin working with the GPIO you need to include these header files.</p>
-<pre><code class="language-cpp">// System calls
-#include &lt;unistd.h&gt;
-// Input/output streams and functions
-#include &lt;iostream&gt;
+To begin working with the GPIO you need to include these header files.
 
-// Interfaces with GPIO
-#include &quot;matrix_hal/gpio_control.h&quot;
-// Communicates with MATRIX device
-#include &quot;matrix_hal/matrixio_bus.h&quot;
-</code></pre>
 
-<p></details></p>
-<p><details open>
+wzxhzdk:1
+
+
+</details>
+
+<details open>
 <summary style="font-size: 1.5rem; font-weight: 300;">Initial Variables</summary>
-These initial variables are used in the example.</p>
-<pre><code class="language-cpp">// GPIOOutputMode is 1
-const uint16_t GPIOOutputMode = 1;
-// GPIOInputMode is 0
-const uint16_t GPIOInputMode = 0;
+These initial variables are used in the example.
 
-// Holds desired GPIO pin for output [0-15]
-uint16_t pin_out;
-// Holds desired output state
-uint16_t pin_out_state;
-// Holds desired GPIO pin for input [0-15]
-uint16_t pin_in;
-</code></pre>
+wzxhzdk:2
 
-<p></details></p>
-<p><details open>
+
+</details>
+
+<details open>
 <summary style="font-size: 1.5rem; font-weight: 300;">Initial Setup</summary>
-You'll then need to setup <code>MatrixIOBus</code> in order to communicate with the hardware on your MATRIX device.</p>
-<pre><code class="language-cpp">int main() {
-  // Create MatrixIOBus object for hardware communication
-  matrix_hal::MatrixIOBus bus;
-  // Initialize bus and exit program if error occurs
-  if (!bus.Init()) return false;
-</code></pre>
+You'll then need to setup `MatrixIOBus` in order to communicate with the hardware on your MATRIX device.
 
-<p></details></p>
-<p><details open>
+wzxhzdk:3
+
+
+</details>
+
+<details open>
 <summary style="font-size: 1.5rem; font-weight: 300;">Main Setup</summary>
-Now we will create our <code>GPIOControl</code> object and use it to output and input a digital GPIO signal.</p>
-<pre><code class="language-cpp">  // The following code is part of main()
+Now we will create our `GPIOControl` object and use it to output and input a digital GPIO signal.
 
-  // Create GPIOControl object
-  matrix_hal::GPIOControl gpio;
-  // Set gpio to use MatrixIOBus bus
-  gpio.Setup(&amp;bus);
+wzxhzdk:4
 
-  // Prompt user for GPIO pin
-  std::cout &lt;&lt; &quot;Select Pin [0-15] For Output: &quot;;
-  // Log user input
-  std::cin &gt;&gt; pin_out;
-  // Prompt user for GPIO state
-  std::cout &lt;&lt; &quot;Pin Output State [0-1] : &quot;;
-  // Log user input
-  std::cin &gt;&gt; pin_out_state;
-  // Prompt user for GPIO pin
-  std::cout &lt;&lt; &quot;Select Pin [0-15] For Input: &quot;;
-  // Log user input
-  std::cin &gt;&gt; pin_in;
 
-  // Set pin_out mode to output
-  gpio.SetMode(pin_out, GPIOOutputMode);
+</details>
 
-  // Set pin_in mode to input
-  gpio.SetMode(pin_in, GPIOInputMode);
+</details>
 
-  // Set pin_out to output pin_out_state
-  gpio.SetGPIOValue(pin_out, pin_out_state);
-
-  // Endless loop
-  while (true) {
-    // Get state of pin_in
-    uint16_t pin_in_state = gpio.GetGPIOValue(pin_in);
-    // Clear console
-    std::system(&quot;clear&quot;);
-    // Output pin_out info to console
-    std::cout &lt;&lt; &quot;[ Output Pin : &quot; &lt;&lt; pin_out &lt;&lt; &quot; ]&quot;
-              &lt;&lt; &quot; [ Output State : &quot; &lt;&lt; pin_out_state &lt;&lt; &quot; ]&quot; &lt;&lt; std::endl;
-    // Output pin_in info to console
-    std::cout &lt;&lt; &quot;[ Input Pin : &quot; &lt;&lt; pin_in &lt;&lt; &quot; ]&quot;
-              &lt;&lt; &quot; [ Input State : &quot; &lt;&lt; pin_in_state &lt;&lt; &quot; ]&quot; &lt;&lt; std::endl;
-    // Sleep for 10000 microseconds
-    usleep(10000);
-  }
-
-  return 0;
-}
-</code></pre>
-
-<p></details></p>
-<p></details></p>
-<p><details>
+<details>
 <summary style="font-size: 1.75rem; font-weight: 300;">GPIO PWM</summary>
-The following section shows how to use GPIO in PWM mode for PWM output. You can download this example <a href="https://github.com/matrix-io/matrix-hal-examples/blob/master/gpio/gpio_pwm.cpp" target="_blank">here</a>.</p>
-<p><details open>
+The following section shows how to use GPIO in PWM mode for PWM output. You can download this example <a href="https://github.com/matrix-io/matrix-hal-examples/blob/master/gpio/gpio_pwm.cpp" target="_blank">here</a>.
+
+<details open>
 <summary style="font-size: 1.5rem; font-weight: 300;">Include Statements</summary>
-To begin working with the GPIO you need to include these header files.</p>
-<pre><code class="language-cpp">// Input/output streams and functions
-#include &lt;iostream&gt;
+To begin working with the GPIO you need to include these header files.
 
-// Interfaces with GPIO
-#include &quot;matrix_hal/gpio_control.h&quot;
-// Communicates with MATRIX device
-#include &quot;matrix_hal/matrixio_bus.h&quot;
-</code></pre>
 
-<p></details></p>
-<p><details open>
+wzxhzdk:5
+
+
+</details>
+
+<details open>
 <summary style="font-size: 1.5rem; font-weight: 300;">Initial Variables</summary>
-These initial variables are used in the example.</p>
-<pre><code class="language-cpp">// GPIOOutputMode is 1
-const uint16_t GPIOOutputMode = 1;
-// GPIOInputMode is 0
-const uint16_t GPIOInputMode = 0;
-// PWMFunction is 1
-const uint16_t PWMFunction = 1;
+These initial variables are used in the example.
 
-// Holds desired PWM frequency
-float frequency;
-// Holds desired PWM duty percentage
-float percentage;
-// Holds desired GPIO pin [0-15]
-uint16_t pin;
-</code></pre>
+wzxhzdk:6
 
-<p></details></p>
-<p><details open>
+
+</details>
+
+<details open>
 <summary style="font-size: 1.5rem; font-weight: 300;">Initial Setup</summary>
-You'll then need to setup <code>MatrixIOBus</code> in order to communicate with the hardware on your MATRIX device.</p>
-<pre><code class="language-cpp">int main() {
-  // Create MatrixIOBus object for hardware communication
-  matrix_hal::MatrixIOBus bus;
-  // Initialize bus and exit program if error occurs
-  if (!bus.Init()) return false;
-</code></pre>
+You'll then need to setup `MatrixIOBus` in order to communicate with the hardware on your MATRIX device.
 
-<p></details></p>
-<p><details open>
+wzxhzdk:7
+
+
+</details>
+
+<details open>
 <summary style="font-size: 1.5rem; font-weight: 300;">Main Setup</summary>
-Now we will create our <code>GPIOControl</code> object and use it to output and input a digital GPIO signal.</p>
-<pre><code class="language-cpp">  // The following code is part of main()
+Now we will create our `GPIOControl` object and use it to output and input a digital GPIO signal.
 
-  // Create GPIOControl object
-  matrix_hal::GPIOControl gpio;
-  // Set gpio to use MatrixIOBus bus
-  gpio.Setup(&amp;bus);
+wzxhzdk:8
 
-  // Prompt user for GPIO pin
-  std::cout &lt;&lt; &quot;Select Pin [0-15] : &quot;;
-  // Log user input
-  std::cin &gt;&gt; pin;
-  // Prompt user for PWM frequency
-  std::cout &lt;&lt; &quot;Select Frequency (in Hz) : &quot;;
-  // Log user input
-  std::cin &gt;&gt; frequency;
-  // Prompt user for PWM duty percentage
-  std::cout &lt;&lt; &quot;Select Duty Percentage : &quot;;
-  // Log user input
-  std::cin &gt;&gt; percentage;
 
-  // Set pin mode to output
-  gpio.SetMode(pin, GPIOOutputMode);
-  // Set pin function to PWM
-  gpio.SetFunction(pin, PWMFunction);
+</details>
 
-  // If setting PWM returns an error, log it
-  // SetPWM function carries out PWM logic and outputs PWM signal
-  if (!gpio.SetPWM(frequency, percentage, pin))
-    // Output error to console
-    std::cerr &lt;&lt; &quot;ERROR: invalid input&quot; &lt;&lt; std::endl;
-  else
-    // Else output GPIO PWM info to console
-    std::cout &lt;&lt; &quot;[ Pin : &quot; &lt;&lt; pin &lt;&lt; &quot; ] [ Frequency : &quot; &lt;&lt; frequency
-              &lt;&lt; &quot; ] [ Duty Percentage : &quot; &lt;&lt; percentage &lt;&lt; &quot; ]&quot; &lt;&lt; std::endl;
+</details>
 
-  return 0;
-}
-</code></pre>
-
-<p></details></p>
-<p></details></p>
-<p><details>
+<details>
 <summary style="font-size: 1.75rem; font-weight: 300;">GPIO Servo</summary>
-The following section shows how to use GPIO in PWM mode for controlling a servo. You can download this example <a href="https://github.com/matrix-io/matrix-hal-examples/blob/master/gpio/gpio_servo.cpp" target="_blank">here</a>.</p>
-<p><details open>
+The following section shows how to use GPIO in PWM mode for controlling a servo. You can download this example <a href="https://github.com/matrix-io/matrix-hal-examples/blob/master/gpio/gpio_servo.cpp" target="_blank">here</a>.
+
+<details open>
 <summary style="font-size: 1.5rem; font-weight: 300;">Include Statements</summary>
-To begin working with the GPIO you need to include these header files.</p>
-<pre><code class="language-cpp">// Input/output streams and functions
-#include &lt;iostream&gt;
+To begin working with the GPIO you need to include these header files.
 
-// Interfaces with GPIO
-#include &quot;matrix_hal/gpio_control.h&quot;
-// Communicates with MATRIX device
-#include &quot;matrix_hal/matrixio_bus.h&quot;
-</code></pre>
 
-<p></details></p>
-<p><details open>
+wzxhzdk:9
+
+
+</details>
+
+<details open>
 <summary style="font-size: 1.5rem; font-weight: 300;">Initial Variables</summary>
-These initial variables are used in the example.</p>
-<pre><code class="language-cpp">// GPIOOutputMode is 1
-const uint16_t GPIOOutputMode = 1;
-// GPIOInputMode is 0
-const uint16_t GPIOInputMode = 0;
+These initial variables are used in the example.
 
-// PWMFunction is 1
-const uint16_t PWMFunction = 1;
+wzxhzdk:10
 
-// Holds desired PWM frequency
-float frequency;
-// Holds desired PWM duty percentage
-float percentage;
-// Holds desired GPIO pin [0-15]
-uint16_t pin;
-// Holds desired servo angle
-float angle;
-// Holds servo minimum pulse length (for calibration)
-float min_pulse_ms;
-</code></pre>
 
-<p></details></p>
-<p><details open>
+</details>
+
+<details open>
 <summary style="font-size: 1.5rem; font-weight: 300;">Initial Setup</summary>
-You'll then need to setup <code>MatrixIOBus</code> in order to communicate with the hardware on your MATRIX device.</p>
-<pre><code class="language-cpp">int main() {
-  // Create MatrixIOBus object for hardware communication
-  matrix_hal::MatrixIOBus bus;
-  // Initialize bus and exit program if error occurs
-  if (!bus.Init()) return false;
-</code></pre>
+You'll then need to setup `MatrixIOBus` in order to communicate with the hardware on your MATRIX device.
 
-<p></details></p>
-<p><details open>
+wzxhzdk:11
+
+
+</details>
+
+<details open>
 <summary style="font-size: 1.5rem; font-weight: 300;">Main Setup</summary>
-Now we will create our <code>GPIOControl</code> object and use it to output and input a digital GPIO signal.</p>
-<p>Servo neutral position is achieved with a 1.5 milliseconds pulse, so by taking the minimum servo pulse (in milliseconds) the SetServoAngle function calibrates servo angle.
-If unsure of min_pulse_ms enter <code>0.8</code>.</p>
-<pre><code class="language-cpp">  // The following code is part of main()
+Now we will create our `GPIOControl` object and use it to output and input a digital GPIO signal.
 
-  // Create GPIOControl object
-  matrix_hal::GPIOControl gpio;
-  // Set gpio to use MatrixIOBus bus
-  gpio.Setup(&amp;bus);
+Servo neutral position is achieved with a 1.5 milliseconds pulse, so by taking the minimum servo pulse (in milliseconds) the SetServoAngle function calibrates servo angle.
+If unsure of min_pulse_ms enter `0.8`.
 
-  // Prompt user for GPIO pin
-  std::cout &lt;&lt; &quot;Select Pin [0-15] : &quot;;
-  // Log user input
-  std::cin &gt;&gt; pin;
-  // Prompt user for servo angle
-  std::cout &lt;&lt; &quot;Servo Angle : &quot;;
-  // Log user input
-  std::cin &gt;&gt; angle;
-  // Prompt user for servo minimum pulse length in ms (for calibration)
-  std::cout &lt;&lt; &quot;Servo Min Pulse (ms) : &quot;;
-  // Log user input
-  std::cin &gt;&gt; min_pulse_ms;
 
-  // Set pin mode to output
-  gpio.SetMode(pin, GPIOOutputMode);
-  // Set pin function to PWM
-  gpio.SetFunction(pin, PWMFunction);
+wzxhzdk:12
 
-  // If setting servo angle returns an error, log it
-  // SetServoAngle function sets a servo angle based on the min_pulse_ms
-  if (!gpio.SetServoAngle(angle, min_pulse_ms, pin))
-    // Output error to console
-    std::cerr &lt;&lt; &quot;ERROR: invalid input&quot; &lt;&lt; std::endl;
-  else
-    // Else output servo control info to console
-    std::cout &lt;&lt; &quot;[ Pin : &quot; &lt;&lt; pin &lt;&lt; &quot; ]&quot;
-              &lt;&lt; &quot; [ Servo Angle : &quot; &lt;&lt; angle
-              &lt;&lt; &quot; ] [ Servo Min Pulse (ms) : &quot; &lt;&lt; min_pulse_ms &lt;&lt; &quot; ] &quot;
-              &lt;&lt; std::endl;
 
-  return 0;
-}
-</code></pre>
+</details>
 
-<p></details></p>
-<p></details></p> 
+</details> 
         </div>
         <div class="toc-parent col-lg-2 col-md-3">
           <div class="toc">

@@ -489,67 +489,32 @@
 <pre><code class="language-cpp">g++ -o YOUR_OUTPUT_FILE YOUR_CPP_FILE -std=c++11 -lmatrix_creator_hal
 </code></pre>
 
-<p><details open>
+<details open>
 <summary style="font-size: 1.5rem; font-weight: 300;">Include Statements</summary>
-To begin working with the UV sensor you need to include these header files.</p>
-<pre><code class="language-cpp">// System calls
-#include &lt;unistd.h&gt;
-// Input/output streams and functions
-#include &lt;iostream&gt;
+To begin working with the UV sensor you need to include these header files.
 
-// Interfaces with UV sensor
-#include &quot;matrix_hal/uv_sensor.h&quot;
-// Holds data from UV sensor
-#include &quot;matrix_hal/uv_data.h&quot;
-// Communicates with MATRIX device
-#include &quot;matrix_hal/matrixio_bus.h&quot;
-</code></pre>
+wzxhzdk:1
 
-<p></details></p>
-<p><details open>
+
+</details>
+
+<details open>
 <summary style="font-size: 1.5rem; font-weight: 300;">Initial Setup</summary>
-You'll then need to setup <code>MatrixIOBus</code> in order to communicate with the hardware on your MATRIX device.</p>
-<pre><code class="language-cpp">int main() {
-  // Create MatrixIOBus object for hardware communication
-  matrix_hal::MatrixIOBus bus;
-  // Initialize bus and exit program if error occurs
-  if (!bus.Init()) return false;
-</code></pre>
+You'll then need to setup `MatrixIOBus` in order to communicate with the hardware on your MATRIX device.
 
-<p></details></p>
-<p><details open>
+wzxhzdk:2
+
+
+</details>
+
+<details open>
 <summary style="font-size: 1.5rem; font-weight: 300;">Main Setup</summary>
-Now we will create our <code>UVData</code> and <code>UVSensor</code> object and use it to receive data from the UV sensor.</p>
-<pre><code class="language-cpp">  // The following code is part of main()
+Now we will create our `UVData` and `UVSensor` object and use it to receive data from the UV sensor.
 
-  // Create UVData object
-  matrix_hal::UVData uv_data;
-  // Create UVSensor object
-  matrix_hal::UVSensor uv_sensor;
-  // Set uv_sensor to use MatrixIOBus bus
-  uv_sensor.Setup(&amp;bus);
+wzxhzdk:3
 
-  // Endless loop
-  while (true) {
-    // Overwrites UVData object with new data
-    uv_sensor.Read(&amp;uv_data);
-    // UV output is represented in UV Index
-    float UV = uv_data.uv;
-    // Clear console
-    std::system(&quot;clear&quot;);
-    // Output sensor data to console
-    std::cout &lt;&lt; &quot; [ UV Sensor Output ]&quot; &lt;&lt; std::endl;
-    std::cout &lt;&lt; &quot; [ UV : &quot; &lt;&lt; UV &lt;&lt; &quot; ]&quot; &lt;&lt; std::endl;
 
-    // Sleep for 20000 microseconds
-    usleep(20000);
-  }
-
-  return 0;
-}
-</code></pre>
-
-<p></details></p> 
+</details> 
         </div>
         <div class="toc-parent col-lg-2 col-md-3">
           <div class="toc">

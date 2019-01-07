@@ -490,52 +490,54 @@
 #include &quot;matrix_hal/matrixio_bus.h&quot;
 </code></pre>
 
-<p><details open>
+<details open>
 <summary style="font-size: 1.75rem; font-weight: 300;">UVData</summary>
-<code>UVData</code> is a required <strong>object</strong> that contains the UV sensor's supported data parameters.</p>
-<pre><code class="language-cpp">// Create UVData object
-matrix_hal::UVData uv_data;
-</code></pre>
+`UVData` is a required **object** that contains the UV sensor's supported data parameters.
 
-<p>The following code accesses the parameters of <code>UVData</code>.</p>
-<pre><code class="language-cpp">// Output is represented in UV Index
-float UV = uv_data.uv;
-</code></pre>
+wzxhzdk:1
 
-<p></details></p>
-<p><details open>
+
+The following code accesses the parameters of `UVData`.
+
+
+wzxhzdk:2
+
+</details>
+
+<details open>
 <summary style="font-size: 1.75rem; font-weight: 300;">UVSensor</summary>
-<code>UVSensor</code> is a required <strong>object</strong> that contains functions to interface with the UV sensor.</p>
-<pre><code class="language-cpp">// Create UVSensor object
-matrix_hal::UVSensor uv_sensor;
-</code></pre>
+`UVSensor` is a required **object** that contains functions to interface with the UV sensor.
 
-<p>The functions below are part of <code>UVSensor</code>.</p>
-<p><details>
+wzxhzdk:3
+
+The functions below are part of `UVSensor`.
+
+<details>
 <summary style="font-size: 1.5rem; font-weight: 300;">.Setup</summary>
-<code>Setup</code> is a <strong>function</strong> that takes a <code>MatrixIOBus</code> object as a parameter and sets that object as the bus to use for communicating with MATRIX device.</p>
-<pre><code class="language-cpp">// Function declaration in header file
-void Setup(MatrixIOBus *bus);
-</code></pre>
+`Setup` is a **function** that takes a `MatrixIOBus` object as a parameter and sets that object as the bus to use for communicating with MATRIX device.
 
-<pre><code class="language-cpp">// Set uv_sensor to use MatrixIOBus bus
-uv_sensor.Setup(&amp;bus);
-</code></pre>
 
-<p></details></p>
-<p><details>
+wzxhzdk:4
+
+
+
+wzxhzdk:5
+
+</details>
+
+<details>
 <summary style="font-size: 1.5rem; font-weight: 300;">.Read</summary>
-<code>Read</code> is a <strong>function</strong> that takes a <code>UVData</code> object as a parameter and writes the current humidity sensor data into the <code>UVData</code> object.</p>
-<pre><code class="language-cpp">// Function declaration in header file
-bool Read(UVData *data);
-</code></pre>
+`Read` is a **function** that takes a `UVData` object as a parameter and writes the current humidity sensor data into the `UVData` object.
 
-<pre><code class="language-cpp">// Overwrites uv_data with new data from UV sensor
-uv_sensor.Read(&amp;uv_data);
-</code></pre>
 
-<p></details>
-</details></p> 
+wzxhzdk:6
+
+
+
+wzxhzdk:7
+
+</details>
+</details> 
         </div>
         <div class="toc-parent col-lg-2 col-md-3">
           <div class="toc">

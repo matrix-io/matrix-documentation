@@ -491,63 +491,64 @@
 #include &quot;matrix_hal/matrixio_bus.h&quot;
 </code></pre>
 
-<p><details open>
+<details open>
 <summary style="font-size: 1.75rem; font-weight: 300;">EverloopImage</summary>
-<code>EverloopImage</code> is a required <strong>object</strong> that contains an array of <code>LedValue</code> objects.
-The <code>EverloopImage</code> constructor takes in an integer representing the amount of RGBW leds your MATRIX device has.</p>
-<p>The MatrixIOBus function <code>bus.MatrixLeds</code> outputs the number of leds on your creator.</p>
-<pre><code class="language-cpp">// Holds the number of LEDs on MATRIX device
-int ledCount = bus.MatrixLeds();
-// Create EverloopImage object, with size of ledCount
-matrix_hal::EverloopImage everloop_image(ledCount);
-</code></pre>
+`EverloopImage` is a required **object** that contains an array of `LedValue` objects.
+The `EverloopImage` constructor takes in an integer representing the amount of RGBW leds your MATRIX device has.
 
-<p><code>EverloopImage</code> holds an array full of <code>LedValue</code> objects. The <code>LedValue</code> object contains the properties <code>red</code>, <code>green</code>, <code>blue</code>, <code>white</code>. These color properties accept an RGBW integer between 0-255.</p>
-<p>The following code shows how to set each led in everloop_image to green.</p>
-<pre><code class="language-cpp">// For each led, set RGBW colors
-// This sets all leds to green
-for (matrix_hal::LedValue &amp;led : everloop_image.leds) {
-  led.red = 0;
-  led.green = 100;
-  led.blue = 0;
-  led.white = 0;
-}
-</code></pre>
+The MatrixIOBus function `bus.MatrixLeds` outputs the number of leds on your creator.
 
-<p></details></p>
-<p><details open>
+
+wzxhzdk:1
+
+
+`EverloopImage` holds an array full of `LedValue` objects. The `LedValue` object contains the properties `red`, `green`, `blue`, `white`. These color properties accept an RGBW integer between 0-255.
+
+The following code shows how to set each led in everloop_image to green.
+
+
+wzxhzdk:2
+
+
+</details>
+
+<details open>
 <summary style="font-size: 1.75rem; font-weight: 300;">Everloop</summary>
-<code>Everloop</code> is a required <strong>object</strong> that contains functions to interface with the Everloop on the MATRIX device.</p>
-<pre><code class="language-cpp">// Create Everloop object
-matrix_hal::Everloop everloop;
-</code></pre>
+`Everloop` is a required **object** that contains functions to interface with the Everloop on the MATRIX device.
 
-<p>The functions below are part of <code>Everloop</code>.</p>
-<p><details>
+wzxhzdk:3
+
+
+The functions below are part of `Everloop`.
+
+<details>
 <summary style="font-size: 1.5rem; font-weight: 300;">.Setup</summary>
-<code>Setup</code> is a <strong>function</strong> that takes <code>MatrixIOBus</code> object as parameter and sets that object as the bus to use for communicating with MATRIX device.</p>
-<pre><code class="language-cpp">// Function declaration in header file
-void Setup(MatrixIOBus *bus);
-</code></pre>
+`Setup` is a **function** that takes `MatrixIOBus` object as parameter and sets that object as the bus to use for communicating with MATRIX device.
 
-<pre><code class="language-cpp">// Set everloop to use MatrixIOBus bus
-everloop.Setup(&amp;bus);
-</code></pre>
 
-<p></details></p>
-<p><details>
+wzxhzdk:4
+
+
+
+wzxhzdk:5
+
+
+</details>
+
+<details>
 <summary style="font-size: 1.5rem; font-weight: 300;">.Write</summary>
-<code>Write</code> is a <strong>function</strong> that takes an <code>EverloopImage</code> object as a parameter and updates the Everloop on the MATRIX device.</p>
-<pre><code class="language-cpp">// Function declaration in header file
-bool Write(EverloopImage *everloop_image;
-</code></pre>
+`Write` is a **function** that takes an `EverloopImage` object as a parameter and updates the Everloop on the MATRIX device.
 
-<pre><code class="language-cpp">// Updates the Everloop on the MATRIX device
-everloop.Write(&amp;everloop_image);
-</code></pre>
 
-<p></details>
-</details></p> 
+wzxhzdk:6
+
+
+
+wzxhzdk:7
+
+
+</details>
+</details> 
         </div>
         <div class="toc-parent col-lg-2 col-md-3">
           <div class="toc">

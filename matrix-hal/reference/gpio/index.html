@@ -496,242 +496,257 @@
 #include &quot;matrix_hal/matrixio_bus.h&quot;
 </code></pre>
 
-<p><details open>
+<details open>
 <summary style="font-size: 1.75rem; font-weight: 300;">GPIOControl</summary>
-<code>GPIOControl</code> is a required <strong>object</strong> that contains functions to interface with GPIO.</p>
-<pre><code class="language-cpp">// Create GPIOControl object
-matrix_hal::GPIOControl gpio;
-</code></pre>
+`GPIOControl` is a required **object** that contains functions to interface with GPIO.
 
-<p>The functions below are part of <code>GPIOControl</code>.</p>
-<p><details>
+wzxhzdk:1
+
+
+The functions below are part of `GPIOControl`.
+
+<details>
 <summary style="font-size: 1.5rem; font-weight: 300;">.Setup</summary>
-<code>Setup</code> is a <strong>function</strong> that takes a <code>MatrixIOBus</code> object as a parameter and sets that object as the bus to use for communicating with MATRIX device.</p>
-<pre><code class="language-cpp">// Function declaration in header file
-void Setup(MatrixIOBus *bus);
-</code></pre>
+`Setup` is a **function** that takes a `MatrixIOBus` object as a parameter and sets that object as the bus to use for communicating with MATRIX device.
 
-<pre><code class="language-cpp">// Set gpio to use MatrixIOBus bus
-gpio.Setup(&amp;bus);
-</code></pre>
 
-<p></details></p>
-<p><details>
+wzxhzdk:2
+
+
+
+wzxhzdk:3
+
+
+</details>
+
+<details>
 <summary style="font-size: 1.5rem; font-weight: 300;">.Banks</summary>
-<code>Banks</code> is a <strong>function</strong> that returns a <code>banks_</code> array of <code>GPIOBank</code> objects.</p>
-<pre><code class="language-cpp">// Function declaration in header file
-GPIOBank &amp;Bank(uint16_t bank) { return banks_[bank]; }
-</code></pre>
+`Banks` is a **function** that returns a `banks_` array of `GPIOBank` objects.
 
-<pre><code class="language-cpp">// Returns banks_[index]
-gpio.Banks(index);
-</code></pre>
 
-<p></details></p>
-<p><details>
+wzxhzdk:4
+
+
+
+wzxhzdk:5
+
+
+</details>
+
+<details>
 <summary style="font-size: 1.5rem; font-weight: 300;">.SetMode</summary>
-<code>SetMode</code> is a <strong>function</strong> that sets GPIO pin(s) to output or input.
-<code>SetMode</code> is overloaded, and there are two definitions for the function.</p>
-<p>For setting single GPIO pin.</p>
-<pre><code class="language-cpp">// Function declaration in header file
-// For setting single GPIO pin
-bool SetMode(uint16_t pin, uint16_t mode);
-</code></pre>
+`SetMode` is a **function** that sets GPIO pin(s) to output or input.
+`SetMode` is overloaded, and there are two definitions for the function.
 
-<pre><code class="language-cpp">// Sets pin 0 to output
-gpio.SetMode(0, 1);
-// Sets pin 0 to input
-gpio.SetMode(0, 0);
-</code></pre>
+For setting single GPIO pin.
 
-<p>For setting multiple GPIO pins.</p>
-<pre><code class="language-cpp">// Function declaration in header file
-// For setting multiple pins
-bool SetMode(unsigned char *pinList, int length, uint16_t mode);
-</code></pre>
 
-<pre><code class="language-cpp">unsigned char inputPinList[8] = {0, 2, 4, 6, 8, 10, 12, 14};
-unsigned char outputPinList[8] = {1, 3, 5, 7, 9, 11, 13, 15};
+wzxhzdk:6
 
-// Sets pins in inputPinList to input
-gpio.SetMode(inputPinList, sizeof(inputPinList), 0);
-// Sets pins in outputPinList to output
-gpio.SetMode(outputPinList, sizeof(outputPinList), 1);
-</code></pre>
 
-<p></details></p>
-<p><details>
+
+wzxhzdk:7
+
+
+For setting multiple GPIO pins.
+
+
+wzxhzdk:8
+
+
+
+wzxhzdk:9
+
+
+</details>
+
+<details>
 <summary style="font-size: 1.5rem; font-weight: 300;">.SetFunction</summary>
-<code>SetFunction</code> is a <strong>function</strong> that sets a single GPIO pin to I/O or PWM mode.</p>
-<pre><code class="language-cpp">// Function declaration in header file
-bool SetFunction(uint16_t pin, uint16_t function);
-</code></pre>
+`SetFunction` is a **function** that sets a single GPIO pin to I/O or PWM mode.
 
-<pre><code class="language-cpp">// Sets pin 0 to I/O mode
-gpio.SetFunction(0, 0);
-// Sets pin 0 to PWM mode
-gpio.SetFunction(0, 1);
-</code></pre>
 
-<p></details></p>
-<p><details>
+wzxhzdk:10
+
+
+
+wzxhzdk:11
+
+
+</details>
+
+<details>
 <summary style="font-size: 1.5rem; font-weight: 300;">.GetGPIOValue</summary>
-<code>GetGPIOValue</code> is a <strong>function</strong> that returns a GPIO value.</p>
-<pre><code class="language-cpp">// Function declaration in header file
-uint16_t GetGPIOValue(uint16_t pin);
-</code></pre>
+`GetGPIOValue` is a **function** that returns a GPIO value.
 
-<pre><code class="language-cpp">// Gets value of pin 0
-bool value = gpio.GetGPIOValue(0);
-</code></pre>
 
-<p></details></p>
-<p><details>
+wzxhzdk:12
+
+
+
+wzxhzdk:13
+
+
+</details>
+
+<details>
 <summary style="font-size: 1.5rem; font-weight: 300;">.GetGPIOValues</summary>
-<code>GetGPIOValues</code> is a <strong>function</strong> that returns all GPIO values, each bit of the returned 16bit integer represents a pin.</p>
-<pre><code class="language-cpp">// Function declaration in header file
-uint16_t GetGPIOValues();
-</code></pre>
+`GetGPIOValues` is a **function** that returns all GPIO values, each bit of the returned 16bit integer represents a pin.
 
-<pre><code class="language-cpp">// Gets all pin values
-uint16_t values = gpio.GetGPIOValues();
-</code></pre>
 
-<p></details></p>
-<p><details>
+wzxhzdk:14
+
+
+
+wzxhzdk:15
+
+
+</details>
+
+<details>
 <summary style="font-size: 1.5rem; font-weight: 300;">.SetGPIOValue</summary>
-<code>SetGPIOValue</code> is a <strong>function</strong> that sets a GPIO value.</p>
-<pre><code class="language-cpp">// Function declaration in header file
-bool SetGPIOValue(uint16_t pin, uint16_t value);
-</code></pre>
+`SetGPIOValue` is a **function** that sets a GPIO value.
 
-<pre><code class="language-cpp">// Sets pin 0 to on
-gpio.SetGPIOValue(0, 1);
-// Sets pin 0 to off
-gpio.SetGPIOValue(0, 0);
-</code></pre>
 
-<p></details></p>
-<p><details>
+wzxhzdk:16
+
+
+
+wzxhzdk:17
+
+
+</details>
+
+<details>
 <summary style="font-size: 1.5rem; font-weight: 300;">.SetGPIOValues</summary>
-<code>SetGPIOValues</code> is a <strong>function</strong> that sets multiple GPIO values.</p>
-<pre><code class="language-cpp">// Function declaration in header file
-bool SetGPIOValues(unsigned char *pinList, int length, uint16_t value);
-</code></pre>
+`SetGPIOValues` is a **function** that sets multiple GPIO values.
 
-<pre><code class="language-cpp">unsigned char onPinList[8] = {0, 2, 4, 6, 8, 10, 12, 14};
-unsigned char offPinList[8] = {1, 3, 5, 7, 9, 11, 13, 15};
 
-// Sets pins in onPinList to on
-gpio.SetGPIOValues(onPinList, sizeof(onPinList), 1);
-// Sets pins in offPinList to off
-gpio.SetGPIOValues(offPinList, sizeof(offPinList), 0);
-</code></pre>
+wzxhzdk:18
 
-<p></details></p>
-<p><details>
+
+
+wzxhzdk:19
+
+
+</details>
+
+<details>
 <summary style="font-size: 1.5rem; font-weight: 300;">.SetPrescaler</summary>
-<code>SetPrescaler</code> is a <strong>function</strong> that sets the prescaler for the FPGA clock.</p>
-<pre><code class="language-cpp">// Function declaration in header file
-bool SetPrescaler(uint16_t bank, uint16_t prescaler);
-</code></pre>
+`SetPrescaler` is a **function** that sets the prescaler for the FPGA clock.
 
-<pre><code class="language-cpp">// Set prescaler for bank 0 to 32
-// 2^5 = 32
-gpio.SetPrescaler(0, 5);
-</code></pre>
 
-<p></details></p>
-<p><details>
+wzxhzdk:20
+
+
+
+wzxhzdk:21
+
+
+</details>
+
+<details>
 <summary style="font-size: 1.5rem; font-weight: 300;">.Set9GServoAngle</summary>
-<code>Set9GServoAngle</code> is a <strong>function</strong> that sets a servo angle. It is based on SG90 servo calibration.</p>
-<pre><code class="language-cpp">// Function declaration in header file
-bool Set9GServoAngle(float angle, uint16_t pin);
-</code></pre>
+`Set9GServoAngle` is a **function** that sets a servo angle. It is based on SG90 servo calibration.
 
-<pre><code class="language-cpp">// Set servo angle to 70° on pin 0
-gpio.SetPrescaler(70, 0);
-</code></pre>
 
-<p></details></p>
-<p><details>
+wzxhzdk:22
+
+
+
+wzxhzdk:23
+
+
+</details>
+
+<details>
 <summary style="font-size: 1.5rem; font-weight: 300;">.SetServoAngle</summary>
-<code>SetServoAngle</code> is a <strong>function</strong> that sets a servo angle. It is based on the min_pulse_ms entered.</p>
-<pre><code class="language-cpp">// Function declaration in header file
-bool SetServoAngle(float angle, float min_pulse_ms, uint16_t pin);
-</code></pre>
+`SetServoAngle` is a **function** that sets a servo angle. It is based on the min_pulse_ms entered.
 
-<pre><code class="language-cpp">// Set servo angle to 70° on pin 0
-// For a servo that accepts a minimum pulse of 0.8ms
-gpio.SetServoAngle(70, 0.8, 0);
-</code></pre>
 
-<p></details></p>
-<p><details>
+wzxhzdk:24
+
+
+
+wzxhzdk:25
+
+
+</details>
+
+<details>
 <summary style="font-size: 1.5rem; font-weight: 300;">.SetPWM</summary>
-<code>SetPWM</code> is a <strong>function</strong> that sets a PWM output.</p>
-<pre><code class="language-cpp">// Function declaration in header file
-bool SetPWM(float frequency, float percentage, uint16_t pin);
-</code></pre>
+`SetPWM` is a **function** that sets a PWM output.
 
-<pre><code class="language-cpp">// Set PWM output to 50Hz, with a 25% duty cycle on pin 0
-gpio.SetPWM(50, 25, 0);
-</code></pre>
 
-<p></details>
-</details></p>
-<p><details open>
+wzxhzdk:26
+
+
+
+wzxhzdk:27
+
+
+</details>
+</details>
+
+<details open>
 <summary style="font-size: 1.75rem; font-weight: 300;">GPIOBank</summary>
-<code>GPIOBank</code> is an <strong>object</strong> that contains functions to interface with GPIO PWM. <code>GPIOControl</code> contains an array of <code>GPIOBank</code> objects, called <code>banks</code>_</p>
-<p>PWM Frequency is set by bank. A bank is a set of 4 pins, starting from pin 0 and going in order. Bank 0 is pin 0-3, Bank 1 is pin 4-7 etc.</p>
-<p>The functions below are part of <code>GPIOBank</code>.</p>
-<p><details>
+`GPIOBank` is an **object** that contains functions to interface with GPIO PWM. `GPIOControl` contains an array of `GPIOBank` objects, called `banks`_
+
+PWM Frequency is set by bank. A bank is a set of 4 pins, starting from pin 0 and going in order. Bank 0 is pin 0-3, Bank 1 is pin 4-7 etc.
+
+The functions below are part of `GPIOBank`.
+
+<details>
 <summary style="font-size: 1.5rem; font-weight: 300;">.SetPeriod</summary>
-<code>SetPeriod</code> is a <strong>function</strong> that sets the PWM period.</p>
-<pre><code class="language-cpp">// Function declaration in header file
-bool SetPeriod(uint16_t period);
-</code></pre>
+`SetPeriod` is a **function** that sets the PWM period.
 
-<pre><code class="language-cpp">// Set PWM period for bank 0 to 50000 FPGA clock ticks
-gpio.Banks(0).SetPeriod(50000);
-</code></pre>
 
-<p></details></p>
-<p><details>
+wzxhzdk:28
+
+
+
+wzxhzdk:29
+
+
+</details>
+
+<details>
 <summary style="font-size: 1.5rem; font-weight: 300;">.SetDuty</summary>
-<code>SetDuty</code> is a <strong>function</strong> that sets the PWM duty.</p>
-<pre><code class="language-cpp">// Function declaration in header file
-bool SetDuty(uint16_t channel, uint16_t duty);
-</code></pre>
+`SetDuty` is a **function** that sets the PWM duty.
 
-<pre><code class="language-cpp">// Set PWM duty for channel 0 of bank 0 to 10000 FPGA clock ticks
-gpio.Banks(0).SetDuty(0, 10000);
-</code></pre>
 
-<p></details></p>
-<p><details>
-<summary style="font-size: 1.5rem; font-weight: 300;">.SetupTimer</summary></p>
-<blockquote>
-<p>Under Maintenance</p>
-</blockquote>
-<p><code>SetupTimer</code> is a <strong>function</strong> that sets up the timer.</p>
-<pre><code class="language-cpp">// Function declaration in header file
-bool SetupTimer(uint16_t channel, uint16_t init_event, uint16_t final_event);
-</code></pre>
+wzxhzdk:30
 
-<p></details></p>
-<p><details>
-<summary style="font-size: 1.5rem; font-weight: 300;">.GetTimerCounter</summary></p>
-<blockquote>
-<p>Under Maintenance</p>
-</blockquote>
-<p><code>GetTimerCounter</code> is a <strong>function</strong> that returns the timer counter.</p>
-<pre><code class="language-cpp">// Function declaration in header file
-uint16_t GetTimerCounter(uint16_t channel);
-</code></pre>
 
-<p></details>
-</details></p> 
+
+wzxhzdk:31
+
+
+</details>
+
+<details>
+<summary style="font-size: 1.5rem; font-weight: 300;">.SetupTimer</summary>
+>Under Maintenance
+
+`SetupTimer` is a **function** that sets up the timer.
+
+
+wzxhzdk:32
+
+
+</details>
+
+<details>
+<summary style="font-size: 1.5rem; font-weight: 300;">.GetTimerCounter</summary>
+>Under Maintenance
+
+`GetTimerCounter` is a **function** that returns the timer counter.
+
+
+wzxhzdk:33
+
+
+</details>
+</details> 
         </div>
         <div class="toc-parent col-lg-2 col-md-3">
           <div class="toc">

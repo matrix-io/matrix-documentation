@@ -491,73 +491,32 @@
 <pre><code class="language-cpp">g++ -o YOUR_OUTPUT_FILE YOUR_CPP_FILE -std=c++11 -lmatrix_creator_hal
 </code></pre>
 
-<p><details open>
+<details open>
 <summary style="font-size: 1.5rem; font-weight: 300;">Include Statements</summary>
-To begin working with the pressure sensor you need to include these header files.</p>
-<pre><code class="language-cpp">// System calls
-#include &lt;unistd.h&gt;
-// Input/output streams and functions
-#include &lt;iostream&gt;
+To begin working with the pressure sensor you need to include these header files.
 
-// Interfaces with pressure sensor
-#include &quot;matrix_hal/pressure_sensor.h&quot;
-// Holds data from pressure sensor
-#include &quot;matrix_hal/pressure_data.h&quot;
-// Communicates with MATRIX device
-#include &quot;matrix_hal/matrixio_bus.h&quot;
-</code></pre>
+wzxhzdk:1
 
-<p></details></p>
-<p><details open>
+
+</details>
+
+<details open>
 <summary style="font-size: 1.5rem; font-weight: 300;">Initial Setup</summary>
-You'll then need to setup <code>MatrixIOBus</code> in order to communicate with the hardware on your MATRIX device.</p>
-<pre><code class="language-cpp">int main() {
-  // Create MatrixIOBus object for hardware communication
-  matrix_hal::MatrixIOBus bus;
-  // Initialize bus and exit program if error occurs
-  if (!bus.Init()) return false;
-</code></pre>
+You'll then need to setup `MatrixIOBus` in order to communicate with the hardware on your MATRIX device.
 
-<p></details></p>
-<p><details open>
+wzxhzdk:2
+
+
+</details>
+
+<details open>
 <summary style="font-size: 1.5rem; font-weight: 300;">Main Setup</summary>
-Now we will create our <code>PressureData</code> and <code>PressureSensor</code> object and use it to receive data from the pressure sensor.</p>
-<pre><code class="language-cpp">  // The following code is part of main()
+Now we will create our `PressureData` and `PressureSensor` object and use it to receive data from the pressure sensor.
 
-  // Create PressureData object
-  matrix_hal::PressureData pressure_data;
-  // Create PressureSensor object
-  matrix_hal::PressureSensor pressure_sensor;
-  // Set pressure_sensor to use MatrixIOBus bus
-  pressure_sensor.Setup(&amp;bus);
+wzxhzdk:3
 
-  // Endless loop
-  while (true) {
-    // Overwrites pressure_data with new data from pressure sensor
-    pressure_sensor.Read(&amp;pressure_data);
-    // Altitude output is represented in meters
-    float altitude = pressure_data.altitude;
-    // Pressure output is represented in kPa
-    float pressure = pressure_data.pressure;
-    // Temperature output is represented in °C
-    float temperature = pressure_data.temperature;
-    // Clear console
-    std::system(&quot;clear&quot;);
-    // Output sensor data to console
-    std::cout &lt;&lt; &quot; [ Pressure Sensor Output ]&quot; &lt;&lt; std::endl;
-    std::cout &lt;&lt; &quot; [ Altitude (m) : &quot; &lt;&lt; altitude
-              &lt;&lt; &quot; ] [ Pressure (kPa) : &quot; &lt;&lt; pressure
-              &lt;&lt; &quot; ] [ Temperature (°C) : &quot; &lt;&lt; temperature &lt;&lt; &quot; ]&quot; &lt;&lt; std::endl;
 
-    // Sleep for 20000 microseconds
-    usleep(20000);
-  }
-
-  return 0;
-}
-</code></pre>
-
-<p></details></p> 
+</details> 
         </div>
         <div class="toc-parent col-lg-2 col-md-3">
           <div class="toc">

@@ -492,296 +492,310 @@
 #include &quot;matrix_hal/matrixio_bus.h&quot;
 </code></pre>
 
-<p><details open>
+<details open>
 <summary style="font-size: 1.75rem; font-weight: 300;">MicrophoneArray</summary>
-<code>MicrophoneArray</code> is a required <strong>object</strong> that contains functions to interface with the microphone array .</p>
-<pre><code class="language-cpp">// Create MicrophoneArray object
-matrix_hal::MicrophoneArray microphone_array;
-</code></pre>
+`MicrophoneArray` is a required **object** that contains functions to interface with the microphone array .
 
-<p>The functions below are part of <code>MicrophoneArray</code>.</p>
-<p><details>
+wzxhzdk:1
+
+
+The functions below are part of `MicrophoneArray`.
+
+<details>
 <summary style="font-size: 1.5rem; font-weight: 300;">.Setup</summary>
-<code>Setup</code> is a <strong>function</strong> that takes a <code>MatrixIOBus</code> object as a parameter and sets that object as the bus to use for communicating with MATRIX device.</p>
-<pre><code class="language-cpp">// Function declaration in header file
-void Setup(MatrixIOBus *bus);
-</code></pre>
+`Setup` is a **function** that takes a `MatrixIOBus` object as a parameter and sets that object as the bus to use for communicating with MATRIX device.
 
-<pre><code class="language-cpp">// Set microphone_array to use MatrixIOBus bus
-microphone_array.Setup(&amp;bus);
-</code></pre>
 
-<p></details></p>
-<p><details>
+wzxhzdk:2
+
+
+
+wzxhzdk:3
+
+</details>
+
+<details>
 <summary style="font-size: 1.5rem; font-weight: 300;">.Read</summary>
-<code>Read</code> is a <strong>function</strong> that outputs microphone array data to the <code>delayed_data_</code> array and the <code>beamformed_</code> array in the <code>MicrophoneArray</code> object.</p>
-<pre><code class="language-cpp">// Function declaration in header file
-bool Read();
-</code></pre>
+`Read` is a **function** that outputs microphone array data to the `delayed_data_` array and the `beamformed_` array in the `MicrophoneArray` object.
 
-<pre><code class="language-cpp">// Reading 8-mics buffer from the FPGA
-microphone_array.Read();
-</code></pre>
 
-<p></details></p>
-<p><details>
+wzxhzdk:4
+
+
+
+wzxhzdk:5
+
+</details>
+
+<details>
 <summary style="font-size: 1.5rem; font-weight: 300;">.SamplingRate</summary>
-<code>SamplingRate</code> is a <strong>function</strong> that returns the <code>sampling_frequency_</code> value in the <code>MicrophoneArray</code> object.</p>
-<pre><code class="language-cpp">// Function declaration in header file
-uint32_t SamplingRate() { return sampling_frequency_; }
-</code></pre>
+`SamplingRate` is a **function** that returns the `sampling_frequency_` value in the `MicrophoneArray` object.
 
-<pre><code class="language-cpp">// Return the stored sampling rate
-uint32_t SamplingRate = microphone_array.SamplingRate();
-</code></pre>
 
-<p></details></p>
-<p><details>
+wzxhzdk:6
+
+
+
+wzxhzdk:7
+
+</details>
+
+<details>
 <summary style="font-size: 1.5rem; font-weight: 300;">.Gain</summary>
-<code>Gain</code> is a <strong>function</strong> that returns the <code>gain_</code> value in the <code>MicrophoneArray</code> object.</p>
-<pre><code class="language-cpp">// Function declaration in header file
-uint16_t Gain() { return gain_; }
-</code></pre>
+`Gain` is a **function** that returns the `gain_` value in the `MicrophoneArray` object.
 
-<pre><code class="language-cpp">// Return the stored gain
-uint32_t Gain = microphone_array.Gain();
-</code></pre>
 
-<p></details></p>
-<p><details>
+wzxhzdk:8
+
+
+
+wzxhzdk:9
+
+</details>
+
+<details>
 <summary style="font-size: 1.5rem; font-weight: 300;">.SetSamplingRate</summary>
-<code>SetSamplingRate</code> is a <strong>function</strong> that sets the <code>sampling_frequency_</code> value in the <code>MicrophoneArray</code> object and sends it to the microphone array.</p>
-<pre><code class="language-cpp">// Function declaration in header file
-bool SetSamplingRate(uint32_t sampling_frequency);
-</code></pre>
+`SetSamplingRate` is a **function** that sets the `sampling_frequency_` value in the `MicrophoneArray` object and sends it to the microphone array.
 
-<pre><code class="language-cpp">// Set the sampling rate
-microphone_array.SetSamplingRate(sampling_rate);
-</code></pre>
 
-<p></details></p>
-<p><details>
+wzxhzdk:10
+
+
+
+wzxhzdk:11
+
+</details>
+
+<details>
 <summary style="font-size: 1.5rem; font-weight: 300;">.SetGain</summary>
-<code>SetGain</code> is a <strong>function</strong> that sets the <code>gain_</code> value in the <code>MicrophoneArray</code> object and sends it to the microphone array.</p>
-<pre><code class="language-cpp">// Function declaration in header file
-bool SetGain(uint16_t gain);
-</code></pre>
+`SetGain` is a **function** that sets the `gain_` value in the `MicrophoneArray` object and sends it to the microphone array.
 
-<pre><code class="language-cpp">// Set the gain
-microphone_array.SetGain(gain);
-</code></pre>
 
-<p></details></p>
-<p><details>
+wzxhzdk:12
+
+
+
+wzxhzdk:13
+
+</details>
+
+<details>
 <summary style="font-size: 1.5rem; font-weight: 300;">.GetSamplingRate</summary>
-<code>GetSamplingRate</code> is a <strong>function</strong> that gets the sampling rate value from the microphone array and saves it in the <code>MicrophoneArray</code> object as value <code>sampling_frequency_</code>.</p>
-<pre><code class="language-cpp">// Function declaration in header file
-bool GetSamplingRate();
-</code></pre>
+`GetSamplingRate` is a **function** that gets the sampling rate value from the microphone array and saves it in the `MicrophoneArray` object as value `sampling_frequency_`.
 
-<pre><code class="language-cpp">// Update sampling_frequency_ from microphone array
-microphone_array.GetSamplingRate();
-</code></pre>
 
-<p></details></p>
-<p><details>
+wzxhzdk:14
+
+
+
+wzxhzdk:15
+
+</details>
+
+<details>
 <summary style="font-size: 1.5rem; font-weight: 300;">.GetGain</summary>
-<code>GetGain</code> is a <strong>function</strong> that gets the gain value from the microphone array and saves it in the <code>MicrophoneArray</code> object as value <code>gain_</code>.</p>
-<pre><code class="language-cpp">// Function declaration in header file
-bool GetGain();
-</code></pre>
+`GetGain` is a **function** that gets the gain value from the microphone array and saves it in the `MicrophoneArray` object as value `gain_`.
 
-<pre><code class="language-cpp">// Update gain_ from microphone array
-microphone_array.GetGain();
-</code></pre>
 
-<p></details></p>
-<p><details>
+wzxhzdk:16
+
+
+
+wzxhzdk:17
+
+</details>
+
+<details>
 <summary style="font-size: 1.5rem; font-weight: 300;">.ReadConfValues</summary>
-<code>ReadConfValues</code> is a <strong>function</strong> that runs both the <code>GetGain</code> and <code>GetSamplingRate</code> functions. 
-This updates the <code>gain_</code> and the <code>sampling_frequency_</code> values in the `MicrophoneArray' object with values from the microphone array.</p>
-<pre><code class="language-cpp">// Function declaration in header file
-void ReadConfValues();
-</code></pre>
+`ReadConfValues` is a **function** that runs both the `GetGain` and `GetSamplingRate` functions. 
+This updates the `gain_` and the `sampling_frequency_` values in the `MicrophoneArray' object with values from the microphone array.
 
-<pre><code class="language-cpp">// Update values from microphone array
-microphone_array.ReadConfValues();
-</code></pre>
 
-<p></details></p>
-<p><details>
+wzxhzdk:18
+
+
+
+wzxhzdk:19
+
+</details>
+
+<details>
 <summary style="font-size: 1.5rem; font-weight: 300;">.ShowConfiguration</summary>
-<code>ShowConfiguration</code> is a <strong>function</strong> that outputs the <code>gain_</code> and <code>sampling_frequency_</code> values in the `MicrophoneArray' object.</p>
-<pre><code class="language-cpp">// Function declaration in header file
-void ShowConfiguration();
-</code></pre>
+`ShowConfiguration` is a **function** that outputs the `gain_` and `sampling_frequency_` values in the `MicrophoneArray' object.
 
-<pre><code class="language-cpp">// Output `gain_` and `sampling_frequency_` values
-microphone_array.void ShowConfiguration();
-</code></pre>
 
-<pre><code class="language-cpp">// Style of output
-std::cout &lt;&lt; &quot;Audio Configuration: &quot; &lt;&lt; std::endl;
-std::cout &lt;&lt; &quot;Sampling Frequency: &quot; &lt;&lt; sampling_frequency_ &lt;&lt; std::endl;
-std::cout &lt;&lt; &quot;Gain : &quot; &lt;&lt; gain_ &lt;&lt; std::endl;
-</code></pre>
+wzxhzdk:20
 
-<p></details></p>
-<p><details>
+
+
+wzxhzdk:21
+
+
+
+wzxhzdk:22
+
+</details>
+
+<details>
 <summary style="font-size: 1.5rem; font-weight: 300;">.Channels</summary>
-<code>Channels</code> is a <strong>function</strong> that returns the number of microphone channels.</p>
-<pre><code class="language-cpp">// Function declaration in header file
-uint16_t Channels() { return kMicrophoneChannels; }
-</code></pre>
+`Channels` is a **function** that returns the number of microphone channels.
 
-<pre><code class="language-cpp">// Return the number of channels
-uint16_t Channels = microphone_array.Channels();
-</code></pre>
 
-<p></details></p>
-<p><details>
+wzxhzdk:23
+
+
+
+wzxhzdk:24
+
+</details>
+
+<details>
 <summary style="font-size: 1.5rem; font-weight: 300;">.NumberOfSamples</summary>
-<code>NumberOfSamples</code> is a <strong>function</strong> that returns the number of samples.</p>
-<pre><code class="language-cpp">// Function declaration in header file
-uint32_t NumberOfSamples() {
-    return kMicarrayBufferSize / kMicrophoneChannels;
-  }
-</code></pre>
+`NumberOfSamples` is a **function** that returns the number of samples.
 
-<pre><code class="language-cpp">// Return the number of samples
-uint16_t SampleAmount = microphone_array.NumberOfSamples();
-</code></pre>
 
-<p></details></p>
-<p><details>
+wzxhzdk:25
+
+
+
+wzxhzdk:26
+
+</details>
+
+<details>
 <summary style="font-size: 1.5rem; font-weight: 300;">.At</summary>
-<code>At</code> is a <strong>function</strong> that returns microphone data from the <code>delayed_data_</code> array. The <code>Read</code> function populates the <code>delayed_data_</code> array.</p>
-<pre><code class="language-cpp">// Function declaration in header file
-int16_t &amp;At(int16_t sample, int16_t channel) {
-    return delayed_data_[sample * kMicrophoneChannels + channel];
-  }
-</code></pre>
+`At` is a **function** that returns microphone data from the `delayed_data_` array. The `Read` function populates the `delayed_data_` array.
 
-<pre><code class="language-cpp">// Return a single sample
-int16_t sample = microphone_array.At(s, c);
-</code></pre>
 
-<p></details></p>
-<p><details>
+wzxhzdk:27
+
+
+
+wzxhzdk:28
+
+</details>
+
+<details>
 <summary style="font-size: 1.5rem; font-weight: 300;">.Beam</summary>
-<code>Beam</code> is a <strong>function</strong> that returns beamformed microphone data from the <code>beamformed_</code> array. The <code>Read</code> function populates the <code>beamformed_</code> array.</p>
-<pre><code class="language-cpp">// Function declaration in header file
-int16_t &amp;Beam(int16_t sample) { return beamformed_[sample]; }
-</code></pre>
+`Beam` is a **function** that returns beamformed microphone data from the `beamformed_` array. The `Read` function populates the `beamformed_` array.
 
-<pre><code class="language-cpp">// Return a single sample
-int16_t sample = microphone_array.Beam(s);
-</code></pre>
 
-<p></details></p>
-<p><details>
+wzxhzdk:29
+
+
+
+wzxhzdk:30
+
+</details>
+
+<details>
 <summary style="font-size: 1.5rem; font-weight: 300;">.CalculateDelays</summary>
-<code>CalculateDelays</code> is a <strong>function</strong> that calculates and sets up delays for beamforming.</p>
-<pre><code class="language-cpp">// Function declaration in header file
-void CalculateDelays(float azimutal_angle, float polar_angle,
-                       float radial_distance_mm = 100.0,
-                       float sound_speed_mmseg = 320 * 1000.0);
-</code></pre>
+`CalculateDelays` is a **function** that calculates and sets up delays for beamforming.
 
-<pre><code class="language-cpp">// Calculate and set up beamforming delays
-microphone_array.CalculateDelays(0, 0, 1000, 320 * 1000);
-</code></pre>
 
-<p></details></p>
-<p></details></p>
-<p><details open>
+wzxhzdk:31
+
+
+
+wzxhzdk:32
+
+</details>
+
+</details>
+
+<details open>
 <summary style="font-size: 1.75rem; font-weight: 300;">MicrophoneCore</summary>
-<code>MicrophoneCore</code> is an optional <strong>object</strong> that contains functions to enable using a <a href="https://en.wikipedia.org/wiki/Finite_impulse_response" target="_blank">FIR</a> filter with microphone array. It accepts a <code>MicrophoneArray</code> object in it's constructor.</p>
-<pre><code class="language-cpp">// Constructor declaration in header file
-MicrophoneCore(MicrophoneArray &amp;microphone_array);
-</code></pre>
+`MicrophoneCore` is an optional **object** that contains functions to enable using a <a href="https://en.wikipedia.org/wiki/Finite_impulse_response" target="_blank">FIR</a> filter with microphone array. It accepts a `MicrophoneArray` object in it's constructor.
 
-<pre><code class="language-cpp">// Create MicrophoneCore object
-matrix_hal::MicrophoneCore microphone_core(microphone_array);
-</code></pre>
+wzxhzdk:33
 
-<p>The functions below are part of <code>MicrophoneCore</code>.</p>
-<p><details>
+
+
+wzxhzdk:34
+
+
+The functions below are part of `MicrophoneCore`.
+
+<details>
 <summary style="font-size: 1.5rem; font-weight: 300;">.Setup</summary>
-<code>Setup</code> is a <strong>function</strong> that takes a <code>MatrixIOBus</code> object as a parameter and sets that object as the bus to use for communicating with MATRIX device. It also sets up the FIR filter by calling <code>SelectFIRCoeff(&amp;FIR_default[0])</code>.</p>
-<pre><code class="language-cpp">// Function declaration in header file
-void Setup(MatrixIOBus *bus);
-</code></pre>
+`Setup` is a **function** that takes a `MatrixIOBus` object as a parameter and sets that object as the bus to use for communicating with MATRIX device. It also sets up the FIR filter by calling `SelectFIRCoeff(&FIR_default[0])`.
 
-<pre><code class="language-cpp">// Set microphone_core to use MatrixIOBus bus
-microphone_core.Setup(&amp;bus);
-</code></pre>
 
-<p></details></p>
-<p><details>
+wzxhzdk:35
+
+
+
+wzxhzdk:36
+
+</details>
+
+<details>
 <summary style="font-size: 1.5rem; font-weight: 300;">.SetFIRCoeff</summary>
-<code>SetFIRCoeff</code> is a <strong>function</strong> that sends the <code>fir_coeff_</code> array in the <code>MicrophoneCore</code> object to the FPGA.</p>
-<pre><code class="language-cpp">// Function declaration in header file
-bool SetFIRCoeff();
-</code></pre>
+`SetFIRCoeff` is a **function** that sends the `fir_coeff_` array in the `MicrophoneCore` object to the FPGA.
 
-<pre><code class="language-cpp">// Sends fir_coeff_ to FPGA
-microphone_core.SetFIRCoeff();
-</code></pre>
 
-<p></details></p>
-<p><details>
+wzxhzdk:37
+
+
+
+wzxhzdk:38
+
+</details>
+
+<details>
 <summary style="font-size: 1.5rem; font-weight: 300;">.SetCustomFIRCoeff</summary>
-<code>SetCustomFIRCoeff</code> is a <strong>function</strong> that sets the <code>fir_coeff_</code> array in the <code>MicrophoneCore</code> object.</p>
-<p>If input is valid then the function also calls <code>SetFIRCoeff</code> to send the <code>fir_coeff_</code> array in the <code>MicrophoneCore</code> object to the FPGA.</p>
-<pre><code class="language-cpp">bool SetCustomFIRCoeff(const std::valarray&lt;int16_t&gt; custom_fir);
-</code></pre>
+`SetCustomFIRCoeff` is a **function** that sets the `fir_coeff_` array in the `MicrophoneCore` object.
 
-<pre><code class="language-cpp">// Sets fir_coeff_ to custom_fir
-microphone_core.SetCustomFIRCoeff(custom_fir);
-</code></pre>
+If input is valid then the function also calls `SetFIRCoeff` to send the `fir_coeff_` array in the `MicrophoneCore` object to the FPGA.
 
-<p></details></p>
-<p><details>
+
+wzxhzdk:39
+
+
+
+wzxhzdk:40
+
+</details>
+
+<details>
 <summary style="font-size: 1.5rem; font-weight: 300;">.SelectFIRCoeff</summary>
-<code>SelectFIRCoeff</code> is a <strong>function</strong> that sets the <code>fir_coeff_</code> array in the <code>MicrophoneCore</code> object. </p>
-<p>If input is valid then the function also calls <code>SetFIRCoeff</code> to send the <code>fir_coeff_</code> array in the <code>MicrophoneCore</code> object to the FPGA.</p>
-<p>This function accepts a FIRCoeff struct, which is defined below.</p>
-<pre><code class="language-cpp">// FIRCoeff definition in header file
-struct FIRCoeff {
-  uint32_t rate_;
-  std::valarray&lt;int16_t&gt; coeff_;
-};
-</code></pre>
+`SelectFIRCoeff` is a **function** that sets the `fir_coeff_` array in the `MicrophoneCore` object. 
 
-<pre><code class="language-cpp">bool SelectFIRCoeff(FIRCoeff *FIR_coeff);
-</code></pre>
+If input is valid then the function also calls `SetFIRCoeff` to send the `fir_coeff_` array in the `MicrophoneCore` object to the FPGA.
 
-<pre><code class="language-cpp">// Sets fir_coeff_ from FIR_default[0]
-microphone_core.SelectFIRCoeff(&amp;FIR_default[0]);
-</code></pre>
+This function accepts a FIRCoeff struct, which is defined below.
 
-<p></details></p>
-<p><details>
+
+wzxhzdk:41
+
+
+
+wzxhzdk:42
+
+
+
+wzxhzdk:43
+
+</details>
+
+<details>
 <summary style="font-size: 1.5rem; font-weight: 300;">Provided FIR Filters</summary>
-A FIR filter is provided in <code>matrix_hal/microphone_core_fir.h</code>.</p>
-<p>This filter provided is in the form of a FIRCoeff struct, which is defined below.</p>
-<pre><code class="language-cpp">// FIRCoeff definition in header file
-struct FIRCoeff {
-  uint32_t rate_;
-  std::valarray&lt;int16_t&gt; coeff_;
-};
-</code></pre>
+A FIR filter is provided in `matrix_hal/microphone_core_fir.h`.
 
-<p>To use the provided FIR filter the <code>SelectFIRCoeff</code> function is used to set it, then the <code>SetFIRCoeff</code> function is used to send it to the FPGA.</p>
-<pre><code class="language-cpp">// Sets fir_coeff_ from FIR_default[0]
-microphone_core.SelectFIRCoeff(&amp;FIR_default[0]);
-// Sends FIR filter in fir_coeff_ to FPGA
-microphone_core.SetFIRCoeff();
-</code></pre>
+This filter provided is in the form of a FIRCoeff struct, which is defined below.
 
-<p></details></p>
-<p></details></p> 
+
+wzxhzdk:44
+
+
+To use the provided FIR filter the `SelectFIRCoeff` function is used to set it, then the `SetFIRCoeff` function is used to send it to the FPGA.
+
+
+wzxhzdk:45
+
+</details>
+
+</details> 
         </div>
         <div class="toc-parent col-lg-2 col-md-3">
           <div class="toc">
