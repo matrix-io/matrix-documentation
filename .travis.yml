@@ -1,22 +1,22 @@
-language: python
-python:
-  - '2.7'
+# language: python
+# python:
+#   - '2.7'
   
-branches:
-  only:
-  - master
+# branches:
+#   only:
+#   - master
 
-install:
-  - pip install -r requirements.txt
+# install:
+#   - pip install -r requirements.txt
 
-script: 
-- openssl aes-256-cbc -K $encrypted_cf83979854f7_key -iv $encrypted_cf83979854f7_iv -in deploy-key.enc -out /tmp/deploy-key -d
-- eval "$(ssh-agent -s)"
-- chmod 600 /tmp/deploy-key
-- ssh-add /tmp/deploy-key
-- git remote add gh-token "git@github.com:matrix-io/matrix-documentation.git";
-- git fetch gh-token && git fetch gh-token gh-pages:gh-pages;
-- if [ "${TRAVIS_PULL_REQUEST}" = "false" ]; then echo "Pushing to github"; PYTHONPATH=src/ mkdocs gh-deploy -v --clean --remote-name gh-token; git push gh-token gh-pages; fi;
+# script: 
+# - openssl aes-256-cbc -K $encrypted_cf83979854f7_key -iv $encrypted_cf83979854f7_iv -in deploy-key.enc -out /tmp/deploy-key -d
+# - eval "$(ssh-agent -s)"
+# - chmod 600 /tmp/deploy-key
+# - ssh-add /tmp/deploy-key
+# - git remote add gh-token "git@github.com:matrix-io/matrix-documentation.git";
+# - git fetch gh-token && git fetch gh-token gh-pages:gh-pages;
+# - if [ "${TRAVIS_PULL_REQUEST}" = "false" ]; then echo "Pushing to github"; PYTHONPATH=src/ mkdocs gh-deploy -v --clean --remote-name gh-token; git push gh-token gh-pages; fi;
 
-notifications:
-  email: false
+# notifications:
+#   email: false
