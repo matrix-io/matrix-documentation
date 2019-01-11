@@ -523,346 +523,667 @@
 <p>Each example will show how to configure their respective widget. <code>screens</code> and <code>dataTypes</code> will be left up to you to configure.</p>
 <!-- BAR WIDGET -->
 
-<details>
-<summary>`bar` - bar chart</summary>
-![Bar Chart](../img/ios/bar.png)
+<p><details>
+<summary><code>bar</code> - bar chart</summary>
+<img alt="Bar Chart" src="../../img/ios/bar.png" /></p>
+<pre><code class="language-yaml">#config.yaml
+widgets:
+  barChartTest:
+    display: bar
+    type: monitor
+    keys: cpu, memory
+    format: avg
+    realtime: false
+    refresh: 60
+    label: Bar Chart
+</code></pre>
 
-wzxhzdk:0
+<pre><code class="language-javascript">//send data through app.js
+matrix.type('monitor').send({
+  'cpu': 7.03,
+  'memory': 2.30 
+});  
+</code></pre>
 
-
-wzxhzdk:1
-
-</details>
-
+<p></details></p>
 <!-- DIGIT WIDGET -->
 
-<details>
-<summary>`digit` - numerical</summary>
-![Digit](../img/ios/digit.png)
+<p><details>
+<summary><code>digit</code> - numerical</summary>
+<img alt="Digit" src="../../img/ios/digit.png" /></p>
+<pre><code class="language-yaml">#config.yaml
+widgets:
+  digitTest:
+    display: digit
+    type: monitor
+    key: cpu
+    format: round
+    label: cpu
+</code></pre>
 
-wzxhzdk:2
+<pre><code class="language-javascript">//send data through app.js
+matrix.type('monitor').send({
+  'cpu': 2.4,
+  'memory': 5.4 
+});  
+</code></pre>
 
-
-wzxhzdk:3
-
-</details>
-
+<p></details></p>
 <!-- RADAR WIDGET -->
 
-<details>
-<summary>`radar` - radar chart</summary>
-![Radar Chart](../img/ios/radar.png)
+<p><details>
+<summary><code>radar</code> - radar chart</summary>
+<img alt="Radar Chart" src="../../img/ios/radar.png" /></p>
+<pre><code class="language-yaml">#config.yaml
+widgets:
+  radarTest:
+    display: radar
+    type: emotions
+    keys: happy,sad,disgust,surprised,confused,calm,angry
+    label: Emotions
+</code></pre>
 
-wzxhzdk:4
+<pre><code class="language-javascript">//send data through app.js
+matrix.type('emotions').send({
+  'happy': 67,
+  'sad': 50,
+  'disgust': 78,
+  'surprised': 56,
+  'confused': 86,
+  'calm': 70,
+  'angry': 60 
+});  
+</code></pre>
 
-
-wzxhzdk:5
-
-</details>
-
+<p></details></p>
 <!-- LINE WIDGET -->
 
-<details>
-<summary>`line` - line chart</summary>
-![Line Chart](../img/ios/line.png)
+<p><details>
+<summary><code>line</code> - line chart</summary>
+<img alt="Line Chart" src="../../img/ios/line.png" /></p>
+<pre><code class="language-yaml">#config.yaml
+widgets:
+  lineChartTest:
+    display: line
+    type: monitor
+    format: avg
+    keys: cpu, memory
+    realtime: true
+    label: Line Chart
+</code></pre>
 
-wzxhzdk:6
+<pre><code class="language-javascript">//send data through app.js
+matrix.type('monitor').send({
+  'cpu': 7.03,
+  'memory': 2.30 
+});  
+</code></pre>
 
-
-wzxhzdk:7
-
-</details>
-
+<p></details></p>
 <!-- LIST WIDGET -->
 
-<details>
-<summary>`list` - data table</summary>
-![List](../img/ios/list.png)
+<p><details>
+<summary><code>list</code> - data table</summary>
+<img alt="List" src="../../img/ios/list.png" /></p>
+<pre><code class="language-yaml">#config.yaml
+widgets:
+  listTest:
+    display: list
+    type: device
+    keys: Hostname,Type,Platform,Arch
+    label: Secret Information
+</code></pre>
 
-wzxhzdk:8
+<pre><code class="language-javascript">//send data through app.js
+matrix.type('device').send({
+  'Hostname': 'h7n.domain',
+  'Type': 'Darwin',
+  'Platform': 'darwin',
+  'Arch': 'x64'
+});  
+</code></pre>
 
-
-wzxhzdk:9
-
-</details>
-
+<p></details></p>
 <!-- LIST-GROUP WIDGET -->
 
-<details>
-<summary>`list-group` - grouped data table</summary>
-**Simple Group**
-![List Group](../img/listgroup.png)
+<p><details>
+<summary><code>list-group</code> - grouped data table</summary>
+<strong>Simple Group</strong>
+<img alt="List Group" src="../../img/listgroup.png" /></p>
+<pre><code class="language-yaml">#config.yaml
+widgets:
+  info:
+    display: list-group
+    type: vehicleDetection
+    keys: count
+    format: count
+    label: Total
+</code></pre>
 
-wzxhzdk:10
+<pre><code class="language-javascript">//send data through app.js
+matrix.type('vehicleDetection').send({
+  'zoneId': 'zone1',
+  'count': '4',
+  'speed': '56'
+});  
+</code></pre>
 
+<p><strong>Group By Key</strong>
+<img alt="List Group" src="../../img/listgroupby.png" /></p>
+<pre><code class="language-yaml">#config.yaml
+widgets:
+  info:
+    display: list-group
+    type: device
+    keys: zone, count
+    format: count
+    groupby: zone
+    label: Total
+</code></pre>
 
-wzxhzdk:11
+<pre><code class="language-javascript">//send data through app.js
+matrix.type('vehicleDetection').send({
+  'zoneId': 'zone1',
+  'count': '4',
+  'speed': '56'
+});  
+</code></pre>
 
-
-**Group By Key**
-![List Group](../img/listgroupby.png)
-
-wzxhzdk:12
-
-
-wzxhzdk:13
-
-</details>
-
+<p></details></p>
 <!-- PIE-CHART WIDGET -->
 
-<details>
-<summary>`pie-chart` - pie chart</summary>
-![Radar Chart](../img/ios/pie.png)
+<p><details>
+<summary><code>pie-chart</code> - pie chart</summary>
+<img alt="Radar Chart" src="../../img/ios/pie.png" /></p>
+<pre><code class="language-yaml">#config.yaml
+widgets:
+  pieChartTest:
+    display: pie-chart
+    type: gender
+    keys: women,men
+    label: Gender
+</code></pre>
 
-wzxhzdk:14
+<pre><code class="language-javascript">//send data through app.js
+matrix.type('gender').send({
+  'women': 76,
+  'men': 45 
+});  
+</code></pre>
 
-
-wzxhzdk:15
-
-</details>
-
+<p></details></p>
 <!-- POLAR WIDGET -->
 
-<details>
-<summary>`polar` - polar area chart</summary>
-![Polar Chart](../img/ios/polar.png)
+<p><details>
+<summary><code>polar</code> - polar area chart</summary>
+<img alt="Polar Chart" src="../../img/ios/polar.png" /></p>
+<pre><code class="language-yaml">#config.yaml
+widgets:
+  polarTest:
+    display: polar
+    type: emotions
+    keys: happy,sad,disgust,surprised,confused,calm,angry
+    label: Emotions
+</code></pre>
 
-wzxhzdk:16
+<pre><code class="language-javascript">//send data through app.js
+matrix.type('emotions').send({
+  'happy': 67,
+  'sad': 50,
+  'disgust': 78,
+  'surprised': 56,
+  'confused': 86,
+  'calm': 70,
+  'angry': 60 
+});  
+</code></pre>
 
-
-wzxhzdk:17
-
-</details>
-
+<p></details></p>
 <!-- LABEL WIDGET -->
 
-<details>
-<summary>`label` - string display</summary>
-![Label](../img/ios/label.PNG)
+<p><details>
+<summary><code>label</code> - string display</summary>
+<img alt="Label" src="../../img/ios/label.PNG" /></p>
+<pre><code class="language-yaml">#config.yaml
+widgets:
+  labelTest:
+    display: label
+    type: uv
+    key: risk
+    label: UV Risk
+</code></pre>
 
-wzxhzdk:18
+<pre><code class="language-javascript">//send data through app.js
+matrix.type('uv').send({
+  'value': 0.56773,
+  'risk': 'Low' 
+});  
+</code></pre>
 
-
-wzxhzdk:19
-
-</details>
-
+<p></details></p>
 <!-- GAUGE WIDGET -->
 
-<details>
-<summary>`gauge` - gauge </summary>
-![Gauge](../img/ios/gauge.png)
+<p><details>
+<summary><code>gauge</code> - gauge </summary>
+<img alt="Gauge" src="../../img/ios/gauge.png" /></p>
+<pre><code class="language-yaml">#config.yaml
+widgets:
+  gaugeTest:
+    display: gauge
+    type: detection
+    keys: views
+    min: 0
+    max: 100
+    label: 'Views'
+</code></pre>
 
-wzxhzdk:20
+<pre><code class="language-javascript">//send data through app.js
+matrix.type('detection').send({
+  'views': 60,
+  'impressions': 100 
+});  
+</code></pre>
 
-
-wzxhzdk:21
-
-</details>
-
+<p></details></p>
 <!-- INDICATOR WIDGET -->
 
-<details>
-<summary>`indicator` -  light indicator on/off</summary>
-![Indicator](../img/ios/indicator.png)
+<p><details>
+<summary><code>indicator</code> -  light indicator on/off</summary>
+<img alt="Indicator" src="../../img/ios/indicator.png" /></p>
+<pre><code class="language-yaml">#config.yaml
+widgets:
+  indicatorTest:
+    display: indicator
+    type: system
+    keys: isOn
+    label: 'Indicator Test'
+</code></pre>
 
-wzxhzdk:22
+<pre><code class="language-javascript">//send data through app.js
+matrix.type('system').send({
+  'isOn': true
+});  
+</code></pre>
 
-
-wzxhzdk:23
-
-</details>
-
+<p></details></p>
 <!-- MAP WIDGET -->
 
-<details>
-<summary>`map` - google maps</summary>
-![Map](../img/ios/map.png)
+<p><details>
+<summary><code>map</code> - google maps</summary>
+<img alt="Map" src="../../img/ios/map.png" /></p>
+<pre><code class="language-yaml">widgets:
+  mapTest:
+    display: map
+    type: location
+    label: 'Map Test'
+</code></pre>
 
-wzxhzdk:24
+<pre><code class="language-javascript">//send data through app.js
+matrix.type('location').send({
+  'latitude': 25.791632,
+  'longitude': -80.1414447,
+  'label': 'Admobilize'
+});  
+</code></pre>
 
-
-wzxhzdk:25
-
-</details>
-
+<p></details></p>
 <!-- LINK WIDGET -->
 
-<details>
-<summary>`link` - link to a destination (URL)</summary>
-![Link](../img/link.png)
+<p><details>
+<summary><code>link</code> - link to a destination (URL)</summary>
+<img alt="Link" src="../../img/link.png" /></p>
+<pre><code class="language-yaml">widgets:
+  link:
+    display: link
+    label: &quot;Link display&quot;
+    title: &quot;Google&quot;
+    url: &quot;https://www.google.com&quot;
+</code></pre>
 
-wzxhzdk:26
-
-</details>
-
+<p></details></p>
 <p><br/></p>
 <h2 id="control-widgets">Control Widgets</h2>
 <p>Indicated via a <code>control</code> option.</p>
 <p>Each example will show how to configure their respective widget. <code>screens</code> and <code>dataTypes</code> will be left up to you to configure.</p>
 <!-- INPUT WIDGET -->
 
-<details>
-<summary>`input` - input field, single or multiple</summary>
+<p><details>
+<summary><code>input</code> - input field, single or multiple</summary></p>
+<p><strong>Single Inputs</strong>
+<img alt="input" src="../../img/ios/input.png" /></p>
+<pre><code class="language-yaml">#config.yaml
+widgets:
+  inputTest:
+    control: input
+    event: testInput
+    value: 'type text'
+    label: 'Test Input'
+</code></pre>
 
-**Single Inputs**
-![input](../img/ios/input.png)
+<pre><code class="language-javascript">//Cross-Talk event from dashboard
+matrix.on('testInput', function(p){
+ var text = p.value;
+})
+</code></pre>
 
-wzxhzdk:27
+<p><strong>Multiple Inputs</strong>
+<img alt="button Map" src="../../img/ios/inputMap.png" /></p>
+<pre><code class="language-yaml">#config.yaml
+  inputMapTest:
+    control: input
+    map:
+      - event: testInput1
+        value: first type text
+      - event: testInput2
+        value: second type text
+    label: Test Input Map
+</code></pre>
 
+<pre><code class="language-javascript">//Cross-Talk event from dashboard
+matrix.on('testInput1', function(p){
+ var text = p.value;
+})
 
-wzxhzdk:28
+matrix.on('testInput2', function(p){
+ var text = p.value;
+})
+</code></pre>
 
-
-**Multiple Inputs**
-![button Map](../img/ios/inputMap.png)
-
-wzxhzdk:29
-
-
-wzxhzdk:30
-
-</details>
-
+<p></details></p>
 <!-- BUTTON WIDGET -->
 
-<details>
-<summary>`button` - button, single or multiple</summary>
+<p><details>
+<summary><code>button</code> - button, single or multiple</summary></p>
+<p><strong>Single Buttons</strong>
+<img alt="button" src="../../img/ios/button.png" /></p>
+<pre><code class="language-yaml">#config.yaml
+widgets:
+  buttonTest:
+    control: button
+    event: buttonInfo
+    value: Get Secret Information
+    label: Hacking Buttons
+</code></pre>
 
-**Single Buttons**
-![button](../img/ios/button.png)
+<pre><code class="language-javascript">//Cross-Talk event from dashboard
+matrix.on('buttonInfo', function(){
+  // ...
+});
+</code></pre>
 
-wzxhzdk:31
+<p><strong>Multiple Buttons</strong>
+<img alt="button Map" src="../../img/ios/buttonMap.png" /></p>
+<pre><code class="language-yaml">#config.yaml
+widgets:
+  buttonMapTest:
+    control: button
+    map:
+      - event: buttonUp
+        value: amps+
+      - event: buttonDown
+        value: amps-
+      - event: buttonStart
+        value: begin
+      - event: buttonStop
+        value: end
+      - event: buttonCapture
+        value: capture
+      - event: buttonSlow
+        value: refresh+
+      - event: buttonFast
+        value: refresh-
+    label: Matrix Activation Buttons
+</code></pre>
 
+<pre><code class="language-javascript">//Cross-Talk event from dashboard
+matrix.on('buttonUp', function(){
+  // ...
+})
 
-wzxhzdk:32
+matrix.on('buttonDown', function(){
+  // ...
+})
 
+matrix.on('buttonStart', function(){
+  // ...
+})
 
-**Multiple Buttons**
-![button Map](../img/ios/buttonMap.png)
+matrix.on('buttonStop', function(){
+  // ...
+})
 
-wzxhzdk:33
+matrix.on('buttonCapture', function(){
+  // ...
+})
 
+matrix.on('buttonSlow', function(){
+  // ...
+})
 
-wzxhzdk:34
+matrix.on('buttonFast', function(){
+  // ...
+})
+</code></pre>
 
-</details>
-
+<p></details></p>
 <!-- SWITCH WIDGET -->
 
-<details>
-<summary>`switch` - switch, single or multiple</summary>
+<p><details>
+<summary><code>switch</code> - switch, single or multiple</summary></p>
+<p><strong>Single Switch</strong>
+<img alt="switch" src="../../img/ios/switch.png" /></p>
+<pre><code class="language-yaml">#config.yaml
+widgets:
+  switchTest:
+    control: switch
+    event: ledEnabledChanged
+    value: Leds enabled
+    label: Switch Test
+</code></pre>
 
-**Single Switch**
-![switch](../img/ios/switch.png)
+<pre><code class="language-javascript">//Cross-Talk event from dashboard
+matrix.on('ledEnabledChanged', function(p){
+ var isOn = p.value;
+})
+</code></pre>
 
-wzxhzdk:35
+<p><strong>Multiple Switches</strong>
+<img alt="switch" src="../../img/ios/switchMap.png" /></p>
+<pre><code class="language-yaml">#config.yaml
+widgets:
+  switchMapTest:
+    control: switch
+    map:
+      - event: ledEnabledChanged
+        value: Leds enabled
+      - event: detectionEnabledChanged
+        value: Detection Enabled
+    label: Switch Map Test
+</code></pre>
 
+<pre><code class="language-javascript">//Cross-Talk event from dashboard
+matrix.on('ledEnabledChanged', function(p){
+ var isOn = p.value;
+});
 
-wzxhzdk:36
+matrix.on('detectionEnabledChanged', function(p){
+ var isOn = p.value;
+});
+</code></pre>
 
-**Multiple Switches**
-![switch](../img/ios/switchMap.png)
-
-wzxhzdk:37
-
-
-wzxhzdk:38
-
-</details>
-
+<p></details></p>
 <!-- RADIO WIDGET -->
 
-<details>
-<summary>`radio` - radio, single or multiple</summary>
-![radio](../img/ios/radio.png)
+<p><details>
+<summary><code>radio</code> - radio, single or multiple</summary>
+<img alt="radio" src="../../img/ios/radio.png" /></p>
+<pre><code class="language-yaml">#config.yaml
+widgets:
+  radioTest:
+    control: radio
+    map:
+      - event: optionOneSelected
+        value: Option One
+      - event: optionTwoSelected
+        value: Option Two
+    label: Radio Test
+</code></pre>
 
-wzxhzdk:39
+<pre><code class="language-javascript">//Cross-Talk event from dashboard
+matrix.on('optionOneSelected', function(p){
+  // ...
+})
 
+matrix.on('optionTwoSelected', function(p){
+  // ...
+})
+</code></pre>
 
-
-wzxhzdk:40
-
-</details>
-
+<p></details></p>
 <!-- DROPDOWN WIDGET -->
 
-<details>
-<summary>`dropdown` - dropdown menu</summary>
-![DropDown](../img/ios/dropdown.png)
+<p><details>
+<summary><code>dropdown</code> - dropdown menu</summary>
+<img alt="DropDown" src="../../img/ios/dropdown.png" /></p>
+<pre><code class="language-yaml">#config.yaml
+widgets:
+  dropDownTest:
+    control: dropdown
+    map:
+      - event: optionOneSelected
+        value: Option One
+      - event: optionTwoSelected
+        value: Option Two
+    label: Dropdown Test
+</code></pre>
 
-wzxhzdk:41
+<pre><code class="language-javascript">//Cross-Talk event from dashboard
+matrix.on('optionOneSelected', function(){
+ //...
+})
 
+matrix.on('optionTwoSelected', function(){
+ //...
+})
+</code></pre>
 
-
-wzxhzdk:42
-
-</details>
-
+<p></details></p>
 <!-- RANGE WIDGET -->
 
-<details>
-<summary>`range` - range slider</summary>
-![range](../img/ios/range.png)
+<p><details>
+<summary><code>range</code> - range slider</summary>
+<img alt="range" src="../../img/ios/range.png" /></p>
+<pre><code class="language-yaml">#config.yaml
+widgets:
+  rangeTest:
+    control: range
+    event: rangeChanged
+    min: 0
+    max: 35
+    label: Range Test
+</code></pre>
 
-wzxhzdk:43
+<pre><code class="language-javascript">//Cross-Talk event from dashboard
+matrix.on('rangeChanged', function(p){
+ var value = p.value;
+});
+</code></pre>
 
-
-wzxhzdk:44
-
-</details>
-
+<p></details></p>
 <!-- XY WIDGET -->
 
-<details>
-<summary>`xy` - track pad</summary>
-![xy](../img/ios/xy.png)
+<p><details>
+<summary><code>xy</code> - track pad</summary>
+<img alt="xy" src="../../img/ios/xy.png" /></p>
+<pre><code class="language-yaml">#config.yaml
+widgets:
+  xyTest:
+    control: xy
+    event: xyChanging
+    value: 'xy'
+    xMax: 100
+    yMax: 50
+    label: Test XY
+</code></pre>
 
-wzxhzdk:45
+<pre><code class="language-javascript">//Cross-Talk event from dashboard
+matrix.on('xyChanging', function(p){
+ var x = p.value.x;
+ var y = p.value.y;
+});
+</code></pre>
 
-
-wzxhzdk:46
-
-</details>
-
+<p></details></p>
 <!-- RADIAL WIDGET -->
 
-<details>
-<summary>`radial` - joystick, single or multiple</summary>
+<p><details>
+<summary><code>radial</code> - joystick, single or multiple</summary></p>
+<p><strong>Single Radial</strong>
+<img alt="radial" src="../../img/ios/radial.png" /></p>
+<pre><code class="language-yaml">#config.yaml
+widgets:
+  radial:
+    control: radial
+    event: radialChanging
+    label: Radial Test
+</code></pre>
 
-**Single Radial**
-![radial](../img/ios/radial.png)
+<pre><code class="language-javascript">//Cross-Talk event from dashboard
+matrix.on('radialChanging', function(p){
+ var x = p.value.x; //from -1 to 1
+ var y = p.value.y; //from -1 to 1
+})
+</code></pre>
 
+<p><strong>Multiple Radials</strong>
+<img alt="radial" src="../../img/ios/radialMap.png" /></p>
+<pre><code class="language-yaml">#config.yam
+widgets:
+  radialMap:
+    control: radial
+    map:
+    - event: radialRChanging
+      value: right
+    - event: radialLChanging
+      value: left
+    label: Radial Map Test
+</code></pre>
 
-wzxhzdk:47
+<pre><code class="language-javascript">//Cross-Talk event from dashboard
+matrix.on('radialRChanging', function(p){
+ var x = p.value.x; //from -1 to 1
+ var y = p.value.y; //from -1 to 1
+});
 
+matrix.on('radialLChanging', function(p){
+ var x = p.value.x; //from -1 to 1
+ var y = p.value.y; //from -1 to 1
+});
+</code></pre>
 
-wzxhzdk:48
-
-**Multiple Radials**
-![radial](../img/ios/radialMap.png)
-
-
-wzxhzdk:49
-
-
-wzxhzdk:50
-
-</details>
-
+<p></details></p>
 <!-- COLOR WIDGET -->
 
-<details>
-<summary>`color` - color picker</summary>
-![color](../img/color.png) ![colorSelector](../img/colorSelector.png)
+<p><details>
+<summary><code>color</code> - color picker</summary>
+<img alt="color" src="../../img/color.png" /> <img alt="colorSelector" src="../../img/colorSelector.png" /> </p>
+<pre><code class="language-yaml">#config.yaml
+widgets:
+  color:
+    control: color
+    event: colorChange
+    value: 'color'
+    label: 'Change MATRIX color'
+</code></pre>
 
-wzxhzdk:51
+<pre><code class="language-javascript">//Cross-Talk event from dashboard
+matrix.on('colorChange', function(color){
+  color = color.value;
+  matrix.led(color).render();
+});
+</code></pre>
 
-
-wzxhzdk:52
-
-</details> 
+<p></details></p> 
         </div>
         <div class="toc-parent col-lg-2 col-md-3">
           <div class="toc">

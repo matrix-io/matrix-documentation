@@ -493,58 +493,66 @@
 #include &quot;matrix_hal/matrixio_bus.h&quot;
 </code></pre>
 
-<details open>
+<p><details open>
 <summary style="font-size: 1.75rem; font-weight: 300;">IMUData</summary>
-`IMUData` is a required **object** that contains the IMU sensor's supported data parameters.
+<code>IMUData</code> is a required <strong>object</strong> that contains the IMU sensor's supported data parameters.</p>
+<pre><code class="language-cpp">// Create IMUData object
+matrix_hal::IMUData imu_data;
+</code></pre>
 
-wzxhzdk:1
+<p>The following code accesses the parameters of <code>IMUData</code>.</p>
+<pre><code class="language-cpp">// Accelerometer
+float accel_X = imu_data.accel_x;
+float accel_Y = imu_data.accel_y;
+float accel_Z = imu_data.accel_z;
+// Gyroscope
+float gyro_X = imu_data.gyro_x;
+float gyro_Y = imu_data.gyro_y;
+float gyro_Z = imu_data.gyro_z;
+// Yaw, Pitch, Roll Output
+float yaw = imu_data.yaw;
+float pitch = imu_data.pitch;
+float roll = imu_data.roll;
+// Magnetometer
+float mag_X = imu_data.mag_x;
+float mag_Y = imu_data.mag_y;
+float mag_Z = imu_data.mag_z; // Z-axis points upward
+</code></pre>
 
-
-The following code accesses the parameters of `IMUData`.
-
-
-wzxhzdk:2
-
-
-</details>
-
-<details open>
+<p></details></p>
+<p><details open>
 <summary style="font-size: 1.75rem; font-weight: 300;">IMUSensor</summary>
-`IMUSensor` is a required **object** that contains functions to interface with the IMU sensor.
+<code>IMUSensor</code> is a required <strong>object</strong> that contains functions to interface with the IMU sensor.</p>
+<pre><code class="language-cpp">// Create IMUSensor object
+matrix_hal::IMUSensor imu_sensor;
+</code></pre>
 
-wzxhzdk:3
-
-
-The functions below are part of `IMUSensor`.
-
-<details>
+<p>The functions below are part of <code>IMUSensor</code>.</p>
+<p><details>
 <summary style="font-size: 1.5rem; font-weight: 300;">.Setup</summary>
-`Setup` is a **function** that takes a `MatrixIOBus` object as a parameter and sets that object as the bus to use for communicating with MATRIX device.
+<code>Setup</code> is a <strong>function</strong> that takes a <code>MatrixIOBus</code> object as a parameter and sets that object as the bus to use for communicating with MATRIX device.</p>
+<pre><code class="language-cpp">// Function declaration in header file
+void Setup(MatrixIOBus *bus);
+</code></pre>
 
+<pre><code class="language-cpp">// Set imu_sensor to use MatrixIOBus bus
+imu_sensor.Setup(&amp;bus);
+</code></pre>
 
-wzxhzdk:4
-
-
-
-wzxhzdk:5
-
-
-</details>
-
-<details>
+<p></details></p>
+<p><details>
 <summary style="font-size: 1.5rem; font-weight: 300;">.Read</summary>
-`Read` is a **function** that takes an `IMUData` object as a parameter and writes the current IMU sensor data into the `IMUData` object.
+<code>Read</code> is a <strong>function</strong> that takes an <code>IMUData</code> object as a parameter and writes the current IMU sensor data into the <code>IMUData</code> object.</p>
+<pre><code class="language-cpp">// Function declaration in header file
+bool Read(IMUData *data);
+</code></pre>
 
+<pre><code class="language-cpp">// Overwrites imu_data with new data from IMU sensor
+imu_sensor.Read(&amp;imu_data);
+</code></pre>
 
-wzxhzdk:6
-
-
-
-wzxhzdk:7
-
-
-</details>
-</details> 
+<p></details>
+</details></p> 
         </div>
         <div class="toc-parent col-lg-2 col-md-3">
           <div class="toc">

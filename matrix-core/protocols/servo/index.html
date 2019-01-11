@@ -493,35 +493,46 @@
 <h2 id="protocol">Protocol</h2>
 <!-- Base PORT -->
 
-<details open>
+<p><details open>
 <summary style="font-size: 1.75rem; font-weight: 300;">Base Port</summary>
-This port accepts a single configuration for communicating with the Servo driver.
+This port accepts a single configuration for communicating with the Servo driver. </p>
+<ul>
+<li><code>servo</code> - the servo configuration that's created from a <code>ServoParams</code> message.</li>
+</ul>
+<pre><code class="language-protobuf">message DriverConfig {
+  // ServoMotor service configuration
+  matrix_io.malos.v1.io.ServoParams servo = 7;
+}
+</code></pre>
 
-* `servo` - the servo configuration that's created from a `ServoParams` message.
+<p>View the defined message <a href="https://github.com/matrix-io/protocol-buffers/blob/master/matrix_io/malos/v1/driver.proto" target="_blank">here</a>.</p>
+<p><code>ServoParams</code></p>
+<ul>
+<li>
+<p><code>pin</code> - Selects the pin you want to use on your MATRIX device. </p>
+</li>
+<li>
+<p><code>angle</code> - emits a signal input that represents the angle set.</p>
+</li>
+</ul>
+<pre><code class="language-protobuf">// Servo handler params
+message ServoParams {
+  // Pin to configure
+  uint32 pin = 1;
 
+  // Servo angle
+  uint32 angle = 2;
+}
+</code></pre>
 
-wzxhzdk:0
-
-View the defined message <a href="https://github.com/matrix-io/protocol-buffers/blob/master/matrix_io/malos/v1/driver.proto" target="_blank">here</a>.
-
-`ServoParams`
-
-* `pin` - Selects the pin you want to use on your MATRIX device. 
-
-* `angle` - emits a signal input that represents the angle set.
-
-
-wzxhzdk:1
-
-View the defined message <a href="https://github.com/matrix-io/protocol-buffers/blob/65397022e73ac98ec2b217937f133a9eefbd8f01/matrix_io/malos/v1/io.proto" target="_blank">here</a>.
-</details>
-
+<p>View the defined message <a href="https://github.com/matrix-io/protocol-buffers/blob/65397022e73ac98ec2b217937f133a9eefbd8f01/matrix_io/malos/v1/io.proto" target="_blank">here</a>.
+</details></p>
 <!-- Error PORT -->
 
-<details open>
+<p><details open>
 <summary style="font-size: 1.75rem; font-weight: 300;">Error Port</summary>
 Applications can subscribe to this port to receive driver related errors.
-</details> 
+</details></p> 
         </div>
         <div class="toc-parent col-lg-2 col-md-3">
           <div class="toc">
