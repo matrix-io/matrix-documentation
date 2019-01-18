@@ -1,5 +1,4 @@
 <h2 style="padding-top:0">Humidity</h2>
->**Humidity is currently under maintenance**
 
 ### Device Compatibility
 <img class="creator-compatibility-icon" src="../../img/creator-icon.svg">

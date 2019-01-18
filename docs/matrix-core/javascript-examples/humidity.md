@@ -1,6 +1,5 @@
 <h2 style="padding-top:0">Humidity</h2>
 <h4 style="padding-top:0">Javascript Example</h4>
->**Humidity is currently under maintenance**
 
 ### Device Compatibility
 <img class="creator-compatibility-icon" src="../../img/creator-icon.svg">
