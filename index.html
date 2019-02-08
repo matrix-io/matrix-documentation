@@ -177,8 +177,8 @@
 
 <!-- print root node  -->
 <li class="">
-  <a href="matrix-os/overview/" class="">
-    MATRIX OS
+  <a href="matrix-hal/overview/" class="">
+    MATRIX HAL
   </a>
 </li>
 
@@ -186,12 +186,12 @@
    
   <!-- only 1 deep, print menu items  -->
    
-  <li><a href="matrix-os/overview/" class="">Overview</a></li>
+  <li><a href="matrix-hal/overview/" class="">Overview</a></li>
      
   <!-- 2 deep  -->
   <!-- print subroot  -->
   <li>
-    <a href="matrix-os/getting-started/" class="">
+    <a href="matrix-hal/getting-started/" class="">
       Getting Started
     </a>
   </li>
@@ -207,14 +207,12 @@
   <!-- 2 deep  -->
   <!-- print subroot  -->
   <li>
-    <a href="matrix-os/reference/" class="">
-      Reference
+    <a href="matrix-hal/reference/" class="">
+      References
     </a>
   </li>
 
   <ul class="subnav">
-        
-        
         
         
         
@@ -229,12 +227,18 @@
   <!-- 2 deep  -->
   <!-- print subroot  -->
   <li>
-    <a href="matrix-os/examples/" class="">
+    <a href="matrix-hal/examples/" class="">
       Examples
     </a>
   </li>
 
   <ul class="subnav">
+        
+        
+        
+        
+        
+        
         
       
   </ul>
@@ -242,7 +246,7 @@
     
   <!-- only 1 deep, print menu items  -->
    
-  <li><a href="matrix-os/troubleshooting/" class="">Troubleshooting</a></li>
+  <li><a href="matrix-hal/troubleshooting/" class="">Troubleshooting</a></li>
     
 </ul>
 
@@ -364,8 +368,8 @@
 
 <!-- print root node  -->
 <li class="">
-  <a href="matrix-hal/overview/" class="">
-    MATRIX HAL
+  <a href="matrix-os/overview/" class="">
+    MATRIX OS
   </a>
 </li>
 
@@ -373,12 +377,12 @@
    
   <!-- only 1 deep, print menu items  -->
    
-  <li><a href="matrix-hal/overview/" class="">Overview</a></li>
+  <li><a href="matrix-os/overview/" class="">Overview</a></li>
      
   <!-- 2 deep  -->
   <!-- print subroot  -->
   <li>
-    <a href="matrix-hal/getting-started/" class="">
+    <a href="matrix-os/getting-started/" class="">
       Getting Started
     </a>
   </li>
@@ -394,12 +398,14 @@
   <!-- 2 deep  -->
   <!-- print subroot  -->
   <li>
-    <a href="matrix-hal/reference/" class="">
-      References
+    <a href="matrix-os/reference/" class="">
+      Reference
     </a>
   </li>
 
   <ul class="subnav">
+        
+        
         
         
         
@@ -414,18 +420,12 @@
   <!-- 2 deep  -->
   <!-- print subroot  -->
   <li>
-    <a href="matrix-hal/examples/" class="">
+    <a href="matrix-os/examples/" class="">
       Examples
     </a>
   </li>
 
   <ul class="subnav">
-        
-        
-        
-        
-        
-        
         
       
   </ul>
@@ -433,7 +433,7 @@
     
   <!-- only 1 deep, print menu items  -->
    
-  <li><a href="matrix-hal/troubleshooting/" class="">Troubleshooting</a></li>
+  <li><a href="matrix-os/troubleshooting/" class="">Troubleshooting</a></li>
     
 </ul>
 
@@ -462,19 +462,25 @@ The MATRIX Ecosystem was created to make powerful hardware projects very approac
 <p><br/></p>
 <h2 id="programming-layers">Programming Layers</h2>
 <p>The MATRIX platform adds powerful capabilities to your Raspberry Pi, depending on your background and the kind of application you want to write, you may need to decide on which layer best fits your need. The documentation is organized according to these layers:</p>
+<h3 style="padding-top:0;">MATRIX Lite</h3>
+
+<p><strong>Language:</strong> JavaScript</p>
+<p>A straight forward library that's aimed at users of all skill levels. This layer is an abstraction around MATRIX HAL. Keep in mind this library is new &amp; in development. There are no known bugs at this time, but feel free to report any you encounter <a href="https://github.com/matrix-io/matrix-lite-js/issues" target="_blank">here</a>.</p>
+<p>🔨 <strong>In Early Development</strong> 🔨<br/>
+<a href="https://github.com/matrix-io/matrix-lite-js" target="_blank">Read more about MATRIX Lite</a></p>
 <h3 style="padding-top:0;">MATRIX HAL</h3>
 
 <p><strong>Language:</strong> C++</p>
 <p>Interacts with the kernel modules by using C++ drivers, enabling it to access available sensors and components on your device.</p>
 <p><a href="./matrix-hal/overview">Read more about MATRIX HAL</a></p>
-<h3 style="padding-top:0;">MATRIX CORE</h3>
+<h3 style="padding-top:0;">MATRIX Core</h3>
 
-<p><strong>Languages:</strong> Over 40 (Examples in Javascript &amp; Python)</p>
+<p><strong>Languages:</strong> Over 40 (Examples in JavaScript &amp; Python)</p>
 <p>Abstraction layer for <strong>MATRIX HAL</strong>. Hosts a ZeroMQ + Protobuf communication layer which makes device information accessible via high-level interfaces. Supports 40+ different languages through Protocol Buffers: C++, Python, Ruby, PHP, Java, etc.<br/></p>
-<p><a href="./matrix-core/overview">Read more about MATRIX CORE</a></p>
+<p><a href="./matrix-core/overview">Read more about MATRIX Core</a></p>
 <h3 style="padding-top:0;">MATRIX Open System (MOS)</h3>
 
-<p><strong>Language:</strong> Javascript</p>
+<p><strong>Language:</strong> JavaScript</p>
 <p>Highest level of abstraction integrating with MATRIX hardware via <strong>MATRIX CORE</strong>. This layer requires an online connection and offers an integrated IoT environment that's easy to use.</p>
 <ul>
 <li>Remote App Deployment</li>
