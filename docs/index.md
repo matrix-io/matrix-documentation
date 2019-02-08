@@ -7,6 +7,14 @@ The MATRIX Ecosystem was created to make powerful hardware projects very approac
 
 The MATRIX platform adds powerful capabilities to your Raspberry Pi, depending on your background and the kind of application you want to write, you may need to decide on which layer best fits your need. The documentation is organized according to these layers:
 
+<h3 style="padding-top:0;">MATRIX Lite</h3>
+**Language:** JavaScript
+
+A straight forward library that's aimed at users of all skill levels. This layer is an abstraction around MATRIX HAL. Keep in mind this library is new & in development. There are no known bugs at this time, but feel free to report any you encounter <a href="https://github.com/matrix-io/matrix-lite-js/issues" target="_blank">here</a>.
+
+🔨 **In Early Development** 🔨<br/>
+<a href="https://github.com/matrix-io/matrix-lite-js" target="_blank">Read more about MATRIX Lite</a>
+
 <h3 style="padding-top:0;">MATRIX HAL</h3>
 **Language:** C++
 
@@ -14,15 +22,15 @@ Interacts with the kernel modules by using C++ drivers, enabling it to access av
 
 [Read more about MATRIX HAL](matrix-hal/overview)
 
-<h3 style="padding-top:0;">MATRIX CORE</h3>
-**Languages:** Over 40 (Examples in Javascript & Python)
+<h3 style="padding-top:0;">MATRIX Core</h3>
+**Languages:** Over 40 (Examples in JavaScript & Python)
 
 Abstraction layer for **MATRIX HAL**. Hosts a ZeroMQ + Protobuf communication layer which makes device information accessible via high-level interfaces. Supports 40+ different languages through Protocol Buffers: C++, Python, Ruby, PHP, Java, etc.<br/>
 
-[Read more about MATRIX CORE](matrix-core/overview)
+[Read more about MATRIX Core](matrix-core/overview)
 
 <h3 style="padding-top:0;">MATRIX Open System (MOS)</h3>
-**Language:** Javascript
+**Language:** JavaScript
 
 Highest level of abstraction integrating with MATRIX hardware via **MATRIX CORE**. This layer requires an online connection and offers an integrated IoT environment that's easy to use.
 
