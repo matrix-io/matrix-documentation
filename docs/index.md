@@ -32,6 +32,8 @@ Abstraction layer for **MATRIX HAL**. Hosts a ZeroMQ + Protobuf communication la
 <h3 style="padding-top:0;">MATRIX Open System (MOS)</h3>
 **Language:** JavaScript
 
+> Starting February 28th, 2019, we will be deprecating MATRIX OS (MOS). Additionally, we have created a new library called MATRIX Lite which allows you to easily program your MATRIX Device with just one line of code. To find out more information about the deprecation of MOS and to learn more about our new library, MATRIX Lite, checkout our community post <a href="https://community.matrix.one/t/mos-being-deprecated-announcing-new-library-matrix-lite/2240" target="_blank">here</a>.
+
 Highest level of abstraction integrating with MATRIX hardware via **MATRIX CORE**. This layer requires an online connection and offers an integrated IoT environment that's easy to use.
 
 * Remote App Deployment
@@ -39,7 +41,6 @@ Highest level of abstraction integrating with MATRIX hardware via **MATRIX CORE*
 * Online Dashboard
 * App Store
 
-⚠️ **CURRENTLY UNDER MAINTENANCE** ⚠️<br/>
 [Read more about MATRIX OS](matrix-os/overview/)
 
 <br/>
