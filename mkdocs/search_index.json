@@ -1652,12 +1652,12 @@
         }, 
         {
             "location": "/matrix-os/getting-started/", 
-            "text": "Getting Started\n\n\n\u26a0\ufe0f \nCURRENTLY UNDER MAINTENANCE\n \u26a0\ufe0f\n\n\n\n\nDuring this maintenance we \nstrongly\n suggest that you use \nMATRIX CORE\n or \nMATRIX HAL\n as an alternative.\n\n\n\n\nInstallation\n\n\n\n\n\nLearn how to install MOS and the MATRIX CLI tool.\n\n\nApplications\n\n\n\n\n\nCreate and deploy a sample app for your MATRIX device.\n\n\nPublishing Apps\n\n\n\n\n\nFreely publish MATRIX applications to the MATRIX App store.", 
+            "text": "Getting Started\n\n\n\n\nStarting February 28th, 2019, we will be deprecating MATRIX OS (MOS). Additionally, we have created a new library called MATRIX Lite which allows you to easily program your MATRIX Device with just one line of code. To find out more information about the deprecation of MOS and to learn more about our new library, MATRIX Lite, checkout our community post \nhere\n.\n\n\n\n\nInstallation\n\n\n\n\n\nLearn how to install MOS and the MATRIX CLI tool.\n\n\nApplications\n\n\n\n\n\nCreate and deploy a sample app for your MATRIX device.\n\n\nPublishing Apps\n\n\n\n\n\nFreely publish MATRIX applications to the MATRIX App store.", 
             "title": "Index"
         }, 
         {
             "location": "/matrix-os/getting-started/#getting-started", 
-            "text": "\u26a0\ufe0f  CURRENTLY UNDER MAINTENANCE  \u26a0\ufe0f   During this maintenance we  strongly  suggest that you use  MATRIX CORE  or  MATRIX HAL  as an alternative.", 
+            "text": "Starting February 28th, 2019, we will be deprecating MATRIX OS (MOS). Additionally, we have created a new library called MATRIX Lite which allows you to easily program your MATRIX Device with just one line of code. To find out more information about the deprecation of MOS and to learn more about our new library, MATRIX Lite, checkout our community post  here .", 
             "title": "Getting Started"
         }, 
         {
