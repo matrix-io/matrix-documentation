@@ -8,12 +8,14 @@ The MATRIX Ecosystem was created to make powerful hardware projects very approac
 The MATRIX platform adds powerful capabilities to your Raspberry Pi, depending on your background and the kind of application you want to write, you may need to decide on which layer best fits your need. The documentation is organized according to these layers:
 
 <h3 style="padding-top:0;">MATRIX Lite</h3>
-**Language:** JavaScript
+**Language:** JavaScript & Python
 
 A straightforward library that's aimed at users of all skill levels. This layer is an abstraction around MATRIX HAL. Keep in mind this library is new & in development. There are no known bugs at this time, but feel free to report any you encounter <a href="https://github.com/matrix-io/matrix-lite-js/issues" target="_blank">here</a>.
 
-🔨 **In Early Development** 🔨<br/>
-<a href="https://github.com/matrix-io/matrix-lite-js" target="_blank">Read more about MATRIX Lite</a>
+Learn more about MATRIX Lite below
+
+- <a href="https://github.com/matrix-io/matrix-lite-js" target="_blank">JavaScript</a>
+- <a href="https://github.com/matrix-io/matrix-lite-py" target="_blank">Python <span style="color: gold">(***In Development***)</span></a>
 
 <h3 style="padding-top:0;">MATRIX HAL</h3>
 **Language:** C++
@@ -28,20 +30,6 @@ Interacts with the kernel modules by using C++ drivers, enabling it to access av
 Abstraction layer for **MATRIX HAL**. Hosts a ZeroMQ + Protobuf communication layer which makes device information accessible via high-level interfaces. Supports 40+ different languages through Protocol Buffers: C++, Python, Ruby, PHP, Java, etc.<br/>
 
 [Read more about MATRIX Core](matrix-core/overview)
-
-<h3 style="padding-top:0;">MATRIX Open System (MOS)</h3>
-**Language:** JavaScript
-
-> Starting February 28th, 2019, we will be deprecating MATRIX OS (MOS). Additionally, we have created a new library called MATRIX Lite which allows you to easily program your MATRIX Device with just one line of code. To find out more information about the deprecation of MOS and to learn more about our new library, MATRIX Lite, checkout our community post <a href="https://community.matrix.one/t/mos-being-deprecated-announcing-new-library-matrix-lite/2240" target="_blank">here</a>.
-
-Highest level of abstraction integrating with MATRIX hardware via **MATRIX CORE**. This layer requires an online connection and offers an integrated IoT environment that's easy to use.
-
-* Remote App Deployment
-* Mobile Interface
-* Online Dashboard
-* App Store
-
-[Read more about MATRIX OS](matrix-os/overview/)
 
 <br/>
 ## Devices
