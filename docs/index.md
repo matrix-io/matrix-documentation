@@ -8,14 +8,16 @@ The MATRIX Ecosystem was created to make powerful hardware projects very approac
 The MATRIX platform adds powerful capabilities to your Raspberry Pi, depending on your background and the kind of application you want to write, you may need to decide on which layer best fits your need. The documentation is organized according to these layers:
 
 <h3 style="padding-top:0;">MATRIX Lite</h3>
-**Language:** JavaScript & Python
+**Languages:** JavaScript & Python
 
-A straightforward library that's aimed at users of all skill levels. This layer is an abstraction around MATRIX HAL. Keep in mind this library is new & in development. There are no known bugs at this time, but feel free to report any you encounter <a href="https://github.com/matrix-io/matrix-lite-js/issues" target="_blank">here</a>.
+A straightforward library that's aimed at users of all skill levels. This layer is an abstraction around MATRIX HAL and allows you to program your MATRIX Device with as little as one line of code. 
+
+Keep in mind this library is new & in development. There are no known bugs at this time, but feel free to report any you encounter <a href="https://github.com/matrix-io/matrix-lite-js/issues" target="_blank">here</a>.
 
 Learn more about MATRIX Lite below
 
 - <a href="https://github.com/matrix-io/matrix-lite-js" target="_blank">JavaScript</a>
-- <a href="https://github.com/matrix-io/matrix-lite-py" target="_blank">Python <span style="color: gold">(***In Development***)</span></a>
+- <a href="https://github.com/matrix-io/matrix-lite-py" target="_blank">Python <span style="color: orange">(***In Development***)</span></a>
 
 <h3 style="padding-top:0;">MATRIX HAL</h3>
 **Language:** C++
