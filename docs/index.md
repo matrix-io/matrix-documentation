@@ -19,6 +19,8 @@ Learn more about MATRIX Lite below
 - <a href="https://github.com/matrix-io/matrix-lite-js" target="_blank">JavaScript</a>
 - <a href="https://github.com/matrix-io/matrix-lite-py" target="_blank">Python <span style="color: orange">(***In Development***)</span></a>
 
+[Read more about MATRIX Lite](matrix-lite/overview)
+
 <h3 style="padding-top:0;">MATRIX HAL</h3>
 **Language:** C++
 

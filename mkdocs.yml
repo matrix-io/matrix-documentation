@@ -32,6 +32,14 @@ pages:
     - 'FPGA': 'matrix-voice/resources/fpga.md'
   - 'Troubleshooting': 'matrix-voice/troubleshooting.md'
 # Ecosystem
+- MATRIX Lite :
+  - 'Overview': matrix-lite/overview.md
+  - Getting Started:
+    - 'Index': 'matrix-lite/getting-started/index.md'
+    - 'Installation': 'matrix-lite/getting-started/lite-installation.md'
+    - References:
+      - 'Index': 'matrix-lite/reference/index.md'
+
 - MATRIX HAL:
   - 'Overview': 'matrix-hal/overview.md'
   - Getting Started:
@@ -58,7 +66,7 @@ pages:
     - 'GPIO': 'matrix-hal/examples/gpio.md'
     - 'Microphone': 'matrix-hal/examples/microphone.md'
   - Troubleshooting: 'matrix-hal/troubleshooting.md'
-- MATRIX CORE:
+- MATRIX Core:
   - 'Overview': 'matrix-core/overview.md'
   - Getting Started:
     - 'Index': 'matrix-core/getting-started/index.md'
