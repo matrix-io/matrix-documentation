@@ -177,6 +177,50 @@
 
 <!-- print root node  -->
 <li class="">
+  <a href="../../../matrix-lite/overview/" class="">
+    MATRIX Lite
+  </a>
+</li>
+
+<ul class="subnav">
+   
+  <!-- only 1 deep, print menu items  -->
+   
+  <li><a href="../../../matrix-lite/overview/" class="">Overview</a></li>
+     
+  <!-- only 1 deep, print menu items  -->
+   
+  <li><a href="../../../matrix-lite/installation/" class="">Installation</a></li>
+     
+  <!-- 2 deep  -->
+  <!-- print subroot  -->
+  <li>
+    <a href="../../../matrix-lite/reference/" class="">
+      References
+    </a>
+  </li>
+
+  <ul class="subnav">
+        
+        
+        
+        
+      
+  </ul>
+
+   
+</ul>
+
+  
+
+
+<!-- Children complicate things  -->
+
+<!-- link to depth-first url found  -->
+  
+
+<!-- print root node  -->
+<li class="">
   <a href="../../../matrix-hal/overview/" class="">
     MATRIX HAL
   </a>
@@ -261,7 +305,7 @@
 <!-- print root node  -->
 <li class="">
   <a href="../../overview/" class="active">
-    MATRIX CORE
+    MATRIX Core
   </a>
 </li>
 
@@ -388,7 +432,7 @@
         </div>
         <div id="content" class="col-lg-8 col-md-9">
            <h2 id="overview">Overview</h2>
-<p>MATRIX CORE functions by sending and receiving <a href="https://developers.google.com/protocol-buffers/" target="_blank">Protocol Buffers</a> over a <a href="http://zeromq.org/" target="_blank">ZeroMQ</a> connection. This can be used to query sensors and control any MATRIX device from any language that supports Protocol Buffers (version 3.X) and ZeroMQ. This is the basis for how the <a href="/matrix-os/overview.md">MATRIX OS</a> layer can communicate with your MATRIX device. </p>
+<p>MATRIX CORE functions by sending and receiving <a href="https://developers.google.com/protocol-buffers/" target="_blank">Protocol Buffers</a> over a <a href="http://zeromq.org/" target="_blank">ZeroMQ</a> connection. This can be used to query sensors and control any MATRIX device from any language that supports Protocol Buffers (version 3.X) and ZeroMQ.</p>
 <p><img alt="" src="../../../matrix-core/img/core-flow.jpg" /></p>
 <h2 id="ports-protocol">Ports &amp; Protocol</h2>
 <p>MATRIX CORE contains drivers (components &amp; sensors) that communicate with your MATRIX device. This occurs by having each driver send or receive Protocol Buffers over a ZeroMQ driver port. Depending on the driver port it may allow for <strong>read-only</strong>, <strong>write-only</strong> or <strong>read-write</strong>.</p>
@@ -599,6 +643,7 @@ message UV{
   <script src="../../../js/jquery.ajaxchimp.langs.min.js"></script>
   <script src="../../../js/footer.js"></script>
   <script src="../../../js/prism.js"></script>
+  <script src="../../../js/codeToggle.js"></script>
 
   <!-- TOC Script -->
   <script>

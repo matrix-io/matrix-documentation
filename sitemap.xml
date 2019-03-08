@@ -4,7 +4,7 @@
     
     <url>
      <loc>/</loc>
-     <lastmod>2019-03-04</lastmod>
+     <lastmod>2019-03-08</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -13,13 +13,13 @@
         
     <url>
      <loc>/matrix-creator/overview/</loc>
-     <lastmod>2019-03-04</lastmod>
+     <lastmod>2019-03-08</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/matrix-creator/device-setup/</loc>
-     <lastmod>2019-03-04</lastmod>
+     <lastmod>2019-03-08</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -31,7 +31,7 @@
         
     <url>
      <loc>/matrix-creator/troubleshooting/</loc>
-     <lastmod>2019-03-04</lastmod>
+     <lastmod>2019-03-08</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -41,19 +41,19 @@
         
     <url>
      <loc>/matrix-voice/overview/</loc>
-     <lastmod>2019-03-04</lastmod>
+     <lastmod>2019-03-08</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/matrix-voice/device-setup/</loc>
-     <lastmod>2019-03-04</lastmod>
+     <lastmod>2019-03-08</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/matrix-voice/esp32/</loc>
-     <lastmod>2019-03-04</lastmod>
+     <lastmod>2019-03-08</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -65,7 +65,29 @@
         
     <url>
      <loc>/matrix-voice/troubleshooting/</loc>
-     <lastmod>2019-03-04</lastmod>
+     <lastmod>2019-03-08</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    
+
+    
+        
+    <url>
+     <loc>/matrix-lite/overview/</loc>
+     <lastmod>2019-03-08</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/matrix-lite/installation/</loc>
+     <lastmod>2019-03-08</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc></loc>
+     <lastmod></lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -75,7 +97,7 @@
         
     <url>
      <loc>/matrix-hal/overview/</loc>
-     <lastmod>2019-03-04</lastmod>
+     <lastmod>2019-03-08</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -99,7 +121,7 @@
         
     <url>
      <loc>/matrix-hal/troubleshooting/</loc>
-     <lastmod>2019-03-04</lastmod>
+     <lastmod>2019-03-08</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -109,7 +131,7 @@
         
     <url>
      <loc>/matrix-core/overview/</loc>
-     <lastmod>2019-03-04</lastmod>
+     <lastmod>2019-03-08</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -139,7 +161,7 @@
         
     <url>
      <loc>/matrix-core/troubleshooting/</loc>
-     <lastmod>2019-03-04</lastmod>
+     <lastmod>2019-03-08</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -148,7 +170,7 @@
     
     <url>
      <loc>/help/</loc>
-     <lastmod>2019-03-04</lastmod>
+     <lastmod>2019-03-08</lastmod>
      <changefreq>daily</changefreq>
     </url>
     

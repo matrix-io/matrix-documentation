@@ -2,7 +2,7 @@
     "docs": [
         {
             "location": "/", 
-            "text": "MATRIX Ecosystem Overview\n\n\nObjective: Hardware shouldn't be hard\n\nThe MATRIX Ecosystem was created to make powerful hardware projects very approachable for software developers. The pillars of MATRIX, computer vision, hardware interfaces, distributed internet communication, and data-driven end-user clients, are all programming disciplines which require years for an individual to master, or for a team to build a solution around.\n\n\n\n\nProgramming Layers\n\n\nThe MATRIX platform adds powerful capabilities to your Raspberry Pi, depending on your background and the kind of application you want to write, you may need to decide on which layer best fits your need. The documentation is organized according to these layers:\n\n\nMATRIX Lite\n\n\n\nLanguages:\n JavaScript \n Python\n\n\nA straightforward library that's aimed at users of all skill levels. This layer is an abstraction around MATRIX HAL and allows you to program your MATRIX Device with as little as one line of code. \n\n\nKeep in mind this library is new \n in development. There are no known bugs at this time, but feel free to report any you encounter \nhere\n.\n\n\nLearn more about MATRIX Lite below\n\n\n\n\nJavaScript\n\n\nPython \n(\nIn Development\n)\n\n\n\n\nMATRIX HAL\n\n\n\nLanguage:\n C++\n\n\nInteracts with the kernel modules by using C++ drivers, enabling it to access available sensors and components on your device.\n\n\nRead more about MATRIX HAL\n\n\nMATRIX Core\n\n\n\nLanguages:\n Over 40 (Examples in JavaScript \n Python)\n\n\nAbstraction layer for \nMATRIX HAL\n. Hosts a ZeroMQ + Protobuf communication layer which makes device information accessible via high-level interfaces. Supports 40+ different languages through Protocol Buffers: C++, Python, Ruby, PHP, Java, etc.\n\n\nRead more about MATRIX Core\n\n\n\n\nDevices\n\n\n\n\nEach programming layer in the MATRIX platform is compatible with each MATRIX product, excluding specific components on the boards.\n\n\n\n\nMATRIX Creator\n\n\n\n\n\n\nA fully-featured development board for the Raspberry Pi with various sensors and communication protocols such as a 3D Gyroscope, Accelerometer, an 8 Microphone Array, zigbee, Z-Wave, and more!\n\n\nRead more about the MATRIX Creator\n\n\nMATRIX Voice\n\n\n\n\n\n\nA voice and audio focused development board with an 8 microphone array that enables you to create your own audio driven applications or use voice assistants such as \n\nAmazon Alexa\n, \n\nGoogle Assistant\n, \nPocketSphinx, etc.\n\n\nRead more about the MATRIX Voice\n\n\n\n\nSupport\n\n\n\n\nPost questions or comments on \ncommunity.matrix.one\n\n\nAlert issues on our \nGitHub\n under the corresponding repository\n\n\nSubmit documentation issues or improvements to the \nMATRIX Documentation Repository", 
+            "text": "MATRIX Ecosystem Overview\n\n\nObjective: Hardware shouldn't be hard\n\nThe MATRIX Ecosystem was created to make powerful hardware projects very approachable for software developers. The pillars of MATRIX, computer vision, hardware interfaces, distributed internet communication, and data-driven end-user clients, are all programming disciplines which require years for an individual to master, or for a team to build a solution around.\n\n\n\n\nProgramming Layers\n\n\nThe MATRIX platform adds powerful capabilities to your Raspberry Pi, depending on your background and the kind of application you want to write, you may need to decide on which layer best fits your need. The documentation is organized according to these layers:\n\n\nMATRIX Lite\n\n\n\nLanguages:\n JavaScript \n Python\n\n\nA straightforward library that's aimed at users of all skill levels. This layer is an abstraction around MATRIX HAL and allows you to program your MATRIX Device with as little as one line of code. \n\n\nKeep in mind this library is new \n in development. There are no known bugs at this time, but feel free to report any you encounter \nhere\n.\n\n\nRead more about MATRIX Lite\n\n\nMATRIX HAL\n\n\n\nLanguage:\n C++\n\n\nInteracts with the kernel modules by using C++ drivers, enabling it to access available sensors and components on your device.\n\n\nRead more about MATRIX HAL\n\n\nMATRIX Core\n\n\n\nLanguages:\n Over 40 (Examples in JavaScript \n Python)\n\n\nAbstraction layer for \nMATRIX HAL\n. Hosts a ZeroMQ + Protobuf communication layer which makes device information accessible via high-level interfaces. Supports 40+ different languages through Protocol Buffers: C++, Python, Ruby, PHP, Java, etc.\n\n\nRead more about MATRIX Core\n\n\n\n\nDevices\n\n\n\n\nEach programming layer in the MATRIX platform is compatible with each MATRIX product, excluding specific components on the boards.\n\n\n\n\nMATRIX Creator\n\n\n\n\n\n\nA fully-featured development board for the Raspberry Pi with various sensors and communication protocols such as a 3D Gyroscope, Accelerometer, an 8 Microphone Array, zigbee, Z-Wave, and more!\n\n\nRead more about the MATRIX Creator\n\n\nMATRIX Voice\n\n\n\n\n\n\nA voice and audio focused development board with an 8 microphone array that enables you to create your own audio driven applications or use voice assistants such as \n\nAmazon Alexa\n, \n\nGoogle Assistant\n, \nPocketSphinx, etc.\n\n\nRead more about the MATRIX Voice\n\n\n\n\nSupport\n\n\n\n\nPost questions or comments on \ncommunity.matrix.one\n\n\nAlert issues on our \nGitHub\n under the corresponding repository\n\n\nSubmit documentation issues or improvements to the \nMATRIX Documentation Repository", 
             "title": "Overview"
         }, 
         {
@@ -491,6 +491,191 @@
             "title": "Test Other Components"
         }, 
         {
+            "location": "/matrix-lite/overview/", 
+            "text": "MATRIX Lite\n\n\n\nMATRIX Lite is a series of libraries for exposing \nMATRIX HAL\n to other languages. These libraries are built with a native C/C++ extension or a \n\nSWIG interface\n. We currently support JavaScript and have Python in development.\n\n\nInstallation\n\n\nLearn how to install MATRIX Lite and create programs on your MATRIX device.\n\n\nReference\n\n\nLook over the MATRIX Lite functions for interacting with your MATRIX device.", 
+            "title": "Overview"
+        }, 
+        {
+            "location": "/matrix-lite/overview/#installation", 
+            "text": "Learn how to install MATRIX Lite and create programs on your MATRIX device.", 
+            "title": "Installation"
+        }, 
+        {
+            "location": "/matrix-lite/overview/#reference", 
+            "text": "Look over the MATRIX Lite functions for interacting with your MATRIX device.", 
+            "title": "Reference"
+        }, 
+        {
+            "location": "/matrix-lite/installation/", 
+            "text": "Prerequisite MATRIX HAL\n\n\n\n\n\n\n\n\nMake sure you have setup \nMATRIX HAL\n before continuing.\n\n\n\n\nLanguage Setup\n\n\n\n\n\n\nJavaScript Setup\n\n\nInstall Node.js\n\n\ncurl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash\n. ~/.bashrc\nnvm install node\n\n\n\n\nCreate A Project.\n\n\nmkdir lite_js\ncd lite_js\nnpm init -y\ntouch index.js\n\n\n\n\nDownload the MATRIX-Lite-JS Package.\n\n\nnpm install @matrix-io/matrix-lite --save\n\n\n\n\nSee the \nNext Steps\n\n\n\n\n\n\n\n\n\nPython Setup\n\n\nPython support is currently under development, but you can view its current progress through the GitHub repository that's linked below.\n\n\nmatrix-lite-py \n(\nIn Development\n)\n\n\n\n\nNext Steps\n\n\nWith your device now setup, you can visit our \nReference\n page to get started with MATRIX Lite.\n\n\nWhile Python support is in development, the reference will only be for JavaScript.", 
+            "title": "Installation"
+        }, 
+        {
+            "location": "/matrix-lite/installation/#language-setup", 
+            "text": "JavaScript Setup  Install Node.js  curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash\n. ~/.bashrc\nnvm install node  Create A Project.  mkdir lite_js\ncd lite_js\nnpm init -y\ntouch index.js  Download the MATRIX-Lite-JS Package.  npm install @matrix-io/matrix-lite --save  See the  Next Steps     Python Setup  Python support is currently under development, but you can view its current progress through the GitHub repository that's linked below.  matrix-lite-py  ( In Development )", 
+            "title": "Language Setup"
+        }, 
+        {
+            "location": "/matrix-lite/installation/#next-steps", 
+            "text": "With your device now setup, you can visit our  Reference  page to get started with MATRIX Lite.  While Python support is in development, the reference will only be for JavaScript.", 
+            "title": "Next Steps"
+        }, 
+        {
+            "location": "/matrix-lite/reference/", 
+            "text": "Reference\n\n\nEverloop\n\nInterface for the LED array.\n\n\nSensors\n\n\n\nReading data from the IMU, humidity, UV, and pressure sensors.\n\n\nGPIO\n\n\n\nGeneral Purpose Input/Output.\n\n\nALSA\n\n\n\nAudio management through the use of ALSA.", 
+            "title": "Index"
+        }, 
+        {
+            "location": "/matrix-lite/reference/#reference", 
+            "text": "", 
+            "title": "Reference"
+        }, 
+        {
+            "location": "/matrix-lite/reference/everloop/", 
+            "text": "Everloop\n\n\n\nDevice Compatibility\n\n\n\n\n\n\nOverview\n\n\nThe following sections below will go over how to control the LED array on your MATRIX Device.\n\n\nImport Statement\n\n\nconst matrix = require(\n@matrix-io/matrix-lite\n);\n\n\n\n\n\n\n.length\n\n\nReturns the size of the LED array on your MATRIX device.\n\n\nmatrix.led.length;\n\n\n\n\n.set()\n\n\nAllows you to set the colors of each LED. A \nstring\n, \nobject\n, \narray\n, or nothing can be given to this function.\n\n\nString input\n\n\n// Turns each LED to blue\nmatrix.led.set(\nblue\n); // color name\nmatrix.led.set(\nrgb(0,0,255)\n); // RGB values\nmatrix.led.set(\n#0000ff\n); // Hex values\n\n// Turn off each LED\nmatrix.led.set(\nblack\n); // color name\nmatrix.led.set(\nrgb(0,0,0)\n); // RGB values\nmatrix.led.set(\n#000000\n); // Hex values\n\n\n\n\nObject input\n\n\n// Turns each LED to blue\nmatrix.led.set({\n  r:0, \n  g:0, \n  b:255,\n  w:0\n});\n\n// Turn off each LED\nmatrix.led.set({}) // unspecified values are set to 0\n\n\n\n\nArray Input\n\n\nPassing in an array allows you to set each individual LED color. Note that passing an array that's larger than the amount of LEDs on your device will cause an error.\n\n\n// Basic array example\nmatrix.led.set(['red', 'gold', 'purple', {}, , '#6F41C1', 'rgb(0,0,255)', {g:255}]);", 
+            "title": "Everloop"
+        }, 
+        {
+            "location": "/matrix-lite/reference/everloop/#device-compatibility", 
+            "text": "", 
+            "title": "Device Compatibility"
+        }, 
+        {
+            "location": "/matrix-lite/reference/everloop/#overview", 
+            "text": "The following sections below will go over how to control the LED array on your MATRIX Device.", 
+            "title": "Overview"
+        }, 
+        {
+            "location": "/matrix-lite/reference/everloop/#import-statement", 
+            "text": "const matrix = require( @matrix-io/matrix-lite );", 
+            "title": "Import Statement"
+        }, 
+        {
+            "location": "/matrix-lite/reference/everloop/#length", 
+            "text": "Returns the size of the LED array on your MATRIX device.  matrix.led.length;", 
+            "title": ".length"
+        }, 
+        {
+            "location": "/matrix-lite/reference/everloop/#set", 
+            "text": "Allows you to set the colors of each LED. A  string ,  object ,  array , or nothing can be given to this function.  String input  // Turns each LED to blue\nmatrix.led.set( blue ); // color name\nmatrix.led.set( rgb(0,0,255) ); // RGB values\nmatrix.led.set( #0000ff ); // Hex values\n\n// Turn off each LED\nmatrix.led.set( black ); // color name\nmatrix.led.set( rgb(0,0,0) ); // RGB values\nmatrix.led.set( #000000 ); // Hex values  Object input  // Turns each LED to blue\nmatrix.led.set({\n  r:0, \n  g:0, \n  b:255,\n  w:0\n});\n\n// Turn off each LED\nmatrix.led.set({}) // unspecified values are set to 0  Array Input  Passing in an array allows you to set each individual LED color. Note that passing an array that's larger than the amount of LEDs on your device will cause an error.  // Basic array example\nmatrix.led.set(['red', 'gold', 'purple', {}, , '#6F41C1', 'rgb(0,0,255)', {g:255}]);", 
+            "title": ".set()"
+        }, 
+        {
+            "location": "/matrix-lite/reference/sensors/", 
+            "text": "Sensors\n\n\n\nDevice Compatibility\n\n\n\n\nOverview\n\n\nThe following sections below will go over how to read \n what to expect from each sensor on the MATRIX Creator.\n\n\nImport Statement\n\n\nconst matrix = require(\n@matrix-io/matrix-lite\n);\n\n\n\n\n\n\nReading Sensor Data\n\n\n\nBelow are the functions you'll use to read data from each sensor.\n\n\nIMU\n\n\nmatrix.imu.read();\n\n\n\n\n// Example IMU Return Value //\n{ \n  accel_x: 0.0020000000949949026,\n  accel_y: 0.004999999888241291,\n  accel_z: 0.9819999933242798,\n  gyro_x:  0.7770000100135803,\n  gyro_y:  -0.2460000067949295,\n  gyro_z:  0.7250000238418579,\n  yaw:     -177.40724182128906,\n  pitch:   -0.11669033765792847,\n  roll:    0.2917275130748749,\n  mag_x:   0.5299999713897705,\n  mag_y:   -0.024000000208616257,\n  mag_z:   -0.05999999865889549 \n}\n\n\n\n\nUV\n\n\nmatrix.uv.read();\n\n\n\n\n// Example UV Return Value //\n{ \n  uv: 0.013000000268220901 \n}\n\n\n\n\nHumidity\n\n\nmatrix.humidity.read();\n\n\n\n\n// Example Humidity Return Value //\n{ \n  humidity:    29.04400062561035, \n  temperature: 33.279998779296875 \n}\n\n\n\n\nPressure\n\n\nmatrix.pressure.read();\n\n\n\n\n// Example Humidity Return Value //\n{ \n  altitude:    -47.4370002746582,\n  pressure:    101896,\n  temperature: 32.9370002746582 \n}", 
+            "title": "Sensors"
+        }, 
+        {
+            "location": "/matrix-lite/reference/sensors/#device-compatibility", 
+            "text": "", 
+            "title": "Device Compatibility"
+        }, 
+        {
+            "location": "/matrix-lite/reference/sensors/#overview", 
+            "text": "The following sections below will go over how to read   what to expect from each sensor on the MATRIX Creator.", 
+            "title": "Overview"
+        }, 
+        {
+            "location": "/matrix-lite/reference/sensors/#import-statement", 
+            "text": "const matrix = require( @matrix-io/matrix-lite );", 
+            "title": "Import Statement"
+        }, 
+        {
+            "location": "/matrix-lite/reference/sensors/#imu", 
+            "text": "matrix.imu.read();  // Example IMU Return Value //\n{ \n  accel_x: 0.0020000000949949026,\n  accel_y: 0.004999999888241291,\n  accel_z: 0.9819999933242798,\n  gyro_x:  0.7770000100135803,\n  gyro_y:  -0.2460000067949295,\n  gyro_z:  0.7250000238418579,\n  yaw:     -177.40724182128906,\n  pitch:   -0.11669033765792847,\n  roll:    0.2917275130748749,\n  mag_x:   0.5299999713897705,\n  mag_y:   -0.024000000208616257,\n  mag_z:   -0.05999999865889549 \n}", 
+            "title": "IMU"
+        }, 
+        {
+            "location": "/matrix-lite/reference/sensors/#uv", 
+            "text": "matrix.uv.read();  // Example UV Return Value //\n{ \n  uv: 0.013000000268220901 \n}", 
+            "title": "UV"
+        }, 
+        {
+            "location": "/matrix-lite/reference/sensors/#humidity", 
+            "text": "matrix.humidity.read();  // Example Humidity Return Value //\n{ \n  humidity:    29.04400062561035, \n  temperature: 33.279998779296875 \n}", 
+            "title": "Humidity"
+        }, 
+        {
+            "location": "/matrix-lite/reference/sensors/#pressure", 
+            "text": "matrix.pressure.read();  // Example Humidity Return Value //\n{ \n  altitude:    -47.4370002746582,\n  pressure:    101896,\n  temperature: 32.9370002746582 \n}", 
+            "title": "Pressure"
+        }, 
+        {
+            "location": "/matrix-lite/reference/gpio/", 
+            "text": "GPIO\n\n\n\nDevice Compatibility\n\n\n\n\n\n\nOverview\n\n\nThe following sections below will go over how to utilize the GPIO on your MATRIX Device.\n\n\nImport Statement\n\n\nconst matrix = require(\n@matrix-io/matrix-lite\n);\n\n\n\n\n\n\n.setFunction()\n\n\nSpecify if a GPIO pin is being used for \nDIGITAL\n or \nPWM\n.\n\n\nParameters:\n\n\n\n\npin\n: Any number from 0 to 15.\n\n\nmode\n: Can be \n0\n,\n1\n or \n\"DIGITAL\"\n, \n\"PWM\"\n respectively.\n\n\n\n\n// Valid ways of setting pin 0 as a digital pin\nmatrix.gpio.setFunction(0, \nDIGITAL\n);\nmatrix.gpio.setFunction(0, 0);\n\n// Valid ways of setting pin 1 as a PWM pin\nmatrix.gpio.setMode(1, \nPWM\n);\nmatrix.gpio.setMode(1, 1);\n\n\n\n\n.setMode()\n\n\nSpecify if a GPIO pin is being used for \ninput\n or \noutput\n.\n\n\nParameters:\n\n\n\n\npin\n: Any number from 0 to 15.\n\n\nmode\n: Can be \n0\n,\n1\n or \n\"output\"\n, \n\"input\"\n respectively.\n\n\nvalue\n: Can \n0\n,\n1\n or \n\"ON\"\n, \n\"OFF\"\n respectively\n\n\n\n\n// Valid ways of setting pin 0 to receive input\nmatrix.gpio.setMode(0, \ninput\n);\nmatrix.gpio.setMode(0, 0);\n\n// Valid ways of setting pin 1 to allow output\nmatrix.gpio.setMode(1, \noutput\n);\nmatrix.gpio.setMode(1, 1);\n\n\n\n\n.getDigital()\n\n\nRetrieve the current digital signal of a GPIO pin.\n\n\nParameters:\n\n\n\n\npin\n: Any number from 0 to 15.\n\n\n\n\nReturn Value:\n\n\n\n\nvalue\n: \n0\n or \n1\n representing ON/OFF respectively\n\n\n\n\n// Return the current ON/OFF state of pin 0\nmatrix.gpio.getDigital(0);\n\n\n\n\n.setDigital()\n\n\nSet the current digital signal of a GPIO pin.\n\n\nParameters:\n\n\n\n\npin\n: Any number from 0 to 15.\n\n\nvalue\n: Can be \n0\n,\n1\n or \n\"ON\"\n, \n\"OFF\"\n respectively\n\n\n\n\n// Valid ways of setting pin 0 to OFF\nmatrix.gpio.setDigital(0,\nOFF\n);\nmatrix.gpio.setDigital(0,0);\n\n// Valid ways of setting pin 1 to ON\nmatrix.gpio.setDigital(1,\nON\n);\nmatrix.gpio.setDigital(1,1);\n\n\n\n\n.setPWM()\n\n\nSet the current PWM signal of a GPIO pin.\n\n\nParameters:\n\n\n\n\nconfig: \nobject\n\n\npin\n: Any number from 0 to 15.\n\n\npercentage\n: Any number from 0 to 100.\n\n\nfrequency\n: Any number from 36 to \nmax value not tested\n.\n\n\n\n\n\n\n\n\n// Set PWM for pin 0\nmatrix.gpio.setPWM({\n  pin: 0,\n  percentage: 25,\n  frequency: 50\n});\n\n\n\n\n.setServoAngle()\n\n\nUse a GPIO pin to control a servo. This function requires the pin to be set to \n\"PWM\"\n mode.\n\n\nParameters:\n\n\n\n\nconfig: \nobject\n\n\npin\n: Any number from 0 to 15.\n\n\nangle\n: Positive number of degrees.\n\n\nmin_pulse_ms\n: Generally numbers between 0 and 2.\n\n\n\n\n\n\n\n\n// Sets Servo to 90 Degrees with pin 0\nmatrix.gpio.setServoAngle({\n  pin: 0,\n  angle: 90,\n  min_pulse_ms: 0.8\n});", 
+            "title": "GPIO"
+        }, 
+        {
+            "location": "/matrix-lite/reference/gpio/#device-compatibility", 
+            "text": "", 
+            "title": "Device Compatibility"
+        }, 
+        {
+            "location": "/matrix-lite/reference/gpio/#overview", 
+            "text": "The following sections below will go over how to utilize the GPIO on your MATRIX Device.", 
+            "title": "Overview"
+        }, 
+        {
+            "location": "/matrix-lite/reference/gpio/#import-statement", 
+            "text": "const matrix = require( @matrix-io/matrix-lite );", 
+            "title": "Import Statement"
+        }, 
+        {
+            "location": "/matrix-lite/reference/gpio/#setfunction", 
+            "text": "Specify if a GPIO pin is being used for  DIGITAL  or  PWM .  Parameters:   pin : Any number from 0 to 15.  mode : Can be  0 , 1  or  \"DIGITAL\" ,  \"PWM\"  respectively.   // Valid ways of setting pin 0 as a digital pin\nmatrix.gpio.setFunction(0,  DIGITAL );\nmatrix.gpio.setFunction(0, 0);\n\n// Valid ways of setting pin 1 as a PWM pin\nmatrix.gpio.setMode(1,  PWM );\nmatrix.gpio.setMode(1, 1);", 
+            "title": ".setFunction()"
+        }, 
+        {
+            "location": "/matrix-lite/reference/gpio/#setmode", 
+            "text": "Specify if a GPIO pin is being used for  input  or  output .  Parameters:   pin : Any number from 0 to 15.  mode : Can be  0 , 1  or  \"output\" ,  \"input\"  respectively.  value : Can  0 , 1  or  \"ON\" ,  \"OFF\"  respectively   // Valid ways of setting pin 0 to receive input\nmatrix.gpio.setMode(0,  input );\nmatrix.gpio.setMode(0, 0);\n\n// Valid ways of setting pin 1 to allow output\nmatrix.gpio.setMode(1,  output );\nmatrix.gpio.setMode(1, 1);", 
+            "title": ".setMode()"
+        }, 
+        {
+            "location": "/matrix-lite/reference/gpio/#getdigital", 
+            "text": "Retrieve the current digital signal of a GPIO pin.  Parameters:   pin : Any number from 0 to 15.   Return Value:   value :  0  or  1  representing ON/OFF respectively   // Return the current ON/OFF state of pin 0\nmatrix.gpio.getDigital(0);", 
+            "title": ".getDigital()"
+        }, 
+        {
+            "location": "/matrix-lite/reference/gpio/#setdigital", 
+            "text": "Set the current digital signal of a GPIO pin.  Parameters:   pin : Any number from 0 to 15.  value : Can be  0 , 1  or  \"ON\" ,  \"OFF\"  respectively   // Valid ways of setting pin 0 to OFF\nmatrix.gpio.setDigital(0, OFF );\nmatrix.gpio.setDigital(0,0);\n\n// Valid ways of setting pin 1 to ON\nmatrix.gpio.setDigital(1, ON );\nmatrix.gpio.setDigital(1,1);", 
+            "title": ".setDigital()"
+        }, 
+        {
+            "location": "/matrix-lite/reference/gpio/#setpwm", 
+            "text": "Set the current PWM signal of a GPIO pin.  Parameters:   config:  object  pin : Any number from 0 to 15.  percentage : Any number from 0 to 100.  frequency : Any number from 36 to  max value not tested .     // Set PWM for pin 0\nmatrix.gpio.setPWM({\n  pin: 0,\n  percentage: 25,\n  frequency: 50\n});", 
+            "title": ".setPWM()"
+        }, 
+        {
+            "location": "/matrix-lite/reference/gpio/#setservoangle", 
+            "text": "Use a GPIO pin to control a servo. This function requires the pin to be set to  \"PWM\"  mode.  Parameters:   config:  object  pin : Any number from 0 to 15.  angle : Positive number of degrees.  min_pulse_ms : Generally numbers between 0 and 2.     // Sets Servo to 90 Degrees with pin 0\nmatrix.gpio.setServoAngle({\n  pin: 0,\n  angle: 90,\n  min_pulse_ms: 0.8\n});", 
+            "title": ".setServoAngle()"
+        }, 
+        {
+            "location": "/matrix-lite/reference/alsa/", 
+            "text": "ALSA\n\n\n\nDevice Compatibility\n\n\n\n\n\n\nOverview\n\n\n\n\nRequires you to have the \nMATRIX Kernel Modules\n installed.\n\n\n\n\nThe following sections below will go over how to retrieve microphone input through ALSA.\n\n\nImport Statement\n\n\nconst matrix = require(\n@matrix-io/matrix-lite\n);\n\n\n\n\n\n\n.mic\n\n\nThis function will allow you to configure your MATRIX microphone settings. Default values will be used if no configuration was given. \n\n\n\n\nconfig: \nobject\n\n\nrate\n: Any number from 0 to 15.\n\n\ndebug\n: true or false.\n\n\nexitOnSilence\n: number of seconds.\n\n\nchannels\n: Any number from 1 to 8.\n\n\n\n\n\n\n\n\nvar mic = matrix.alsa.mic();\n// or\nvar mic = matrix.alsa.mic({\n  rate: '16000',\n  debug: true,\n  exitOnSilence: 6,\n  channels: '1'\n});\n\n\n\n\nOnce the microphone is setup, visit \nnpm mic page\n to see what functions \n event listeners are available. This package is included in MATRIX Lite.", 
+            "title": "ALSA"
+        }, 
+        {
+            "location": "/matrix-lite/reference/alsa/#device-compatibility", 
+            "text": "", 
+            "title": "Device Compatibility"
+        }, 
+        {
+            "location": "/matrix-lite/reference/alsa/#overview", 
+            "text": "Requires you to have the  MATRIX Kernel Modules  installed.   The following sections below will go over how to retrieve microphone input through ALSA.", 
+            "title": "Overview"
+        }, 
+        {
+            "location": "/matrix-lite/reference/alsa/#import-statement", 
+            "text": "const matrix = require( @matrix-io/matrix-lite );", 
+            "title": "Import Statement"
+        }, 
+        {
+            "location": "/matrix-lite/reference/alsa/#mic", 
+            "text": "This function will allow you to configure your MATRIX microphone settings. Default values will be used if no configuration was given.    config:  object  rate : Any number from 0 to 15.  debug : true or false.  exitOnSilence : number of seconds.  channels : Any number from 1 to 8.     var mic = matrix.alsa.mic();\n// or\nvar mic = matrix.alsa.mic({\n  rate: '16000',\n  debug: true,\n  exitOnSilence: 6,\n  channels: '1'\n});  Once the microphone is setup, visit  npm mic page  to see what functions   event listeners are available. This package is included in MATRIX Lite.", 
+            "title": ".mic"
+        }, 
+        {
             "location": "/matrix-hal/overview/", 
             "text": "MATRIX Hardware Abstraction Layer\n\n\n\nMATRIX Hardware Abstraction Layer (HAL) is an open source library for directly interfacing with the MATRIX device. MATRIX HAL consists of driver files written in C++ which enable the user to write low level programs in C++.\n\n\nGetting Started\n\n\nLearn how to install MATRIX HAL and create programs on your MATRIX device.\n\n\nReference\n\n\nLook over the MATRIX HAL functions for interacting with your MATRIX device.\n\n\nExamples\n\n\nView our MATRIX HAL code examples.\n\n\nTroubleshooting\n\n\nLook at common debugging solutions for any issues you encounter.", 
             "title": "Overview"
@@ -977,12 +1162,12 @@
         }, 
         {
             "location": "/matrix-core/getting-started/understanding-core/", 
-            "text": "Overview\n\n\nMATRIX CORE functions by sending and receiving \nProtocol Buffers\n over a \nZeroMQ\n connection. This can be used to query sensors and control any MATRIX device from any language that supports Protocol Buffers (version 3.X) and ZeroMQ. This is the basis for how the \nMATRIX OS\n layer can communicate with your MATRIX device. \n\n\n\n\nPorts \n Protocol\n\n\nMATRIX CORE contains drivers (components \n sensors) that communicate with your MATRIX device. This occurs by having each driver send or receive Protocol Buffers over a ZeroMQ driver port. Depending on the driver port it may allow for \nread-only\n, \nwrite-only\n or \nread-write\n.\n\n\nCurrent Driver Base Ports:\n\n\n\n\nIMU\n - \n20013\n\n\nHumidity\n - \n20017\n\n\nEverloop\n - \n20021\n\n\nPressure\n - \n20025\n\n\nUV\n - \n20029\n\n\n\n\n\n\nServo\n - \n20045\n\n\nGPIO\n - \n20049\n\n\nWakeword\n - \n60001\n\n\n\n\nEach driver reserves 4 ports beginning with their \nbase port\n as shown above. The other 3 ports are in sequential order counting up from the \nbase port\n. Below is an example of all IMU ports. Note, not all drivers utilize every port.\n\n\nAll IMU Ports\n\n\n\n\nIMU Base Port\n - \n20013\n\n\nIMU Keep-Alive Port\n - \n20014\n\n\nIMU Error Port\n - \n20015\n\n\nIMU Data Update Port\n - \n20016\n\n\n\n\nThe following list contains the port types currently defined in MATRIX CORE.\n\n\n\n\n\nBase Port\n\nThe \nbase port\n is used to configure a driver on your MATRIX device. This port is a \nZeroMQ PULL port\n that accepts a configuration which is created as a protocol buffer.\n\n\nTo send a configuration you need to create a valid message for each driver. For example, the UV driver uses a configuration message to set the refresh rate and timeout for sending UV data.\n\n\nConfiguration messages are named \nDriverConfig\n. The file for where this is defined can be seen \nhere\n.\n\n\nBelow is an example for a UV configuration message:\n\n\nmessage DriverConfig {\n  // Delay between updates. In seconds.\n  float delay_between_updates = 1;\n  // Timeout after last ping.\n  float timeout_after_last_ping = 2;\n}\n\n\n\n\nOnce the \nDriverConfig\n message is filled out, it needs to be serialized as a string and sent to the ZeroMQ configuration port.\n\n\n\n\n\n\n\nKeep-alive Port\n\n\nPort\n: \nbase port\n + 1\n\n\nThe Keep-alive port is a \nZeroMQ PULL port\n that is required for certain drivers to keep their function alive. Drivers that are pushing data need this in place to let it know if data will continue to be requested. For example, the Everloop driver doesn't require Keep-alive messages, but the Humidity driver does. Any message that is sent to the Keep-alive port will be discarded, so an empty string \n\"\"\n makes for a good Keep-alive message.\n\n\n\n\n\n\n\n\nError Port\n\n\nPort\n: \nbase port\n + 2\n\n\nPrograms can subscribe to this port to receive driver related errors. The Error port is a \nZeroMQ PUSH port\n that will send you a string with any errors that it has encountered.\n\n\n\n\n\n\n\nData Update Port\n\n\nPort\n: \nbase port\n + 3\n\n\nThis \nZeroMQ PUSH port\n is used by drivers that send data (Humidity, UV, etc.). Each driver uses a different message to report data to programs that subscribe for these updates.\n\n\nTo demonstrate, the UV driver will be used as an example. You can find the file \nhere\n.\nThe message follows:\n\n\n// Basic UV radiation lecture.\nmessage UV{\n  // UV index\n  float uv_index = 1;\n  // OMS risk\n  string oms_risk = 2;\n}\n\n\n\n\nApplications that subscribe to UV driver updates will receive a string with serialized messages of type UV. Once received, the message needs to be deserialized by the application for the values can be used.\n\n\n\n\n\n\nNext Steps\n\n\nWe currently provide libraries and examples for the following languages:\n\n\n\n\nJavascript\n\n\nPython\n\n\n\n\nIf you want to use another protocol buffer supported programming language then we suggest you view the \nProtocol Buffers Documentation\n for the language you want to use in MATRIX CORE. Remember to use \nZeroMQ\n for sending these Protocol Buffers. You can view the protocols for each of our drivers \nhere\n.", 
+            "text": "Overview\n\n\nMATRIX CORE functions by sending and receiving \nProtocol Buffers\n over a \nZeroMQ\n connection. This can be used to query sensors and control any MATRIX device from any language that supports Protocol Buffers (version 3.X) and ZeroMQ.\n\n\n\n\nPorts \n Protocol\n\n\nMATRIX CORE contains drivers (components \n sensors) that communicate with your MATRIX device. This occurs by having each driver send or receive Protocol Buffers over a ZeroMQ driver port. Depending on the driver port it may allow for \nread-only\n, \nwrite-only\n or \nread-write\n.\n\n\nCurrent Driver Base Ports:\n\n\n\n\nIMU\n - \n20013\n\n\nHumidity\n - \n20017\n\n\nEverloop\n - \n20021\n\n\nPressure\n - \n20025\n\n\nUV\n - \n20029\n\n\n\n\n\n\nServo\n - \n20045\n\n\nGPIO\n - \n20049\n\n\nWakeword\n - \n60001\n\n\n\n\nEach driver reserves 4 ports beginning with their \nbase port\n as shown above. The other 3 ports are in sequential order counting up from the \nbase port\n. Below is an example of all IMU ports. Note, not all drivers utilize every port.\n\n\nAll IMU Ports\n\n\n\n\nIMU Base Port\n - \n20013\n\n\nIMU Keep-Alive Port\n - \n20014\n\n\nIMU Error Port\n - \n20015\n\n\nIMU Data Update Port\n - \n20016\n\n\n\n\nThe following list contains the port types currently defined in MATRIX CORE.\n\n\n\n\n\nBase Port\n\nThe \nbase port\n is used to configure a driver on your MATRIX device. This port is a \nZeroMQ PULL port\n that accepts a configuration which is created as a protocol buffer.\n\n\nTo send a configuration you need to create a valid message for each driver. For example, the UV driver uses a configuration message to set the refresh rate and timeout for sending UV data.\n\n\nConfiguration messages are named \nDriverConfig\n. The file for where this is defined can be seen \nhere\n.\n\n\nBelow is an example for a UV configuration message:\n\n\nmessage DriverConfig {\n  // Delay between updates. In seconds.\n  float delay_between_updates = 1;\n  // Timeout after last ping.\n  float timeout_after_last_ping = 2;\n}\n\n\n\n\nOnce the \nDriverConfig\n message is filled out, it needs to be serialized as a string and sent to the ZeroMQ configuration port.\n\n\n\n\n\n\n\nKeep-alive Port\n\n\nPort\n: \nbase port\n + 1\n\n\nThe Keep-alive port is a \nZeroMQ PULL port\n that is required for certain drivers to keep their function alive. Drivers that are pushing data need this in place to let it know if data will continue to be requested. For example, the Everloop driver doesn't require Keep-alive messages, but the Humidity driver does. Any message that is sent to the Keep-alive port will be discarded, so an empty string \n\"\"\n makes for a good Keep-alive message.\n\n\n\n\n\n\n\n\nError Port\n\n\nPort\n: \nbase port\n + 2\n\n\nPrograms can subscribe to this port to receive driver related errors. The Error port is a \nZeroMQ PUSH port\n that will send you a string with any errors that it has encountered.\n\n\n\n\n\n\n\nData Update Port\n\n\nPort\n: \nbase port\n + 3\n\n\nThis \nZeroMQ PUSH port\n is used by drivers that send data (Humidity, UV, etc.). Each driver uses a different message to report data to programs that subscribe for these updates.\n\n\nTo demonstrate, the UV driver will be used as an example. You can find the file \nhere\n.\nThe message follows:\n\n\n// Basic UV radiation lecture.\nmessage UV{\n  // UV index\n  float uv_index = 1;\n  // OMS risk\n  string oms_risk = 2;\n}\n\n\n\n\nApplications that subscribe to UV driver updates will receive a string with serialized messages of type UV. Once received, the message needs to be deserialized by the application for the values can be used.\n\n\n\n\n\n\nNext Steps\n\n\nWe currently provide libraries and examples for the following languages:\n\n\n\n\nJavascript\n\n\nPython\n\n\n\n\nIf you want to use another protocol buffer supported programming language then we suggest you view the \nProtocol Buffers Documentation\n for the language you want to use in MATRIX CORE. Remember to use \nZeroMQ\n for sending these Protocol Buffers. You can view the protocols for each of our drivers \nhere\n.", 
             "title": "Understanding CORE"
         }, 
         {
             "location": "/matrix-core/getting-started/understanding-core/#overview", 
-            "text": "MATRIX CORE functions by sending and receiving  Protocol Buffers  over a  ZeroMQ  connection. This can be used to query sensors and control any MATRIX device from any language that supports Protocol Buffers (version 3.X) and ZeroMQ. This is the basis for how the  MATRIX OS  layer can communicate with your MATRIX device.", 
+            "text": "MATRIX CORE functions by sending and receiving  Protocol Buffers  over a  ZeroMQ  connection. This can be used to query sensors and control any MATRIX device from any language that supports Protocol Buffers (version 3.X) and ZeroMQ.", 
             "title": "Overview"
         }, 
         {
