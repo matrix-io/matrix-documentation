@@ -1,4 +1,4 @@
-<h2 style="padding-top:0">Sensors</h2>
+<h2 style="padding-top:0">GPIO</h2>
 
 ### Device Compatibility
 <img class="creator-compatibility-icon" src="../../../img/creator-icon.svg">
