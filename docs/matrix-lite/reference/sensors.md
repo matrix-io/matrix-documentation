@@ -4,7 +4,7 @@
 <img class="creator-compatibility-icon" src="../../../img/creator-icon.svg">
 
 ## Overview
-The following sections bellow will go over how to read & what to expect from each sensor on the MATRIX Creator.
+The following sections below will go over how to read & what to expect from each sensor on the MATRIX Creator.
 
 ## Import Statement
 ```language-js

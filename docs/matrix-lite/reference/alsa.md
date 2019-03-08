@@ -5,9 +5,9 @@
 <img class="creator-compatibility-icon" src="../../../img/voice-icon.svg">
 
 ## Overview
-> Require you to have the <a href="https://github.com/matrix-io/matrixio-kernel-modules#option-1-package-installation" target="_blank">MATRIX Kernel Modules</a> installed.
+> Requires you to have the <a href="https://github.com/matrix-io/matrixio-kernel-modules#option-1-package-installation" target="_blank">MATRIX Kernel Modules</a> installed.
 
-The following sections bellow will go over how to retrieve Microphone input through ALSA.
+The following sections below will go over how to retrieve microphone input through ALSA.
 
 ## Import Statement
 ```language-js
@@ -17,6 +17,7 @@ const matrix = require("@matrix-io/matrix-lite");
 
 ### .mic
 This function will allow you to configure your MATRIX microphone settings. Default values will be used if no configuration was given. 
+
 * **config: `object`**
     * **rate**: Any number from 0 to 15.
     * **debug**: true or false.
