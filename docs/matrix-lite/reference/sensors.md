@@ -48,7 +48,7 @@ matrix.uv.read();
 ```
 ### Humidity
 ```language-js
-let humidityData = matrix.humidity.read();
+matrix.humidity.read();
 ```
 ```language-js
 // Example Humidity Return Value //
@@ -60,7 +60,7 @@ let humidityData = matrix.humidity.read();
 
 ### Pressure
 ```language-js
-let pressureData = matrix.pressure.read();
+matrix.pressure.read();
 ```
 ```language-js
 // Example Humidity Return Value //

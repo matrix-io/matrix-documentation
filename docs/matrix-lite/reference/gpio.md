@@ -28,7 +28,7 @@ matrix.gpio.setFunction(0, 0);
 
 // Valid ways of setting pin 1 as a PWM pin
 matrix.gpio.setMode(1, "PWM");
-matrix.gpio.setMode(1, "1");
+matrix.gpio.setMode(1, 1);
 ```
 
 ### .setMode()
@@ -37,12 +37,12 @@ Specify if a GPIO pin is being used for **input** or **output**.
 **Parameters:**
 
 - **pin**: Any number from 0 to 15.
-- **mode**: Can be `0`,`1` or `"output"` or `"input"`.
+- **mode**: Can be `0`,`1` or `"output"`, `"input"` respectively.
 - **value**: Can `0`,`1` or `"ON"`, `"OFF"` respectively
 ```language-js
 // Valid ways of setting pin 0 to receive input
 matrix.gpio.setMode(0, "input");
-matrix.gpio.setFunction(0, 0);
+matrix.gpio.setMode(0, 0);
 
 // Valid ways of setting pin 1 to allow output
 matrix.gpio.setMode(1, "output");
@@ -75,12 +75,12 @@ Set the current digital signal of a GPIO pin.
 
 ```language-js
 // Valid ways of setting pin 0 to OFF
-matrix.gpio.setDigital(0,0);
 matrix.gpio.setDigital(0,"OFF");
+matrix.gpio.setDigital(0,0);
 
 // Valid ways of setting pin 1 to ON
-matrix.gpio.setDigital(1,1);
 matrix.gpio.setDigital(1,"ON");
+matrix.gpio.setDigital(1,1);
 ```
 
 ### .setPWM()
@@ -101,7 +101,7 @@ matrix.gpio.setPWM({
 });
 ```
 
-### .setPWM()
+### .setServoAngle()
 Use a GPIO pin to control a servo. This function requires the pin to be set to `"PWM"` mode.
 
 **Parameters:**
