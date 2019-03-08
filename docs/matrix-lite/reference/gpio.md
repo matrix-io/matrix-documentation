@@ -5,7 +5,7 @@
 <img class="creator-compatibility-icon" src="../../../img/voice-icon.svg">
 
 ## Overview
-The following sections bellow will go over how to utilize the GPIO on your MATRIX Device.
+The following sections below will go over how to utilize the GPIO on your MATRIX Device.
 
 ## Import Statement
 ```language-js

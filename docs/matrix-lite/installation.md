@@ -1,22 +1,22 @@
-<h2 style="padding-top:0">Install MATRIX HAL</h2>
+<h2 style="padding-top:0">Prerequisite MATRIX HAL</h2>
 
-MATRIX HAL is at the base of each MATRIX Lite library. This makes it a requirement to have it installed on your Raspberry Pi. Below are the installation instructions
+<!-- MATRIX HAL is at the base of each MATRIX Lite library. This makes it a requirement to have it installed on your Raspberry Pi. Below are the installation instructions -->
 
-**[Click Here To Install MATRIX HAL](../../matrix-hal/getting-started/)**
+> Make sure you have setup [MATRIX HAL](../../matrix-hal/getting-started/) before continuing.
 
 ## Language Setup
 <!-- JAVASCRIPT -->
 <details open>
 <summary style="font-size: 1.45rem; font-weight: 300;">JavaScript Setup</summary>
 
-**Install Node.js**
+Install Node.js
 ```language-bash
 curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash
 . ~/.bashrc
 nvm install node
 ```
 
-**Create A Project.**
+Create A Project.
 ```language-bash
 mkdir lite_js
 cd lite_js
@@ -24,12 +24,12 @@ npm init -y
 touch index.js
 ```
 
-**Download the MATRIX-Lite-JS Package.**
+Download the MATRIX-Lite-JS Package.
 ```language-bash
 npm install @matrix-io/matrix-lite --save
 ```
 
-**See the [Next Steps](#next-steps)**
+See the [Next Steps](#next-steps)
 
 </details>
 

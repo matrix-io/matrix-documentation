@@ -20,7 +20,7 @@ matrix.led.length;
 ```
 
 ### .set()
-Allows you to set the colors of each LED. A `string`, `object`, `nothing`, or an `array` can be given to this function.
+Allows you to set the colors of each LED. A `string`, `object`, `array`, or nothing can be given to this function.
 
 **String input**
 ```language-js
