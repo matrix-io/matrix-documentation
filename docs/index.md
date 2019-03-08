@@ -14,11 +14,6 @@ A straightforward library that's aimed at users of all skill levels. This layer 
 
 Keep in mind this library is new & in development. There are no known bugs at this time, but feel free to report any you encounter <a href="https://github.com/matrix-io/matrix-lite-js/issues" target="_blank">here</a>.
 
-Learn more about MATRIX Lite below
-
-- <a href="https://github.com/matrix-io/matrix-lite-js" target="_blank">JavaScript</a>
-- <a href="https://github.com/matrix-io/matrix-lite-py" target="_blank">Python <span style="color: orange">(***In Development***)</span></a>
-
 [Read more about MATRIX Lite](matrix-lite/overview)
 
 <h3 style="padding-top:0;">MATRIX HAL</h3>
