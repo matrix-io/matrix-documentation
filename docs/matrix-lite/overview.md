@@ -3,9 +3,9 @@
 MATRIX Lite is a series of libraries for exposing [MATRIX HAL](../matrix-hal/overview) to other languages. These libraries will built with a native C/C++ extension or a 
 <a href="https://github.com/matrix-io/matrix-hal-swig" target="_blank">SWIG interface</a>. We currently support JavaScript and have Python in development.
 
-### [Getting Started](getting-started)
+### [Installation](installation)
 
-Learn how to install MATRIX HAL and create programs on your MATRIX device.
+Learn how to install MATRIX Lite and create programs on your MATRIX device.
 
 ### [Reference](reference)
 
