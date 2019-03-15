@@ -2,7 +2,7 @@
 
 <!-- MATRIX HAL is at the base of each MATRIX Lite library. This makes it a requirement to have it installed on your Raspberry Pi. Below are the installation instructions -->
 
-> Make sure you have setup [MATRIX HAL](../../matrix-hal/getting-started/) before continuing.
+> Make sure you have setup [MATRIX HAL](../matrix-hal/getting-started/) before continuing.
 
 ## Language Setup
 <!-- JAVASCRIPT -->
