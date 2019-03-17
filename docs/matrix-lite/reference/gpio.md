@@ -19,7 +19,7 @@ Specify if a GPIO pin is being used for **DIGITAL** or **PWM**.
 **Parameters:**
 
 - **pin**: Any number from 0 to 15.
-- **mode**: Can be `0`,`1` or `"DIGITAL"`, `"PWM"` respectively.
+- **function**: Can be `0`,`1` or `"DIGITAL"`, `"PWM"` respectively.
 
 ```language-js
 // Valid ways of setting pin 0 as a digital pin
@@ -27,8 +27,8 @@ matrix.gpio.setFunction(0, "DIGITAL");
 matrix.gpio.setFunction(0, 0);
 
 // Valid ways of setting pin 1 as a PWM pin
-matrix.gpio.setMode(1, "PWM");
-matrix.gpio.setMode(1, 1);
+matrix.gpio.setFunction(1, "PWM");
+matrix.gpio.setFunction(1, 1);
 ```
 
 ### .setMode()
@@ -38,7 +38,6 @@ Specify if a GPIO pin is being used for **input** or **output**.
 
 - **pin**: Any number from 0 to 15.
 - **mode**: Can be `0`,`1` or `"output"`, `"input"` respectively.
-- **value**: Can `0`,`1` or `"ON"`, `"OFF"` respectively
 ```language-js
 // Valid ways of setting pin 0 to receive input
 matrix.gpio.setMode(0, "input");
