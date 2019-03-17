@@ -446,15 +446,15 @@
 <p><strong>Parameters:</strong></p>
 <ul>
 <li><strong>pin</strong>: Any number from 0 to 15.</li>
-<li><strong>mode</strong>: Can be <code>0</code>,<code>1</code> or <code>"DIGITAL"</code>, <code>"PWM"</code> respectively.</li>
+<li><strong>function</strong>: Can be <code>0</code>,<code>1</code> or <code>"DIGITAL"</code>, <code>"PWM"</code> respectively.</li>
 </ul>
 <pre><code class="language-js">// Valid ways of setting pin 0 as a digital pin
 matrix.gpio.setFunction(0, &quot;DIGITAL&quot;);
 matrix.gpio.setFunction(0, 0);
 
 // Valid ways of setting pin 1 as a PWM pin
-matrix.gpio.setMode(1, &quot;PWM&quot;);
-matrix.gpio.setMode(1, 1);
+matrix.gpio.setFunction(1, &quot;PWM&quot;);
+matrix.gpio.setFunction(1, 1);
 </code></pre>
 
 <h3 id="setmode">.setMode()</h3>
@@ -463,7 +463,6 @@ matrix.gpio.setMode(1, 1);
 <ul>
 <li><strong>pin</strong>: Any number from 0 to 15.</li>
 <li><strong>mode</strong>: Can be <code>0</code>,<code>1</code> or <code>"output"</code>, <code>"input"</code> respectively.</li>
-<li><strong>value</strong>: Can <code>0</code>,<code>1</code> or <code>"ON"</code>, <code>"OFF"</code> respectively</li>
 </ul>
 <pre><code class="language-js">// Valid ways of setting pin 0 to receive input
 matrix.gpio.setMode(0, &quot;input&quot;);
