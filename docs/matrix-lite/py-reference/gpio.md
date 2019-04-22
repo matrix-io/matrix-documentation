@@ -36,7 +36,7 @@ Specify if a GPIO pin is being used for **input** or **output**.
 **Parameters:**
 
 - **pin**: Any number from 0 to 15.
-- **mode**: Can be `0`,`1` or `"output"`, `"input"` respectively.
+- **mode**: Can be `0`,`1` or `"input"`, `"output"` respectively.
 ```language-python
 # Valid ways of setting pin 0 to receive input
 gpio.setMode(0, "input")
@@ -69,7 +69,7 @@ Set the current digital signal of a GPIO pin.
 **Parameters:**
 
 - **pin**: Any number from 0 to 15.
-- **value**: Can be `0`,`1` or `"ON"`, `"OFF"` respectively
+- **value**: Can be `0`,`1` or `"OFF"`, `"ON"` respectively
 
 ```language-python
 # Valid ways of setting pin 0 to OFF
@@ -93,7 +93,7 @@ Set the current PWM signal of a GPIO pin.
 ```language-python
 # Set PWM for pin 0
 gpio.setPWM({
-  "pin": 2,
+  "pin": 0,
   "percentage": 25,
   "frequency": 50, # min 36
 })
@@ -112,7 +112,7 @@ Use a GPIO pin to control a servo. This function requires the pin to be set to `
 ```language-python
 # Sets Servo to 90 Degrees with pin 0
 gpio.setServoAngle({
-    "pin": 3,
+    "pin": 0,
     "angle": 90,
     "min_pulse_ms": 0.8,
 })
