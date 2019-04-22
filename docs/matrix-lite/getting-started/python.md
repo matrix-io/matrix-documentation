@@ -25,4 +25,4 @@ pip3 install matrix-lite
 
 <br/>
 ## Next Steps
-With your device now setup, you can visit our [Reference](py-reference) page to get started with MATRIX Lite.
+With your device now setup, you can visit our [Reference](../py-reference) page to get started with MATRIX Lite.
