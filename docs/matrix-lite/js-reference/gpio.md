@@ -36,7 +36,7 @@ Specify if a GPIO pin is being used for **input** or **output**.
 **Parameters:**
 
 - **pin**: Any number from 0 to 15.
-- **mode**: Can be `0`,`1` or `"output"`, `"input"` respectively.
+- **mode**: Can be `0`,`1` or `"input"`, `"output"` respectively.
 ```language-js
 // Valid ways of setting pin 0 to receive input
 matrix.gpio.setMode(0, "input");
@@ -69,7 +69,7 @@ Set the current digital signal of a GPIO pin.
 **Parameters:**
 
 - **pin**: Any number from 0 to 15.
-- **value**: Can be `0`,`1` or `"ON"`, `"OFF"` respectively
+- **value**: Can be `0`,`1` or `"OFF"`, `"ON"` respectively
 
 ```language-js
 // Valid ways of setting pin 0 to OFF
