@@ -10,9 +10,7 @@ The MATRIX platform adds powerful capabilities to your Raspberry Pi, depending o
 <h3 style="padding-top:0;">MATRIX Lite</h3>
 **Languages:** JavaScript & Python
 
-A straightforward library that's aimed at users of all skill levels. This layer is an abstraction around MATRIX HAL and allows you to program your MATRIX Device with as little as one line of code. 
-
-Keep in mind this library is new & in development. There are no known bugs at this time, but feel free to report any you encounter <a href="https://github.com/matrix-io/matrix-lite-js/issues" target="_blank">here</a>.
+A straightforward library that's aimed at users of all skill levels. This layer is an abstraction around MATRIX HAL and allows you to program your MATRIX Device with as little as one line of code.
 
 [Read more about MATRIX Lite](matrix-lite/overview)
 

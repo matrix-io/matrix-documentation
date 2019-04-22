@@ -13,7 +13,7 @@ const matrix = require("@matrix-io/matrix-lite");
 <br/>
 
 <h2 style="padding:0; margin:0;">Reading Sensor Data</h2>
-Below are the functions you'll use to read data from each sensor.
+Below are the functions you'll use to read data from each sensor. Reading a sensor will always return the latest values.
 
 ###IMU
 ```language-js
@@ -63,7 +63,7 @@ matrix.humidity.read();
 matrix.pressure.read();
 ```
 ```language-js
-// Example Humidity Return Value //
+// Example Pressure Return Value //
 { 
   altitude:    -47.4370002746582,
   pressure:    101896,

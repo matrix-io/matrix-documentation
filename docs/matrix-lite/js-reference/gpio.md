@@ -11,7 +11,6 @@ The following sections below will go over how to utilize the GPIO on your MATRIX
 ```language-js
 const matrix = require("@matrix-io/matrix-lite");
 ```
-<br/>
 
 ### .setFunction()
 Specify if a GPIO pin is being used for **DIGITAL** or **PWM**.
@@ -37,7 +36,7 @@ Specify if a GPIO pin is being used for **input** or **output**.
 **Parameters:**
 
 - **pin**: Any number from 0 to 15.
-- **mode**: Can be `0`,`1` or `"output"`, `"input"` respectively.
+- **mode**: Can be `0`,`1` or `"input"`, `"output"` respectively.
 ```language-js
 // Valid ways of setting pin 0 to receive input
 matrix.gpio.setMode(0, "input");
@@ -70,7 +69,7 @@ Set the current digital signal of a GPIO pin.
 **Parameters:**
 
 - **pin**: Any number from 0 to 15.
-- **value**: Can be `0`,`1` or `"ON"`, `"OFF"` respectively
+- **value**: Can be `0`,`1` or `"OFF"`, `"ON"` respectively
 
 ```language-js
 // Valid ways of setting pin 0 to OFF
@@ -109,6 +108,7 @@ Use a GPIO pin to control a servo. This function requires the pin to be set to `
     * **pin**: Any number from 0 to 15.
     * **angle**: Positive number of degrees.
     * **min_pulse_ms**: Generally numbers between 0 and 2.
+        * minimum pulse width for a PWM wave in milliseconds
 ```language-js
 // Sets Servo to 90 Degrees with pin 0
 matrix.gpio.setServoAngle({
