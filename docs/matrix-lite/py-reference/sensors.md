@@ -8,19 +8,19 @@ The following sections below will go over how to read & what to expect from each
 
 ## Import Statement
 ```language-js
-const matrix = require("@matrix-io/matrix-lite");
+from matrix_lite import sensors
 ```
 <br/>
 
 <h2 style="padding:0; margin:0;">Reading Sensor Data</h2>
-Below are the functions you'll use to read data from each sensor.
+Below are the functions you'll use to read data from each sensor. Reading a sensor will always return the latest values.
 
 ###IMU
-```language-js
-matrix.imu.read();
+```language-python
+sensors.imu.read()
 ```
-```language-js
-// Example IMU Return Value //
+```language-python
+## Example IMU Return Value ##
 { 
   accel_x: 0.0020000000949949026,
   accel_y: 0.004999999888241291,
@@ -37,21 +37,21 @@ matrix.imu.read();
 }
 ```
 ### UV
-```language-js
-matrix.uv.read();
+```language-python
+sensors.uv.read()
 ```
-```language-js
-// Example UV Return Value //
+```language-python
+## Example UV Return Value ##
 { 
   uv: 0.013000000268220901 
 }
 ```
 ### Humidity
-```language-js
-matrix.humidity.read();
+```language-python
+sensors.humidity.read()
 ```
-```language-js
-// Example Humidity Return Value //
+```language-python
+## Example Humidity Return Value ##
 { 
   humidity:    29.04400062561035, 
   temperature: 33.279998779296875 
@@ -59,11 +59,11 @@ matrix.humidity.read();
 ```
 
 ### Pressure
-```language-js
-matrix.pressure.read();
+```language-python
+sensors.pressure.read()
 ```
-```language-js
-// Example Humidity Return Value //
+```language-python
+## Example Humidity Return Value ##
 { 
   altitude:    -47.4370002746582,
   pressure:    101896,
