@@ -63,7 +63,7 @@ matrix.humidity.read();
 matrix.pressure.read();
 ```
 ```language-js
-// Example Humidity Return Value //
+// Example Pressure Return Value //
 { 
   altitude:    -47.4370002746582,
   pressure:    101896,
