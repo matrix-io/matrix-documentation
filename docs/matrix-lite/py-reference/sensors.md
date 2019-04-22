@@ -63,7 +63,7 @@ sensors.humidity.read()
 sensors.pressure.read()
 ```
 ```language-python
-## Example Humidity Return Value ##
+## Example Pressure Return Value ##
 { 
   altitude:    -47.4370002746582,
   pressure:    101896,
