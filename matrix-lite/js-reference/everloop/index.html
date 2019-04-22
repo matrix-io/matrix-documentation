@@ -188,15 +188,26 @@
    
   <li><a href="../../overview/" class="">Overview</a></li>
      
-  <!-- only 1 deep, print menu items  -->
-   
-  <li><a href="../../installation/" class="">Installation</a></li>
-     
+  <!-- 2 deep  -->
+  <!-- print subroot  -->
+  <li>
+    <a href="../../getting-started/" class="">
+      Getting Started
+    </a>
+  </li>
+
+  <ul class="subnav">
+        
+        
+      
+  </ul>
+
+    
   <!-- 2 deep  -->
   <!-- print subroot  -->
   <li>
     <a href="../" class="active">
-      References
+      JavaScript Reference
     </a>
   </li>
 
@@ -213,6 +224,22 @@
         
     
     <li><a href="../alsa/" class="">ALSA</a></li>
+      
+  </ul>
+
+    
+  <!-- 2 deep  -->
+  <!-- print subroot  -->
+  <li>
+    <a href="../../py-reference/" class="">
+      Python Reference
+    </a>
+  </li>
+
+  <ul class="subnav">
+        
+        
+        
       
   </ul>
 
@@ -440,14 +467,13 @@
 <pre><code class="language-js">const matrix = require(&quot;@matrix-io/matrix-lite&quot;);
 </code></pre>
 
-<p><br/></p>
 <h3 id="length">.length</h3>
 <p>Returns the size of the LED array on your MATRIX device.</p>
 <pre><code>matrix.led.length;
 </code></pre>
 
 <h3 id="set">.set()</h3>
-<p>Allows you to set the colors of each LED. A <code>string</code>, <code>object</code>, <code>array</code>, or nothing can be given to this function.</p>
+<p>Allows you to set the colors of each LED. A <code>string</code>, <code>object</code>, <code>array</code>, or an <code>undefined</code> value can be given to this function.</p>
 <p><strong>String input</strong></p>
 <pre><code class="language-js">// Turns each LED to blue
 matrix.led.set(&quot;blue&quot;); // color name
@@ -463,8 +489,8 @@ matrix.led.set(&quot;#000000&quot;); // Hex values
 <p><strong>Object input</strong></p>
 <pre><code class="language-js">// Turns each LED to blue
 matrix.led.set({
-  r:0, 
-  g:0, 
+  r:0,
+  g:0,
   b:255,
   w:0
 });
@@ -474,7 +500,7 @@ matrix.led.set({}) // unspecified values are set to 0
 </code></pre>
 
 <p><strong>Array Input</strong></p>
-<p>Passing in an array allows you to set each individual LED color. Note that passing an array that's larger than the amount of LEDs on your device will cause an error.</p>
+<p>Passing in an array allows you to set each individual LED color. However, passing an array that's larger than <code>led.length</code> will result in an error.</p>
 <pre><code class="language-js">// Basic array example
 matrix.led.set(['red', 'gold', 'purple', {}, , '#6F41C1', 'rgb(0,0,255)', {g:255}]);
 </code></pre> 
@@ -624,7 +650,6 @@ matrix.led.set(['red', 'gold', 'purple', {}, , '#6F41C1', 'rgb(0,0,255)', {g:255
   <script src="../../../js/jquery.ajaxchimp.langs.min.js"></script>
   <script src="../../../js/footer.js"></script>
   <script src="../../../js/prism.js"></script>
-  <script src="../../../js/codeToggle.js"></script>
 
   <!-- TOC Script -->
   <script>

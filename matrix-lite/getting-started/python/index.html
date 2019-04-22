@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Sensors MATRIX</title>
+  <title>Python Setup MATRIX</title>
   <link rel="shortcut icon" href="../../../img/favicon.ico">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
   <link rel="stylesheet" href="../../../css/theme.css">
@@ -29,7 +29,7 @@
         <div class="row">
           <div class="col-sm-8">
             
-            <h1>Sensors</h1>
+            <h1>Python Setup</h1>
             
           </div>
           <div class="col-sm-4">
@@ -188,31 +188,54 @@
    
   <li><a href="../../overview/" class="">Overview</a></li>
      
-  <!-- only 1 deep, print menu items  -->
-   
-  <li><a href="../../installation/" class="">Installation</a></li>
-     
   <!-- 2 deep  -->
   <!-- print subroot  -->
   <li>
     <a href="../" class="active">
-      References
+      Getting Started
     </a>
   </li>
 
   <ul class="subnav">
         
     
-    <li><a href="../everloop/" class="">Everloop</a></li>
+    <li><a href="../javascript/" class="">Javascript Setup</a></li>
         
     
-    <li><a href="./" class="active">Sensors</a></li>
-        
+    <li><a href="./" class="active">Python Setup</a></li>
+      
+  </ul>
+
     
-    <li><a href="../gpio/" class="">GPIO</a></li>
+  <!-- 2 deep  -->
+  <!-- print subroot  -->
+  <li>
+    <a href="../../js-reference/" class="">
+      JavaScript Reference
+    </a>
+  </li>
+
+  <ul class="subnav">
         
+        
+        
+        
+      
+  </ul>
+
     
-    <li><a href="../alsa/" class="">ALSA</a></li>
+  <!-- 2 deep  -->
+  <!-- print subroot  -->
+  <li>
+    <a href="../../py-reference/" class="">
+      Python Reference
+    </a>
+  </li>
+
+  <ul class="subnav">
+        
+        
+        
       
   </ul>
 
@@ -429,73 +452,31 @@
           </div>
         </div>
         <div id="content" class="col-lg-8 col-md-9">
-           <h2 style="padding-top:0">Sensors</h2>
+           <h2 style="padding-top:0">Prerequisite MATRIX HAL</h2>
 
-<h3 id="device-compatibility">Device Compatibility</h3>
-<p><img class="creator-compatibility-icon" src="../../../img/creator-icon.svg"></p>
-<h2 id="overview">Overview</h2>
-<p>The following sections below will go over how to read &amp; what to expect from each sensor on the MATRIX Creator.</p>
-<h2 id="import-statement">Import Statement</h2>
-<pre><code class="language-js">const matrix = require(&quot;@matrix-io/matrix-lite&quot;);
+<!-- MATRIX HAL is at the base of each MATRIX Lite library. This makes it a requirement to have it installed on your Raspberry Pi. Below are the installation instructions -->
+
+<blockquote>
+<p>Make sure you have installed <a href="../../../matrix-hal/getting-started/">MATRIX HAL</a>, before continuing.</p>
+</blockquote>
+<h2 id="python-setup">Python Setup</h2>
+<p>Install Python 3</p>
+<pre><code class="language-bash">sudo apt-get install python3-pip
+</code></pre>
+
+<p>Create A Project Folder.</p>
+<pre><code class="language-bash">mkdir lite_py
+cd lite_py
+touch app.py
+</code></pre>
+
+<p>Download the matrix-lite-py Package. Note, the module is called <code>matrix_lite</code>.</p>
+<pre><code class="language-bash">pip3 install matrix-lite
 </code></pre>
 
 <p><br/></p>
-<h2 style="padding:0; margin:0;">Reading Sensor Data</h2>
-
-<p>Below are the functions you'll use to read data from each sensor.</p>
-<h3 id="imu">IMU</h3>
-<pre><code class="language-js">matrix.imu.read();
-</code></pre>
-
-<pre><code class="language-js">// Example IMU Return Value //
-{ 
-  accel_x: 0.0020000000949949026,
-  accel_y: 0.004999999888241291,
-  accel_z: 0.9819999933242798,
-  gyro_x:  0.7770000100135803,
-  gyro_y:  -0.2460000067949295,
-  gyro_z:  0.7250000238418579,
-  yaw:     -177.40724182128906,
-  pitch:   -0.11669033765792847,
-  roll:    0.2917275130748749,
-  mag_x:   0.5299999713897705,
-  mag_y:   -0.024000000208616257,
-  mag_z:   -0.05999999865889549 
-}
-</code></pre>
-
-<h3 id="uv">UV</h3>
-<pre><code class="language-js">matrix.uv.read();
-</code></pre>
-
-<pre><code class="language-js">// Example UV Return Value //
-{ 
-  uv: 0.013000000268220901 
-}
-</code></pre>
-
-<h3 id="humidity">Humidity</h3>
-<pre><code class="language-js">matrix.humidity.read();
-</code></pre>
-
-<pre><code class="language-js">// Example Humidity Return Value //
-{ 
-  humidity:    29.04400062561035, 
-  temperature: 33.279998779296875 
-}
-</code></pre>
-
-<h3 id="pressure">Pressure</h3>
-<pre><code class="language-js">matrix.pressure.read();
-</code></pre>
-
-<pre><code class="language-js">// Example Humidity Return Value //
-{ 
-  altitude:    -47.4370002746582,
-  pressure:    101896,
-  temperature: 32.9370002746582 
-}
-</code></pre> 
+<h2 id="next-steps">Next Steps</h2>
+<p>With your device now setup, you can visit our <a href="../../py-reference">Reference</a> page to get started with MATRIX Lite.</p> 
         </div>
         <div class="toc-parent col-lg-2 col-md-3">
           <div class="toc">
@@ -503,47 +484,14 @@
             <h3>Contents</h3>
             <ul class="nav flex-column">
                <li class='nav-item'>
-  <a href="#device-compatibility" class="nav-link active">
-    Device Compatibility
+  <a href="#python-setup" class="nav-link active">
+    Python Setup
   </a>
   
 </li>  <li class='nav-item'>
-  <a href="#overview" class="nav-link ">
-    Overview
+  <a href="#next-steps" class="nav-link ">
+    Next Steps
   </a>
-  
-</li>  <li class='nav-item'>
-  <a href="#import-statement" class="nav-link ">
-    Import Statement
-  </a>
-  
-  <ul>
-    
-    <li>
-      <a class="nav-link" href="#imu">
-        IMU
-      </a>
-    </li>
-    
-    <li>
-      <a class="nav-link" href="#uv">
-        UV
-      </a>
-    </li>
-    
-    <li>
-      <a class="nav-link" href="#humidity">
-        Humidity
-      </a>
-    </li>
-    
-    <li>
-      <a class="nav-link" href="#pressure">
-        Pressure
-      </a>
-    </li>
-    
-  </ul>
   
 </li> 
             </ul>
@@ -654,7 +602,6 @@
   <script src="../../../js/jquery.ajaxchimp.langs.min.js"></script>
   <script src="../../../js/footer.js"></script>
   <script src="../../../js/prism.js"></script>
-  <script src="../../../js/codeToggle.js"></script>
 
   <!-- TOC Script -->
   <script>
