@@ -517,12 +517,12 @@
         }, 
         {
             "location": "/matrix-lite/getting-started/javascript/", 
-            "text": "Prerequisite MATRIX HAL\n\n\n\n\n\n\n\n\nMake sure you have installed \nMATRIX HAL\n, before continuing.\n\n\n\n\nJavaScript Setup\n\n\nInstall Node.js\n\n\ncurl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash\n. ~/.bashrc\nnvm install node\n\n\n\n\nCreate A Project Folder.\n\n\nmkdir lite_js\ncd lite_js\nnpm init -y\ntouch index.js\n\n\n\n\nDownload the matrix-lite-js Package.\n\n\nnpm install @matrix-io/matrix-lite --save\n\n\n\n\n\n\nNext Steps\n\n\nWith your device now setup, you can visit our \nReference\n page to get started with MATRIX Lite.", 
+            "text": "Prerequisite MATRIX HAL\n\n\n\n\n\n\n\n\nMake sure you have installed \nMATRIX HAL\n, before continuing.\n\n\n\n\nJavaScript Setup\n\n\nInstall Node.js\n\n\ncurl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash\n. ~/.bashrc\nnvm install 11.0.0\n\n\n\n\nCreate A Project Folder.\n\n\nmkdir lite_js\ncd lite_js\nnpm init -y\ntouch index.js\n\n\n\n\nDownload the matrix-lite-js Package.\n\n\nnpm install @matrix-io/matrix-lite --save\n\n\n\n\n\n\nNext Steps\n\n\nWith your device now setup, you can visit our \nReference\n page to get started with MATRIX Lite.", 
             "title": "Javascript Setup"
         }, 
         {
             "location": "/matrix-lite/getting-started/javascript/#javascript-setup", 
-            "text": "Install Node.js  curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash\n. ~/.bashrc\nnvm install node  Create A Project Folder.  mkdir lite_js\ncd lite_js\nnpm init -y\ntouch index.js  Download the matrix-lite-js Package.  npm install @matrix-io/matrix-lite --save", 
+            "text": "Install Node.js  curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash\n. ~/.bashrc\nnvm install 11.0.0  Create A Project Folder.  mkdir lite_js\ncd lite_js\nnpm init -y\ntouch index.js  Download the matrix-lite-js Package.  npm install @matrix-io/matrix-lite --save", 
             "title": "JavaScript Setup"
         }, 
         {
