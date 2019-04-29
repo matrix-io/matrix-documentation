@@ -6,12 +6,12 @@
 
 ## Python Setup
 
-Install Python 3
+Install Python 3.
 ```language-bash
 sudo apt-get install python3-pip
 ```
 
-Upgrade PIP
+Upgrade the PIP package manager.
 ```langauge-bash
 python3 -m pip install --upgrade --user pip
 ```
