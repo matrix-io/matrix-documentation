@@ -11,6 +11,11 @@ Install Python 3
 sudo apt-get install python3-pip
 ```
 
+Upgrade PIP
+```langauge-bash
+python3 -m pip install --upgrade --user pip
+```
+
 Create A Project Folder.
 ```language-bash
 mkdir lite_py
@@ -18,9 +23,9 @@ cd lite_py
 touch app.py
 ```
 
-Download the matrix-lite-py Package. Note, the module is called `matrix_lite`.
+Download the matrix-lite-py Package. Note that the module to import is called `matrix_lite`.
 ```language-bash
-pip3 install matrix-lite
+python3 -m pip install --user matrix-lite
 ```
 
 <br/>
