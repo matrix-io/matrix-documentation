@@ -532,12 +532,12 @@
         }, 
         {
             "location": "/matrix-lite/getting-started/python/", 
-            "text": "Prerequisite MATRIX HAL\n\n\n\n\n\n\n\n\nMake sure you have installed \nMATRIX HAL\n, before continuing.\n\n\n\n\nPython Setup\n\n\nInstall Python 3.\n\n\nsudo apt-get install python3-pip\n\n\n\n\nUpgrade the PIP package manager.\n\n\npython3 -m pip install --upgrade --user pip\n\n\n\n\nCreate A Project Folder.\n\n\nmkdir lite_py\ncd lite_py\ntouch app.py\n\n\n\n\nDownload the matrix-lite-py Package. Note that the module to import is called \nmatrix_lite\n.\n\n\npython3 -m pip install --user matrix-lite\n\n\n\n\n\n\nNext Steps\n\n\nWith your device now setup, you can visit our \nReference\n page to get started with MATRIX Lite.", 
+            "text": "Prerequisite MATRIX HAL\n\n\n\n\n\n\n\n\nMake sure you have installed \nMATRIX HAL\n, before continuing.\n\n\n\n\nPython Setup\n\n\nInstall the PIP3 package manager.\n\n\nsudo apt-get install python3-pip\n\n\n\n\nUpgrade PIP3.\n\n\npython3 -m pip install --upgrade pip\n\n\n\n\nCreate A Project Folder.\n\n\nmkdir lite_py\ncd lite_py\ntouch app.py\n\n\n\n\nDownload the matrix-lite-py Package. Note that the module to import is called \nmatrix_lite\n.\n\n\npython3 -m pip install --user matrix-lite\n\n\n\n\n\n\nNext Steps\n\n\nWith your device now setup, you can visit our \nReference\n page to get started with MATRIX Lite.", 
             "title": "Python Setup"
         }, 
         {
             "location": "/matrix-lite/getting-started/python/#python-setup", 
-            "text": "Install Python 3.  sudo apt-get install python3-pip  Upgrade the PIP package manager.  python3 -m pip install --upgrade --user pip  Create A Project Folder.  mkdir lite_py\ncd lite_py\ntouch app.py  Download the matrix-lite-py Package. Note that the module to import is called  matrix_lite .  python3 -m pip install --user matrix-lite", 
+            "text": "Install the PIP3 package manager.  sudo apt-get install python3-pip  Upgrade PIP3.  python3 -m pip install --upgrade pip  Create A Project Folder.  mkdir lite_py\ncd lite_py\ntouch app.py  Download the matrix-lite-py Package. Note that the module to import is called  matrix_lite .  python3 -m pip install --user matrix-lite", 
             "title": "Python Setup"
         }, 
         {
