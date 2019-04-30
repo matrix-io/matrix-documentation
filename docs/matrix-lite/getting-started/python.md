@@ -6,14 +6,14 @@
 
 ## Python Setup
 
-Install Python 3.
+Install the PIP3 package manager.
 ```language-bash
 sudo apt-get install python3-pip
 ```
 
-Upgrade the PIP package manager.
+Upgrade PIP3.
 ```langauge-bash
-python3 -m pip install --upgrade --user pip
+python3 -m pip install --upgrade pip
 ```
 
 Create A Project Folder.
