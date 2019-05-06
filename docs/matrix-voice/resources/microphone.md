@@ -35,7 +35,7 @@ The microphones can be grabbed using ALSA. Multiple libraries that support ALSA 
 
 Device name - `hw:2,0`
 
-Rates(Hz) - `8000` `12000` `16000` `22050` `24000` `32000` `44100` `48000` `96000`
+Rates(Hz) - `8000` `12000` `16000` `22050` `24000` `32000` `44100` `48000`
 
 Channels for each microphone - `1` `2` `3` `4` `5` `6` `7` `8`
 
