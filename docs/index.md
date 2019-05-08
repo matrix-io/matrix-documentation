@@ -8,7 +8,7 @@ The MATRIX Ecosystem was created to make powerful hardware projects very approac
 The MATRIX platform adds powerful capabilities to your Raspberry Pi, depending on your background and the kind of application you want to write, you may need to decide on which layer best fits your need. The documentation is organized according to these layers:
 
 <h3 style="padding-top:0;">MATRIX Lite</h3>
-**Languages:** JavaScript & Python
+**Languages:** JavaScript, Python, & Ruby
 
 A straightforward library that's aimed at users of all skill levels. This layer is an abstraction around MATRIX HAL and allows you to program your MATRIX Device with as little as one line of code.
 
