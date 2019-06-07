@@ -3,6 +3,22 @@
 The MATRIX Ecosystem was created to make powerful hardware projects very approachable for software developers. The pillars of MATRIX, computer vision, hardware interfaces, distributed internet communication, and data-driven end-user clients, are all programming disciplines which require years for an individual to master, or for a team to build a solution around.
 
 <br/>
+## Support & Resources
+Feel free to visit our communities and projects for any suggestions or questions you may have!
+
+<p><img src="https://i.imgur.com/ZxEH6Ff.png" height="24px" width="24px"> Post questions or comments on <a href="https://community.matrix.one" target="_blank">community.matrix.one</a>.</p>
+
+<p><img src="https://i.imgur.com/31Mg6b1.png" height="24px" width="24px"> 
+Submit documentation issues or improvements to the <a href="https://github.com/matrix-io/matrix-documentation/issues" target="_blank">MATRIX Documentation Repository</a>.</p>
+
+<p><img src="https://i.imgur.com/psV6nI1.png" height="24px" width="24px"> Check out our Hackster projects and guides on our <a href="hackster.io/matrix-labs/projects">Hackster Page</a>.</p>
+
+<p><img src="https://i.imgur.com/B50BxQw.png" height="24px" width="24px"> Follow our live streams and tutorial videos on <a href="youtube.com/MATRIXLabs">YouTube</a>.</p>
+
+<p><img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" height="24px" width="24px"> 
+Alert issues on our <a href="https://github.com/matrix-io" target="_blank">GitHub</a> under the corresponding repository.</p>
+
+<br/>
 ## Programming Layers
 
 The MATRIX platform adds powerful capabilities to your Raspberry Pi, depending on your background and the kind of application you want to write, you may need to decide on which layer best fits your need. The documentation is organized according to these layers:
@@ -47,10 +63,4 @@ A voice and audio focused development board with an 8 microphone array that enab
 PocketSphinx, etc.
 
 [Read more about the MATRIX Voice](matrix-voice/overview.md)
-
-<br/>
-## Support
-* Post questions or comments on <a href="https://community.matrix.one" target="_blank">community.matrix.one</a>
-* Alert issues on our <a href="https://github.com/matrix-io" target="_blank">GitHub</a> under the corresponding repository
-* Submit documentation issues or improvements to the <a href="https://github.com/matrix-io/matrix-documentation/issues" target="_blank">MATRIX Documentation Repository</a>
 
