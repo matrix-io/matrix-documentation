@@ -4,7 +4,7 @@ The MATRIX Ecosystem was created to make powerful hardware projects very approac
 
 <br/>
 ## Support & Resources
-Feel free to visit our communities and projects for any suggestions or questions you may have!
+Feel free to visit our communities and projects for any suggestions and/or questions you may have!
 
 <p><img src="./img/community.png" height="24px" width="24px"> Post questions or comments on <a href="https://community.matrix.one" target="_blank">community.matrix.one</a>.</p>
 
