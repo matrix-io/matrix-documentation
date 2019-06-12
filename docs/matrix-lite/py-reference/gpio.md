@@ -8,7 +8,7 @@
 The following sections below will go over how to utilize the GPIO on your MATRIX Device.
 
 ## Import Statement
-```language-js
+```js
 from matrix_lite import gpio
 ```
 
@@ -20,7 +20,7 @@ Specify if a GPIO pin is being used for **DIGITAL** or **PWM**.
 - **pin**: Any number from 0 to 15.
 - **function**: Can be `0`,`1` or `"DIGITAL"`, `"PWM"` respectively.
 
-```language-python
+```python
 # Valid ways of setting pin 0 as a digital pin
 gpio.setFunction(0, 'DIGITAL')
 gpio.setFunction(0, 0)
@@ -37,7 +37,7 @@ Specify if a GPIO pin is being used for **input** or **output**.
 
 - **pin**: Any number from 0 to 15.
 - **mode**: Can be `0`,`1` or `"input"`, `"output"` respectively.
-```language-python
+```python
 # Valid ways of setting pin 0 to receive input
 gpio.setMode(0, "input")
 gpio.setMode(0, 0)
@@ -58,7 +58,7 @@ Retrieve the current digital signal of a GPIO pin.
 
 - **value**: `0` or `1` representing ON/OFF respectively
 
-```language-python
+```python
 # Return the current ON/OFF state of pin 0
 gpio.getDigital(0)
 ```
@@ -71,7 +71,7 @@ Set the current digital signal of a GPIO pin.
 - **pin**: Any number from 0 to 15.
 - **value**: Can be `0`,`1` or `"OFF"`, `"ON"` respectively
 
-```language-python
+```python
 # Valid ways of setting pin 0 to OFF
 gpio.setDigital(0,"OFF")
 gpio.setDigital(0,0)
@@ -90,7 +90,7 @@ Set the current PWM signal of a GPIO pin.
     * **pin**: Any number from 0 to 15.
     * **percentage**: Any number from 0 to 100.
     * **frequency**: Any number from 36 to **max value not tested**.
-```language-python
+```python
 # Set PWM for pin 0
 gpio.setPWM({
   "pin": 0,
@@ -109,7 +109,7 @@ Use a GPIO pin to control a servo. This function requires the pin to be set to `
     * **angle**: Positive number of degrees.
     * **min_pulse_ms**: Generally numbers between 0 and 2.
         * minimum pulse width for a PWM wave in milliseconds
-```language-python
+```python
 # Sets Servo to 90 Degrees with pin 0
 gpio.setServoAngle({
     "pin": 0,

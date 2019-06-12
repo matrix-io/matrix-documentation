@@ -7,7 +7,7 @@
 ## Python Setup
 
 Install the PIP3 package manager.
-```language-bash
+```bash
 sudo apt-get install python3-pip
 ```
 
@@ -17,14 +17,14 @@ python3 -m pip install --upgrade pip
 ```
 
 Create A Project Folder.
-```language-bash
+```bash
 mkdir lite_py
 cd lite_py
 touch app.py
 ```
 
 Download the matrix-lite-py Package. Note that the module to import is called `matrix_lite`.
-```language-bash
+```bash
 sudo python3 -m pip install matrix-lite
 ```
 

@@ -6,7 +6,7 @@ Please visit our community support forums at
 ## Check Installed MATRIX Packages
 
 Run the following command on your Raspberry Pi's terminal to see the currently installed MATRIX packages. 
-```language-bash
+```bash
 dpkg -l | grep matrix
 ```
 
@@ -16,20 +16,20 @@ If you experience strange behavior, reinstall MATRIX HAL.
 
 Uninstall the `libmatrixio-creator-hal` and `libmatrixio-creator-hal-dev` package.
 
-```language-bash
+```bash
 sudo apt-get --purge remove libmatrixio-creator-hal libmatrixio-creator-hal-dev
 ```
 
 Uninstall HAL built from source.
 
-```language-bash
+```bash
 sudo rm -rf /usr/local/include/matrix_hal
 sudo rm -rf /usr/local/lib/libmatrix_creator_hal.so
 ```
 
 Reboot your device.
 
-```language-bash
+```bash
 sudo reboot
 ```
 

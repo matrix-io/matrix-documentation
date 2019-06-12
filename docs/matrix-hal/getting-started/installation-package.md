@@ -8,27 +8,27 @@ Before starting, ensure you have access to the terminal of your Raspberry Pi via
 
 Add the MATRIX repository and key.
 
-```language-bash
+```bash
 curl https://apt.matrix.one/doc/apt-key.gpg | sudo apt-key add -
 echo "deb https://apt.matrix.one/raspbian $(lsb_release -sc) main" | sudo tee /etc/apt/sources.list.d/matrixlabs.list
 ```
 
 Update your repository and packages.
 
-```language-bash
+```bash
 sudo apt-get update
 sudo apt-get upgrade
 ```
 
 Install the the MATRIX HAL packages.
 
-```language-bash
+```bash
 sudo apt-get install matrixio-creator-init libmatrixio-creator-hal libmatrixio-creator-hal-dev
 ```
 
 Reboot your device.
 
-```language-bash
+```bash
 sudo reboot
 ```
 

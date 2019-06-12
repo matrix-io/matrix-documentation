@@ -31,7 +31,7 @@ This port accepts 2 configurations for communicating with the Pressure driver.
 
 * `timeout_after_last_ping` - stops sending messages from the **Data Update port** if nothing has been sent to the **Keep-alive port** after the specified amount of seconds.
 
-```language-protobuf
+```protobuf
 message DriverConfig {
   // Delay between updates in seconds
   float delay_between_updates = 1;
@@ -57,7 +57,7 @@ Applications can subscribe to this port to receive driver related errors.
 <details open>
 <summary style="font-size: 1.75rem; font-weight: 300;">Data Update Port</summary>
 Applications can subscribe to this port for pressure data. The output will be a serialized message of type `Pressure` with the following information.
-```language-protobuf
+```protobuf
 message Pressure {
   // Pressure
   float pressure = 1;

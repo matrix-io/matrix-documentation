@@ -5,7 +5,7 @@ Please visit our community support forums at
 ## Check Active MATRIX CORE Services
 
 Run the following command on your Raspberry Pi's terminal to see the MATRIX Services currently running.
-```language-bash
+```bash
 ps aux | grep 'malos'
 ```
 
@@ -15,13 +15,13 @@ If you experience strange behavior, reinstall MATRIX CORE.
 
 Uninstall the `matrixio-malos` package.
 
-```language-bash
+```bash
 sudo apt-get --purge remove matrixio-malos
 ```
 
 Reboot your device.
 
-```language-bash
+```bash
 sudo reboot
 ```
 
@@ -33,7 +33,7 @@ If you encounter the error log below, your microphones are being used by the Poc
 arecord: main:788: audio open error: Device or resource busy
 ```
 You can solve this by running the following command to kill the service.
-```language-bash
+```bash
 sudo pkill malos_wakeword
 ```
 

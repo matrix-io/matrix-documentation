@@ -25,7 +25,7 @@ The following sections show how to implement a connection to each of the Servo d
 <details open>
 <summary style="font-size: 1.75rem; font-weight: 300;">Initial Variables</summary>
 Before we go into connecting to each port, the variables defined below are needed in order to access the ZeroMQ and MATRIX Protocol Buffer libraries for Python. We also define a few helpful variables for easy references.
-```language-python
+```python
 import os # Miscellaneous operating system interface
 import zmq # Asynchronous messaging framework
 import time # Time access and conversions
@@ -46,7 +46,7 @@ from utils import register_error_callback
 <summary style="font-size: 1.75rem; font-weight: 300;">Base Port</summary>
 Here is where the configuration for our servo example goes. Once we connect to the **Base Port**, we will pass a configuration to the servo driver. With this we can choose the pin we want to edit and the angle to set for it. This example will send random numbers to any servo attached to pin 0. This example has a `moveServo()` function that calls itself to send random angles to your servo.
 
-```language-python
+```python
 def send_servo_command(pin):
     # Define zmq socket
     context = zmq.Context()
@@ -82,7 +82,7 @@ def send_servo_command(pin):
 <details open>
 <summary style="font-size: 1.75rem; font-weight: 300;">Error Port</summary>
 The **Error Port** connection is taken care of by the `utils import`. Below we define a function to be called and given any error messages that occur within MATRIX CORE.
-```language-python
+```python
 def servo_error_callback(error):
     # Log error
     print('{0}'.format(error))
@@ -94,7 +94,7 @@ def servo_error_callback(error):
 <summary style="font-size: 1.75rem; font-weight: 300;">Start Processes</summary>
 This is where we begin the asynchronous events for each of the driver ports used and where we define the functions we want to use for each port.
 
-```language-python
+```python
 if __name__ == '__main__':
     # Initiate asynchronous events
     ioloop.install()

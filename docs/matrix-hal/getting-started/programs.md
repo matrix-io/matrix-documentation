@@ -6,7 +6,7 @@ Programs created with MATRIX HAL allow you to directly access sensors and compon
 
 <h3 style="padding-top: 0">Making Your Project Directory</h3>
 Use the following commands to create a folder to hold your MATRIX HAL projects, in the home directory `~/` of your MATRIX device.
-```language-bash
+```bash
 cd ~/
 mkdir matrix-hal-project
 cd matrix-hal-project
@@ -16,7 +16,7 @@ Create a file called `app.cpp` in your project folder, and paste the code below.
 
 The following code turns the Everloop rainbow for 10 seconds.
 
-```language-cpp
+```cpp
 /*
  * Everloop rainbow example
  */
@@ -126,7 +126,7 @@ int main() {
 
 The command below will use g++ to link the `libmatrix_creator_hal.so` library file when compiling your program.
 
-```language-bash
+```bash
 g++ -o app app.cpp -std=c++11 -lmatrix_creator_hal
 ```
 
@@ -134,7 +134,7 @@ g++ -o app app.cpp -std=c++11 -lmatrix_creator_hal
 
 Run the following command to start the demo program.
 
-```language-bash
+```bash
 cd ~/matrix-hal-project
 ./app
 ```

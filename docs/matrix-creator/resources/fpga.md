@@ -30,39 +30,39 @@ We first need to install a few prerequisites.
 
 Add the MATRIX repository and key.
 
-```language-bash
+```bash
 curl https://apt.matrix.one/doc/apt-key.gpg | sudo apt-key add -
 echo "deb https://apt.matrix.one/raspbian $(lsb_release -sc) main" | sudo tee /etc/apt/sources.list.d/matrixlabs.list
 ```
 
 Update your repository and packages.
 
-```language-bash
+```bash
 sudo apt-get update
 sudo apt-get upgrade
 ```
 
 Install the required packages.
 
-```language-bash
+```bash
 sudo apt-get install matrixio-creator-init
 ```
 
 Reboot your device.
 
-```language-bash
+```bash
 sudo reboot
 ```
 
 Backup the stock `system_creator.bit` file.
 
-```language-bash
+```bash
 sudo mv /usr/share/matrixlabs/matrixio-devices/blob/system_creator.bit /usr/share/matrixlabs/matrixio-devices/blob/system_creator_stock.bit
 ```
 
 Copy your built `system_creator.bit` FPGA bitstream file to the blob folder.
 
-```language-bash
+```bash
 sudo cp /path/to/your/file /usr/share/matrixlabs/matrixio-devices/blob/system_creator.bit
 ```
 
@@ -70,7 +70,7 @@ Now you can flash the FPGA.
 
 Reset the FPGA.
 
-```language-bash
+```bash
 echo 18 > /sys/class/gpio/export 2>/dev/null
 echo out > /sys/class/gpio/gpio18/direction
 echo 1 > /sys/class/gpio/gpio18/value
@@ -80,14 +80,14 @@ echo 1 > /sys/class/gpio/gpio18/value
 
 Flash the FPGA.
 
-```language-bash
+```bash
 cd /usr/share/matrixlabs/matrixio-devices/
 xc3sprog -c matrix_creator blob/system_creator.bit -p 1
 ```
 
 You should receive the following (may vary due to user-provided file).
 
-```language-bash
+```bash
 XC3SPROG (c) 2004-2011 xc3sprog project $Rev: 774 $ OS: Linux
 Free software: If you contribute nothing, expect nothing!
 Feedback on success/failure/enhancement requests:
@@ -100,7 +100,7 @@ DNA is 0x99a9bca3325faafd
 
 Reset the FPGA.
 
-```language-bash
+```bash
 echo 18 > /sys/class/gpio/export 2>/dev/null
 echo out > /sys/class/gpio/gpio18/direction
 echo 1 > /sys/class/gpio/gpio18/value
@@ -112,13 +112,13 @@ Updating the `matrixio-creator-init` package will cause the stock FPGA bitstream
 
 You can stop `sudo apt-get upgrade` from automatically updating the `matrixio-creator-init` package with the following command.
 
-```language-bash
+```bash
 sudo apt-mark hold matrixio-creator-init
 ```
 
 Power off your device.
 
-```language-bash
+```bash
 sudo poweroff
 ```
 
@@ -130,7 +130,7 @@ Plug the power cable back into your Raspberry Pi.
 
 To restore the original firmware, restore the stock `system_creator.bit` file in the blob folder.
 
-```language-bash
+```bash
 sudo rm /usr/share/matrixlabs/matrixio-devices/blob/system_creator.bit
 sudo cp /usr/share/matrixlabs/matrixio-devices/blob/system_creator_stock.bit /usr/share/matrixlabs/matrixio-devices/blob/system_creator.bit
 ```
@@ -139,7 +139,7 @@ Now you can flash the FPGA.
 
 Reset the FPGA.
 
-```language-bash
+```bash
 echo 18 > /sys/class/gpio/export 2>/dev/null
 echo out > /sys/class/gpio/gpio18/direction
 echo 1 > /sys/class/gpio/gpio18/value
@@ -149,14 +149,14 @@ echo 1 > /sys/class/gpio/gpio18/value
 
 Flash the FPGA.
 
-```language-bash
+```bash
 cd /usr/share/matrixlabs/matrixio-devices/
 xc3sprog -c matrix_creator blob/system_creator.bit -p 1
 ```
 
 You should receive the following.
 
-```language-bash
+```bash
 XC3SPROG (c) 2004-2011 xc3sprog project $Rev: 774 $ OS: Linux
 Free software: If you contribute nothing, expect nothing!
 Feedback on success/failure/enhancement requests:
@@ -169,7 +169,7 @@ DNA is 0x99a9bca3325faafd
 
 Reset the FPGA.
 
-```language-bash
+```bash
 echo 18 > /sys/class/gpio/export 2>/dev/null
 echo out > /sys/class/gpio/gpio18/direction
 echo 1 > /sys/class/gpio/gpio18/value
@@ -179,13 +179,13 @@ echo 1 > /sys/class/gpio/gpio18/value
 
 Allow `sudo apt-get upgrade` to update the `matrixio-creator-init` package.
 
-```language-bash
+```bash
 sudo apt-mark unhold matrixio-creator-init
 ```
 
 Power off your device.
 
-```language-bash
+```bash
 sudo poweroff
 ```
 

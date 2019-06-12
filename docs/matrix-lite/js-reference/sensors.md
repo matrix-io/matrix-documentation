@@ -7,7 +7,7 @@
 The following sections below will go over how to read & what to expect from each sensor on the MATRIX Creator.
 
 ## Import Statement
-```language-js
+```js
 const matrix = require("@matrix-io/matrix-lite");
 ```
 <br/>
@@ -16,10 +16,10 @@ const matrix = require("@matrix-io/matrix-lite");
 Below are the functions you'll use to read data from each sensor. Reading a sensor will always return the latest values.
 
 ###IMU
-```language-js
+```js
 matrix.imu.read();
 ```
-```language-js
+```js
 // Example IMU Return Value //
 { 
   accel_x: 0.0020000000949949026,
@@ -37,20 +37,20 @@ matrix.imu.read();
 }
 ```
 ### UV
-```language-js
+```js
 matrix.uv.read();
 ```
-```language-js
+```js
 // Example UV Return Value //
 { 
   uv: 0.013000000268220901 
 }
 ```
 ### Humidity
-```language-js
+```js
 matrix.humidity.read();
 ```
-```language-js
+```js
 // Example Humidity Return Value //
 { 
   humidity:    29.04400062561035, 
@@ -59,10 +59,10 @@ matrix.humidity.read();
 ```
 
 ### Pressure
-```language-js
+```js
 matrix.pressure.read();
 ```
-```language-js
+```js
 // Example Pressure Return Value //
 { 
   altitude:    -47.4370002746582,

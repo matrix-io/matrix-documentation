@@ -9,39 +9,39 @@ If you experience strange behavior, reinstall the MATRIX init package and reflas
 
 Uninstall the `matrixio-creator-init` package.
 
-```language-bash
+```bash
 sudo apt-get --purge remove matrixio-creator-init
 ```
 
 Reboot your device.
 
-```language-bash
+```bash
 sudo reboot
 ```
 
 Add the MATRIX repository and key.
 
-```language-bash
+```bash
 curl https://apt.matrix.one/doc/apt-key.gpg | sudo apt-key add -
 echo "deb https://apt.matrix.one/raspbian $(lsb_release -sc) main" | sudo tee /etc/apt/sources.list.d/matrixlabs.list
 ```
 
 Update your repository and packages.
 
-```language-bash
+```bash
 sudo apt-get update
 sudo apt-get upgrade
 ```
 
 Install the `matrixio-creator-init` package.
 
-```language-bash
+```bash
 sudo apt-get install matrixio-creator-init
 ```
 
 Reboot your device.
 
-```language-bash
+```bash
 sudo reboot
 ```
 
@@ -51,7 +51,7 @@ Now you can flash the FPGA.
 
 Reset the FPGA.
 
-```language-bash
+```bash
 echo 26 > /sys/class/gpio/export 2>/dev/null
 echo out > /sys/class/gpio/gpio26/direction  
 echo 1 > /sys/class/gpio/gpio26/value  
@@ -61,13 +61,13 @@ echo 1 > /sys/class/gpio/gpio26/value
 
 Flash the SPI Flash bootloader onto FPGA.
 
-```language-bash
+```bash
 xc3sprog -c matrix_voice blob/bscan_spi_s6lx9_ftg256.bit
 ```
 
 You should receive the following.
 
-```language-bash
+```bash
 XC3SPROG (c) 2004-2011 xc3sprog project $Rev: 774 $ OS: Linux
 Free software: If you contribute nothing, expect nothing!
 Feedback on success/failure/enhancement requests:
@@ -80,13 +80,13 @@ DNA is 0xf9d61a1ecbb64401
 
 Flash the SPI Flash.
 
-```language-bash
+```bash
 xc3sprog -c matrix_voice -I blob/system_voice.bit
 ```
 
 You should receive the following.
 
-```language-bash
+```bash
 XC3SPROG (c) 2004-2011 xc3sprog project $Rev: 774 $ OS: Linux
 Free software: If you contribute nothing, expect nothing!
 Feedback on success/failure/enhancement requests:
@@ -102,7 +102,7 @@ Verify: Success!
 
 Reset the FPGA.
 
-```language-bash
+```bash
 echo 26 > /sys/class/gpio/export 2>/dev/null
 echo out > /sys/class/gpio/gpio26/direction  
 echo 1 > /sys/class/gpio/gpio26/value  
@@ -112,7 +112,7 @@ echo 1 > /sys/class/gpio/gpio26/value
 
 Power off your device.
 
-```language-bash
+```bash
 sudo poweroff
 ```
 
@@ -126,39 +126,39 @@ If you experience strange behavior, reinstall the MATRIX kernel modules.
 
 Uninstall the `matrixio-kernel-modules` package.
 
-```language-bash
+```bash
 sudo apt-get --purge remove matrixio-kernel-modules
 ```
 
 Reboot your device.
 
-```language-bash
+```bash
 sudo reboot
 ```
 
 Add the MATRIX repository and key.
 
-```language-bash
+```bash
 curl https://apt.matrix.one/doc/apt-key.gpg | sudo apt-key add -
 echo "deb https://apt.matrix.one/raspbian $(lsb_release -sc) main" | sudo tee /etc/apt/sources.list.d/matrixlabs.list
 ```
 
 Update your repository and packages.
 
-```language-bash
+```bash
 sudo apt-get update
 sudo apt-get upgrade
 ```
 
 Install the `matrixio-kernel-modules` package.
 
-```language-bash
+```bash
 sudo apt-get install matrixio-kernel-modules
 ```
 
 Reboot your device.
 
-```language-bash
+```bash
 sudo reboot
 ```
 
@@ -166,13 +166,13 @@ sudo reboot
 
 If you experience strange behavior, check the Raspberry Pi GPIO.
 
-```language-bash
+```bash
 sudo cat /sys/kernel/debug/gpio
 ```
 
 You should receive the following.
 
-```language-bash
+```bash
 gpiochip0: GPIOs 0-53, parent: platform/3f200000.gpio, pinctrl-bcm2835:
  gpio-18  (                    |sysfs               ) out hi
  gpio-24  (                    |sysfs               ) out hi
@@ -182,7 +182,7 @@ gpiochip0: GPIOs 0-53, parent: platform/3f200000.gpio, pinctrl-bcm2835:
 
 If `sysfs` above is replaced with `w1`, use raspi-config to disable the 1-Wire interface.
 
-```language-bash
+```bash
 sudo raspi-config
 ```
 
@@ -196,27 +196,27 @@ We first need to install matrixio-creator-init, which handles the flashing of FP
 
 Add the MATRIX repository and key.
 
-```language-bash
+```bash
 curl https://apt.matrix.one/doc/apt-key.gpg | sudo apt-key add -
 echo "deb https://apt.matrix.one/raspbian $(lsb_release -sc) main" | sudo tee /etc/apt/sources.list.d/matrixlabs.list
 ```
 
 Update your repository and packages.
 
-```language-bash
+```bash
 sudo apt-get update
 sudo apt-get upgrade
 ```
 
 Install the MATRIX init package.
 
-```language-bash
+```bash
 sudo apt-get install matrixio-creator-init
 ```
 
 Reboot your device.
 
-```language-bash
+```bash
 sudo reboot
 ```
 
@@ -224,13 +224,13 @@ sudo reboot
 
 After the reboot, run the matrix init script manually.
 
-```language-bash
+```bash
 sudo /usr/share/matrixlabs/matrixio-devices/matrix-init.bash
 ```
 
 You should receive the following.
 
-```language-bash
+```bash
 *** MATRIX Voice has a updated firmware
 *** MATRIX Voice initial process has been launched
 ```
@@ -239,13 +239,13 @@ You should receive the following.
 
 This program checks the fpga info.
 
-```language-bash
+```bash
 sudo /usr/share/matrixlabs/matrixio-devices/fpga_info
 ```
 
 You should receive the following.
 
-```language-bash
+```bash
 INFO: [/dev/spidev0.0] was opened
 FPGA IDENTIFY = 6032bad2
 FPGA VERSION = 1000a
@@ -253,7 +253,7 @@ FPGA VERSION = 1000a
 
 If you have the matrixio-kernel-modules installed, you should receive this instead.
 
-```language-bash
+```bash
 INFO: [/dev/matrixio_regmap] was opened
 FPGA IDENTIFY = 6032bad2
 FPGA VERSION = 1000a
@@ -263,14 +263,14 @@ FPGA VERSION = 1000a
 
 If you don’t get the proper FPGA info you will need to run the FPGA flashing process.
 
-```language-bash
+```bash
 cd /usr/share/matrixlabs/matrixio-devices/
 sudo ./fpga-program.bash
 ```
 
 You should receive the following.
 
-```language-bash
+```bash
 *** MATRIX Voice has a updated firmware
 ```
 

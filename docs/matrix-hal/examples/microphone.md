@@ -26,7 +26,7 @@ Microphone array function references can be found [here](/matrix-hal/reference/m
 
 The command below will compile each example. Be sure to pass in your C++ file and desired output file.
 
-```language-cpp
+```cpp
 g++ -o YOUR_OUTPUT_FILE YOUR_CPP_FILE -std=c++11 -lmatrix_creator_hal -lgflags
 ```
 
@@ -38,7 +38,7 @@ The following section shows how to record data from the microphone array to a fi
 
 To convert the `.raw` files outputted by this example to playable `.wav` files run these commands, replacing `16000` with selected sampling rate.
 
-```language-bash
+```bash
 sudo apt-get install sox alsa-utils
 sox -r 16000 -c 1 -e signed -c 1 -e signed -b 16 mic_16000_s16le_channel_0.raw channel_0.wav
 sox -r 16000 -c 1 -e signed -c 1 -e signed -b 16 mic_16000_s16le_channel_1.raw channel_1.wav
@@ -55,7 +55,7 @@ sox -r 16000 -c 1 -e signed -c 1 -e signed -b 16 mic_16000_s16le_channel_8.raw c
 <summary style="font-size: 1.5rem; font-weight: 300;">Include Statements</summary>
 To begin working with the Microphone Array you need to include these header files.
 
-```language-cpp
+```cpp
 // Google gflags parser
 #include <gflags/gflags.h>
 // Communicating with Pi GPIO
@@ -83,7 +83,7 @@ To begin working with the Microphone Array you need to include these header file
 <summary style="font-size: 1.5rem; font-weight: 300;">Initial Variables</summary>
 These initial variables are used in the example.
 
-```language-cpp
+```cpp
 // Defines variables from user arguments using gflags utility
 // (https://gflags.github.io/gflags/)
 
@@ -101,7 +101,7 @@ DEFINE_int32(gain, -1, "Microphone Gain"); // Argument example: "--gain 5"
 <summary style="font-size: 1.5rem; font-weight: 300;">Initial Setup</summary>
 You'll then need to setup `MatrixIOBus` in order to communicate with the hardware on your MATRIX device. Also, parse command line flags and set user flags as variables.
 
-```language-cpp
+```cpp
 int main(int argc, char *agrv[]) {
   // Parse command line flags with gflags utility
   // (https://gflags.github.io/gflags/)
@@ -124,7 +124,7 @@ int main(int argc, char *agrv[]) {
 <summary style="font-size: 1.5rem; font-weight: 300;">Main Setup</summary>
 Now we will create our `MicrophoneArray` object and use it to interface with the microphone array.
 
-```language-cpp
+```cpp
   // The following code is part of main()
 
   // Create MicrophoneArray object
@@ -151,7 +151,7 @@ Now we will create our `MicrophoneArray` object and use it to interface with the
 <summary style="font-size: 1.5rem; font-weight: 300;">Fir Filter Setup</summary>
 Now we will create our `MicrophoneCore` object and use it to enable the FIR filter.
 
-```language-cpp
+```cpp
   // The following code is part of main()
 
   // Create MicrophoneCore object
@@ -166,7 +166,7 @@ Now we will create our `MicrophoneCore` object and use it to enable the FIR filt
 <summary style="font-size: 1.5rem; font-weight: 300;">Microphone Input</summary>
 Now we will read microphone array data, send to a buffer, and write to file.
 
-```language-cpp
+```cpp
   // The following code is part of main()
 
   // Create a buffer array for microphone input
@@ -239,7 +239,7 @@ The following section shows how to record data from the microphone array to a li
 
 The following commands copy a modified `asound.conf` file into `/etc/`, which allows `arecord` to record from the pipe.
 
-```language-bash
+```bash
 wget https://github.com/matrix-io/matrix-hal-examples/blob/master/microphone_array/asound.conf
 sudo mv -f /etc/asound.conf /etc/asound.conf_old
 sudo mv -f ./asound.conf /etc/
@@ -247,7 +247,7 @@ sudo mv -f ./asound.conf /etc/
 
 To record from microphone channel 0 for 5 seconds at 16KHz using `arecord`, run these commands. 
 
-```language-bash
+```bash
 rm -rf /tmp/matrix_micarray_channel_*
 ./mic_record_pipe --sampling_frequency 16000 &
 arecord channel0.wav -f S16_LE -r 16000 -d 5 --device=mic_channel0
@@ -255,7 +255,7 @@ arecord channel0.wav -f S16_LE -r 16000 -d 5 --device=mic_channel0
 
 To stop the example from running, run this command.
 
-```language-bash
+```bash
 killall mic_record_pipe
 ```
 
@@ -263,7 +263,7 @@ killall mic_record_pipe
 <summary style="font-size: 1.5rem; font-weight: 300;">Include Statements</summary>
 To begin working with the Microphone Array you need to include these header files.
 
-```language-cpp
+```cpp
 // Imports FIFO pipe support (https://en.wikipedia.org/wiki/Named_pipe)
 #include <sys/stat.h>
 // Linux file control options
@@ -297,7 +297,7 @@ To begin working with the Microphone Array you need to include these header file
 <summary style="font-size: 1.5rem; font-weight: 300;">Initial Variables</summary>
 These initial variables are used in the example.
 
-```language-cpp
+```cpp
 // Defines variables from user arguments using gflags utility
 // (https://gflags.github.io/gflags/)
 
@@ -313,7 +313,7 @@ DEFINE_int32(gain, -1, "Microphone Gain"); // Argument example: "--gain 5"
 <summary style="font-size: 1.5rem; font-weight: 300;">Initial Setup</summary>
 You'll then need to setup `MatrixIOBus` in order to communicate with the hardware on your MATRIX device. Also, parse command line flags and set user flags as variables.
 
-```language-cpp
+```cpp
 int main(int argc, char *agrv[]) {
   // Parse command line flags with gflags utility
   // (https://gflags.github.io/gflags/)
@@ -335,7 +335,7 @@ int main(int argc, char *agrv[]) {
 <summary style="font-size: 1.5rem; font-weight: 300;">Main Setup</summary>
 Now we will create our `MicrophoneArray` object and use it to interface with the microphone array.
 
-```language-cpp
+```cpp
   // The following code is part of main()
 
   // Create MicrophoneArray object
@@ -362,7 +362,7 @@ Now we will create our `MicrophoneArray` object and use it to interface with the
 <summary style="font-size: 1.5rem; font-weight: 300;">Fir Filter Setup</summary>
 Now we will create our `MicrophoneCore` object and use it to enable the FIR filter.
 
-```language-cpp
+```cpp
   // The following code is part of main()
 
   // Create MicrophoneCore object
@@ -377,7 +377,7 @@ Now we will create our `MicrophoneCore` object and use it to enable the FIR filt
 <summary style="font-size: 1.5rem; font-weight: 300;">Microphone Input</summary>
 Now we will read microphone array data, send to a buffer, and write to a FIFO pipe.
 
-```language-cpp
+```cpp
   // The following code is part of main()
 
   // Create a buffer array for microphone input

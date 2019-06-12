@@ -26,7 +26,7 @@ This port accepts a single configuration for communicating with the Servo driver
 
 * `servo` - the servo configuration that's created from a `ServoParams` message.
 
-```language-protobuf
+```protobuf
 message DriverConfig {
   // ServoMotor service configuration
   matrix_io.malos.v1.io.ServoParams servo = 7;
@@ -40,7 +40,7 @@ View the defined message <a href="https://github.com/matrix-io/protocol-buffers/
 
 * `angle` - emits a signal input that represents the angle set.
 
-```language-protobuf
+```protobuf
 // Servo handler params
 message ServoParams {
   // Pin to configure

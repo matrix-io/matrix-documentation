@@ -8,7 +8,7 @@
 The following sections below will go over how to control the LED array on your MATRIX Device.
 
 ## Import Statement
-```language-js
+```js
 const matrix = require("@matrix-io/matrix-lite");
 ```
 
@@ -22,7 +22,7 @@ matrix.led.length;
 Allows you to set the colors of each LED. A `string`, `object`, `array`, or an `undefined` value can be given to this function.
 
 **String input**
-```language-js
+```js
 // Turns each LED to blue
 matrix.led.set("blue"); // color name
 matrix.led.set("rgb(0,0,255)"); // RGB values
@@ -35,7 +35,7 @@ matrix.led.set("#000000"); // Hex values
 ```
 
 **Object input**
-```language-js
+```js
 // Turns each LED to blue
 matrix.led.set({
   r:0,
@@ -51,7 +51,7 @@ matrix.led.set({}) // unspecified values are set to 0
 **Array Input**
 
 Passing in an array allows you to set each individual LED color. However, passing an array that's larger than `led.length` will result in an error.
-```language-js
+```js
 // Basic array example
 matrix.led.set(['red', 'gold', 'purple', {}, , '#6F41C1', 'rgb(0,0,255)', {g:255}]);
 ```

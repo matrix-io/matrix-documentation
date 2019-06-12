@@ -7,7 +7,7 @@ This setup will go through how to install <a href="https://nodejs.org/en/" targe
 
 Run the following commands on your MATRIX device(Raspberry Pi) to install <a href="https://github.com/creationix/nvm" target="_blank">Node Version Manager</a> which will then be used to install version `8.6` of Node.js.
 > It is **strongly** recommended to use version `8.6` of Node.js
-```language-bash
+```bash
 curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash
 . ~/.bashrc
 nvm install 8.6
@@ -17,7 +17,7 @@ nvm install 8.6
 ## Creating A Node.js Application
 <h3 style="padding-top: 0">Making Your Project Directory</h3>
 Use the following commands to initialize a Node project folder, in the home directory `~/` of your MATRIX device.
-```language-bash
+```bash
 cd ~/
 mkdir js-matrix-core-app
 cd js-matrix-core-app
@@ -26,7 +26,7 @@ npm init
 
 <h3 style="padding-top: 0">Installing npm Packages for ZMQ and Protocol Buffers</h3>
 While staying inside your app folder, use the commands below to install the ZMQ and MATRIX Protocol Buffers npm packages. This allows you to interact with MATRIX Core through Node.js.
-```language-bash
+```bash
 npm install zeromq --save
 npm install matrix-protos --save
 ```
@@ -36,7 +36,7 @@ npm install matrix-protos --save
 <h3 style="padding-top: 0">Creating app.js</h3>
 To ensure your installation has succeeded, create a file named `app.js` and paste the code below.
 
-```language-javascript
+```javascript
 // Set Initial Variables \\
 var zmq = require('zeromq');// Asynchronous Messaging Framework
 var matrix_io = require('matrix-protos').matrix_io;// Protocol Buffers for MATRIX function
@@ -101,7 +101,7 @@ setInterval(function(){
 
 <h3 style="padding-top: 0">Running app.js</h3>
 Once you have the app.js code copied, use the following command to run a simple hello world app.
-```language-bash
+```bash
 node app.js
 ```
 <h3 style="padding-top: 0">Result</h3>

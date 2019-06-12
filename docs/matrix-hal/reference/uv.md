@@ -15,7 +15,7 @@ Below is the overview of the UV sensor implementation. Code example can be found
 
 These header files are required to use the UV sensor.
 
-```language-cpp
+```cpp
 // Interfaces with UV sensor
 #include "matrix_hal/uv_sensor.h"
 // Holds data from UV sensor
@@ -28,14 +28,14 @@ These header files are required to use the UV sensor.
 <summary style="font-size: 1.75rem; font-weight: 300;">UVData</summary>
 `UVData` is a required **object** that contains the UV sensor's supported data parameters.
 
-```language-cpp
+```cpp
 // Create UVData object
 matrix_hal::UVData uv_data;
 ```
 
 The following code accesses the parameters of `UVData`.
 
-```language-cpp
+```cpp
 // Output is represented in UV Index
 float UV = uv_data.uv;
 ```
@@ -45,7 +45,7 @@ float UV = uv_data.uv;
 <summary style="font-size: 1.75rem; font-weight: 300;">UVSensor</summary>
 `UVSensor` is a required **object** that contains functions to interface with the UV sensor.
 
-```language-cpp
+```cpp
 // Create UVSensor object
 matrix_hal::UVSensor uv_sensor;
 ```
@@ -55,12 +55,12 @@ The functions below are part of `UVSensor`.
 <summary style="font-size: 1.5rem; font-weight: 300;">.Setup</summary>
 `Setup` is a **function** that takes a `MatrixIOBus` object as a parameter and sets that object as the bus to use for communicating with MATRIX device.
 
-```language-cpp
+```cpp
 // Function declaration in header file
 void Setup(MatrixIOBus *bus);
 ```
 
-```language-cpp
+```cpp
 // Set uv_sensor to use MatrixIOBus bus
 uv_sensor.Setup(&bus);
 ```
@@ -70,12 +70,12 @@ uv_sensor.Setup(&bus);
 <summary style="font-size: 1.5rem; font-weight: 300;">.Read</summary>
 `Read` is a **function** that takes a `UVData` object as a parameter and writes the current humidity sensor data into the `UVData` object.
 
-```language-cpp
+```cpp
 // Function declaration in header file
 bool Read(UVData *data);
 ```
 
-```language-cpp
+```cpp
 // Overwrites uv_data with new data from UV sensor
 uv_sensor.Read(&uv_data);
 ```

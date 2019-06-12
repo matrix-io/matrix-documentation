@@ -4,28 +4,28 @@
 ## Usage
 <h3 style="padding-top:0;">Driver installation</h3>
 Follow the instructions below for allowing your MATRIX Creator to register as a microphone for your Raspberry Pi.
-```language-bash
+```bash
 curl https://apt.matrix.one/doc/apt-key.gpg | sudo apt-key add -
 echo "deb https://apt.matrix.one/raspbian $(lsb_release -sc) main" | sudo tee /etc/apt/sources.list.d/matrixlabs.list
 sudo apt-get update
 sudo apt-get upgrade
 ```
 A reboot will be required after following the steps above.
-```language-bash
+```bash
 sudo reboot
 ```
 The next commands will install the MATRIX kernel modules, overriding the stock Raspbian kernel.
-```language-bash
+```bash
 sudo apt install matrixio-kernel-modules
 ```
 A second reboot will be required.
-```language-bash
+```bash
 sudo reboot
 ```
 <h3 style="padding-top:0;">Check If Everything Works</h3>
 Your Raspberry Pi should now treat your MATRIX Creator as a regular microphone. You can test this by using the following commands to record and play a 5 second long audio file on your Raspberry Pi.
 > Be sure to have something connected to the Raspberry Pi's audio output.
-```language-batch
+```batch
 arecord recording.wav -f S16_LE -r 16000 -d 5
 aplay recording.wav
 ```

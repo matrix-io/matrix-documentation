@@ -10,7 +10,7 @@
 The following sections below will go over how to retrieve microphone input through ALSA.
 
 ## Import Statement
-```language-js
+```js
 const matrix = require("@matrix-io/matrix-lite");
 ```
 <br/>
@@ -24,7 +24,7 @@ This function will allow you to configure your MATRIX microphone settings. Defau
     * **exitOnSilence**: number of seconds.
     * **channels**: Any number from 1 to 8.
 
-```language-js
+```js
 var mic = matrix.alsa.mic();
 // or
 var mic = matrix.alsa.mic({

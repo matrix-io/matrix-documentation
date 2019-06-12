@@ -20,7 +20,7 @@ The following section shows how to receive data from the UV sensor. You can down
 
 The command below will compile the example. Be sure to pass in your C++ file and desired output file.
 
-```language-cpp
+```cpp
 g++ -o YOUR_OUTPUT_FILE YOUR_CPP_FILE -std=c++11 -lmatrix_creator_hal
 ```
 
@@ -28,7 +28,7 @@ g++ -o YOUR_OUTPUT_FILE YOUR_CPP_FILE -std=c++11 -lmatrix_creator_hal
 <summary style="font-size: 1.5rem; font-weight: 300;">Include Statements</summary>
 To begin working with the UV sensor you need to include these header files.
 
-```language-cpp
+```cpp
 // System calls
 #include <unistd.h>
 // Input/output streams and functions
@@ -48,7 +48,7 @@ To begin working with the UV sensor you need to include these header files.
 <summary style="font-size: 1.5rem; font-weight: 300;">Initial Setup</summary>
 You'll then need to setup `MatrixIOBus` in order to communicate with the hardware on your MATRIX device.
 
-```language-cpp
+```cpp
 int main() {
   // Create MatrixIOBus object for hardware communication
   matrix_hal::MatrixIOBus bus;
@@ -62,7 +62,7 @@ int main() {
 <summary style="font-size: 1.5rem; font-weight: 300;">Main Setup</summary>
 Now we will create our `UVData` and `UVSensor` object and use it to receive data from the UV sensor.
 
-```language-cpp
+```cpp
   // The following code is part of main()
 
   // Create UVData object

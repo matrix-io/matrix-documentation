@@ -6,19 +6,19 @@
 This setup will go through how to install <a href="https://golang.org/" target="_blank">Golang</a> and the dependencies needed to create a Go application that can communicate with MATRIX CORE. Run the following on your Raspberry Pi.
 
 Before downloading Go, you'll need to make sure you have `git` installed.
-```language-bash
+```bash
 sudo apt-get install git
 ```
 
 Download and install <a href="https://golang.org/dl/" target="_blank">Go v1.11.2</a>.
-```language-bash
+```bash
 wget https://dl.google.com/go/go1.11.2.linux-armv6l.tar.gz
 sudo tar -C /usr/local -xvzf go1.11.2.linux-armv6l.tar.gz
 rm go1.11.2.linux-armv6l.tar.gz
 ```
 
 Setup the `GOPATH` directory and environment variables.
-```language-bash
+```bash
 mkdir -p ~/go/{bin,src,pkg}
 echo -e "\n##Golang Environment Variables##" | sudo tee -a /etc/profile
 echo 'export PATH=$PATH:/usr/local/go/bin' | sudo tee -a /etc/profile
@@ -28,7 +28,7 @@ source /etc/profile
 ```
 
 Make sure Go is properly installed. The command below should output `go version go1.11 linux/arm`.
-```language-bash
+```bash
 go version
 ```
 
@@ -36,7 +36,7 @@ go version
 <br/>
 ## Installing ZMQ Dependency
 Although ZMQ has already been installed, Go requires an extra dependency.
-```language-bash
+```bash
 sudo apt-get install libsodium-dev
 ```
 
@@ -45,7 +45,7 @@ sudo apt-get install libsodium-dev
 ## Creating A Go Application
 <h3 style="padding-top: 0">Making Your Project Directory</h3>
 Use the following commands to initialize a Go project folder, in the home directory `~/` of your MATRIX device.
-```language-bash
+```bash
 cd ~/
 mkdir go-matrix-core-app
 cd go-matrix-core-app
@@ -54,7 +54,7 @@ go mod init go-matrix-core-app
 
 <h3 style="padding-top: 0">Installing Go Packages for ZMQ and Protocol Buffers</h3>
 While inside your project folder, use the commands below to install the required dependencies for interacting with MATRIX CORE.
-```language-bash
+```bash
 go get github.com/pebbe/zmq4
 go get github.com/matrix-io/matrix-protos-go
 ```
@@ -64,7 +64,7 @@ go get github.com/matrix-io/matrix-protos-go
 <h3 style="padding-top: 0">Creating main.go</h3>
 To ensure your installation has succeeded, create a file named `main.go` and paste the code below.
 
-```language-go
+```go
 package main
 
 import (
@@ -196,7 +196,7 @@ func dataUpdatePort() {
 
 <h3 style="padding-top: 0">Running main.go</h3>
 Once you have main.go ready, use the following command to run a simple hello world app.
-```language-bash
+```bash
 go run main.go
 ```
 <h3 style="padding-top: 0">Result</h3>

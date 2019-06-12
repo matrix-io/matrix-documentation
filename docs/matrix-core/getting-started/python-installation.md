@@ -6,7 +6,7 @@
 This setup will go through how to install all the necessary python packages needed to program with MATRIX CORE.
 
 First, use the commands below to create a folder, inside in the home directory `~/` of your MATRIX device(Raspberry Pi). This will be where you'll put your python scripts.
-```language-bash
+```bash
 cd ~/
 mkdir python-matrix-core-app
 cd python-matrix-core-app
@@ -16,7 +16,7 @@ cd python-matrix-core-app
 ## Installing Python Packages
 
 While inside your project directory, use the following commands to install all the necessary Python packages needed to interact with MATRIX CORE.
-```language-bash
+```bash
 wget "https://github.com/matrix-io/matrix-creator-malos/blob/master/src/python_test/Pipfile" -O Pipfile
 wget "https://github.com/matrix-io/matrix-creator-malos/blob/master/src/python_test/Pipfile.lock" -O Pipfile.lock
 wget "https://raw.githubusercontent.com/matrix-io/matrix-creator-malos/master/src/python_test/requirements.txt" -O requirements.txt 
@@ -25,16 +25,16 @@ sudo apt-get install build-essential python-dev
 ```
 <h4 style="padding-top: 0">Python 2 Packages</h4>
 Required packages for Python 2 can be installed by using the following command.
-```language-bash
+```bash
 pip install -r requirements.txt
 ```
 <h4 style="padding-top: 0">Python 3 Packages</h4>
 Instead of pip, Python 3 packages will require pip3 which can be installed with the command below.
-```language-bash
+```bash
 sudo apt-get install python3-pip
 ```
 You can now install the required packages for Python 3.
-```language-bash
+```bash
 pip3 install -r requirements.txt
 ```
 
@@ -43,7 +43,7 @@ pip3 install -r requirements.txt
 <h3 style="padding-top: 0">Creating app.py</h3>
 To ensure your installation has succeeded, create a file named `app.py` and paste the code below.
 
-```language-python
+```python
 ## Set Initial Variables ##
 import os # Miscellaneous operating system interface
 import zmq # Asynchronous messaging framework
@@ -163,11 +163,11 @@ if __name__ == '__main__':
 Once you have the app.py code copied, use one of the following commands to run a simple hello world app.
 
 <h4 style="padding-top: 0">Python 2</h4>
-```language-bash
+```bash
 python app.py
 ```
 <h4 style="padding-top: 0">Python 3</h4>
-```language-bash
+```bash
 python3 app.py
 ```
 <h3 style="padding-top: 0">Result</h3>

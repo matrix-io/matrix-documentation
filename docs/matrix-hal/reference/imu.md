@@ -19,7 +19,7 @@ Below is the overview of the IMU sensor implementation. Code example can be foun
 
 These header files are required to use the IMU sensor.
 
-```language-cpp
+```cpp
 // Interfaces with IMU sensor
 #include "matrix_hal/imu_sensor.h"
 // Holds data from IMU sensor
@@ -32,14 +32,14 @@ These header files are required to use the IMU sensor.
 <summary style="font-size: 1.75rem; font-weight: 300;">IMUData</summary>
 `IMUData` is a required **object** that contains the IMU sensor's supported data parameters.
 
-```language-cpp
+```cpp
 // Create IMUData object
 matrix_hal::IMUData imu_data;
 ```
 
 The following code accesses the parameters of `IMUData`.
 
-```language-cpp
+```cpp
 // Accelerometer
 float accel_X = imu_data.accel_x;
 float accel_Y = imu_data.accel_y;
@@ -64,7 +64,7 @@ float mag_Z = imu_data.mag_z; // Z-axis points upward
 <summary style="font-size: 1.75rem; font-weight: 300;">IMUSensor</summary>
 `IMUSensor` is a required **object** that contains functions to interface with the IMU sensor.
 
-```language-cpp
+```cpp
 // Create IMUSensor object
 matrix_hal::IMUSensor imu_sensor;
 ```
@@ -75,12 +75,12 @@ The functions below are part of `IMUSensor`.
 <summary style="font-size: 1.5rem; font-weight: 300;">.Setup</summary>
 `Setup` is a **function** that takes a `MatrixIOBus` object as a parameter and sets that object as the bus to use for communicating with MATRIX device.
 
-```language-cpp
+```cpp
 // Function declaration in header file
 void Setup(MatrixIOBus *bus);
 ```
 
-```language-cpp
+```cpp
 // Set imu_sensor to use MatrixIOBus bus
 imu_sensor.Setup(&bus);
 ```
@@ -91,12 +91,12 @@ imu_sensor.Setup(&bus);
 <summary style="font-size: 1.5rem; font-weight: 300;">.Read</summary>
 `Read` is a **function** that takes an `IMUData` object as a parameter and writes the current IMU sensor data into the `IMUData` object.
 
-```language-cpp
+```cpp
 // Function declaration in header file
 bool Read(IMUData *data);
 ```
 
-```language-cpp
+```cpp
 // Overwrites imu_data with new data from IMU sensor
 imu_sensor.Read(&imu_data);
 ```

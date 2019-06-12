@@ -28,7 +28,7 @@ The following sections show how to implement a connection to each of the IMU dri
 <details open>
 <summary style="font-size: 1.75rem; font-weight: 300;">Initial Variables</summary>
 Before we go into connecting to each port, the variables defined below are needed in order to access the ZeroMQ and MATRIX Protocol Buffer libraries for Python. We also define a few helpful variables and the path for our <a href="http://www.speech.cs.cmu.edu/tools/lmtool-new.html" target="_blank">Sphinx Knowledge Base</a> files.
-```language-python
+```python
 import os # Miscellaneous operating system interface
 import zmq # Asynchronous messaging framework
 import time # Time access and conversions
@@ -51,7 +51,7 @@ DIC_PATH = 'INSERT_PATH_TO_YOUR_FILE.dic'# Dictation File
 <details open>
 <summary style="font-size: 1.75rem; font-weight: 300;">Base Port</summary>
 Here is where the configuration for our wakeword example goes. Once we connect to the **Base Port**, we will pass a configuration to the Wakeword driver. With this we can set our wakeword configurations.
-```language-python
+```python
 def config_socket():
     # Define zmq socket
     context = zmq.Context()
@@ -81,7 +81,7 @@ def config_socket():
 <details open>
 <summary style="font-size: 1.75rem; font-weight: 300;">Keep-alive Port</summary>
 The next step is to connect and send a message to the **Keep-alive Port**. That message will grant us a response from the Data Update Port with the wake words that were understood.
-```language-python
+```python
 def ping_socket():
     # Define zmq socket
     context = zmq.Context()
@@ -101,7 +101,7 @@ def ping_socket():
 <summary style="font-size: 1.75rem; font-weight: 300;">Error Port</summary>
 The **Error Port** connection is also taken care of by the `utils import`. Below we define a function to be called and given any error messages that occur within MATRIX CORE.
 > The Error Port is currently reporting false errors. 
-```language-python
+```python
 def wakeword_error_callback(error):
     # Log error
     print('{0}'.format(error))
@@ -113,7 +113,7 @@ def wakeword_error_callback(error):
 <summary style="font-size: 1.75rem; font-weight: 300;">Data Update Port</summary>
 A connection to the **Data Update Port** is then made to allow us to receive each custom phrase the Wakeword driver picks up.
 
-```language-python
+```python
 def wakeword_data_callback(data):
     # Extract data
     data = io_pb2.WakeWordParams().FromString(data[0])
@@ -129,7 +129,7 @@ def wakeword_data_callback(data):
 ```
 <h4>Data Output</h4>
 The Python object below is an example output you'll receive from the **Data Update Port**. All wakeword strings are capitalized.
-```language-python
+```python
 wake_word: "MATRIX START"
 ```
 </details>
@@ -139,7 +139,7 @@ wake_word: "MATRIX START"
 <summary style="font-size: 1.75rem; font-weight: 300;">Start Processes</summary>
 This is where we begin the asynchronous events for each of the driver ports and where we define the functions we want to use for each port.
 
-```language-python
+```python
 if __name__ == '__main__':
     # Initiate asynchronous events
     ioloop.install()
