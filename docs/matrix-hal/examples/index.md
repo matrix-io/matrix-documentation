@@ -8,6 +8,7 @@ The following commands download and compile all the examples.
 sudo apt-get install cmake g++ git
 ```
 
+Download, build, and run the examples.
 ```bash
 cd ~/
 git clone https://github.com/matrix-io/matrix-hal-examples.git
