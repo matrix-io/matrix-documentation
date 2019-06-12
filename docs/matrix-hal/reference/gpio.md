@@ -230,7 +230,7 @@ bool Set9GServoAngle(float angle, uint16_t pin);
 ```
 
 ```language-cpp
-// Set servo angle to 70° on pin 0
+// Set servo angle to 70 degrees on pin 0
 gpio.SetPrescaler(70, 0);
 ```
 
@@ -246,7 +246,7 @@ bool SetServoAngle(float angle, float min_pulse_ms, uint16_t pin);
 ```
 
 ```language-cpp
-// Set servo angle to 70° on pin 0
+// Set servo angle to 70 degrees on pin 0
 // For a servo that accepts a minimum pulse of 0.8ms
 gpio.SetServoAngle(70, 0.8, 0);
 ```

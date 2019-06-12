@@ -44,7 +44,7 @@ The following code accesses the parameters of `PressureData`.
 float altitude = pressure_data.altitude;
 // Output is represented in kPa
 float pressure = pressure_data.pressure;
-// Output is represented in °C
+// Output is represented in Celsius
 float temperature = pressure_data.temperature;
 ```
 </details>

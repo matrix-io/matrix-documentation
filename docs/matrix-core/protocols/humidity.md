@@ -48,7 +48,7 @@ View the defined message <a href="https://github.com/matrix-io/protocol-buffers/
 
 ```language-protobuf
 message HumidityParams{
-  // Current temperature °C used for calibration.
+  // Current temperature Celsius used for calibration.
   float current_temperature = 1;
 }
 ```

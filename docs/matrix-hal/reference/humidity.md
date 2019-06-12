@@ -39,7 +39,7 @@ The following code accesses the parameters of `HumidityData`.
 ```language-cpp
 // Output is represented in %
 float humidity = humidity_data.humidity; 
-// Output is represented in °C
+// Output is represented in Celsius
 float temperature = humidity_data.temperature; 
 ```
 </details>

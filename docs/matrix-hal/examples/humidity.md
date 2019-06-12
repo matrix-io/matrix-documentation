@@ -79,14 +79,14 @@ Now we will create our `HumidityData` and `HumiditySensor` object and use it to 
     humidity_sensor.Read(&humidity_data);
     // Humidity output is represented in %
     float humidity = humidity_data.humidity;
-    // Temperature output is represented in °C
+    // Temperature output is represented in Celsius
     float temperature = humidity_data.temperature;
     // Clear console
     std::system("clear");
     // Output sensor data to console
     std::cout << " [ Humidity Sensor Output ]" << std::endl;
     std::cout << " [ Humidity (%) : " << humidity
-              << " ] [ Temperature (°C) : " << temperature << "]" << std::endl;
+              << " ] [ Temperature (Celsius) : " << temperature << "]" << std::endl;
 
     // Sleep for 20000 microseconds
     usleep(20000);
