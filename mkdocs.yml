@@ -4,6 +4,7 @@ docs_dir: docs
 markdown_extensions:
   - markdown_fenced_code_tabs:
       template: 'bootstrap4'
+  - codehilite
 theme_dir: matrix
 pages:
 - Overview: 'index.md'
