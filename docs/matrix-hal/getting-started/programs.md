@@ -16,7 +16,7 @@ Create a file called `app.cpp` in your project folder, and paste the code below.
 
 The following code turns the Everloop rainbow for 10 seconds.
 
-```cpp
+```c++
 /*
  * Everloop rainbow example
  */

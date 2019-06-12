@@ -17,7 +17,7 @@ Below is the overview of the Everloop implementation. Code examples can be found
 
 These header files are required to use the Everloop.
 
-```cpp
+```c++
 // Interfaces with Everloop
 #include "matrix_hal/everloop.h"
 // Holds data for Everloop
@@ -33,7 +33,7 @@ The `EverloopImage` constructor takes in an integer representing the amount of R
 
 The MatrixIOBus function `bus.MatrixLeds` outputs the number of leds on your creator.
 
-```cpp
+```c++
 // Holds the number of LEDs on MATRIX device
 int ledCount = bus.MatrixLeds();
 // Create EverloopImage object, with size of ledCount
@@ -44,7 +44,7 @@ matrix_hal::EverloopImage everloop_image(ledCount);
 
 The following code shows how to set each led in everloop_image to green.
 
-```cpp
+```c++
 // For each led, set RGBW colors
 // This sets all leds to green
 for (matrix_hal::LedValue &led : everloop_image.leds) {
@@ -61,7 +61,7 @@ for (matrix_hal::LedValue &led : everloop_image.leds) {
 <summary style="font-size: 1.75rem; font-weight: 300;">Everloop</summary>
 `Everloop` is a required **object** that contains functions to interface with the Everloop on the MATRIX device.
 
-```cpp
+```c++
 // Create Everloop object
 matrix_hal::Everloop everloop;
 ```
@@ -72,12 +72,12 @@ The functions below are part of `Everloop`.
 <summary style="font-size: 1.5rem; font-weight: 300;">.Setup</summary>
 `Setup` is a **function** that takes `MatrixIOBus` object as parameter and sets that object as the bus to use for communicating with MATRIX device.
 
-```cpp
+```c++
 // Function declaration in header file
 void Setup(MatrixIOBus *bus);
 ```
 
-```cpp
+```c++
 // Set everloop to use MatrixIOBus bus
 everloop.Setup(&bus);
 ```
@@ -88,12 +88,12 @@ everloop.Setup(&bus);
 <summary style="font-size: 1.5rem; font-weight: 300;">.Write</summary>
 `Write` is a **function** that takes an `EverloopImage` object as a parameter and updates the Everloop on the MATRIX device.
 
-```cpp
+```c++
 // Function declaration in header file
 bool Write(EverloopImage *everloop_image;
 ```
 
-```cpp
+```c++
 // Updates the Everloop on the MATRIX device
 everloop.Write(&everloop_image);
 ```

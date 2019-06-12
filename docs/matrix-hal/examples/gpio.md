@@ -27,7 +27,7 @@ GPIO function references can be found [here](/matrix-hal/reference/gpio).
 
 The command below will compile each example. Be sure to pass in your C++ file and desired output file.
 
-```cpp
+```c++
 g++ -o YOUR_OUTPUT_FILE YOUR_CPP_FILE -std=c++11 -lmatrix_creator_hal
 ```
 
@@ -39,7 +39,7 @@ The following section shows how to use GPIO in digital I/O mode for output and i
 <summary style="font-size: 1.5rem; font-weight: 300;">Include Statements</summary>
 To begin working with the GPIO you need to include these header files.
 
-```cpp
+```c++
 // System calls
 #include <unistd.h>
 // Input/output streams and functions
@@ -57,7 +57,7 @@ To begin working with the GPIO you need to include these header files.
 <summary style="font-size: 1.5rem; font-weight: 300;">Initial Variables</summary>
 These initial variables are used in the example.
 
-```cpp
+```c++
 // GPIOOutputMode is 1
 const uint16_t GPIOOutputMode = 1;
 // GPIOInputMode is 0
@@ -77,7 +77,7 @@ uint16_t pin_in;
 <summary style="font-size: 1.5rem; font-weight: 300;">Initial Setup</summary>
 You'll then need to setup `MatrixIOBus` in order to communicate with the hardware on your MATRIX device.
 
-```cpp
+```c++
 int main() {
   // Create MatrixIOBus object for hardware communication
   matrix_hal::MatrixIOBus bus;
@@ -91,7 +91,7 @@ int main() {
 <summary style="font-size: 1.5rem; font-weight: 300;">Main Setup</summary>
 Now we will create our `GPIOControl` object and use it to output and input a digital GPIO signal.
 
-```cpp
+```c++
   // The following code is part of main()
 
   // Create GPIOControl object
@@ -153,7 +153,7 @@ The following section shows how to use GPIO in PWM mode for PWM output. You can 
 <summary style="font-size: 1.5rem; font-weight: 300;">Include Statements</summary>
 To begin working with the GPIO you need to include these header files.
 
-```cpp
+```c++
 // Input/output streams and functions
 #include <iostream>
 
@@ -169,7 +169,7 @@ To begin working with the GPIO you need to include these header files.
 <summary style="font-size: 1.5rem; font-weight: 300;">Initial Variables</summary>
 These initial variables are used in the example.
 
-```cpp
+```c++
 // GPIOOutputMode is 1
 const uint16_t GPIOOutputMode = 1;
 // GPIOInputMode is 0
@@ -191,7 +191,7 @@ uint16_t pin;
 <summary style="font-size: 1.5rem; font-weight: 300;">Initial Setup</summary>
 You'll then need to setup `MatrixIOBus` in order to communicate with the hardware on your MATRIX device.
 
-```cpp
+```c++
 int main() {
   // Create MatrixIOBus object for hardware communication
   matrix_hal::MatrixIOBus bus;
@@ -205,7 +205,7 @@ int main() {
 <summary style="font-size: 1.5rem; font-weight: 300;">Main Setup</summary>
 Now we will create our `GPIOControl` object and use it to output and input a digital GPIO signal.
 
-```cpp
+```c++
   // The following code is part of main()
 
   // Create GPIOControl object
@@ -257,7 +257,7 @@ The following section shows how to use GPIO in PWM mode for controlling a servo.
 <summary style="font-size: 1.5rem; font-weight: 300;">Include Statements</summary>
 To begin working with the GPIO you need to include these header files.
 
-```cpp
+```c++
 // Input/output streams and functions
 #include <iostream>
 
@@ -273,7 +273,7 @@ To begin working with the GPIO you need to include these header files.
 <summary style="font-size: 1.5rem; font-weight: 300;">Initial Variables</summary>
 These initial variables are used in the example.
 
-```cpp
+```c++
 // GPIOOutputMode is 1
 const uint16_t GPIOOutputMode = 1;
 // GPIOInputMode is 0
@@ -300,7 +300,7 @@ float min_pulse_ms;
 <summary style="font-size: 1.5rem; font-weight: 300;">Initial Setup</summary>
 You'll then need to setup `MatrixIOBus` in order to communicate with the hardware on your MATRIX device.
 
-```cpp
+```c++
 int main() {
   // Create MatrixIOBus object for hardware communication
   matrix_hal::MatrixIOBus bus;
@@ -317,7 +317,7 @@ Now we will create our `GPIOControl` object and use it to output and input a dig
 Servo neutral position is achieved with a 1.5 milliseconds pulse, so by taking the minimum servo pulse (in milliseconds) the SetServoAngle function calibrates servo angle.
 If unsure of min_pulse_ms enter `0.8`.
 
-```cpp
+```c++
   // The following code is part of main()
 
   // Create GPIOControl object
