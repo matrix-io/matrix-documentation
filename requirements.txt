@@ -2,3 +2,4 @@ Markdown==2.6.11
 mkdocs==0.16.3
 mkdocs-material==0.2.4
 markdown-fenced-code-tabs==1.0.5
+Pygments==2.4.2
