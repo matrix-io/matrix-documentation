@@ -7,7 +7,8 @@
   <link rel="shortcut icon" href="../../../img/favicon.ico">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
   <link rel="stylesheet" href="../../../css/theme.css">
-  <link rel="stylesheet" href="../../../css/prism.css">
+  <link rel="stylesheet" href="../../../css/codehilite.css">
+  <link rel="stylesheet" href="../../../css/clipboard.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
 </head>
@@ -496,58 +497,54 @@
 <p><details open>
 <summary style="font-size: 1.75rem; font-weight: 300;">Initial Variables</summary>
 Before we go into connecting to each port, the variables defined below are needed in order to access the ZeroMQ and MATRIX Protocol Buffer libraries for Javascript. We also define a few helpful variables and the path for our <a href="http://www.speech.cs.cmu.edu/tools/lmtool-new.html" target="_blank">Sphinx Knowledge Base</a> files.</p>
-<pre><code class="language-javascript">var matrix_ip = '127.0.0.1';// Local Device IP
-var matrix_wakeword_base_port = 60001; // Wakeword base port
-var matrix_io = require('matrix-protos').matrix_io;// MATRIX Protocol Buffers
-var zmq = require('zeromq');// Asynchronous Messaging Framework
-const LM_PATH = 'INSERT_PATH_TO_YOUR_FILE.lm';// Language Model File
-const DIC_PATH = 'INSERT_PATH_TO_YOUR_FILE.dic';// Dictation File
-</code></pre>
-
+<p> <div class=codehilite><pre><span></span><span class=kd>var</span> <span class=nx>matrix_ip</span> <span class=o>=</span> <span class=s1>&#39;127.0.0.1&#39;</span><span class=p>;</span><span class=c1>// Local Device IP</span>
+<span class=kd>var</span> <span class=nx>matrix_wakeword_base_port</span> <span class=o>=</span> <span class=mi>60001</span><span class=p>;</span> <span class=c1>// Wakeword base port</span>
+<span class=kd>var</span> <span class=nx>matrix_io</span> <span class=o>=</span> <span class=nx>require</span><span class=p>(</span><span class=s1>&#39;matrix-protos&#39;</span><span class=p>).</span><span class=nx>matrix_io</span><span class=p>;</span><span class=c1>// MATRIX Protocol Buffers</span>
+<span class=kd>var</span> <span class=nx>zmq</span> <span class=o>=</span> <span class=nx>require</span><span class=p>(</span><span class=s1>&#39;zeromq&#39;</span><span class=p>);</span><span class=c1>// Asynchronous Messaging Framework</span>
+<span class=kr>const</span> <span class=nx>LM_PATH</span> <span class=o>=</span> <span class=s1>&#39;INSERT_PATH_TO_YOUR_FILE.lm&#39;</span><span class=p>;</span><span class=c1>// Language Model File</span>
+<span class=kr>const</span> <span class=nx>DIC_PATH</span> <span class=o>=</span> <span class=s1>&#39;INSERT_PATH_TO_YOUR_FILE.dic&#39;</span><span class=p>;</span><span class=c1>// Dictation File</span>
+</pre></div></p>
 <p></details></p>
 <!-- Base PORT -->
 
 <p><details open>
 <summary style="font-size: 1.75rem; font-weight: 300;">Base Port</summary>
 Here is where the configuration for our wakeword example goes. Once we connect to the <strong>Base Port</strong>, We will pass a configuration to the Wakeword driver. With this we can set our wakeword configurations.</p>
-<pre><code class="language-javascript">// Create a Pusher socket
-var configSocket = zmq.socket('push');
-// Connect Pusher to Base port
-configSocket.connect('tcp://' + matrix_ip + ':' + matrix_wakeword_base_port /* config */);
-// Create driver configuration
-var config = matrix_io.malos.v1.driver.DriverConfig.create(
-{ // Create &amp; Set wakeword configurations
-  wakeword: matrix_io.malos.v1.io.WakeWordParams.create({
-    lmPath: LM_PATH,// Language model file path
-    dicPath: DIC_PATH,// Dictation file path
-    channel: matrix_io.malos.v1.io.WakeWordParams.MicChannel.channel8,// Desired MATRIX microphone
-    enableVerbose: false// Enable verbose option
-  })
-});
-// Send configuration to MATRIX device
-configSocket.send(matrix_io.malos.v1.driver.DriverConfig.encode(config).finish());
-console.log('Listening for wakewords');
-</code></pre>
-
+<p> <div class=codehilite><pre><span></span><span class=c1>// Create a Pusher socket</span>
+<span class=kd>var</span> <span class=nx>configSocket</span> <span class=o>=</span> <span class=nx>zmq</span><span class=p>.</span><span class=nx>socket</span><span class=p>(</span><span class=s1>&#39;push&#39;</span><span class=p>);</span>
+<span class=c1>// Connect Pusher to Base port</span>
+<span class=nx>configSocket</span><span class=p>.</span><span class=nx>connect</span><span class=p>(</span><span class=s1>&#39;tcp://&#39;</span> <span class=o>+</span> <span class=nx>matrix_ip</span> <span class=o>+</span> <span class=s1>&#39;:&#39;</span> <span class=o>+</span> <span class=nx>matrix_wakeword_base_port</span> <span class=cm>/* config */</span><span class=p>);</span>
+<span class=c1>// Create driver configuration</span>
+<span class=kd>var</span> <span class=nx>config</span> <span class=o>=</span> <span class=nx>matrix_io</span><span class=p>.</span><span class=nx>malos</span><span class=p>.</span><span class=nx>v1</span><span class=p>.</span><span class=nx>driver</span><span class=p>.</span><span class=nx>DriverConfig</span><span class=p>.</span><span class=nx>create</span><span class=p>(</span>
+<span class=p>{</span> <span class=c1>// Create &amp; Set wakeword configurations</span>
+  <span class=nx>wakeword</span><span class=o>:</span> <span class=nx>matrix_io</span><span class=p>.</span><span class=nx>malos</span><span class=p>.</span><span class=nx>v1</span><span class=p>.</span><span class=nx>io</span><span class=p>.</span><span class=nx>WakeWordParams</span><span class=p>.</span><span class=nx>create</span><span class=p>({</span>
+    <span class=nx>lmPath</span><span class=o>:</span> <span class=nx>LM_PATH</span><span class=p>,</span><span class=c1>// Language model file path</span>
+    <span class=nx>dicPath</span><span class=o>:</span> <span class=nx>DIC_PATH</span><span class=p>,</span><span class=c1>// Dictation file path</span>
+    <span class=nx>channel</span><span class=o>:</span> <span class=nx>matrix_io</span><span class=p>.</span><span class=nx>malos</span><span class=p>.</span><span class=nx>v1</span><span class=p>.</span><span class=nx>io</span><span class=p>.</span><span class=nx>WakeWordParams</span><span class=p>.</span><span class=nx>MicChannel</span><span class=p>.</span><span class=nx>channel8</span><span class=p>,</span><span class=c1>// Desired MATRIX microphone</span>
+    <span class=nx>enableVerbose</span><span class=o>:</span> <span class=kc>false</span><span class=c1>// Enable verbose option</span>
+  <span class=p>})</span>
+<span class=p>});</span>
+<span class=c1>// Send configuration to MATRIX device</span>
+<span class=nx>configSocket</span><span class=p>.</span><span class=nx>send</span><span class=p>(</span><span class=nx>matrix_io</span><span class=p>.</span><span class=nx>malos</span><span class=p>.</span><span class=nx>v1</span><span class=p>.</span><span class=nx>driver</span><span class=p>.</span><span class=nx>DriverConfig</span><span class=p>.</span><span class=nx>encode</span><span class=p>(</span><span class=nx>config</span><span class=p>).</span><span class=nx>finish</span><span class=p>());</span>
+<span class=nx>console</span><span class=p>.</span><span class=nx>log</span><span class=p>(</span><span class=s1>&#39;Listening for wakewords&#39;</span><span class=p>);</span>
+</pre></div></p>
 <p></details></p>
 <!-- Keep-alive PORT -->
 
 <p><details open>
 <summary style="font-size: 1.75rem; font-weight: 300;">Keep-alive Port</summary>
 The next step is to connect and send a message to the <strong>Keep-alive Port</strong>. That message will grant us a response from the Data Update Port with the wake words that were understood.</p>
-<pre><code class="language-javascript">// Create a Pusher socket
-var pingSocket = zmq.socket('push');
-// Connect Pusher to Keep-alive port
-pingSocket.connect('tcp://' + matrix_ip + ':' + (matrix_wakeword_base_port + 1));
-// Send initial ping
-pingSocket.send('');
-// Send a ping every 2 seconds
-setInterval(function(){
-  pingSocket.send('');// Send ping
-}, 2000);
-
-</code></pre>
-
+<p> <div class=codehilite><pre><span></span><span class=c1>// Create a Pusher socket</span>
+<span class=kd>var</span> <span class=nx>pingSocket</span> <span class=o>=</span> <span class=nx>zmq</span><span class=p>.</span><span class=nx>socket</span><span class=p>(</span><span class=s1>&#39;push&#39;</span><span class=p>);</span>
+<span class=c1>// Connect Pusher to Keep-alive port</span>
+<span class=nx>pingSocket</span><span class=p>.</span><span class=nx>connect</span><span class=p>(</span><span class=s1>&#39;tcp://&#39;</span> <span class=o>+</span> <span class=nx>matrix_ip</span> <span class=o>+</span> <span class=s1>&#39;:&#39;</span> <span class=o>+</span> <span class=p>(</span><span class=nx>matrix_wakeword_base_port</span> <span class=o>+</span> <span class=mi>1</span><span class=p>));</span>
+<span class=c1>// Send initial ping</span>
+<span class=nx>pingSocket</span><span class=p>.</span><span class=nx>send</span><span class=p>(</span><span class=s1>&#39;&#39;</span><span class=p>);</span>
+<span class=c1>// Send a ping every 2 seconds</span>
+<span class=nx>setInterval</span><span class=p>(</span><span class=kd>function</span><span class=p>(){</span>
+  <span class=nx>pingSocket</span><span class=p>.</span><span class=nx>send</span><span class=p>(</span><span class=s1>&#39;&#39;</span><span class=p>);</span><span class=c1>// Send ping</span>
+<span class=p>},</span> <span class=mi>2000</span><span class=p>);</span>
+</pre></div></p>
 <p></details></p>
 <!-- Error PORT -->
 
@@ -557,58 +554,55 @@ Connecting to the <strong>Error Port</strong> is optional, but highly recommende
 <blockquote>
 <p>The Error Port is currently reporting false errors. </p>
 </blockquote>
-<pre><code class="language-javascript">// Create a Subscriber socket
-var errorSocket = zmq.socket('sub');
-// Connect Subscriber to Error port
-errorSocket.connect('tcp://' + matrix_ip + ':' + (matrix_wakeword_base_port + 2));
-// Connect Subscriber to Error port
-errorSocket.subscribe('');
-// On Message
-errorSocket.on('message', function(error_message){
-  //console.log('Error received: ' + error_message.toString('utf8'));// Log error
-});
-</code></pre>
-
+<p> <div class=codehilite><pre><span></span><span class=c1>// Create a Subscriber socket</span>
+<span class=kd>var</span> <span class=nx>errorSocket</span> <span class=o>=</span> <span class=nx>zmq</span><span class=p>.</span><span class=nx>socket</span><span class=p>(</span><span class=s1>&#39;sub&#39;</span><span class=p>);</span>
+<span class=c1>// Connect Subscriber to Error port</span>
+<span class=nx>errorSocket</span><span class=p>.</span><span class=nx>connect</span><span class=p>(</span><span class=s1>&#39;tcp://&#39;</span> <span class=o>+</span> <span class=nx>matrix_ip</span> <span class=o>+</span> <span class=s1>&#39;:&#39;</span> <span class=o>+</span> <span class=p>(</span><span class=nx>matrix_wakeword_base_port</span> <span class=o>+</span> <span class=mi>2</span><span class=p>));</span>
+<span class=c1>// Connect Subscriber to Error port</span>
+<span class=nx>errorSocket</span><span class=p>.</span><span class=nx>subscribe</span><span class=p>(</span><span class=s1>&#39;&#39;</span><span class=p>);</span>
+<span class=c1>// On Message</span>
+<span class=nx>errorSocket</span><span class=p>.</span><span class=nx>on</span><span class=p>(</span><span class=s1>&#39;message&#39;</span><span class=p>,</span> <span class=kd>function</span><span class=p>(</span><span class=nx>error_message</span><span class=p>){</span>
+  <span class=c1>//console.log(&#39;Error received: &#39; + error_message.toString(&#39;utf8&#39;));// Log error</span>
+<span class=p>});</span>
+</pre></div></p>
 <p></details></p>
 <!-- Data Update PORT -->
 
 <p><details open>
 <summary style="font-size: 1.75rem; font-weight: 300;">Data Update Port</summary>
 A connection to the <strong>Data Update Port</strong> is then made to allow us to receive each custom phrase the Wakeword driver picks up.</p>
-<pre><code class="language-javascript">// Create a Subscriber socket
-var updateSocket = zmq.socket('sub');
-// Connect Subscriber to Base port
-updateSocket.connect('tcp://' + matrix_ip + ':' + (matrix_wakeword_base_port + 3));
-// Subscribe to messages
-updateSocket.subscribe('');
-// On Message
-updateSocket.on('message', function(wakeword_buffer) {
-  // Extract message
-  var wakeWordData = matrix_io.malos.v1.io.WakeWordParams.decode(wakeword_buffer);
-  // Log message
-  console.log(wakeWordData);
-  // Run actions based on the phrase heard
-  switch(wakeWordData.wakeWord) {
-    // CHANGE TO YOUR PHRASE
-    case &quot;MATRIX START&quot;:
-      console.log('I HEARD MATRIX START!');
-      break;
-    // CHANGE TO YOUR PHRASE
-    case &quot;MATRIX STOP&quot;:
-      console.log('I HEARD MATRIX STOP!');
-      break;
-  }
-});
-</code></pre>
-
+<p> <div class=codehilite><pre><span></span><span class=c1>// Create a Subscriber socket</span>
+<span class=kd>var</span> <span class=nx>updateSocket</span> <span class=o>=</span> <span class=nx>zmq</span><span class=p>.</span><span class=nx>socket</span><span class=p>(</span><span class=s1>&#39;sub&#39;</span><span class=p>);</span>
+<span class=c1>// Connect Subscriber to Base port</span>
+<span class=nx>updateSocket</span><span class=p>.</span><span class=nx>connect</span><span class=p>(</span><span class=s1>&#39;tcp://&#39;</span> <span class=o>+</span> <span class=nx>matrix_ip</span> <span class=o>+</span> <span class=s1>&#39;:&#39;</span> <span class=o>+</span> <span class=p>(</span><span class=nx>matrix_wakeword_base_port</span> <span class=o>+</span> <span class=mi>3</span><span class=p>));</span>
+<span class=c1>// Subscribe to messages</span>
+<span class=nx>updateSocket</span><span class=p>.</span><span class=nx>subscribe</span><span class=p>(</span><span class=s1>&#39;&#39;</span><span class=p>);</span>
+<span class=c1>// On Message</span>
+<span class=nx>updateSocket</span><span class=p>.</span><span class=nx>on</span><span class=p>(</span><span class=s1>&#39;message&#39;</span><span class=p>,</span> <span class=kd>function</span><span class=p>(</span><span class=nx>wakeword_buffer</span><span class=p>)</span> <span class=p>{</span>
+  <span class=c1>// Extract message</span>
+  <span class=kd>var</span> <span class=nx>wakeWordData</span> <span class=o>=</span> <span class=nx>matrix_io</span><span class=p>.</span><span class=nx>malos</span><span class=p>.</span><span class=nx>v1</span><span class=p>.</span><span class=nx>io</span><span class=p>.</span><span class=nx>WakeWordParams</span><span class=p>.</span><span class=nx>decode</span><span class=p>(</span><span class=nx>wakeword_buffer</span><span class=p>);</span>
+  <span class=c1>// Log message</span>
+  <span class=nx>console</span><span class=p>.</span><span class=nx>log</span><span class=p>(</span><span class=nx>wakeWordData</span><span class=p>);</span>
+  <span class=c1>// Run actions based on the phrase heard</span>
+  <span class=k>switch</span><span class=p>(</span><span class=nx>wakeWordData</span><span class=p>.</span><span class=nx>wakeWord</span><span class=p>)</span> <span class=p>{</span>
+    <span class=c1>// CHANGE TO YOUR PHRASE</span>
+    <span class=k>case</span> <span class=s2>&quot;MATRIX START&quot;</span><span class=o>:</span>
+      <span class=nx>console</span><span class=p>.</span><span class=nx>log</span><span class=p>(</span><span class=s1>&#39;I HEARD MATRIX START!&#39;</span><span class=p>);</span>
+      <span class=k>break</span><span class=p>;</span>
+    <span class=c1>// CHANGE TO YOUR PHRASE</span>
+    <span class=k>case</span> <span class=s2>&quot;MATRIX STOP&quot;</span><span class=o>:</span>
+      <span class=nx>console</span><span class=p>.</span><span class=nx>log</span><span class=p>(</span><span class=s1>&#39;I HEARD MATRIX STOP!&#39;</span><span class=p>);</span>
+      <span class=k>break</span><span class=p>;</span>
+  <span class=p>}</span>
+<span class=p>});</span>
+</pre></div></p>
 <h4>Data Output</h4>
 
 <p>The javascript object below is an example output you'll receive from the <strong>Data Update Port</strong>. All wakeword strings are capitalized.</p>
-<pre><code class="language-javascript">{
-  WakeWordParams { wakeWord: 'MATRIX START' }
-}
-</code></pre>
-
+<p> <div class=codehilite><pre><span></span><span class=p>{</span>
+  <span class=nx>WakeWordParams</span> <span class=p>{</span> <span class=nx>wakeWord</span><span class=o>:</span> <span class=s1>&#39;MATRIX START&#39;</span> <span class=p>}</span>
+<span class=p>}</span>
+</pre></div></p>
 <p></details></p> 
         </div>
         <div class="toc-parent col-lg-2 col-md-3">
@@ -730,7 +724,12 @@ updateSocket.on('message', function(wakeword_buffer) {
     </div>
   </div>
 </footer>
-
+  <!--Global Vars-->
+  <script>
+    base_url = "../../..";
+  </script>
+  <!-- Scripts -->
+  <script src="../../../js/clipboard.min.js"></script>
   <script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
@@ -739,7 +738,6 @@ updateSocket.on('message', function(wakeword_buffer) {
   <script src="../../../js/jquery.ajaxchimp.min.js"></script>
   <script src="../../../js/jquery.ajaxchimp.langs.min.js"></script>
   <script src="../../../js/footer.js"></script>
-  <script src="../../../js/prism.js"></script>
 
   <!-- TOC Script -->
   <script>

@@ -7,7 +7,8 @@
   <link rel="shortcut icon" href="../../../img/favicon.ico">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
   <link rel="stylesheet" href="../../../css/theme.css">
-  <link rel="stylesheet" href="../../../css/prism.css">
+  <link rel="stylesheet" href="../../../css/codehilite.css">
+  <link rel="stylesheet" href="../../../css/clipboard.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
 </head>
@@ -482,194 +483,192 @@
 <h2 id="references">References</h2>
 <p>Below is the overview of the GPIO implementation. Code examples can be found <a href="../../../matrix-hal/examples/gpio">here</a>.</p>
 <p>These header files are required to use GPIO.</p>
-<pre><code class="language-cpp">// Interfaces with GPIO
-#include &quot;matrix_hal/gpio_control.h&quot;
-// Communicates with MATRIX device
-#include &quot;matrix_hal/matrixio_bus.h&quot;
-</code></pre>
-
+<p> <div class=codehilite><pre><span></span><span class=c1>// Interfaces with GPIO</span>
+<span class=cp>#include</span> <span class=cpf>&quot;matrix_hal/gpio_control.h&quot;</span><span class=cp></span>
+<span class=c1>// Communicates with MATRIX device</span>
+<span class=cp>#include</span> <span class=cpf>&quot;matrix_hal/matrixio_bus.h&quot;</span><span class=cp></span>
+</pre></div></p>
 <p><details open>
 <summary style="font-size: 1.75rem; font-weight: 300;">GPIOControl</summary>
 <code>GPIOControl</code> is a required <strong>object</strong> that contains functions to interface with GPIO.</p>
-<pre><code class="language-cpp">// Create GPIOControl object
-matrix_hal::GPIOControl gpio;
-</code></pre>
-
+<p> <div class=codehilite><pre><span></span><span class=c1>// Create GPIOControl object</span>
+<span class=n>matrix_hal</span><span class=o>::</span><span class=n>GPIOControl</span> <span class=n>gpio</span><span class=p>;</span>
+</pre></div></p>
 <p>The functions below are part of <code>GPIOControl</code>.</p>
 <p><details>
 <summary style="font-size: 1.5rem; font-weight: 300;">.Setup</summary>
 <code>Setup</code> is a <strong>function</strong> that takes a <code>MatrixIOBus</code> object as a parameter and sets that object as the bus to use for communicating with MATRIX device.</p>
-<pre><code class="language-cpp">// Function declaration in header file
-void Setup(MatrixIOBus *bus);
-</code></pre>
+<p> <div class=codehilite><pre><span></span><span class=c1>// Function declaration in header file</span>
+<span class=kt>void</span> <span class=nf>Setup</span><span class=p>(</span><span class=n>MatrixIOBus</span> <span class=o>*</span><span class=n>bus</span><span class=p>);</span>
+</pre></div></p>
+<!--  -->
 
-<pre><code class="language-cpp">// Set gpio to use MatrixIOBus bus
-gpio.Setup(&amp;bus);
-</code></pre>
-
+<p> <div class=codehilite><pre><span></span><span class=c1>// Set gpio to use MatrixIOBus bus</span>
+<span class=n>gpio</span><span class=p>.</span><span class=n>Setup</span><span class=p>(</span><span class=o>&amp;</span><span class=n>bus</span><span class=p>);</span>
+</pre></div></p>
 <p></details></p>
 <p><details>
 <summary style="font-size: 1.5rem; font-weight: 300;">.Banks</summary>
 <code>Banks</code> is a <strong>function</strong> that returns a <code>banks_</code> array of <code>GPIOBank</code> objects.</p>
-<pre><code class="language-cpp">// Function declaration in header file
-GPIOBank &amp;Bank(uint16_t bank) { return banks_[bank]; }
-</code></pre>
+<p> <div class=codehilite><pre><span></span><span class=c1>// Function declaration in header file</span>
+<span class=n>GPIOBank</span> <span class=o>&amp;</span><span class=n>Bank</span><span class=p>(</span><span class=kt>uint16_t</span> <span class=n>bank</span><span class=p>)</span> <span class=p>{</span> <span class=k>return</span> <span class=n>banks_</span><span class=p>[</span><span class=n>bank</span><span class=p>];</span> <span class=p>}</span>
+</pre></div></p>
+<!--  -->
 
-<pre><code class="language-cpp">// Returns banks_[index]
-gpio.Banks(index);
-</code></pre>
-
+<p> <div class=codehilite><pre><span></span><span class=c1>// Returns banks_[index]</span>
+<span class=n>gpio</span><span class=p>.</span><span class=n>Banks</span><span class=p>(</span><span class=n>index</span><span class=p>);</span>
+</pre></div></p>
 <p></details></p>
 <p><details>
 <summary style="font-size: 1.5rem; font-weight: 300;">.SetMode</summary>
 <code>SetMode</code> is a <strong>function</strong> that sets GPIO pin(s) to output or input.
 <code>SetMode</code> is overloaded, and there are two definitions for the function.</p>
 <p>For setting single GPIO pin.</p>
-<pre><code class="language-cpp">// Function declaration in header file
-// For setting single GPIO pin
-bool SetMode(uint16_t pin, uint16_t mode);
-</code></pre>
+<p> <div class=codehilite><pre><span></span><span class=c1>// Function declaration in header file</span>
+<span class=c1>// For setting single GPIO pin</span>
+<span class=kt>bool</span> <span class=nf>SetMode</span><span class=p>(</span><span class=kt>uint16_t</span> <span class=n>pin</span><span class=p>,</span> <span class=kt>uint16_t</span> <span class=n>mode</span><span class=p>);</span>
+</pre></div></p>
+<!--  -->
 
-<pre><code class="language-cpp">// Sets pin 0 to output
-gpio.SetMode(0, 1);
-// Sets pin 0 to input
-gpio.SetMode(0, 0);
-</code></pre>
-
+<p> <div class=codehilite><pre><span></span><span class=c1>// Sets pin 0 to output</span>
+<span class=n>gpio</span><span class=p>.</span><span class=n>SetMode</span><span class=p>(</span><span class=mi>0</span><span class=p>,</span> <span class=mi>1</span><span class=p>);</span>
+<span class=c1>// Sets pin 0 to input</span>
+<span class=n>gpio</span><span class=p>.</span><span class=n>SetMode</span><span class=p>(</span><span class=mi>0</span><span class=p>,</span> <span class=mi>0</span><span class=p>);</span>
+</pre></div></p>
 <p>For setting multiple GPIO pins.</p>
-<pre><code class="language-cpp">// Function declaration in header file
-// For setting multiple pins
-bool SetMode(unsigned char *pinList, int length, uint16_t mode);
-</code></pre>
+<p> <div class=codehilite><pre><span></span><span class=c1>// Function declaration in header file</span>
+<span class=c1>// For setting multiple pins</span>
+<span class=kt>bool</span> <span class=nf>SetMode</span><span class=p>(</span><span class=kt>unsigned</span> <span class=kt>char</span> <span class=o>*</span><span class=n>pinList</span><span class=p>,</span> <span class=kt>int</span> <span class=n>length</span><span class=p>,</span> <span class=kt>uint16_t</span> <span class=n>mode</span><span class=p>);</span>
+</pre></div></p>
+<!--  -->
 
-<pre><code class="language-cpp">unsigned char inputPinList[8] = {0, 2, 4, 6, 8, 10, 12, 14};
-unsigned char outputPinList[8] = {1, 3, 5, 7, 9, 11, 13, 15};
+<p> <div class=codehilite><pre><span></span><span class=kt>unsigned</span> <span class=kt>char</span> <span class=n>inputPinList</span><span class=p>[</span><span class=mi>8</span><span class=p>]</span> <span class=o>=</span> <span class=p>{</span><span class=mi>0</span><span class=p>,</span> <span class=mi>2</span><span class=p>,</span> <span class=mi>4</span><span class=p>,</span> <span class=mi>6</span><span class=p>,</span> <span class=mi>8</span><span class=p>,</span> <span class=mi>10</span><span class=p>,</span> <span class=mi>12</span><span class=p>,</span> <span class=mi>14</span><span class=p>};</span>
+<span class=kt>unsigned</span> <span class=kt>char</span> <span class=n>outputPinList</span><span class=p>[</span><span class=mi>8</span><span class=p>]</span> <span class=o>=</span> <span class=p>{</span><span class=mi>1</span><span class=p>,</span> <span class=mi>3</span><span class=p>,</span> <span class=mi>5</span><span class=p>,</span> <span class=mi>7</span><span class=p>,</span> <span class=mi>9</span><span class=p>,</span> <span class=mi>11</span><span class=p>,</span> <span class=mi>13</span><span class=p>,</span> <span class=mi>15</span><span class=p>};</span>
 
-// Sets pins in inputPinList to input
-gpio.SetMode(inputPinList, sizeof(inputPinList), 0);
-// Sets pins in outputPinList to output
-gpio.SetMode(outputPinList, sizeof(outputPinList), 1);
-</code></pre>
-
+<span class=c1>// Sets pins in inputPinList to input</span>
+<span class=n>gpio</span><span class=p>.</span><span class=n>SetMode</span><span class=p>(</span><span class=n>inputPinList</span><span class=p>,</span> <span class=k>sizeof</span><span class=p>(</span><span class=n>inputPinList</span><span class=p>),</span> <span class=mi>0</span><span class=p>);</span>
+<span class=c1>// Sets pins in outputPinList to output</span>
+<span class=n>gpio</span><span class=p>.</span><span class=n>SetMode</span><span class=p>(</span><span class=n>outputPinList</span><span class=p>,</span> <span class=k>sizeof</span><span class=p>(</span><span class=n>outputPinList</span><span class=p>),</span> <span class=mi>1</span><span class=p>);</span>
+</pre></div></p>
 <p></details></p>
 <p><details>
 <summary style="font-size: 1.5rem; font-weight: 300;">.SetFunction</summary>
 <code>SetFunction</code> is a <strong>function</strong> that sets a single GPIO pin to I/O or PWM mode.</p>
-<pre><code class="language-cpp">// Function declaration in header file
-bool SetFunction(uint16_t pin, uint16_t function);
-</code></pre>
+<p> <div class=codehilite><pre><span></span><span class=c1>// Function declaration in header file</span>
+<span class=kt>bool</span> <span class=nf>SetFunction</span><span class=p>(</span><span class=kt>uint16_t</span> <span class=n>pin</span><span class=p>,</span> <span class=kt>uint16_t</span> <span class=n>function</span><span class=p>);</span>
+</pre></div></p>
+<!--  -->
 
-<pre><code class="language-cpp">// Sets pin 0 to I/O mode
-gpio.SetFunction(0, 0);
-// Sets pin 0 to PWM mode
-gpio.SetFunction(0, 1);
-</code></pre>
-
+<p> <div class=codehilite><pre><span></span><span class=c1>// Sets pin 0 to I/O mode</span>
+<span class=n>gpio</span><span class=p>.</span><span class=n>SetFunction</span><span class=p>(</span><span class=mi>0</span><span class=p>,</span> <span class=mi>0</span><span class=p>);</span>
+<span class=c1>// Sets pin 0 to PWM mode</span>
+<span class=n>gpio</span><span class=p>.</span><span class=n>SetFunction</span><span class=p>(</span><span class=mi>0</span><span class=p>,</span> <span class=mi>1</span><span class=p>);</span>
+</pre></div></p>
 <p></details></p>
 <p><details>
 <summary style="font-size: 1.5rem; font-weight: 300;">.GetGPIOValue</summary>
 <code>GetGPIOValue</code> is a <strong>function</strong> that returns a GPIO value.</p>
-<pre><code class="language-cpp">// Function declaration in header file
-uint16_t GetGPIOValue(uint16_t pin);
-</code></pre>
+<p> <div class=codehilite><pre><span></span><span class=c1>// Function declaration in header file</span>
+<span class=kt>uint16_t</span> <span class=nf>GetGPIOValue</span><span class=p>(</span><span class=kt>uint16_t</span> <span class=n>pin</span><span class=p>);</span>
+</pre></div></p>
+<!--  -->
 
-<pre><code class="language-cpp">// Gets value of pin 0
-bool value = gpio.GetGPIOValue(0);
-</code></pre>
-
+<p> <div class=codehilite><pre><span></span><span class=c1>// Gets value of pin 0</span>
+<span class=kt>bool</span> <span class=n>value</span> <span class=o>=</span> <span class=n>gpio</span><span class=p>.</span><span class=n>GetGPIOValue</span><span class=p>(</span><span class=mi>0</span><span class=p>);</span>
+</pre></div></p>
 <p></details></p>
 <p><details>
 <summary style="font-size: 1.5rem; font-weight: 300;">.GetGPIOValues</summary>
 <code>GetGPIOValues</code> is a <strong>function</strong> that returns all GPIO values, each bit of the returned 16bit integer represents a pin.</p>
-<pre><code class="language-cpp">// Function declaration in header file
-uint16_t GetGPIOValues();
-</code></pre>
+<p> <div class=codehilite><pre><span></span><span class=c1>// Function declaration in header file</span>
+<span class=kt>uint16_t</span> <span class=nf>GetGPIOValues</span><span class=p>();</span>
+</pre></div></p>
+<!--  -->
 
-<pre><code class="language-cpp">// Gets all pin values
-uint16_t values = gpio.GetGPIOValues();
-</code></pre>
-
+<p> <div class=codehilite><pre><span></span><span class=c1>// Gets all pin values</span>
+<span class=kt>uint16_t</span> <span class=n>values</span> <span class=o>=</span> <span class=n>gpio</span><span class=p>.</span><span class=n>GetGPIOValues</span><span class=p>();</span>
+</pre></div></p>
 <p></details></p>
 <p><details>
 <summary style="font-size: 1.5rem; font-weight: 300;">.SetGPIOValue</summary>
 <code>SetGPIOValue</code> is a <strong>function</strong> that sets a GPIO value.</p>
-<pre><code class="language-cpp">// Function declaration in header file
-bool SetGPIOValue(uint16_t pin, uint16_t value);
-</code></pre>
+<p> <div class=codehilite><pre><span></span><span class=c1>// Function declaration in header file</span>
+<span class=kt>bool</span> <span class=nf>SetGPIOValue</span><span class=p>(</span><span class=kt>uint16_t</span> <span class=n>pin</span><span class=p>,</span> <span class=kt>uint16_t</span> <span class=n>value</span><span class=p>);</span>
+</pre></div></p>
+<!--  -->
 
-<pre><code class="language-cpp">// Sets pin 0 to on
-gpio.SetGPIOValue(0, 1);
-// Sets pin 0 to off
-gpio.SetGPIOValue(0, 0);
-</code></pre>
-
+<p> <div class=codehilite><pre><span></span><span class=c1>// Sets pin 0 to on</span>
+<span class=n>gpio</span><span class=p>.</span><span class=n>SetGPIOValue</span><span class=p>(</span><span class=mi>0</span><span class=p>,</span> <span class=mi>1</span><span class=p>);</span>
+<span class=c1>// Sets pin 0 to off</span>
+<span class=n>gpio</span><span class=p>.</span><span class=n>SetGPIOValue</span><span class=p>(</span><span class=mi>0</span><span class=p>,</span> <span class=mi>0</span><span class=p>);</span>
+</pre></div></p>
 <p></details></p>
 <p><details>
 <summary style="font-size: 1.5rem; font-weight: 300;">.SetGPIOValues</summary>
 <code>SetGPIOValues</code> is a <strong>function</strong> that sets multiple GPIO values.</p>
-<pre><code class="language-cpp">// Function declaration in header file
-bool SetGPIOValues(unsigned char *pinList, int length, uint16_t value);
-</code></pre>
+<p> <div class=codehilite><pre><span></span><span class=c1>// Function declaration in header file</span>
+<span class=kt>bool</span> <span class=nf>SetGPIOValues</span><span class=p>(</span><span class=kt>unsigned</span> <span class=kt>char</span> <span class=o>*</span><span class=n>pinList</span><span class=p>,</span> <span class=kt>int</span> <span class=n>length</span><span class=p>,</span> <span class=kt>uint16_t</span> <span class=n>value</span><span class=p>);</span>
+</pre></div></p>
+<!--  -->
 
-<pre><code class="language-cpp">unsigned char onPinList[8] = {0, 2, 4, 6, 8, 10, 12, 14};
-unsigned char offPinList[8] = {1, 3, 5, 7, 9, 11, 13, 15};
+<p> <div class=codehilite><pre><span></span><span class=kt>unsigned</span> <span class=kt>char</span> <span class=n>onPinList</span><span class=p>[</span><span class=mi>8</span><span class=p>]</span> <span class=o>=</span> <span class=p>{</span><span class=mi>0</span><span class=p>,</span> <span class=mi>2</span><span class=p>,</span> <span class=mi>4</span><span class=p>,</span> <span class=mi>6</span><span class=p>,</span> <span class=mi>8</span><span class=p>,</span> <span class=mi>10</span><span class=p>,</span> <span class=mi>12</span><span class=p>,</span> <span class=mi>14</span><span class=p>};</span>
+<span class=kt>unsigned</span> <span class=kt>char</span> <span class=n>offPinList</span><span class=p>[</span><span class=mi>8</span><span class=p>]</span> <span class=o>=</span> <span class=p>{</span><span class=mi>1</span><span class=p>,</span> <span class=mi>3</span><span class=p>,</span> <span class=mi>5</span><span class=p>,</span> <span class=mi>7</span><span class=p>,</span> <span class=mi>9</span><span class=p>,</span> <span class=mi>11</span><span class=p>,</span> <span class=mi>13</span><span class=p>,</span> <span class=mi>15</span><span class=p>};</span>
 
-// Sets pins in onPinList to on
-gpio.SetGPIOValues(onPinList, sizeof(onPinList), 1);
-// Sets pins in offPinList to off
-gpio.SetGPIOValues(offPinList, sizeof(offPinList), 0);
-</code></pre>
-
+<span class=c1>// Sets pins in onPinList to on</span>
+<span class=n>gpio</span><span class=p>.</span><span class=n>SetGPIOValues</span><span class=p>(</span><span class=n>onPinList</span><span class=p>,</span> <span class=k>sizeof</span><span class=p>(</span><span class=n>onPinList</span><span class=p>),</span> <span class=mi>1</span><span class=p>);</span>
+<span class=c1>// Sets pins in offPinList to off</span>
+<span class=n>gpio</span><span class=p>.</span><span class=n>SetGPIOValues</span><span class=p>(</span><span class=n>offPinList</span><span class=p>,</span> <span class=k>sizeof</span><span class=p>(</span><span class=n>offPinList</span><span class=p>),</span> <span class=mi>0</span><span class=p>);</span>
+</pre></div></p>
 <p></details></p>
 <p><details>
 <summary style="font-size: 1.5rem; font-weight: 300;">.SetPrescaler</summary>
 <code>SetPrescaler</code> is a <strong>function</strong> that sets the prescaler for the FPGA clock.</p>
-<pre><code class="language-cpp">// Function declaration in header file
-bool SetPrescaler(uint16_t bank, uint16_t prescaler);
-</code></pre>
+<p> <div class=codehilite><pre><span></span><span class=c1>// Function declaration in header file</span>
+<span class=kt>bool</span> <span class=nf>SetPrescaler</span><span class=p>(</span><span class=kt>uint16_t</span> <span class=n>bank</span><span class=p>,</span> <span class=kt>uint16_t</span> <span class=n>prescaler</span><span class=p>);</span>
+</pre></div></p>
+<!--  -->
 
-<pre><code class="language-cpp">// Set prescaler for bank 0 to 32
-// 2^5 = 32
-gpio.SetPrescaler(0, 5);
-</code></pre>
-
+<p> <div class=codehilite><pre><span></span><span class=c1>// Set prescaler for bank 0 to 32</span>
+<span class=c1>// 2^5 = 32</span>
+<span class=n>gpio</span><span class=p>.</span><span class=n>SetPrescaler</span><span class=p>(</span><span class=mi>0</span><span class=p>,</span> <span class=mi>5</span><span class=p>);</span>
+</pre></div></p>
 <p></details></p>
 <p><details>
 <summary style="font-size: 1.5rem; font-weight: 300;">.Set9GServoAngle</summary>
 <code>Set9GServoAngle</code> is a <strong>function</strong> that sets a servo angle. It is based on SG90 servo calibration.</p>
-<pre><code class="language-cpp">// Function declaration in header file
-bool Set9GServoAngle(float angle, uint16_t pin);
-</code></pre>
+<p> <div class=codehilite><pre><span></span><span class=c1>// Function declaration in header file</span>
+<span class=kt>bool</span> <span class=nf>Set9GServoAngle</span><span class=p>(</span><span class=kt>float</span> <span class=n>angle</span><span class=p>,</span> <span class=kt>uint16_t</span> <span class=n>pin</span><span class=p>);</span>
+</pre></div></p>
+<!--  -->
 
-<pre><code class="language-cpp">// Set servo angle to 70° on pin 0
-gpio.SetPrescaler(70, 0);
-</code></pre>
-
+<p> <div class=codehilite><pre><span></span><span class=c1>// Set servo angle to 70 degrees on pin 0</span>
+<span class=n>gpio</span><span class=p>.</span><span class=n>SetPrescaler</span><span class=p>(</span><span class=mi>70</span><span class=p>,</span> <span class=mi>0</span><span class=p>);</span>
+</pre></div></p>
 <p></details></p>
 <p><details>
 <summary style="font-size: 1.5rem; font-weight: 300;">.SetServoAngle</summary>
 <code>SetServoAngle</code> is a <strong>function</strong> that sets a servo angle. It is based on the min_pulse_ms entered.</p>
-<pre><code class="language-cpp">// Function declaration in header file
-bool SetServoAngle(float angle, float min_pulse_ms, uint16_t pin);
-</code></pre>
+<p> <div class=codehilite><pre><span></span><span class=c1>// Function declaration in header file</span>
+<span class=kt>bool</span> <span class=nf>SetServoAngle</span><span class=p>(</span><span class=kt>float</span> <span class=n>angle</span><span class=p>,</span> <span class=kt>float</span> <span class=n>min_pulse_ms</span><span class=p>,</span> <span class=kt>uint16_t</span> <span class=n>pin</span><span class=p>);</span>
+</pre></div></p>
+<!--  -->
 
-<pre><code class="language-cpp">// Set servo angle to 70° on pin 0
-// For a servo that accepts a minimum pulse of 0.8ms
-gpio.SetServoAngle(70, 0.8, 0);
-</code></pre>
-
+<p> <div class=codehilite><pre><span></span><span class=c1>// Set servo angle to 70 degrees on pin 0</span>
+<span class=c1>// For a servo that accepts a minimum pulse of 0.8ms</span>
+<span class=n>gpio</span><span class=p>.</span><span class=n>SetServoAngle</span><span class=p>(</span><span class=mi>70</span><span class=p>,</span> <span class=mf>0.8</span><span class=p>,</span> <span class=mi>0</span><span class=p>);</span>
+</pre></div></p>
 <p></details></p>
 <p><details>
 <summary style="font-size: 1.5rem; font-weight: 300;">.SetPWM</summary>
 <code>SetPWM</code> is a <strong>function</strong> that sets a PWM output.</p>
-<pre><code class="language-cpp">// Function declaration in header file
-bool SetPWM(float frequency, float percentage, uint16_t pin);
-</code></pre>
+<p> <div class=codehilite><pre><span></span><span class=c1>// Function declaration in header file</span>
+<span class=kt>bool</span> <span class=nf>SetPWM</span><span class=p>(</span><span class=kt>float</span> <span class=n>frequency</span><span class=p>,</span> <span class=kt>float</span> <span class=n>percentage</span><span class=p>,</span> <span class=kt>uint16_t</span> <span class=n>pin</span><span class=p>);</span>
+</pre></div></p>
+<!--  -->
 
-<pre><code class="language-cpp">// Set PWM output to 50Hz, with a 25% duty cycle on pin 0
-gpio.SetPWM(50, 25, 0);
-</code></pre>
-
+<p> <div class=codehilite><pre><span></span><span class=c1>// Set PWM output to 50Hz, with a 25% duty cycle on pin 0</span>
+<span class=n>gpio</span><span class=p>.</span><span class=n>SetPWM</span><span class=p>(</span><span class=mi>50</span><span class=p>,</span> <span class=mi>25</span><span class=p>,</span> <span class=mi>0</span><span class=p>);</span>
+</pre></div></p>
 <p></details>
 </details></p>
 <p><details open>
@@ -680,26 +679,26 @@ gpio.SetPWM(50, 25, 0);
 <p><details>
 <summary style="font-size: 1.5rem; font-weight: 300;">.SetPeriod</summary>
 <code>SetPeriod</code> is a <strong>function</strong> that sets the PWM period.</p>
-<pre><code class="language-cpp">// Function declaration in header file
-bool SetPeriod(uint16_t period);
-</code></pre>
+<p> <div class=codehilite><pre><span></span><span class=c1>// Function declaration in header file</span>
+<span class=kt>bool</span> <span class=nf>SetPeriod</span><span class=p>(</span><span class=kt>uint16_t</span> <span class=n>period</span><span class=p>);</span>
+</pre></div></p>
+<!--  -->
 
-<pre><code class="language-cpp">// Set PWM period for bank 0 to 50000 FPGA clock ticks
-gpio.Banks(0).SetPeriod(50000);
-</code></pre>
-
+<p> <div class=codehilite><pre><span></span><span class=c1>// Set PWM period for bank 0 to 50000 FPGA clock ticks</span>
+<span class=n>gpio</span><span class=p>.</span><span class=n>Banks</span><span class=p>(</span><span class=mi>0</span><span class=p>).</span><span class=n>SetPeriod</span><span class=p>(</span><span class=mi>50000</span><span class=p>);</span>
+</pre></div></p>
 <p></details></p>
 <p><details>
 <summary style="font-size: 1.5rem; font-weight: 300;">.SetDuty</summary>
 <code>SetDuty</code> is a <strong>function</strong> that sets the PWM duty.</p>
-<pre><code class="language-cpp">// Function declaration in header file
-bool SetDuty(uint16_t channel, uint16_t duty);
-</code></pre>
+<p> <div class=codehilite><pre><span></span><span class=c1>// Function declaration in header file</span>
+<span class=kt>bool</span> <span class=nf>SetDuty</span><span class=p>(</span><span class=kt>uint16_t</span> <span class=n>channel</span><span class=p>,</span> <span class=kt>uint16_t</span> <span class=n>duty</span><span class=p>);</span>
+</pre></div></p>
+<!--  -->
 
-<pre><code class="language-cpp">// Set PWM duty for channel 0 of bank 0 to 10000 FPGA clock ticks
-gpio.Banks(0).SetDuty(0, 10000);
-</code></pre>
-
+<p> <div class=codehilite><pre><span></span><span class=c1>// Set PWM duty for channel 0 of bank 0 to 10000 FPGA clock ticks</span>
+<span class=n>gpio</span><span class=p>.</span><span class=n>Banks</span><span class=p>(</span><span class=mi>0</span><span class=p>).</span><span class=n>SetDuty</span><span class=p>(</span><span class=mi>0</span><span class=p>,</span> <span class=mi>10000</span><span class=p>);</span>
+</pre></div></p>
 <p></details></p>
 <p><details>
 <summary style="font-size: 1.5rem; font-weight: 300;">.SetupTimer</summary></p>
@@ -707,10 +706,9 @@ gpio.Banks(0).SetDuty(0, 10000);
 <p>Under Maintenance</p>
 </blockquote>
 <p><code>SetupTimer</code> is a <strong>function</strong> that sets up the timer.</p>
-<pre><code class="language-cpp">// Function declaration in header file
-bool SetupTimer(uint16_t channel, uint16_t init_event, uint16_t final_event);
-</code></pre>
-
+<p> <div class=codehilite><pre><span></span><span class=c1>// Function declaration in header file</span>
+<span class=kt>bool</span> <span class=nf>SetupTimer</span><span class=p>(</span><span class=kt>uint16_t</span> <span class=n>channel</span><span class=p>,</span> <span class=kt>uint16_t</span> <span class=n>init_event</span><span class=p>,</span> <span class=kt>uint16_t</span> <span class=n>final_event</span><span class=p>);</span>
+</pre></div></p>
 <p></details></p>
 <p><details>
 <summary style="font-size: 1.5rem; font-weight: 300;">.GetTimerCounter</summary></p>
@@ -718,10 +716,9 @@ bool SetupTimer(uint16_t channel, uint16_t init_event, uint16_t final_event);
 <p>Under Maintenance</p>
 </blockquote>
 <p><code>GetTimerCounter</code> is a <strong>function</strong> that returns the timer counter.</p>
-<pre><code class="language-cpp">// Function declaration in header file
-uint16_t GetTimerCounter(uint16_t channel);
-</code></pre>
-
+<p> <div class=codehilite><pre><span></span><span class=c1>// Function declaration in header file</span>
+<span class=kt>uint16_t</span> <span class=nf>GetTimerCounter</span><span class=p>(</span><span class=kt>uint16_t</span> <span class=n>channel</span><span class=p>);</span>
+</pre></div></p>
 <p></details>
 </details></p> 
         </div>
@@ -844,7 +841,12 @@ uint16_t GetTimerCounter(uint16_t channel);
     </div>
   </div>
 </footer>
-
+  <!--Global Vars-->
+  <script>
+    base_url = "../../..";
+  </script>
+  <!-- Scripts -->
+  <script src="../../../js/clipboard.min.js"></script>
   <script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
@@ -853,7 +855,6 @@ uint16_t GetTimerCounter(uint16_t channel);
   <script src="../../../js/jquery.ajaxchimp.min.js"></script>
   <script src="../../../js/jquery.ajaxchimp.langs.min.js"></script>
   <script src="../../../js/footer.js"></script>
-  <script src="../../../js/prism.js"></script>
 
   <!-- TOC Script -->
   <script>

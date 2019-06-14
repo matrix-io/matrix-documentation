@@ -7,7 +7,8 @@
   <link rel="shortcut icon" href="../../../img/favicon.ico">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
   <link rel="stylesheet" href="../../../css/theme.css">
-  <link rel="stylesheet" href="../../../css/prism.css">
+  <link rel="stylesheet" href="../../../css/codehilite.css">
+  <link rel="stylesheet" href="../../../css/clipboard.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
 </head>
@@ -497,13 +498,12 @@ This port accepts 2 configurations for communicating with the IMU driver. </p>
 <p><code>timeout_after_last_ping</code> - stops sending messages from the <strong>Data Update port</strong> if nothing has been sent to the <strong>Keep-alive port</strong> after the specified amount of seconds.</p>
 </li>
 </ul>
-<pre><code class="language-protobuf">message DriverConfig {
-  // Delay between updates in seconds
-  float delay_between_updates = 1;
-  // Timeout after last ping
-  float timeout_after_last_ping = 2;
-</code></pre>
-
+<p> <div class=codehilite><pre><span></span><span class=kd>message</span> <span class=nc>DriverConfig</span> <span class=p>{</span>
+  <span class=c1>// Delay between updates in seconds</span>
+  <span class=kt>float</span> <span class=na>delay_between_updates</span> <span class=o>=</span> <span class=mi>1</span><span class=p>;</span>
+  <span class=c1>// Timeout after last ping</span>
+  <span class=kt>float</span> <span class=na>timeout_after_last_ping</span> <span class=o>=</span> <span class=mi>2</span><span class=p>;</span>
+</pre></div></p>
 <p>View the defined message <a href="https://github.com/matrix-io/protocol-buffers/blob/master/matrix_io/malos/v1/driver.proto" target="_blank">here</a>.
 </details></p>
 <!-- Keep-alive PORT -->
@@ -523,33 +523,32 @@ Applications can subscribe to this port to receive driver related errors.
 <p><details open>
 <summary style="font-size: 1.75rem; font-weight: 300;">Data Update Port</summary>
 Applications can subscribe to this port for IMU data. The output will be a serialized message of type <code>Imu</code> with the following information.</p>
-<pre><code class="language-protobuf">message Imu {
-  //Vertical axis (yaw)
-  float yaw = 1;
+<p> <div class=codehilite><pre><span></span><span class=kd>message</span> <span class=nc>Imu</span> <span class=p>{</span>
+  <span class=c1>//Vertical axis (yaw)</span>
+  <span class=kt>float</span> <span class=na>yaw</span> <span class=o>=</span> <span class=mi>1</span><span class=p>;</span>
 
-  //Lateral axis (pitch)
-  float pitch = 2;
+  <span class=c1>//Lateral axis (pitch)</span>
+  <span class=kt>float</span> <span class=na>pitch</span> <span class=o>=</span> <span class=mi>2</span><span class=p>;</span>
 
-  //Longitudinal axis (roll)
-  float roll = 3;
+  <span class=c1>//Longitudinal axis (roll)</span>
+  <span class=kt>float</span> <span class=na>roll</span> <span class=o>=</span> <span class=mi>3</span><span class=p>;</span>
 
-  // Acceleration
-  float accel_x = 4;
-  float accel_y = 5;
-  float accel_z = 6;
+  <span class=c1>// Acceleration</span>
+  <span class=kt>float</span> <span class=na>accel_x</span> <span class=o>=</span> <span class=mi>4</span><span class=p>;</span>
+  <span class=kt>float</span> <span class=na>accel_y</span> <span class=o>=</span> <span class=mi>5</span><span class=p>;</span>
+  <span class=kt>float</span> <span class=na>accel_z</span> <span class=o>=</span> <span class=mi>6</span><span class=p>;</span>
 
-  // Gyroscope
-  float gyro_x = 7;
-  float gyro_y = 8;
-  float gyro_z = 9;
+  <span class=c1>// Gyroscope</span>
+  <span class=kt>float</span> <span class=na>gyro_x</span> <span class=o>=</span> <span class=mi>7</span><span class=p>;</span>
+  <span class=kt>float</span> <span class=na>gyro_y</span> <span class=o>=</span> <span class=mi>8</span><span class=p>;</span>
+  <span class=kt>float</span> <span class=na>gyro_z</span> <span class=o>=</span> <span class=mi>9</span><span class=p>;</span>
 
-  // Magnetometer
-  float mag_x = 10;
-  float mag_y = 11;
-  float mag_z = 12;
-}
-</code></pre>
-
+  <span class=c1>// Magnetometer</span>
+  <span class=kt>float</span> <span class=na>mag_x</span> <span class=o>=</span> <span class=mi>10</span><span class=p>;</span>
+  <span class=kt>float</span> <span class=na>mag_y</span> <span class=o>=</span> <span class=mi>11</span><span class=p>;</span>
+  <span class=kt>float</span> <span class=na>mag_z</span> <span class=o>=</span> <span class=mi>12</span><span class=p>;</span>
+<span class=p>}</span>
+</pre></div></p>
 <p>View the defined message <a href="https://github.com/matrix-io/protocol-buffers/blob/65397022e73ac98ec2b217937f133a9eefbd8f01/matrix_io/malos/v1/sense.proto" target="_blank">here</a>.
 </details></p> 
         </div>
@@ -672,7 +671,12 @@ Applications can subscribe to this port for IMU data. The output will be a seria
     </div>
   </div>
 </footer>
-
+  <!--Global Vars-->
+  <script>
+    base_url = "../../..";
+  </script>
+  <!-- Scripts -->
+  <script src="../../../js/clipboard.min.js"></script>
   <script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
@@ -681,7 +685,6 @@ Applications can subscribe to this port for IMU data. The output will be a seria
   <script src="../../../js/jquery.ajaxchimp.min.js"></script>
   <script src="../../../js/jquery.ajaxchimp.langs.min.js"></script>
   <script src="../../../js/footer.js"></script>
-  <script src="../../../js/prism.js"></script>
 
   <!-- TOC Script -->
   <script>

@@ -7,7 +7,8 @@
   <link rel="shortcut icon" href="../../img/favicon.ico">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
   <link rel="stylesheet" href="../../css/theme.css">
-  <link rel="stylesheet" href="../../css/prism.css">
+  <link rel="stylesheet" href="../../css/codehilite.css">
+  <link rel="stylesheet" href="../../css/clipboard.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
 </head>
@@ -453,36 +454,33 @@
 <a href="http://community.matrix.one/" target="_blank">community.matrix.one</a></p>
 <h2 id="check-active-matrix-core-services">Check Active MATRIX CORE Services</h2>
 <p>Run the following command on your Raspberry Pi's terminal to see the MATRIX Services currently running.</p>
-<pre><code class="language-bash">ps aux | grep 'malos'
-</code></pre>
-
+<p> <div class=codehilite><pre><span></span>ps aux <span class=p>|</span> grep <span class=s1>&#39;malos&#39;</span>
+</pre></div></p>
 <h2 id="reinstall-matrix-core">Reinstall MATRIX CORE</h2>
 <p>If you experience strange behavior, reinstall MATRIX CORE.</p>
 <p>Uninstall the <code>matrixio-malos</code> package.</p>
-<pre><code class="language-bash">sudo apt-get --purge remove matrixio-malos
-</code></pre>
-
+<p> <div class=codehilite><pre><span></span>sudo apt-get --purge remove matrixio-malos
+</pre></div></p>
 <p>Reboot your device.</p>
-<pre><code class="language-bash">sudo reboot
-</code></pre>
-
+<p> <div class=codehilite><pre><span></span>sudo reboot
+</pre></div></p>
 <p>Install MATRIX CORE <a href="../../matrix-core/getting-started/core-installation">here</a>.</p>
 <h2 id="audio-open-error">Audio Open Error</h2>
 <p>If you encounter the error log below, your microphones are being used by the Pocketsphinx service for the <a href="../protocols/wakeword">Wakeword Driver</a>.</p>
-<pre><code>arecord: main:788: audio open error: Device or resource busy
-</code></pre>
-
+<p> <div class=codehilite><pre><span></span><span class=n>arecord</span><span class=o>:</span> <span class=n>main</span><span class=o>:</span><span class=mi>788</span><span class=o>:</span> <span class=n>audio</span> <span class=n>open</span> <span class=n>error</span><span class=o>:</span> <span class=n>Device</span> <span class=n>or</span> <span class=n>resource</span> <span class=n>busy</span>
+</pre></div></p>
 <p>You can solve this by running the following command to kill the service.</p>
-<pre><code class="language-bash">sudo pkill malos_wakeword
-</code></pre>
-
+<p> <div class=codehilite><pre><span></span>sudo pkill malos_wakeword
+</pre></div></p>
 <!-- ### Running Services Manually
 
 If your services are not listed as shown above, you can run them manually using the following terminal commands:
 
 
-wzxhzdk:5
 
+
+
+wzxhzdk:5
 
 ### Stopping Services
 
@@ -617,7 +615,12 @@ $ pkill -9 malos_eye
     </div>
   </div>
 </footer>
-
+  <!--Global Vars-->
+  <script>
+    base_url = "../..";
+  </script>
+  <!-- Scripts -->
+  <script src="../../js/clipboard.min.js"></script>
   <script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
@@ -626,7 +629,6 @@ $ pkill -9 malos_eye
   <script src="../../js/jquery.ajaxchimp.min.js"></script>
   <script src="../../js/jquery.ajaxchimp.langs.min.js"></script>
   <script src="../../js/footer.js"></script>
-  <script src="../../js/prism.js"></script>
 
   <!-- TOC Script -->
   <script>

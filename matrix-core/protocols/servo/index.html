@@ -7,7 +7,8 @@
   <link rel="shortcut icon" href="../../../img/favicon.ico">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
   <link rel="stylesheet" href="../../../css/theme.css">
-  <link rel="stylesheet" href="../../../css/prism.css">
+  <link rel="stylesheet" href="../../../css/codehilite.css">
+  <link rel="stylesheet" href="../../../css/clipboard.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
 </head>
@@ -491,12 +492,11 @@ This port accepts a single configuration for communicating with the Servo driver
 <ul>
 <li><code>servo</code> - the servo configuration that's created from a <code>ServoParams</code> message.</li>
 </ul>
-<pre><code class="language-protobuf">message DriverConfig {
-  // ServoMotor service configuration
-  matrix_io.malos.v1.io.ServoParams servo = 7;
-}
-</code></pre>
-
+<p> <div class=codehilite><pre><span></span><span class=kd>message</span> <span class=nc>DriverConfig</span> <span class=p>{</span>
+  <span class=c1>// ServoMotor service configuration</span>
+  <span class=n>matrix_io.malos.v1.io.ServoParams</span> <span class=na>servo</span> <span class=o>=</span> <span class=mi>7</span><span class=p>;</span>
+<span class=p>}</span>
+</pre></div></p>
 <p>View the defined message <a href="https://github.com/matrix-io/protocol-buffers/blob/master/matrix_io/malos/v1/driver.proto" target="_blank">here</a>.</p>
 <p><code>ServoParams</code></p>
 <ul>
@@ -507,16 +507,15 @@ This port accepts a single configuration for communicating with the Servo driver
 <p><code>angle</code> - emits a signal input that represents the angle set.</p>
 </li>
 </ul>
-<pre><code class="language-protobuf">// Servo handler params
-message ServoParams {
-  // Pin to configure
-  uint32 pin = 1;
+<p> <div class=codehilite><pre><span></span><span class=c1>// Servo handler params</span>
+<span class=kd>message</span> <span class=nc>ServoParams</span> <span class=p>{</span>
+  <span class=c1>// Pin to configure</span>
+  <span class=kt>uint32</span> <span class=na>pin</span> <span class=o>=</span> <span class=mi>1</span><span class=p>;</span>
 
-  // Servo angle
-  uint32 angle = 2;
-}
-</code></pre>
-
+  <span class=c1>// Servo angle</span>
+  <span class=kt>uint32</span> <span class=na>angle</span> <span class=o>=</span> <span class=mi>2</span><span class=p>;</span>
+<span class=p>}</span>
+</pre></div></p>
 <p>View the defined message <a href="https://github.com/matrix-io/protocol-buffers/blob/65397022e73ac98ec2b217937f133a9eefbd8f01/matrix_io/malos/v1/io.proto" target="_blank">here</a>.
 </details></p>
 <!-- Error PORT -->
@@ -645,7 +644,12 @@ Applications can subscribe to this port to receive driver related errors.
     </div>
   </div>
 </footer>
-
+  <!--Global Vars-->
+  <script>
+    base_url = "../../..";
+  </script>
+  <!-- Scripts -->
+  <script src="../../../js/clipboard.min.js"></script>
   <script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
@@ -654,7 +658,6 @@ Applications can subscribe to this port to receive driver related errors.
   <script src="../../../js/jquery.ajaxchimp.min.js"></script>
   <script src="../../../js/jquery.ajaxchimp.langs.min.js"></script>
   <script src="../../../js/footer.js"></script>
-  <script src="../../../js/prism.js"></script>
 
   <!-- TOC Script -->
   <script>

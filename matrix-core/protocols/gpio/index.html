@@ -7,7 +7,8 @@
   <link rel="shortcut icon" href="../../../img/favicon.ico">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
   <link rel="stylesheet" href="../../../css/theme.css">
-  <link rel="stylesheet" href="../../../css/prism.css">
+  <link rel="stylesheet" href="../../../css/codehilite.css">
+  <link rel="stylesheet" href="../../../css/clipboard.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
 </head>
@@ -506,16 +507,15 @@ This port accepts 3 configuration for communicating with the GPIO driver.</p>
 <p><code>gpio</code> - the gpio configuration that's created from a <code>GpioParams</code> message.</p>
 </li>
 </ul>
-<pre><code class="language-protobuf">message DriverConfig {
-  // Delay between updates in seconds
-  float delay_between_updates = 1;
-  // Timeout after last ping
-  float timeout_after_last_ping = 2;
-  // Gpio service configuration
-  matrix_io.malos.v1.io.GpioParams gpio = 8;
-}
-</code></pre>
-
+<p> <div class=codehilite><pre><span></span><span class=kd>message</span> <span class=nc>DriverConfig</span> <span class=p>{</span>
+  <span class=c1>// Delay between updates in seconds</span>
+  <span class=kt>float</span> <span class=na>delay_between_updates</span> <span class=o>=</span> <span class=mi>1</span><span class=p>;</span>
+  <span class=c1>// Timeout after last ping</span>
+  <span class=kt>float</span> <span class=na>timeout_after_last_ping</span> <span class=o>=</span> <span class=mi>2</span><span class=p>;</span>
+  <span class=c1>// Gpio service configuration</span>
+  <span class=n>matrix_io.malos.v1.io.GpioParams</span> <span class=na>gpio</span> <span class=o>=</span> <span class=mi>8</span><span class=p>;</span>
+<span class=p>}</span>
+</pre></div></p>
 <p>View the defined message <a href="https://github.com/matrix-io/protocol-buffers/blob/master/matrix_io/malos/v1/driver.proto" target="_blank">here</a>.</p>
 <p><code>GpioParams</code></p>
 <ul>
@@ -532,23 +532,22 @@ This port accepts 3 configuration for communicating with the GPIO driver.</p>
 </blockquote>
 </li>
 </ul>
-<pre><code class="language-protobuf">// GPIO handler params
-message GpioParams {
-  // GPIO to config
-  uint32 pin = 1;
+<p> <div class=codehilite><pre><span></span><span class=c1>// GPIO handler params</span>
+<span class=kd>message</span> <span class=nc>GpioParams</span> <span class=p>{</span>
+  <span class=c1>// GPIO to config</span>
+  <span class=kt>uint32</span> <span class=na>pin</span> <span class=o>=</span> <span class=mi>1</span><span class=p>;</span>
 
-  // GPIO mode input/output
-  enum EnumMode {
-    INPUT = 0;
-    OUTPUT = 1;
-  }
-  EnumMode mode = 2;
+  <span class=c1>// GPIO mode input/output</span>
+  <span class=kd>enum</span> <span class=n>EnumMode</span> <span class=p>{</span>
+    <span class=na>INPUT</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span>
+    <span class=na>OUTPUT</span> <span class=o>=</span> <span class=mi>1</span><span class=p>;</span>
+  <span class=p>}</span>
+  <span class=n>EnumMode</span> <span class=na>mode</span> <span class=o>=</span> <span class=mi>2</span><span class=p>;</span>
 
-  // GPIO value
-  uint32 value = 3;
-}
-</code></pre>
-
+  <span class=c1>// GPIO value</span>
+  <span class=kt>uint32</span> <span class=na>value</span> <span class=o>=</span> <span class=mi>3</span><span class=p>;</span>
+<span class=p>}</span>
+</pre></div></p>
 <p>View the defined message <a href="https://github.com/matrix-io/protocol-buffers/blob/65397022e73ac98ec2b217937f133a9eefbd8f01/matrix_io/malos/v1/io.proto" target="_blank">here</a>.
 </details></p>
 <!-- Keep-alive PORT -->
@@ -568,13 +567,12 @@ Applications can subscribe to this port to receive driver related errors.
 <p><details open>
 <summary style="font-size: 1.75rem; font-weight: 300;">Data Update Port</summary>
 Applications can subscribe to this port for GPIO data. The output will be a serialized message of type <code>GpioParams</code> with the following information.</p>
-<pre><code class="language-protobuf">// GPIO handler params
-message GpioParams {
-  // Integer to represent all pin values (Convert to 16bit for readability)
-  uint32 values = 4;
-}
-</code></pre>
-
+<p> <div class=codehilite><pre><span></span><span class=c1>// GPIO handler params</span>
+<span class=kd>message</span> <span class=nc>GpioParams</span> <span class=p>{</span>
+  <span class=c1>// Integer to represent all pin values (Convert to 16bit for readability)</span>
+  <span class=kt>uint32</span> <span class=na>values</span> <span class=o>=</span> <span class=mi>4</span><span class=p>;</span>
+<span class=p>}</span>
+</pre></div></p>
 <p>View the defined message <a href="https://github.com/matrix-io/protocol-buffers/blob/65397022e73ac98ec2b217937f133a9eefbd8f01/matrix_io/malos/v1/io.proto" target="_blank">here</a>.
 </details></p> 
         </div>
@@ -697,7 +695,12 @@ message GpioParams {
     </div>
   </div>
 </footer>
-
+  <!--Global Vars-->
+  <script>
+    base_url = "../../..";
+  </script>
+  <!-- Scripts -->
+  <script src="../../../js/clipboard.min.js"></script>
   <script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
@@ -706,7 +709,6 @@ message GpioParams {
   <script src="../../../js/jquery.ajaxchimp.min.js"></script>
   <script src="../../../js/jquery.ajaxchimp.langs.min.js"></script>
   <script src="../../../js/footer.js"></script>
-  <script src="../../../js/prism.js"></script>
 
   <!-- TOC Script -->
   <script>

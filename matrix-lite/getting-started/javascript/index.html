@@ -7,7 +7,8 @@
   <link rel="shortcut icon" href="../../../img/favicon.ico">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
   <link rel="stylesheet" href="../../../css/theme.css">
-  <link rel="stylesheet" href="../../../css/prism.css">
+  <link rel="stylesheet" href="../../../css/codehilite.css">
+  <link rel="stylesheet" href="../../../css/clipboard.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
 </head>
@@ -461,22 +462,19 @@
 </blockquote>
 <h2 id="javascript-setup">JavaScript Setup</h2>
 <p>Install Node.js</p>
-<pre><code class="language-bash">curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash
+<p> <div class=codehilite><pre><span></span>curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh <span class=p>|</span> bash
 . ~/.bashrc
 nvm install node
-</code></pre>
-
+</pre></div></p>
 <p>Create A Project Folder.</p>
-<pre><code class="language-bash">mkdir lite_js
-cd lite_js
+<p> <div class=codehilite><pre><span></span>mkdir lite_js
+<span class=nb>cd</span> lite_js
 npm init -y
 touch index.js
-</code></pre>
-
+</pre></div></p>
 <p>Download the matrix-lite-js Package.</p>
-<pre><code class="language-bash">npm install @matrix-io/matrix-lite --save
-</code></pre>
-
+<p> <div class=codehilite><pre><span></span>npm install @matrix-io/matrix-lite --save
+</pre></div></p>
 <p><br/></p>
 <h2 id="next-steps">Next Steps</h2>
 <p>With your device now setup, you can visit our <a href="../../js-reference">Reference</a> page to get started with MATRIX Lite.</p> 
@@ -595,7 +593,12 @@ touch index.js
     </div>
   </div>
 </footer>
-
+  <!--Global Vars-->
+  <script>
+    base_url = "../../..";
+  </script>
+  <!-- Scripts -->
+  <script src="../../../js/clipboard.min.js"></script>
   <script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
@@ -604,7 +607,6 @@ touch index.js
   <script src="../../../js/jquery.ajaxchimp.min.js"></script>
   <script src="../../../js/jquery.ajaxchimp.langs.min.js"></script>
   <script src="../../../js/footer.js"></script>
-  <script src="../../../js/prism.js"></script>
 
   <!-- TOC Script -->
   <script>

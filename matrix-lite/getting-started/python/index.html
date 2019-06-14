@@ -7,7 +7,8 @@
   <link rel="shortcut icon" href="../../../img/favicon.ico">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
   <link rel="stylesheet" href="../../../css/theme.css">
-  <link rel="stylesheet" href="../../../css/prism.css">
+  <link rel="stylesheet" href="../../../css/codehilite.css">
+  <link rel="stylesheet" href="../../../css/clipboard.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
 </head>
@@ -461,23 +462,19 @@
 </blockquote>
 <h2 id="python-setup">Python Setup</h2>
 <p>Install the PIP3 package manager.</p>
-<pre><code class="language-bash">sudo apt-get install python3-pip
-</code></pre>
-
+<p> <div class=codehilite><pre><span></span>sudo apt-get install python3-pip
+</pre></div></p>
 <p>Upgrade PIP3.</p>
-<pre><code class="langauge-bash">python3 -m pip install --upgrade pip
-</code></pre>
-
+<p> <div class=codehilite><pre><span></span><span class=n>python3</span> <span class=o>-</span><span class=n>m</span> <span class=n>pip</span> <span class=n>install</span> <span class=c1>--upgrade pip</span>
+</pre></div></p>
 <p>Create A Project Folder.</p>
-<pre><code class="language-bash">mkdir lite_py
-cd lite_py
+<p> <div class=codehilite><pre><span></span>mkdir lite_py
+<span class=nb>cd</span> lite_py
 touch app.py
-</code></pre>
-
+</pre></div></p>
 <p>Download the matrix-lite-py Package. Note that the module to import is called <code>matrix_lite</code>.</p>
-<pre><code class="language-bash">sudo python3 -m pip install matrix-lite
-</code></pre>
-
+<p> <div class=codehilite><pre><span></span>sudo python3 -m pip install matrix-lite
+</pre></div></p>
 <p><br/></p>
 <h2 id="next-steps">Next Steps</h2>
 <p>With your device now setup, you can visit our <a href="../../py-reference">Reference</a> page to get started with MATRIX Lite.</p> 
@@ -596,7 +593,12 @@ touch app.py
     </div>
   </div>
 </footer>
-
+  <!--Global Vars-->
+  <script>
+    base_url = "../../..";
+  </script>
+  <!-- Scripts -->
+  <script src="../../../js/clipboard.min.js"></script>
   <script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
@@ -605,7 +607,6 @@ touch app.py
   <script src="../../../js/jquery.ajaxchimp.min.js"></script>
   <script src="../../../js/jquery.ajaxchimp.langs.min.js"></script>
   <script src="../../../js/footer.js"></script>
-  <script src="../../../js/prism.js"></script>
 
   <!-- TOC Script -->
   <script>

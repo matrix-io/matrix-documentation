@@ -7,7 +7,8 @@
   <link rel="shortcut icon" href="../../../img/favicon.ico">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
   <link rel="stylesheet" href="../../../css/theme.css">
-  <link rel="stylesheet" href="../../../css/prism.css">
+  <link rel="stylesheet" href="../../../css/codehilite.css">
+  <link rel="stylesheet" href="../../../css/clipboard.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
 </head>
@@ -464,46 +465,42 @@
 <h2 id="overview">Overview</h2>
 <p>The following sections below will go over how to control the LED array on your MATRIX Device.</p>
 <h2 id="import-statement">Import Statement</h2>
-<pre><code class="language-js">const matrix = require(&quot;@matrix-io/matrix-lite&quot;);
-</code></pre>
-
+<p> <div class=codehilite><pre><span></span><span class=kr>const</span> <span class=nx>matrix</span> <span class=o>=</span> <span class=nx>require</span><span class=p>(</span><span class=s2>&quot;@matrix-io/matrix-lite&quot;</span><span class=p>);</span>
+</pre></div></p>
 <h3 id="length">.length</h3>
 <p>Returns the size of the LED array on your MATRIX device.</p>
-<pre><code>matrix.led.length;
-</code></pre>
-
+<p> <div class=codehilite><pre><span></span><span class=n>matrix</span><span class=p>.</span><span class=n>led</span><span class=p>.</span><span class=k>length</span><span class=p>;</span>
+</pre></div></p>
 <h3 id="set">.set()</h3>
 <p>Allows you to set the colors of each LED. A <code>string</code>, <code>object</code>, <code>array</code>, or an <code>undefined</code> value can be given to this function.</p>
 <p><strong>String input</strong></p>
-<pre><code class="language-js">// Turns each LED to blue
-matrix.led.set(&quot;blue&quot;); // color name
-matrix.led.set(&quot;rgb(0,0,255)&quot;); // RGB values
-matrix.led.set(&quot;#0000ff&quot;); // Hex values
+<p> <div class=codehilite><pre><span></span><span class=c1>// Turns each LED to blue</span>
+<span class=nx>matrix</span><span class=p>.</span><span class=nx>led</span><span class=p>.</span><span class=nx>set</span><span class=p>(</span><span class=s2>&quot;blue&quot;</span><span class=p>);</span> <span class=c1>// color name</span>
+<span class=nx>matrix</span><span class=p>.</span><span class=nx>led</span><span class=p>.</span><span class=nx>set</span><span class=p>(</span><span class=s2>&quot;rgb(0,0,255)&quot;</span><span class=p>);</span> <span class=c1>// RGB values</span>
+<span class=nx>matrix</span><span class=p>.</span><span class=nx>led</span><span class=p>.</span><span class=nx>set</span><span class=p>(</span><span class=s2>&quot;#0000ff&quot;</span><span class=p>);</span> <span class=c1>// Hex values</span>
 
-// Turn off each LED
-matrix.led.set(&quot;black&quot;); // color name
-matrix.led.set(&quot;rgb(0,0,0)&quot;); // RGB values
-matrix.led.set(&quot;#000000&quot;); // Hex values
-</code></pre>
-
+<span class=c1>// Turn off each LED</span>
+<span class=nx>matrix</span><span class=p>.</span><span class=nx>led</span><span class=p>.</span><span class=nx>set</span><span class=p>(</span><span class=s2>&quot;black&quot;</span><span class=p>);</span> <span class=c1>// color name</span>
+<span class=nx>matrix</span><span class=p>.</span><span class=nx>led</span><span class=p>.</span><span class=nx>set</span><span class=p>(</span><span class=s2>&quot;rgb(0,0,0)&quot;</span><span class=p>);</span> <span class=c1>// RGB values</span>
+<span class=nx>matrix</span><span class=p>.</span><span class=nx>led</span><span class=p>.</span><span class=nx>set</span><span class=p>(</span><span class=s2>&quot;#000000&quot;</span><span class=p>);</span> <span class=c1>// Hex values</span>
+</pre></div></p>
 <p><strong>Object input</strong></p>
-<pre><code class="language-js">// Turns each LED to blue
-matrix.led.set({
-  r:0,
-  g:0,
-  b:255,
-  w:0
-});
+<p> <div class=codehilite><pre><span></span><span class=c1>// Turns each LED to blue</span>
+<span class=nx>matrix</span><span class=p>.</span><span class=nx>led</span><span class=p>.</span><span class=nx>set</span><span class=p>({</span>
+  <span class=nx>r</span><span class=o>:</span><span class=mi>0</span><span class=p>,</span>
+  <span class=nx>g</span><span class=o>:</span><span class=mi>0</span><span class=p>,</span>
+  <span class=nx>b</span><span class=o>:</span><span class=mi>255</span><span class=p>,</span>
+  <span class=nx>w</span><span class=o>:</span><span class=mi>0</span>
+<span class=p>});</span>
 
-// Turn off each LED
-matrix.led.set({}) // unspecified values are set to 0
-</code></pre>
-
+<span class=c1>// Turn off each LED</span>
+<span class=nx>matrix</span><span class=p>.</span><span class=nx>led</span><span class=p>.</span><span class=nx>set</span><span class=p>({})</span> <span class=c1>// unspecified values are set to 0</span>
+</pre></div></p>
 <p><strong>Array Input</strong></p>
 <p>Passing in an array allows you to set each individual LED color. However, passing an array that's larger than <code>led.length</code> will result in an error.</p>
-<pre><code class="language-js">// Basic array example
-matrix.led.set(['red', 'gold', 'purple', {}, , '#6F41C1', 'rgb(0,0,255)', {g:255}]);
-</code></pre> 
+<p> <div class=codehilite><pre><span></span><span class=c1>// Basic array example</span>
+<span class=nx>matrix</span><span class=p>.</span><span class=nx>led</span><span class=p>.</span><span class=nx>set</span><span class=p>([</span><span class=s1>&#39;red&#39;</span><span class=p>,</span> <span class=s1>&#39;gold&#39;</span><span class=p>,</span> <span class=s1>&#39;purple&#39;</span><span class=p>,</span> <span class=p>{},</span> <span class=p>,</span> <span class=s1>&#39;#6F41C1&#39;</span><span class=p>,</span> <span class=s1>&#39;rgb(0,0,255)&#39;</span><span class=p>,</span> <span class=p>{</span><span class=nx>g</span><span class=o>:</span><span class=mi>255</span><span class=p>}]);</span>
+</pre></div></p> 
         </div>
         <div class="toc-parent col-lg-2 col-md-3">
           <div class="toc">
@@ -640,7 +637,12 @@ matrix.led.set(['red', 'gold', 'purple', {}, , '#6F41C1', 'rgb(0,0,255)', {g:255
     </div>
   </div>
 </footer>
-
+  <!--Global Vars-->
+  <script>
+    base_url = "../../..";
+  </script>
+  <!-- Scripts -->
+  <script src="../../../js/clipboard.min.js"></script>
   <script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
@@ -649,7 +651,6 @@ matrix.led.set(['red', 'gold', 'purple', {}, , '#6F41C1', 'rgb(0,0,255)', {g:255
   <script src="../../../js/jquery.ajaxchimp.min.js"></script>
   <script src="../../../js/jquery.ajaxchimp.langs.min.js"></script>
   <script src="../../../js/footer.js"></script>
-  <script src="../../../js/prism.js"></script>
 
   <!-- TOC Script -->
   <script>

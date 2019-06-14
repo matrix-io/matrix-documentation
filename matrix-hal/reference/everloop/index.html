@@ -7,7 +7,8 @@
   <link rel="shortcut icon" href="../../../img/favicon.ico">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
   <link rel="stylesheet" href="../../../css/theme.css">
-  <link rel="stylesheet" href="../../../css/prism.css">
+  <link rel="stylesheet" href="../../../css/codehilite.css">
+  <link rel="stylesheet" href="../../../css/clipboard.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
 </head>
@@ -475,69 +476,65 @@
 <h2 id="references">References</h2>
 <p>Below is the overview of the Everloop implementation. Code examples can be found <a href="../../../matrix-hal/examples/everloop">here</a>.</p>
 <p>These header files are required to use the Everloop.</p>
-<pre><code class="language-cpp">// Interfaces with Everloop
-#include &quot;matrix_hal/everloop.h&quot;
-// Holds data for Everloop
-#include &quot;matrix_hal/everloop_image.h&quot;
-// Communicates with MATRIX device
-#include &quot;matrix_hal/matrixio_bus.h&quot;
-</code></pre>
-
+<p> <div class=codehilite><pre><span></span><span class=c1>// Interfaces with Everloop</span>
+<span class=cp>#include</span> <span class=cpf>&quot;matrix_hal/everloop.h&quot;</span><span class=cp></span>
+<span class=c1>// Holds data for Everloop</span>
+<span class=cp>#include</span> <span class=cpf>&quot;matrix_hal/everloop_image.h&quot;</span><span class=cp></span>
+<span class=c1>// Communicates with MATRIX device</span>
+<span class=cp>#include</span> <span class=cpf>&quot;matrix_hal/matrixio_bus.h&quot;</span><span class=cp></span>
+</pre></div></p>
 <p><details open>
 <summary style="font-size: 1.75rem; font-weight: 300;">EverloopImage</summary>
 <code>EverloopImage</code> is a required <strong>object</strong> that contains an array of <code>LedValue</code> objects.
 The <code>EverloopImage</code> constructor takes in an integer representing the amount of RGBW leds your MATRIX device has.</p>
 <p>The MatrixIOBus function <code>bus.MatrixLeds</code> outputs the number of leds on your creator.</p>
-<pre><code class="language-cpp">// Holds the number of LEDs on MATRIX device
-int ledCount = bus.MatrixLeds();
-// Create EverloopImage object, with size of ledCount
-matrix_hal::EverloopImage everloop_image(ledCount);
-</code></pre>
-
+<p> <div class=codehilite><pre><span></span><span class=c1>// Holds the number of LEDs on MATRIX device</span>
+<span class=kt>int</span> <span class=n>ledCount</span> <span class=o>=</span> <span class=n>bus</span><span class=p>.</span><span class=n>MatrixLeds</span><span class=p>();</span>
+<span class=c1>// Create EverloopImage object, with size of ledCount</span>
+<span class=n>matrix_hal</span><span class=o>::</span><span class=n>EverloopImage</span> <span class=n>everloop_image</span><span class=p>(</span><span class=n>ledCount</span><span class=p>);</span>
+</pre></div></p>
 <p><code>EverloopImage</code> holds an array full of <code>LedValue</code> objects. The <code>LedValue</code> object contains the properties <code>red</code>, <code>green</code>, <code>blue</code>, <code>white</code>. These color properties accept an RGBW integer between 0-255.</p>
 <p>The following code shows how to set each led in everloop_image to green.</p>
-<pre><code class="language-cpp">// For each led, set RGBW colors
-// This sets all leds to green
-for (matrix_hal::LedValue &amp;led : everloop_image.leds) {
-  led.red = 0;
-  led.green = 100;
-  led.blue = 0;
-  led.white = 0;
-}
-</code></pre>
-
+<p> <div class=codehilite><pre><span></span><span class=c1>// For each led, set RGBW colors</span>
+<span class=c1>// This sets all leds to green</span>
+<span class=k>for</span> <span class=p>(</span><span class=n>matrix_hal</span><span class=o>::</span><span class=n>LedValue</span> <span class=o>&amp;</span><span class=nl>led</span> <span class=p>:</span> <span class=n>everloop_image</span><span class=p>.</span><span class=n>leds</span><span class=p>)</span> <span class=p>{</span>
+  <span class=n>led</span><span class=p>.</span><span class=n>red</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span>
+  <span class=n>led</span><span class=p>.</span><span class=n>green</span> <span class=o>=</span> <span class=mi>100</span><span class=p>;</span>
+  <span class=n>led</span><span class=p>.</span><span class=n>blue</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span>
+  <span class=n>led</span><span class=p>.</span><span class=n>white</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span>
+<span class=p>}</span>
+</pre></div></p>
 <p></details></p>
 <p><details open>
 <summary style="font-size: 1.75rem; font-weight: 300;">Everloop</summary>
 <code>Everloop</code> is a required <strong>object</strong> that contains functions to interface with the Everloop on the MATRIX device.</p>
-<pre><code class="language-cpp">// Create Everloop object
-matrix_hal::Everloop everloop;
-</code></pre>
-
+<p> <div class=codehilite><pre><span></span><span class=c1>// Create Everloop object</span>
+<span class=n>matrix_hal</span><span class=o>::</span><span class=n>Everloop</span> <span class=n>everloop</span><span class=p>;</span>
+</pre></div></p>
 <p>The functions below are part of <code>Everloop</code>.</p>
 <p><details>
 <summary style="font-size: 1.5rem; font-weight: 300;">.Setup</summary>
 <code>Setup</code> is a <strong>function</strong> that takes <code>MatrixIOBus</code> object as parameter and sets that object as the bus to use for communicating with MATRIX device.</p>
-<pre><code class="language-cpp">// Function declaration in header file
-void Setup(MatrixIOBus *bus);
-</code></pre>
+<p> <div class=codehilite><pre><span></span><span class=c1>// Function declaration in header file</span>
+<span class=kt>void</span> <span class=nf>Setup</span><span class=p>(</span><span class=n>MatrixIOBus</span> <span class=o>*</span><span class=n>bus</span><span class=p>);</span>
+</pre></div></p>
+<!--  -->
 
-<pre><code class="language-cpp">// Set everloop to use MatrixIOBus bus
-everloop.Setup(&amp;bus);
-</code></pre>
-
+<p> <div class=codehilite><pre><span></span><span class=c1>// Set everloop to use MatrixIOBus bus</span>
+<span class=n>everloop</span><span class=p>.</span><span class=n>Setup</span><span class=p>(</span><span class=o>&amp;</span><span class=n>bus</span><span class=p>);</span>
+</pre></div></p>
 <p></details></p>
 <p><details>
 <summary style="font-size: 1.5rem; font-weight: 300;">.Write</summary>
 <code>Write</code> is a <strong>function</strong> that takes an <code>EverloopImage</code> object as a parameter and updates the Everloop on the MATRIX device.</p>
-<pre><code class="language-cpp">// Function declaration in header file
-bool Write(EverloopImage *everloop_image;
-</code></pre>
+<p> <div class=codehilite><pre><span></span><span class=c1>// Function declaration in header file</span>
+<span class=kt>bool</span> <span class=n>Write</span><span class=p>(</span><span class=n>EverloopImage</span> <span class=o>*</span><span class=n>everloop_image</span><span class=p>;</span>
+</pre></div></p>
+<!--  -->
 
-<pre><code class="language-cpp">// Updates the Everloop on the MATRIX device
-everloop.Write(&amp;everloop_image);
-</code></pre>
-
+<p> <div class=codehilite><pre><span></span><span class=c1>// Updates the Everloop on the MATRIX device</span>
+<span class=n>everloop</span><span class=p>.</span><span class=n>Write</span><span class=p>(</span><span class=o>&amp;</span><span class=n>everloop_image</span><span class=p>);</span>
+</pre></div></p>
 <p></details>
 </details></p> 
         </div>
@@ -660,7 +657,12 @@ everloop.Write(&amp;everloop_image);
     </div>
   </div>
 </footer>
-
+  <!--Global Vars-->
+  <script>
+    base_url = "../../..";
+  </script>
+  <!-- Scripts -->
+  <script src="../../../js/clipboard.min.js"></script>
   <script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
@@ -669,7 +671,6 @@ everloop.Write(&amp;everloop_image);
   <script src="../../../js/jquery.ajaxchimp.min.js"></script>
   <script src="../../../js/jquery.ajaxchimp.langs.min.js"></script>
   <script src="../../../js/footer.js"></script>
-  <script src="../../../js/prism.js"></script>
 
   <!-- TOC Script -->
   <script>

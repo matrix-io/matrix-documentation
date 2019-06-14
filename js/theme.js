@@ -1,87 +1,51 @@
 $(function () {
-  //Syntax Highlighting (prism.js)\\
-  $('pre code').each(function(i, block) {
-    Prism.highlightElement(block);//apply highlight
-  });
-  
+  //Clipboard.js integration\\
+  if (ClipboardJS.isSupported()){
+    var allCodeBlocksElements = $( "div.codehilite pre" );
 
-  //Clipboard.js\\
-  !function(){if("undefined"!=typeof self&&self.Prism&&self.document){var t=[],e={},n=function(){};Prism.plugins.toolbar={};var a=Prism.plugins.toolbar.registerButton=function(n,a){var o;o="function"==typeof a?a:function(t){var e;return"function"==typeof a.onClick?(e=document.createElement("button"),e.type="button",e.addEventListener("click",function(){a.onClick.call(this,t)})):"string"==typeof a.url?(e=document.createElement("a"),e.href=a.url):e=document.createElement("span"),e.textContent=a.text,e},t.push(e[n]=o)},o=Prism.plugins.toolbar.hook=function(a){var o=a.element.parentNode;if(o&&/pre/i.test(o.nodeName)&&!o.parentNode.classList.contains("code-toolbar")){var r=document.createElement("div");r.classList.add("code-toolbar"),o.parentNode.insertBefore(r,o),r.appendChild(o);var i=document.createElement("div");i.classList.add("toolbar"),document.body.hasAttribute("data-toolbar-order")&&(t=document.body.getAttribute("data-toolbar-order").split(",").map(function(t){return e[t]||n})),t.forEach(function(t){var e=t(a);if(e){var n=document.createElement("div");n.classList.add("toolbar-item"),n.appendChild(e),i.appendChild(n)}}),r.appendChild(i)}};a("label",function(t){var e=t.element.parentNode;if(e&&/pre/i.test(e.nodeName)&&e.hasAttribute("data-label")){var n,a,o=e.getAttribute("data-label");try{a=document.querySelector("template#"+o)}catch(r){}return a?n=a.content:(e.hasAttribute("data-url")?(n=document.createElement("a"),n.href=e.getAttribute("data-url")):n=document.createElement("span"),n.textContent=o),n}}),Prism.hooks.add("complete",o)}}();
-  (function(){
-    if (typeof self === 'undefined' || !self.Prism || !self.document) {
-      return;
-    }
+    // For each element, do the following steps
+    allCodeBlocksElements.each(function(ii) {
+    // define a unique id for this element and add it
+    var currentId = "codeblock" + (ii + 1);
+    $(this).attr('id', currentId);
 
-    if (!Prism.plugins.toolbar) {
-      console.warn('Copy to Clipboard plugin loaded before Toolbar plugin.');
-
-      return;
-    }
-
-    var ClipboardJS = window.ClipboardJS || undefined;
-
-    if (!ClipboardJS && typeof require === 'function') {
-      ClipboardJS = require('clipboard');
-    }
-
-    var callbacks = [];
-
-    if (!ClipboardJS) {
-      var script = document.createElement('script');
-      var head = document.querySelector('head');
-
-      script.onload = function() {
-        ClipboardJS = window.ClipboardJS;
-
-        if (ClipboardJS) {
-          while (callbacks.length) {
-            callbacks.pop()();
-          }
-        }
-      };
-
-      script.src = 'https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js';
-      head.appendChild(script);
-    }
-
-    Prism.plugins.toolbar.registerButton('copy-to-clipboard', function (env) {
-      var linkCopy = document.createElement('a');
-      linkCopy.textContent = 'Copy';
-
-      if (!ClipboardJS) {
-        callbacks.push(registerClipboard);
-      } else {
-        registerClipboard();
-      }
-
-      return linkCopy;
-
-      function registerClipboard() {
-        var clip = new ClipboardJS(linkCopy, {
-          'text': function () {
-            return env.code;
-          }
-        });
-
-        clip.on('success', function() {
-          linkCopy.textContent = 'Copied!';
-
-          resetText();
-        });
-        clip.on('error', function () {
-          linkCopy.textContent = 'Press Ctrl+C to copy';
-
-          resetText();
-        });
-      }
-
-      function resetText() {
-        setTimeout(function () {
-          linkCopy.textContent = 'Copy';
-        }, 5000);
-      }
+    // create the button just after the text in the code block
+    var clipButton = '<a class="btn copybtn" data-clipboard-target="#'+currentId+'" allow-copy-notify="true"><img src="'+base_url+'/img/clippy.svg" draggable="false" width="13" alt="Copy to clipboard"></a>';
+        $(this).after(clipButton);
     });
-  })();
+
+    var clipboard = new ClipboardJS(".btn");
+
+    clipboard.on("success", (event)=> {
+      // find button html element
+      var buttonIndex = event.trigger.dataset.clipboardTarget.replace(/[^0-9]/g,'')-1;
+      var copyButton = $(".copybtn:eq("+buttonIndex+")");
+
+      // button click animation
+      copyButton.addClass("copy-success");
+      setTimeout(function(){copyButton.removeClass("copy-success");},100);
+
+      // show copy notification
+      if(copyButton.attr("allow-copy-notify") === "true"){
+        copyButton.tooltip({trigger: "click"});
+        copyButton.attr("allow-copy-notify", false);
+        copyButton.tooltip("hide").attr("data-original-title", "copied!").tooltip("show");
+        
+        // remove copy notification
+        setTimeout(function() {
+          copyButton.tooltip("hide");
+          copyButton.css("background-color","white");
+          copyButton.attr("allow-copy-notify", true);
+        }, 1000);
+      }
+      
+      // prevent copy notification spam
+      copyButton.tooltip().off();
+
+      // prevent code block from being highlighted
+      event.clearSelection();
+    });
+  }
 
   //Drop Down Submenu Menu\\
   $('.dropdown-submenu a.submenu').on("mouseover", function (e) {

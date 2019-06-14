@@ -7,7 +7,8 @@
   <link rel="shortcut icon" href="../../../img/favicon.ico">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
   <link rel="stylesheet" href="../../../css/theme.css">
-  <link rel="stylesheet" href="../../../css/prism.css">
+  <link rel="stylesheet" href="../../../css/codehilite.css">
+  <link rel="stylesheet" href="../../../css/clipboard.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
 </head>
@@ -496,72 +497,69 @@
 <p><details open>
 <summary style="font-size: 1.75rem; font-weight: 300;">Initial Variables</summary>
 Before we go into connecting to each port, the variables defined below are needed in order to access the ZeroMQ and MATRIX Protocol Buffer libraries for Python. We also define a few helpful variables and the path for our <a href="http://www.speech.cs.cmu.edu/tools/lmtool-new.html" target="_blank">Sphinx Knowledge Base</a> files.</p>
-<pre><code class="language-python">import os # Miscellaneous operating system interface
-import zmq # Asynchronous messaging framework
-import time # Time access and conversions
-import sys # System-specific parameters and functions
-from matrix_io.proto.malos.v1 import driver_pb2 # MATRIX Protocol Buffer driver library
-from matrix_io.proto.malos.v1 import io_pb2 # MATRIX Protocol Buffer io library
-from multiprocessing import Process # Allow for multiple processes at once
-from zmq.eventloop import ioloop # Asynchronous events through ZMQ
-matrix_ip = '127.0.0.1' # Local device ip
-wakeword_port = 60001 # Driver Base port
-# Handy functions for connecting to the Data Update, &amp; Error port 
-from utils import register_data_callback, register_error_callback
-# Sphinx Knowledge Base files
-LM_PATH = 'INSERT_PATH_TO_YOUR_FILE.lm'# Language Model File
-DIC_PATH = 'INSERT_PATH_TO_YOUR_FILE.dic'# Dictation File
-</code></pre>
-
+<p> <div class=codehilite><pre><span></span><span class=kn>import</span> <span class=nn>os</span> <span class=c1># Miscellaneous operating system interface</span>
+<span class=kn>import</span> <span class=nn>zmq</span> <span class=c1># Asynchronous messaging framework</span>
+<span class=kn>import</span> <span class=nn>time</span> <span class=c1># Time access and conversions</span>
+<span class=kn>import</span> <span class=nn>sys</span> <span class=c1># System-specific parameters and functions</span>
+<span class=kn>from</span> <span class=nn>matrix_io.proto.malos.v1</span> <span class=kn>import</span> <span class=n>driver_pb2</span> <span class=c1># MATRIX Protocol Buffer driver library</span>
+<span class=kn>from</span> <span class=nn>matrix_io.proto.malos.v1</span> <span class=kn>import</span> <span class=n>io_pb2</span> <span class=c1># MATRIX Protocol Buffer io library</span>
+<span class=kn>from</span> <span class=nn>multiprocessing</span> <span class=kn>import</span> <span class=n>Process</span> <span class=c1># Allow for multiple processes at once</span>
+<span class=kn>from</span> <span class=nn>zmq.eventloop</span> <span class=kn>import</span> <span class=n>ioloop</span> <span class=c1># Asynchronous events through ZMQ</span>
+<span class=n>matrix_ip</span> <span class=o>=</span> <span class=s1>&#39;127.0.0.1&#39;</span> <span class=c1># Local device ip</span>
+<span class=n>wakeword_port</span> <span class=o>=</span> <span class=mi>60001</span> <span class=c1># Driver Base port</span>
+<span class=c1># Handy functions for connecting to the Data Update, &amp; Error port </span>
+<span class=kn>from</span> <span class=nn>utils</span> <span class=kn>import</span> <span class=n>register_data_callback</span><span class=p>,</span> <span class=n>register_error_callback</span>
+<span class=c1># Sphinx Knowledge Base files</span>
+<span class=n>LM_PATH</span> <span class=o>=</span> <span class=s1>&#39;INSERT_PATH_TO_YOUR_FILE.lm&#39;</span><span class=c1># Language Model File</span>
+<span class=n>DIC_PATH</span> <span class=o>=</span> <span class=s1>&#39;INSERT_PATH_TO_YOUR_FILE.dic&#39;</span><span class=c1># Dictation File</span>
+</pre></div></p>
 <p></details></p>
 <!-- Base PORT -->
 
 <p><details open>
 <summary style="font-size: 1.75rem; font-weight: 300;">Base Port</summary>
 Here is where the configuration for our wakeword example goes. Once we connect to the <strong>Base Port</strong>, we will pass a configuration to the Wakeword driver. With this we can set our wakeword configurations.</p>
-<pre><code class="language-python">def config_socket():
-    # Define zmq socket
-    context = zmq.Context()
-    # Create a Pusher socket
-    socket = context.socket(zmq.PUSH)
-    # Connect Pusher to configuration socket
-    socket.connect('tcp://{0}:{1}'.format(matrix_ip, wakeword_port))
+<p> <div class=codehilite><pre><span></span><span class=k>def</span> <span class=nf>config_socket</span><span class=p>():</span>
+    <span class=c1># Define zmq socket</span>
+    <span class=n>context</span> <span class=o>=</span> <span class=n>zmq</span><span class=o>.</span><span class=n>Context</span><span class=p>()</span>
+    <span class=c1># Create a Pusher socket</span>
+    <span class=n>socket</span> <span class=o>=</span> <span class=n>context</span><span class=o>.</span><span class=n>socket</span><span class=p>(</span><span class=n>zmq</span><span class=o>.</span><span class=n>PUSH</span><span class=p>)</span>
+    <span class=c1># Connect Pusher to configuration socket</span>
+    <span class=n>socket</span><span class=o>.</span><span class=n>connect</span><span class=p>(</span><span class=s1>&#39;tcp://{0}:{1}&#39;</span><span class=o>.</span><span class=n>format</span><span class=p>(</span><span class=n>matrix_ip</span><span class=p>,</span> <span class=n>wakeword_port</span><span class=p>))</span>
 
-    # Create a new driver config
-    config = driver_pb2.DriverConfig()
-    # Language Model File
-    config.wakeword.lm_path = LM_PATH
-    # Dictation File
-    config.wakeword.dic_path = DIC_PATH
-    # Desired MATRIX microphone
-    config.wakeword.channel = 8
-    # Enable verbose option
-    config.wakeword.enable_verbose = False
+    <span class=c1># Create a new driver config</span>
+    <span class=n>config</span> <span class=o>=</span> <span class=n>driver_pb2</span><span class=o>.</span><span class=n>DriverConfig</span><span class=p>()</span>
+    <span class=c1># Language Model File</span>
+    <span class=n>config</span><span class=o>.</span><span class=n>wakeword</span><span class=o>.</span><span class=n>lm_path</span> <span class=o>=</span> <span class=n>LM_PATH</span>
+    <span class=c1># Dictation File</span>
+    <span class=n>config</span><span class=o>.</span><span class=n>wakeword</span><span class=o>.</span><span class=n>dic_path</span> <span class=o>=</span> <span class=n>DIC_PATH</span>
+    <span class=c1># Desired MATRIX microphone</span>
+    <span class=n>config</span><span class=o>.</span><span class=n>wakeword</span><span class=o>.</span><span class=n>channel</span> <span class=o>=</span> <span class=mi>8</span>
+    <span class=c1># Enable verbose option</span>
+    <span class=n>config</span><span class=o>.</span><span class=n>wakeword</span><span class=o>.</span><span class=n>enable_verbose</span> <span class=o>=</span> <span class=bp>False</span>
 
-    # Send driver configuration through ZMQ socket
-    socket.send(config.SerializeToString())
-    print ('Listening for wakewords')
-</code></pre>
-
+    <span class=c1># Send driver configuration through ZMQ socket</span>
+    <span class=n>socket</span><span class=o>.</span><span class=n>send</span><span class=p>(</span><span class=n>config</span><span class=o>.</span><span class=n>SerializeToString</span><span class=p>())</span>
+    <span class=k>print</span> <span class=p>(</span><span class=s1>&#39;Listening for wakewords&#39;</span><span class=p>)</span>
+</pre></div></p>
 <p></details></p>
 <!-- Keep-alive PORT -->
 
 <p><details open>
 <summary style="font-size: 1.75rem; font-weight: 300;">Keep-alive Port</summary>
 The next step is to connect and send a message to the <strong>Keep-alive Port</strong>. That message will grant us a response from the Data Update Port with the wake words that were understood.</p>
-<pre><code class="language-python">def ping_socket():
-    # Define zmq socket
-    context = zmq.Context()
-    # Create a Pusher socket
-    ping_socket = context.socket(zmq.PUSH)
-    # Connect to the socket
-    ping_socket.connect('tcp://{0}:{1}'.format(matrix_ip, wakeword_port+1))
-    # Send a ping every 2 seconds
-    while True:
-        ping_socket.send_string('')
-        time.sleep(2)
-</code></pre>
-
+<p> <div class=codehilite><pre><span></span><span class=k>def</span> <span class=nf>ping_socket</span><span class=p>():</span>
+    <span class=c1># Define zmq socket</span>
+    <span class=n>context</span> <span class=o>=</span> <span class=n>zmq</span><span class=o>.</span><span class=n>Context</span><span class=p>()</span>
+    <span class=c1># Create a Pusher socket</span>
+    <span class=n>ping_socket</span> <span class=o>=</span> <span class=n>context</span><span class=o>.</span><span class=n>socket</span><span class=p>(</span><span class=n>zmq</span><span class=o>.</span><span class=n>PUSH</span><span class=p>)</span>
+    <span class=c1># Connect to the socket</span>
+    <span class=n>ping_socket</span><span class=o>.</span><span class=n>connect</span><span class=p>(</span><span class=s1>&#39;tcp://{0}:{1}&#39;</span><span class=o>.</span><span class=n>format</span><span class=p>(</span><span class=n>matrix_ip</span><span class=p>,</span> <span class=n>wakeword_port</span><span class=o>+</span><span class=mi>1</span><span class=p>))</span>
+    <span class=c1># Send a ping every 2 seconds</span>
+    <span class=k>while</span> <span class=bp>True</span><span class=p>:</span>
+        <span class=n>ping_socket</span><span class=o>.</span><span class=n>send_string</span><span class=p>(</span><span class=s1>&#39;&#39;</span><span class=p>)</span>
+        <span class=n>time</span><span class=o>.</span><span class=n>sleep</span><span class=p>(</span><span class=mi>2</span><span class=p>)</span>
+</pre></div></p>
 <p></details></p>
 <!-- Error PORT -->
 
@@ -571,56 +569,52 @@ The <strong>Error Port</strong> connection is also taken care of by the <code>ut
 <blockquote>
 <p>The Error Port is currently reporting false errors. </p>
 </blockquote>
-<pre><code class="language-python">def wakeword_error_callback(error):
-    # Log error
-    print('{0}'.format(error))
-</code></pre>
-
+<p> <div class=codehilite><pre><span></span><span class=k>def</span> <span class=nf>wakeword_error_callback</span><span class=p>(</span><span class=n>error</span><span class=p>):</span>
+    <span class=c1># Log error</span>
+    <span class=k>print</span><span class=p>(</span><span class=s1>&#39;{0}&#39;</span><span class=o>.</span><span class=n>format</span><span class=p>(</span><span class=n>error</span><span class=p>))</span>
+</pre></div></p>
 <p></details></p>
 <!-- Data Update PORT -->
 
 <p><details open>
 <summary style="font-size: 1.75rem; font-weight: 300;">Data Update Port</summary>
 A connection to the <strong>Data Update Port</strong> is then made to allow us to receive each custom phrase the Wakeword driver picks up.</p>
-<pre><code class="language-python">def wakeword_data_callback(data):
-    # Extract data
-    data = io_pb2.WakeWordParams().FromString(data[0])
-    # Log data 
-    print('{0}'.format(data))
-    # Run actions based on the phrase heard
-    # CHANGE TO YOUR PHRASE
-    if data.wake_word == 'MATRIX START':
-        print ('I HEARD MATRIX START!\n')
-    # CHANGE TO YOUR PHRASE
-    elif data.wake_word == 'MATRIX STOP':
-        print ('I HEARD MATRIX STOP!\n')
-</code></pre>
-
+<p> <div class=codehilite><pre><span></span><span class=k>def</span> <span class=nf>wakeword_data_callback</span><span class=p>(</span><span class=n>data</span><span class=p>):</span>
+    <span class=c1># Extract data</span>
+    <span class=n>data</span> <span class=o>=</span> <span class=n>io_pb2</span><span class=o>.</span><span class=n>WakeWordParams</span><span class=p>()</span><span class=o>.</span><span class=n>FromString</span><span class=p>(</span><span class=n>data</span><span class=p>[</span><span class=mi>0</span><span class=p>])</span>
+    <span class=c1># Log data </span>
+    <span class=k>print</span><span class=p>(</span><span class=s1>&#39;{0}&#39;</span><span class=o>.</span><span class=n>format</span><span class=p>(</span><span class=n>data</span><span class=p>))</span>
+    <span class=c1># Run actions based on the phrase heard</span>
+    <span class=c1># CHANGE TO YOUR PHRASE</span>
+    <span class=k>if</span> <span class=n>data</span><span class=o>.</span><span class=n>wake_word</span> <span class=o>==</span> <span class=s1>&#39;MATRIX START&#39;</span><span class=p>:</span>
+        <span class=k>print</span> <span class=p>(</span><span class=s1>&#39;I HEARD MATRIX START!</span><span class=se>\n</span><span class=s1>&#39;</span><span class=p>)</span>
+    <span class=c1># CHANGE TO YOUR PHRASE</span>
+    <span class=k>elif</span> <span class=n>data</span><span class=o>.</span><span class=n>wake_word</span> <span class=o>==</span> <span class=s1>&#39;MATRIX STOP&#39;</span><span class=p>:</span>
+        <span class=k>print</span> <span class=p>(</span><span class=s1>&#39;I HEARD MATRIX STOP!</span><span class=se>\n</span><span class=s1>&#39;</span><span class=p>)</span>
+</pre></div></p>
 <h4>Data Output</h4>
 
 <p>The Python object below is an example output you'll receive from the <strong>Data Update Port</strong>. All wakeword strings are capitalized.</p>
-<pre><code class="language-python">wake_word: &quot;MATRIX START&quot;
-</code></pre>
-
+<p> <div class=codehilite><pre><span></span><span class=n>wake_word</span><span class=p>:</span> <span class=s2>&quot;MATRIX START&quot;</span>
+</pre></div></p>
 <p></details></p>
 <!-- Start Process -->
 
 <p><details open>
 <summary style="font-size: 1.75rem; font-weight: 300;">Start Processes</summary>
 This is where we begin the asynchronous events for each of the driver ports and where we define the functions we want to use for each port.</p>
-<pre><code class="language-python">if __name__ == '__main__':
-    # Initiate asynchronous events
-    ioloop.install()
-    # Send Base Port configuration 
-    config_socket()
-    # Start Error Port connection
-    # Process(target=register_error_callback, args=(wakeword_error_callback, matrix_ip, wakeword_port)).start()
-    # Start Data Update Port connection
-    Process(target=register_data_callback, args=(wakeword_data_callback, matrix_ip, wakeword_port)).start()
-    # Start Keep-alive Port connection
-    Process(target=ping_socket).start()
-</code></pre>
-
+<p> <div class=codehilite><pre><span></span><span class=k>if</span> <span class=vm>__name__</span> <span class=o>==</span> <span class=s1>&#39;__main__&#39;</span><span class=p>:</span>
+    <span class=c1># Initiate asynchronous events</span>
+    <span class=n>ioloop</span><span class=o>.</span><span class=n>install</span><span class=p>()</span>
+    <span class=c1># Send Base Port configuration </span>
+    <span class=n>config_socket</span><span class=p>()</span>
+    <span class=c1># Start Error Port connection</span>
+    <span class=c1># Process(target=register_error_callback, args=(wakeword_error_callback, matrix_ip, wakeword_port)).start()</span>
+    <span class=c1># Start Data Update Port connection</span>
+    <span class=n>Process</span><span class=p>(</span><span class=n>target</span><span class=o>=</span><span class=n>register_data_callback</span><span class=p>,</span> <span class=n>args</span><span class=o>=</span><span class=p>(</span><span class=n>wakeword_data_callback</span><span class=p>,</span> <span class=n>matrix_ip</span><span class=p>,</span> <span class=n>wakeword_port</span><span class=p>))</span><span class=o>.</span><span class=n>start</span><span class=p>()</span>
+    <span class=c1># Start Keep-alive Port connection</span>
+    <span class=n>Process</span><span class=p>(</span><span class=n>target</span><span class=o>=</span><span class=n>ping_socket</span><span class=p>)</span><span class=o>.</span><span class=n>start</span><span class=p>()</span>
+</pre></div></p>
 <p></details></p> 
         </div>
         <div class="toc-parent col-lg-2 col-md-3">
@@ -742,7 +736,12 @@ This is where we begin the asynchronous events for each of the driver ports and 
     </div>
   </div>
 </footer>
-
+  <!--Global Vars-->
+  <script>
+    base_url = "../../..";
+  </script>
+  <!-- Scripts -->
+  <script src="../../../js/clipboard.min.js"></script>
   <script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
@@ -751,7 +750,6 @@ This is where we begin the asynchronous events for each of the driver ports and 
   <script src="../../../js/jquery.ajaxchimp.min.js"></script>
   <script src="../../../js/jquery.ajaxchimp.langs.min.js"></script>
   <script src="../../../js/footer.js"></script>
-  <script src="../../../js/prism.js"></script>
 
   <!-- TOC Script -->
   <script>

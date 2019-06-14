@@ -7,7 +7,8 @@
   <link rel="shortcut icon" href="../../../img/favicon.ico">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
   <link rel="stylesheet" href="../../../css/theme.css">
-  <link rel="stylesheet" href="../../../css/prism.css">
+  <link rel="stylesheet" href="../../../css/codehilite.css">
+  <link rel="stylesheet" href="../../../css/clipboard.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
 </head>
@@ -465,190 +466,181 @@
 <p><img src="../../img/golang-mascot.png" width=400 /></p>
 <p>This setup will go through how to install <a href="https://golang.org/" target="_blank">Golang</a> and the dependencies needed to create a Go application that can communicate with MATRIX CORE. Run the following on your Raspberry Pi.</p>
 <p>Before downloading Go, you'll need to make sure you have <code>git</code> installed.</p>
-<pre><code class="language-bash">sudo apt-get install git
-</code></pre>
-
+<p> <div class=codehilite><pre><span></span>sudo apt-get install git
+</pre></div></p>
 <p>Download and install <a href="https://golang.org/dl/" target="_blank">Go v1.11.2</a>.</p>
-<pre><code class="language-bash">wget https://dl.google.com/go/go1.11.2.linux-armv6l.tar.gz
+<p> <div class=codehilite><pre><span></span>wget https://dl.google.com/go/go1.11.2.linux-armv6l.tar.gz
 sudo tar -C /usr/local -xvzf go1.11.2.linux-armv6l.tar.gz
 rm go1.11.2.linux-armv6l.tar.gz
-</code></pre>
-
+</pre></div></p>
 <p>Setup the <code>GOPATH</code> directory and environment variables.</p>
-<pre><code class="language-bash">mkdir -p ~/go/{bin,src,pkg}
-echo -e &quot;\n##Golang Environment Variables##&quot; | sudo tee -a /etc/profile
-echo 'export PATH=$PATH:/usr/local/go/bin' | sudo tee -a /etc/profile
-echo 'export GOPATH=$HOME/go' | sudo tee -a /etc/profile
-echo 'export PATH=$PATH:$GOPATH/bin' | sudo tee -a /etc/profile
-source /etc/profile
-</code></pre>
-
+<p> <div class=codehilite><pre><span></span>mkdir -p ~/go/<span class=o>{</span>bin,src,pkg<span class=o>}</span>
+<span class=nb>echo</span> -e <span class=s2>&quot;\n##Golang Environment Variables##&quot;</span> <span class=p>|</span> sudo tee -a /etc/profile
+<span class=nb>echo</span> <span class=s1>&#39;export PATH=$PATH:/usr/local/go/bin&#39;</span> <span class=p>|</span> sudo tee -a /etc/profile
+<span class=nb>echo</span> <span class=s1>&#39;export GOPATH=$HOME/go&#39;</span> <span class=p>|</span> sudo tee -a /etc/profile
+<span class=nb>echo</span> <span class=s1>&#39;export PATH=$PATH:$GOPATH/bin&#39;</span> <span class=p>|</span> sudo tee -a /etc/profile
+<span class=nb>source</span> /etc/profile
+</pre></div></p>
 <p>Make sure Go is properly installed. The command below should output <code>go version go1.11 linux/arm</code>.</p>
-<pre><code class="language-bash">go version
-</code></pre>
-
+<p> <div class=codehilite><pre><span></span>go version
+</pre></div></p>
 <p><br/></p>
 <h2 id="installing-zmq-dependency">Installing ZMQ Dependency</h2>
 <p>Although ZMQ has already been installed, Go requires an extra dependency.</p>
-<pre><code class="language-bash">sudo apt-get install libsodium-dev
-</code></pre>
-
+<p> <div class=codehilite><pre><span></span>sudo apt-get install libsodium-dev
+</pre></div></p>
 <p><br/></p>
 <h2 id="creating-a-go-application">Creating A Go Application</h2>
 <p><h3 style="padding-top: 0">Making Your Project Directory</h3>
 Use the following commands to initialize a Go project folder, in the home directory <code>~/</code> of your MATRIX device.</p>
-<pre><code class="language-bash">cd ~/
+<p> <div class=codehilite><pre><span></span><span class=nb>cd</span> ~/
 mkdir go-matrix-core-app
-cd go-matrix-core-app
+<span class=nb>cd</span> go-matrix-core-app
 go mod init go-matrix-core-app
-</code></pre>
-
+</pre></div></p>
 <h3 style="padding-top: 0">Installing Go Packages for ZMQ and Protocol Buffers</h3>
 
 <p>While inside your project folder, use the commands below to install the required dependencies for interacting with MATRIX CORE.</p>
-<pre><code class="language-bash">go get github.com/pebbe/zmq4
+<p> <div class=codehilite><pre><span></span>go get github.com/pebbe/zmq4
 go get github.com/matrix-io/matrix-protos-go
-</code></pre>
-
+</pre></div></p>
 <p><br/></p>
 <h2 id="check-if-everything-works">Check If Everything Works</h2>
 <p><h3 style="padding-top: 0">Creating main.go</h3>
 To ensure your installation has succeeded, create a file named <code>main.go</code> and paste the code below.</p>
-<pre><code class="language-go">package main
+<p> <div class=codehilite><pre><span></span><span class=kn>package</span> <span class=nx>main</span>
 
-import (
-    &quot;fmt&quot;
-    &quot;math/rand&quot;
-    &quot;time&quot;
+<span class=kn>import</span> <span class=p>(</span>
+    <span class=s>&quot;fmt&quot;</span>
+    <span class=s>&quot;math/rand&quot;</span>
+    <span class=s>&quot;time&quot;</span>
 
-    &quot;github.com/golang/protobuf/proto&quot;
-    core &quot;github.com/matrix-io/matrix-protos-go/matrix_io/malos/v1&quot;
-    zmq &quot;github.com/pebbe/zmq4&quot;
-)
+    <span class=s>&quot;github.com/golang/protobuf/proto&quot;</span>
+    <span class=nx>core</span> <span class=s>&quot;github.com/matrix-io/matrix-protos-go/matrix_io/malos/v1&quot;</span>
+    <span class=nx>zmq</span> <span class=s>&quot;github.com/pebbe/zmq4&quot;</span>
+<span class=p>)</span>
 
-// Global Vars
-var portStatus = make(chan string, 4) // Channel To Ensure Port Goroutines Are Called
-var everloop = core.EverloopImage{}   // State Of All MATRIX LEDs
+<span class=c1>// Global Vars</span>
+<span class=kd>var</span> <span class=nx>portStatus</span> <span class=p>=</span> <span class=nb>make</span><span class=p>(</span><span class=kd>chan</span> <span class=kt>string</span><span class=p>,</span> <span class=mi>4</span><span class=p>)</span> <span class=c1>// Channel To Ensure Port Goroutines Are Called</span>
+<span class=kd>var</span> <span class=nx>everloop</span> <span class=p>=</span> <span class=nx>core</span><span class=p>.</span><span class=nx>EverloopImage</span><span class=p>{}</span>   <span class=c1>// State Of All MATRIX LEDs</span>
 
-func main() {
-    fmt.Println(&quot;Starting MATRIX CORE Everloop&quot;)
+<span class=kd>func</span> <span class=nx>main</span><span class=p>()</span> <span class=p>{</span>
+    <span class=nx>fmt</span><span class=p>.</span><span class=nx>Println</span><span class=p>(</span><span class=s>&quot;Starting MATRIX CORE Everloop&quot;</span><span class=p>)</span>
 
-    // Asynchronously Start MATRIX CORE Ports
-    go keepAlivePort()  // Ping Once
-    go errorPort()      // Report Any Errors
-    go dataUpdatePort() // Receive # Of Leds &amp; Starts basePort()
+    <span class=c1>// Asynchronously Start MATRIX CORE Ports</span>
+    <span class=k>go</span> <span class=nx>keepAlivePort</span><span class=p>()</span>  <span class=c1>// Ping Once</span>
+    <span class=k>go</span> <span class=nx>errorPort</span><span class=p>()</span>      <span class=c1>// Report Any Errors</span>
+    <span class=k>go</span> <span class=nx>dataUpdatePort</span><span class=p>()</span> <span class=c1>// Receive # Of Leds &amp; Starts basePort()</span>
 
-    // Wait For Each Port Connection (ensures each goroutine is able to run)
-    for portStatus := range portStatus {
-        fmt.Println(&quot;received&quot;, portStatus)
-    }
-}
+    <span class=c1>// Wait For Each Port Connection (ensures each goroutine is able to run)</span>
+    <span class=k>for</span> <span class=nx>portStatus</span> <span class=o>:=</span> <span class=k>range</span> <span class=nx>portStatus</span> <span class=p>{</span>
+        <span class=nx>fmt</span><span class=p>.</span><span class=nx>Println</span><span class=p>(</span><span class=s>&quot;received&quot;</span><span class=p>,</span> <span class=nx>portStatus</span><span class=p>)</span>
+    <span class=p>}</span>
+<span class=p>}</span>
 
-// BASE PORT \\ (port where configurations are sent)
-func basePort() {
-    // Connect ZMQ Socket To MATRIX CORE
-    pusher, _ := zmq.NewSocket(zmq.PUSH)    // Create A Pusher Socket
-    pusher.Connect(&quot;tcp://127.0.0.1:20021&quot;) // Connect Pusher To Base Port
+<span class=c1>// BASE PORT \\ (port where configurations are sent)</span>
+<span class=kd>func</span> <span class=nx>basePort</span><span class=p>()</span> <span class=p>{</span>
+    <span class=c1>// Connect ZMQ Socket To MATRIX CORE</span>
+    <span class=nx>pusher</span><span class=p>,</span> <span class=nx>_</span> <span class=o>:=</span> <span class=nx>zmq</span><span class=p>.</span><span class=nx>NewSocket</span><span class=p>(</span><span class=nx>zmq</span><span class=p>.</span><span class=nx>PUSH</span><span class=p>)</span>    <span class=c1>// Create A Pusher Socket</span>
+    <span class=nx>pusher</span><span class=p>.</span><span class=nx>Connect</span><span class=p>(</span><span class=s>&quot;tcp://127.0.0.1:20021&quot;</span><span class=p>)</span> <span class=c1>// Connect Pusher To Base Port</span>
 
-    // Notify That Port Is Ready
-    portStatus &lt;- &quot;Base Port: CONNECTED&quot;
+    <span class=c1>// Notify That Port Is Ready</span>
+    <span class=nx>portStatus</span> <span class=o>&lt;-</span> <span class=s>&quot;Base Port: CONNECTED&quot;</span>
 
-    // Keep Sending Everloop Image
-    for {
-        // Create (x) Amount Of Randomly Colored LEDs
-        for i := int32(0); i &lt; everloop.EverloopLength; i++ {
-            led := core.LedValue{
-                Red:   (uint32)(rand.Int31n(200) + 1),
-                Green: (uint32)(rand.Int31n(255) + 1),
-                Blue:  (uint32)(rand.Int31n(50) + 1),
-                White: 0,
-            }
-            // Add New LED to Everloop LED Array
-            everloop.Led = append(everloop.Led, &amp;led)
-        }
+    <span class=c1>// Keep Sending Everloop Image</span>
+    <span class=k>for</span> <span class=p>{</span>
+        <span class=c1>// Create (x) Amount Of Randomly Colored LEDs</span>
+        <span class=k>for</span> <span class=nx>i</span> <span class=o>:=</span> <span class=nb>int32</span><span class=p>(</span><span class=mi>0</span><span class=p>);</span> <span class=nx>i</span> <span class=p>&lt;</span> <span class=nx>everloop</span><span class=p>.</span><span class=nx>EverloopLength</span><span class=p>;</span> <span class=nx>i</span><span class=o>++</span> <span class=p>{</span>
+            <span class=nx>led</span> <span class=o>:=</span> <span class=nx>core</span><span class=p>.</span><span class=nx>LedValue</span><span class=p>{</span>
+                <span class=nx>Red</span><span class=p>:</span>   <span class=p>(</span><span class=kt>uint32</span><span class=p>)(</span><span class=nx>rand</span><span class=p>.</span><span class=nx>Int31n</span><span class=p>(</span><span class=mi>200</span><span class=p>)</span> <span class=o>+</span> <span class=mi>1</span><span class=p>),</span>
+                <span class=nx>Green</span><span class=p>:</span> <span class=p>(</span><span class=kt>uint32</span><span class=p>)(</span><span class=nx>rand</span><span class=p>.</span><span class=nx>Int31n</span><span class=p>(</span><span class=mi>255</span><span class=p>)</span> <span class=o>+</span> <span class=mi>1</span><span class=p>),</span>
+                <span class=nx>Blue</span><span class=p>:</span>  <span class=p>(</span><span class=kt>uint32</span><span class=p>)(</span><span class=nx>rand</span><span class=p>.</span><span class=nx>Int31n</span><span class=p>(</span><span class=mi>50</span><span class=p>)</span> <span class=o>+</span> <span class=mi>1</span><span class=p>),</span>
+                <span class=nx>White</span><span class=p>:</span> <span class=mi>0</span><span class=p>,</span>
+            <span class=p>}</span>
+            <span class=c1>// Add New LED to Everloop LED Array</span>
+            <span class=nx>everloop</span><span class=p>.</span><span class=nx>Led</span> <span class=p>=</span> <span class=nb>append</span><span class=p>(</span><span class=nx>everloop</span><span class=p>.</span><span class=nx>Led</span><span class=p>,</span> <span class=o>&amp;</span><span class=nx>led</span><span class=p>)</span>
+        <span class=p>}</span>
 
-        // Create Everloop Driver Configuration Protocol
-        configuration := core.DriverConfig{
-            Image: &amp;everloop,
-        }
-        //Encode Protocol Buffer
-        var encodedConfiguration, _ = proto.Marshal(&amp;configuration)
-        // Send Protocol Buffer
-        pusher.Send(string((encodedConfiguration)), 1)
+        <span class=c1>// Create Everloop Driver Configuration Protocol</span>
+        <span class=nx>configuration</span> <span class=o>:=</span> <span class=nx>core</span><span class=p>.</span><span class=nx>DriverConfig</span><span class=p>{</span>
+            <span class=nx>Image</span><span class=p>:</span> <span class=o>&amp;</span><span class=nx>everloop</span><span class=p>,</span>
+        <span class=p>}</span>
+        <span class=c1>//Encode Protocol Buffer</span>
+        <span class=kd>var</span> <span class=nx>encodedConfiguration</span><span class=p>,</span> <span class=nx>_</span> <span class=p>=</span> <span class=nx>proto</span><span class=p>.</span><span class=nx>Marshal</span><span class=p>(</span><span class=o>&amp;</span><span class=nx>configuration</span><span class=p>)</span>
+        <span class=c1>// Send Protocol Buffer</span>
+        <span class=nx>pusher</span><span class=p>.</span><span class=nx>Send</span><span class=p>(</span><span class=nb>string</span><span class=p>((</span><span class=nx>encodedConfiguration</span><span class=p>)),</span> <span class=mi>1</span><span class=p>)</span>
 
-        // Reset Everloop Array
-        everloop.Led = []*core.LedValue{}
-        // Loop delay
-        time.Sleep(50 * time.Millisecond)
-    }
-}
+        <span class=c1>// Reset Everloop Array</span>
+        <span class=nx>everloop</span><span class=p>.</span><span class=nx>Led</span> <span class=p>=</span> <span class=p>[]</span><span class=o>*</span><span class=nx>core</span><span class=p>.</span><span class=nx>LedValue</span><span class=p>{}</span>
+        <span class=c1>// Loop delay</span>
+        <span class=nx>time</span><span class=p>.</span><span class=nx>Sleep</span><span class=p>(</span><span class=mi>50</span> <span class=o>*</span> <span class=nx>time</span><span class=p>.</span><span class=nx>Millisecond</span><span class=p>)</span>
+    <span class=p>}</span>
+<span class=p>}</span>
 
-// KEEP-ALIVE PORT \\ (port where pings are sent)
-func keepAlivePort() {
-    // Connect ZMQ Socket To MATRIX CORE
-    pusher, _ := zmq.NewSocket(zmq.PUSH)    // Create A Pusher Socket
-    pusher.Connect(&quot;tcp://127.0.0.1:20022&quot;) // Connect Pusher To Keep-Alive Port
+<span class=c1>// KEEP-ALIVE PORT \\ (port where pings are sent)</span>
+<span class=kd>func</span> <span class=nx>keepAlivePort</span><span class=p>()</span> <span class=p>{</span>
+    <span class=c1>// Connect ZMQ Socket To MATRIX CORE</span>
+    <span class=nx>pusher</span><span class=p>,</span> <span class=nx>_</span> <span class=o>:=</span> <span class=nx>zmq</span><span class=p>.</span><span class=nx>NewSocket</span><span class=p>(</span><span class=nx>zmq</span><span class=p>.</span><span class=nx>PUSH</span><span class=p>)</span>    <span class=c1>// Create A Pusher Socket</span>
+    <span class=nx>pusher</span><span class=p>.</span><span class=nx>Connect</span><span class=p>(</span><span class=s>&quot;tcp://127.0.0.1:20022&quot;</span><span class=p>)</span> <span class=c1>// Connect Pusher To Keep-Alive Port</span>
 
-    // Notify That Port Is Ready
-    portStatus &lt;- &quot;Keep-Alive Port: CONNECTED&quot;
+    <span class=c1>// Notify That Port Is Ready</span>
+    <span class=nx>portStatus</span> <span class=o>&lt;-</span> <span class=s>&quot;Keep-Alive Port: CONNECTED&quot;</span>
 
-    // Send Keep Alive Message
-    pusher.Send(&quot;&quot;, 1)
-}
+    <span class=c1>// Send Keep Alive Message</span>
+    <span class=nx>pusher</span><span class=p>.</span><span class=nx>Send</span><span class=p>(</span><span class=s>&quot;&quot;</span><span class=p>,</span> <span class=mi>1</span><span class=p>)</span>
+<span class=p>}</span>
 
-// ERROR PORT \\ (port where errors are received)
-func errorPort() {
-    // Connect ZMQ Socket To MATRIX CORE
-    subscriber, _ := zmq.NewSocket(zmq.SUB)     // Create A Subscriber Socket
-    subscriber.Connect(&quot;tcp://127.0.0.1:20023&quot;) // Connect Subscriber To Data Update Port
-    subscriber.SetSubscribe(&quot;&quot;)                 // Subscribe To Error Port Messages
+<span class=c1>// ERROR PORT \\ (port where errors are received)</span>
+<span class=kd>func</span> <span class=nx>errorPort</span><span class=p>()</span> <span class=p>{</span>
+    <span class=c1>// Connect ZMQ Socket To MATRIX CORE</span>
+    <span class=nx>subscriber</span><span class=p>,</span> <span class=nx>_</span> <span class=o>:=</span> <span class=nx>zmq</span><span class=p>.</span><span class=nx>NewSocket</span><span class=p>(</span><span class=nx>zmq</span><span class=p>.</span><span class=nx>SUB</span><span class=p>)</span>     <span class=c1>// Create A Subscriber Socket</span>
+    <span class=nx>subscriber</span><span class=p>.</span><span class=nx>Connect</span><span class=p>(</span><span class=s>&quot;tcp://127.0.0.1:20023&quot;</span><span class=p>)</span> <span class=c1>// Connect Subscriber To Data Update Port</span>
+    <span class=nx>subscriber</span><span class=p>.</span><span class=nx>SetSubscribe</span><span class=p>(</span><span class=s>&quot;&quot;</span><span class=p>)</span>                 <span class=c1>// Subscribe To Error Port Messages</span>
 
-    // Notify That Port Is Ready
-    portStatus &lt;- &quot;Error Port: CONNECTED&quot;
+    <span class=c1>// Notify That Port Is Ready</span>
+    <span class=nx>portStatus</span> <span class=o>&lt;-</span> <span class=s>&quot;Error Port: CONNECTED&quot;</span>
 
-    // Wait For Error
-    for {
-        // On Error
-        message, _ := subscriber.Recv(2)
-        // Print Error
-        fmt.Println(&quot;ERROR:&quot;, message)
-    }
-}
+    <span class=c1>// Wait For Error</span>
+    <span class=k>for</span> <span class=p>{</span>
+        <span class=c1>// On Error</span>
+        <span class=nx>message</span><span class=p>,</span> <span class=nx>_</span> <span class=o>:=</span> <span class=nx>subscriber</span><span class=p>.</span><span class=nx>Recv</span><span class=p>(</span><span class=mi>2</span><span class=p>)</span>
+        <span class=c1>// Print Error</span>
+        <span class=nx>fmt</span><span class=p>.</span><span class=nx>Println</span><span class=p>(</span><span class=s>&quot;ERROR:&quot;</span><span class=p>,</span> <span class=nx>message</span><span class=p>)</span>
+    <span class=p>}</span>
+<span class=p>}</span>
 
-// DATA UPDATE PORT \\ (port where updates are received)
-func dataUpdatePort() {
-    // Connect ZMQ Socket To MATRIX CORE
-    subscriber, _ := zmq.NewSocket(zmq.SUB)     // Create A Subscriber Socket
-    subscriber.Connect(&quot;tcp://127.0.0.1:20024&quot;) // Connect Subscriber To Data Update Port
-    subscriber.SetSubscribe(&quot;&quot;)                 // Subscribe To Data Update Port Messages
+<span class=c1>// DATA UPDATE PORT \\ (port where updates are received)</span>
+<span class=kd>func</span> <span class=nx>dataUpdatePort</span><span class=p>()</span> <span class=p>{</span>
+    <span class=c1>// Connect ZMQ Socket To MATRIX CORE</span>
+    <span class=nx>subscriber</span><span class=p>,</span> <span class=nx>_</span> <span class=o>:=</span> <span class=nx>zmq</span><span class=p>.</span><span class=nx>NewSocket</span><span class=p>(</span><span class=nx>zmq</span><span class=p>.</span><span class=nx>SUB</span><span class=p>)</span>     <span class=c1>// Create A Subscriber Socket</span>
+    <span class=nx>subscriber</span><span class=p>.</span><span class=nx>Connect</span><span class=p>(</span><span class=s>&quot;tcp://127.0.0.1:20024&quot;</span><span class=p>)</span> <span class=c1>// Connect Subscriber To Data Update Port</span>
+    <span class=nx>subscriber</span><span class=p>.</span><span class=nx>SetSubscribe</span><span class=p>(</span><span class=s>&quot;&quot;</span><span class=p>)</span>                 <span class=c1>// Subscribe To Data Update Port Messages</span>
 
-    // Notify That Port Is Ready
-    portStatus &lt;- &quot;Data Update Port: CONNECTED&quot;
+    <span class=c1>// Notify That Port Is Ready</span>
+    <span class=nx>portStatus</span> <span class=o>&lt;-</span> <span class=s>&quot;Data Update Port: CONNECTED&quot;</span>
 
-    // Wait For Data
-    for {
-        // On Data
-        message, _ := subscriber.Recv(2)
-        // Decode Protocol Buffer &amp; Update everloop Struct LED Count
-        proto.Unmarshal([]byte(message), &amp;everloop)
-        // Print Data
-        fmt.Print(&quot;\nEverloop Length: &quot;, everloop.EverloopLength, &quot;\n\n&quot;)
+    <span class=c1>// Wait For Data</span>
+    <span class=k>for</span> <span class=p>{</span>
+        <span class=c1>// On Data</span>
+        <span class=nx>message</span><span class=p>,</span> <span class=nx>_</span> <span class=o>:=</span> <span class=nx>subscriber</span><span class=p>.</span><span class=nx>Recv</span><span class=p>(</span><span class=mi>2</span><span class=p>)</span>
+        <span class=c1>// Decode Protocol Buffer &amp; Update everloop Struct LED Count</span>
+        <span class=nx>proto</span><span class=p>.</span><span class=nx>Unmarshal</span><span class=p>([]</span><span class=nb>byte</span><span class=p>(</span><span class=nx>message</span><span class=p>),</span> <span class=o>&amp;</span><span class=nx>everloop</span><span class=p>)</span>
+        <span class=c1>// Print Data</span>
+        <span class=nx>fmt</span><span class=p>.</span><span class=nx>Print</span><span class=p>(</span><span class=s>&quot;\nEverloop Length: &quot;</span><span class=p>,</span> <span class=nx>everloop</span><span class=p>.</span><span class=nx>EverloopLength</span><span class=p>,</span> <span class=s>&quot;\n\n&quot;</span><span class=p>)</span>
 
-        // Start Base Port
-        go basePort() // Send Configuration Message
+        <span class=c1>// Start Base Port</span>
+        <span class=k>go</span> <span class=nx>basePort</span><span class=p>()</span> <span class=c1>// Send Configuration Message</span>
 
-        // Close Data Update Port
-        return
-    }
-}
-</code></pre>
-
+        <span class=c1>// Close Data Update Port</span>
+        <span class=k>return</span>
+    <span class=p>}</span>
+<span class=p>}</span>
+</pre></div></p>
 <h3 style="padding-top: 0">Running main.go</h3>
 
 <p>Once you have main.go ready, use the following command to run a simple hello world app.</p>
-<pre><code class="language-bash">go run main.go
-</code></pre>
-
+<p> <div class=codehilite><pre><span></span>go run main.go
+</pre></div></p>
 <h3 style="padding-top: 0">Result</h3>
 
 <p><img alt="" src="../../../matrix-core/img/install-setup-test.gif" /></p>
@@ -785,7 +777,12 @@ func dataUpdatePort() {
     </div>
   </div>
 </footer>
-
+  <!--Global Vars-->
+  <script>
+    base_url = "../../..";
+  </script>
+  <!-- Scripts -->
+  <script src="../../../js/clipboard.min.js"></script>
   <script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
@@ -794,7 +791,6 @@ func dataUpdatePort() {
   <script src="../../../js/jquery.ajaxchimp.min.js"></script>
   <script src="../../../js/jquery.ajaxchimp.langs.min.js"></script>
   <script src="../../../js/footer.js"></script>
-  <script src="../../../js/prism.js"></script>
 
   <!-- TOC Script -->
   <script>

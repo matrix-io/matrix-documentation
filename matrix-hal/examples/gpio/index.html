@@ -7,7 +7,8 @@
   <link rel="shortcut icon" href="../../../img/favicon.ico">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
   <link rel="stylesheet" href="../../../css/theme.css">
-  <link rel="stylesheet" href="../../../css/prism.css">
+  <link rel="stylesheet" href="../../../css/codehilite.css">
+  <link rel="stylesheet" href="../../../css/clipboard.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
 </head>
@@ -485,107 +486,102 @@
 <p>Below are examples of how to interface with the GPIO in MATRIX HAL.</p>
 <p>GPIO function references can be found <a href="../../../matrix-hal/reference/gpio">here</a>.</p>
 <p>The command below will compile each example. Be sure to pass in your C++ file and desired output file.</p>
-<pre><code class="language-cpp">g++ -o YOUR_OUTPUT_FILE YOUR_CPP_FILE -std=c++11 -lmatrix_creator_hal
-</code></pre>
-
+<p> <div class=codehilite><pre><span></span><span class=n>g</span><span class=o>++</span> <span class=o>-</span><span class=n>o</span> <span class=n>YOUR_OUTPUT_FILE</span> <span class=n>YOUR_CPP_FILE</span> <span class=o>-</span><span class=n>std</span><span class=o>=</span><span class=n>c</span><span class=o>++</span><span class=mi>11</span> <span class=o>-</span><span class=n>lmatrix_creator_hal</span>
+</pre></div></p>
 <p><details>
 <summary style="font-size: 1.75rem; font-weight: 300;">GPIO I/O</summary>
 The following section shows how to use GPIO in digital I/O mode for output and input. You can download this example <a href="https://github.com/matrix-io/matrix-hal-examples/blob/master/gpio/gpio_io.cpp" target="_blank">here</a>.</p>
 <p><details open>
 <summary style="font-size: 1.5rem; font-weight: 300;">Include Statements</summary>
 To begin working with the GPIO you need to include these header files.</p>
-<pre><code class="language-cpp">// System calls
-#include &lt;unistd.h&gt;
-// Input/output streams and functions
-#include &lt;iostream&gt;
+<p> <div class=codehilite><pre><span></span><span class=c1>// System calls</span>
+<span class=cp>#include</span> <span class=cpf>&lt;unistd.h&gt;</span><span class=cp></span>
+<span class=c1>// Input/output streams and functions</span>
+<span class=cp>#include</span> <span class=cpf>&lt;iostream&gt;</span><span class=cp></span>
 
-// Interfaces with GPIO
-#include &quot;matrix_hal/gpio_control.h&quot;
-// Communicates with MATRIX device
-#include &quot;matrix_hal/matrixio_bus.h&quot;
-</code></pre>
-
+<span class=c1>// Interfaces with GPIO</span>
+<span class=cp>#include</span> <span class=cpf>&quot;matrix_hal/gpio_control.h&quot;</span><span class=cp></span>
+<span class=c1>// Communicates with MATRIX device</span>
+<span class=cp>#include</span> <span class=cpf>&quot;matrix_hal/matrixio_bus.h&quot;</span><span class=cp></span>
+</pre></div></p>
 <p></details></p>
 <p><details open>
 <summary style="font-size: 1.5rem; font-weight: 300;">Initial Variables</summary>
 These initial variables are used in the example.</p>
-<pre><code class="language-cpp">// GPIOOutputMode is 1
-const uint16_t GPIOOutputMode = 1;
-// GPIOInputMode is 0
-const uint16_t GPIOInputMode = 0;
+<p> <div class=codehilite><pre><span></span><span class=c1>// GPIOOutputMode is 1</span>
+<span class=k>const</span> <span class=kt>uint16_t</span> <span class=n>GPIOOutputMode</span> <span class=o>=</span> <span class=mi>1</span><span class=p>;</span>
+<span class=c1>// GPIOInputMode is 0</span>
+<span class=k>const</span> <span class=kt>uint16_t</span> <span class=n>GPIOInputMode</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span>
 
-// Holds desired GPIO pin for output [0-15]
-uint16_t pin_out;
-// Holds desired output state
-uint16_t pin_out_state;
-// Holds desired GPIO pin for input [0-15]
-uint16_t pin_in;
-</code></pre>
-
+<span class=c1>// Holds desired GPIO pin for output [0-15]</span>
+<span class=kt>uint16_t</span> <span class=n>pin_out</span><span class=p>;</span>
+<span class=c1>// Holds desired output state</span>
+<span class=kt>uint16_t</span> <span class=n>pin_out_state</span><span class=p>;</span>
+<span class=c1>// Holds desired GPIO pin for input [0-15]</span>
+<span class=kt>uint16_t</span> <span class=n>pin_in</span><span class=p>;</span>
+</pre></div></p>
 <p></details></p>
 <p><details open>
 <summary style="font-size: 1.5rem; font-weight: 300;">Initial Setup</summary>
 You'll then need to setup <code>MatrixIOBus</code> in order to communicate with the hardware on your MATRIX device.</p>
-<pre><code class="language-cpp">int main() {
-  // Create MatrixIOBus object for hardware communication
-  matrix_hal::MatrixIOBus bus;
-  // Initialize bus and exit program if error occurs
-  if (!bus.Init()) return false;
-</code></pre>
-
+<p> <div class=codehilite><pre><span></span><span class=kt>int</span> <span class=nf>main</span><span class=p>()</span> <span class=p>{</span>
+  <span class=c1>// Create MatrixIOBus object for hardware communication</span>
+  <span class=n>matrix_hal</span><span class=o>::</span><span class=n>MatrixIOBus</span> <span class=n>bus</span><span class=p>;</span>
+  <span class=c1>// Initialize bus and exit program if error occurs</span>
+  <span class=k>if</span> <span class=p>(</span><span class=o>!</span><span class=n>bus</span><span class=p>.</span><span class=n>Init</span><span class=p>())</span> <span class=k>return</span> <span class=nb>false</span><span class=p>;</span>
+</pre></div></p>
 <p></details></p>
 <p><details open>
 <summary style="font-size: 1.5rem; font-weight: 300;">Main Setup</summary>
 Now we will create our <code>GPIOControl</code> object and use it to output and input a digital GPIO signal.</p>
-<pre><code class="language-cpp">  // The following code is part of main()
+<p> <div class=codehilite><pre><span></span>  <span class=c1>// The following code is part of main()</span>
 
-  // Create GPIOControl object
-  matrix_hal::GPIOControl gpio;
-  // Set gpio to use MatrixIOBus bus
-  gpio.Setup(&amp;bus);
+  <span class=c1>// Create GPIOControl object</span>
+  <span class=n>matrix_hal</span><span class=o>::</span><span class=n>GPIOControl</span> <span class=n>gpio</span><span class=p>;</span>
+  <span class=c1>// Set gpio to use MatrixIOBus bus</span>
+  <span class=n>gpio</span><span class=p>.</span><span class=n>Setup</span><span class=p>(</span><span class=o>&amp;</span><span class=n>bus</span><span class=p>);</span>
 
-  // Prompt user for GPIO pin
-  std::cout &lt;&lt; &quot;Select Pin [0-15] For Output: &quot;;
-  // Log user input
-  std::cin &gt;&gt; pin_out;
-  // Prompt user for GPIO state
-  std::cout &lt;&lt; &quot;Pin Output State [0-1] : &quot;;
-  // Log user input
-  std::cin &gt;&gt; pin_out_state;
-  // Prompt user for GPIO pin
-  std::cout &lt;&lt; &quot;Select Pin [0-15] For Input: &quot;;
-  // Log user input
-  std::cin &gt;&gt; pin_in;
+  <span class=c1>// Prompt user for GPIO pin</span>
+  <span class=n>std</span><span class=o>::</span><span class=n>cout</span> <span class=o>&lt;&lt;</span> <span class=s>&quot;Select Pin [0-15] For Output: &quot;</span><span class=p>;</span>
+  <span class=c1>// Log user input</span>
+  <span class=n>std</span><span class=o>::</span><span class=n>cin</span> <span class=o>&gt;&gt;</span> <span class=n>pin_out</span><span class=p>;</span>
+  <span class=c1>// Prompt user for GPIO state</span>
+  <span class=n>std</span><span class=o>::</span><span class=n>cout</span> <span class=o>&lt;&lt;</span> <span class=s>&quot;Pin Output State [0-1] : &quot;</span><span class=p>;</span>
+  <span class=c1>// Log user input</span>
+  <span class=n>std</span><span class=o>::</span><span class=n>cin</span> <span class=o>&gt;&gt;</span> <span class=n>pin_out_state</span><span class=p>;</span>
+  <span class=c1>// Prompt user for GPIO pin</span>
+  <span class=n>std</span><span class=o>::</span><span class=n>cout</span> <span class=o>&lt;&lt;</span> <span class=s>&quot;Select Pin [0-15] For Input: &quot;</span><span class=p>;</span>
+  <span class=c1>// Log user input</span>
+  <span class=n>std</span><span class=o>::</span><span class=n>cin</span> <span class=o>&gt;&gt;</span> <span class=n>pin_in</span><span class=p>;</span>
 
-  // Set pin_out mode to output
-  gpio.SetMode(pin_out, GPIOOutputMode);
+  <span class=c1>// Set pin_out mode to output</span>
+  <span class=n>gpio</span><span class=p>.</span><span class=n>SetMode</span><span class=p>(</span><span class=n>pin_out</span><span class=p>,</span> <span class=n>GPIOOutputMode</span><span class=p>);</span>
 
-  // Set pin_in mode to input
-  gpio.SetMode(pin_in, GPIOInputMode);
+  <span class=c1>// Set pin_in mode to input</span>
+  <span class=n>gpio</span><span class=p>.</span><span class=n>SetMode</span><span class=p>(</span><span class=n>pin_in</span><span class=p>,</span> <span class=n>GPIOInputMode</span><span class=p>);</span>
 
-  // Set pin_out to output pin_out_state
-  gpio.SetGPIOValue(pin_out, pin_out_state);
+  <span class=c1>// Set pin_out to output pin_out_state</span>
+  <span class=n>gpio</span><span class=p>.</span><span class=n>SetGPIOValue</span><span class=p>(</span><span class=n>pin_out</span><span class=p>,</span> <span class=n>pin_out_state</span><span class=p>);</span>
 
-  // Endless loop
-  while (true) {
-    // Get state of pin_in
-    uint16_t pin_in_state = gpio.GetGPIOValue(pin_in);
-    // Clear console
-    std::system(&quot;clear&quot;);
-    // Output pin_out info to console
-    std::cout &lt;&lt; &quot;[ Output Pin : &quot; &lt;&lt; pin_out &lt;&lt; &quot; ]&quot;
-              &lt;&lt; &quot; [ Output State : &quot; &lt;&lt; pin_out_state &lt;&lt; &quot; ]&quot; &lt;&lt; std::endl;
-    // Output pin_in info to console
-    std::cout &lt;&lt; &quot;[ Input Pin : &quot; &lt;&lt; pin_in &lt;&lt; &quot; ]&quot;
-              &lt;&lt; &quot; [ Input State : &quot; &lt;&lt; pin_in_state &lt;&lt; &quot; ]&quot; &lt;&lt; std::endl;
-    // Sleep for 10000 microseconds
-    usleep(10000);
-  }
+  <span class=c1>// Endless loop</span>
+  <span class=k>while</span> <span class=p>(</span><span class=nb>true</span><span class=p>)</span> <span class=p>{</span>
+    <span class=c1>// Get state of pin_in</span>
+    <span class=kt>uint16_t</span> <span class=n>pin_in_state</span> <span class=o>=</span> <span class=n>gpio</span><span class=p>.</span><span class=n>GetGPIOValue</span><span class=p>(</span><span class=n>pin_in</span><span class=p>);</span>
+    <span class=c1>// Clear console</span>
+    <span class=n>std</span><span class=o>::</span><span class=n>system</span><span class=p>(</span><span class=s>&quot;clear&quot;</span><span class=p>);</span>
+    <span class=c1>// Output pin_out info to console</span>
+    <span class=n>std</span><span class=o>::</span><span class=n>cout</span> <span class=o>&lt;&lt;</span> <span class=s>&quot;[ Output Pin : &quot;</span> <span class=o>&lt;&lt;</span> <span class=n>pin_out</span> <span class=o>&lt;&lt;</span> <span class=s>&quot; ]&quot;</span>
+              <span class=o>&lt;&lt;</span> <span class=s>&quot; [ Output State : &quot;</span> <span class=o>&lt;&lt;</span> <span class=n>pin_out_state</span> <span class=o>&lt;&lt;</span> <span class=s>&quot; ]&quot;</span> <span class=o>&lt;&lt;</span> <span class=n>std</span><span class=o>::</span><span class=n>endl</span><span class=p>;</span>
+    <span class=c1>// Output pin_in info to console</span>
+    <span class=n>std</span><span class=o>::</span><span class=n>cout</span> <span class=o>&lt;&lt;</span> <span class=s>&quot;[ Input Pin : &quot;</span> <span class=o>&lt;&lt;</span> <span class=n>pin_in</span> <span class=o>&lt;&lt;</span> <span class=s>&quot; ]&quot;</span>
+              <span class=o>&lt;&lt;</span> <span class=s>&quot; [ Input State : &quot;</span> <span class=o>&lt;&lt;</span> <span class=n>pin_in_state</span> <span class=o>&lt;&lt;</span> <span class=s>&quot; ]&quot;</span> <span class=o>&lt;&lt;</span> <span class=n>std</span><span class=o>::</span><span class=n>endl</span><span class=p>;</span>
+    <span class=c1>// Sleep for 10000 microseconds</span>
+    <span class=n>usleep</span><span class=p>(</span><span class=mi>10000</span><span class=p>);</span>
+  <span class=p>}</span>
 
-  return 0;
-}
-</code></pre>
-
+  <span class=k>return</span> <span class=mi>0</span><span class=p>;</span>
+<span class=p>}</span>
+</pre></div></p>
 <p></details></p>
 <p></details></p>
 <p><details>
@@ -594,88 +590,84 @@ The following section shows how to use GPIO in PWM mode for PWM output. You can 
 <p><details open>
 <summary style="font-size: 1.5rem; font-weight: 300;">Include Statements</summary>
 To begin working with the GPIO you need to include these header files.</p>
-<pre><code class="language-cpp">// Input/output streams and functions
-#include &lt;iostream&gt;
+<p> <div class=codehilite><pre><span></span><span class=c1>// Input/output streams and functions</span>
+<span class=cp>#include</span> <span class=cpf>&lt;iostream&gt;</span><span class=cp></span>
 
-// Interfaces with GPIO
-#include &quot;matrix_hal/gpio_control.h&quot;
-// Communicates with MATRIX device
-#include &quot;matrix_hal/matrixio_bus.h&quot;
-</code></pre>
-
+<span class=c1>// Interfaces with GPIO</span>
+<span class=cp>#include</span> <span class=cpf>&quot;matrix_hal/gpio_control.h&quot;</span><span class=cp></span>
+<span class=c1>// Communicates with MATRIX device</span>
+<span class=cp>#include</span> <span class=cpf>&quot;matrix_hal/matrixio_bus.h&quot;</span><span class=cp></span>
+</pre></div></p>
 <p></details></p>
 <p><details open>
 <summary style="font-size: 1.5rem; font-weight: 300;">Initial Variables</summary>
 These initial variables are used in the example.</p>
-<pre><code class="language-cpp">// GPIOOutputMode is 1
-const uint16_t GPIOOutputMode = 1;
-// GPIOInputMode is 0
-const uint16_t GPIOInputMode = 0;
-// PWMFunction is 1
-const uint16_t PWMFunction = 1;
+<p> <div class=codehilite><pre><span></span><span class=c1>// GPIOOutputMode is 1</span>
+<span class=k>const</span> <span class=kt>uint16_t</span> <span class=n>GPIOOutputMode</span> <span class=o>=</span> <span class=mi>1</span><span class=p>;</span>
+<span class=c1>// GPIOInputMode is 0</span>
+<span class=k>const</span> <span class=kt>uint16_t</span> <span class=n>GPIOInputMode</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span>
+<span class=c1>// PWMFunction is 1</span>
+<span class=k>const</span> <span class=kt>uint16_t</span> <span class=n>PWMFunction</span> <span class=o>=</span> <span class=mi>1</span><span class=p>;</span>
 
-// Holds desired PWM frequency
-float frequency;
-// Holds desired PWM duty percentage
-float percentage;
-// Holds desired GPIO pin [0-15]
-uint16_t pin;
-</code></pre>
-
+<span class=c1>// Holds desired PWM frequency</span>
+<span class=kt>float</span> <span class=n>frequency</span><span class=p>;</span>
+<span class=c1>// Holds desired PWM duty percentage</span>
+<span class=kt>float</span> <span class=n>percentage</span><span class=p>;</span>
+<span class=c1>// Holds desired GPIO pin [0-15]</span>
+<span class=kt>uint16_t</span> <span class=n>pin</span><span class=p>;</span>
+</pre></div></p>
 <p></details></p>
 <p><details open>
 <summary style="font-size: 1.5rem; font-weight: 300;">Initial Setup</summary>
 You'll then need to setup <code>MatrixIOBus</code> in order to communicate with the hardware on your MATRIX device.</p>
-<pre><code class="language-cpp">int main() {
-  // Create MatrixIOBus object for hardware communication
-  matrix_hal::MatrixIOBus bus;
-  // Initialize bus and exit program if error occurs
-  if (!bus.Init()) return false;
-</code></pre>
-
+<p> <div class=codehilite><pre><span></span><span class=kt>int</span> <span class=nf>main</span><span class=p>()</span> <span class=p>{</span>
+  <span class=c1>// Create MatrixIOBus object for hardware communication</span>
+  <span class=n>matrix_hal</span><span class=o>::</span><span class=n>MatrixIOBus</span> <span class=n>bus</span><span class=p>;</span>
+  <span class=c1>// Initialize bus and exit program if error occurs</span>
+  <span class=k>if</span> <span class=p>(</span><span class=o>!</span><span class=n>bus</span><span class=p>.</span><span class=n>Init</span><span class=p>())</span> <span class=k>return</span> <span class=nb>false</span><span class=p>;</span>
+</pre></div></p>
 <p></details></p>
 <p><details open>
 <summary style="font-size: 1.5rem; font-weight: 300;">Main Setup</summary>
 Now we will create our <code>GPIOControl</code> object and use it to output and input a digital GPIO signal.</p>
-<pre><code class="language-cpp">  // The following code is part of main()
+<p> <div class=codehilite><pre><span></span>  <span class=c1>// The following code is part of main()</span>
 
-  // Create GPIOControl object
-  matrix_hal::GPIOControl gpio;
-  // Set gpio to use MatrixIOBus bus
-  gpio.Setup(&amp;bus);
+  <span class=c1>// Create GPIOControl object</span>
+  <span class=n>matrix_hal</span><span class=o>::</span><span class=n>GPIOControl</span> <span class=n>gpio</span><span class=p>;</span>
+  <span class=c1>// Set gpio to use MatrixIOBus bus</span>
+  <span class=n>gpio</span><span class=p>.</span><span class=n>Setup</span><span class=p>(</span><span class=o>&amp;</span><span class=n>bus</span><span class=p>);</span>
 
-  // Prompt user for GPIO pin
-  std::cout &lt;&lt; &quot;Select Pin [0-15] : &quot;;
-  // Log user input
-  std::cin &gt;&gt; pin;
-  // Prompt user for PWM frequency
-  std::cout &lt;&lt; &quot;Select Frequency (in Hz) : &quot;;
-  // Log user input
-  std::cin &gt;&gt; frequency;
-  // Prompt user for PWM duty percentage
-  std::cout &lt;&lt; &quot;Select Duty Percentage : &quot;;
-  // Log user input
-  std::cin &gt;&gt; percentage;
+  <span class=c1>// Prompt user for GPIO pin</span>
+  <span class=n>std</span><span class=o>::</span><span class=n>cout</span> <span class=o>&lt;&lt;</span> <span class=s>&quot;Select Pin [0-15] : &quot;</span><span class=p>;</span>
+  <span class=c1>// Log user input</span>
+  <span class=n>std</span><span class=o>::</span><span class=n>cin</span> <span class=o>&gt;&gt;</span> <span class=n>pin</span><span class=p>;</span>
+  <span class=c1>// Prompt user for PWM frequency</span>
+  <span class=n>std</span><span class=o>::</span><span class=n>cout</span> <span class=o>&lt;&lt;</span> <span class=s>&quot;Select Frequency (in Hz) : &quot;</span><span class=p>;</span>
+  <span class=c1>// Log user input</span>
+  <span class=n>std</span><span class=o>::</span><span class=n>cin</span> <span class=o>&gt;&gt;</span> <span class=n>frequency</span><span class=p>;</span>
+  <span class=c1>// Prompt user for PWM duty percentage</span>
+  <span class=n>std</span><span class=o>::</span><span class=n>cout</span> <span class=o>&lt;&lt;</span> <span class=s>&quot;Select Duty Percentage : &quot;</span><span class=p>;</span>
+  <span class=c1>// Log user input</span>
+  <span class=n>std</span><span class=o>::</span><span class=n>cin</span> <span class=o>&gt;&gt;</span> <span class=n>percentage</span><span class=p>;</span>
 
-  // Set pin mode to output
-  gpio.SetMode(pin, GPIOOutputMode);
-  // Set pin function to PWM
-  gpio.SetFunction(pin, PWMFunction);
+  <span class=c1>// Set pin mode to output</span>
+  <span class=n>gpio</span><span class=p>.</span><span class=n>SetMode</span><span class=p>(</span><span class=n>pin</span><span class=p>,</span> <span class=n>GPIOOutputMode</span><span class=p>);</span>
+  <span class=c1>// Set pin function to PWM</span>
+  <span class=n>gpio</span><span class=p>.</span><span class=n>SetFunction</span><span class=p>(</span><span class=n>pin</span><span class=p>,</span> <span class=n>PWMFunction</span><span class=p>);</span>
 
-  // If setting PWM returns an error, log it
-  // SetPWM function carries out PWM logic and outputs PWM signal
-  if (!gpio.SetPWM(frequency, percentage, pin))
-    // Output error to console
-    std::cerr &lt;&lt; &quot;ERROR: invalid input&quot; &lt;&lt; std::endl;
-  else
-    // Else output GPIO PWM info to console
-    std::cout &lt;&lt; &quot;[ Pin : &quot; &lt;&lt; pin &lt;&lt; &quot; ] [ Frequency : &quot; &lt;&lt; frequency
-              &lt;&lt; &quot; ] [ Duty Percentage : &quot; &lt;&lt; percentage &lt;&lt; &quot; ]&quot; &lt;&lt; std::endl;
+  <span class=c1>// If setting PWM returns an error, log it</span>
+  <span class=c1>// SetPWM function carries out PWM logic and outputs PWM signal</span>
+  <span class=k>if</span> <span class=p>(</span><span class=o>!</span><span class=n>gpio</span><span class=p>.</span><span class=n>SetPWM</span><span class=p>(</span><span class=n>frequency</span><span class=p>,</span> <span class=n>percentage</span><span class=p>,</span> <span class=n>pin</span><span class=p>))</span>
+    <span class=c1>// Output error to console</span>
+    <span class=n>std</span><span class=o>::</span><span class=n>cerr</span> <span class=o>&lt;&lt;</span> <span class=s>&quot;ERROR: invalid input&quot;</span> <span class=o>&lt;&lt;</span> <span class=n>std</span><span class=o>::</span><span class=n>endl</span><span class=p>;</span>
+  <span class=k>else</span>
+    <span class=c1>// Else output GPIO PWM info to console</span>
+    <span class=n>std</span><span class=o>::</span><span class=n>cout</span> <span class=o>&lt;&lt;</span> <span class=s>&quot;[ Pin : &quot;</span> <span class=o>&lt;&lt;</span> <span class=n>pin</span> <span class=o>&lt;&lt;</span> <span class=s>&quot; ] [ Frequency : &quot;</span> <span class=o>&lt;&lt;</span> <span class=n>frequency</span>
+              <span class=o>&lt;&lt;</span> <span class=s>&quot; ] [ Duty Percentage : &quot;</span> <span class=o>&lt;&lt;</span> <span class=n>percentage</span> <span class=o>&lt;&lt;</span> <span class=s>&quot; ]&quot;</span> <span class=o>&lt;&lt;</span> <span class=n>std</span><span class=o>::</span><span class=n>endl</span><span class=p>;</span>
 
-  return 0;
-}
-</code></pre>
-
+  <span class=k>return</span> <span class=mi>0</span><span class=p>;</span>
+<span class=p>}</span>
+</pre></div></p>
 <p></details></p>
 <p></details></p>
 <p><details>
@@ -684,97 +676,93 @@ The following section shows how to use GPIO in PWM mode for controlling a servo.
 <p><details open>
 <summary style="font-size: 1.5rem; font-weight: 300;">Include Statements</summary>
 To begin working with the GPIO you need to include these header files.</p>
-<pre><code class="language-cpp">// Input/output streams and functions
-#include &lt;iostream&gt;
+<p> <div class=codehilite><pre><span></span><span class=c1>// Input/output streams and functions</span>
+<span class=cp>#include</span> <span class=cpf>&lt;iostream&gt;</span><span class=cp></span>
 
-// Interfaces with GPIO
-#include &quot;matrix_hal/gpio_control.h&quot;
-// Communicates with MATRIX device
-#include &quot;matrix_hal/matrixio_bus.h&quot;
-</code></pre>
-
+<span class=c1>// Interfaces with GPIO</span>
+<span class=cp>#include</span> <span class=cpf>&quot;matrix_hal/gpio_control.h&quot;</span><span class=cp></span>
+<span class=c1>// Communicates with MATRIX device</span>
+<span class=cp>#include</span> <span class=cpf>&quot;matrix_hal/matrixio_bus.h&quot;</span><span class=cp></span>
+</pre></div></p>
 <p></details></p>
 <p><details open>
 <summary style="font-size: 1.5rem; font-weight: 300;">Initial Variables</summary>
 These initial variables are used in the example.</p>
-<pre><code class="language-cpp">// GPIOOutputMode is 1
-const uint16_t GPIOOutputMode = 1;
-// GPIOInputMode is 0
-const uint16_t GPIOInputMode = 0;
+<p> <div class=codehilite><pre><span></span><span class=c1>// GPIOOutputMode is 1</span>
+<span class=k>const</span> <span class=kt>uint16_t</span> <span class=n>GPIOOutputMode</span> <span class=o>=</span> <span class=mi>1</span><span class=p>;</span>
+<span class=c1>// GPIOInputMode is 0</span>
+<span class=k>const</span> <span class=kt>uint16_t</span> <span class=n>GPIOInputMode</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span>
 
-// PWMFunction is 1
-const uint16_t PWMFunction = 1;
+<span class=c1>// PWMFunction is 1</span>
+<span class=k>const</span> <span class=kt>uint16_t</span> <span class=n>PWMFunction</span> <span class=o>=</span> <span class=mi>1</span><span class=p>;</span>
 
-// Holds desired PWM frequency
-float frequency;
-// Holds desired PWM duty percentage
-float percentage;
-// Holds desired GPIO pin [0-15]
-uint16_t pin;
-// Holds desired servo angle
-float angle;
-// Holds servo minimum pulse length (for calibration)
-float min_pulse_ms;
-</code></pre>
-
+<span class=c1>// Holds desired PWM frequency</span>
+<span class=kt>float</span> <span class=n>frequency</span><span class=p>;</span>
+<span class=c1>// Holds desired PWM duty percentage</span>
+<span class=kt>float</span> <span class=n>percentage</span><span class=p>;</span>
+<span class=c1>// Holds desired GPIO pin [0-15]</span>
+<span class=kt>uint16_t</span> <span class=n>pin</span><span class=p>;</span>
+<span class=c1>// Holds desired servo angle</span>
+<span class=kt>float</span> <span class=n>angle</span><span class=p>;</span>
+<span class=c1>// Holds servo minimum pulse length (for calibration)</span>
+<span class=kt>float</span> <span class=n>min_pulse_ms</span><span class=p>;</span>
+</pre></div></p>
 <p></details></p>
 <p><details open>
 <summary style="font-size: 1.5rem; font-weight: 300;">Initial Setup</summary>
 You'll then need to setup <code>MatrixIOBus</code> in order to communicate with the hardware on your MATRIX device.</p>
-<pre><code class="language-cpp">int main() {
-  // Create MatrixIOBus object for hardware communication
-  matrix_hal::MatrixIOBus bus;
-  // Initialize bus and exit program if error occurs
-  if (!bus.Init()) return false;
-</code></pre>
-
+<p> <div class=codehilite><pre><span></span><span class=kt>int</span> <span class=nf>main</span><span class=p>()</span> <span class=p>{</span>
+  <span class=c1>// Create MatrixIOBus object for hardware communication</span>
+  <span class=n>matrix_hal</span><span class=o>::</span><span class=n>MatrixIOBus</span> <span class=n>bus</span><span class=p>;</span>
+  <span class=c1>// Initialize bus and exit program if error occurs</span>
+  <span class=k>if</span> <span class=p>(</span><span class=o>!</span><span class=n>bus</span><span class=p>.</span><span class=n>Init</span><span class=p>())</span> <span class=k>return</span> <span class=nb>false</span><span class=p>;</span>
+</pre></div></p>
 <p></details></p>
 <p><details open>
 <summary style="font-size: 1.5rem; font-weight: 300;">Main Setup</summary>
 Now we will create our <code>GPIOControl</code> object and use it to output and input a digital GPIO signal.</p>
 <p>Servo neutral position is achieved with a 1.5 milliseconds pulse, so by taking the minimum servo pulse (in milliseconds) the SetServoAngle function calibrates servo angle.
 If unsure of min_pulse_ms enter <code>0.8</code>.</p>
-<pre><code class="language-cpp">  // The following code is part of main()
+<p> <div class=codehilite><pre><span></span>  <span class=c1>// The following code is part of main()</span>
 
-  // Create GPIOControl object
-  matrix_hal::GPIOControl gpio;
-  // Set gpio to use MatrixIOBus bus
-  gpio.Setup(&amp;bus);
+  <span class=c1>// Create GPIOControl object</span>
+  <span class=n>matrix_hal</span><span class=o>::</span><span class=n>GPIOControl</span> <span class=n>gpio</span><span class=p>;</span>
+  <span class=c1>// Set gpio to use MatrixIOBus bus</span>
+  <span class=n>gpio</span><span class=p>.</span><span class=n>Setup</span><span class=p>(</span><span class=o>&amp;</span><span class=n>bus</span><span class=p>);</span>
 
-  // Prompt user for GPIO pin
-  std::cout &lt;&lt; &quot;Select Pin [0-15] : &quot;;
-  // Log user input
-  std::cin &gt;&gt; pin;
-  // Prompt user for servo angle
-  std::cout &lt;&lt; &quot;Servo Angle : &quot;;
-  // Log user input
-  std::cin &gt;&gt; angle;
-  // Prompt user for servo minimum pulse length in ms (for calibration)
-  std::cout &lt;&lt; &quot;Servo Min Pulse (ms) : &quot;;
-  // Log user input
-  std::cin &gt;&gt; min_pulse_ms;
+  <span class=c1>// Prompt user for GPIO pin</span>
+  <span class=n>std</span><span class=o>::</span><span class=n>cout</span> <span class=o>&lt;&lt;</span> <span class=s>&quot;Select Pin [0-15] : &quot;</span><span class=p>;</span>
+  <span class=c1>// Log user input</span>
+  <span class=n>std</span><span class=o>::</span><span class=n>cin</span> <span class=o>&gt;&gt;</span> <span class=n>pin</span><span class=p>;</span>
+  <span class=c1>// Prompt user for servo angle</span>
+  <span class=n>std</span><span class=o>::</span><span class=n>cout</span> <span class=o>&lt;&lt;</span> <span class=s>&quot;Servo Angle : &quot;</span><span class=p>;</span>
+  <span class=c1>// Log user input</span>
+  <span class=n>std</span><span class=o>::</span><span class=n>cin</span> <span class=o>&gt;&gt;</span> <span class=n>angle</span><span class=p>;</span>
+  <span class=c1>// Prompt user for servo minimum pulse length in ms (for calibration)</span>
+  <span class=n>std</span><span class=o>::</span><span class=n>cout</span> <span class=o>&lt;&lt;</span> <span class=s>&quot;Servo Min Pulse (ms) : &quot;</span><span class=p>;</span>
+  <span class=c1>// Log user input</span>
+  <span class=n>std</span><span class=o>::</span><span class=n>cin</span> <span class=o>&gt;&gt;</span> <span class=n>min_pulse_ms</span><span class=p>;</span>
 
-  // Set pin mode to output
-  gpio.SetMode(pin, GPIOOutputMode);
-  // Set pin function to PWM
-  gpio.SetFunction(pin, PWMFunction);
+  <span class=c1>// Set pin mode to output</span>
+  <span class=n>gpio</span><span class=p>.</span><span class=n>SetMode</span><span class=p>(</span><span class=n>pin</span><span class=p>,</span> <span class=n>GPIOOutputMode</span><span class=p>);</span>
+  <span class=c1>// Set pin function to PWM</span>
+  <span class=n>gpio</span><span class=p>.</span><span class=n>SetFunction</span><span class=p>(</span><span class=n>pin</span><span class=p>,</span> <span class=n>PWMFunction</span><span class=p>);</span>
 
-  // If setting servo angle returns an error, log it
-  // SetServoAngle function sets a servo angle based on the min_pulse_ms
-  if (!gpio.SetServoAngle(angle, min_pulse_ms, pin))
-    // Output error to console
-    std::cerr &lt;&lt; &quot;ERROR: invalid input&quot; &lt;&lt; std::endl;
-  else
-    // Else output servo control info to console
-    std::cout &lt;&lt; &quot;[ Pin : &quot; &lt;&lt; pin &lt;&lt; &quot; ]&quot;
-              &lt;&lt; &quot; [ Servo Angle : &quot; &lt;&lt; angle
-              &lt;&lt; &quot; ] [ Servo Min Pulse (ms) : &quot; &lt;&lt; min_pulse_ms &lt;&lt; &quot; ] &quot;
-              &lt;&lt; std::endl;
+  <span class=c1>// If setting servo angle returns an error, log it</span>
+  <span class=c1>// SetServoAngle function sets a servo angle based on the min_pulse_ms</span>
+  <span class=k>if</span> <span class=p>(</span><span class=o>!</span><span class=n>gpio</span><span class=p>.</span><span class=n>SetServoAngle</span><span class=p>(</span><span class=n>angle</span><span class=p>,</span> <span class=n>min_pulse_ms</span><span class=p>,</span> <span class=n>pin</span><span class=p>))</span>
+    <span class=c1>// Output error to console</span>
+    <span class=n>std</span><span class=o>::</span><span class=n>cerr</span> <span class=o>&lt;&lt;</span> <span class=s>&quot;ERROR: invalid input&quot;</span> <span class=o>&lt;&lt;</span> <span class=n>std</span><span class=o>::</span><span class=n>endl</span><span class=p>;</span>
+  <span class=k>else</span>
+    <span class=c1>// Else output servo control info to console</span>
+    <span class=n>std</span><span class=o>::</span><span class=n>cout</span> <span class=o>&lt;&lt;</span> <span class=s>&quot;[ Pin : &quot;</span> <span class=o>&lt;&lt;</span> <span class=n>pin</span> <span class=o>&lt;&lt;</span> <span class=s>&quot; ]&quot;</span>
+              <span class=o>&lt;&lt;</span> <span class=s>&quot; [ Servo Angle : &quot;</span> <span class=o>&lt;&lt;</span> <span class=n>angle</span>
+              <span class=o>&lt;&lt;</span> <span class=s>&quot; ] [ Servo Min Pulse (ms) : &quot;</span> <span class=o>&lt;&lt;</span> <span class=n>min_pulse_ms</span> <span class=o>&lt;&lt;</span> <span class=s>&quot; ] &quot;</span>
+              <span class=o>&lt;&lt;</span> <span class=n>std</span><span class=o>::</span><span class=n>endl</span><span class=p>;</span>
 
-  return 0;
-}
-</code></pre>
-
+  <span class=k>return</span> <span class=mi>0</span><span class=p>;</span>
+<span class=p>}</span>
+</pre></div></p>
 <p></details></p>
 <p></details></p> 
         </div>
@@ -897,7 +885,12 @@ If unsure of min_pulse_ms enter <code>0.8</code>.</p>
     </div>
   </div>
 </footer>
-
+  <!--Global Vars-->
+  <script>
+    base_url = "../../..";
+  </script>
+  <!-- Scripts -->
+  <script src="../../../js/clipboard.min.js"></script>
   <script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
@@ -906,7 +899,6 @@ If unsure of min_pulse_ms enter <code>0.8</code>.</p>
   <script src="../../../js/jquery.ajaxchimp.min.js"></script>
   <script src="../../../js/jquery.ajaxchimp.langs.min.js"></script>
   <script src="../../../js/footer.js"></script>
-  <script src="../../../js/prism.js"></script>
 
   <!-- TOC Script -->
   <script>

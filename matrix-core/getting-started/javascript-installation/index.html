@@ -7,7 +7,8 @@
   <link rel="shortcut icon" href="../../../img/favicon.ico">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
   <link rel="stylesheet" href="../../../css/theme.css">
-  <link rel="stylesheet" href="../../../css/prism.css">
+  <link rel="stylesheet" href="../../../css/codehilite.css">
+  <link rel="stylesheet" href="../../../css/clipboard.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
 </head>
@@ -468,100 +469,95 @@
 <blockquote>
 <p>It is <strong>strongly</strong> recommended to use version <code>8.6</code> of Node.js</p>
 </blockquote>
-<pre><code class="language-bash">curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash
+<p> <div class=codehilite><pre><span></span>curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh <span class=p>|</span> bash
 . ~/.bashrc
-nvm install 8.6
-</code></pre>
-
+nvm install <span class=m>8</span>.6
+</pre></div></p>
 <p><br/></p>
 <h2 id="creating-a-nodejs-application">Creating A Node.js Application</h2>
 <p><h3 style="padding-top: 0">Making Your Project Directory</h3>
 Use the following commands to initialize a Node project folder, in the home directory <code>~/</code> of your MATRIX device.</p>
-<pre><code class="language-bash">cd ~/
+<p> <div class=codehilite><pre><span></span><span class=nb>cd</span> ~/
 mkdir js-matrix-core-app
-cd js-matrix-core-app
+<span class=nb>cd</span> js-matrix-core-app
 npm init
-</code></pre>
-
+</pre></div></p>
 <h3 style="padding-top: 0">Installing npm Packages for ZMQ and Protocol Buffers</h3>
 
 <p>While staying inside your app folder, use the commands below to install the ZMQ and MATRIX Protocol Buffers npm packages. This allows you to interact with MATRIX Core through Node.js.</p>
-<pre><code class="language-bash">npm install zeromq --save
+<p> <div class=codehilite><pre><span></span>npm install zeromq --save
 npm install matrix-protos --save
-</code></pre>
-
+</pre></div></p>
 <p><br/></p>
 <h2 id="check-if-everything-works">Check If Everything Works</h2>
 <p><h3 style="padding-top: 0">Creating app.js</h3>
 To ensure your installation has succeeded, create a file named <code>app.js</code> and paste the code below.</p>
-<pre><code class="language-javascript">// Set Initial Variables \\
-var zmq = require('zeromq');// Asynchronous Messaging Framework
-var matrix_io = require('matrix-protos').matrix_io;// Protocol Buffers for MATRIX function
-var matrix_ip = '127.0.0.1';// Local IP
-var matrix_everloop_base_port = 20021// Port for Everloop driver
-var matrix_device_leds = 0;// Holds amount of LEDs on MATRIX device
+<p> <div class=codehilite><pre><span></span><span class=c1>// Set Initial Variables \\</span>
+<span class=kd>var</span> <span class=nx>zmq</span> <span class=o>=</span> <span class=nx>require</span><span class=p>(</span><span class=s1>&#39;zeromq&#39;</span><span class=p>);</span><span class=c1>// Asynchronous Messaging Framework</span>
+<span class=kd>var</span> <span class=nx>matrix_io</span> <span class=o>=</span> <span class=nx>require</span><span class=p>(</span><span class=s1>&#39;matrix-protos&#39;</span><span class=p>).</span><span class=nx>matrix_io</span><span class=p>;</span><span class=c1>// Protocol Buffers for MATRIX function</span>
+<span class=kd>var</span> <span class=nx>matrix_ip</span> <span class=o>=</span> <span class=s1>&#39;127.0.0.1&#39;</span><span class=p>;</span><span class=c1>// Local IP</span>
+<span class=kd>var</span> <span class=nx>matrix_everloop_base_port</span> <span class=o>=</span> <span class=mi>20021</span><span class=c1>// Port for Everloop driver</span>
+<span class=kd>var</span> <span class=nx>matrix_device_leds</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span><span class=c1>// Holds amount of LEDs on MATRIX device</span>
 
-// ERROR PORT \\
-var errorSocket = zmq.socket('sub');// Create a Subscriber socket
-errorSocket.connect('tcp://' + matrix_ip + ':' + (matrix_everloop_base_port + 2));// Connect Subscriber to Error port
-errorSocket.subscribe('');// Subscribe to messages
-// On Message
-errorSocket.on('message', (error_message) =&gt; {
-    console.log('Error received: ' + error_message.toString('utf8'));// Log error
-});
+<span class=c1>// ERROR PORT \\</span>
+<span class=kd>var</span> <span class=nx>errorSocket</span> <span class=o>=</span> <span class=nx>zmq</span><span class=p>.</span><span class=nx>socket</span><span class=p>(</span><span class=s1>&#39;sub&#39;</span><span class=p>);</span><span class=c1>// Create a Subscriber socket</span>
+<span class=nx>errorSocket</span><span class=p>.</span><span class=nx>connect</span><span class=p>(</span><span class=s1>&#39;tcp://&#39;</span> <span class=o>+</span> <span class=nx>matrix_ip</span> <span class=o>+</span> <span class=s1>&#39;:&#39;</span> <span class=o>+</span> <span class=p>(</span><span class=nx>matrix_everloop_base_port</span> <span class=o>+</span> <span class=mi>2</span><span class=p>));</span><span class=c1>// Connect Subscriber to Error port</span>
+<span class=nx>errorSocket</span><span class=p>.</span><span class=nx>subscribe</span><span class=p>(</span><span class=s1>&#39;&#39;</span><span class=p>);</span><span class=c1>// Subscribe to messages</span>
+<span class=c1>// On Message</span>
+<span class=nx>errorSocket</span><span class=p>.</span><span class=nx>on</span><span class=p>(</span><span class=s1>&#39;message&#39;</span><span class=p>,</span> <span class=p>(</span><span class=nx>error_message</span><span class=p>)</span> <span class=p>=&gt;</span> <span class=p>{</span>
+    <span class=nx>console</span><span class=p>.</span><span class=nx>log</span><span class=p>(</span><span class=s1>&#39;Error received: &#39;</span> <span class=o>+</span> <span class=nx>error_message</span><span class=p>.</span><span class=nx>toString</span><span class=p>(</span><span class=s1>&#39;utf8&#39;</span><span class=p>));</span><span class=c1>// Log error</span>
+<span class=p>});</span>
 
-// DATA UPDATE PORT \\
-var updateSocket = zmq.socket('sub');// Create a Subscriber socket
-updateSocket.connect('tcp://' + matrix_ip + ':' + (matrix_everloop_base_port + 3));// Connect Subscriber to Data Update port
-updateSocket.subscribe('');// Subscribe to messages
-// On Message
-updateSocket.on('message', (buffer) =&gt; {
-    var data = matrix_io.malos.v1.io.EverloopImage.decode(buffer);// Extract message
-    matrix_device_leds = data.everloopLength;// Save MATRIX device LED count
-});
+<span class=c1>// DATA UPDATE PORT \\</span>
+<span class=kd>var</span> <span class=nx>updateSocket</span> <span class=o>=</span> <span class=nx>zmq</span><span class=p>.</span><span class=nx>socket</span><span class=p>(</span><span class=s1>&#39;sub&#39;</span><span class=p>);</span><span class=c1>// Create a Subscriber socket</span>
+<span class=nx>updateSocket</span><span class=p>.</span><span class=nx>connect</span><span class=p>(</span><span class=s1>&#39;tcp://&#39;</span> <span class=o>+</span> <span class=nx>matrix_ip</span> <span class=o>+</span> <span class=s1>&#39;:&#39;</span> <span class=o>+</span> <span class=p>(</span><span class=nx>matrix_everloop_base_port</span> <span class=o>+</span> <span class=mi>3</span><span class=p>));</span><span class=c1>// Connect Subscriber to Data Update port</span>
+<span class=nx>updateSocket</span><span class=p>.</span><span class=nx>subscribe</span><span class=p>(</span><span class=s1>&#39;&#39;</span><span class=p>);</span><span class=c1>// Subscribe to messages</span>
+<span class=c1>// On Message</span>
+<span class=nx>updateSocket</span><span class=p>.</span><span class=nx>on</span><span class=p>(</span><span class=s1>&#39;message&#39;</span><span class=p>,</span> <span class=p>(</span><span class=nx>buffer</span><span class=p>)</span> <span class=p>=&gt;</span> <span class=p>{</span>
+    <span class=kd>var</span> <span class=nx>data</span> <span class=o>=</span> <span class=nx>matrix_io</span><span class=p>.</span><span class=nx>malos</span><span class=p>.</span><span class=nx>v1</span><span class=p>.</span><span class=nx>io</span><span class=p>.</span><span class=nx>EverloopImage</span><span class=p>.</span><span class=nx>decode</span><span class=p>(</span><span class=nx>buffer</span><span class=p>);</span><span class=c1>// Extract message</span>
+    <span class=nx>matrix_device_leds</span> <span class=o>=</span> <span class=nx>data</span><span class=p>.</span><span class=nx>everloopLength</span><span class=p>;</span><span class=c1>// Save MATRIX device LED count</span>
+<span class=p>});</span>
 
-// KEEP-ALIVE PORT \\
-var pingSocket = zmq.socket('push');// Create a Pusher socket
-pingSocket.connect('tcp://' + matrix_ip + ':' + (matrix_everloop_base_port + 1));// Connect Pusher to Keep-alive port
-pingSocket.send('');// Send a single ping
+<span class=c1>// KEEP-ALIVE PORT \\</span>
+<span class=kd>var</span> <span class=nx>pingSocket</span> <span class=o>=</span> <span class=nx>zmq</span><span class=p>.</span><span class=nx>socket</span><span class=p>(</span><span class=s1>&#39;push&#39;</span><span class=p>);</span><span class=c1>// Create a Pusher socket</span>
+<span class=nx>pingSocket</span><span class=p>.</span><span class=nx>connect</span><span class=p>(</span><span class=s1>&#39;tcp://&#39;</span> <span class=o>+</span> <span class=nx>matrix_ip</span> <span class=o>+</span> <span class=s1>&#39;:&#39;</span> <span class=o>+</span> <span class=p>(</span><span class=nx>matrix_everloop_base_port</span> <span class=o>+</span> <span class=mi>1</span><span class=p>));</span><span class=c1>// Connect Pusher to Keep-alive port</span>
+<span class=nx>pingSocket</span><span class=p>.</span><span class=nx>send</span><span class=p>(</span><span class=s1>&#39;&#39;</span><span class=p>);</span><span class=c1>// Send a single ping</span>
 
-// BASE PORT \\
-var configSocket = zmq.socket('push');// Create a Pusher socket
-configSocket.connect('tcp://' + matrix_ip + ':' + matrix_everloop_base_port);// Connect Pusher to Base port
+<span class=c1>// BASE PORT \\</span>
+<span class=kd>var</span> <span class=nx>configSocket</span> <span class=o>=</span> <span class=nx>zmq</span><span class=p>.</span><span class=nx>socket</span><span class=p>(</span><span class=s1>&#39;push&#39;</span><span class=p>);</span><span class=c1>// Create a Pusher socket</span>
+<span class=nx>configSocket</span><span class=p>.</span><span class=nx>connect</span><span class=p>(</span><span class=s1>&#39;tcp://&#39;</span> <span class=o>+</span> <span class=nx>matrix_ip</span> <span class=o>+</span> <span class=s1>&#39;:&#39;</span> <span class=o>+</span> <span class=nx>matrix_everloop_base_port</span><span class=p>);</span><span class=c1>// Connect Pusher to Base port</span>
 
-// Create an empty Everloop image
-var image = matrix_io.malos.v1.io.EverloopImage.create();
+<span class=c1>// Create an empty Everloop image</span>
+<span class=kd>var</span> <span class=nx>image</span> <span class=o>=</span> <span class=nx>matrix_io</span><span class=p>.</span><span class=nx>malos</span><span class=p>.</span><span class=nx>v1</span><span class=p>.</span><span class=nx>io</span><span class=p>.</span><span class=nx>EverloopImage</span><span class=p>.</span><span class=nx>create</span><span class=p>();</span>
 
-// Loop every 50 milliseconds
-setInterval(function(){
-    // For each device LED
-    for (var i = 0; i &lt; matrix_device_leds; ++i) {
-        // Set individual LED value
-        image.led[i] = {
-            red: Math.floor(Math.random() * 200)+1,
-            green: Math.floor(Math.random() * 255)+1,
-            blue: Math.floor(Math.random() * 50)+1,
-            white: 0
-        };
-    }
+<span class=c1>// Loop every 50 milliseconds</span>
+<span class=nx>setInterval</span><span class=p>(</span><span class=kd>function</span><span class=p>(){</span>
+    <span class=c1>// For each device LED</span>
+    <span class=k>for</span> <span class=p>(</span><span class=kd>var</span> <span class=nx>i</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span> <span class=nx>i</span> <span class=o>&lt;</span> <span class=nx>matrix_device_leds</span><span class=p>;</span> <span class=o>++</span><span class=nx>i</span><span class=p>)</span> <span class=p>{</span>
+        <span class=c1>// Set individual LED value</span>
+        <span class=nx>image</span><span class=p>.</span><span class=nx>led</span><span class=p>[</span><span class=nx>i</span><span class=p>]</span> <span class=o>=</span> <span class=p>{</span>
+            <span class=nx>red</span><span class=o>:</span> <span class=nb>Math</span><span class=p>.</span><span class=nx>floor</span><span class=p>(</span><span class=nb>Math</span><span class=p>.</span><span class=nx>random</span><span class=p>()</span> <span class=o>*</span> <span class=mi>200</span><span class=p>)</span><span class=o>+</span><span class=mi>1</span><span class=p>,</span>
+            <span class=nx>green</span><span class=o>:</span> <span class=nb>Math</span><span class=p>.</span><span class=nx>floor</span><span class=p>(</span><span class=nb>Math</span><span class=p>.</span><span class=nx>random</span><span class=p>()</span> <span class=o>*</span> <span class=mi>255</span><span class=p>)</span><span class=o>+</span><span class=mi>1</span><span class=p>,</span>
+            <span class=nx>blue</span><span class=o>:</span> <span class=nb>Math</span><span class=p>.</span><span class=nx>floor</span><span class=p>(</span><span class=nb>Math</span><span class=p>.</span><span class=nx>random</span><span class=p>()</span> <span class=o>*</span> <span class=mi>50</span><span class=p>)</span><span class=o>+</span><span class=mi>1</span><span class=p>,</span>
+            <span class=nx>white</span><span class=o>:</span> <span class=mi>0</span>
+        <span class=p>};</span>
+    <span class=p>}</span>
 
-    // Store the Everloop image in MATRIX configuration
-    var config = matrix_io.malos.v1.driver.DriverConfig.create({
-        'image': image
-    });
+    <span class=c1>// Store the Everloop image in MATRIX configuration</span>
+    <span class=kd>var</span> <span class=nx>config</span> <span class=o>=</span> <span class=nx>matrix_io</span><span class=p>.</span><span class=nx>malos</span><span class=p>.</span><span class=nx>v1</span><span class=p>.</span><span class=nx>driver</span><span class=p>.</span><span class=nx>DriverConfig</span><span class=p>.</span><span class=nx>create</span><span class=p>({</span>
+        <span class=s1>&#39;image&#39;</span><span class=o>:</span> <span class=nx>image</span>
+    <span class=p>});</span>
 
-    // Send MATRIX configuration to MATRIX device
-    if(matrix_device_leds &gt; 0)
-        configSocket.send(matrix_io.malos.v1.driver.DriverConfig.encode(config).finish());
-},50);
-</code></pre>
-
+    <span class=c1>// Send MATRIX configuration to MATRIX device</span>
+    <span class=k>if</span><span class=p>(</span><span class=nx>matrix_device_leds</span> <span class=o>&gt;</span> <span class=mi>0</span><span class=p>)</span>
+        <span class=nx>configSocket</span><span class=p>.</span><span class=nx>send</span><span class=p>(</span><span class=nx>matrix_io</span><span class=p>.</span><span class=nx>malos</span><span class=p>.</span><span class=nx>v1</span><span class=p>.</span><span class=nx>driver</span><span class=p>.</span><span class=nx>DriverConfig</span><span class=p>.</span><span class=nx>encode</span><span class=p>(</span><span class=nx>config</span><span class=p>).</span><span class=nx>finish</span><span class=p>());</span>
+<span class=p>},</span><span class=mi>50</span><span class=p>);</span>
+</pre></div></p>
 <h3 style="padding-top: 0">Running app.js</h3>
 
 <p>Once you have the app.js code copied, use the following command to run a simple hello world app.</p>
-<pre><code class="language-bash">node app.js
-</code></pre>
-
+<p> <div class=codehilite><pre><span></span>node app.js
+</pre></div></p>
 <h3 style="padding-top: 0">Result</h3>
 
 <p><img alt="" src="../../../matrix-core/img/install-setup-test.gif" /></p>
@@ -692,7 +688,12 @@ setInterval(function(){
     </div>
   </div>
 </footer>
-
+  <!--Global Vars-->
+  <script>
+    base_url = "../../..";
+  </script>
+  <!-- Scripts -->
+  <script src="../../../js/clipboard.min.js"></script>
   <script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
@@ -701,7 +702,6 @@ setInterval(function(){
   <script src="../../../js/jquery.ajaxchimp.min.js"></script>
   <script src="../../../js/jquery.ajaxchimp.langs.min.js"></script>
   <script src="../../../js/footer.js"></script>
-  <script src="../../../js/prism.js"></script>
 
   <!-- TOC Script -->
   <script>

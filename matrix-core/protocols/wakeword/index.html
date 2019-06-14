@@ -7,7 +7,8 @@
   <link rel="shortcut icon" href="../../../img/favicon.ico">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
   <link rel="stylesheet" href="../../../css/theme.css">
-  <link rel="stylesheet" href="../../../css/prism.css">
+  <link rel="stylesheet" href="../../../css/codehilite.css">
+  <link rel="stylesheet" href="../../../css/clipboard.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
 </head>
@@ -485,28 +486,24 @@
 <h2 id="installation">Installation</h2>
 <p>In order to use MATRIX CORE wakeword, you must install the following on your MATRIX device.</p>
 <p>Install the <strong>MATRIX Kernel</strong> modules.</p>
-<pre><code class="language-bash">sudo apt install matrixio-kernel-modules
-</code></pre>
-
+<p> <div class=codehilite><pre><span></span>sudo apt install matrixio-kernel-modules
+</pre></div></p>
 <p>Install the <strong>MATRIX CORE Wakeword Package</strong>.</p>
-<pre><code class="language-bash">sudo apt install matrixio-malos-wakeword
-</code></pre>
-
+<p> <div class=codehilite><pre><span></span>sudo apt install matrixio-malos-wakeword
+</pre></div></p>
 <p>Perform a <strong>reboot</strong> before moving on.</p>
-<pre><code class="language-bash">sudo reboot
-</code></pre>
-
+<p> <div class=codehilite><pre><span></span>sudo reboot
+</pre></div></p>
 <h2 id="creating-custom-phrases">Creating Custom Phrases</h2>
 <p>To create custom phrases, you must upload a <code>.txt</code> file to <a href="http://www.speech.cs.cmu.edu/tools/lmtool-new.html" target="_blank">Sphinx Knowledge Base</a>.</p>
 <p>Below is an example text file that has each phrase separated by a line break. Once this is uploaded to the Sphinx Knowledge base, you will need to download the language model <code>.lm</code> and dictation <code>.dic</code> files for the Wakeword Driver.</p>
-<pre><code>matrix start action
-matrix stop action
-matrix ring red
-matrix ring blue
-matrix ring green
-matrix ring clear
-</code></pre>
-
+<p> <div class=codehilite><pre><span></span><span class=n>matrix</span> <span class=k>start</span> <span class=n>action</span>
+<span class=n>matrix</span> <span class=n>stop</span> <span class=n>action</span>
+<span class=n>matrix</span> <span class=n>ring</span> <span class=n>red</span>
+<span class=n>matrix</span> <span class=n>ring</span> <span class=n>blue</span>
+<span class=n>matrix</span> <span class=n>ring</span> <span class=n>green</span>
+<span class=n>matrix</span> <span class=n>ring</span> <span class=n>clear</span>
+</pre></div></p>
 <h2 id="protocol">Protocol</h2>
 <!-- Base PORT -->
 
@@ -516,12 +513,11 @@ This port accepts a single configuration for communicating with the Wakeword dri
 <ul>
 <li><code>wakeword</code> - the wakeword configuration that's created from a <code>WakeWordParams</code> message.</li>
 </ul>
-<pre><code class="language-protobuf">message DriverConfig {
-  // Wakeword service configuration
-  matrix_io.malos.v1.io.WakeWordParams wakeword = 12;
-}
-</code></pre>
-
+<p> <div class=codehilite><pre><span></span><span class=kd>message</span> <span class=nc>DriverConfig</span> <span class=p>{</span>
+  <span class=c1>// Wakeword service configuration</span>
+  <span class=n>matrix_io.malos.v1.io.WakeWordParams</span> <span class=na>wakeword</span> <span class=o>=</span> <span class=mi>12</span><span class=p>;</span>
+<span class=p>}</span>
+</pre></div></p>
 <p>View the defined message <a href="https://github.com/matrix-io/protocol-buffers/blob/master/matrix_io/malos/v1/driver.proto" target="_blank">here</a>.</p>
 <p><code>WakeWordParams</code> </p>
 <ul>
@@ -541,36 +537,35 @@ This port accepts a single configuration for communicating with the Wakeword dri
 <p><code>stop_recognition</code> - Stop Pocket Sphinx service.</p>
 </li>
 </ul>
-<pre><code class="language-protobuf">message WakeWordParams {
-  // Mic channels
-  enum MicChannel {
-    channel0 = 0;
-    channel1 = 1;
-    channel2 = 2;
-    channel3 = 3;
-    channel4 = 4;
-    channel5 = 5;
-    channel6 = 6;
-    channel7 = 7;
-    channel8 = 8;
-  }
-  // Desired mic channel
-  MicChannel channel = 2;
+<p> <div class=codehilite><pre><span></span><span class=kd>message</span> <span class=nc>WakeWordParams</span> <span class=p>{</span>
+  <span class=c1>// Mic channels</span>
+  <span class=kd>enum</span> <span class=n>MicChannel</span> <span class=p>{</span>
+    <span class=na>channel0</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span>
+    <span class=na>channel1</span> <span class=o>=</span> <span class=mi>1</span><span class=p>;</span>
+    <span class=na>channel2</span> <span class=o>=</span> <span class=mi>2</span><span class=p>;</span>
+    <span class=na>channel3</span> <span class=o>=</span> <span class=mi>3</span><span class=p>;</span>
+    <span class=na>channel4</span> <span class=o>=</span> <span class=mi>4</span><span class=p>;</span>
+    <span class=na>channel5</span> <span class=o>=</span> <span class=mi>5</span><span class=p>;</span>
+    <span class=na>channel6</span> <span class=o>=</span> <span class=mi>6</span><span class=p>;</span>
+    <span class=na>channel7</span> <span class=o>=</span> <span class=mi>7</span><span class=p>;</span>
+    <span class=na>channel8</span> <span class=o>=</span> <span class=mi>8</span><span class=p>;</span>
+  <span class=p>}</span>
+  <span class=c1>// Desired mic channel</span>
+  <span class=n>MicChannel</span> <span class=na>channel</span> <span class=o>=</span> <span class=mi>2</span><span class=p>;</span>
 
-  // http://www.speech.cs.cmu.edu/tools/lmtool-new.html
-  // Language model path
-  string lm_path = 3;
-  // Dictation path
-  string dic_path = 4;
+  <span class=c1>// http://www.speech.cs.cmu.edu/tools/lmtool-new.html</span>
+  <span class=c1>// Language model path</span>
+  <span class=kt>string</span> <span class=na>lm_path</span> <span class=o>=</span> <span class=mi>3</span><span class=p>;</span>
+  <span class=c1>// Dictation path</span>
+  <span class=kt>string</span> <span class=na>dic_path</span> <span class=o>=</span> <span class=mi>4</span><span class=p>;</span>
 
-  // enable pocketsphinx verbose mode
-  bool enable_verbose = 5;
+  <span class=c1>// enable pocketsphinx verbose mode</span>
+  <span class=kt>bool</span> <span class=na>enable_verbose</span> <span class=o>=</span> <span class=mi>5</span><span class=p>;</span>
 
-  // stop recognition service
-  bool stop_recognition = 6;
-}
-</code></pre>
-
+  <span class=c1>// stop recognition service</span>
+  <span class=kt>bool</span> <span class=na>stop_recognition</span> <span class=o>=</span> <span class=mi>6</span><span class=p>;</span>
+<span class=p>}</span>
+</pre></div></p>
 <p>View the defined message <a href="https://github.com/matrix-io/protocol-buffers/blob/65397022e73ac98ec2b217937f133a9eefbd8f01/matrix_io/malos/v1/io.proto" target="_blank">here</a>.
 </details></p>
 <!-- Keep-Alive PORT -->
@@ -590,13 +585,12 @@ Applications can subscribe to this port to receive driver related errors.
 <p><details open>
 <summary style="font-size: 1.75rem; font-weight: 300;">Data Update Port</summary>
 Applications can subscribe to this port for Everloop data. The output will be a serialized message of type <code>EverloopImage</code> with the following information.</p>
-<pre><code class="language-protobuf">// The led array.
-message WakeWordParams {
-  // Wake Word
-  string wake_word = 1;
-}
-</code></pre>
-
+<p> <div class=codehilite><pre><span></span><span class=c1>// The led array.</span>
+<span class=kd>message</span> <span class=nc>WakeWordParams</span> <span class=p>{</span>
+  <span class=c1>// Wake Word</span>
+  <span class=kt>string</span> <span class=na>wake_word</span> <span class=o>=</span> <span class=mi>1</span><span class=p>;</span>
+<span class=p>}</span>
+</pre></div></p>
 <p>View the defined message <a href="https://github.com/matrix-io/protocol-buffers/blob/65397022e73ac98ec2b217937f133a9eefbd8f01/matrix_io/malos/v1/io.proto" target="_blank">here</a>.
 </details></p> 
         </div>
@@ -729,7 +723,12 @@ message WakeWordParams {
     </div>
   </div>
 </footer>
-
+  <!--Global Vars-->
+  <script>
+    base_url = "../../..";
+  </script>
+  <!-- Scripts -->
+  <script src="../../../js/clipboard.min.js"></script>
   <script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
@@ -738,7 +737,6 @@ message WakeWordParams {
   <script src="../../../js/jquery.ajaxchimp.min.js"></script>
   <script src="../../../js/jquery.ajaxchimp.langs.min.js"></script>
   <script src="../../../js/footer.js"></script>
-  <script src="../../../js/prism.js"></script>
 
   <!-- TOC Script -->
   <script>

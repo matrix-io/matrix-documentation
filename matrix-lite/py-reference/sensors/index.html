@@ -7,7 +7,8 @@
   <link rel="shortcut icon" href="../../../img/favicon.ico">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
   <link rel="stylesheet" href="../../../css/theme.css">
-  <link rel="stylesheet" href="../../../css/prism.css">
+  <link rel="stylesheet" href="../../../css/codehilite.css">
+  <link rel="stylesheet" href="../../../css/clipboard.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
 </head>
@@ -461,66 +462,66 @@
 <h2 id="overview">Overview</h2>
 <p>The following sections below will go over how to read &amp; what to expect from each sensor on the MATRIX Creator.</p>
 <h2 id="import-statement">Import Statement</h2>
-<pre><code class="language-js">from matrix_lite import sensors
-</code></pre>
-
+<p> <div class=codehilite><pre><span></span><span class=nx>from</span> <span class=nx>matrix_lite</span> <span class=kr>import</span> <span class=nx>sensors</span>
+</pre></div></p>
 <p><br/></p>
 <h2 style="padding:0; margin:0;">Reading Sensor Data</h2>
 
 <p>Below are the functions you'll use to read data from each sensor. Reading a sensor will always return the latest values.</p>
 <h3 id="imu">IMU</h3>
-<pre><code class="language-python">sensors.imu.read()
-</code></pre>
+<p> <div class=codehilite><pre><span></span><span class=n>sensors</span><span class=o>.</span><span class=n>imu</span><span class=o>.</span><span class=n>read</span><span class=p>()</span>
+</pre></div></p>
+<!--  -->
 
-<pre><code class="language-python">## Example IMU Return Value ##
-{ 
-  accel_x: 0.0020000000949949026,
-  accel_y: 0.004999999888241291,
-  accel_z: 0.9819999933242798,
-  gyro_x:  0.7770000100135803,
-  gyro_y:  -0.2460000067949295,
-  gyro_z:  0.7250000238418579,
-  yaw:     -177.40724182128906,
-  pitch:   -0.11669033765792847,
-  roll:    0.2917275130748749,
-  mag_x:   0.5299999713897705,
-  mag_y:   -0.024000000208616257,
-  mag_z:   -0.05999999865889549 
-}
-</code></pre>
-
+<p> <div class=codehilite><pre><span></span><span class=c1>## Example IMU Return Value ##</span>
+<span class=p>{</span> 
+  <span class=n>accel_x</span><span class=p>:</span> <span class=mf>0.0020000000949949026</span><span class=p>,</span>
+  <span class=n>accel_y</span><span class=p>:</span> <span class=mf>0.004999999888241291</span><span class=p>,</span>
+  <span class=n>accel_z</span><span class=p>:</span> <span class=mf>0.9819999933242798</span><span class=p>,</span>
+  <span class=n>gyro_x</span><span class=p>:</span>  <span class=mf>0.7770000100135803</span><span class=p>,</span>
+  <span class=n>gyro_y</span><span class=p>:</span>  <span class=o>-</span><span class=mf>0.2460000067949295</span><span class=p>,</span>
+  <span class=n>gyro_z</span><span class=p>:</span>  <span class=mf>0.7250000238418579</span><span class=p>,</span>
+  <span class=n>yaw</span><span class=p>:</span>     <span class=o>-</span><span class=mf>177.40724182128906</span><span class=p>,</span>
+  <span class=n>pitch</span><span class=p>:</span>   <span class=o>-</span><span class=mf>0.11669033765792847</span><span class=p>,</span>
+  <span class=n>roll</span><span class=p>:</span>    <span class=mf>0.2917275130748749</span><span class=p>,</span>
+  <span class=n>mag_x</span><span class=p>:</span>   <span class=mf>0.5299999713897705</span><span class=p>,</span>
+  <span class=n>mag_y</span><span class=p>:</span>   <span class=o>-</span><span class=mf>0.024000000208616257</span><span class=p>,</span>
+  <span class=n>mag_z</span><span class=p>:</span>   <span class=o>-</span><span class=mf>0.05999999865889549</span> 
+<span class=p>}</span>
+</pre></div></p>
 <h3 id="uv">UV</h3>
-<pre><code class="language-python">sensors.uv.read()
-</code></pre>
+<p> <div class=codehilite><pre><span></span><span class=n>sensors</span><span class=o>.</span><span class=n>uv</span><span class=o>.</span><span class=n>read</span><span class=p>()</span>
+</pre></div></p>
+<!--  -->
 
-<pre><code class="language-python">## Example UV Return Value ##
-{ 
-  uv: 0.013000000268220901 
-}
-</code></pre>
-
+<p> <div class=codehilite><pre><span></span><span class=c1>## Example UV Return Value ##</span>
+<span class=p>{</span> 
+  <span class=n>uv</span><span class=p>:</span> <span class=mf>0.013000000268220901</span> 
+<span class=p>}</span>
+</pre></div></p>
 <h3 id="humidity">Humidity</h3>
-<pre><code class="language-python">sensors.humidity.read()
-</code></pre>
+<p> <div class=codehilite><pre><span></span><span class=n>sensors</span><span class=o>.</span><span class=n>humidity</span><span class=o>.</span><span class=n>read</span><span class=p>()</span>
+</pre></div></p>
+<!--  -->
 
-<pre><code class="language-python">## Example Humidity Return Value ##
-{ 
-  humidity:    29.04400062561035, 
-  temperature: 33.279998779296875 
-}
-</code></pre>
-
+<p> <div class=codehilite><pre><span></span><span class=c1>## Example Humidity Return Value ##</span>
+<span class=p>{</span> 
+  <span class=n>humidity</span><span class=p>:</span>    <span class=mf>29.04400062561035</span><span class=p>,</span> 
+  <span class=n>temperature</span><span class=p>:</span> <span class=mf>33.279998779296875</span> 
+<span class=p>}</span>
+</pre></div></p>
 <h3 id="pressure">Pressure</h3>
-<pre><code class="language-python">sensors.pressure.read()
-</code></pre>
+<p> <div class=codehilite><pre><span></span><span class=n>sensors</span><span class=o>.</span><span class=n>pressure</span><span class=o>.</span><span class=n>read</span><span class=p>()</span>
+</pre></div></p>
+<!--  -->
 
-<pre><code class="language-python">## Example Pressure Return Value ##
-{ 
-  altitude:    -47.4370002746582,
-  pressure:    101896,
-  temperature: 32.9370002746582 
-}
-</code></pre> 
+<p> <div class=codehilite><pre><span></span><span class=c1>## Example Pressure Return Value ##</span>
+<span class=p>{</span> 
+  <span class=n>altitude</span><span class=p>:</span>    <span class=o>-</span><span class=mf>47.4370002746582</span><span class=p>,</span>
+  <span class=n>pressure</span><span class=p>:</span>    <span class=mi>101896</span><span class=p>,</span>
+  <span class=n>temperature</span><span class=p>:</span> <span class=mf>32.9370002746582</span> 
+<span class=p>}</span>
+</pre></div></p> 
         </div>
         <div class="toc-parent col-lg-2 col-md-3">
           <div class="toc">
@@ -669,7 +670,12 @@
     </div>
   </div>
 </footer>
-
+  <!--Global Vars-->
+  <script>
+    base_url = "../../..";
+  </script>
+  <!-- Scripts -->
+  <script src="../../../js/clipboard.min.js"></script>
   <script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
@@ -678,7 +684,6 @@
   <script src="../../../js/jquery.ajaxchimp.min.js"></script>
   <script src="../../../js/jquery.ajaxchimp.langs.min.js"></script>
   <script src="../../../js/footer.js"></script>
-  <script src="../../../js/prism.js"></script>
 
   <!-- TOC Script -->
   <script>

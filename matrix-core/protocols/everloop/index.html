@@ -7,7 +7,8 @@
   <link rel="shortcut icon" href="../../../img/favicon.ico">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
   <link rel="stylesheet" href="../../../css/theme.css">
-  <link rel="stylesheet" href="../../../css/prism.css">
+  <link rel="stylesheet" href="../../../css/codehilite.css">
+  <link rel="stylesheet" href="../../../css/clipboard.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
 </head>
@@ -492,30 +493,28 @@ This port accepts a single configuration for communicating with the Everloop dri
 <ul>
 <li><code>image</code> - the everloop configuration that's created from an <code>EverloopImage</code> message.</li>
 </ul>
-<pre><code class="language-protobuf">message DriverConfig {
-  matrix_io.malos.v1.io.EverloopImage image = 3;
-}
-</code></pre>
-
+<p> <div class=codehilite><pre><span></span><span class=kd>message</span> <span class=nc>DriverConfig</span> <span class=p>{</span>
+  <span class=n>matrix_io.malos.v1.io.EverloopImage</span> <span class=na>image</span> <span class=o>=</span> <span class=mi>3</span><span class=p>;</span>
+<span class=p>}</span>
+</pre></div></p>
 <p>View the defined message <a href="https://github.com/matrix-io/protocol-buffers/blob/master/matrix_io/malos/v1/driver.proto" target="_blank">here</a>.</p>
 <p><code>EverloopImage</code> </p>
 <ul>
 <li><code>led</code> - Must hold the value for each LED on your MATRIX device. Each LED is defined as one <code>LedValue</code>.</li>
 </ul>
-<pre><code class="language-protobuf">// Value for an led that ranges from 0 to 255 for each color
-message LedValue {
-  uint32 red = 1;
-  uint32 green = 2;
-  uint32 blue = 3;
-  uint32 white = 4;
-}
+<p> <div class=codehilite><pre><span></span><span class=c1>// Value for an led that ranges from 0 to 255 for each color</span>
+<span class=kd>message</span> <span class=nc>LedValue</span> <span class=p>{</span>
+  <span class=kt>uint32</span> <span class=na>red</span> <span class=o>=</span> <span class=mi>1</span><span class=p>;</span>
+  <span class=kt>uint32</span> <span class=na>green</span> <span class=o>=</span> <span class=mi>2</span><span class=p>;</span>
+  <span class=kt>uint32</span> <span class=na>blue</span> <span class=o>=</span> <span class=mi>3</span><span class=p>;</span>
+  <span class=kt>uint32</span> <span class=na>white</span> <span class=o>=</span> <span class=mi>4</span><span class=p>;</span>
+<span class=p>}</span>
 
-// The led array.
-message EverloopImage {
-  repeated LedValue led = 1;
-}
-</code></pre>
-
+<span class=c1>// The led array.</span>
+<span class=kd>message</span> <span class=nc>EverloopImage</span> <span class=p>{</span>
+  <span class=k>repeated</span> <span class=n>LedValue</span> <span class=na>led</span> <span class=o>=</span> <span class=mi>1</span><span class=p>;</span>
+<span class=p>}</span>
+</pre></div></p>
 <p>View the defined message <a href="https://github.com/matrix-io/protocol-buffers/blob/65397022e73ac98ec2b217937f133a9eefbd8f01/matrix_io/malos/v1/io.proto" target="_blank">here</a>.
 </details></p>
 <!-- Keep-alive PORT -->
@@ -535,15 +534,14 @@ Applications can subscribe to this port to receive driver related errors.
 <p><details open>
 <summary style="font-size: 1.75rem; font-weight: 300;">Data Update Port</summary>
 Applications can subscribe to this port for Everloop data. The output will be a serialized message of type <code>EverloopImage</code> with the following information.</p>
-<pre><code class="language-protobuf">// The led array.
-message EverloopImage {
-  repeated LedValue led = 1;
+<p> <div class=codehilite><pre><span></span><span class=c1>// The led array.</span>
+<span class=kd>message</span> <span class=nc>EverloopImage</span> <span class=p>{</span>
+  <span class=k>repeated</span> <span class=n>LedValue</span> <span class=na>led</span> <span class=o>=</span> <span class=mi>1</span><span class=p>;</span>
 
-  // Number of leds in the Everloop
-  int32 everloop_length = 2;
-}
-</code></pre>
-
+  <span class=c1>// Number of leds in the Everloop</span>
+  <span class=kt>int32</span> <span class=na>everloop_length</span> <span class=o>=</span> <span class=mi>2</span><span class=p>;</span>
+<span class=p>}</span>
+</pre></div></p>
 <p>View the defined message <a href="https://github.com/matrix-io/protocol-buffers/blob/65397022e73ac98ec2b217937f133a9eefbd8f01/matrix_io/malos/v1/io.proto" target="_blank">here</a>.
 </details></p> 
         </div>
@@ -666,7 +664,12 @@ message EverloopImage {
     </div>
   </div>
 </footer>
-
+  <!--Global Vars-->
+  <script>
+    base_url = "../../..";
+  </script>
+  <!-- Scripts -->
+  <script src="../../../js/clipboard.min.js"></script>
   <script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
@@ -675,7 +678,6 @@ message EverloopImage {
   <script src="../../../js/jquery.ajaxchimp.min.js"></script>
   <script src="../../../js/jquery.ajaxchimp.langs.min.js"></script>
   <script src="../../../js/footer.js"></script>
-  <script src="../../../js/prism.js"></script>
 
   <!-- TOC Script -->
   <script>
