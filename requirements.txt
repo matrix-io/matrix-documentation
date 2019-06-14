@@ -1,5 +1,6 @@
 Markdown==2.6.11
 mkdocs==0.16.3
+Markdown==3.1.1
 mkdocs-material==0.2.4
 Pygments==2.4.2
 pymdown-extensions==6.0
