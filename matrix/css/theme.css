@@ -421,7 +421,7 @@ img {
 }
 
 pre {
-  border: 1px dotted #bbb;
+  /* border: 1px dotted #bbb; */
   background: #141414;
   /* background: #333333; */
   border-radius: 5px;

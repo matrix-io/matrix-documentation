@@ -3,3 +3,24 @@ mkdocs==0.16.3
 mkdocs-material==0.2.4
 markdown-fenced-code-tabs==1.0.5
 Pygments==2.4.2
+
+## pip list output (in case something breaks) ##
+# backports-abc             0.5    
+# Click                     7.0    
+# futures                   3.2.0  
+# htmlmin                   0.1.12 
+# Jinja2                    2.10.1 
+# livereload                2.6.1  
+# Markdown                  2.6.11 
+# markdown-fenced-code-tabs 1.0.5  
+# MarkupSafe                1.1.1  
+# mkdocs                    0.16.3 
+# mkdocs-material           0.2.4  
+# pip                       19.1.1 
+# Pygments                  2.4.2  
+# PyYAML                    5.1.1  
+# setuptools                41.0.1 
+# singledispatch            3.4.0.3
+# six                       1.12.0 
+# tornado                   5.1.1  
+# wheel                     0.33.4 

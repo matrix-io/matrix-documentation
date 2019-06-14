@@ -4,48 +4,31 @@ a.copybtn {
     webkit-transition: opacity .3s ease-in-out;
     -o-transition: opacity .3s ease-in-out;
     transition: opacity .3s ease-in-out;
-    opacity: 0;
+    opacity: .5;
     padding: 5px 8px;
     position: absolute;
     right: 4px;
     top: 4px;
     background-color: #cccccd;
+    box-shadow: 0px 4px 0px 0px grey;
 }
 
-div.codehilite:hover .copybtn, div.codehilite .copybtn:focus {
-    opacity: .5;
-}
 div.codehilite .copybtn:hover {
     opacity: 1;
 }
-/* div.codehilite .copybtn:active {
-    background-color: #2f7fed;
-} */
+
+div.codehilite .copybtn:active {
+    margin-top: 4px;
+    box-shadow: none;
+    background-color: white;
+}
+
 div.codehilite {
     position: relative;
 }
 
-/* button.copybtn {
-    webkit-transition: opacity .3s ease-in-out;
-    -o-transition: opacity .3s ease-in-out;
-    transition: opacity .3s ease-in-out;
-    opacity: 0;
-    padding: 5px 8px;
-    position: absolute;
-    right: 4px;
-    top: 4px;
-}
-
-div.codehilite:hover .copybtn, div.codehilite .copybtn:focus {
-    opacity: .5;
-}
-div.codehilite .copybtn:hover {
-    opacity: 1;
-}
-/* div.codehilite .copybtn:active {
-    opacity: 1;
-} */
-
-div.codehilite {
+/* tooltip */
+.tooltip {
     position: relative;
-} */
+    display: inline-block;
+}

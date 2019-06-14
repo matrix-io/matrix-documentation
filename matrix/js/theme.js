@@ -1,7 +1,8 @@
 $(function () {
-  /* Clipboard integration */
+  //Clipboard.js integration\\
+
+  // find all code block elements
   if (ClipboardJS.isSupported()){
-    // get all code elements
     var allCodeBlocksElements = $( "div.codehilite pre" );
 
     // For each element, do the following steps
@@ -10,18 +11,29 @@ $(function () {
     var currentId = "codeblock" + (ii + 1);
     $(this).attr('id', currentId);
 
-    // create a button that's configured for clipboard.js
-    // point it to the text that's in this code block
-    // add the button just after the text in the code block w/ jquery
-    var clipButton = '<a class="btn copybtn" data-clipboard-target="#' + currentId + '"><img src="https://clipboardjs.com/assets/images/clippy.svg" width="13" alt="Copy to clipboard"></a>';
+    // create the button just after the text in the code block
+    var clipButton = '<a class="btn copybtn" data-clipboard-target="#'+currentId+'"><img src="https://clipboardjs.com/assets/images/clippy.svg" draggable="false" width="13" alt="Copy to clipboard"></a>';
         $(this).after(clipButton);
     });
 
-    // tell clipboard.js to look for clicks that match this query
+    // initialize each clipboard button
     var clipboard = new ClipboardJS('.btn');
 
-    // deselect 
+    // cleanup & Copy Notification
     clipboard.on('success', (event)=> {
+      // show copy notification
+      var buttonIndex = event.trigger.dataset.clipboardTarget.replace(/[^0-9]/g,'')-1;
+      var copyButton = $(".copybtn:eq("+buttonIndex+")");
+      copyButton.tooltip({trigger: 'click'});
+      copyButton.tooltip('hide').attr('data-original-title', "copied!").tooltip('show');
+
+      // delay to remove copy notification
+      setTimeout(function() {
+        copyButton.tooltip('hide');
+        copyButton.css("background-color","white");
+      }, 1000);
+
+      // prevent code block from being highlighted
       event.clearSelection();
     });
   }
