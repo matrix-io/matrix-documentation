@@ -10,6 +10,14 @@
     
 
     
+    <url>
+     <loc>/help/</loc>
+     <lastmod>2019-06-14</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    
+
+    
         
     <url>
      <loc>/matrix-creator/overview/</loc>
@@ -171,14 +179,6 @@
      <changefreq>daily</changefreq>
     </url>
         
-    
-
-    
-    <url>
-     <loc>/help/</loc>
-     <lastmod>2019-06-14</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
     
 
 </urlset>

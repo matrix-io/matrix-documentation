@@ -2,7 +2,7 @@
     "docs": [
         {
             "location": "/", 
-            "text": "MATRIX Ecosystem Overview\n\n\nObjective: Hardware shouldn't be hard\n\nThe MATRIX Ecosystem was created to make powerful hardware projects very approachable for software developers. The pillars of MATRIX, computer vision, hardware interfaces, distributed internet communication, and data-driven end-user clients, are all programming disciplines which require years for an individual to master, or for a team to build a solution around.\n\n\n\n\nSupport \n Resources\n\n\nFeel free to visit our communities and projects for any suggestions and/or questions you may have!\n\n\n Post questions or comments on \ncommunity.matrix.one\n.\n\n\n\n \nSubmit documentation issues or improvements to the \nMATRIX Documentation Repository\n.\n\n\n\n Check out our Hackster projects and guides on our \nHackster Page\n.\n\n\n\n Follow our live streams and tutorial videos on \nYouTube\n.\n\n\n\n \nAlert issues on our \nGitHub\n under the corresponding repository.\n\n\n\n\n\nProgramming Layers\n\n\nThe MATRIX platform adds powerful capabilities to your Raspberry Pi, depending on your background and the kind of application you want to write, you may need to decide on which layer best fits your need. The documentation is organized according to these layers:\n\n\nMATRIX Lite\n\n\n\nLanguages:\n JavaScript, Python, \n Ruby\n\n\nA straightforward library that's aimed at users of all skill levels. This layer is an abstraction around MATRIX HAL and allows you to program your MATRIX Device with as little as one line of code.\n\n\nRead more about MATRIX Lite\n\n\nMATRIX HAL\n\n\n\nLanguage:\n C++\n\n\nInteracts with the kernel modules by using C++ drivers, enabling it to access available sensors and components on your device.\n\n\nRead more about MATRIX HAL\n\n\nMATRIX Core\n\n\n\nLanguages:\n Over 40 (Examples in JavaScript \n Python)\n\n\nAbstraction layer for \nMATRIX HAL\n. Hosts a ZeroMQ + Protobuf communication layer which makes device information accessible via high-level interfaces. Supports 40+ different languages through Protocol Buffers: C++, Python, Ruby, PHP, Java, etc.\n\n\nRead more about MATRIX Core\n\n\n\n\nDevices\n\n\n\n\nEach programming layer in the MATRIX platform is compatible with each MATRIX product, excluding specific components on the boards.\n\n\n\n\nMATRIX Creator\n\n\n\n\n\n\nA fully-featured development board for the Raspberry Pi with various sensors and communication protocols such as a 3D Gyroscope, Accelerometer, an 8 Microphone Array, zigbee, Z-Wave, and more!\n\n\nRead more about the MATRIX Creator\n\n\nMATRIX Voice\n\n\n\n\n\n\nA voice and audio focused development board with an 8 microphone array that enables you to create your own audio driven applications or use voice assistants such as \n\nAmazon Alexa\n, \n\nGoogle Assistant\n, \nPocketSphinx, etc.\n\n\nRead more about the MATRIX Voice", 
+            "text": "MATRIX Ecosystem Overview\n\n\nObjective: Hardware shouldn't be hard\n\nThe MATRIX Ecosystem was created to make powerful hardware projects very approachable for software developers. The pillars of MATRIX, computer vision, hardware interfaces, distributed internet communication, and data-driven end-user clients, are all programming disciplines which require years for an individual to master, or for a team to build a solution around.\n\n\n\n\nSupport \n Resources\n\n\nFeel free to visit our communities and projects for any suggestions and/or questions you may have!\n\n\n Post questions or comments on \ncommunity.matrix.one\n.\n\n\n\n \nSubmit documentation issues or improvements to the \nMATRIX Documentation Repository\n.\n\n\n\n Check out our Hackster projects and guides on our \nHackster Page\n.\n\n\n\n Follow our live streams and tutorial videos on \nYouTube\n.\n\n\n\n View blog posts \n&\n project guides on our \nelement14 page\n.\n\n\n\n \nAlert issues on our \nGitHub\n under the corresponding repository.\n\n\n\n\n\nProgramming Layers\n\n\nThe MATRIX platform adds powerful capabilities to your Raspberry Pi, depending on your background and the kind of application you want to write, you may need to decide on which layer best fits your need. The documentation is organized according to these layers:\n\n\nMATRIX Lite\n\n\n\nLanguages:\n JavaScript, Python, \n Ruby\n\n\nA straightforward library that's aimed at users of all skill levels. This layer is an abstraction around MATRIX HAL and allows you to program your MATRIX Device with as little as one line of code.\n\n\nRead more about MATRIX Lite\n\n\nMATRIX HAL\n\n\n\nLanguage:\n C++\n\n\nInteracts with the kernel modules by using C++ drivers, enabling it to access available sensors and components on your device.\n\n\nRead more about MATRIX HAL\n\n\nMATRIX Core\n\n\n\nLanguages:\n Over 40 (Examples in JavaScript \n Python)\n\n\nAbstraction layer for \nMATRIX HAL\n. Hosts a ZeroMQ + Protobuf communication layer which makes device information accessible via high-level interfaces. Supports 40+ different languages through Protocol Buffers: C++, Python, Ruby, PHP, Java, etc.\n\n\nRead more about MATRIX Core\n\n\n\n\nDevices\n\n\n\n\nEach programming layer in the MATRIX platform is compatible with each MATRIX product, excluding specific components on the boards.\n\n\n\n\nMATRIX Creator\n\n\n\n\n\n\nA fully-featured development board for the Raspberry Pi with various sensors and communication protocols such as a 3D Gyroscope, Accelerometer, an 8 Microphone Array, zigbee, Z-Wave, and more!\n\n\nRead more about the MATRIX Creator\n\n\nMATRIX Voice\n\n\n\n\n\n\nA voice and audio focused development board with an 8 microphone array that enables you to create your own audio driven applications or use voice assistants such as \n\nAmazon Alexa\n, \n\nGoogle Assistant\n, \nPocketSphinx, etc.\n\n\nRead more about the MATRIX Voice", 
             "title": "Overview"
         }, 
         {
@@ -12,7 +12,7 @@
         }, 
         {
             "location": "/#support-resources", 
-            "text": "Feel free to visit our communities and projects for any suggestions and/or questions you may have!   Post questions or comments on  community.matrix.one .   \nSubmit documentation issues or improvements to the  MATRIX Documentation Repository .   Check out our Hackster projects and guides on our  Hackster Page .   Follow our live streams and tutorial videos on  YouTube .   \nAlert issues on our  GitHub  under the corresponding repository.", 
+            "text": "Feel free to visit our communities and projects for any suggestions and/or questions you may have!   Post questions or comments on  community.matrix.one .   \nSubmit documentation issues or improvements to the  MATRIX Documentation Repository .   Check out our Hackster projects and guides on our  Hackster Page .   Follow our live streams and tutorial videos on  YouTube .   View blog posts  &  project guides on our  element14 page .   \nAlert issues on our  GitHub  under the corresponding repository.", 
             "title": "Support &amp; Resources"
         }, 
         {
@@ -24,6 +24,16 @@
             "location": "/#devices", 
             "text": "Each programming layer in the MATRIX platform is compatible with each MATRIX product, excluding specific components on the boards.", 
             "title": "Devices"
+        }, 
+        {
+            "location": "/help/", 
+            "text": "Support \n Resources\n\n\nFeel free to visit our communities and projects for any suggestions and/or questions you may have!\n\n\n Post questions or comments on \ncommunity.matrix.one\n.\n\n\n\n \nSubmit documentation issues or improvements to the \nMATRIX Documentation Repository\n.\n\n\n\n Check out our Hackster projects and guides on our \nHackster Page\n.\n\n\n\n Follow our live streams and tutorial videos on \nYouTube\n.\n\n\n\n View blog posts \n&\n project guides on our \nelement14 page\n.\n\n\n\n \nAlert issues on our \nGitHub\n under the corresponding repository.", 
+            "title": "Support"
+        }, 
+        {
+            "location": "/help/#support-resources", 
+            "text": "Feel free to visit our communities and projects for any suggestions and/or questions you may have!   Post questions or comments on  community.matrix.one .   \nSubmit documentation issues or improvements to the  MATRIX Documentation Repository .   Check out our Hackster projects and guides on our  Hackster Page .   Follow our live streams and tutorial videos on  YouTube .   View blog posts  &  project guides on our  element14 page .   \nAlert issues on our  GitHub  under the corresponding repository.", 
+            "title": "Support &amp; Resources"
         }, 
         {
             "location": "/matrix-creator/overview/", 
@@ -1964,16 +1974,6 @@
             "location": "/matrix-core/troubleshooting/#audio-open-error", 
             "text": "If you encounter the error log below, your microphones are being used by the Pocketsphinx service for the  Wakeword Driver .    arecord :   main : 788 :   audio   open   error :   Device   or   resource   busy   You can solve this by running the following command to kill the service.    sudo pkill malos_wakeword", 
             "title": "Audio Open Error"
-        }, 
-        {
-            "location": "/help/", 
-            "text": "Support\n\n\n\n\nPost questions or comments on \ncommunity.matrix.one\n\n\nAlert issues on our \nGitHub\n under the corresponding repository\n\n\nSubmit documentation issues or improvements to the \nMATRIX Documentation Repository", 
-            "title": "Support"
-        }, 
-        {
-            "location": "/help/#support", 
-            "text": "Post questions or comments on  community.matrix.one  Alert issues on our  GitHub  under the corresponding repository  Submit documentation issues or improvements to the  MATRIX Documentation Repository", 
-            "title": "Support"
         }
     ]
 }
