@@ -76,7 +76,7 @@ The functions below are part of `Everloop`.
 // Function declaration in header file
 void Setup(MatrixIOBus *bus);
 ```
-
+<!--  -->
 ```c++
 // Set everloop to use MatrixIOBus bus
 everloop.Setup(&bus);
@@ -92,7 +92,7 @@ everloop.Setup(&bus);
 // Function declaration in header file
 bool Write(EverloopImage *everloop_image;
 ```
-
+<!--  -->
 ```c++
 // Updates the Everloop on the MATRIX device
 everloop.Write(&everloop_image);

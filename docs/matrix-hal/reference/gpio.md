@@ -50,7 +50,7 @@ The functions below are part of `GPIOControl`.
 // Function declaration in header file
 void Setup(MatrixIOBus *bus);
 ```
-
+<!--  -->
 ```c++
 // Set gpio to use MatrixIOBus bus
 gpio.Setup(&bus);
@@ -66,7 +66,7 @@ gpio.Setup(&bus);
 // Function declaration in header file
 GPIOBank &Bank(uint16_t bank) { return banks_[bank]; }
 ```
-
+<!--  -->
 ```c++
 // Returns banks_[index]
 gpio.Banks(index);
@@ -86,7 +86,7 @@ For setting single GPIO pin.
 // For setting single GPIO pin
 bool SetMode(uint16_t pin, uint16_t mode);
 ```
-
+<!--  -->
 ```c++
 // Sets pin 0 to output
 gpio.SetMode(0, 1);
@@ -101,7 +101,7 @@ For setting multiple GPIO pins.
 // For setting multiple pins
 bool SetMode(unsigned char *pinList, int length, uint16_t mode);
 ```
-
+<!--  -->
 ```c++
 unsigned char inputPinList[8] = {0, 2, 4, 6, 8, 10, 12, 14};
 unsigned char outputPinList[8] = {1, 3, 5, 7, 9, 11, 13, 15};
@@ -122,7 +122,7 @@ gpio.SetMode(outputPinList, sizeof(outputPinList), 1);
 // Function declaration in header file
 bool SetFunction(uint16_t pin, uint16_t function);
 ```
-
+<!--  -->
 ```c++
 // Sets pin 0 to I/O mode
 gpio.SetFunction(0, 0);
@@ -140,7 +140,7 @@ gpio.SetFunction(0, 1);
 // Function declaration in header file
 uint16_t GetGPIOValue(uint16_t pin);
 ```
-
+<!--  -->
 ```c++
 // Gets value of pin 0
 bool value = gpio.GetGPIOValue(0);
@@ -156,7 +156,7 @@ bool value = gpio.GetGPIOValue(0);
 // Function declaration in header file
 uint16_t GetGPIOValues();
 ```
-
+<!--  -->
 ```c++
 // Gets all pin values
 uint16_t values = gpio.GetGPIOValues();
@@ -172,7 +172,7 @@ uint16_t values = gpio.GetGPIOValues();
 // Function declaration in header file
 bool SetGPIOValue(uint16_t pin, uint16_t value);
 ```
-
+<!--  -->
 ```c++
 // Sets pin 0 to on
 gpio.SetGPIOValue(0, 1);
@@ -190,7 +190,7 @@ gpio.SetGPIOValue(0, 0);
 // Function declaration in header file
 bool SetGPIOValues(unsigned char *pinList, int length, uint16_t value);
 ```
-
+<!--  -->
 ```c++
 unsigned char onPinList[8] = {0, 2, 4, 6, 8, 10, 12, 14};
 unsigned char offPinList[8] = {1, 3, 5, 7, 9, 11, 13, 15};
@@ -211,7 +211,7 @@ gpio.SetGPIOValues(offPinList, sizeof(offPinList), 0);
 // Function declaration in header file
 bool SetPrescaler(uint16_t bank, uint16_t prescaler);
 ```
-
+<!--  -->
 ```c++
 // Set prescaler for bank 0 to 32
 // 2^5 = 32
@@ -228,7 +228,7 @@ gpio.SetPrescaler(0, 5);
 // Function declaration in header file
 bool Set9GServoAngle(float angle, uint16_t pin);
 ```
-
+<!--  -->
 ```c++
 // Set servo angle to 70 degrees on pin 0
 gpio.SetPrescaler(70, 0);
@@ -244,7 +244,7 @@ gpio.SetPrescaler(70, 0);
 // Function declaration in header file
 bool SetServoAngle(float angle, float min_pulse_ms, uint16_t pin);
 ```
-
+<!--  -->
 ```c++
 // Set servo angle to 70 degrees on pin 0
 // For a servo that accepts a minimum pulse of 0.8ms
@@ -261,7 +261,7 @@ gpio.SetServoAngle(70, 0.8, 0);
 // Function declaration in header file
 bool SetPWM(float frequency, float percentage, uint16_t pin);
 ```
-
+<!--  -->
 ```c++
 // Set PWM output to 50Hz, with a 25% duty cycle on pin 0
 gpio.SetPWM(50, 25, 0);
@@ -286,7 +286,7 @@ The functions below are part of `GPIOBank`.
 // Function declaration in header file
 bool SetPeriod(uint16_t period);
 ```
-
+<!--  -->
 ```c++
 // Set PWM period for bank 0 to 50000 FPGA clock ticks
 gpio.Banks(0).SetPeriod(50000);
@@ -302,7 +302,7 @@ gpio.Banks(0).SetPeriod(50000);
 // Function declaration in header file
 bool SetDuty(uint16_t channel, uint16_t duty);
 ```
-
+<!--  -->
 ```c++
 // Set PWM duty for channel 0 of bank 0 to 10000 FPGA clock ticks
 gpio.Banks(0).SetDuty(0, 10000);

@@ -62,7 +62,7 @@ The functions below are part of `HumiditySensor`.
 // Function declaration in header file
 void Setup(MatrixIOBus *bus);
 ```
-
+<!--  -->
 ```c++
 // Set humidity_sensor to use MatrixIOBus bus
 humidity_sensor.Setup(&bus);
@@ -77,7 +77,7 @@ humidity_sensor.Setup(&bus);
 // Function declaration in header file
 bool Read(HumidityData *data);
 ```
-
+<!--  -->
 ```c++
 // Overwrites humidity_data with new data from humidity sensor
 humidity_sensor.Read(&humidity_data);

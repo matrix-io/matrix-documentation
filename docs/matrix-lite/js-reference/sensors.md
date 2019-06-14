@@ -19,6 +19,7 @@ Below are the functions you'll use to read data from each sensor. Reading a sens
 ```js
 matrix.imu.read();
 ```
+<!---->
 ```js
 // Example IMU Return Value //
 { 
@@ -40,6 +41,7 @@ matrix.imu.read();
 ```js
 matrix.uv.read();
 ```
+<!---->
 ```js
 // Example UV Return Value //
 { 
@@ -50,6 +52,7 @@ matrix.uv.read();
 ```js
 matrix.humidity.read();
 ```
+<!---->
 ```js
 // Example Humidity Return Value //
 { 
@@ -62,6 +65,7 @@ matrix.humidity.read();
 ```js
 matrix.pressure.read();
 ```
+<!---->
 ```js
 // Example Pressure Return Value //
 { 

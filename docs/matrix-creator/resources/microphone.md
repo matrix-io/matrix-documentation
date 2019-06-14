@@ -25,7 +25,7 @@ sudo reboot
 <h3 style="padding-top:0;">Check If Everything Works</h3>
 Your Raspberry Pi should now treat your MATRIX Creator as a regular microphone. You can test this by using the following commands to record and play a 5 second long audio file on your Raspberry Pi.
 > Be sure to have something connected to the Raspberry Pi's audio output.
-```batch
+```bash
 arecord recording.wav -f S16_LE -r 16000 -d 5
 aplay recording.wav
 ```

@@ -79,7 +79,7 @@ The functions below are part of `IMUSensor`.
 // Function declaration in header file
 void Setup(MatrixIOBus *bus);
 ```
-
+<!--  -->
 ```c++
 // Set imu_sensor to use MatrixIOBus bus
 imu_sensor.Setup(&bus);
@@ -95,7 +95,7 @@ imu_sensor.Setup(&bus);
 // Function declaration in header file
 bool Read(IMUData *data);
 ```
-
+<!--  -->
 ```c++
 // Overwrites imu_data with new data from IMU sensor
 imu_sensor.Read(&imu_data);

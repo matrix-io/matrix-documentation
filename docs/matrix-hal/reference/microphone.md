@@ -45,7 +45,7 @@ The functions below are part of `MicrophoneArray`.
 // Function declaration in header file
 void Setup(MatrixIOBus *bus);
 ```
-
+<!--  -->
 ```c++
 // Set microphone_array to use MatrixIOBus bus
 microphone_array.Setup(&bus);
@@ -60,7 +60,7 @@ microphone_array.Setup(&bus);
 // Function declaration in header file
 bool Read();
 ```
-
+<!--  -->
 ```c++
 // Reading 8-mics buffer from the FPGA
 microphone_array.Read();
@@ -75,7 +75,7 @@ microphone_array.Read();
 // Function declaration in header file
 uint32_t SamplingRate() { return sampling_frequency_; }
 ```
-
+<!--  -->
 ```c++
 // Return the stored sampling rate
 uint32_t SamplingRate = microphone_array.SamplingRate();
@@ -90,7 +90,7 @@ uint32_t SamplingRate = microphone_array.SamplingRate();
 // Function declaration in header file
 uint16_t Gain() { return gain_; }
 ```
-
+<!--  -->
 ```c++
 // Return the stored gain
 uint32_t Gain = microphone_array.Gain();
@@ -105,7 +105,7 @@ uint32_t Gain = microphone_array.Gain();
 // Function declaration in header file
 bool SetSamplingRate(uint32_t sampling_frequency);
 ```
-
+<!--  -->
 ```c++
 // Set the sampling rate
 microphone_array.SetSamplingRate(sampling_rate);
@@ -120,7 +120,7 @@ microphone_array.SetSamplingRate(sampling_rate);
 // Function declaration in header file
 bool SetGain(uint16_t gain);
 ```
-
+<!--  -->
 ```c++
 // Set the gain
 microphone_array.SetGain(gain);
@@ -135,7 +135,7 @@ microphone_array.SetGain(gain);
 // Function declaration in header file
 bool GetSamplingRate();
 ```
-
+<!--  -->
 ```c++
 // Update sampling_frequency_ from microphone array
 microphone_array.GetSamplingRate();
@@ -150,7 +150,7 @@ microphone_array.GetSamplingRate();
 // Function declaration in header file
 bool GetGain();
 ```
-
+<!--  -->
 ```c++
 // Update gain_ from microphone array
 microphone_array.GetGain();
@@ -166,7 +166,7 @@ This updates the `gain_` and the `sampling_frequency_` values in the `Microphone
 // Function declaration in header file
 void ReadConfValues();
 ```
-
+<!--  -->
 ```c++
 // Update values from microphone array
 microphone_array.ReadConfValues();
@@ -181,12 +181,12 @@ microphone_array.ReadConfValues();
 // Function declaration in header file
 void ShowConfiguration();
 ```
-
+<!--  -->
 ```c++
 // Output `gain_` and `sampling_frequency_` values
 microphone_array.void ShowConfiguration();
 ```
-
+<!--  -->
 ```c++
 // Style of output
 std::cout << "Audio Configuration: " << std::endl;
@@ -203,7 +203,7 @@ std::cout << "Gain : " << gain_ << std::endl;
 // Function declaration in header file
 uint16_t Channels() { return kMicrophoneChannels; }
 ```
-
+<!--  -->
 ```c++
 // Return the number of channels
 uint16_t Channels = microphone_array.Channels();
@@ -220,7 +220,7 @@ uint32_t NumberOfSamples() {
     return kMicarrayBufferSize / kMicrophoneChannels;
   }
 ```
-
+<!--  -->
 ```c++
 // Return the number of samples
 uint16_t SampleAmount = microphone_array.NumberOfSamples();
@@ -237,7 +237,7 @@ int16_t &At(int16_t sample, int16_t channel) {
     return delayed_data_[sample * kMicrophoneChannels + channel];
   }
 ```
-
+<!--  -->
 ```c++
 // Return a single sample
 int16_t sample = microphone_array.At(s, c);
@@ -252,7 +252,7 @@ int16_t sample = microphone_array.At(s, c);
 // Function declaration in header file
 int16_t &Beam(int16_t sample) { return beamformed_[sample]; }
 ```
-
+<!--  -->
 ```c++
 // Return a single sample
 int16_t sample = microphone_array.Beam(s);
@@ -269,7 +269,7 @@ void CalculateDelays(float azimutal_angle, float polar_angle,
                        float radial_distance_mm = 100.0,
                        float sound_speed_mmseg = 320 * 1000.0);
 ```
-
+<!--  -->
 ```c++
 // Calculate and set up beamforming delays
 microphone_array.CalculateDelays(0, 0, 1000, 320 * 1000);
@@ -286,7 +286,7 @@ microphone_array.CalculateDelays(0, 0, 1000, 320 * 1000);
 // Constructor declaration in header file
 MicrophoneCore(MicrophoneArray &microphone_array);
 ```
-
+<!--  -->
 ```c++
 // Create MicrophoneCore object
 matrix_hal::MicrophoneCore microphone_core(microphone_array);
@@ -302,7 +302,7 @@ The functions below are part of `MicrophoneCore`.
 // Function declaration in header file
 void Setup(MatrixIOBus *bus);
 ```
-
+<!--  -->
 ```c++
 // Set microphone_core to use MatrixIOBus bus
 microphone_core.Setup(&bus);
@@ -317,7 +317,7 @@ microphone_core.Setup(&bus);
 // Function declaration in header file
 bool SetFIRCoeff();
 ```
-
+<!--  -->
 ```c++
 // Sends fir_coeff_ to FPGA
 microphone_core.SetFIRCoeff();
@@ -333,7 +333,7 @@ If input is valid then the function also calls `SetFIRCoeff` to send the `fir_co
 ```c++
 bool SetCustomFIRCoeff(const std::valarray<int16_t> custom_fir);
 ```
-
+<!--  -->
 ```c++
 // Sets fir_coeff_ to custom_fir
 microphone_core.SetCustomFIRCoeff(custom_fir);
@@ -355,11 +355,11 @@ struct FIRCoeff {
   std::valarray<int16_t> coeff_;
 };
 ```
-
+<!--  -->
 ```c++
 bool SelectFIRCoeff(FIRCoeff *FIR_coeff);
 ```
-
+<!--  -->
 ```c++
 // Sets fir_coeff_ from FIR_default[0]
 microphone_core.SelectFIRCoeff(&FIR_default[0]);

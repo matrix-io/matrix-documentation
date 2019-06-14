@@ -19,6 +19,7 @@ Below are the functions you'll use to read data from each sensor. Reading a sens
 ```python
 sensors.imu.read()
 ```
+<!--  -->
 ```python
 ## Example IMU Return Value ##
 { 
@@ -40,6 +41,7 @@ sensors.imu.read()
 ```python
 sensors.uv.read()
 ```
+<!--  -->
 ```python
 ## Example UV Return Value ##
 { 
@@ -50,6 +52,7 @@ sensors.uv.read()
 ```python
 sensors.humidity.read()
 ```
+<!--  -->
 ```python
 ## Example Humidity Return Value ##
 { 
@@ -62,6 +65,7 @@ sensors.humidity.read()
 ```python
 sensors.pressure.read()
 ```
+<!--  -->
 ```python
 ## Example Pressure Return Value ##
 { 
