@@ -1,5 +1,4 @@
 /* Copy buttons */
-
 a.copybtn {
     webkit-transition: opacity .3s ease-in-out;
     -o-transition: opacity .3s ease-in-out;
@@ -17,18 +16,18 @@ div.codehilite .copybtn:hover {
     opacity: 1;
 }
 
-div.codehilite .copybtn:active {
-    margin-top: 4px;
-    box-shadow: none;
-    background-color: white;
-}
-
 div.codehilite {
     position: relative;
 }
 
-/* tooltip */
+/* copied notification */
 .tooltip {
     position: relative;
     display: inline-block;
+}
+
+.copy-success{
+    margin-top: 4px;
+    box-shadow: none !important;
+    background-color: white;
 }
