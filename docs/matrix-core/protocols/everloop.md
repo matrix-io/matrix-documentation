@@ -27,7 +27,7 @@ This port accepts a single configuration for communicating with the Everloop dri
 
 * `image` - the everloop configuration that's created from an `EverloopImage` message.
 
-```language-protobuf
+```protobuf
 message DriverConfig {
   matrix_io.malos.v1.io.EverloopImage image = 3;
 }
@@ -38,7 +38,7 @@ View the defined message <a href="https://github.com/matrix-io/protocol-buffers/
 
 * `led` - Must hold the value for each LED on your MATRIX device. Each LED is defined as one `LedValue`.
 
-```language-protobuf
+```protobuf
 // Value for an led that ranges from 0 to 255 for each color
 message LedValue {
   uint32 red = 1;
@@ -72,7 +72,7 @@ Applications can subscribe to this port to receive driver related errors.
 <summary style="font-size: 1.75rem; font-weight: 300;">Data Update Port</summary>
 Applications can subscribe to this port for Everloop data. The output will be a serialized message of type `EverloopImage` with the following information.
 
-```language-protobuf
+```protobuf
 // The led array.
 message EverloopImage {
   repeated LedValue led = 1;

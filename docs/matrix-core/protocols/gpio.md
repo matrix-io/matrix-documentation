@@ -36,7 +36,7 @@ This port accepts 3 configuration for communicating with the GPIO driver.
 
 * `gpio` - the gpio configuration that's created from a `GpioParams` message.
 
-```language-protobuf
+```protobuf
 message DriverConfig {
   // Delay between updates in seconds
   float delay_between_updates = 1;
@@ -57,7 +57,7 @@ View the defined message <a href="https://github.com/matrix-io/protocol-buffers/
 * `value` - Set as 1 or 0 to signify on/off.
 > Each `pin` will save its last set `value` until the next device boot.
 
-```language-protobuf
+```protobuf
 // GPIO handler params
 message GpioParams {
   // GPIO to config
@@ -93,7 +93,7 @@ Applications can subscribe to this port to receive driver related errors.
 <details open>
 <summary style="font-size: 1.75rem; font-weight: 300;">Data Update Port</summary>
 Applications can subscribe to this port for GPIO data. The output will be a serialized message of type `GpioParams` with the following information.
-```language-protobuf
+```protobuf
 // GPIO handler params
 message GpioParams {
   // Integer to represent all pin values (Convert to 16bit for readability)

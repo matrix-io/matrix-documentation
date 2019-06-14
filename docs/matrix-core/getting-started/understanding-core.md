@@ -39,7 +39,7 @@ To send a configuration you need to create a valid message for each driver. For 
 Configuration messages are named `DriverConfig`. The file for where this is defined can be seen <a href="https://github.com/matrix-io/protocol-buffers/blob/master/matrix_io/malos/v1/io.proto" target="_blank">here</a>.
 
 Below is an example for a UV configuration message:
-```language-protobuf
+```protobuf
 message DriverConfig {
   // Delay between updates. In seconds.
   float delay_between_updates = 1;
@@ -75,7 +75,7 @@ This `ZeroMQ PUSH port` is used by drivers that send data (Humidity, UV, etc.). 
 To demonstrate, the UV driver will be used as an example. You can find the file <a href="https://github.com/matrix-io/protocol-buffers/blob/master/matrix_io/malos/v1/sense.proto">here</a>.
 The message follows:
 
-```language-protobuf
+```protobuf
 // Basic UV radiation lecture.
 message UV{
   // UV index

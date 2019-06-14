@@ -27,7 +27,7 @@ The following sections show how to implement a connection to each of the Pressur
 <details open>
 <summary style="font-size: 1.75rem; font-weight: 300;">Initial Variables</summary>
 Before we go into connecting to each port, the variables defined below are needed in order to access the ZeroMQ and MATRIX Protocol Buffer libraries for Python. We also define a few helpful variables for easy references.
-```language-python
+```python
 import os # Miscellaneous operating system interface
 import zmq # Asynchronous messaging framework
 import time # Time access and conversions
@@ -47,7 +47,7 @@ from utils import driver_keep_alive, register_data_callback, register_error_call
 <details open>
 <summary style="font-size: 1.75rem; font-weight: 300;">Base Port</summary>
 Here is where the configuration for our pressure example goes. Once we connect to the **Base Port**, we will pass a configuration to the pressure driver. With this we can set the update rate, timeout, and temperature configuration.
-```language-python
+```python
 def config_socket():
     # Define zmq socket
     context = zmq.Context()
@@ -78,7 +78,7 @@ The next step is to connect and send a message to the **Keep-alive Port**. That 
 <details open>
 <summary style="font-size: 1.75rem; font-weight: 300;">Error Port</summary>
 The **Error Port** connection is also taken care of by the `utils import`. Below we define a function to be called and given any error messages that occur within MATRIX CORE.
-```language-python
+```python
 def pressure_error_callback(error):
     # Log error
     print('{0}'.format(error))
@@ -90,7 +90,7 @@ def pressure_error_callback(error):
 <summary style="font-size: 1.75rem; font-weight: 300;">Data Update Port</summary>
 A connection to the **Data Update Port** will allow us to receive the current pressure data we want. The `utils import` takes care of this as well. We can define a function and expect pressure data to be passed to it.
 
-```language-python
+```python
 def pressure_data_callback(data):
     # Extract data
     data = sense_pb2.Pressure().FromString(data[0])
@@ -99,7 +99,7 @@ def pressure_data_callback(data):
 ```
 <h4>Data Output</h4>
 The Python object below is an example output you'll receive from the **Data Update Port**.
-```language-python
+```python
 pressure: 101268.492188
 altitude: 4.81199979782
 temperature: 33.625
@@ -111,7 +111,7 @@ temperature: 33.625
 <summary style="font-size: 1.75rem; font-weight: 300;">Start Processes</summary>
 This is where we begin the asynchronous events for each of the driver ports and where we define the functions we want to use for each port.
 
-```language-python
+```python
 if __name__ == '__main__':
     # Initiate asynchronous events
     ioloop.install()

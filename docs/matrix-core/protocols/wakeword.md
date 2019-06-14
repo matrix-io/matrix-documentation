@@ -21,15 +21,15 @@ The Wakeword driver allows for:
 In order to use MATRIX CORE wakeword, you must install the following on your MATRIX device.
 
 Install the **MATRIX Kernel** modules.
-```language-bash
+```bash
 sudo apt install matrixio-kernel-modules
 ```
 Install the **MATRIX CORE Wakeword Package**.
-```language-bash
+```bash
 sudo apt install matrixio-malos-wakeword
 ```
 Perform a **reboot** before moving on.
-```language-bash
+```bash
 sudo reboot
 ```
 
@@ -56,7 +56,7 @@ This port accepts a single configuration for communicating with the Wakeword dri
 
 * `wakeword` - the wakeword configuration that's created from a `WakeWordParams` message.
 
-```language-protobuf
+```protobuf
 message DriverConfig {
   // Wakeword service configuration
   matrix_io.malos.v1.io.WakeWordParams wakeword = 12;
@@ -76,7 +76,7 @@ View the defined message <a href="https://github.com/matrix-io/protocol-buffers/
 
 * `stop_recognition` - Stop Pocket Sphinx service.
 
-```language-protobuf
+```protobuf
 message WakeWordParams {
   // Mic channels
   enum MicChannel {
@@ -126,7 +126,7 @@ Applications can subscribe to this port to receive driver related errors.
 <summary style="font-size: 1.75rem; font-weight: 300;">Data Update Port</summary>
 Applications can subscribe to this port for Everloop data. The output will be a serialized message of type `EverloopImage` with the following information.
 
-```language-protobuf
+```protobuf
 // The led array.
 message WakeWordParams {
   // Wake Word

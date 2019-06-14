@@ -24,7 +24,7 @@ The following sections show how to implement a connection to each of the UV driv
 <details open>
 <summary style="font-size: 1.75rem; font-weight: 300;">Initial Variables</summary>
 Before we go into connecting to each port, the variables defined below are needed in order to access the ZeroMQ and MATRIX Protocol Buffer libraries for Javascript. We also define a few helpful variables for easy references.
-```language-javascript
+```javascript
 var zmq = require('zeromq');// Asynchronous Messaging Framework
 var matrix_io = require('matrix-protos').matrix_io;// Protocol Buffers for MATRIX function
 var matrix_ip = '127.0.0.1';// Local IP
@@ -36,7 +36,7 @@ var matrix_uv_base_port = 20029;// Port for UV driver
 <details open>
 <summary style="font-size: 1.75rem; font-weight: 300;">Base Port</summary>
 Here is where the configuration for our UV example goes. Once we connect to the **Base Port**, We will pass a configuration to the UV driver. With this we can set the update rate and timeout configuration.
-```language-javascript
+```javascript
 // Create a Pusher socket
 var configSocket = zmq.socket('push');
 // Connect Pusher to Base port
@@ -56,7 +56,7 @@ configSocket.send(matrix_io.malos.v1.driver.DriverConfig.encode(config).finish()
 <details open>
 <summary style="font-size: 1.75rem; font-weight: 300;">Keep-alive Port</summary>
 The next step is to connect and send a message to the **Keep-alive Port**. That message, an empty string, will grant us a response from the **Data Update Port** for the current UV value. An interval for pinging is then set to continuously obtain that data.
-```language-javascript
+```javascript
 // Create a Pusher socket
 var pingSocket = zmq.socket('push');
 // Connect Pusher to Keep-alive port
@@ -74,7 +74,7 @@ setInterval(function(){
 <details open>
 <summary style="font-size: 1.75rem; font-weight: 300;">Error Port</summary>
 Connecting to the **Error Port** is optional, but highly recommended if you want to log any errors that occur within MATRIX CORE.
-```language-javascript
+```javascript
 // Create a Subscriber socket
 var errorSocket = zmq.socket('sub');
 // Connect Subscriber to Error port
@@ -93,7 +93,7 @@ errorSocket.on('message', function(error_message){
 <summary style="font-size: 1.75rem; font-weight: 300;">Data Update Port</summary>
 A connection to the **Data Update Port** will allow us to receive the current UV data we want.
 
-```language-javascript
+```javascript
 // Create a Subscriber socket
 var updateSocket = zmq.socket('sub');
 // Connect Subscriber to Data Update port
@@ -108,7 +108,7 @@ updateSocket.on('message', function(buffer){
 ```
 <h4>Data Output</h4>
 The javascript object below is an example output you'll receive from the **Data Update Port**.
-```language-javascript
+```javascript
 {
   uvIndex: 0.0010000000474974513,
   omsRisk: 'Low'

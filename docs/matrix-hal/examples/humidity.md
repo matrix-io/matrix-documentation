@@ -21,7 +21,7 @@ The following section shows how to receive data from the humidity sensor. You ca
 
 The command below will compile the example. Be sure to pass in your C++ file and desired output file.
 
-```language-cpp
+```c++
 g++ -o YOUR_OUTPUT_FILE YOUR_CPP_FILE -std=c++11 -lmatrix_creator_hal
 ```
 
@@ -29,7 +29,7 @@ g++ -o YOUR_OUTPUT_FILE YOUR_CPP_FILE -std=c++11 -lmatrix_creator_hal
 <summary style="font-size: 1.5rem; font-weight: 300;">Include Statements</summary>
 To begin working with the humidity sensor you need to include these header files.
 
-```language-cpp
+```c++
 // System calls
 #include <unistd.h>
 // Input/output streams and functions
@@ -49,7 +49,7 @@ To begin working with the humidity sensor you need to include these header files
 <summary style="font-size: 1.5rem; font-weight: 300;">Initial Setup</summary>
 You'll then need to setup `MatrixIOBus` in order to communicate with the hardware on your MATRIX device.
 
-```language-cpp
+```c++
 int main() {
   // Create MatrixIOBus object for hardware communication
   matrix_hal::MatrixIOBus bus;
@@ -63,7 +63,7 @@ int main() {
 <summary style="font-size: 1.5rem; font-weight: 300;">Main Setup</summary>
 Now we will create our `HumidityData` and `HumiditySensor` object and use it to receive data from the humidity sensor.
 
-```language-cpp
+```c++
   // The following code is part of main()
   
   // Create HumidityData object
@@ -79,14 +79,14 @@ Now we will create our `HumidityData` and `HumiditySensor` object and use it to 
     humidity_sensor.Read(&humidity_data);
     // Humidity output is represented in %
     float humidity = humidity_data.humidity;
-    // Temperature output is represented in °C
+    // Temperature output is represented in Celsius
     float temperature = humidity_data.temperature;
     // Clear console
     std::system("clear");
     // Output sensor data to console
     std::cout << " [ Humidity Sensor Output ]" << std::endl;
     std::cout << " [ Humidity (%) : " << humidity
-              << " ] [ Temperature (°C) : " << temperature << "]" << std::endl;
+              << " ] [ Temperature (Celsius) : " << temperature << "]" << std::endl;
 
     // Sleep for 20000 microseconds
     usleep(20000);

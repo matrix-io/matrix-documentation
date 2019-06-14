@@ -6,24 +6,24 @@ This guide will show you how to get started with the ESP32 module on the MATRIX 
 Run the following commands inside your Raspberry Pi terminal to install the MATRIX Voice Software. This will keep the FPGA firmware updated and install few tools to flash the ESP-WROOM-32.
 
 Add the MATRIX repository and key.
-```language-bash
+```bash
 curl https://apt.matrix.one/doc/apt-key.gpg | sudo apt-key add -
 echo "deb https://apt.matrix.one/raspbian $(lsb_release -sc) main" | sudo tee /etc/apt/sources.list.d/matrixlabs.list
 ```
 
 Update your repository and packages.
-```language-bash
+```bash
 sudo apt-get update
 sudo apt-get upgrade
 ```
 
 Install the MATRIX init package.
-```language-bash
+```bash
 sudo apt install matrixio-creator-init
 ```
 
 Reboot your Raspberry Pi.
-```language-bash
+```bash
 sudo reboot
 ```
 
@@ -50,7 +50,7 @@ Here we're installing the requirements needed to allow your pc to develop and co
 <b>Clone MATRIX Voice ESP32 repository</b>
 
 This repository contains the necessary libraries to control the MATRIX Voice's components.
-```language-bash
+```bash
 # windows must be using MINGw32 terminal from toolchain step
 git clone https://github.com/matrix-io/matrixio_hal_esp32.git
 ```
@@ -60,7 +60,7 @@ git clone https://github.com/matrix-io/matrixio_hal_esp32.git
 Here we will be deploying and running one of the example apps in the Repository we just downloaded.
 
 <b>Configuring IDF (one time setup):</b>
-```language-bash
+```bash
 cd matrixio_hal_esp32/examples/mic_energy/
 make menuconfig
 ```
@@ -72,7 +72,7 @@ You will now be taken to the IDF Configuration screen, as shown above. Once ther
 <b>Running example project:</b>
 
 To finish running the example, all that's left is to make and deploy the code to the Raspberry Pi. This requires the Pi's IP address and you will be prompted to insert the Pi's password as well.
-```language-bash
+```bash
 export RPI_HOST=pi@RASPBERRY_IP_ADDRESS
 make deploy
 ```

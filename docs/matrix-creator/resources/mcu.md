@@ -30,33 +30,33 @@ We first need to install a few prerequisites.
 
 Add the MATRIX repository and key.
 
-```language-bash
+```bash
 curl https://apt.matrix.one/doc/apt-key.gpg | sudo apt-key add -
 echo "deb https://apt.matrix.one/raspbian $(lsb_release -sc) main" | sudo tee /etc/apt/sources.list.d/matrixlabs.list
 ```
 
 Update your repository and packages.
 
-```language-bash
+```bash
 sudo apt-get update
 sudo apt-get upgrade
 ```
 
 Install the required packages.
 
-```language-bash
+```bash
 sudo apt-get install matrixio-creator-init git gcc-arm-none-eabi
 ```
 
 Reboot your device.
 
-```language-bash
+```bash
 sudo reboot
 ```
 
 Then, clone the MCU source repo.
 
-```language-bash
+```bash
 cd ~/
 git clone https://github.com/matrix-io/matrix-creator-mcu.git
 ```
@@ -67,7 +67,7 @@ Edit the file `matrix-creator-mcu/creator/main.cpp`, commenting out line 82. Thi
 
 Then build the modified MCU source.
 
-```language-bash
+```bash
 cd ~/
 cd matrix-creator-mcu/creator/
 make
@@ -75,13 +75,13 @@ make
 
 Backup the stock `ch.bin` file.
 
-```language-bash
+```bash
 sudo mv /usr/share/matrixlabs/matrixio-devices/blob/ch.bin /usr/share/matrixlabs/matrixio-devices/blob/ch_stock.bin
 ```
 
 Copy your built `ch.bin` file to the blob folder.
  
-```language-bash
+```bash
 cd ~/
 cd matrix-creator-mcu/creator/
 sudo cp ./build/ch.bin /usr/share/matrixlabs/matrixio-devices/blob/ch.bin
@@ -89,14 +89,14 @@ sudo cp ./build/ch.bin /usr/share/matrixlabs/matrixio-devices/blob/ch.bin
 
 Now you can flash the MCU.
 
-```language-bash
+```bash
 cd /usr/share/matrixlabs/matrixio-devices/
 sudo openocd -f cfg/sam3s_rpi_sysfs.cfg
 ```
 
 The last part of the `openocd` flashing command output should be the following (may vary due to user-provided file).
 
-```language-bash
+```bash
 flash 'at91sam3' found at 0x00400000
 wrote 36636 bytes from file blob/ch.bin to flash bank 0 at offset 0x00000000 in 4.665386s (7.669 KiB/s)
 Info : JTAG tap: em358.cpu tap/device found: 0x3ba00477 (mfg: 0x23b (ARM Ltd.), part: 0xba00, ver: 0x3)
@@ -108,7 +108,7 @@ shutdown command invoked
 
 In order to maintain compatibility with the `matrixio-creator-init` package, you'll need to backup the original `mcu_firmware.version` file, and create your own.
 
-```language-bash
+```bash
 cd /usr/share/matrixlabs/matrixio-devices/
 sudo mv /usr/share/matrixlabs/matrixio-devices/mcu_firmware.version /usr/share/matrixlabs/matrixio-devices/mcu_firmware_stock.version
 (./firmware_info | grep MCU) | sudo tee mcu_firmware.version
@@ -118,13 +118,13 @@ Updating the `matrixio-creator-init` package will cause the stock FPGA bitstream
 
 You can stop `sudo apt-get upgrade` from automatically updating the `matrixio-creator-init` package with the following command.
 
-```language-bash
+```bash
 sudo apt-mark hold matrixio-creator-init
 ```
 
 Power off your device.
 
-```language-bash
+```bash
 sudo poweroff
 ```
 
@@ -136,21 +136,21 @@ Plug the power cable back into your Raspberry Pi.
 
 To restore the original firmware, restore the stock `ch.bin` file in the blob folder.
 
-```language-bash
+```bash
 sudo rm /usr/share/matrixlabs/matrixio-devices/blob/ch.bin
 sudo cp /usr/share/matrixlabs/matrixio-devices/blob/ch_stock.bin /usr/share/matrixlabs/matrixio-devices/blob/ch.bin
 ```
 
 Now you can flash the MCU.
 
-```language-bash
+```bash
 cd /usr/share/matrixlabs/matrixio-devices/
 sudo openocd -f cfg/sam3s_rpi_sysfs.cfg
 ```
 
 The last part of the `openocd` flashing command output should be the following.
 
-```language-bash
+```bash
 flash 'at91sam3' found at 0x00400000
 wrote 36636 bytes from file blob/ch.bin to flash bank 0 at offset 0x00000000 in 4.665386s (7.669 KiB/s)
 Info : JTAG tap: em358.cpu tap/device found: 0x3ba00477 (mfg: 0x23b (ARM Ltd.), part: 0xba00, ver: 0x3)
@@ -162,20 +162,20 @@ shutdown command invoked
 
 Restore the stock `mcu_firmware.version` file.
 
-```language-bash
+```bash
 sudo rm /usr/share/matrixlabs/matrixio-devices/mcu_firmware.version
 sudo cp /usr/share/matrixlabs/matrixio-devices/mcu_firmware_stock.version /usr/share/matrixlabs/matrixio-devices/mcu_firmware.version
 ```
 
 Allow `sudo apt-get upgrade` to update the `matrixio-creator-init` package.
 
-```language-bash
+```bash
 sudo apt-mark unhold matrixio-creator-init
 ```
 
 Power off your device.
 
-```language-bash
+```bash
 sudo poweroff
 ```
 

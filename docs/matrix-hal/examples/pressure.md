@@ -22,7 +22,7 @@ The following section shows how to receive data from the pressure sensor. You ca
 
 The command below will compile the example. Be sure to pass in your C++ file and desired output file.
 
-```language-cpp
+```c++
 g++ -o YOUR_OUTPUT_FILE YOUR_CPP_FILE -std=c++11 -lmatrix_creator_hal
 ```
 
@@ -30,7 +30,7 @@ g++ -o YOUR_OUTPUT_FILE YOUR_CPP_FILE -std=c++11 -lmatrix_creator_hal
 <summary style="font-size: 1.5rem; font-weight: 300;">Include Statements</summary>
 To begin working with the pressure sensor you need to include these header files.
 
-```language-cpp
+```c++
 // System calls
 #include <unistd.h>
 // Input/output streams and functions
@@ -50,7 +50,7 @@ To begin working with the pressure sensor you need to include these header files
 <summary style="font-size: 1.5rem; font-weight: 300;">Initial Setup</summary>
 You'll then need to setup `MatrixIOBus` in order to communicate with the hardware on your MATRIX device.
 
-```language-cpp
+```c++
 int main() {
   // Create MatrixIOBus object for hardware communication
   matrix_hal::MatrixIOBus bus;
@@ -64,7 +64,7 @@ int main() {
 <summary style="font-size: 1.5rem; font-weight: 300;">Main Setup</summary>
 Now we will create our `PressureData` and `PressureSensor` object and use it to receive data from the pressure sensor.
 
-```language-cpp
+```c++
   // The following code is part of main()
 
   // Create PressureData object
@@ -82,7 +82,7 @@ Now we will create our `PressureData` and `PressureSensor` object and use it to 
     float altitude = pressure_data.altitude;
     // Pressure output is represented in kPa
     float pressure = pressure_data.pressure;
-    // Temperature output is represented in °C
+    // Temperature output is represented in Celsius
     float temperature = pressure_data.temperature;
     // Clear console
     std::system("clear");
@@ -90,7 +90,7 @@ Now we will create our `PressureData` and `PressureSensor` object and use it to 
     std::cout << " [ Pressure Sensor Output ]" << std::endl;
     std::cout << " [ Altitude (m) : " << altitude
               << " ] [ Pressure (kPa) : " << pressure
-              << " ] [ Temperature (°C) : " << temperature << " ]" << std::endl;
+              << " ] [ Temperature (Celsius) : " << temperature << " ]" << std::endl;
 
     // Sleep for 20000 microseconds
     usleep(20000);

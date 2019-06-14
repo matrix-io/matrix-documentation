@@ -9,27 +9,27 @@ Before starting, ensure you have access to the terminal of your Raspberry Pi via
 
 Add the MATRIX repository and key.
 
-```language-bash
+```bash
 curl https://apt.matrix.one/doc/apt-key.gpg | sudo apt-key add -
 echo "deb https://apt.matrix.one/raspbian $(lsb_release -sc) main" | sudo tee /etc/apt/sources.list.d/matrixlabs.list
 ```
 
 Update your repository and packages.
 
-```language-bash
+```bash
 sudo apt-get update
 sudo apt-get upgrade
 ```
 
 Install the the MATRIX CORE packages.
 
-```language-bash
+```bash
 sudo apt-get install matrixio-malos
 ```
 
 Reboot your device.
 
-```language-bash
+```bash
 sudo reboot
 ```
 
@@ -37,7 +37,7 @@ MATRIX CORE will now be running as a service each time your Raspberry Pi boots u
 
 These remaining commands will install <a href="http://zeromq.org/" target="_blank">ZeroMQ</a>.
 
-```language-bash
+```bash
 echo "deb http://download.opensuse.org/repositories/network:/messaging:/zeromq:/release-stable/Debian_9.0/ ./" | sudo tee /etc/apt/sources.list.d/zeromq.list
 wget https://download.opensuse.org/repositories/network:/messaging:/zeromq:/release-stable/Debian_9.0/Release.key -O- | sudo apt-key add
 ```
@@ -58,25 +58,25 @@ If you're already familiar, you can learn how to setup a programming language fo
 
 If you need to upgrade your MATRIX CORE package at any time, please run the following commands on your Raspberry Pi.
 
-```language-bash
+```bash
 sudo apt-get update
 sudo apt-get upgrade
 ```
 A reboot will be required after upgrading your packages.
 
-```language-bash
+```bash
 sudo reboot
 ```
 
 <h3 style="padding-top: 0">Stopping & Starting</h3>
 If you need to manually stop MATRIX CORE use:
 
-```language-bash
+```bash
 sudo pkill -9 malos
 ```
 
 If you need to manually start MATRIX CORE again use:
 
-```language-bash
+```bash
 malos &
 ```
