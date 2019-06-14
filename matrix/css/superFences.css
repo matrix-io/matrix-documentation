@@ -1,0 +1,100 @@
+.superfences-tabs {
+  display: flex;
+  position: relative;
+  flex-wrap: wrap;
+  box-sizing: border-box;
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12), 0 3px 1px -2px rgba(0,0,0,.2);
+  max-width: 100%;
+  border-radius: .2rem;
+  margin-bottom: 20px;
+}
+
+.superfences-tabs label:hover {
+  color: #7f7f7f;
+  /* border-bottom: 2px solid #7f7f7f; */
+}
+
+.codehilite pre {
+  margin-bottom: 0;
+}
+
+.superfences-tabs .highlight {
+  background: #ddd;
+}
+
+.superfences-content{
+  background-color: #141414;
+}
+
+.superfences-tabs .superfences-content {
+  display: none;
+  order: 99;
+  width: 100%;
+  border-top: 1px solid #CCC;
+}
+
+.superfences-tabs label {
+    margin: 0;
+    width: auto;
+    cursor: pointer;
+    font-size: 1.28rem;
+    padding: 1.2rem 1.6rem;
+}
+
+.superfences-tabs input {
+  position: absolute;
+  opacity: 0;
+}
+
+.superfences-tabs input:nth-child(n+1) {
+  color: #333333;
+}
+
+.superfences-tabs input:nth-child(n+1):checked + label {
+    color: #2F80ED;
+}
+
+.superfences-tabs input:nth-child(n+1):checked + label + .superfences-content {
+    display: block;
+}
+
+.superfences-tabs .highlight {
+  background: #ddd;
+}
+
+.superfences-tabs .superfences-content {
+  display: none;
+  order: 99;
+  width: 100%;
+}
+
+.superfences-tabs label {
+  width: auto;
+  margin: 0;
+  padding: 0.9em;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.superfences-tabs input {
+  position: absolute;
+  opacity: 0;
+}
+
+.superfences-tabs input:nth-child(n+1) {
+  color: #333333;
+}
+
+.superfences-tabs input:nth-child(n+1):checked + label {
+    color: #2F80ED;
+    border-bottom: 2px solid #2F80ED;
+}
+
+.superfences-tabs input:nth-child(n+1):checked + label + .superfences-content {
+    display: block;
+}
+
+.superfences-tabs .codehilite {
+    margin-bottom: 0;
+}
+
