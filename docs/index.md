@@ -15,7 +15,10 @@ Submit documentation issues or improvements to the <a href="https://github.com/m
 
 <p><img src="./img/youtube.png" height="24px" width="24px"> Follow our live streams and tutorial videos on <a href="https://youtube.com/MATRIXLabs" target="_blank">YouTube</a>.</p>
 
-<p><img src="./img/GitHub-Mark-32px.png" height="24px" width="24px"> 
+
+<p><img src="./img/E14.svg" height="24px" width="24px"> View blog posts & project guides on our <a href="https://element14.com/community/people/matrixlabs/content" target="_blank">element14 page</a>.</p>
+
+<p><img src="./img/Github.svg" height="24px" width="24px"> 
 Alert issues on our <a href="https://github.com/matrix-io" target="_blank">GitHub</a> under the corresponding repository.</p>
 
 <br/>

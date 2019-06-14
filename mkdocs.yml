@@ -8,6 +8,7 @@ markdown_extensions:
 theme_dir: matrix
 pages:
 - Overview: 'index.md'
+- Support : 'help.md'
 # MATRIX Boards
 - MATRIX Creator:
   - 'Overview': 'matrix-creator/overview.md'
@@ -119,4 +120,3 @@ pages:
     - 'GPIO': 'matrix-core/python-examples/gpio.md'
     - 'Wakeword': 'matrix-core/python-examples/wakeword.md'
   - Troubleshooting: 'matrix-core/troubleshooting.md'
-- Support : 'help.md'
