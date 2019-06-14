@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
   <link rel="stylesheet" href="../../../css/theme.css">
   <link rel="stylesheet" href="../../../css/codehilite.css">
+  <link rel="stylesheet" href="../../../css/superFences.css">
   <link rel="stylesheet" href="../../../css/clipboard.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
@@ -498,59 +499,61 @@ This port accepts 2 configurations for communicating with the IMU driver. </p>
 <p><code>timeout_after_last_ping</code> - stops sending messages from the <strong>Data Update port</strong> if nothing has been sent to the <strong>Keep-alive port</strong> after the specified amount of seconds.</p>
 </li>
 </ul>
-<p> <div class=codehilite><pre><span></span><span class=kd>message</span> <span class=nc>DriverConfig</span> <span class=p>{</span>
-  <span class=c1>// Delay between updates in seconds</span>
-  <span class=kt>float</span> <span class=na>delay_between_updates</span> <span class=o>=</span> <span class=mi>1</span><span class=p>;</span>
-  <span class=c1>// Timeout after last ping</span>
-  <span class=kt>float</span> <span class=na>timeout_after_last_ping</span> <span class=o>=</span> <span class=mi>2</span><span class=p>;</span>
-</pre></div></p>
-<p>View the defined message <a href="https://github.com/matrix-io/protocol-buffers/blob/master/matrix_io/malos/v1/driver.proto" target="_blank">here</a>.
+<p><div class="codehilite"><pre><span></span><span class="kd">message</span> <span class="nc">DriverConfig</span> <span class="p">{</span>
+  <span class="c1">// Delay between updates in seconds</span>
+  <span class="kt">float</span> <span class="na">delay_between_updates</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+  <span class="c1">// Timeout after last ping</span>
+  <span class="kt">float</span> <span class="na">timeout_after_last_ping</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+</pre></div>
+View the defined message <a href="https://github.com/matrix-io/protocol-buffers/blob/master/matrix_io/malos/v1/driver.proto" target="_blank">here</a>.
 </details></p>
 <!-- Keep-alive PORT -->
 
-<p><details open>
+<details open>
 <summary style="font-size: 1.75rem; font-weight: 300;">Keep-alive Port</summary>
-This driver needs keep-alive messages in order to send data to your application. It's recommended to send an empty string <code>""</code> because the contents of a keep-alive message are never read.
-</details></p>
+This driver needs keep-alive messages in order to send data to your application. It's recommended to send an empty string `""` because the contents of a keep-alive message are never read.
+</details>
+
 <!-- Error PORT -->
 
-<p><details open>
+<details open>
 <summary style="font-size: 1.75rem; font-weight: 300;">Error Port</summary>
 Applications can subscribe to this port to receive driver related errors.
-</details></p>
+</details>
+
 <!-- Data Update PORT -->
 
-<p><details open>
+<details open>
 <summary style="font-size: 1.75rem; font-weight: 300;">Data Update Port</summary>
-Applications can subscribe to this port for IMU data. The output will be a serialized message of type <code>Imu</code> with the following information.</p>
-<p> <div class=codehilite><pre><span></span><span class=kd>message</span> <span class=nc>Imu</span> <span class=p>{</span>
-  <span class=c1>//Vertical axis (yaw)</span>
-  <span class=kt>float</span> <span class=na>yaw</span> <span class=o>=</span> <span class=mi>1</span><span class=p>;</span>
+Applications can subscribe to this port for IMU data. The output will be a serialized message of type `Imu` with the following information.
+<div class="codehilite"><pre><span></span><span class="kd">message</span> <span class="nc">Imu</span> <span class="p">{</span>
+  <span class="c1">//Vertical axis (yaw)</span>
+  <span class="kt">float</span> <span class="na">yaw</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
 
-  <span class=c1>//Lateral axis (pitch)</span>
-  <span class=kt>float</span> <span class=na>pitch</span> <span class=o>=</span> <span class=mi>2</span><span class=p>;</span>
+  <span class="c1">//Lateral axis (pitch)</span>
+  <span class="kt">float</span> <span class="na">pitch</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
 
-  <span class=c1>//Longitudinal axis (roll)</span>
-  <span class=kt>float</span> <span class=na>roll</span> <span class=o>=</span> <span class=mi>3</span><span class=p>;</span>
+  <span class="c1">//Longitudinal axis (roll)</span>
+  <span class="kt">float</span> <span class="na">roll</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
 
-  <span class=c1>// Acceleration</span>
-  <span class=kt>float</span> <span class=na>accel_x</span> <span class=o>=</span> <span class=mi>4</span><span class=p>;</span>
-  <span class=kt>float</span> <span class=na>accel_y</span> <span class=o>=</span> <span class=mi>5</span><span class=p>;</span>
-  <span class=kt>float</span> <span class=na>accel_z</span> <span class=o>=</span> <span class=mi>6</span><span class=p>;</span>
+  <span class="c1">// Acceleration</span>
+  <span class="kt">float</span> <span class="na">accel_x</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span>
+  <span class="kt">float</span> <span class="na">accel_y</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
+  <span class="kt">float</span> <span class="na">accel_z</span> <span class="o">=</span> <span class="mi">6</span><span class="p">;</span>
 
-  <span class=c1>// Gyroscope</span>
-  <span class=kt>float</span> <span class=na>gyro_x</span> <span class=o>=</span> <span class=mi>7</span><span class=p>;</span>
-  <span class=kt>float</span> <span class=na>gyro_y</span> <span class=o>=</span> <span class=mi>8</span><span class=p>;</span>
-  <span class=kt>float</span> <span class=na>gyro_z</span> <span class=o>=</span> <span class=mi>9</span><span class=p>;</span>
+  <span class="c1">// Gyroscope</span>
+  <span class="kt">float</span> <span class="na">gyro_x</span> <span class="o">=</span> <span class="mi">7</span><span class="p">;</span>
+  <span class="kt">float</span> <span class="na">gyro_y</span> <span class="o">=</span> <span class="mi">8</span><span class="p">;</span>
+  <span class="kt">float</span> <span class="na">gyro_z</span> <span class="o">=</span> <span class="mi">9</span><span class="p">;</span>
 
-  <span class=c1>// Magnetometer</span>
-  <span class=kt>float</span> <span class=na>mag_x</span> <span class=o>=</span> <span class=mi>10</span><span class=p>;</span>
-  <span class=kt>float</span> <span class=na>mag_y</span> <span class=o>=</span> <span class=mi>11</span><span class=p>;</span>
-  <span class=kt>float</span> <span class=na>mag_z</span> <span class=o>=</span> <span class=mi>12</span><span class=p>;</span>
-<span class=p>}</span>
-</pre></div></p>
-<p>View the defined message <a href="https://github.com/matrix-io/protocol-buffers/blob/65397022e73ac98ec2b217937f133a9eefbd8f01/matrix_io/malos/v1/sense.proto" target="_blank">here</a>.
-</details></p> 
+  <span class="c1">// Magnetometer</span>
+  <span class="kt">float</span> <span class="na">mag_x</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+  <span class="kt">float</span> <span class="na">mag_y</span> <span class="o">=</span> <span class="mi">11</span><span class="p">;</span>
+  <span class="kt">float</span> <span class="na">mag_z</span> <span class="o">=</span> <span class="mi">12</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+View the defined message <a href="https://github.com/matrix-io/protocol-buffers/blob/65397022e73ac98ec2b217937f133a9eefbd8f01/matrix_io/malos/v1/sense.proto" target="_blank">here</a>.
+</details> 
         </div>
         <div class="toc-parent col-lg-2 col-md-3">
           <div class="toc">

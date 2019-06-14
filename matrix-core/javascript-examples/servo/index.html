@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
   <link rel="stylesheet" href="../../../css/theme.css">
   <link rel="stylesheet" href="../../../css/codehilite.css">
+  <link rel="stylesheet" href="../../../css/superFences.css">
   <link rel="stylesheet" href="../../../css/clipboard.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
@@ -489,62 +490,65 @@
 <p>The following sections show how to implement a connection to each of the Servo driver's ports. You can download this example <a href="https://github.com/matrix-io/matrix-core-examples/blob/master/javascript/servo.js" target="_blank">here</a>.</p>
 <!-- Initial Variables -->
 
-<p><details open>
+<details open>
 <summary style="font-size: 1.75rem; font-weight: 300;">Initial Variables</summary>
-Before we go into connecting to each port, the variables defined below are needed in order to access the ZeroMQ and MATRIX Protocol Buffer libraries for Javascript. We also define a few helpful variables for easy references.</p>
-<p> <div class=codehilite><pre><span></span><span class=kd>var</span> <span class=nx>zmq</span> <span class=o>=</span> <span class=nx>require</span><span class=p>(</span><span class=s1>&#39;zeromq&#39;</span><span class=p>);</span><span class=c1>// Asynchronous Messaging Framework</span>
-<span class=kd>var</span> <span class=nx>matrix_io</span> <span class=o>=</span> <span class=nx>require</span><span class=p>(</span><span class=s1>&#39;matrix-protos&#39;</span><span class=p>).</span><span class=nx>matrix_io</span><span class=p>;</span><span class=c1>// Protocol Buffers for MATRIX function</span>
-<span class=kd>var</span> <span class=nx>matrix_ip</span> <span class=o>=</span> <span class=s1>&#39;127.0.0.1&#39;</span><span class=p>;</span><span class=c1>// Local IP</span>
-<span class=kd>var</span> <span class=nx>matrix_servo_base_port</span> <span class=o>=</span> <span class=mi>20045</span><span class=p>;</span><span class=c1>// Port for Servo driver</span>
-</pre></div></p>
-<p></details></p>
+Before we go into connecting to each port, the variables defined below are needed in order to access the ZeroMQ and MATRIX Protocol Buffer libraries for Javascript. We also define a few helpful variables for easy references.
+<div class="codehilite"><pre><span></span><span class="kd">var</span> <span class="nx">zmq</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;zeromq&#39;</span><span class="p">);</span><span class="c1">// Asynchronous Messaging Framework</span>
+<span class="kd">var</span> <span class="nx">matrix_io</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;matrix-protos&#39;</span><span class="p">).</span><span class="nx">matrix_io</span><span class="p">;</span><span class="c1">// Protocol Buffers for MATRIX function</span>
+<span class="kd">var</span> <span class="nx">matrix_ip</span> <span class="o">=</span> <span class="s1">&#39;127.0.0.1&#39;</span><span class="p">;</span><span class="c1">// Local IP</span>
+<span class="kd">var</span> <span class="nx">matrix_servo_base_port</span> <span class="o">=</span> <span class="mi">20045</span><span class="p">;</span><span class="c1">// Port for Servo driver</span>
+</pre></div>
+</details>
+
 <!-- Base PORT -->
 
-<p><details open>
+<details open>
 <summary style="font-size: 1.75rem; font-weight: 300;">Base Port</summary>
-Here is where the configuration for our servo example goes. Once we connect to the <strong>Base Port</strong>, We will pass a configuration to the servo driver. With this we can choose the pin we want to edit and the angle to set for it. This example will send random numbers to any servo attached to pin 0.</p>
-<p> <div class=codehilite><pre><span></span><span class=c1>// Create a Pusher socket</span>
-<span class=kd>var</span> <span class=nx>configSocket</span> <span class=o>=</span> <span class=nx>zmq</span><span class=p>.</span><span class=nx>socket</span><span class=p>(</span><span class=s1>&#39;push&#39;</span><span class=p>);</span>
-<span class=c1>// Connect Pusher to Base port</span>
-<span class=nx>configSocket</span><span class=p>.</span><span class=nx>connect</span><span class=p>(</span><span class=s1>&#39;tcp://&#39;</span> <span class=o>+</span> <span class=nx>matrix_ip</span> <span class=o>+</span> <span class=s1>&#39;:&#39;</span> <span class=o>+</span> <span class=nx>matrix_servo_base_port</span><span class=p>);</span>
-<span class=c1>// Create driver configuration</span>
-<span class=kd>var</span> <span class=nx>config</span> <span class=o>=</span> <span class=nx>matrix_io</span><span class=p>.</span><span class=nx>malos</span><span class=p>.</span><span class=nx>v1</span><span class=p>.</span><span class=nx>driver</span><span class=p>.</span><span class=nx>DriverConfig</span><span class=p>.</span><span class=nx>create</span><span class=p>({</span>
-  <span class=c1>// Create servo configuration</span>
-  <span class=nx>servo</span><span class=o>:</span> <span class=nx>matrix_io</span><span class=p>.</span><span class=nx>malos</span><span class=p>.</span><span class=nx>v1</span><span class=p>.</span><span class=nx>io</span><span class=p>.</span><span class=nx>ServoParams</span><span class=p>.</span><span class=nx>create</span><span class=p>({</span>
-    <span class=nx>pin</span><span class=o>:</span> <span class=mi>0</span><span class=p>,</span><span class=c1>// Use pin 0</span>
-    <span class=nx>angle</span><span class=o>:</span> <span class=mi>0</span><span class=c1>// Set angle 0</span>
-  <span class=p>})</span>
-<span class=p>});</span>
-<span class=c1>// Loop every second</span>
-<span class=nx>setInterval</span><span class=p>(</span><span class=kd>function</span><span class=p>(){</span>
-  <span class=c1>// Pick number from 1-180</span>
-  <span class=kd>var</span> <span class=nx>angle</span> <span class=o>=</span> <span class=nb>Math</span><span class=p>.</span><span class=nx>floor</span><span class=p>(</span><span class=nb>Math</span><span class=p>.</span><span class=nx>random</span><span class=p>()</span> <span class=o>*</span> <span class=mi>180</span><span class=p>)</span><span class=o>+</span><span class=mi>1</span><span class=p>;</span>
-  <span class=c1>// Set number as new random angle</span>
-  <span class=nx>config</span><span class=p>.</span><span class=nx>servo</span><span class=p>.</span><span class=nx>angle</span> <span class=o>=</span> <span class=nx>angle</span><span class=p>;</span>
-  <span class=c1>// Log angle</span>
-  <span class=nx>console</span><span class=p>.</span><span class=nx>log</span><span class=p>(</span><span class=nx>angle</span><span class=p>);</span>
-  <span class=c1>// Send driver configuration</span>
-  <span class=nx>configSocket</span><span class=p>.</span><span class=nx>send</span><span class=p>(</span><span class=nx>matrix_io</span><span class=p>.</span><span class=nx>malos</span><span class=p>.</span><span class=nx>v1</span><span class=p>.</span><span class=nx>driver</span><span class=p>.</span><span class=nx>DriverConfig</span><span class=p>.</span><span class=nx>encode</span><span class=p>(</span><span class=nx>config</span><span class=p>).</span><span class=nx>finish</span><span class=p>());</span>
-<span class=p>},</span> <span class=mi>1000</span><span class=p>);</span>
-</pre></div></p>
-<p></details></p>
+Here is where the configuration for our servo example goes. Once we connect to the **Base Port**, We will pass a configuration to the servo driver. With this we can choose the pin we want to edit and the angle to set for it. This example will send random numbers to any servo attached to pin 0.
+
+<div class="codehilite"><pre><span></span><span class="c1">// Create a Pusher socket</span>
+<span class="kd">var</span> <span class="nx">configSocket</span> <span class="o">=</span> <span class="nx">zmq</span><span class="p">.</span><span class="nx">socket</span><span class="p">(</span><span class="s1">&#39;push&#39;</span><span class="p">);</span>
+<span class="c1">// Connect Pusher to Base port</span>
+<span class="nx">configSocket</span><span class="p">.</span><span class="nx">connect</span><span class="p">(</span><span class="s1">&#39;tcp://&#39;</span> <span class="o">+</span> <span class="nx">matrix_ip</span> <span class="o">+</span> <span class="s1">&#39;:&#39;</span> <span class="o">+</span> <span class="nx">matrix_servo_base_port</span><span class="p">);</span>
+<span class="c1">// Create driver configuration</span>
+<span class="kd">var</span> <span class="nx">config</span> <span class="o">=</span> <span class="nx">matrix_io</span><span class="p">.</span><span class="nx">malos</span><span class="p">.</span><span class="nx">v1</span><span class="p">.</span><span class="nx">driver</span><span class="p">.</span><span class="nx">DriverConfig</span><span class="p">.</span><span class="nx">create</span><span class="p">({</span>
+  <span class="c1">// Create servo configuration</span>
+  <span class="nx">servo</span><span class="o">:</span> <span class="nx">matrix_io</span><span class="p">.</span><span class="nx">malos</span><span class="p">.</span><span class="nx">v1</span><span class="p">.</span><span class="nx">io</span><span class="p">.</span><span class="nx">ServoParams</span><span class="p">.</span><span class="nx">create</span><span class="p">({</span>
+    <span class="nx">pin</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span><span class="c1">// Use pin 0</span>
+    <span class="nx">angle</span><span class="o">:</span> <span class="mi">0</span><span class="c1">// Set angle 0</span>
+  <span class="p">})</span>
+<span class="p">});</span>
+<span class="c1">// Loop every second</span>
+<span class="nx">setInterval</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
+  <span class="c1">// Pick number from 1-180</span>
+  <span class="kd">var</span> <span class="nx">angle</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">floor</span><span class="p">(</span><span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">()</span> <span class="o">*</span> <span class="mi">180</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">;</span>
+  <span class="c1">// Set number as new random angle</span>
+  <span class="nx">config</span><span class="p">.</span><span class="nx">servo</span><span class="p">.</span><span class="nx">angle</span> <span class="o">=</span> <span class="nx">angle</span><span class="p">;</span>
+  <span class="c1">// Log angle</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">angle</span><span class="p">);</span>
+  <span class="c1">// Send driver configuration</span>
+  <span class="nx">configSocket</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="nx">matrix_io</span><span class="p">.</span><span class="nx">malos</span><span class="p">.</span><span class="nx">v1</span><span class="p">.</span><span class="nx">driver</span><span class="p">.</span><span class="nx">DriverConfig</span><span class="p">.</span><span class="nx">encode</span><span class="p">(</span><span class="nx">config</span><span class="p">).</span><span class="nx">finish</span><span class="p">());</span>
+<span class="p">},</span> <span class="mi">1000</span><span class="p">);</span>
+</pre></div>
+</details>
+
 <!-- Error PORT -->
 
-<p><details open>
+<details open>
 <summary style="font-size: 1.75rem; font-weight: 300;">Error Port</summary>
-Connecting to the <strong>Error Port</strong> is optional, but highly recommended if you want to log any errors that occur within MATRIX CORE.</p>
-<p> <div class=codehilite><pre><span></span><span class=c1>// Create a Subscriber socket</span>
-<span class=kd>var</span> <span class=nx>errorSocket</span> <span class=o>=</span> <span class=nx>zmq</span><span class=p>.</span><span class=nx>socket</span><span class=p>(</span><span class=s1>&#39;sub&#39;</span><span class=p>);</span>
-<span class=c1>// Connect Subscriber to Error port</span>
-<span class=nx>errorSocket</span><span class=p>.</span><span class=nx>connect</span><span class=p>(</span><span class=s1>&#39;tcp://&#39;</span> <span class=o>+</span> <span class=nx>matrix_ip</span> <span class=o>+</span> <span class=s1>&#39;:&#39;</span> <span class=o>+</span> <span class=p>(</span><span class=nx>matrix_servo_base_port</span> <span class=o>+</span> <span class=mi>2</span><span class=p>));</span>
-<span class=c1>// Connect Subscriber to Error port</span>
-<span class=nx>errorSocket</span><span class=p>.</span><span class=nx>subscribe</span><span class=p>(</span><span class=s1>&#39;&#39;</span><span class=p>);</span>
-<span class=c1>// On Message</span>
-<span class=nx>errorSocket</span><span class=p>.</span><span class=nx>on</span><span class=p>(</span><span class=s1>&#39;message&#39;</span><span class=p>,</span> <span class=kd>function</span><span class=p>(</span><span class=nx>error_message</span><span class=p>){</span>
-  <span class=nx>console</span><span class=p>.</span><span class=nx>log</span><span class=p>(</span><span class=s1>&#39;Error received: &#39;</span> <span class=o>+</span> <span class=nx>error_message</span><span class=p>.</span><span class=nx>toString</span><span class=p>(</span><span class=s1>&#39;utf8&#39;</span><span class=p>));</span><span class=c1>// Log error</span>
-<span class=p>});</span>
-</pre></div></p>
-<p></details></p> 
+Connecting to the **Error Port** is optional, but highly recommended if you want to log any errors that occur within MATRIX CORE.
+<div class="codehilite"><pre><span></span><span class="c1">// Create a Subscriber socket</span>
+<span class="kd">var</span> <span class="nx">errorSocket</span> <span class="o">=</span> <span class="nx">zmq</span><span class="p">.</span><span class="nx">socket</span><span class="p">(</span><span class="s1">&#39;sub&#39;</span><span class="p">);</span>
+<span class="c1">// Connect Subscriber to Error port</span>
+<span class="nx">errorSocket</span><span class="p">.</span><span class="nx">connect</span><span class="p">(</span><span class="s1">&#39;tcp://&#39;</span> <span class="o">+</span> <span class="nx">matrix_ip</span> <span class="o">+</span> <span class="s1">&#39;:&#39;</span> <span class="o">+</span> <span class="p">(</span><span class="nx">matrix_servo_base_port</span> <span class="o">+</span> <span class="mi">2</span><span class="p">));</span>
+<span class="c1">// Connect Subscriber to Error port</span>
+<span class="nx">errorSocket</span><span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">);</span>
+<span class="c1">// On Message</span>
+<span class="nx">errorSocket</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;message&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">error_message</span><span class="p">){</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Error received: &#39;</span> <span class="o">+</span> <span class="nx">error_message</span><span class="p">.</span><span class="nx">toString</span><span class="p">(</span><span class="s1">&#39;utf8&#39;</span><span class="p">));</span><span class="c1">// Log error</span>
+<span class="p">});</span>
+</pre></div>
+</details> 
         </div>
         <div class="toc-parent col-lg-2 col-md-3">
           <div class="toc">

@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
   <link rel="stylesheet" href="../../../css/theme.css">
   <link rel="stylesheet" href="../../../css/codehilite.css">
+  <link rel="stylesheet" href="../../../css/superFences.css">
   <link rel="stylesheet" href="../../../css/clipboard.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
@@ -493,88 +494,82 @@
 <h2 id="protocol">Protocol</h2>
 <!-- Base PORT -->
 
-<p><details open>
+<details open>
 <summary style="font-size: 1.75rem; font-weight: 300;">Base Port</summary>
-This port accepts 3 configuration for communicating with the GPIO driver.</p>
-<ul>
-<li>
-<p><code>delay_between_updates</code> - controls the output speed of messages from the <strong>Data Update port</strong>. </p>
-</li>
-<li>
-<p><code>timeout_after_last_ping</code> - stops sending messages from the <strong>Data Update port</strong> if nothing has been sent to the <strong>Keep-alive port</strong> after the specified amount of seconds.</p>
-</li>
-<li>
-<p><code>gpio</code> - the gpio configuration that's created from a <code>GpioParams</code> message.</p>
-</li>
-</ul>
-<p> <div class=codehilite><pre><span></span><span class=kd>message</span> <span class=nc>DriverConfig</span> <span class=p>{</span>
-  <span class=c1>// Delay between updates in seconds</span>
-  <span class=kt>float</span> <span class=na>delay_between_updates</span> <span class=o>=</span> <span class=mi>1</span><span class=p>;</span>
-  <span class=c1>// Timeout after last ping</span>
-  <span class=kt>float</span> <span class=na>timeout_after_last_ping</span> <span class=o>=</span> <span class=mi>2</span><span class=p>;</span>
-  <span class=c1>// Gpio service configuration</span>
-  <span class=n>matrix_io.malos.v1.io.GpioParams</span> <span class=na>gpio</span> <span class=o>=</span> <span class=mi>8</span><span class=p>;</span>
-<span class=p>}</span>
-</pre></div></p>
-<p>View the defined message <a href="https://github.com/matrix-io/protocol-buffers/blob/master/matrix_io/malos/v1/driver.proto" target="_blank">here</a>.</p>
-<p><code>GpioParams</code></p>
-<ul>
-<li>
-<p><code>pin</code> - Selects the pin you want to use on your MATRIX device. </p>
-</li>
-<li>
-<p><code>EnumMode</code> - Determines input or output mode for GPIO pins.</p>
-</li>
-<li>
-<p><code>value</code> - Set as 1 or 0 to signify on/off.</p>
-<blockquote>
-<p>Each <code>pin</code> will save its last set <code>value</code> until the next device boot.</p>
-</blockquote>
-</li>
-</ul>
-<p> <div class=codehilite><pre><span></span><span class=c1>// GPIO handler params</span>
-<span class=kd>message</span> <span class=nc>GpioParams</span> <span class=p>{</span>
-  <span class=c1>// GPIO to config</span>
-  <span class=kt>uint32</span> <span class=na>pin</span> <span class=o>=</span> <span class=mi>1</span><span class=p>;</span>
+This port accepts 3 configuration for communicating with the GPIO driver.
 
-  <span class=c1>// GPIO mode input/output</span>
-  <span class=kd>enum</span> <span class=n>EnumMode</span> <span class=p>{</span>
-    <span class=na>INPUT</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span>
-    <span class=na>OUTPUT</span> <span class=o>=</span> <span class=mi>1</span><span class=p>;</span>
-  <span class=p>}</span>
-  <span class=n>EnumMode</span> <span class=na>mode</span> <span class=o>=</span> <span class=mi>2</span><span class=p>;</span>
+* `delay_between_updates` - controls the output speed of messages from the **Data Update port**. 
 
-  <span class=c1>// GPIO value</span>
-  <span class=kt>uint32</span> <span class=na>value</span> <span class=o>=</span> <span class=mi>3</span><span class=p>;</span>
-<span class=p>}</span>
-</pre></div></p>
-<p>View the defined message <a href="https://github.com/matrix-io/protocol-buffers/blob/65397022e73ac98ec2b217937f133a9eefbd8f01/matrix_io/malos/v1/io.proto" target="_blank">here</a>.
-</details></p>
+* `timeout_after_last_ping` - stops sending messages from the **Data Update port** if nothing has been sent to the **Keep-alive port** after the specified amount of seconds.
+
+* `gpio` - the gpio configuration that's created from a `GpioParams` message.
+
+<div class="codehilite"><pre><span></span><span class="kd">message</span> <span class="nc">DriverConfig</span> <span class="p">{</span>
+  <span class="c1">// Delay between updates in seconds</span>
+  <span class="kt">float</span> <span class="na">delay_between_updates</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+  <span class="c1">// Timeout after last ping</span>
+  <span class="kt">float</span> <span class="na">timeout_after_last_ping</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+  <span class="c1">// Gpio service configuration</span>
+  <span class="n">matrix_io.malos.v1.io.GpioParams</span> <span class="na">gpio</span> <span class="o">=</span> <span class="mi">8</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+View the defined message <a href="https://github.com/matrix-io/protocol-buffers/blob/master/matrix_io/malos/v1/driver.proto" target="_blank">here</a>.
+
+`GpioParams`
+
+* `pin` - Selects the pin you want to use on your MATRIX device. 
+
+* `EnumMode` - Determines input or output mode for GPIO pins.
+
+* `value` - Set as 1 or 0 to signify on/off.
+> Each `pin` will save its last set `value` until the next device boot.
+
+<div class="codehilite"><pre><span></span><span class="c1">// GPIO handler params</span>
+<span class="kd">message</span> <span class="nc">GpioParams</span> <span class="p">{</span>
+  <span class="c1">// GPIO to config</span>
+  <span class="kt">uint32</span> <span class="na">pin</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+
+  <span class="c1">// GPIO mode input/output</span>
+  <span class="kd">enum</span> <span class="n">EnumMode</span> <span class="p">{</span>
+    <span class="na">INPUT</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="na">OUTPUT</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="n">EnumMode</span> <span class="na">mode</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+
+  <span class="c1">// GPIO value</span>
+  <span class="kt">uint32</span> <span class="na">value</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+View the defined message <a href="https://github.com/matrix-io/protocol-buffers/blob/65397022e73ac98ec2b217937f133a9eefbd8f01/matrix_io/malos/v1/io.proto" target="_blank">here</a>.
+</details>
+
 <!-- Keep-alive PORT -->
 
-<p><details open>
+<details open>
 <summary style="font-size: 1.75rem; font-weight: 300;">Keep-alive Port</summary>
-This driver needs keep-alive messages in order to send data to your application. It's recommended to send an empty string <code>""</code> because the contents of a keep-alive message are never read.
-</details></p>
+This driver needs keep-alive messages in order to send data to your application. It's recommended to send an empty string `""` because the contents of a keep-alive message are never read.
+</details>
+
 <!-- Error PORT -->
 
-<p><details open>
+<details open>
 <summary style="font-size: 1.75rem; font-weight: 300;">Error Port</summary>
 Applications can subscribe to this port to receive driver related errors.
-</details></p>
+</details>
+
 <!-- Data Update PORT -->
 
-<p><details open>
+<details open>
 <summary style="font-size: 1.75rem; font-weight: 300;">Data Update Port</summary>
-Applications can subscribe to this port for GPIO data. The output will be a serialized message of type <code>GpioParams</code> with the following information.</p>
-<p> <div class=codehilite><pre><span></span><span class=c1>// GPIO handler params</span>
-<span class=kd>message</span> <span class=nc>GpioParams</span> <span class=p>{</span>
-  <span class=c1>// Integer to represent all pin values (Convert to 16bit for readability)</span>
-  <span class=kt>uint32</span> <span class=na>values</span> <span class=o>=</span> <span class=mi>4</span><span class=p>;</span>
-<span class=p>}</span>
-</pre></div></p>
-<p>View the defined message <a href="https://github.com/matrix-io/protocol-buffers/blob/65397022e73ac98ec2b217937f133a9eefbd8f01/matrix_io/malos/v1/io.proto" target="_blank">here</a>.
-</details></p> 
+Applications can subscribe to this port for GPIO data. The output will be a serialized message of type `GpioParams` with the following information.
+<div class="codehilite"><pre><span></span><span class="c1">// GPIO handler params</span>
+<span class="kd">message</span> <span class="nc">GpioParams</span> <span class="p">{</span>
+  <span class="c1">// Integer to represent all pin values (Convert to 16bit for readability)</span>
+  <span class="kt">uint32</span> <span class="na">values</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+View the defined message <a href="https://github.com/matrix-io/protocol-buffers/blob/65397022e73ac98ec2b217937f133a9eefbd8f01/matrix_io/malos/v1/io.proto" target="_blank">here</a>.
+</details> 
         </div>
         <div class="toc-parent col-lg-2 col-md-3">
           <div class="toc">

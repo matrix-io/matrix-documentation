@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
   <link rel="stylesheet" href="../../../css/theme.css">
   <link rel="stylesheet" href="../../../css/codehilite.css">
+  <link rel="stylesheet" href="../../../css/superFences.css">
   <link rel="stylesheet" href="../../../css/clipboard.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
@@ -464,65 +465,61 @@
 <h2 id="overview">Overview</h2>
 <p>The following sections below will go over how to read &amp; what to expect from each sensor on the MATRIX Creator.</p>
 <h2 id="import-statement">Import Statement</h2>
-<p> <div class=codehilite><pre><span></span><span class=kr>const</span> <span class=nx>matrix</span> <span class=o>=</span> <span class=nx>require</span><span class=p>(</span><span class=s2>&quot;@matrix-io/matrix-lite&quot;</span><span class=p>);</span>
-</pre></div></p>
-<p><br/></p>
+<p><div class="codehilite"><pre><span></span><span class="kr">const</span> <span class="nx">matrix</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;@matrix-io/matrix-lite&quot;</span><span class="p">);</span>
+</pre></div>
+<br/></p>
 <h2 style="padding:0; margin:0;">Reading Sensor Data</h2>
 
 <p>Below are the functions you'll use to read data from each sensor. Reading a sensor will always return the latest values.</p>
 <h3 id="imu">IMU</h3>
-<p> <div class=codehilite><pre><span></span><span class=nx>matrix</span><span class=p>.</span><span class=nx>imu</span><span class=p>.</span><span class=nx>read</span><span class=p>();</span>
-</pre></div></p>
+<p><div class="codehilite"><pre><span></span><span class="nx">matrix</span><span class="p">.</span><span class="nx">imu</span><span class="p">.</span><span class="nx">read</span><span class="p">();</span>
+</pre></div>
 <!---->
-
-<p> <div class=codehilite><pre><span></span><span class=c1>// Example IMU Return Value //</span>
-<span class=p>{</span> 
-  <span class=nx>accel_x</span><span class=o>:</span> <span class=mf>0.0020000000949949026</span><span class=p>,</span>
-  <span class=nx>accel_y</span><span class=o>:</span> <span class=mf>0.004999999888241291</span><span class=p>,</span>
-  <span class=nx>accel_z</span><span class=o>:</span> <span class=mf>0.9819999933242798</span><span class=p>,</span>
-  <span class=nx>gyro_x</span><span class=o>:</span>  <span class=mf>0.7770000100135803</span><span class=p>,</span>
-  <span class=nx>gyro_y</span><span class=o>:</span>  <span class=o>-</span><span class=mf>0.2460000067949295</span><span class=p>,</span>
-  <span class=nx>gyro_z</span><span class=o>:</span>  <span class=mf>0.7250000238418579</span><span class=p>,</span>
-  <span class=nx>yaw</span><span class=o>:</span>     <span class=o>-</span><span class=mf>177.40724182128906</span><span class=p>,</span>
-  <span class=nx>pitch</span><span class=o>:</span>   <span class=o>-</span><span class=mf>0.11669033765792847</span><span class=p>,</span>
-  <span class=nx>roll</span><span class=o>:</span>    <span class=mf>0.2917275130748749</span><span class=p>,</span>
-  <span class=nx>mag_x</span><span class=o>:</span>   <span class=mf>0.5299999713897705</span><span class=p>,</span>
-  <span class=nx>mag_y</span><span class=o>:</span>   <span class=o>-</span><span class=mf>0.024000000208616257</span><span class=p>,</span>
-  <span class=nx>mag_z</span><span class=o>:</span>   <span class=o>-</span><span class=mf>0.05999999865889549</span> 
-<span class=p>}</span>
+<div class="codehilite"><pre><span></span><span class="c1">// Example IMU Return Value //</span>
+<span class="p">{</span> 
+  <span class="nx">accel_x</span><span class="o">:</span> <span class="mf">0.0020000000949949026</span><span class="p">,</span>
+  <span class="nx">accel_y</span><span class="o">:</span> <span class="mf">0.004999999888241291</span><span class="p">,</span>
+  <span class="nx">accel_z</span><span class="o">:</span> <span class="mf">0.9819999933242798</span><span class="p">,</span>
+  <span class="nx">gyro_x</span><span class="o">:</span>  <span class="mf">0.7770000100135803</span><span class="p">,</span>
+  <span class="nx">gyro_y</span><span class="o">:</span>  <span class="o">-</span><span class="mf">0.2460000067949295</span><span class="p">,</span>
+  <span class="nx">gyro_z</span><span class="o">:</span>  <span class="mf">0.7250000238418579</span><span class="p">,</span>
+  <span class="nx">yaw</span><span class="o">:</span>     <span class="o">-</span><span class="mf">177.40724182128906</span><span class="p">,</span>
+  <span class="nx">pitch</span><span class="o">:</span>   <span class="o">-</span><span class="mf">0.11669033765792847</span><span class="p">,</span>
+  <span class="nx">roll</span><span class="o">:</span>    <span class="mf">0.2917275130748749</span><span class="p">,</span>
+  <span class="nx">mag_x</span><span class="o">:</span>   <span class="mf">0.5299999713897705</span><span class="p">,</span>
+  <span class="nx">mag_y</span><span class="o">:</span>   <span class="o">-</span><span class="mf">0.024000000208616257</span><span class="p">,</span>
+  <span class="nx">mag_z</span><span class="o">:</span>   <span class="o">-</span><span class="mf">0.05999999865889549</span> 
+<span class="p">}</span>
 </pre></div></p>
 <h3 id="uv">UV</h3>
-<p> <div class=codehilite><pre><span></span><span class=nx>matrix</span><span class=p>.</span><span class=nx>uv</span><span class=p>.</span><span class=nx>read</span><span class=p>();</span>
-</pre></div></p>
+<p><div class="codehilite"><pre><span></span><span class="nx">matrix</span><span class="p">.</span><span class="nx">uv</span><span class="p">.</span><span class="nx">read</span><span class="p">();</span>
+</pre></div>
 <!---->
-
-<p> <div class=codehilite><pre><span></span><span class=c1>// Example UV Return Value //</span>
-<span class=p>{</span> 
-  <span class=nx>uv</span><span class=o>:</span> <span class=mf>0.013000000268220901</span> 
-<span class=p>}</span>
+<div class="codehilite"><pre><span></span><span class="c1">// Example UV Return Value //</span>
+<span class="p">{</span> 
+  <span class="nx">uv</span><span class="o">:</span> <span class="mf">0.013000000268220901</span> 
+<span class="p">}</span>
 </pre></div></p>
 <h3 id="humidity">Humidity</h3>
-<p> <div class=codehilite><pre><span></span><span class=nx>matrix</span><span class=p>.</span><span class=nx>humidity</span><span class=p>.</span><span class=nx>read</span><span class=p>();</span>
-</pre></div></p>
+<p><div class="codehilite"><pre><span></span><span class="nx">matrix</span><span class="p">.</span><span class="nx">humidity</span><span class="p">.</span><span class="nx">read</span><span class="p">();</span>
+</pre></div>
 <!---->
-
-<p> <div class=codehilite><pre><span></span><span class=c1>// Example Humidity Return Value //</span>
-<span class=p>{</span> 
-  <span class=nx>humidity</span><span class=o>:</span>    <span class=mf>29.04400062561035</span><span class=p>,</span> 
-  <span class=nx>temperature</span><span class=o>:</span> <span class=mf>33.279998779296875</span> 
-<span class=p>}</span>
+<div class="codehilite"><pre><span></span><span class="c1">// Example Humidity Return Value //</span>
+<span class="p">{</span> 
+  <span class="nx">humidity</span><span class="o">:</span>    <span class="mf">29.04400062561035</span><span class="p">,</span> 
+  <span class="nx">temperature</span><span class="o">:</span> <span class="mf">33.279998779296875</span> 
+<span class="p">}</span>
 </pre></div></p>
 <h3 id="pressure">Pressure</h3>
-<p> <div class=codehilite><pre><span></span><span class=nx>matrix</span><span class=p>.</span><span class=nx>pressure</span><span class=p>.</span><span class=nx>read</span><span class=p>();</span>
-</pre></div></p>
+<p><div class="codehilite"><pre><span></span><span class="nx">matrix</span><span class="p">.</span><span class="nx">pressure</span><span class="p">.</span><span class="nx">read</span><span class="p">();</span>
+</pre></div>
 <!---->
-
-<p> <div class=codehilite><pre><span></span><span class=c1>// Example Pressure Return Value //</span>
-<span class=p>{</span> 
-  <span class=nx>altitude</span><span class=o>:</span>    <span class=o>-</span><span class=mf>47.4370002746582</span><span class=p>,</span>
-  <span class=nx>pressure</span><span class=o>:</span>    <span class=mi>101896</span><span class=p>,</span>
-  <span class=nx>temperature</span><span class=o>:</span> <span class=mf>32.9370002746582</span> 
-<span class=p>}</span>
+<div class="codehilite"><pre><span></span><span class="c1">// Example Pressure Return Value //</span>
+<span class="p">{</span> 
+  <span class="nx">altitude</span><span class="o">:</span>    <span class="o">-</span><span class="mf">47.4370002746582</span><span class="p">,</span>
+  <span class="nx">pressure</span><span class="o">:</span>    <span class="mi">101896</span><span class="p">,</span>
+  <span class="nx">temperature</span><span class="o">:</span> <span class="mf">32.9370002746582</span> 
+<span class="p">}</span>
 </pre></div></p> 
         </div>
         <div class="toc-parent col-lg-2 col-md-3">

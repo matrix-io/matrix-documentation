@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
   <link rel="stylesheet" href="../../../css/theme.css">
   <link rel="stylesheet" href="../../../css/codehilite.css">
+  <link rel="stylesheet" href="../../../css/superFences.css">
   <link rel="stylesheet" href="../../../css/clipboard.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
@@ -465,165 +466,162 @@
 <h2 id="creating-a-python-project">Creating A Python Project</h2>
 <p><img src="../../img/python-logo.png" width=400 /></p>
 <p>This setup will go through how to install all the necessary python packages needed to program with MATRIX CORE.</p>
-<p>First, use the commands below to create a folder, inside in the home directory <code>~/</code> of your MATRIX device(Raspberry Pi). This will be where you'll put your python scripts.</p>
-<p> <div class=codehilite><pre><span></span><span class=nb>cd</span> ~/
+<p>First, use the commands below to create a folder, inside in the home directory <code>~/</code> of your MATRIX device(Raspberry Pi). This will be where you'll put your python scripts.
+<div class="codehilite"><pre><span></span><span class="nb">cd</span> ~/
 mkdir python-matrix-core-app
-<span class=nb>cd</span> python-matrix-core-app
+<span class="nb">cd</span> python-matrix-core-app
 </pre></div></p>
 <p><br/></p>
 <h2 id="installing-python-packages">Installing Python Packages</h2>
-<p>While inside your project directory, use the following commands to install all the necessary Python packages needed to interact with MATRIX CORE.</p>
-<p> <div class=codehilite><pre><span></span>wget <span class=s2>&quot;https://github.com/matrix-io/matrix-creator-malos/blob/master/src/python_test/Pipfile&quot;</span> -O Pipfile
-wget <span class=s2>&quot;https://github.com/matrix-io/matrix-creator-malos/blob/master/src/python_test/Pipfile.lock&quot;</span> -O Pipfile.lock
-wget <span class=s2>&quot;https://raw.githubusercontent.com/matrix-io/matrix-creator-malos/master/src/python_test/requirements.txt&quot;</span> -O requirements.txt 
-wget <span class=s2>&quot;https://raw.githubusercontent.com/matrix-io/matrix-creator-malos/master/src/python_test/utils.py&quot;</span> -O utils.py 
+<p>While inside your project directory, use the following commands to install all the necessary Python packages needed to interact with MATRIX CORE.
+<div class="codehilite"><pre><span></span>wget <span class="s2">&quot;https://github.com/matrix-io/matrix-creator-malos/blob/master/src/python_test/Pipfile&quot;</span> -O Pipfile
+wget <span class="s2">&quot;https://github.com/matrix-io/matrix-creator-malos/blob/master/src/python_test/Pipfile.lock&quot;</span> -O Pipfile.lock
+wget <span class="s2">&quot;https://raw.githubusercontent.com/matrix-io/matrix-creator-malos/master/src/python_test/requirements.txt&quot;</span> -O requirements.txt 
+wget <span class="s2">&quot;https://raw.githubusercontent.com/matrix-io/matrix-creator-malos/master/src/python_test/utils.py&quot;</span> -O utils.py 
 sudo apt-get install build-essential python-dev
-</pre></div></p>
+</pre></div>
 <h4 style="padding-top: 0">Python 2 Packages</h4>
-
-<p>Required packages for Python 2 can be installed by using the following command.</p>
-<p> <div class=codehilite><pre><span></span>pip install -r requirements.txt
-</pre></div></p>
+Required packages for Python 2 can be installed by using the following command.
+<div class="codehilite"><pre><span></span>pip install -r requirements.txt
+</pre></div>
 <h4 style="padding-top: 0">Python 3 Packages</h4>
-
-<p>Instead of pip, Python 3 packages will require pip3 which can be installed with the command below.</p>
-<p> <div class=codehilite><pre><span></span>sudo apt-get install python3-pip
-</pre></div></p>
-<p>You can now install the required packages for Python 3.</p>
-<p> <div class=codehilite><pre><span></span>pip3 install -r requirements.txt
+Instead of pip, Python 3 packages will require pip3 which can be installed with the command below.
+<div class="codehilite"><pre><span></span>sudo apt-get install python3-pip
+</pre></div>
+You can now install the required packages for Python 3.
+<div class="codehilite"><pre><span></span>pip3 install -r requirements.txt
 </pre></div></p>
 <p><br/></p>
 <h2 id="check-if-everything-works">Check If Everything Works</h2>
 <p><h3 style="padding-top: 0">Creating app.py</h3>
 To ensure your installation has succeeded, create a file named <code>app.py</code> and paste the code below.</p>
-<p> <div class=codehilite><pre><span></span><span class=c1>## Set Initial Variables ##</span>
-<span class=kn>import</span> <span class=nn>os</span> <span class=c1># Miscellaneous operating system interface</span>
-<span class=kn>import</span> <span class=nn>zmq</span> <span class=c1># Asynchronous messaging framework</span>
-<span class=kn>import</span> <span class=nn>time</span> <span class=c1># Time access and conversions</span>
-<span class=kn>from</span> <span class=nn>random</span> <span class=kn>import</span> <span class=n>randint</span> <span class=c1># Random numbers</span>
-<span class=kn>import</span> <span class=nn>sys</span> <span class=c1># System-specific parameters and functions</span>
-<span class=kn>from</span> <span class=nn>matrix_io.proto.malos.v1</span> <span class=kn>import</span> <span class=n>driver_pb2</span> <span class=c1># MATRIX Protocol Buffer driver library</span>
-<span class=kn>from</span> <span class=nn>matrix_io.proto.malos.v1</span> <span class=kn>import</span> <span class=n>io_pb2</span> <span class=c1># MATRIX Protocol Buffer sensor library</span>
-<span class=kn>from</span> <span class=nn>multiprocessing</span> <span class=kn>import</span> <span class=n>Process</span><span class=p>,</span> <span class=n>Manager</span><span class=p>,</span> <span class=n>Value</span> <span class=c1># Allow for multiple processes at once</span>
-<span class=kn>from</span> <span class=nn>zmq.eventloop</span> <span class=kn>import</span> <span class=n>ioloop</span><span class=p>,</span> <span class=n>zmqstream</span><span class=c1># Asynchronous events through ZMQ</span>
-<span class=n>matrix_ip</span> <span class=o>=</span> <span class=s1>&#39;127.0.0.1&#39;</span> <span class=c1># Local device ip</span>
-<span class=n>everloop_port</span> <span class=o>=</span> <span class=mi>20021</span> <span class=c1># Driver Base port</span>
-<span class=n>led_count</span> <span class=o>=</span> <span class=mi>0</span> <span class=c1># Amount of LEDs on MATRIX device</span>
-<span class=c1># Handy function for connecting to the Error port </span>
-<span class=kn>from</span> <span class=nn>utils</span> <span class=kn>import</span> <span class=n>register_error_callback</span>
+<div class="codehilite"><pre><span></span><span class="c1">## Set Initial Variables ##</span>
+<span class="kn">import</span> <span class="nn">os</span> <span class="c1"># Miscellaneous operating system interface</span>
+<span class="kn">import</span> <span class="nn">zmq</span> <span class="c1"># Asynchronous messaging framework</span>
+<span class="kn">import</span> <span class="nn">time</span> <span class="c1"># Time access and conversions</span>
+<span class="kn">from</span> <span class="nn">random</span> <span class="kn">import</span> <span class="n">randint</span> <span class="c1"># Random numbers</span>
+<span class="kn">import</span> <span class="nn">sys</span> <span class="c1"># System-specific parameters and functions</span>
+<span class="kn">from</span> <span class="nn">matrix_io.proto.malos.v1</span> <span class="kn">import</span> <span class="n">driver_pb2</span> <span class="c1"># MATRIX Protocol Buffer driver library</span>
+<span class="kn">from</span> <span class="nn">matrix_io.proto.malos.v1</span> <span class="kn">import</span> <span class="n">io_pb2</span> <span class="c1"># MATRIX Protocol Buffer sensor library</span>
+<span class="kn">from</span> <span class="nn">multiprocessing</span> <span class="kn">import</span> <span class="n">Process</span><span class="p">,</span> <span class="n">Manager</span><span class="p">,</span> <span class="n">Value</span> <span class="c1"># Allow for multiple processes at once</span>
+<span class="kn">from</span> <span class="nn">zmq.eventloop</span> <span class="kn">import</span> <span class="n">ioloop</span><span class="p">,</span> <span class="n">zmqstream</span><span class="c1"># Asynchronous events through ZMQ</span>
+<span class="n">matrix_ip</span> <span class="o">=</span> <span class="s1">&#39;127.0.0.1&#39;</span> <span class="c1"># Local device ip</span>
+<span class="n">everloop_port</span> <span class="o">=</span> <span class="mi">20021</span> <span class="c1"># Driver Base port</span>
+<span class="n">led_count</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1"># Amount of LEDs on MATRIX device</span>
+<span class="c1"># Handy function for connecting to the Error port </span>
+<span class="kn">from</span> <span class="nn">utils</span> <span class="kn">import</span> <span class="n">register_error_callback</span>
 
-<span class=c1>## BASE PORT ##</span>
-<span class=k>def</span> <span class=nf>config_socket</span><span class=p>(</span><span class=n>ledCount</span><span class=p>):</span>  
-    <span class=c1># Define zmq socket</span>
-    <span class=n>context</span> <span class=o>=</span> <span class=n>zmq</span><span class=o>.</span><span class=n>Context</span><span class=p>()</span>
-    <span class=c1># Create a Pusher socket</span>
-    <span class=n>socket</span> <span class=o>=</span> <span class=n>context</span><span class=o>.</span><span class=n>socket</span><span class=p>(</span><span class=n>zmq</span><span class=o>.</span><span class=n>PUSH</span><span class=p>)</span>
-    <span class=c1># Connect Pusher to configuration socket</span>
-    <span class=n>socket</span><span class=o>.</span><span class=n>connect</span><span class=p>(</span><span class=s1>&#39;tcp://{0}:{1}&#39;</span><span class=o>.</span><span class=n>format</span><span class=p>(</span><span class=n>matrix_ip</span><span class=p>,</span> <span class=n>everloop_port</span><span class=p>))</span>
+<span class="c1">## BASE PORT ##</span>
+<span class="k">def</span> <span class="nf">config_socket</span><span class="p">(</span><span class="n">ledCount</span><span class="p">):</span>  
+    <span class="c1"># Define zmq socket</span>
+    <span class="n">context</span> <span class="o">=</span> <span class="n">zmq</span><span class="o">.</span><span class="n">Context</span><span class="p">()</span>
+    <span class="c1"># Create a Pusher socket</span>
+    <span class="n">socket</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">socket</span><span class="p">(</span><span class="n">zmq</span><span class="o">.</span><span class="n">PUSH</span><span class="p">)</span>
+    <span class="c1"># Connect Pusher to configuration socket</span>
+    <span class="n">socket</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s1">&#39;tcp://{0}:{1}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">matrix_ip</span><span class="p">,</span> <span class="n">everloop_port</span><span class="p">))</span>
 
-    <span class=c1># Loop forever</span>
-    <span class=k>while</span> <span class=bp>True</span><span class=p>:</span>
-        <span class=c1># Create a new driver config</span>
-        <span class=n>driver_config_proto</span> <span class=o>=</span> <span class=n>driver_pb2</span><span class=o>.</span><span class=n>DriverConfig</span><span class=p>()</span>
-        <span class=c1># Create an empty Everloop image</span>
-        <span class=n>image</span> <span class=o>=</span> <span class=p>[]</span>
-        <span class=c1># For each device LED</span>
-        <span class=k>for</span> <span class=n>led</span> <span class=ow>in</span> <span class=nb>range</span><span class=p>(</span><span class=n>ledCount</span><span class=p>):</span>
-            <span class=c1># Set individual LED value</span>
-            <span class=n>ledValue</span> <span class=o>=</span> <span class=n>io_pb2</span><span class=o>.</span><span class=n>LedValue</span><span class=p>()</span>
-            <span class=n>ledValue</span><span class=o>.</span><span class=n>blue</span> <span class=o>=</span> <span class=n>randint</span><span class=p>(</span><span class=mi>0</span><span class=p>,</span> <span class=mi>50</span><span class=p>)</span>
-            <span class=n>ledValue</span><span class=o>.</span><span class=n>red</span> <span class=o>=</span> <span class=n>randint</span><span class=p>(</span><span class=mi>0</span><span class=p>,</span> <span class=mi>200</span><span class=p>)</span>
-            <span class=n>ledValue</span><span class=o>.</span><span class=n>green</span> <span class=o>=</span> <span class=n>randint</span><span class=p>(</span><span class=mi>0</span><span class=p>,</span> <span class=mi>255</span><span class=p>)</span>
-            <span class=n>ledValue</span><span class=o>.</span><span class=n>white</span> <span class=o>=</span> <span class=mi>0</span>
-            <span class=n>image</span><span class=o>.</span><span class=n>append</span><span class=p>(</span><span class=n>ledValue</span><span class=p>)</span>
-        <span class=c1># Store the Everloop image in driver configuration</span>
-        <span class=n>driver_config_proto</span><span class=o>.</span><span class=n>image</span><span class=o>.</span><span class=n>led</span><span class=o>.</span><span class=n>extend</span><span class=p>(</span><span class=n>image</span><span class=p>)</span>
+    <span class="c1"># Loop forever</span>
+    <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+        <span class="c1"># Create a new driver config</span>
+        <span class="n">driver_config_proto</span> <span class="o">=</span> <span class="n">driver_pb2</span><span class="o">.</span><span class="n">DriverConfig</span><span class="p">()</span>
+        <span class="c1"># Create an empty Everloop image</span>
+        <span class="n">image</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="c1"># For each device LED</span>
+        <span class="k">for</span> <span class="n">led</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">ledCount</span><span class="p">):</span>
+            <span class="c1"># Set individual LED value</span>
+            <span class="n">ledValue</span> <span class="o">=</span> <span class="n">io_pb2</span><span class="o">.</span><span class="n">LedValue</span><span class="p">()</span>
+            <span class="n">ledValue</span><span class="o">.</span><span class="n">blue</span> <span class="o">=</span> <span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>
+            <span class="n">ledValue</span><span class="o">.</span><span class="n">red</span> <span class="o">=</span> <span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>
+            <span class="n">ledValue</span><span class="o">.</span><span class="n">green</span> <span class="o">=</span> <span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">)</span>
+            <span class="n">ledValue</span><span class="o">.</span><span class="n">white</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="n">image</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ledValue</span><span class="p">)</span>
+        <span class="c1"># Store the Everloop image in driver configuration</span>
+        <span class="n">driver_config_proto</span><span class="o">.</span><span class="n">image</span><span class="o">.</span><span class="n">led</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">image</span><span class="p">)</span>
 
-        <span class=c1># Send driver configuration through ZMQ socket</span>
-        <span class=n>socket</span><span class=o>.</span><span class=n>send</span><span class=p>(</span><span class=n>driver_config_proto</span><span class=o>.</span><span class=n>SerializeToString</span><span class=p>())</span>
-        <span class=c1>#Wait before restarting loop</span>
-        <span class=n>time</span><span class=o>.</span><span class=n>sleep</span><span class=p>(</span><span class=mf>0.05</span><span class=p>)</span>
+        <span class="c1"># Send driver configuration through ZMQ socket</span>
+        <span class="n">socket</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="n">driver_config_proto</span><span class="o">.</span><span class="n">SerializeToString</span><span class="p">())</span>
+        <span class="c1">#Wait before restarting loop</span>
+        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.05</span><span class="p">)</span>
 
-<span class=c1>## KEEP ALIVE ##</span>
-<span class=k>def</span> <span class=nf>ping_socket</span><span class=p>():</span>
-    <span class=c1># Define zmq socket</span>
-    <span class=n>context</span> <span class=o>=</span> <span class=n>zmq</span><span class=o>.</span><span class=n>Context</span><span class=p>()</span>
-    <span class=c1># Create a Pusher socket</span>
-    <span class=n>ping_socket</span> <span class=o>=</span> <span class=n>context</span><span class=o>.</span><span class=n>socket</span><span class=p>(</span><span class=n>zmq</span><span class=o>.</span><span class=n>PUSH</span><span class=p>)</span>
-    <span class=c1># Connect to the socket</span>
-    <span class=n>ping_socket</span><span class=o>.</span><span class=n>connect</span><span class=p>(</span><span class=s1>&#39;tcp://{0}:{1}&#39;</span><span class=o>.</span><span class=n>format</span><span class=p>(</span><span class=n>matrix_ip</span><span class=p>,</span> <span class=n>everloop_port</span><span class=o>+</span><span class=mi>1</span><span class=p>))</span>
-    <span class=c1># Ping with empty string to let the drive know we&#39;re still listening</span>
-    <span class=n>ping_socket</span><span class=o>.</span><span class=n>send_string</span><span class=p>(</span><span class=s1>&#39;&#39;</span><span class=p>)</span>
+<span class="c1">## KEEP ALIVE ##</span>
+<span class="k">def</span> <span class="nf">ping_socket</span><span class="p">():</span>
+    <span class="c1"># Define zmq socket</span>
+    <span class="n">context</span> <span class="o">=</span> <span class="n">zmq</span><span class="o">.</span><span class="n">Context</span><span class="p">()</span>
+    <span class="c1"># Create a Pusher socket</span>
+    <span class="n">ping_socket</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">socket</span><span class="p">(</span><span class="n">zmq</span><span class="o">.</span><span class="n">PUSH</span><span class="p">)</span>
+    <span class="c1"># Connect to the socket</span>
+    <span class="n">ping_socket</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s1">&#39;tcp://{0}:{1}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">matrix_ip</span><span class="p">,</span> <span class="n">everloop_port</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span>
+    <span class="c1"># Ping with empty string to let the drive know we&#39;re still listening</span>
+    <span class="n">ping_socket</span><span class="o">.</span><span class="n">send_string</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
 
-<span class=c1>## ERROR PORT ##</span>
-<span class=k>def</span> <span class=nf>everloop_error_callback</span><span class=p>(</span><span class=n>error</span><span class=p>):</span>
-    <span class=c1># Log error</span>
-    <span class=k>print</span><span class=p>(</span><span class=s1>&#39;{0}&#39;</span><span class=o>.</span><span class=n>format</span><span class=p>(</span><span class=n>error</span><span class=p>))</span>
+<span class="c1">## ERROR PORT ##</span>
+<span class="k">def</span> <span class="nf">everloop_error_callback</span><span class="p">(</span><span class="n">error</span><span class="p">):</span>
+    <span class="c1"># Log error</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;{0}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">error</span><span class="p">))</span>
 
-<span class=c1>## DATA UPDATE PORT ##</span>
-<span class=k>def</span> <span class=nf>update_socket</span><span class=p>():</span>
-    <span class=c1># Define zmq socket</span>
-    <span class=n>context</span> <span class=o>=</span> <span class=n>zmq</span><span class=o>.</span><span class=n>Context</span><span class=p>()</span>
-    <span class=c1># Create a Subscriber socket</span>
-    <span class=n>socket</span> <span class=o>=</span> <span class=n>context</span><span class=o>.</span><span class=n>socket</span><span class=p>(</span><span class=n>zmq</span><span class=o>.</span><span class=n>SUB</span><span class=p>)</span>
-    <span class=c1># Connect to the Data Update port</span>
-    <span class=n>socket</span><span class=o>.</span><span class=n>connect</span><span class=p>(</span><span class=s1>&#39;tcp://{0}:{1}&#39;</span><span class=o>.</span><span class=n>format</span><span class=p>(</span><span class=n>matrix_ip</span><span class=p>,</span> <span class=n>everloop_port</span><span class=o>+</span><span class=mi>3</span><span class=p>))</span>
-    <span class=c1># Connect Subscriber to Error port</span>
-    <span class=n>socket</span><span class=o>.</span><span class=n>setsockopt</span><span class=p>(</span><span class=n>zmq</span><span class=o>.</span><span class=n>SUBSCRIBE</span><span class=p>,</span> <span class=sa>b</span><span class=s1>&#39;&#39;</span><span class=p>)</span>
-    <span class=c1># Create the stream to listen to data from port</span>
-    <span class=n>stream</span> <span class=o>=</span> <span class=n>zmqstream</span><span class=o>.</span><span class=n>ZMQStream</span><span class=p>(</span><span class=n>socket</span><span class=p>)</span>
+<span class="c1">## DATA UPDATE PORT ##</span>
+<span class="k">def</span> <span class="nf">update_socket</span><span class="p">():</span>
+    <span class="c1"># Define zmq socket</span>
+    <span class="n">context</span> <span class="o">=</span> <span class="n">zmq</span><span class="o">.</span><span class="n">Context</span><span class="p">()</span>
+    <span class="c1"># Create a Subscriber socket</span>
+    <span class="n">socket</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">socket</span><span class="p">(</span><span class="n">zmq</span><span class="o">.</span><span class="n">SUB</span><span class="p">)</span>
+    <span class="c1"># Connect to the Data Update port</span>
+    <span class="n">socket</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s1">&#39;tcp://{0}:{1}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">matrix_ip</span><span class="p">,</span> <span class="n">everloop_port</span><span class="o">+</span><span class="mi">3</span><span class="p">))</span>
+    <span class="c1"># Connect Subscriber to Error port</span>
+    <span class="n">socket</span><span class="o">.</span><span class="n">setsockopt</span><span class="p">(</span><span class="n">zmq</span><span class="o">.</span><span class="n">SUBSCRIBE</span><span class="p">,</span> <span class="sa">b</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+    <span class="c1"># Create the stream to listen to data from port</span>
+    <span class="n">stream</span> <span class="o">=</span> <span class="n">zmqstream</span><span class="o">.</span><span class="n">ZMQStream</span><span class="p">(</span><span class="n">socket</span><span class="p">)</span>
 
-    <span class=c1># Function to update LED count and close connection to the Data Update Port</span>
-    <span class=k>def</span> <span class=nf>updateLedCount</span><span class=p>(</span><span class=n>data</span><span class=p>):</span>
-        <span class=c1># Extract data and pass into led_count global variable</span>
-        <span class=k>global</span> <span class=n>led_count</span>
-        <span class=n>led_count</span> <span class=o>=</span> <span class=n>io_pb2</span><span class=o>.</span><span class=n>LedValue</span><span class=p>()</span><span class=o>.</span><span class=n>FromString</span><span class=p>(</span><span class=n>data</span><span class=p>[</span><span class=mi>0</span><span class=p>])</span><span class=o>.</span><span class=n>green</span>
-        <span class=c1># Log LEDs</span>
-        <span class=k>print</span><span class=p>(</span><span class=s1>&#39;{0} LEDs counted&#39;</span><span class=o>.</span><span class=n>format</span><span class=p>(</span><span class=n>led_count</span><span class=p>))</span>
-        <span class=c1># If LED count obtained</span>
-        <span class=k>if</span> <span class=n>led_count</span> <span class=o>&gt;</span> <span class=mi>0</span><span class=p>:</span>
-            <span class=c1># Close Data Update Port connection</span>
-            <span class=n>ioloop</span><span class=o>.</span><span class=n>IOLoop</span><span class=o>.</span><span class=n>instance</span><span class=p>()</span><span class=o>.</span><span class=n>stop</span><span class=p>()</span>
-            <span class=k>print</span><span class=p>(</span><span class=s1>&#39;LED count obtained. Disconnecting from data publisher {0}&#39;</span><span class=o>.</span><span class=n>format</span><span class=p>(</span><span class=n>everloop_port</span><span class=o>+</span><span class=mi>3</span><span class=p>))</span>
-    <span class=c1># Call updateLedCount() once data is received</span>
-    <span class=n>stream</span><span class=o>.</span><span class=n>on_recv</span><span class=p>(</span><span class=n>updateLedCount</span><span class=p>)</span>
+    <span class="c1"># Function to update LED count and close connection to the Data Update Port</span>
+    <span class="k">def</span> <span class="nf">updateLedCount</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
+        <span class="c1"># Extract data and pass into led_count global variable</span>
+        <span class="k">global</span> <span class="n">led_count</span>
+        <span class="n">led_count</span> <span class="o">=</span> <span class="n">io_pb2</span><span class="o">.</span><span class="n">LedValue</span><span class="p">()</span><span class="o">.</span><span class="n">FromString</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">.</span><span class="n">green</span>
+        <span class="c1"># Log LEDs</span>
+        <span class="k">print</span><span class="p">(</span><span class="s1">&#39;{0} LEDs counted&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">led_count</span><span class="p">))</span>
+        <span class="c1"># If LED count obtained</span>
+        <span class="k">if</span> <span class="n">led_count</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="c1"># Close Data Update Port connection</span>
+            <span class="n">ioloop</span><span class="o">.</span><span class="n">IOLoop</span><span class="o">.</span><span class="n">instance</span><span class="p">()</span><span class="o">.</span><span class="n">stop</span><span class="p">()</span>
+            <span class="k">print</span><span class="p">(</span><span class="s1">&#39;LED count obtained. Disconnecting from data publisher {0}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">everloop_port</span><span class="o">+</span><span class="mi">3</span><span class="p">))</span>
+    <span class="c1"># Call updateLedCount() once data is received</span>
+    <span class="n">stream</span><span class="o">.</span><span class="n">on_recv</span><span class="p">(</span><span class="n">updateLedCount</span><span class="p">)</span>
 
-    <span class=c1># Log and begin event loop for ZMQ connection to Data Update Port</span>
-    <span class=k>print</span><span class=p>(</span><span class=s1>&#39;Connected to data publisher with port {0}&#39;</span><span class=o>.</span><span class=n>format</span><span class=p>(</span><span class=n>everloop_port</span><span class=o>+</span><span class=mi>3</span><span class=p>))</span>
-    <span class=n>ioloop</span><span class=o>.</span><span class=n>IOLoop</span><span class=o>.</span><span class=n>instance</span><span class=p>()</span><span class=o>.</span><span class=n>start</span><span class=p>()</span>
+    <span class="c1"># Log and begin event loop for ZMQ connection to Data Update Port</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Connected to data publisher with port {0}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">everloop_port</span><span class="o">+</span><span class="mi">3</span><span class="p">))</span>
+    <span class="n">ioloop</span><span class="o">.</span><span class="n">IOLoop</span><span class="o">.</span><span class="n">instance</span><span class="p">()</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
 
-<span class=c1>## START  PROCESSES ##</span>
-<span class=k>if</span> <span class=vm>__name__</span> <span class=o>==</span> <span class=s1>&#39;__main__&#39;</span><span class=p>:</span>
-    <span class=c1># Initiate asynchronous events</span>
-    <span class=n>ioloop</span><span class=o>.</span><span class=n>install</span><span class=p>()</span>
-    <span class=c1># Start Error Port connection</span>
-    <span class=n>Process</span><span class=p>(</span><span class=n>target</span><span class=o>=</span><span class=n>register_error_callback</span><span class=p>,</span> <span class=n>args</span><span class=o>=</span><span class=p>(</span><span class=n>everloop_error_callback</span><span class=p>,</span> <span class=n>matrix_ip</span><span class=p>,</span> <span class=n>everloop_port</span><span class=p>))</span><span class=o>.</span><span class=n>start</span><span class=p>()</span>    
+<span class="c1">## START  PROCESSES ##</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="c1"># Initiate asynchronous events</span>
+    <span class="n">ioloop</span><span class="o">.</span><span class="n">install</span><span class="p">()</span>
+    <span class="c1"># Start Error Port connection</span>
+    <span class="n">Process</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">register_error_callback</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">everloop_error_callback</span><span class="p">,</span> <span class="n">matrix_ip</span><span class="p">,</span> <span class="n">everloop_port</span><span class="p">))</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>    
 
-    <span class=c1># Ping the Keep-alive Port once</span>
-    <span class=n>ping_socket</span><span class=p>()</span>
-    <span class=c1># Start Data Update Port connection &amp; close after response</span>
-    <span class=n>update_socket</span><span class=p>()</span>
-    <span class=c1># Send Base Port configuration</span>
-    <span class=k>try</span><span class=p>:</span>
-        <span class=n>config_socket</span><span class=p>(</span><span class=n>led_count</span><span class=p>)</span>
-    <span class=c1># Avoid logging Everloop errors on user quiting</span>
-    <span class=k>except</span> <span class=ne>KeyboardInterrupt</span><span class=p>:</span>
-        <span class=k>print</span><span class=p>(</span><span class=s1>&#39; quit&#39;</span><span class=p>)</span>
-</pre></div></p>
+    <span class="c1"># Ping the Keep-alive Port once</span>
+    <span class="n">ping_socket</span><span class="p">()</span>
+    <span class="c1"># Start Data Update Port connection &amp; close after response</span>
+    <span class="n">update_socket</span><span class="p">()</span>
+    <span class="c1"># Send Base Port configuration</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">config_socket</span><span class="p">(</span><span class="n">led_count</span><span class="p">)</span>
+    <span class="c1"># Avoid logging Everloop errors on user quiting</span>
+    <span class="k">except</span> <span class="ne">KeyboardInterrupt</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="s1">&#39; quit&#39;</span><span class="p">)</span>
+</pre></div>
+
 <h3 style="padding-top: 0">Running app.py</h3>
 
 <p>Once you have the app.py code copied, use one of the following commands to run a simple hello world app.</p>
 <h4 style="padding-top: 0">Python 2</h4>
 
-<p> <div class=codehilite><pre><span></span>python app.py
-</pre></div></p>
+<p><div class="codehilite"><pre><span></span>python app.py
+</pre></div>
 <h4 style="padding-top: 0">Python 3</h4>
-
-<p> <div class=codehilite><pre><span></span>python3 app.py
-</pre></div></p>
+<div class="codehilite"><pre><span></span>python3 app.py
+</pre></div>
 <h3 style="padding-top: 0">Result</h3>
-
-<p><img alt="" src="../../../matrix-core/img/install-setup-test.gif" /></p>
+<img alt="" src="../../../matrix-core/img/install-setup-test.gif" /></p>
 <h2 id="next-steps">Next Steps</h2>
 <p>Now that everything is properly installed, learn more about the Everloop and other <a href="../../protocols">Driver Protocols</a> MATRIX Core has to offer, or view the available <a href="../../python-examples">Python examples</a>.</p> 
         </div>

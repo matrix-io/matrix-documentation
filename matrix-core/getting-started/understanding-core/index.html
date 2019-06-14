@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
   <link rel="stylesheet" href="../../../css/theme.css">
   <link rel="stylesheet" href="../../../css/codehilite.css">
+  <link rel="stylesheet" href="../../../css/superFences.css">
   <link rel="stylesheet" href="../../../css/clipboard.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
@@ -492,13 +493,13 @@
 The <code>base port</code> is used to configure a driver on your MATRIX device. This port is a <code>ZeroMQ PULL port</code> that accepts a configuration which is created as a protocol buffer.</p>
 <p>To send a configuration you need to create a valid message for each driver. For example, the UV driver uses a configuration message to set the refresh rate and timeout for sending UV data.</p>
 <p>Configuration messages are named <code>DriverConfig</code>. The file for where this is defined can be seen <a href="https://github.com/matrix-io/protocol-buffers/blob/master/matrix_io/malos/v1/io.proto" target="_blank">here</a>.</p>
-<p>Below is an example for a UV configuration message:</p>
-<p> <div class=codehilite><pre><span></span><span class=kd>message</span> <span class=nc>DriverConfig</span> <span class=p>{</span>
-  <span class=c1>// Delay between updates. In seconds.</span>
-  <span class=kt>float</span> <span class=na>delay_between_updates</span> <span class=o>=</span> <span class=mi>1</span><span class=p>;</span>
-  <span class=c1>// Timeout after last ping.</span>
-  <span class=kt>float</span> <span class=na>timeout_after_last_ping</span> <span class=o>=</span> <span class=mi>2</span><span class=p>;</span>
-<span class=p>}</span>
+<p>Below is an example for a UV configuration message:
+<div class="codehilite"><pre><span></span><span class="kd">message</span> <span class="nc">DriverConfig</span> <span class="p">{</span>
+  <span class="c1">// Delay between updates. In seconds.</span>
+  <span class="kt">float</span> <span class="na">delay_between_updates</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+  <span class="c1">// Timeout after last ping.</span>
+  <span class="kt">float</span> <span class="na">timeout_after_last_ping</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+<span class="p">}</span>
 </pre></div></p>
 <p>Once the <code>DriverConfig</code> message is filled out, it needs to be serialized as a string and sent to the ZeroMQ configuration port.
 </details>
@@ -521,16 +522,18 @@ The <code>base port</code> is used to configure a driver on your MATRIX device. 
 <p>This <code>ZeroMQ PUSH port</code> is used by drivers that send data (Humidity, UV, etc.). Each driver uses a different message to report data to programs that subscribe for these updates.</p>
 <p>To demonstrate, the UV driver will be used as an example. You can find the file <a href="https://github.com/matrix-io/protocol-buffers/blob/master/matrix_io/malos/v1/sense.proto">here</a>.
 The message follows:</p>
-<p> <div class=codehilite><pre><span></span><span class=c1>// Basic UV radiation lecture.</span>
-<span class=kd>message</span> <span class=nc>UV</span><span class=p>{</span>
-  <span class=c1>// UV index</span>
-  <span class=kt>float</span> <span class=na>uv_index</span> <span class=o>=</span> <span class=mi>1</span><span class=p>;</span>
-  <span class=c1>// OMS risk</span>
-  <span class=kt>string</span> <span class=na>oms_risk</span> <span class=o>=</span> <span class=mi>2</span><span class=p>;</span>
-<span class=p>}</span>
-</pre></div></p>
+<div class="codehilite"><pre><span></span><span class="c1">// Basic UV radiation lecture.</span>
+<span class="kd">message</span> <span class="nc">UV</span><span class="p">{</span>
+  <span class="c1">// UV index</span>
+  <span class="kt">float</span> <span class="na">uv_index</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+  <span class="c1">// OMS risk</span>
+  <span class="kt">string</span> <span class="na">oms_risk</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+
 <p>Applications that subscribe to UV driver updates will receive a string with serialized messages of type UV. Once received, the message needs to be deserialized by the application for the values can be used.</p>
-<p></details></p>
+</details>
+
 <p><br/></p>
 <h2 id="next-steps">Next Steps</h2>
 <p>We currently provide libraries and examples for the following languages:</p>

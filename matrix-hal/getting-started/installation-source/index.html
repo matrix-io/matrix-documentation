@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
   <link rel="stylesheet" href="../../../css/theme.css">
   <link rel="stylesheet" href="../../../css/codehilite.css">
+  <link rel="stylesheet" href="../../../css/superFences.css">
   <link rel="stylesheet" href="../../../css/clipboard.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
@@ -463,28 +464,33 @@
 </blockquote>
 <p>Before starting, ensure you have access to the terminal of your Raspberry Pi via an <a href="https://www.raspberrypi.org/documentation/remote-access/ssh/" target="_blank">SSH-session</a> or connect a screen, mouse, and keyboard. Once you've opened the terminal, insert and run the following commands.</p>
 <p>Add the MATRIX repository and key.</p>
-<p> <div class=codehilite><pre><span></span>curl https://apt.matrix.one/doc/apt-key.gpg <span class=p>|</span> sudo apt-key add -
-<span class=nb>echo</span> <span class=s2>&quot;deb https://apt.matrix.one/raspbian </span><span class=k>$(</span>lsb_release -sc<span class=k>)</span><span class=s2> main&quot;</span> <span class=p>|</span> sudo tee /etc/apt/sources.list.d/matrixlabs.list
-</pre></div></p>
+<div class="codehilite"><pre><span></span>curl https://apt.matrix.one/doc/apt-key.gpg <span class="p">|</span> sudo apt-key add -
+<span class="nb">echo</span> <span class="s2">&quot;deb https://apt.matrix.one/raspbian </span><span class="k">$(</span>lsb_release -sc<span class="k">)</span><span class="s2"> main&quot;</span> <span class="p">|</span> sudo tee /etc/apt/sources.list.d/matrixlabs.list
+</pre></div>
+
 <p>Update your repository and packages.</p>
-<p> <div class=codehilite><pre><span></span>sudo apt-get update
+<div class="codehilite"><pre><span></span>sudo apt-get update
 sudo apt-get upgrade
-</pre></div></p>
+</pre></div>
+
 <p>Install the MATRIX init package and tools needed to build MATRIX HAL.</p>
-<p> <div class=codehilite><pre><span></span>sudo apt-get install cmake g++ git libfftw3-dev wiringpi libgflags-dev matrixio-creator-init
-</pre></div></p>
+<div class="codehilite"><pre><span></span>sudo apt-get install cmake g++ git libfftw3-dev wiringpi libgflags-dev matrixio-creator-init
+</pre></div>
+
 <p>Clone, build, and install MATRIX HAL.</p>
-<p> <div class=codehilite><pre><span></span><span class=nb>cd</span> ~/
+<div class="codehilite"><pre><span></span><span class="nb">cd</span> ~/
 git clone https://github.com/matrix-io/matrix-creator-hal.git
-<span class=nb>cd</span> matrix-creator-hal
+<span class="nb">cd</span> matrix-creator-hal
 mkdir build
-<span class=nb>cd</span> build
+<span class="nb">cd</span> build
 cmake ..
-make -j4 <span class=o>&amp;&amp;</span> sudo make install
-</pre></div></p>
+make -j4 <span class="o">&amp;&amp;</span> sudo make install
+</pre></div>
+
 <p>Reboot your device.</p>
-<p> <div class=codehilite><pre><span></span>sudo reboot
-</pre></div></p>
+<div class="codehilite"><pre><span></span>sudo reboot
+</pre></div>
+
 <h2 id="helpful-information">Helpful Information</h2>
 <p>MATRIX HAL header files are installed in <code>/usr/local/include/matrix_hal</code>. </p>
 <p>The compiled MATRIX HAL library file is installed in <code>/usr/local/lib/libmatrix_creator_hal.so</code>.</p>

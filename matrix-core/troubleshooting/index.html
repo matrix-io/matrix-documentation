@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
   <link rel="stylesheet" href="../../css/theme.css">
   <link rel="stylesheet" href="../../css/codehilite.css">
+  <link rel="stylesheet" href="../../css/superFences.css">
   <link rel="stylesheet" href="../../css/clipboard.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
@@ -453,34 +454,37 @@
 <p>Please visit our community support forums at
 <a href="http://community.matrix.one/" target="_blank">community.matrix.one</a></p>
 <h2 id="check-active-matrix-core-services">Check Active MATRIX CORE Services</h2>
-<p>Run the following command on your Raspberry Pi's terminal to see the MATRIX Services currently running.</p>
-<p> <div class=codehilite><pre><span></span>ps aux <span class=p>|</span> grep <span class=s1>&#39;malos&#39;</span>
+<p>Run the following command on your Raspberry Pi's terminal to see the MATRIX Services currently running.
+<div class="codehilite"><pre><span></span>ps aux <span class="p">|</span> grep <span class="s1">&#39;malos&#39;</span>
 </pre></div></p>
 <h2 id="reinstall-matrix-core">Reinstall MATRIX CORE</h2>
 <p>If you experience strange behavior, reinstall MATRIX CORE.</p>
 <p>Uninstall the <code>matrixio-malos</code> package.</p>
-<p> <div class=codehilite><pre><span></span>sudo apt-get --purge remove matrixio-malos
-</pre></div></p>
+<div class="codehilite"><pre><span></span>sudo apt-get --purge remove matrixio-malos
+</pre></div>
+
 <p>Reboot your device.</p>
-<p> <div class=codehilite><pre><span></span>sudo reboot
-</pre></div></p>
+<div class="codehilite"><pre><span></span>sudo reboot
+</pre></div>
+
 <p>Install MATRIX CORE <a href="../../matrix-core/getting-started/core-installation">here</a>.</p>
 <h2 id="audio-open-error">Audio Open Error</h2>
-<p>If you encounter the error log below, your microphones are being used by the Pocketsphinx service for the <a href="../protocols/wakeword">Wakeword Driver</a>.</p>
-<p> <div class=codehilite><pre><span></span><span class=n>arecord</span><span class=o>:</span> <span class=n>main</span><span class=o>:</span><span class=mi>788</span><span class=o>:</span> <span class=n>audio</span> <span class=n>open</span> <span class=n>error</span><span class=o>:</span> <span class=n>Device</span> <span class=n>or</span> <span class=n>resource</span> <span class=n>busy</span>
-</pre></div></p>
-<p>You can solve this by running the following command to kill the service.</p>
-<p> <div class=codehilite><pre><span></span>sudo pkill malos_wakeword
+<p>If you encounter the error log below, your microphones are being used by the Pocketsphinx service for the <a href="../protocols/wakeword">Wakeword Driver</a>.
+<div class="codehilite"><pre><span></span><span class="n">arecord</span><span class="o">:</span> <span class="n">main</span><span class="o">:</span><span class="mi">788</span><span class="o">:</span> <span class="n">audio</span> <span class="n">open</span> <span class="n">error</span><span class="o">:</span> <span class="n">Device</span> <span class="n">or</span> <span class="n">resource</span> <span class="n">busy</span>
+</pre></div>
+You can solve this by running the following command to kill the service.
+<div class="codehilite"><pre><span></span>sudo pkill malos_wakeword
 </pre></div></p>
 <!-- ### Running Services Manually
 
 If your services are not listed as shown above, you can run them manually using the following terminal commands:
 
+<div class="codehilite"><pre><span></span><span class="o">#</span> <span class="n">Running</span> <span class="n">MATRIX</span> <span class="n">CORE</span> <span class="n">Sensors</span> <span class="o">&amp;</span> <span class="n">Comm</span><span class="p">.</span> <span class="n">Services</span>
+<span class="err">$</span> <span class="n">malos</span>
 
-
-
-
-wzxhzdk:5
+<span class="o">#</span> <span class="n">Running</span> <span class="n">MATRIX</span> <span class="n">CORE</span> <span class="n">Vision</span> <span class="n">Services</span>
+<span class="err">$</span> <span class="n">malos_eye</span>
+</pre></div>
 
 ### Stopping Services
 

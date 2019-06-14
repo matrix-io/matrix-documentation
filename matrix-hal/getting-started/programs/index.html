@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
   <link rel="stylesheet" href="../../../css/theme.css">
   <link rel="stylesheet" href="../../../css/codehilite.css">
+  <link rel="stylesheet" href="../../../css/superFences.css">
   <link rel="stylesheet" href="../../../css/clipboard.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
@@ -461,126 +462,129 @@
 <h2 id="creating-a-program">Creating A Program</h2>
 <h3 style="padding-top: 0">Making Your Project Directory</h3>
 
-<p>Use the following commands to create a folder to hold your MATRIX HAL projects, in the home directory <code>~/</code> of your MATRIX device.</p>
-<p> <div class=codehilite><pre><span></span><span class=nb>cd</span> ~/
+<p>Use the following commands to create a folder to hold your MATRIX HAL projects, in the home directory <code>~/</code> of your MATRIX device.
+<div class="codehilite"><pre><span></span><span class="nb">cd</span> ~/
 mkdir matrix-hal-project
-<span class=nb>cd</span> matrix-hal-project
+<span class="nb">cd</span> matrix-hal-project
 </pre></div></p>
 <p>Create a file called <code>app.cpp</code> in your project folder, and paste the code below.</p>
 <p>The following code turns the Everloop rainbow for 10 seconds.</p>
-<p> <div class=codehilite><pre><span></span><span class=cm>/*</span>
-<span class=cm> * Everloop rainbow example</span>
-<span class=cm> */</span>
+<div class="codehilite"><pre><span></span><span class="cm">/*</span>
+<span class="cm"> * Everloop rainbow example</span>
+<span class="cm"> */</span>
 
-<span class=c1>/////////////////////////</span>
-<span class=c1>// INCLUDE STATEMENTS //</span>
-<span class=c1>///////////////////////</span>
+<span class="c1">/////////////////////////</span>
+<span class="c1">// INCLUDE STATEMENTS //</span>
+<span class="c1">///////////////////////</span>
 
-<span class=c1>// System calls</span>
-<span class=cp>#include</span> <span class=cpf>&lt;unistd.h&gt;</span><span class=cp></span>
-<span class=c1>// Input/output streams and functions</span>
-<span class=cp>#include</span> <span class=cpf>&lt;iostream&gt;</span><span class=cp></span>
-<span class=c1>// Included for sin() function.</span>
-<span class=cp>#include</span> <span class=cpf>&lt;cmath&gt;</span><span class=cp></span>
+<span class="c1">// System calls</span>
+<span class="cp">#include</span> <span class="cpf">&lt;unistd.h&gt;</span><span class="cp"></span>
+<span class="c1">// Input/output streams and functions</span>
+<span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+<span class="c1">// Included for sin() function.</span>
+<span class="cp">#include</span> <span class="cpf">&lt;cmath&gt;</span><span class="cp"></span>
 
-<span class=c1>// Interfaces with Everloop</span>
-<span class=cp>#include</span> <span class=cpf>&quot;matrix_hal/everloop.h&quot;</span><span class=cp></span>
-<span class=c1>// Holds data for Everloop</span>
-<span class=cp>#include</span> <span class=cpf>&quot;matrix_hal/everloop_image.h&quot;</span><span class=cp></span>
-<span class=c1>// Communicates with MATRIX device</span>
-<span class=cp>#include</span> <span class=cpf>&quot;matrix_hal/matrixio_bus.h&quot;</span><span class=cp></span>
+<span class="c1">// Interfaces with Everloop</span>
+<span class="cp">#include</span> <span class="cpf">&quot;matrix_hal/everloop.h&quot;</span><span class="cp"></span>
+<span class="c1">// Holds data for Everloop</span>
+<span class="cp">#include</span> <span class="cpf">&quot;matrix_hal/everloop_image.h&quot;</span><span class="cp"></span>
+<span class="c1">// Communicates with MATRIX device</span>
+<span class="cp">#include</span> <span class="cpf">&quot;matrix_hal/matrixio_bus.h&quot;</span><span class="cp"></span>
 
-<span class=kt>int</span> <span class=nf>main</span><span class=p>()</span> <span class=p>{</span>
-  <span class=c1>////////////////////</span>
-  <span class=c1>// INITIAL SETUP //</span>
-  <span class=c1>//////////////////</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+  <span class="c1">////////////////////</span>
+  <span class="c1">// INITIAL SETUP //</span>
+  <span class="c1">//////////////////</span>
 
-  <span class=c1>// Create MatrixIOBus object for hardware communication</span>
-  <span class=n>matrix_hal</span><span class=o>::</span><span class=n>MatrixIOBus</span> <span class=n>bus</span><span class=p>;</span>
-  <span class=c1>// Initialize bus and exit program if error occurs</span>
-  <span class=k>if</span> <span class=p>(</span><span class=o>!</span><span class=n>bus</span><span class=p>.</span><span class=n>Init</span><span class=p>())</span> <span class=k>return</span> <span class=nb>false</span><span class=p>;</span>
+  <span class="c1">// Create MatrixIOBus object for hardware communication</span>
+  <span class="n">matrix_hal</span><span class="o">::</span><span class="n">MatrixIOBus</span> <span class="n">bus</span><span class="p">;</span>
+  <span class="c1">// Initialize bus and exit program if error occurs</span>
+  <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">bus</span><span class="p">.</span><span class="n">Init</span><span class="p">())</span> <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
 
-  <span class=c1>/////////////////</span>
-  <span class=c1>// MAIN SETUP //</span>
-  <span class=c1>///////////////</span>
+  <span class="c1">/////////////////</span>
+  <span class="c1">// MAIN SETUP //</span>
+  <span class="c1">///////////////</span>
 
-  <span class=c1>// Holds the number of LEDs on MATRIX device</span>
-  <span class=kt>int</span> <span class=n>ledCount</span> <span class=o>=</span> <span class=n>bus</span><span class=p>.</span><span class=n>MatrixLeds</span><span class=p>();</span>
-  <span class=c1>// Create EverloopImage object, with size of ledCount</span>
-  <span class=n>matrix_hal</span><span class=o>::</span><span class=n>EverloopImage</span> <span class=n>everloop_image</span><span class=p>(</span><span class=n>ledCount</span><span class=p>);</span>
-  <span class=c1>// Create Everloop object</span>
-  <span class=n>matrix_hal</span><span class=o>::</span><span class=n>Everloop</span> <span class=n>everloop</span><span class=p>;</span>
-  <span class=c1>// Set everloop to use MatrixIOBus bus</span>
-  <span class=n>everloop</span><span class=p>.</span><span class=n>Setup</span><span class=p>(</span><span class=o>&amp;</span><span class=n>bus</span><span class=p>);</span>
+  <span class="c1">// Holds the number of LEDs on MATRIX device</span>
+  <span class="kt">int</span> <span class="n">ledCount</span> <span class="o">=</span> <span class="n">bus</span><span class="p">.</span><span class="n">MatrixLeds</span><span class="p">();</span>
+  <span class="c1">// Create EverloopImage object, with size of ledCount</span>
+  <span class="n">matrix_hal</span><span class="o">::</span><span class="n">EverloopImage</span> <span class="n">everloop_image</span><span class="p">(</span><span class="n">ledCount</span><span class="p">);</span>
+  <span class="c1">// Create Everloop object</span>
+  <span class="n">matrix_hal</span><span class="o">::</span><span class="n">Everloop</span> <span class="n">everloop</span><span class="p">;</span>
+  <span class="c1">// Set everloop to use MatrixIOBus bus</span>
+  <span class="n">everloop</span><span class="p">.</span><span class="n">Setup</span><span class="p">(</span><span class="o">&amp;</span><span class="n">bus</span><span class="p">);</span>
 
-  <span class=c1>// Variables used for sine wave rainbow logic</span>
-  <span class=kt>float</span> <span class=n>counter</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span>
-  <span class=k>const</span> <span class=kt>float</span> <span class=n>freq</span> <span class=o>=</span> <span class=mf>0.375</span><span class=p>;</span>
+  <span class="c1">// Variables used for sine wave rainbow logic</span>
+  <span class="kt">float</span> <span class="n">counter</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="k">const</span> <span class="kt">float</span> <span class="n">freq</span> <span class="o">=</span> <span class="mf">0.375</span><span class="p">;</span>
 
-  <span class=c1>// 10 sec loop for rainbow effect 250*40000 microsec = 10 sec</span>
-  <span class=k>for</span> <span class=p>(</span><span class=kt>int</span> <span class=n>i</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span> <span class=n>i</span> <span class=o>&lt;=</span> <span class=mi>250</span><span class=p>;</span> <span class=n>i</span><span class=o>++</span><span class=p>)</span> <span class=p>{</span>
-    <span class=c1>// For each led in everloop_image.leds, set led value</span>
-    <span class=k>for</span> <span class=p>(</span><span class=n>matrix_hal</span><span class=o>::</span><span class=n>LedValue</span> <span class=o>&amp;</span><span class=nl>led</span> <span class=p>:</span> <span class=n>everloop_image</span><span class=p>.</span><span class=n>leds</span><span class=p>)</span> <span class=p>{</span>
-      <span class=c1>// Sine waves 120 degrees out of phase for rainbow</span>
-      <span class=n>led</span><span class=p>.</span><span class=n>red</span> <span class=o>=</span>
-          <span class=p>(</span><span class=n>std</span><span class=o>::</span><span class=n>sin</span><span class=p>(</span><span class=n>freq</span> <span class=o>*</span> <span class=n>counter</span> <span class=o>+</span> <span class=p>(</span><span class=n>M_PI</span> <span class=o>/</span> <span class=mi>180</span> <span class=o>*</span> <span class=mi>240</span><span class=p>))</span> <span class=o>*</span> <span class=mi>155</span> <span class=o>+</span> <span class=mi>100</span><span class=p>)</span> <span class=o>/</span> <span class=mi>10</span><span class=p>;</span>
-      <span class=n>led</span><span class=p>.</span><span class=n>green</span> <span class=o>=</span>
-          <span class=p>(</span><span class=n>std</span><span class=o>::</span><span class=n>sin</span><span class=p>(</span><span class=n>freq</span> <span class=o>*</span> <span class=n>counter</span> <span class=o>+</span> <span class=p>(</span><span class=n>M_PI</span> <span class=o>/</span> <span class=mi>180</span> <span class=o>*</span> <span class=mi>120</span><span class=p>))</span> <span class=o>*</span> <span class=mi>155</span> <span class=o>+</span> <span class=mi>100</span><span class=p>)</span> <span class=o>/</span> <span class=mi>10</span><span class=p>;</span>
-      <span class=n>led</span><span class=p>.</span><span class=n>blue</span> <span class=o>=</span> <span class=p>(</span><span class=n>std</span><span class=o>::</span><span class=n>sin</span><span class=p>(</span><span class=n>freq</span> <span class=o>*</span> <span class=n>counter</span> <span class=o>+</span> <span class=mi>0</span><span class=p>)</span> <span class=o>*</span> <span class=mi>155</span> <span class=o>+</span> <span class=mi>100</span><span class=p>)</span> <span class=o>/</span> <span class=mi>10</span><span class=p>;</span>
-      <span class=c1>// If MATRIX Creator, increment by 0.51</span>
-      <span class=k>if</span> <span class=p>(</span><span class=n>ledCount</span> <span class=o>==</span> <span class=mi>35</span><span class=p>)</span> <span class=p>{</span>
-        <span class=n>counter</span> <span class=o>=</span> <span class=n>counter</span> <span class=o>+</span> <span class=mf>0.51</span><span class=p>;</span>
-      <span class=p>}</span>
-      <span class=c1>// If MATRIX Voice, increment by 1.01</span>
-      <span class=k>if</span> <span class=p>(</span><span class=n>ledCount</span> <span class=o>==</span> <span class=mi>18</span><span class=p>)</span> <span class=p>{</span>
-        <span class=n>counter</span> <span class=o>=</span> <span class=n>counter</span> <span class=o>+</span> <span class=mf>1.01</span><span class=p>;</span>
-      <span class=p>}</span>
-    <span class=p>}</span>
+  <span class="c1">// 10 sec loop for rainbow effect 250*40000 microsec = 10 sec</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="mi">250</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// For each led in everloop_image.leds, set led value</span>
+    <span class="k">for</span> <span class="p">(</span><span class="n">matrix_hal</span><span class="o">::</span><span class="n">LedValue</span> <span class="o">&amp;</span><span class="nl">led</span> <span class="p">:</span> <span class="n">everloop_image</span><span class="p">.</span><span class="n">leds</span><span class="p">)</span> <span class="p">{</span>
+      <span class="c1">// Sine waves 120 degrees out of phase for rainbow</span>
+      <span class="n">led</span><span class="p">.</span><span class="n">red</span> <span class="o">=</span>
+          <span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">sin</span><span class="p">(</span><span class="n">freq</span> <span class="o">*</span> <span class="n">counter</span> <span class="o">+</span> <span class="p">(</span><span class="n">M_PI</span> <span class="o">/</span> <span class="mi">180</span> <span class="o">*</span> <span class="mi">240</span><span class="p">))</span> <span class="o">*</span> <span class="mi">155</span> <span class="o">+</span> <span class="mi">100</span><span class="p">)</span> <span class="o">/</span> <span class="mi">10</span><span class="p">;</span>
+      <span class="n">led</span><span class="p">.</span><span class="n">green</span> <span class="o">=</span>
+          <span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">sin</span><span class="p">(</span><span class="n">freq</span> <span class="o">*</span> <span class="n">counter</span> <span class="o">+</span> <span class="p">(</span><span class="n">M_PI</span> <span class="o">/</span> <span class="mi">180</span> <span class="o">*</span> <span class="mi">120</span><span class="p">))</span> <span class="o">*</span> <span class="mi">155</span> <span class="o">+</span> <span class="mi">100</span><span class="p">)</span> <span class="o">/</span> <span class="mi">10</span><span class="p">;</span>
+      <span class="n">led</span><span class="p">.</span><span class="n">blue</span> <span class="o">=</span> <span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">sin</span><span class="p">(</span><span class="n">freq</span> <span class="o">*</span> <span class="n">counter</span> <span class="o">+</span> <span class="mi">0</span><span class="p">)</span> <span class="o">*</span> <span class="mi">155</span> <span class="o">+</span> <span class="mi">100</span><span class="p">)</span> <span class="o">/</span> <span class="mi">10</span><span class="p">;</span>
+      <span class="c1">// If MATRIX Creator, increment by 0.51</span>
+      <span class="k">if</span> <span class="p">(</span><span class="n">ledCount</span> <span class="o">==</span> <span class="mi">35</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">counter</span> <span class="o">=</span> <span class="n">counter</span> <span class="o">+</span> <span class="mf">0.51</span><span class="p">;</span>
+      <span class="p">}</span>
+      <span class="c1">// If MATRIX Voice, increment by 1.01</span>
+      <span class="k">if</span> <span class="p">(</span><span class="n">ledCount</span> <span class="o">==</span> <span class="mi">18</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">counter</span> <span class="o">=</span> <span class="n">counter</span> <span class="o">+</span> <span class="mf">1.01</span><span class="p">;</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
 
-    <span class=c1>// Updates the LEDs</span>
-    <span class=n>everloop</span><span class=p>.</span><span class=n>Write</span><span class=p>(</span><span class=o>&amp;</span><span class=n>everloop_image</span><span class=p>);</span>
+    <span class="c1">// Updates the LEDs</span>
+    <span class="n">everloop</span><span class="p">.</span><span class="n">Write</span><span class="p">(</span><span class="o">&amp;</span><span class="n">everloop_image</span><span class="p">);</span>
 
-    <span class=c1>// If i is 0 (first run)</span>
-    <span class=k>if</span> <span class=p>(</span><span class=n>i</span> <span class=o>==</span> <span class=mi>0</span><span class=p>)</span> <span class=p>{</span>
-      <span class=c1>// Output everloop status to console</span>
-      <span class=n>std</span><span class=o>::</span><span class=n>cout</span> <span class=o>&lt;&lt;</span> <span class=s>&quot;Everloop set to rainbow for 10 seconds.&quot;</span> <span class=o>&lt;&lt;</span> <span class=n>std</span><span class=o>::</span><span class=n>endl</span><span class=p>;</span>
-    <span class=p>}</span>
-    <span class=c1>// If i is cleanly divisible by 25</span>
-    <span class=k>if</span> <span class=p>((</span><span class=n>i</span> <span class=o>%</span> <span class=mi>25</span><span class=p>)</span> <span class=o>==</span> <span class=mi>0</span><span class=p>)</span> <span class=p>{</span>
-      <span class=n>std</span><span class=o>::</span><span class=n>cout</span> <span class=o>&lt;&lt;</span> <span class=s>&quot;Time remaining (s) : &quot;</span> <span class=o>&lt;&lt;</span> <span class=mi>10</span> <span class=o>-</span> <span class=p>(</span><span class=n>i</span> <span class=o>/</span> <span class=mi>25</span><span class=p>)</span> <span class=o>&lt;&lt;</span> <span class=n>std</span><span class=o>::</span><span class=n>endl</span><span class=p>;</span>
-    <span class=p>}</span>
+    <span class="c1">// If i is 0 (first run)</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+      <span class="c1">// Output everloop status to console</span>
+      <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;Everloop set to rainbow for 10 seconds.&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="c1">// If i is cleanly divisible by 25</span>
+    <span class="k">if</span> <span class="p">((</span><span class="n">i</span> <span class="o">%</span> <span class="mi">25</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+      <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;Time remaining (s) : &quot;</span> <span class="o">&lt;&lt;</span> <span class="mi">10</span> <span class="o">-</span> <span class="p">(</span><span class="n">i</span> <span class="o">/</span> <span class="mi">25</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+    <span class="p">}</span>
 
-    <span class=c1>// Sleep for 40000 microseconds</span>
-    <span class=n>usleep</span><span class=p>(</span><span class=mi>40000</span><span class=p>);</span>
-  <span class=p>}</span>
+    <span class="c1">// Sleep for 40000 microseconds</span>
+    <span class="n">usleep</span><span class="p">(</span><span class="mi">40000</span><span class="p">);</span>
+  <span class="p">}</span>
 
-  <span class=c1>// Updates the Everloop on the MATRIX device</span>
-  <span class=n>everloop</span><span class=p>.</span><span class=n>Write</span><span class=p>(</span><span class=o>&amp;</span><span class=n>everloop_image</span><span class=p>);</span>
+  <span class="c1">// Updates the Everloop on the MATRIX device</span>
+  <span class="n">everloop</span><span class="p">.</span><span class="n">Write</span><span class="p">(</span><span class="o">&amp;</span><span class="n">everloop_image</span><span class="p">);</span>
 
-  <span class=c1>// For each led in everloop_image.leds, set led value to 0</span>
-  <span class=k>for</span> <span class=p>(</span><span class=n>matrix_hal</span><span class=o>::</span><span class=n>LedValue</span> <span class=o>&amp;</span><span class=nl>led</span> <span class=p>:</span> <span class=n>everloop_image</span><span class=p>.</span><span class=n>leds</span><span class=p>)</span> <span class=p>{</span>
-    <span class=c1>// Turn off Everloop</span>
-    <span class=n>led</span><span class=p>.</span><span class=n>red</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span>
-    <span class=n>led</span><span class=p>.</span><span class=n>green</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span>
-    <span class=n>led</span><span class=p>.</span><span class=n>blue</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span>
-    <span class=n>led</span><span class=p>.</span><span class=n>white</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span>
-  <span class=p>}</span>
+  <span class="c1">// For each led in everloop_image.leds, set led value to 0</span>
+  <span class="k">for</span> <span class="p">(</span><span class="n">matrix_hal</span><span class="o">::</span><span class="n">LedValue</span> <span class="o">&amp;</span><span class="nl">led</span> <span class="p">:</span> <span class="n">everloop_image</span><span class="p">.</span><span class="n">leds</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// Turn off Everloop</span>
+    <span class="n">led</span><span class="p">.</span><span class="n">red</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="n">led</span><span class="p">.</span><span class="n">green</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="n">led</span><span class="p">.</span><span class="n">blue</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="n">led</span><span class="p">.</span><span class="n">white</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="p">}</span>
 
-  <span class=c1>// Updates the Everloop on the MATRIX device</span>
-  <span class=n>everloop</span><span class=p>.</span><span class=n>Write</span><span class=p>(</span><span class=o>&amp;</span><span class=n>everloop_image</span><span class=p>);</span>
+  <span class="c1">// Updates the Everloop on the MATRIX device</span>
+  <span class="n">everloop</span><span class="p">.</span><span class="n">Write</span><span class="p">(</span><span class="o">&amp;</span><span class="n">everloop_image</span><span class="p">);</span>
 
-  <span class=k>return</span> <span class=mi>0</span><span class=p>;</span>
-<span class=p>}</span>
-</pre></div></p>
+  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+
 <h2 id="compiling-your-program">Compiling your Program</h2>
 <p>The command below will use g++ to link the <code>libmatrix_creator_hal.so</code> library file when compiling your program.</p>
-<p> <div class=codehilite><pre><span></span>g++ -o app app.cpp -std<span class=o>=</span>c++11 -lmatrix_creator_hal
-</pre></div></p>
+<div class="codehilite"><pre><span></span>g++ -o app app.cpp -std<span class="o">=</span>c++11 -lmatrix_creator_hal
+</pre></div>
+
 <h2 id="running-your-program">Running your Program</h2>
 <p>Run the following command to start the demo program.</p>
-<p> <div class=codehilite><pre><span></span><span class=nb>cd</span> ~/matrix-hal-project
+<div class="codehilite"><pre><span></span><span class="nb">cd</span> ~/matrix-hal-project
 ./app
-</pre></div></p>
+</pre></div>
+
 <h2 style="padding-top: 0">Result</h2>
 
 <p><img alt="" src="../../../matrix-hal/img/everloop_rainbow.gif" /></p>

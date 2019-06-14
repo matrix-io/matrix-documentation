@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
   <link rel="stylesheet" href="../../css/theme.css">
   <link rel="stylesheet" href="../../css/codehilite.css">
+  <link rel="stylesheet" href="../../css/superFences.css">
   <link rel="stylesheet" href="../../css/clipboard.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
@@ -453,19 +454,19 @@
 <p>This guide will show you how to get started with the ESP32 module on the MATRIX Voice ESP32 version.</p>
 <h2 id="step-1-raspberry-pi-setup">Step 1: Raspberry Pi Setup</h2>
 <p>Run the following commands inside your Raspberry Pi terminal to install the MATRIX Voice Software. This will keep the FPGA firmware updated and install few tools to flash the ESP-WROOM-32.</p>
-<p>Add the MATRIX repository and key.</p>
-<p> <div class=codehilite><pre><span></span>curl https://apt.matrix.one/doc/apt-key.gpg <span class=p>|</span> sudo apt-key add -
-<span class=nb>echo</span> <span class=s2>&quot;deb https://apt.matrix.one/raspbian </span><span class=k>$(</span>lsb_release -sc<span class=k>)</span><span class=s2> main&quot;</span> <span class=p>|</span> sudo tee /etc/apt/sources.list.d/matrixlabs.list
+<p>Add the MATRIX repository and key.
+<div class="codehilite"><pre><span></span>curl https://apt.matrix.one/doc/apt-key.gpg <span class="p">|</span> sudo apt-key add -
+<span class="nb">echo</span> <span class="s2">&quot;deb https://apt.matrix.one/raspbian </span><span class="k">$(</span>lsb_release -sc<span class="k">)</span><span class="s2"> main&quot;</span> <span class="p">|</span> sudo tee /etc/apt/sources.list.d/matrixlabs.list
 </pre></div></p>
-<p>Update your repository and packages.</p>
-<p> <div class=codehilite><pre><span></span>sudo apt-get update
+<p>Update your repository and packages.
+<div class="codehilite"><pre><span></span>sudo apt-get update
 sudo apt-get upgrade
 </pre></div></p>
-<p>Install the MATRIX init package.</p>
-<p> <div class=codehilite><pre><span></span>sudo apt install matrixio-creator-init
+<p>Install the MATRIX init package.
+<div class="codehilite"><pre><span></span>sudo apt install matrixio-creator-init
 </pre></div></p>
-<p>Reboot your Raspberry Pi.</p>
-<p> <div class=codehilite><pre><span></span>sudo reboot
+<p>Reboot your Raspberry Pi.
+<div class="codehilite"><pre><span></span>sudo reboot
 </pre></div></p>
 <h2 id="step-2-personal-computer-setup">Step 2: Personal Computer Setup</h2>
 <p>Here we're installing the requirements needed to allow your pc to develop and compile ESP32 projects.</p>
@@ -486,21 +487,21 @@ sudo apt-get upgrade
 <li>Set ESP-IDF Path: <a href="https://esp-idf.readthedocs.io/en/latest/get-started/add-idf_path-to-profile.html" target="_blank">https://esp-idf.readthedocs.io/en/latest/get-started/add-idf_path-to-profile.html</a></li>
 </ul>
 <p><b>Clone MATRIX Voice ESP32 repository</b></p>
-<p>This repository contains the necessary libraries to control the MATRIX Voice's components.</p>
-<p> <div class=codehilite><pre><span></span><span class=c1># windows must be using MINGw32 terminal from toolchain step</span>
+<p>This repository contains the necessary libraries to control the MATRIX Voice's components.
+<div class="codehilite"><pre><span></span><span class="c1"># windows must be using MINGw32 terminal from toolchain step</span>
 git clone https://github.com/matrix-io/matrixio_hal_esp32.git
 </pre></div></p>
 <h2 id="step-3-build-and-deploy">Step 3: Build and Deploy</h2>
 <p>Here we will be deploying and running one of the example apps in the Repository we just downloaded.</p>
-<p><b>Configuring IDF (one time setup):</b></p>
-<p> <div class=codehilite><pre><span></span><span class=nb>cd</span> matrixio_hal_esp32/examples/mic_energy/
+<p><b>Configuring IDF (one time setup):</b>
+<div class="codehilite"><pre><span></span><span class="nb">cd</span> matrixio_hal_esp32/examples/mic_energy/
 make menuconfig
 </pre></div></p>
 <p><img alt="" src="../img/esp32-1.jpg" /></p>
 <p>You will now be taken to the IDF Configuration screen, as shown above. Once there, select the <Exit> option to save default configuration.</p>
 <p><b>Running example project:</b></p>
-<p>To finish running the example, all that's left is to make and deploy the code to the Raspberry Pi. This requires the Pi's IP address and you will be prompted to insert the Pi's password as well.</p>
-<p> <div class=codehilite><pre><span></span><span class=nb>export</span> <span class=nv>RPI_HOST</span><span class=o>=</span>pi@RASPBERRY_IP_ADDRESS
+<p>To finish running the example, all that's left is to make and deploy the code to the Raspberry Pi. This requires the Pi's IP address and you will be prompted to insert the Pi's password as well.
+<div class="codehilite"><pre><span></span><span class="nb">export</span> <span class="nv">RPI_HOST</span><span class="o">=</span>pi@RASPBERRY_IP_ADDRESS
 make deploy
 </pre></div></p>
 <h2 id="step-4-finishing-up">Step 4: Finishing Up</h2>

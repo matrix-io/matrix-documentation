@@ -34,7 +34,7 @@ $(function () {
         // remove copy notification
         setTimeout(function() {
           copyButton.tooltip("hide");
-          copyButton.css("background-color","white");
+          copyButton.css("background-color","#cccccd");
           copyButton.attr("allow-copy-notify", true);
         }, 1000);
       }

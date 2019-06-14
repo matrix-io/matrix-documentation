@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
   <link rel="stylesheet" href="../../css/theme.css">
   <link rel="stylesheet" href="../../css/codehilite.css">
+  <link rel="stylesheet" href="../../css/superFences.css">
   <link rel="stylesheet" href="../../css/clipboard.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
@@ -455,195 +456,230 @@
 <h2 id="reinstall-matrix-init-package-and-reflash-fpga-and-mcu">Reinstall MATRIX Init Package and Reflash FPGA and MCU</h2>
 <p>If you experience strange behavior, reinstall the MATRIX init package and reflash FPGA and MCU.</p>
 <p>Uninstall the <code>matrixio-creator-init</code> package.</p>
-<p> <div class=codehilite><pre><span></span>sudo apt-get --purge remove matrixio-creator-init
-</pre></div></p>
+<div class="codehilite"><pre><span></span>sudo apt-get --purge remove matrixio-creator-init
+</pre></div>
+
 <p>Reboot your device.</p>
-<p> <div class=codehilite><pre><span></span>sudo reboot
-</pre></div></p>
+<div class="codehilite"><pre><span></span>sudo reboot
+</pre></div>
+
 <p>Add the MATRIX repository and key.</p>
-<p> <div class=codehilite><pre><span></span>curl https://apt.matrix.one/doc/apt-key.gpg <span class=p>|</span> sudo apt-key add -
-<span class=nb>echo</span> <span class=s2>&quot;deb https://apt.matrix.one/raspbian </span><span class=k>$(</span>lsb_release -sc<span class=k>)</span><span class=s2> main&quot;</span> <span class=p>|</span> sudo tee /etc/apt/sources.list.d/matrixlabs.list
-</pre></div></p>
+<div class="codehilite"><pre><span></span>curl https://apt.matrix.one/doc/apt-key.gpg <span class="p">|</span> sudo apt-key add -
+<span class="nb">echo</span> <span class="s2">&quot;deb https://apt.matrix.one/raspbian </span><span class="k">$(</span>lsb_release -sc<span class="k">)</span><span class="s2"> main&quot;</span> <span class="p">|</span> sudo tee /etc/apt/sources.list.d/matrixlabs.list
+</pre></div>
+
 <p>Update your repository and packages.</p>
-<p> <div class=codehilite><pre><span></span>sudo apt-get update
+<div class="codehilite"><pre><span></span>sudo apt-get update
 sudo apt-get upgrade
-</pre></div></p>
+</pre></div>
+
 <p>Install the <code>matrixio-creator-init</code> package.</p>
-<p> <div class=codehilite><pre><span></span>sudo apt-get install matrixio-creator-init
-</pre></div></p>
+<div class="codehilite"><pre><span></span>sudo apt-get install matrixio-creator-init
+</pre></div>
+
 <p>Reboot your device.</p>
-<p> <div class=codehilite><pre><span></span>sudo reboot
-</pre></div></p>
+<div class="codehilite"><pre><span></span>sudo reboot
+</pre></div>
+
 <blockquote>
 <p>FPGA will be reflashed with stock firmware.</p>
 </blockquote>
 <p>Now you can flash the FPGA.</p>
 <p>Reset the FPGA.</p>
-<p> <div class=codehilite><pre><span></span><span class=nb>echo</span> <span class=m>18</span> &gt; /sys/class/gpio/export <span class=m>2</span>&gt;/dev/null
-<span class=nb>echo</span> out &gt; /sys/class/gpio/gpio18/direction
-<span class=nb>echo</span> <span class=m>1</span> &gt; /sys/class/gpio/gpio18/value
-<span class=nb>echo</span> <span class=m>0</span> &gt; /sys/class/gpio/gpio18/value
-<span class=nb>echo</span> <span class=m>1</span> &gt; /sys/class/gpio/gpio18/value
-</pre></div></p>
+<div class="codehilite"><pre><span></span><span class="nb">echo</span> <span class="m">18</span> &gt; /sys/class/gpio/export <span class="m">2</span>&gt;/dev/null
+<span class="nb">echo</span> out &gt; /sys/class/gpio/gpio18/direction
+<span class="nb">echo</span> <span class="m">1</span> &gt; /sys/class/gpio/gpio18/value
+<span class="nb">echo</span> <span class="m">0</span> &gt; /sys/class/gpio/gpio18/value
+<span class="nb">echo</span> <span class="m">1</span> &gt; /sys/class/gpio/gpio18/value
+</pre></div>
+
 <p>Flash the FPGA.</p>
-<p> <div class=codehilite><pre><span></span><span class=nb>cd</span> /usr/share/matrixlabs/matrixio-devices/
-xc3sprog -c matrix_creator blob/system_creator.bit -p <span class=m>1</span>
-</pre></div></p>
+<div class="codehilite"><pre><span></span><span class="nb">cd</span> /usr/share/matrixlabs/matrixio-devices/
+xc3sprog -c matrix_creator blob/system_creator.bit -p <span class="m">1</span>
+</pre></div>
+
 <p>You should receive the following.</p>
-<p> <div class=codehilite><pre><span></span>XC3SPROG <span class=o>(</span>c<span class=o>)</span> <span class=m>2004</span>-2011 xc3sprog project <span class=nv>$Rev</span>: <span class=m>774</span> $ OS: Linux
+<div class="codehilite"><pre><span></span>XC3SPROG <span class="o">(</span>c<span class="o">)</span> <span class="m">2004</span>-2011 xc3sprog project <span class="nv">$Rev</span>: <span class="m">774</span> $ OS: Linux
 Free software: If you contribute nothing, expect nothing!
 Feedback on success/failure/enhancement requests:
-        http://sourceforge.net/mail/?group_id<span class=o>=</span><span class=m>170565</span>
-Check Sourceforge <span class=k>for</span> updates:
+        http://sourceforge.net/mail/?group_id<span class="o">=</span><span class="m">170565</span>
+Check Sourceforge <span class="k">for</span> updates:
         http://sourceforge.net/projects/xc3sprog/develop
 
 DNA is 0x99a9bca3325faafd
-</pre></div></p>
+</pre></div>
+
 <p>Reset the FPGA.</p>
-<p> <div class=codehilite><pre><span></span><span class=nb>echo</span> <span class=m>26</span> &gt; /sys/class/gpio/export <span class=m>2</span>&gt;/dev/null
-<span class=nb>echo</span> out &gt; /sys/class/gpio/gpio26/direction  
-<span class=nb>echo</span> <span class=m>1</span> &gt; /sys/class/gpio/gpio26/value  
-<span class=nb>echo</span> <span class=m>0</span> &gt; /sys/class/gpio/gpio26/value  
-<span class=nb>echo</span> <span class=m>1</span> &gt; /sys/class/gpio/gpio26/value
-</pre></div></p>
+<div class="codehilite"><pre><span></span><span class="nb">echo</span> <span class="m">26</span> &gt; /sys/class/gpio/export <span class="m">2</span>&gt;/dev/null
+<span class="nb">echo</span> out &gt; /sys/class/gpio/gpio26/direction  
+<span class="nb">echo</span> <span class="m">1</span> &gt; /sys/class/gpio/gpio26/value  
+<span class="nb">echo</span> <span class="m">0</span> &gt; /sys/class/gpio/gpio26/value  
+<span class="nb">echo</span> <span class="m">1</span> &gt; /sys/class/gpio/gpio26/value
+</pre></div>
+
 <blockquote>
 <p>MCU will be reflashed with stock firmware.</p>
 </blockquote>
 <p>Now you can flash the MCU.</p>
-<p> <div class=codehilite><pre><span></span><span class=nb>cd</span> /usr/share/matrixlabs/matrixio-devices/
+<div class="codehilite"><pre><span></span><span class="nb">cd</span> /usr/share/matrixlabs/matrixio-devices/
 sudo openocd -f cfg/sam3s_rpi_sysfs.cfg
-</pre></div></p>
+</pre></div>
+
 <p>The last part of the <code>openocd</code> flashing command output should be the following.</p>
-<p> <div class=codehilite><pre><span></span>flash <span class=s1>&#39;at91sam3&#39;</span> found at 0x00400000
-wrote <span class=m>36636</span> bytes from file blob/ch.bin to flash bank <span class=m>0</span> at offset 0x00000000 in <span class=m>4</span>.665386s <span class=o>(</span><span class=m>7</span>.669 KiB/s<span class=o>)</span>
-Info : JTAG tap: em358.cpu tap/device found: 0x3ba00477 <span class=o>(</span>mfg: 0x23b <span class=o>(</span>ARM Ltd.<span class=o>)</span>, part: 0xba00, ver: 0x3<span class=o>)</span>
-Info : JTAG tap: em357.bs tap/device found: 0x069aa62b <span class=o>(</span>mfg: 0x315 <span class=o>(</span>Ember Corporation<span class=o>)</span>, part: 0x69aa, ver: 0x0<span class=o>)</span>Info : JTAG tap: xc6sxl4.fpga.fpga tap/device found: 0x24000093 <span class=o>(</span>mfg: 0x049 <span class=o>(</span>Xilinx<span class=o>)</span>, part: 0x4000, ver: 0x2<span class=o>)</span>
-Info : JTAG tap: sam3n.cpu.cpu tap/device found: 0x4ba00477 <span class=o>(</span>mfg: 0x23b <span class=o>(</span>ARM Ltd.<span class=o>)</span>, part: 0xba00, ver: 0x4<span class=o>)</span>
+<div class="codehilite"><pre><span></span>flash <span class="s1">&#39;at91sam3&#39;</span> found at 0x00400000
+wrote <span class="m">36636</span> bytes from file blob/ch.bin to flash bank <span class="m">0</span> at offset 0x00000000 in <span class="m">4</span>.665386s <span class="o">(</span><span class="m">7</span>.669 KiB/s<span class="o">)</span>
+Info : JTAG tap: em358.cpu tap/device found: 0x3ba00477 <span class="o">(</span>mfg: 0x23b <span class="o">(</span>ARM Ltd.<span class="o">)</span>, part: 0xba00, ver: 0x3<span class="o">)</span>
+Info : JTAG tap: em357.bs tap/device found: 0x069aa62b <span class="o">(</span>mfg: 0x315 <span class="o">(</span>Ember Corporation<span class="o">)</span>, part: 0x69aa, ver: 0x0<span class="o">)</span>Info : JTAG tap: xc6sxl4.fpga.fpga tap/device found: 0x24000093 <span class="o">(</span>mfg: 0x049 <span class="o">(</span>Xilinx<span class="o">)</span>, part: 0x4000, ver: 0x2<span class="o">)</span>
+Info : JTAG tap: sam3n.cpu.cpu tap/device found: 0x4ba00477 <span class="o">(</span>mfg: 0x23b <span class="o">(</span>ARM Ltd.<span class="o">)</span>, part: 0xba00, ver: 0x4<span class="o">)</span>
 Warn : Only resetting the Cortex-M core, use a reset-init event handler to reset any peripherals or configure hardware srst support.
-shutdown <span class=nb>command</span> invoked
-</pre></div></p>
+shutdown <span class="nb">command</span> invoked
+</pre></div>
+
 <p>Power off your device.</p>
-<p> <div class=codehilite><pre><span></span>sudo poweroff
-</pre></div></p>
+<div class="codehilite"><pre><span></span>sudo poweroff
+</pre></div>
+
 <p>Wait until the green led on your Raspberry Pi blinks 10 times, then unplug the power cable from your Raspberry Pi.</p>
 <p>Plug the power cable back into your Raspberry Pi.</p>
 <h2 id="reinstall-matrix-kernel-modules">Reinstall MATRIX Kernel Modules</h2>
 <p>If you experience strange behavior, reinstall the MATRIX kernel modules.</p>
 <p>Uninstall the <code>matrixio-kernel-modules</code> package.</p>
-<p> <div class=codehilite><pre><span></span>sudo apt-get --purge remove matrixio-kernel-modules
-</pre></div></p>
+<div class="codehilite"><pre><span></span>sudo apt-get --purge remove matrixio-kernel-modules
+</pre></div>
+
 <p>Reboot your device.</p>
-<p> <div class=codehilite><pre><span></span>sudo reboot
-</pre></div></p>
+<div class="codehilite"><pre><span></span>sudo reboot
+</pre></div>
+
 <p>Add the MATRIX repository and key.</p>
-<p> <div class=codehilite><pre><span></span>curl https://apt.matrix.one/doc/apt-key.gpg <span class=p>|</span> sudo apt-key add -
-<span class=nb>echo</span> <span class=s2>&quot;deb https://apt.matrix.one/raspbian </span><span class=k>$(</span>lsb_release -sc<span class=k>)</span><span class=s2> main&quot;</span> <span class=p>|</span> sudo tee /etc/apt/sources.list.d/matrixlabs.list
-</pre></div></p>
+<div class="codehilite"><pre><span></span>curl https://apt.matrix.one/doc/apt-key.gpg <span class="p">|</span> sudo apt-key add -
+<span class="nb">echo</span> <span class="s2">&quot;deb https://apt.matrix.one/raspbian </span><span class="k">$(</span>lsb_release -sc<span class="k">)</span><span class="s2"> main&quot;</span> <span class="p">|</span> sudo tee /etc/apt/sources.list.d/matrixlabs.list
+</pre></div>
+
 <p>Update your repository and packages.</p>
-<p> <div class=codehilite><pre><span></span>sudo apt-get update
+<div class="codehilite"><pre><span></span>sudo apt-get update
 sudo apt-get upgrade
-</pre></div></p>
+</pre></div>
+
 <p>Install the <code>matrixio-kernel-modules</code> package.</p>
-<p> <div class=codehilite><pre><span></span>sudo apt-get install matrixio-kernel-modules
-</pre></div></p>
+<div class="codehilite"><pre><span></span>sudo apt-get install matrixio-kernel-modules
+</pre></div>
+
 <p>Reboot your device.</p>
-<p> <div class=codehilite><pre><span></span>sudo reboot
-</pre></div></p>
+<div class="codehilite"><pre><span></span>sudo reboot
+</pre></div>
+
 <h2 id="check-raspberry-pi-gpio">Check Raspberry Pi GPIO</h2>
 <p>If you experience strange behavior, check the Raspberry Pi GPIO.</p>
-<p> <div class=codehilite><pre><span></span>sudo cat /sys/kernel/debug/gpio
-</pre></div></p>
+<div class="codehilite"><pre><span></span>sudo cat /sys/kernel/debug/gpio
+</pre></div>
+
 <p>You should receive the following.</p>
-<p> <div class=codehilite><pre><span></span>gpiochip0: GPIOs <span class=m>0</span>-53, parent: platform/3f200000.gpio, pinctrl-bcm2835:
- gpio-4   <span class=o>(</span>                    <span class=p>|</span>sysfs               <span class=o>)</span> in  hi
- gpio-16  <span class=o>(</span>                    <span class=p>|</span>sysfs               <span class=o>)</span> out lo
- gpio-17  <span class=o>(</span>                    <span class=p>|</span>sysfs               <span class=o>)</span> in  hi
- gpio-18  <span class=o>(</span>                    <span class=p>|</span>sysfs               <span class=o>)</span> out hi
- gpio-19  <span class=o>(</span>                    <span class=p>|</span>sysfs               <span class=o>)</span> out hi
- gpio-20  <span class=o>(</span>                    <span class=p>|</span>sysfs               <span class=o>)</span> out hi
- gpio-21  <span class=o>(</span>                    <span class=p>|</span>sysfs               <span class=o>)</span> out hi
- gpio-22  <span class=o>(</span>                    <span class=p>|</span>sysfs               <span class=o>)</span> in  lo
- gpio-23  <span class=o>(</span>                    <span class=p>|</span>sysfs               <span class=o>)</span> out hi
- gpio-27  <span class=o>(</span>                    <span class=p>|</span>sysfs               <span class=o>)</span> in  hi
-</pre></div></p>
+<div class="codehilite"><pre><span></span>gpiochip0: GPIOs <span class="m">0</span>-53, parent: platform/3f200000.gpio, pinctrl-bcm2835:
+ gpio-4   <span class="o">(</span>                    <span class="p">|</span>sysfs               <span class="o">)</span> in  hi
+ gpio-16  <span class="o">(</span>                    <span class="p">|</span>sysfs               <span class="o">)</span> out lo
+ gpio-17  <span class="o">(</span>                    <span class="p">|</span>sysfs               <span class="o">)</span> in  hi
+ gpio-18  <span class="o">(</span>                    <span class="p">|</span>sysfs               <span class="o">)</span> out hi
+ gpio-19  <span class="o">(</span>                    <span class="p">|</span>sysfs               <span class="o">)</span> out hi
+ gpio-20  <span class="o">(</span>                    <span class="p">|</span>sysfs               <span class="o">)</span> out hi
+ gpio-21  <span class="o">(</span>                    <span class="p">|</span>sysfs               <span class="o">)</span> out hi
+ gpio-22  <span class="o">(</span>                    <span class="p">|</span>sysfs               <span class="o">)</span> in  lo
+ gpio-23  <span class="o">(</span>                    <span class="p">|</span>sysfs               <span class="o">)</span> out hi
+ gpio-27  <span class="o">(</span>                    <span class="p">|</span>sysfs               <span class="o">)</span> in  hi
+</pre></div>
+
 <p>If <code>sysfs</code> above is replaced with <code>w1</code>, use raspi-config to disable the 1-Wire interface.</p>
-<p> <div class=codehilite><pre><span></span>sudo raspi-config
-</pre></div></p>
+<div class="codehilite"><pre><span></span>sudo raspi-config
+</pre></div>
+
 <p>Inside raspi-config, navigate to <code>Interfacing Options</code> &gt;&gt; <code>1-Wire</code> &gt;&gt; <code>NO</code>.</p>
 <h2 id="hardware-tests">Hardware Tests</h2>
 <p>These tests will check if your MATRIX Creator is functioning properly.</p>
 <p>We first need to install matrixio-creator-init, which handles the flashing of FPGA.</p>
 <p>Add the MATRIX repository and key.</p>
-<p> <div class=codehilite><pre><span></span>curl https://apt.matrix.one/doc/apt-key.gpg <span class=p>|</span> sudo apt-key add -
-<span class=nb>echo</span> <span class=s2>&quot;deb https://apt.matrix.one/raspbian </span><span class=k>$(</span>lsb_release -sc<span class=k>)</span><span class=s2> main&quot;</span> <span class=p>|</span> sudo tee /etc/apt/sources.list.d/matrixlabs.list
-</pre></div></p>
+<div class="codehilite"><pre><span></span>curl https://apt.matrix.one/doc/apt-key.gpg <span class="p">|</span> sudo apt-key add -
+<span class="nb">echo</span> <span class="s2">&quot;deb https://apt.matrix.one/raspbian </span><span class="k">$(</span>lsb_release -sc<span class="k">)</span><span class="s2"> main&quot;</span> <span class="p">|</span> sudo tee /etc/apt/sources.list.d/matrixlabs.list
+</pre></div>
+
 <p>Update your repository and packages.</p>
-<p> <div class=codehilite><pre><span></span>sudo apt-get update
+<div class="codehilite"><pre><span></span>sudo apt-get update
 sudo apt-get upgrade
-</pre></div></p>
+</pre></div>
+
 <p>Install the MATRIX init package.</p>
-<p> <div class=codehilite><pre><span></span>sudo apt-get install matrixio-creator-init
-</pre></div></p>
+<div class="codehilite"><pre><span></span>sudo apt-get install matrixio-creator-init
+</pre></div>
+
 <p>Reboot your device.</p>
-<p> <div class=codehilite><pre><span></span>sudo reboot
-</pre></div></p>
+<div class="codehilite"><pre><span></span>sudo reboot
+</pre></div>
+
 <h3 id="matrix-init-script">Matrix Init Script</h3>
 <p>After the reboot, run the matrix init script manually.</p>
-<p> <div class=codehilite><pre><span></span>sudo /usr/share/matrixlabs/matrixio-devices/matrix-init.bash
-</pre></div></p>
+<div class="codehilite"><pre><span></span>sudo /usr/share/matrixlabs/matrixio-devices/matrix-init.bash
+</pre></div>
+
 <p>You should receive the following.</p>
-<p> <div class=codehilite><pre><span></span>**** MATRIX Creator FPGA has been programmed!
-INFO: <span class=o>[</span>/dev/spidev0.0<span class=o>]</span> was opened
-FPGA <span class=nv>IDENTIFY</span> <span class=o>=</span> 5c344e8
-FPGA <span class=nv>VERSION</span> <span class=o>=</span> 1000a
+<div class="codehilite"><pre><span></span>**** MATRIX Creator FPGA has been programmed!
+INFO: <span class="o">[</span>/dev/spidev0.0<span class="o">]</span> was opened
+FPGA <span class="nv">IDENTIFY</span> <span class="o">=</span> 5c344e8
+FPGA <span class="nv">VERSION</span> <span class="o">=</span> 1000a
 *** MATRIX Creator initial process has been launched
 *** Running the program instead of the bootloader
 EM358 MCU was programmed before. Not programming it again.
 Running the program instead of the bootloader
 SAM3 MCU was programmed before. Not programming it again.
-</pre></div></p>
+</pre></div>
+
 <p>If you have the matrixio-kernel-modules installed, you should receive this instead.</p>
-<p> <div class=codehilite><pre><span></span>**** MATRIX Creator FPGA has been programmed!
-INFO: <span class=o>[</span>/dev/matrixio_regmap<span class=o>]</span> was opened
-FPGA <span class=nv>IDENTIFY</span> <span class=o>=</span> 5c344e8
-FPGA <span class=nv>VERSION</span> <span class=o>=</span> 1000a
+<div class="codehilite"><pre><span></span>**** MATRIX Creator FPGA has been programmed!
+INFO: <span class="o">[</span>/dev/matrixio_regmap<span class="o">]</span> was opened
+FPGA <span class="nv">IDENTIFY</span> <span class="o">=</span> 5c344e8
+FPGA <span class="nv">VERSION</span> <span class="o">=</span> 1000a
 *** MATRIX Creator initial process has been launched
 *** Running the program instead of the bootloader
 EM358 MCU was programmed before. Not programming it again.
 Running the program instead of the bootloader
 SAM3 MCU was programmed before. Not programming it again.
-</pre></div></p>
+</pre></div>
+
 <h3 id="fpga-info">FPGA Info</h3>
 <p>This program checks the fpga info.</p>
-<p> <div class=codehilite><pre><span></span>sudo /usr/share/matrixlabs/matrixio-devices/fpga_info
-</pre></div></p>
+<div class="codehilite"><pre><span></span>sudo /usr/share/matrixlabs/matrixio-devices/fpga_info
+</pre></div>
+
 <p>You should receive the following.</p>
-<p> <div class=codehilite><pre><span></span>INFO: <span class=o>[</span>/dev/spidev0.0<span class=o>]</span> was opened
-FPGA <span class=nv>IDENTIFY</span> <span class=o>=</span> 5c344e8
-FPGA <span class=nv>VERSION</span> <span class=o>=</span> 1000a
-</pre></div></p>
+<div class="codehilite"><pre><span></span>INFO: <span class="o">[</span>/dev/spidev0.0<span class="o">]</span> was opened
+FPGA <span class="nv">IDENTIFY</span> <span class="o">=</span> 5c344e8
+FPGA <span class="nv">VERSION</span> <span class="o">=</span> 1000a
+</pre></div>
+
 <p>If you have the matrixio-kernel-modules installed, you should receive this instead.</p>
-<p> <div class=codehilite><pre><span></span>INFO: <span class=o>[</span>/dev/matrixio_regmap<span class=o>]</span> was opened
-FPGA <span class=nv>IDENTIFY</span> <span class=o>=</span> 5c344e8
-FPGA <span class=nv>VERSION</span> <span class=o>=</span> 1000a
-</pre></div></p>
+<div class="codehilite"><pre><span></span>INFO: <span class="o">[</span>/dev/matrixio_regmap<span class="o">]</span> was opened
+FPGA <span class="nv">IDENTIFY</span> <span class="o">=</span> 5c344e8
+FPGA <span class="nv">VERSION</span> <span class="o">=</span> 1000a
+</pre></div>
+
 <h3 id="fpga-flash">FPGA Flash</h3>
-<p>If you don&rsquo;t get the proper FPGA info you will need to run the FPGA flashing process.</p>
-<p> <div class=codehilite><pre><span></span><span class=nb>cd</span> /usr/share/matrixlabs/matrixio-devices/
+<p>If you don’t get the proper FPGA info you will need to run the FPGA flashing process.</p>
+<div class="codehilite"><pre><span></span><span class="nb">cd</span> /usr/share/matrixlabs/matrixio-devices/
 sudo ./fpga-program.bash
-</pre></div></p>
+</pre></div>
+
 <p>You should receive the following.</p>
-<p> <div class=codehilite><pre><span></span>**** MATRIX Creator FPGA has been programmed!
-INFO: <span class=o>[</span>/dev/spidev0.0<span class=o>]</span> was opened
-FPGA <span class=nv>IDENTIFY</span> <span class=o>=</span> 5c344e8
-FPGA <span class=nv>VERSION</span> <span class=o>=</span> 1000a
-</pre></div></p>
+<div class="codehilite"><pre><span></span>**** MATRIX Creator FPGA has been programmed!
+INFO: <span class="o">[</span>/dev/spidev0.0<span class="o">]</span> was opened
+FPGA <span class="nv">IDENTIFY</span> <span class="o">=</span> 5c344e8
+FPGA <span class="nv">VERSION</span> <span class="o">=</span> 1000a
+</pre></div>
+
 <p>If you have the matrixio-kernel-modules installed, you should receive this instead.</p>
-<p> <div class=codehilite><pre><span></span>**** MATRIX Creator FPGA has been programmed!
-INFO: <span class=o>[</span>/dev/matrixio_regmap<span class=o>]</span> was opened
-FPGA <span class=nv>IDENTIFY</span> <span class=o>=</span> 5c344e8
-FPGA <span class=nv>VERSION</span> <span class=o>=</span> 1000a
-</pre></div></p>
+<div class="codehilite"><pre><span></span>**** MATRIX Creator FPGA has been programmed!
+INFO: <span class="o">[</span>/dev/matrixio_regmap<span class="o">]</span> was opened
+FPGA <span class="nv">IDENTIFY</span> <span class="o">=</span> 5c344e8
+FPGA <span class="nv">VERSION</span> <span class="o">=</span> 1000a
+</pre></div>
+
 <p>If you get <code>**** Could not program FPGA</code>, please <a href="https://community.matrix.one" target="_blank">contact us</a></h3>.</p>
 <h3 id="test-other-components">Test Other Components</h3>
 <p><a href="/matrix-hal/getting-started/installation-package/" target="_blank">Install MATRIX HAL </a> and test other components such as the microphone array using the <a href="/matrix-hal/examples/" target="_blank">MATRIX HAL examples</a>.</p> 

@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
   <link rel="stylesheet" href="../../../css/theme.css">
   <link rel="stylesheet" href="../../../css/codehilite.css">
+  <link rel="stylesheet" href="../../../css/superFences.css">
   <link rel="stylesheet" href="../../../css/clipboard.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
@@ -469,24 +470,29 @@
 <h2 id="installation">Installation</h2>
 <p>Before starting, ensure you have access to the terminal of your Raspberry Pi via an <a href="https://www.raspberrypi.org/documentation/remote-access/ssh/" target="_blank">SSH-session</a> or a connected screen, mouse, and keyboard. Then insert and run the following commands into your Raspberry Pi's terminal, one at a time.</p>
 <p>Add the MATRIX repository and key.</p>
-<p> <div class=codehilite><pre><span></span>curl https://apt.matrix.one/doc/apt-key.gpg <span class=p>|</span> sudo apt-key add -
-<span class=nb>echo</span> <span class=s2>&quot;deb https://apt.matrix.one/raspbian </span><span class=k>$(</span>lsb_release -sc<span class=k>)</span><span class=s2> main&quot;</span> <span class=p>|</span> sudo tee /etc/apt/sources.list.d/matrixlabs.list
-</pre></div></p>
+<div class="codehilite"><pre><span></span>curl https://apt.matrix.one/doc/apt-key.gpg <span class="p">|</span> sudo apt-key add -
+<span class="nb">echo</span> <span class="s2">&quot;deb https://apt.matrix.one/raspbian </span><span class="k">$(</span>lsb_release -sc<span class="k">)</span><span class="s2"> main&quot;</span> <span class="p">|</span> sudo tee /etc/apt/sources.list.d/matrixlabs.list
+</pre></div>
+
 <p>Update your repository and packages.</p>
-<p> <div class=codehilite><pre><span></span>sudo apt-get update
+<div class="codehilite"><pre><span></span>sudo apt-get update
 sudo apt-get upgrade
-</pre></div></p>
+</pre></div>
+
 <p>Install the the MATRIX CORE packages.</p>
-<p> <div class=codehilite><pre><span></span>sudo apt-get install matrixio-malos
-</pre></div></p>
+<div class="codehilite"><pre><span></span>sudo apt-get install matrixio-malos
+</pre></div>
+
 <p>Reboot your device.</p>
-<p> <div class=codehilite><pre><span></span>sudo reboot
-</pre></div></p>
+<div class="codehilite"><pre><span></span>sudo reboot
+</pre></div>
+
 <p>MATRIX CORE will now be running as a service each time your Raspberry Pi boots up.</p>
 <p>These remaining commands will install <a href="http://zeromq.org/" target="_blank">ZeroMQ</a>.</p>
-<p> <div class=codehilite><pre><span></span><span class=nb>echo</span> <span class=s2>&quot;deb http://download.opensuse.org/repositories/network:/messaging:/zeromq:/release-stable/Debian_9.0/ ./&quot;</span> <span class=p>|</span> sudo tee /etc/apt/sources.list.d/zeromq.list
-wget https://download.opensuse.org/repositories/network:/messaging:/zeromq:/release-stable/Debian_9.0/Release.key -O- <span class=p>|</span> sudo apt-key add
-</pre></div></p>
+<div class="codehilite"><pre><span></span><span class="nb">echo</span> <span class="s2">&quot;deb http://download.opensuse.org/repositories/network:/messaging:/zeromq:/release-stable/Debian_9.0/ ./&quot;</span> <span class="p">|</span> sudo tee /etc/apt/sources.list.d/zeromq.list
+wget https://download.opensuse.org/repositories/network:/messaging:/zeromq:/release-stable/Debian_9.0/Release.key -O- <span class="p">|</span> sudo apt-key add
+</pre></div>
+
 <p><br/></p>
 <h2 id="next-steps">Next Steps</h2>
 <p>Now that you have MATRIX CORE and ZeroMQ installed, please take a look at Understanding CORE <a href="../understanding-core/">here</a>.</p>
@@ -500,20 +506,22 @@ wget https://download.opensuse.org/repositories/network:/messaging:/zeromq:/rele
 <h2 id="helpful-information">Helpful Information</h2>
 <p><h3 style="padding-top: 0">Upgrading</h3></p>
 <p>If you need to upgrade your MATRIX CORE package at any time, please run the following commands on your Raspberry Pi.</p>
-<p> <div class=codehilite><pre><span></span>sudo apt-get update
+<p><div class="codehilite"><pre><span></span>sudo apt-get update
 sudo apt-get upgrade
-</pre></div></p>
-<p>A reboot will be required after upgrading your packages.</p>
-<p> <div class=codehilite><pre><span></span>sudo reboot
-</pre></div></p>
+</pre></div>
+A reboot will be required after upgrading your packages.</p>
+<div class="codehilite"><pre><span></span>sudo reboot
+</pre></div>
+
 <h3 style="padding-top: 0">Stopping & Starting</h3>
 
 <p>If you need to manually stop MATRIX CORE use:</p>
-<p> <div class=codehilite><pre><span></span>sudo pkill -9 malos
-</pre></div></p>
+<div class="codehilite"><pre><span></span>sudo pkill -9 malos
+</pre></div>
+
 <p>If you need to manually start MATRIX CORE again use:</p>
-<p> <div class=codehilite><pre><span></span>malos <span class=p>&amp;</span>
-</pre></div></p> 
+<div class="codehilite"><pre><span></span>malos <span class="p">&amp;</span>
+</pre></div> 
         </div>
         <div class="toc-parent col-lg-2 col-md-3">
           <div class="toc">

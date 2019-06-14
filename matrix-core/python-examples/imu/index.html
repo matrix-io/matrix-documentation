@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
   <link rel="stylesheet" href="../../../css/theme.css">
   <link rel="stylesheet" href="../../../css/codehilite.css">
+  <link rel="stylesheet" href="../../../css/superFences.css">
   <link rel="stylesheet" href="../../../css/clipboard.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
@@ -491,107 +492,113 @@
 <p>The following sections show how to implement a connection to each of the IMU driver's ports. You can download this example <a href="https://github.com/matrix-io/matrix-core-examples/blob/master/python/imu.py" target="_blank">here</a>.</p>
 <!-- Initial Variables -->
 
-<p><details open>
+<details open>
 <summary style="font-size: 1.75rem; font-weight: 300;">Initial Variables</summary>
-Before we go into connecting to each port, the variables defined below are needed in order to access the ZeroMQ and MATRIX Protocol Buffer libraries for Python. We also define a few helpful variables for easy references.</p>
-<p> <div class=codehilite><pre><span></span><span class=kn>import</span> <span class=nn>os</span> <span class=c1># Miscellaneous operating system interface</span>
-<span class=kn>import</span> <span class=nn>zmq</span> <span class=c1># Asynchronous messaging framework</span>
-<span class=kn>import</span> <span class=nn>time</span> <span class=c1># Time access and conversions</span>
-<span class=kn>import</span> <span class=nn>sys</span> <span class=c1># System-specific parameters and functions</span>
-<span class=kn>from</span> <span class=nn>matrix_io.proto.malos.v1</span> <span class=kn>import</span> <span class=n>driver_pb2</span> <span class=c1># MATRIX Protocol Buffer driver library</span>
-<span class=kn>from</span> <span class=nn>matrix_io.proto.malos.v1</span> <span class=kn>import</span> <span class=n>sense_pb2</span> <span class=c1># MATRIX Protocol Buffer sensor library</span>
-<span class=kn>from</span> <span class=nn>multiprocessing</span> <span class=kn>import</span> <span class=n>Process</span> <span class=c1># Allow for multiple processes at once</span>
-<span class=kn>from</span> <span class=nn>zmq.eventloop</span> <span class=kn>import</span> <span class=n>ioloop</span> <span class=c1># Asynchronous events through ZMQ</span>
-<span class=n>matrix_ip</span> <span class=o>=</span> <span class=s1>&#39;127.0.0.1&#39;</span> <span class=c1># Local device ip</span>
-<span class=n>imu_port</span> <span class=o>=</span> <span class=mi>20013</span> <span class=c1># Driver Base port</span>
-<span class=c1># Handy functions for connecting to the keep-Alive, Data Update, &amp; Error port </span>
-<span class=kn>from</span> <span class=nn>utils</span> <span class=kn>import</span> <span class=n>driver_keep_alive</span><span class=p>,</span> <span class=n>register_data_callback</span><span class=p>,</span> <span class=n>register_error_callback</span>
-</pre></div></p>
-<p></details></p>
+Before we go into connecting to each port, the variables defined below are needed in order to access the ZeroMQ and MATRIX Protocol Buffer libraries for Python. We also define a few helpful variables for easy references.
+<div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">os</span> <span class="c1"># Miscellaneous operating system interface</span>
+<span class="kn">import</span> <span class="nn">zmq</span> <span class="c1"># Asynchronous messaging framework</span>
+<span class="kn">import</span> <span class="nn">time</span> <span class="c1"># Time access and conversions</span>
+<span class="kn">import</span> <span class="nn">sys</span> <span class="c1"># System-specific parameters and functions</span>
+<span class="kn">from</span> <span class="nn">matrix_io.proto.malos.v1</span> <span class="kn">import</span> <span class="n">driver_pb2</span> <span class="c1"># MATRIX Protocol Buffer driver library</span>
+<span class="kn">from</span> <span class="nn">matrix_io.proto.malos.v1</span> <span class="kn">import</span> <span class="n">sense_pb2</span> <span class="c1"># MATRIX Protocol Buffer sensor library</span>
+<span class="kn">from</span> <span class="nn">multiprocessing</span> <span class="kn">import</span> <span class="n">Process</span> <span class="c1"># Allow for multiple processes at once</span>
+<span class="kn">from</span> <span class="nn">zmq.eventloop</span> <span class="kn">import</span> <span class="n">ioloop</span> <span class="c1"># Asynchronous events through ZMQ</span>
+<span class="n">matrix_ip</span> <span class="o">=</span> <span class="s1">&#39;127.0.0.1&#39;</span> <span class="c1"># Local device ip</span>
+<span class="n">imu_port</span> <span class="o">=</span> <span class="mi">20013</span> <span class="c1"># Driver Base port</span>
+<span class="c1"># Handy functions for connecting to the keep-Alive, Data Update, &amp; Error port </span>
+<span class="kn">from</span> <span class="nn">utils</span> <span class="kn">import</span> <span class="n">driver_keep_alive</span><span class="p">,</span> <span class="n">register_data_callback</span><span class="p">,</span> <span class="n">register_error_callback</span>
+</pre></div>
+</details>
+
 <!-- Base PORT -->
 
-<p><details open>
+<details open>
 <summary style="font-size: 1.75rem; font-weight: 300;">Base Port</summary>
-Here is where the configuration for our IMU example goes. Once we connect to the <strong>Base Port</strong>, we will pass a configuration to the IMU driver. With this we can set the update rate, timeout, and temperature configuration.</p>
-<p> <div class=codehilite><pre><span></span><span class=k>def</span> <span class=nf>config_socket</span><span class=p>():</span>
-    <span class=c1># Define zmq socket</span>
-    <span class=n>context</span> <span class=o>=</span> <span class=n>zmq</span><span class=o>.</span><span class=n>Context</span><span class=p>()</span>
-    <span class=c1># Create a Pusher socket</span>
-    <span class=n>socket</span> <span class=o>=</span> <span class=n>context</span><span class=o>.</span><span class=n>socket</span><span class=p>(</span><span class=n>zmq</span><span class=o>.</span><span class=n>PUSH</span><span class=p>)</span>
-    <span class=c1># Connect Pusher to configuration socket</span>
-    <span class=n>socket</span><span class=o>.</span><span class=n>connect</span><span class=p>(</span><span class=s1>&#39;tcp://{0}:{1}&#39;</span><span class=o>.</span><span class=n>format</span><span class=p>(</span><span class=n>matrix_ip</span><span class=p>,</span> <span class=n>imu_port</span><span class=p>))</span>
+Here is where the configuration for our IMU example goes. Once we connect to the **Base Port**, we will pass a configuration to the IMU driver. With this we can set the update rate, timeout, and temperature configuration.
+<div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">config_socket</span><span class="p">():</span>
+    <span class="c1"># Define zmq socket</span>
+    <span class="n">context</span> <span class="o">=</span> <span class="n">zmq</span><span class="o">.</span><span class="n">Context</span><span class="p">()</span>
+    <span class="c1"># Create a Pusher socket</span>
+    <span class="n">socket</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">socket</span><span class="p">(</span><span class="n">zmq</span><span class="o">.</span><span class="n">PUSH</span><span class="p">)</span>
+    <span class="c1"># Connect Pusher to configuration socket</span>
+    <span class="n">socket</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s1">&#39;tcp://{0}:{1}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">matrix_ip</span><span class="p">,</span> <span class="n">imu_port</span><span class="p">))</span>
 
-    <span class=c1># Create a new driver config</span>
-    <span class=n>driver_config_proto</span> <span class=o>=</span> <span class=n>driver_pb2</span><span class=o>.</span><span class=n>DriverConfig</span><span class=p>()</span>
-    <span class=c1># Delay between updates in seconds</span>
-    <span class=n>driver_config_proto</span><span class=o>.</span><span class=n>delay_between_updates</span> <span class=o>=</span> <span class=mf>0.05</span>
-    <span class=c1># Timeout after last ping</span>
-    <span class=n>driver_config_proto</span><span class=o>.</span><span class=n>timeout_after_last_ping</span> <span class=o>=</span> <span class=mf>6.0</span>
+    <span class="c1"># Create a new driver config</span>
+    <span class="n">driver_config_proto</span> <span class="o">=</span> <span class="n">driver_pb2</span><span class="o">.</span><span class="n">DriverConfig</span><span class="p">()</span>
+    <span class="c1"># Delay between updates in seconds</span>
+    <span class="n">driver_config_proto</span><span class="o">.</span><span class="n">delay_between_updates</span> <span class="o">=</span> <span class="mf">0.05</span>
+    <span class="c1"># Timeout after last ping</span>
+    <span class="n">driver_config_proto</span><span class="o">.</span><span class="n">timeout_after_last_ping</span> <span class="o">=</span> <span class="mf">6.0</span>
 
-    <span class=c1># Send driver configuration through ZMQ socket</span>
-    <span class=n>socket</span><span class=o>.</span><span class=n>send</span><span class=p>(</span><span class=n>driver_config_proto</span><span class=o>.</span><span class=n>SerializeToString</span><span class=p>())</span>
-</pre></div></p>
-<p></details></p>
+    <span class="c1"># Send driver configuration through ZMQ socket</span>
+    <span class="n">socket</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="n">driver_config_proto</span><span class="o">.</span><span class="n">SerializeToString</span><span class="p">())</span>
+</pre></div>
+</details>
+
 <!-- Keep-alive PORT -->
 
-<p><details open>
+<details open>
 <summary style="font-size: 1.75rem; font-weight: 300;">Keep-alive Port</summary>
-The next step is to connect and send a message to the <strong>Keep-alive Port</strong>. That message will grant us a response from the <strong>Data Update Port</strong> for the current IMU value. The <code>utils import</code> from the <strong>Initial Variables</strong> section takes care of this.
-</details></p>
+The next step is to connect and send a message to the **Keep-alive Port**. That message will grant us a response from the **Data Update Port** for the current IMU value. The `utils import` from the **Initial Variables** section takes care of this.
+</details>
+
 <!-- Error PORT -->
 
-<p><details open>
+<details open>
 <summary style="font-size: 1.75rem; font-weight: 300;">Error Port</summary>
-The <strong>Error Port</strong> connection is also taken care of by the <code>utils import</code>. Below we define a function to be called and given any error messages that occur within MATRIX CORE.</p>
-<p> <div class=codehilite><pre><span></span><span class=k>def</span> <span class=nf>imu_error_callback</span><span class=p>(</span><span class=n>error</span><span class=p>):</span>
-    <span class=c1># Log error</span>
-    <span class=k>print</span><span class=p>(</span><span class=s1>&#39;{0}&#39;</span><span class=o>.</span><span class=n>format</span><span class=p>(</span><span class=n>error</span><span class=p>))</span>
-</pre></div></p>
-<p></details></p>
+The **Error Port** connection is also taken care of by the `utils import`. Below we define a function to be called and given any error messages that occur within MATRIX CORE.
+<div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">imu_error_callback</span><span class="p">(</span><span class="n">error</span><span class="p">):</span>
+    <span class="c1"># Log error</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;{0}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">error</span><span class="p">))</span>
+</pre></div>
+</details>
+
 <!-- Data Update PORT -->
 
-<p><details open>
+<details open>
 <summary style="font-size: 1.75rem; font-weight: 300;">Data Update Port</summary>
-A connection to the <strong>Data Update Port</strong> will allow us to receive the current IMU data we want. The <code>utils import</code> takes care of this as well. We can define a function and expect IMU data to be passed to it.</p>
-<p> <div class=codehilite><pre><span></span><span class=k>def</span> <span class=nf>imu_data_callback</span><span class=p>(</span><span class=n>data</span><span class=p>):</span>
-    <span class=c1># Extract data</span>
-    <span class=n>data</span> <span class=o>=</span> <span class=n>sense_pb2</span><span class=o>.</span><span class=n>Imu</span><span class=p>()</span><span class=o>.</span><span class=n>FromString</span><span class=p>(</span><span class=n>data</span><span class=p>[</span><span class=mi>0</span><span class=p>])</span>
-    <span class=c1># Log data </span>
-    <span class=k>print</span><span class=p>(</span><span class=s1>&#39;{0}&#39;</span><span class=o>.</span><span class=n>format</span><span class=p>(</span><span class=n>data</span><span class=p>))</span>
-</pre></div></p>
-<h4>Data Output</h4>
+A connection to the **Data Update Port** will allow us to receive the current IMU data we want. The `utils import` takes care of this as well. We can define a function and expect IMU data to be passed to it.
 
-<p>The Python object below is an example output you'll receive from the <strong>Data Update Port</strong>.</p>
-<p> <div class=codehilite><pre><span></span><span class=n>yaw</span><span class=p>:</span> <span class=mf>151.336044312</span>
-<span class=n>roll</span><span class=p>:</span> <span class=mf>0.174327388406</span>
-<span class=n>accel_y</span><span class=p>:</span> <span class=mf>0.00300000002608</span>
-<span class=n>accel_z</span><span class=p>:</span> <span class=mf>0.986000001431</span>
-<span class=n>gyro_x</span><span class=p>:</span> <span class=mf>2.58599996567</span>
-<span class=n>gyro_y</span><span class=p>:</span> <span class=mf>0.0289999991655</span>
-<span class=n>gyro_z</span><span class=p>:</span> <span class=mf>0.84399998188</span>
-<span class=n>mag_x</span><span class=p>:</span> <span class=mf>0.300000011921</span>
-<span class=n>mag_y</span><span class=p>:</span> <span class=mf>0.16400000453</span>
-<span class=n>mag_z</span><span class=p>:</span> <span class=o>-</span><span class=mf>0.0780000016093</span>
-</pre></div></p>
-<p></details></p>
+<div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">imu_data_callback</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
+    <span class="c1"># Extract data</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">sense_pb2</span><span class="o">.</span><span class="n">Imu</span><span class="p">()</span><span class="o">.</span><span class="n">FromString</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="c1"># Log data </span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;{0}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
+</pre></div>
+<h4>Data Output</h4>
+The Python object below is an example output you'll receive from the **Data Update Port**.
+<div class="codehilite"><pre><span></span><span class="n">yaw</span><span class="p">:</span> <span class="mf">151.336044312</span>
+<span class="n">roll</span><span class="p">:</span> <span class="mf">0.174327388406</span>
+<span class="n">accel_y</span><span class="p">:</span> <span class="mf">0.00300000002608</span>
+<span class="n">accel_z</span><span class="p">:</span> <span class="mf">0.986000001431</span>
+<span class="n">gyro_x</span><span class="p">:</span> <span class="mf">2.58599996567</span>
+<span class="n">gyro_y</span><span class="p">:</span> <span class="mf">0.0289999991655</span>
+<span class="n">gyro_z</span><span class="p">:</span> <span class="mf">0.84399998188</span>
+<span class="n">mag_x</span><span class="p">:</span> <span class="mf">0.300000011921</span>
+<span class="n">mag_y</span><span class="p">:</span> <span class="mf">0.16400000453</span>
+<span class="n">mag_z</span><span class="p">:</span> <span class="o">-</span><span class="mf">0.0780000016093</span>
+</pre></div>
+</details>
+
 <!-- Start Process -->
 
-<p><details open>
+<details open>
 <summary style="font-size: 1.75rem; font-weight: 300;">Start Processes</summary>
-This is where we begin the asynchronous events for each of the driver ports and where we define the functions we want to use for each port.</p>
-<p> <div class=codehilite><pre><span></span><span class=k>if</span> <span class=vm>__name__</span> <span class=o>==</span> <span class=s1>&#39;__main__&#39;</span><span class=p>:</span>
-    <span class=c1># Initiate asynchronous events</span>
-    <span class=n>ioloop</span><span class=o>.</span><span class=n>install</span><span class=p>()</span>
-    <span class=c1># Send Base Port configuration </span>
-    <span class=n>config_socket</span><span class=p>()</span>
-    <span class=c1># Start Error Port connection</span>
-    <span class=n>Process</span><span class=p>(</span><span class=n>target</span><span class=o>=</span><span class=n>register_error_callback</span><span class=p>,</span> <span class=n>args</span><span class=o>=</span><span class=p>(</span><span class=n>imu_error_callback</span><span class=p>,</span> <span class=n>matrix_ip</span><span class=p>,</span> <span class=n>imu_port</span><span class=p>))</span><span class=o>.</span><span class=n>start</span><span class=p>()</span>
-    <span class=c1># Start Data Update Port connection</span>
-    <span class=n>Process</span><span class=p>(</span><span class=n>target</span><span class=o>=</span><span class=n>register_data_callback</span><span class=p>,</span> <span class=n>args</span><span class=o>=</span><span class=p>(</span><span class=n>imu_data_callback</span><span class=p>,</span> <span class=n>matrix_ip</span><span class=p>,</span> <span class=n>imu_port</span><span class=p>))</span><span class=o>.</span><span class=n>start</span><span class=p>()</span>
-    <span class=c1># Start Keep-alive Port connection</span>
-    <span class=n>Process</span><span class=p>(</span><span class=n>target</span><span class=o>=</span><span class=n>driver_keep_alive</span><span class=p>,</span> <span class=n>args</span><span class=o>=</span><span class=p>(</span><span class=n>matrix_ip</span><span class=p>,</span> <span class=n>imu_port</span><span class=p>))</span><span class=o>.</span><span class=n>start</span><span class=p>()</span>
-</pre></div></p>
-<p></details></p> 
+This is where we begin the asynchronous events for each of the driver ports and where we define the functions we want to use for each port.
+
+<div class="codehilite"><pre><span></span><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="c1"># Initiate asynchronous events</span>
+    <span class="n">ioloop</span><span class="o">.</span><span class="n">install</span><span class="p">()</span>
+    <span class="c1"># Send Base Port configuration </span>
+    <span class="n">config_socket</span><span class="p">()</span>
+    <span class="c1"># Start Error Port connection</span>
+    <span class="n">Process</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">register_error_callback</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">imu_error_callback</span><span class="p">,</span> <span class="n">matrix_ip</span><span class="p">,</span> <span class="n">imu_port</span><span class="p">))</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+    <span class="c1"># Start Data Update Port connection</span>
+    <span class="n">Process</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">register_data_callback</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">imu_data_callback</span><span class="p">,</span> <span class="n">matrix_ip</span><span class="p">,</span> <span class="n">imu_port</span><span class="p">))</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+    <span class="c1"># Start Keep-alive Port connection</span>
+    <span class="n">Process</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">driver_keep_alive</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">matrix_ip</span><span class="p">,</span> <span class="n">imu_port</span><span class="p">))</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+</pre></div>
+</details> 
         </div>
         <div class="toc-parent col-lg-2 col-md-3">
           <div class="toc">

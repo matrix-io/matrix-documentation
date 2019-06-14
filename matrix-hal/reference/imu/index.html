@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
   <link rel="stylesheet" href="../../../css/theme.css">
   <link rel="stylesheet" href="../../../css/codehilite.css">
+  <link rel="stylesheet" href="../../../css/superFences.css">
   <link rel="stylesheet" href="../../../css/clipboard.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
@@ -478,70 +479,82 @@
 <h2 id="references">References</h2>
 <p>Below is the overview of the IMU sensor implementation. Code example can be found <a href="../../../matrix-hal/examples/imu">here</a>.</p>
 <p>These header files are required to use the IMU sensor.</p>
-<p> <div class=codehilite><pre><span></span><span class=c1>// Interfaces with IMU sensor</span>
-<span class=cp>#include</span> <span class=cpf>&quot;matrix_hal/imu_sensor.h&quot;</span><span class=cp></span>
-<span class=c1>// Holds data from IMU sensor</span>
-<span class=cp>#include</span> <span class=cpf>&quot;matrix_hal/imu_data.h&quot;</span><span class=cp></span>
-<span class=c1>// Communicates with MATRIX device</span>
-<span class=cp>#include</span> <span class=cpf>&quot;matrix_hal/matrixio_bus.h&quot;</span><span class=cp></span>
-</pre></div></p>
-<p><details open>
+<div class="codehilite"><pre><span></span><span class="c1">// Interfaces with IMU sensor</span>
+<span class="cp">#include</span> <span class="cpf">&quot;matrix_hal/imu_sensor.h&quot;</span><span class="cp"></span>
+<span class="c1">// Holds data from IMU sensor</span>
+<span class="cp">#include</span> <span class="cpf">&quot;matrix_hal/imu_data.h&quot;</span><span class="cp"></span>
+<span class="c1">// Communicates with MATRIX device</span>
+<span class="cp">#include</span> <span class="cpf">&quot;matrix_hal/matrixio_bus.h&quot;</span><span class="cp"></span>
+</pre></div>
+
+<details open>
 <summary style="font-size: 1.75rem; font-weight: 300;">IMUData</summary>
-<code>IMUData</code> is a required <strong>object</strong> that contains the IMU sensor's supported data parameters.</p>
-<p> <div class=codehilite><pre><span></span><span class=c1>// Create IMUData object</span>
-<span class=n>matrix_hal</span><span class=o>::</span><span class=n>IMUData</span> <span class=n>imu_data</span><span class=p>;</span>
-</pre></div></p>
-<p>The following code accesses the parameters of <code>IMUData</code>.</p>
-<p> <div class=codehilite><pre><span></span><span class=c1>// Accelerometer</span>
-<span class=kt>float</span> <span class=n>accel_X</span> <span class=o>=</span> <span class=n>imu_data</span><span class=p>.</span><span class=n>accel_x</span><span class=p>;</span>
-<span class=kt>float</span> <span class=n>accel_Y</span> <span class=o>=</span> <span class=n>imu_data</span><span class=p>.</span><span class=n>accel_y</span><span class=p>;</span>
-<span class=kt>float</span> <span class=n>accel_Z</span> <span class=o>=</span> <span class=n>imu_data</span><span class=p>.</span><span class=n>accel_z</span><span class=p>;</span>
-<span class=c1>// Gyroscope</span>
-<span class=kt>float</span> <span class=n>gyro_X</span> <span class=o>=</span> <span class=n>imu_data</span><span class=p>.</span><span class=n>gyro_x</span><span class=p>;</span>
-<span class=kt>float</span> <span class=n>gyro_Y</span> <span class=o>=</span> <span class=n>imu_data</span><span class=p>.</span><span class=n>gyro_y</span><span class=p>;</span>
-<span class=kt>float</span> <span class=n>gyro_Z</span> <span class=o>=</span> <span class=n>imu_data</span><span class=p>.</span><span class=n>gyro_z</span><span class=p>;</span>
-<span class=c1>// Yaw, Pitch, Roll Output</span>
-<span class=kt>float</span> <span class=n>yaw</span> <span class=o>=</span> <span class=n>imu_data</span><span class=p>.</span><span class=n>yaw</span><span class=p>;</span>
-<span class=kt>float</span> <span class=n>pitch</span> <span class=o>=</span> <span class=n>imu_data</span><span class=p>.</span><span class=n>pitch</span><span class=p>;</span>
-<span class=kt>float</span> <span class=n>roll</span> <span class=o>=</span> <span class=n>imu_data</span><span class=p>.</span><span class=n>roll</span><span class=p>;</span>
-<span class=c1>// Magnetometer</span>
-<span class=kt>float</span> <span class=n>mag_X</span> <span class=o>=</span> <span class=n>imu_data</span><span class=p>.</span><span class=n>mag_x</span><span class=p>;</span>
-<span class=kt>float</span> <span class=n>mag_Y</span> <span class=o>=</span> <span class=n>imu_data</span><span class=p>.</span><span class=n>mag_y</span><span class=p>;</span>
-<span class=kt>float</span> <span class=n>mag_Z</span> <span class=o>=</span> <span class=n>imu_data</span><span class=p>.</span><span class=n>mag_z</span><span class=p>;</span> <span class=c1>// Z-axis points upward</span>
-</pre></div></p>
-<p></details></p>
-<p><details open>
+`IMUData` is a required **object** that contains the IMU sensor's supported data parameters.
+
+<div class="codehilite"><pre><span></span><span class="c1">// Create IMUData object</span>
+<span class="n">matrix_hal</span><span class="o">::</span><span class="n">IMUData</span> <span class="n">imu_data</span><span class="p">;</span>
+</pre></div>
+
+The following code accesses the parameters of `IMUData`.
+
+<div class="codehilite"><pre><span></span><span class="c1">// Accelerometer</span>
+<span class="kt">float</span> <span class="n">accel_X</span> <span class="o">=</span> <span class="n">imu_data</span><span class="p">.</span><span class="n">accel_x</span><span class="p">;</span>
+<span class="kt">float</span> <span class="n">accel_Y</span> <span class="o">=</span> <span class="n">imu_data</span><span class="p">.</span><span class="n">accel_y</span><span class="p">;</span>
+<span class="kt">float</span> <span class="n">accel_Z</span> <span class="o">=</span> <span class="n">imu_data</span><span class="p">.</span><span class="n">accel_z</span><span class="p">;</span>
+<span class="c1">// Gyroscope</span>
+<span class="kt">float</span> <span class="n">gyro_X</span> <span class="o">=</span> <span class="n">imu_data</span><span class="p">.</span><span class="n">gyro_x</span><span class="p">;</span>
+<span class="kt">float</span> <span class="n">gyro_Y</span> <span class="o">=</span> <span class="n">imu_data</span><span class="p">.</span><span class="n">gyro_y</span><span class="p">;</span>
+<span class="kt">float</span> <span class="n">gyro_Z</span> <span class="o">=</span> <span class="n">imu_data</span><span class="p">.</span><span class="n">gyro_z</span><span class="p">;</span>
+<span class="c1">// Yaw, Pitch, Roll Output</span>
+<span class="kt">float</span> <span class="n">yaw</span> <span class="o">=</span> <span class="n">imu_data</span><span class="p">.</span><span class="n">yaw</span><span class="p">;</span>
+<span class="kt">float</span> <span class="n">pitch</span> <span class="o">=</span> <span class="n">imu_data</span><span class="p">.</span><span class="n">pitch</span><span class="p">;</span>
+<span class="kt">float</span> <span class="n">roll</span> <span class="o">=</span> <span class="n">imu_data</span><span class="p">.</span><span class="n">roll</span><span class="p">;</span>
+<span class="c1">// Magnetometer</span>
+<span class="kt">float</span> <span class="n">mag_X</span> <span class="o">=</span> <span class="n">imu_data</span><span class="p">.</span><span class="n">mag_x</span><span class="p">;</span>
+<span class="kt">float</span> <span class="n">mag_Y</span> <span class="o">=</span> <span class="n">imu_data</span><span class="p">.</span><span class="n">mag_y</span><span class="p">;</span>
+<span class="kt">float</span> <span class="n">mag_Z</span> <span class="o">=</span> <span class="n">imu_data</span><span class="p">.</span><span class="n">mag_z</span><span class="p">;</span> <span class="c1">// Z-axis points upward</span>
+</pre></div>
+
+</details>
+
+<details open>
 <summary style="font-size: 1.75rem; font-weight: 300;">IMUSensor</summary>
-<code>IMUSensor</code> is a required <strong>object</strong> that contains functions to interface with the IMU sensor.</p>
-<p> <div class=codehilite><pre><span></span><span class=c1>// Create IMUSensor object</span>
-<span class=n>matrix_hal</span><span class=o>::</span><span class=n>IMUSensor</span> <span class=n>imu_sensor</span><span class=p>;</span>
-</pre></div></p>
-<p>The functions below are part of <code>IMUSensor</code>.</p>
-<p><details>
+`IMUSensor` is a required **object** that contains functions to interface with the IMU sensor.
+
+<div class="codehilite"><pre><span></span><span class="c1">// Create IMUSensor object</span>
+<span class="n">matrix_hal</span><span class="o">::</span><span class="n">IMUSensor</span> <span class="n">imu_sensor</span><span class="p">;</span>
+</pre></div>
+
+The functions below are part of `IMUSensor`.
+
+<details>
 <summary style="font-size: 1.5rem; font-weight: 300;">.Setup</summary>
-<code>Setup</code> is a <strong>function</strong> that takes a <code>MatrixIOBus</code> object as a parameter and sets that object as the bus to use for communicating with MATRIX device.</p>
-<p> <div class=codehilite><pre><span></span><span class=c1>// Function declaration in header file</span>
-<span class=kt>void</span> <span class=nf>Setup</span><span class=p>(</span><span class=n>MatrixIOBus</span> <span class=o>*</span><span class=n>bus</span><span class=p>);</span>
-</pre></div></p>
-<!--  -->
+`Setup` is a **function** that takes a `MatrixIOBus` object as a parameter and sets that object as the bus to use for communicating with MATRIX device.
 
-<p> <div class=codehilite><pre><span></span><span class=c1>// Set imu_sensor to use MatrixIOBus bus</span>
-<span class=n>imu_sensor</span><span class=p>.</span><span class=n>Setup</span><span class=p>(</span><span class=o>&amp;</span><span class=n>bus</span><span class=p>);</span>
-</pre></div></p>
-<p></details></p>
-<p><details>
+<div class="codehilite"><pre><span></span><span class="c1">// Function declaration in header file</span>
+<span class="kt">void</span> <span class="nf">Setup</span><span class="p">(</span><span class="n">MatrixIOBus</span> <span class="o">*</span><span class="n">bus</span><span class="p">);</span>
+</pre></div>
+<!--  -->
+<div class="codehilite"><pre><span></span><span class="c1">// Set imu_sensor to use MatrixIOBus bus</span>
+<span class="n">imu_sensor</span><span class="p">.</span><span class="n">Setup</span><span class="p">(</span><span class="o">&amp;</span><span class="n">bus</span><span class="p">);</span>
+</pre></div>
+
+</details>
+
+<details>
 <summary style="font-size: 1.5rem; font-weight: 300;">.Read</summary>
-<code>Read</code> is a <strong>function</strong> that takes an <code>IMUData</code> object as a parameter and writes the current IMU sensor data into the <code>IMUData</code> object.</p>
-<p> <div class=codehilite><pre><span></span><span class=c1>// Function declaration in header file</span>
-<span class=kt>bool</span> <span class=nf>Read</span><span class=p>(</span><span class=n>IMUData</span> <span class=o>*</span><span class=n>data</span><span class=p>);</span>
-</pre></div></p>
-<!--  -->
+`Read` is a **function** that takes an `IMUData` object as a parameter and writes the current IMU sensor data into the `IMUData` object.
 
-<p> <div class=codehilite><pre><span></span><span class=c1>// Overwrites imu_data with new data from IMU sensor</span>
-<span class=n>imu_sensor</span><span class=p>.</span><span class=n>Read</span><span class=p>(</span><span class=o>&amp;</span><span class=n>imu_data</span><span class=p>);</span>
-</pre></div></p>
-<p></details>
-</details></p> 
+<div class="codehilite"><pre><span></span><span class="c1">// Function declaration in header file</span>
+<span class="kt">bool</span> <span class="nf">Read</span><span class="p">(</span><span class="n">IMUData</span> <span class="o">*</span><span class="n">data</span><span class="p">);</span>
+</pre></div>
+<!--  -->
+<div class="codehilite"><pre><span></span><span class="c1">// Overwrites imu_data with new data from IMU sensor</span>
+<span class="n">imu_sensor</span><span class="p">.</span><span class="n">Read</span><span class="p">(</span><span class="o">&amp;</span><span class="n">imu_data</span><span class="p">);</span>
+</pre></div>
+
+</details>
+</details> 
         </div>
         <div class="toc-parent col-lg-2 col-md-3">
           <div class="toc">

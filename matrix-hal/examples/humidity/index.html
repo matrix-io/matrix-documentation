@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
   <link rel="stylesheet" href="../../../css/theme.css">
   <link rel="stylesheet" href="../../../css/codehilite.css">
+  <link rel="stylesheet" href="../../../css/superFences.css">
   <link rel="stylesheet" href="../../../css/clipboard.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
@@ -480,69 +481,78 @@
 <p>Humidity sensor function references can be found <a href="../../../matrix-hal/reference/humidity">here</a>.</p>
 <p>The following section shows how to receive data from the humidity sensor. You can download this example <a href="https://github.com/matrix-io/matrix-hal-examples/blob/master/sensors/humidity_sensor.cpp" target="_blank">here</a>.</p>
 <p>The command below will compile the example. Be sure to pass in your C++ file and desired output file.</p>
-<p> <div class=codehilite><pre><span></span><span class=n>g</span><span class=o>++</span> <span class=o>-</span><span class=n>o</span> <span class=n>YOUR_OUTPUT_FILE</span> <span class=n>YOUR_CPP_FILE</span> <span class=o>-</span><span class=n>std</span><span class=o>=</span><span class=n>c</span><span class=o>++</span><span class=mi>11</span> <span class=o>-</span><span class=n>lmatrix_creator_hal</span>
-</pre></div></p>
-<p><details open>
+<div class="codehilite"><pre><span></span><span class="n">g</span><span class="o">++</span> <span class="o">-</span><span class="n">o</span> <span class="n">YOUR_OUTPUT_FILE</span> <span class="n">YOUR_CPP_FILE</span> <span class="o">-</span><span class="n">std</span><span class="o">=</span><span class="n">c</span><span class="o">++</span><span class="mi">11</span> <span class="o">-</span><span class="n">lmatrix_creator_hal</span>
+</pre></div>
+
+<details open>
 <summary style="font-size: 1.5rem; font-weight: 300;">Include Statements</summary>
-To begin working with the humidity sensor you need to include these header files.</p>
-<p> <div class=codehilite><pre><span></span><span class=c1>// System calls</span>
-<span class=cp>#include</span> <span class=cpf>&lt;unistd.h&gt;</span><span class=cp></span>
-<span class=c1>// Input/output streams and functions</span>
-<span class=cp>#include</span> <span class=cpf>&lt;iostream&gt;</span><span class=cp></span>
+To begin working with the humidity sensor you need to include these header files.
 
-<span class=c1>// Interfaces with humidity sensor</span>
-<span class=cp>#include</span> <span class=cpf>&quot;matrix_hal/humidity_sensor.h&quot;</span><span class=cp></span>
-<span class=c1>// Holds data from humidity sensor</span>
-<span class=cp>#include</span> <span class=cpf>&quot;matrix_hal/humidity_data.h&quot;</span><span class=cp></span>
-<span class=c1>// Communicates with MATRIX device</span>
-<span class=cp>#include</span> <span class=cpf>&quot;matrix_hal/matrixio_bus.h&quot;</span><span class=cp></span>
-</pre></div></p>
-<p></details></p>
-<p><details open>
+<div class="codehilite"><pre><span></span><span class="c1">// System calls</span>
+<span class="cp">#include</span> <span class="cpf">&lt;unistd.h&gt;</span><span class="cp"></span>
+<span class="c1">// Input/output streams and functions</span>
+<span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+
+<span class="c1">// Interfaces with humidity sensor</span>
+<span class="cp">#include</span> <span class="cpf">&quot;matrix_hal/humidity_sensor.h&quot;</span><span class="cp"></span>
+<span class="c1">// Holds data from humidity sensor</span>
+<span class="cp">#include</span> <span class="cpf">&quot;matrix_hal/humidity_data.h&quot;</span><span class="cp"></span>
+<span class="c1">// Communicates with MATRIX device</span>
+<span class="cp">#include</span> <span class="cpf">&quot;matrix_hal/matrixio_bus.h&quot;</span><span class="cp"></span>
+</pre></div>
+
+</details>
+
+<details open>
 <summary style="font-size: 1.5rem; font-weight: 300;">Initial Setup</summary>
-You'll then need to setup <code>MatrixIOBus</code> in order to communicate with the hardware on your MATRIX device.</p>
-<p> <div class=codehilite><pre><span></span><span class=kt>int</span> <span class=nf>main</span><span class=p>()</span> <span class=p>{</span>
-  <span class=c1>// Create MatrixIOBus object for hardware communication</span>
-  <span class=n>matrix_hal</span><span class=o>::</span><span class=n>MatrixIOBus</span> <span class=n>bus</span><span class=p>;</span>
-  <span class=c1>// Initialize bus and exit program if error occurs</span>
-  <span class=k>if</span> <span class=p>(</span><span class=o>!</span><span class=n>bus</span><span class=p>.</span><span class=n>Init</span><span class=p>())</span> <span class=k>return</span> <span class=nb>false</span><span class=p>;</span>
-</pre></div></p>
-<p></details></p>
-<p><details open>
+You'll then need to setup `MatrixIOBus` in order to communicate with the hardware on your MATRIX device.
+
+<div class="codehilite"><pre><span></span><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+  <span class="c1">// Create MatrixIOBus object for hardware communication</span>
+  <span class="n">matrix_hal</span><span class="o">::</span><span class="n">MatrixIOBus</span> <span class="n">bus</span><span class="p">;</span>
+  <span class="c1">// Initialize bus and exit program if error occurs</span>
+  <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">bus</span><span class="p">.</span><span class="n">Init</span><span class="p">())</span> <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
+</pre></div>
+
+</details>
+
+<details open>
 <summary style="font-size: 1.5rem; font-weight: 300;">Main Setup</summary>
-Now we will create our <code>HumidityData</code> and <code>HumiditySensor</code> object and use it to receive data from the humidity sensor.</p>
-<p> <div class=codehilite><pre><span></span>  <span class=c1>// The following code is part of main()</span>
+Now we will create our `HumidityData` and `HumiditySensor` object and use it to receive data from the humidity sensor.
 
-  <span class=c1>// Create HumidityData object</span>
-  <span class=n>matrix_hal</span><span class=o>::</span><span class=n>HumidityData</span> <span class=n>humidity_data</span><span class=p>;</span>
-  <span class=c1>// Create HumiditySensor object</span>
-  <span class=n>matrix_hal</span><span class=o>::</span><span class=n>HumiditySensor</span> <span class=n>humidity_sensor</span><span class=p>;</span>
-  <span class=c1>// Set humidity_sensor to use MatrixIOBus bus</span>
-  <span class=n>humidity_sensor</span><span class=p>.</span><span class=n>Setup</span><span class=p>(</span><span class=o>&amp;</span><span class=n>bus</span><span class=p>);</span>
+<div class="codehilite"><pre><span></span>  <span class="c1">// The following code is part of main()</span>
 
-  <span class=c1>// Endless loop</span>
-  <span class=k>while</span> <span class=p>(</span><span class=nb>true</span><span class=p>)</span> <span class=p>{</span>
-    <span class=c1>// Overwrites humidity_data with new data from humidity sensor</span>
-    <span class=n>humidity_sensor</span><span class=p>.</span><span class=n>Read</span><span class=p>(</span><span class=o>&amp;</span><span class=n>humidity_data</span><span class=p>);</span>
-    <span class=c1>// Humidity output is represented in %</span>
-    <span class=kt>float</span> <span class=n>humidity</span> <span class=o>=</span> <span class=n>humidity_data</span><span class=p>.</span><span class=n>humidity</span><span class=p>;</span>
-    <span class=c1>// Temperature output is represented in Celsius</span>
-    <span class=kt>float</span> <span class=n>temperature</span> <span class=o>=</span> <span class=n>humidity_data</span><span class=p>.</span><span class=n>temperature</span><span class=p>;</span>
-    <span class=c1>// Clear console</span>
-    <span class=n>std</span><span class=o>::</span><span class=n>system</span><span class=p>(</span><span class=s>&quot;clear&quot;</span><span class=p>);</span>
-    <span class=c1>// Output sensor data to console</span>
-    <span class=n>std</span><span class=o>::</span><span class=n>cout</span> <span class=o>&lt;&lt;</span> <span class=s>&quot; [ Humidity Sensor Output ]&quot;</span> <span class=o>&lt;&lt;</span> <span class=n>std</span><span class=o>::</span><span class=n>endl</span><span class=p>;</span>
-    <span class=n>std</span><span class=o>::</span><span class=n>cout</span> <span class=o>&lt;&lt;</span> <span class=s>&quot; [ Humidity (%) : &quot;</span> <span class=o>&lt;&lt;</span> <span class=n>humidity</span>
-              <span class=o>&lt;&lt;</span> <span class=s>&quot; ] [ Temperature (Celsius) : &quot;</span> <span class=o>&lt;&lt;</span> <span class=n>temperature</span> <span class=o>&lt;&lt;</span> <span class=s>&quot;]&quot;</span> <span class=o>&lt;&lt;</span> <span class=n>std</span><span class=o>::</span><span class=n>endl</span><span class=p>;</span>
+  <span class="c1">// Create HumidityData object</span>
+  <span class="n">matrix_hal</span><span class="o">::</span><span class="n">HumidityData</span> <span class="n">humidity_data</span><span class="p">;</span>
+  <span class="c1">// Create HumiditySensor object</span>
+  <span class="n">matrix_hal</span><span class="o">::</span><span class="n">HumiditySensor</span> <span class="n">humidity_sensor</span><span class="p">;</span>
+  <span class="c1">// Set humidity_sensor to use MatrixIOBus bus</span>
+  <span class="n">humidity_sensor</span><span class="p">.</span><span class="n">Setup</span><span class="p">(</span><span class="o">&amp;</span><span class="n">bus</span><span class="p">);</span>
 
-    <span class=c1>// Sleep for 20000 microseconds</span>
-    <span class=n>usleep</span><span class=p>(</span><span class=mi>20000</span><span class=p>);</span>
-  <span class=p>}</span>
+  <span class="c1">// Endless loop</span>
+  <span class="k">while</span> <span class="p">(</span><span class="nb">true</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// Overwrites humidity_data with new data from humidity sensor</span>
+    <span class="n">humidity_sensor</span><span class="p">.</span><span class="n">Read</span><span class="p">(</span><span class="o">&amp;</span><span class="n">humidity_data</span><span class="p">);</span>
+    <span class="c1">// Humidity output is represented in %</span>
+    <span class="kt">float</span> <span class="n">humidity</span> <span class="o">=</span> <span class="n">humidity_data</span><span class="p">.</span><span class="n">humidity</span><span class="p">;</span>
+    <span class="c1">// Temperature output is represented in Celsius</span>
+    <span class="kt">float</span> <span class="n">temperature</span> <span class="o">=</span> <span class="n">humidity_data</span><span class="p">.</span><span class="n">temperature</span><span class="p">;</span>
+    <span class="c1">// Clear console</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">system</span><span class="p">(</span><span class="s">&quot;clear&quot;</span><span class="p">);</span>
+    <span class="c1">// Output sensor data to console</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot; [ Humidity Sensor Output ]&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot; [ Humidity (%) : &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">humidity</span>
+              <span class="o">&lt;&lt;</span> <span class="s">&quot; ] [ Temperature (Celsius) : &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">temperature</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;]&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
 
-  <span class=k>return</span> <span class=mi>0</span><span class=p>;</span>
-<span class=p>}</span>
-</pre></div></p>
-<p></details></p> 
+    <span class="c1">// Sleep for 20000 microseconds</span>
+    <span class="n">usleep</span><span class="p">(</span><span class="mi">20000</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+
+</details> 
         </div>
         <div class="toc-parent col-lg-2 col-md-3">
           <div class="toc">
