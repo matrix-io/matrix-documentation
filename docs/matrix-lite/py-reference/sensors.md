@@ -7,21 +7,18 @@
 The following sections below will go over how to read & what to expect from each sensor on the MATRIX Creator.
 
 ## Import Statement
-```js
+```python
 from matrix_lite import sensors
 ```
 <br/>
 
-<h2 style="padding:0; margin:0;">Reading Sensor Data</h2>
-Below are the functions you'll use to read data from each sensor. Reading a sensor will always return the latest values.
+## Reading Sensor Data
+Sensor data can be read by calling `.read()` on a sensor object. This returns an object with the current sensor's values. Below are examples on how to call each sensor and what information to expect.
 
-###IMU
-```python
+```python tab="IMU"
 sensors.imu.read()
-```
-<!--  -->
-```python
-## Example IMU Return Value ##
+
+## Example imu.read() output ##
 { 
   accel_x: 0.0020000000949949026,
   accel_y: 0.004999999888241291,
@@ -37,37 +34,30 @@ sensors.imu.read()
   mag_z:   -0.05999999865889549 
 }
 ```
-### UV
-```python
+
+```python tab="UV"
 sensors.uv.read()
-```
-<!--  -->
-```python
-## Example UV Return Value ##
+
+## Example uv.read() output ##
 { 
   uv: 0.013000000268220901 
 }
 ```
-### Humidity
-```python
+
+```python tab="Humidity"
 sensors.humidity.read()
-```
-<!--  -->
-```python
-## Example Humidity Return Value ##
+
+## Example humidity.read() output ##
 { 
   humidity:    29.04400062561035, 
   temperature: 33.279998779296875 
 }
 ```
 
-### Pressure
-```python
+```python tab="Pressure"
 sensors.pressure.read()
-```
-<!--  -->
-```python
-## Example Pressure Return Value ##
+
+## Example pressure.read() output ##
 { 
   altitude:    -47.4370002746582,
   pressure:    101896,
