@@ -463,17 +463,17 @@
 <h2 id="overview">Overview</h2>
 <p>The following sections below will go over how to read &amp; what to expect from each sensor on the MATRIX Creator.</p>
 <h2 id="import-statement">Import Statement</h2>
-<p><div class="codehilite"><pre><span></span><span class="nx">from</span> <span class="nx">matrix_lite</span> <span class="kr">import</span> <span class="nx">sensors</span>
+<p><div class="codehilite"><pre><span></span><span class="kn">from</span> <span class="nn">matrix_lite</span> <span class="kn">import</span> <span class="n">sensors</span>
 </pre></div>
 <br/></p>
-<h2 style="padding:0; margin:0;">Reading Sensor Data</h2>
+<h2 id="reading-sensor-data">Reading Sensor Data</h2>
+<p>Sensor data can be read by calling <code>.read()</code> on a sensor object. This returns an object with the current sensor's values. Below are examples on how to call each sensor and what information to expect.</p>
+<div class="superfences-tabs">
+<input name="__tabs_1" type="radio" id="__tab_1_0" checked="checked" />
+<label for="__tab_1_0">IMU</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="n">sensors</span><span class="o">.</span><span class="n">imu</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
 
-<p>Below are the functions you'll use to read data from each sensor. Reading a sensor will always return the latest values.</p>
-<h3 id="imu">IMU</h3>
-<p><div class="codehilite"><pre><span></span><span class="n">sensors</span><span class="o">.</span><span class="n">imu</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
-</pre></div>
-<!--  -->
-<div class="codehilite"><pre><span></span><span class="c1">## Example IMU Return Value ##</span>
+<span class="c1">## Example imu.read() output ##</span>
 <span class="p">{</span> 
   <span class="n">accel_x</span><span class="p">:</span> <span class="mf">0.0020000000949949026</span><span class="p">,</span>
   <span class="n">accel_y</span><span class="p">:</span> <span class="mf">0.004999999888241291</span><span class="p">,</span>
@@ -488,37 +488,38 @@
   <span class="n">mag_y</span><span class="p">:</span>   <span class="o">-</span><span class="mf">0.024000000208616257</span><span class="p">,</span>
   <span class="n">mag_z</span><span class="p">:</span>   <span class="o">-</span><span class="mf">0.05999999865889549</span> 
 <span class="p">}</span>
-</pre></div></p>
-<h3 id="uv">UV</h3>
-<p><div class="codehilite"><pre><span></span><span class="n">sensors</span><span class="o">.</span><span class="n">uv</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
-</pre></div>
-<!--  -->
-<div class="codehilite"><pre><span></span><span class="c1">## Example UV Return Value ##</span>
+</pre></div></div>
+<input name="__tabs_1" type="radio" id="__tab_1_1" />
+<label for="__tab_1_1">UV</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="n">sensors</span><span class="o">.</span><span class="n">uv</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+
+<span class="c1">## Example uv.read() output ##</span>
 <span class="p">{</span> 
   <span class="n">uv</span><span class="p">:</span> <span class="mf">0.013000000268220901</span> 
 <span class="p">}</span>
-</pre></div></p>
-<h3 id="humidity">Humidity</h3>
-<p><div class="codehilite"><pre><span></span><span class="n">sensors</span><span class="o">.</span><span class="n">humidity</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
-</pre></div>
-<!--  -->
-<div class="codehilite"><pre><span></span><span class="c1">## Example Humidity Return Value ##</span>
+</pre></div></div>
+<input name="__tabs_1" type="radio" id="__tab_1_2" />
+<label for="__tab_1_2">Humidity</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="n">sensors</span><span class="o">.</span><span class="n">humidity</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+
+<span class="c1">## Example humidity.read() output ##</span>
 <span class="p">{</span> 
   <span class="n">humidity</span><span class="p">:</span>    <span class="mf">29.04400062561035</span><span class="p">,</span> 
   <span class="n">temperature</span><span class="p">:</span> <span class="mf">33.279998779296875</span> 
 <span class="p">}</span>
-</pre></div></p>
-<h3 id="pressure">Pressure</h3>
-<p><div class="codehilite"><pre><span></span><span class="n">sensors</span><span class="o">.</span><span class="n">pressure</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
-</pre></div>
-<!--  -->
-<div class="codehilite"><pre><span></span><span class="c1">## Example Pressure Return Value ##</span>
+</pre></div></div>
+<input name="__tabs_1" type="radio" id="__tab_1_3" />
+<label for="__tab_1_3">Pressure</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="n">sensors</span><span class="o">.</span><span class="n">pressure</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+
+<span class="c1">## Example pressure.read() output ##</span>
 <span class="p">{</span> 
   <span class="n">altitude</span><span class="p">:</span>    <span class="o">-</span><span class="mf">47.4370002746582</span><span class="p">,</span>
   <span class="n">pressure</span><span class="p">:</span>    <span class="mi">101896</span><span class="p">,</span>
   <span class="n">temperature</span><span class="p">:</span> <span class="mf">32.9370002746582</span> 
 <span class="p">}</span>
-</pre></div></p> 
+</pre></div></div>
+</div> 
         </div>
         <div class="toc-parent col-lg-2 col-md-3">
           <div class="toc">
@@ -540,33 +541,10 @@
     Import Statement
   </a>
   
-  <ul>
-    
-    <li>
-      <a class="nav-link" href="#imu">
-        IMU
-      </a>
-    </li>
-    
-    <li>
-      <a class="nav-link" href="#uv">
-        UV
-      </a>
-    </li>
-    
-    <li>
-      <a class="nav-link" href="#humidity">
-        Humidity
-      </a>
-    </li>
-    
-    <li>
-      <a class="nav-link" href="#pressure">
-        Pressure
-      </a>
-    </li>
-    
-  </ul>
+</li>  <li class='nav-item'>
+  <a href="#reading-sensor-data" class="nav-link ">
+    Reading Sensor Data
+  </a>
   
 </li> 
             </ul>

@@ -602,7 +602,7 @@
         }, 
         {
             "location": "/matrix-lite/js-reference/sensors/", 
-            "text": "Sensors\n\n\n\nDevice Compatibility\n\n\n\n\nOverview\n\n\nThe following sections below will go over how to read \n what to expect from each sensor on the MATRIX Creator.\n\n\nImport Statement\n\n\nconst\n \nmatrix\n \n=\n \nrequire\n(\n@matrix-io/matrix-lite\n);\n\n\n\n\n\n\nReading Sensor Data\n\n\n\nBelow are the functions you'll use to read data from each sensor. Reading a sensor will always return the latest values.\n\n\nIMU\n\n\nmatrix\n.\nimu\n.\nread\n();\n\n\n\n\n\n\n// Example IMU Return Value //\n\n\n{\n \n  \naccel_x\n:\n \n0.0020000000949949026\n,\n\n  \naccel_y\n:\n \n0.004999999888241291\n,\n\n  \naccel_z\n:\n \n0.9819999933242798\n,\n\n  \ngyro_x\n:\n  \n0.7770000100135803\n,\n\n  \ngyro_y\n:\n  \n-\n0.2460000067949295\n,\n\n  \ngyro_z\n:\n  \n0.7250000238418579\n,\n\n  \nyaw\n:\n     \n-\n177.40724182128906\n,\n\n  \npitch\n:\n   \n-\n0.11669033765792847\n,\n\n  \nroll\n:\n    \n0.2917275130748749\n,\n\n  \nmag_x\n:\n   \n0.5299999713897705\n,\n\n  \nmag_y\n:\n   \n-\n0.024000000208616257\n,\n\n  \nmag_z\n:\n   \n-\n0.05999999865889549\n \n\n}\n\n\n\n\nUV\n\n\nmatrix\n.\nuv\n.\nread\n();\n\n\n\n\n\n\n// Example UV Return Value //\n\n\n{\n \n  \nuv\n:\n \n0.013000000268220901\n \n\n}\n\n\n\n\nHumidity\n\n\nmatrix\n.\nhumidity\n.\nread\n();\n\n\n\n\n\n\n// Example Humidity Return Value //\n\n\n{\n \n  \nhumidity\n:\n    \n29.04400062561035\n,\n \n  \ntemperature\n:\n \n33.279998779296875\n \n\n}\n\n\n\n\nPressure\n\n\nmatrix\n.\npressure\n.\nread\n();\n\n\n\n\n\n\n// Example Pressure Return Value //\n\n\n{\n \n  \naltitude\n:\n    \n-\n47.4370002746582\n,\n\n  \npressure\n:\n    \n101896\n,\n\n  \ntemperature\n:\n \n32.9370002746582\n \n\n}", 
+            "text": "Sensors\n\n\n\nDevice Compatibility\n\n\n\n\nOverview\n\n\nThe following sections below will go over how to read \n what to expect from each sensor on the MATRIX Creator.\n\n\nImport Statement\n\n\nconst\n \nmatrix\n \n=\n \nrequire\n(\n@matrix-io/matrix-lite\n);\n\n\n\n\n\n\nReading Sensor Data\n\n\nSensor data can be read by calling \n.read()\n on a sensor object. This returns an object with the current sensor's values. Below are examples on how to call each sensor and what information to expect.\n\n\n\n\n\n\nIMU\n\n\nmatrix\n.\nimu\n.\nread\n();\n\n\n\n// Example imu.read() output //\n\n\n{\n \n  \naccel_x\n:\n \n0.0020000000949949026\n,\n\n  \naccel_y\n:\n \n0.004999999888241291\n,\n\n  \naccel_z\n:\n \n0.9819999933242798\n,\n\n  \ngyro_x\n:\n  \n0.7770000100135803\n,\n\n  \ngyro_y\n:\n  \n-\n0.2460000067949295\n,\n\n  \ngyro_z\n:\n  \n0.7250000238418579\n,\n\n  \nyaw\n:\n     \n-\n177.40724182128906\n,\n\n  \npitch\n:\n   \n-\n0.11669033765792847\n,\n\n  \nroll\n:\n    \n0.2917275130748749\n,\n\n  \nmag_x\n:\n   \n0.5299999713897705\n,\n\n  \nmag_y\n:\n   \n-\n0.024000000208616257\n,\n\n  \nmag_z\n:\n   \n-\n0.05999999865889549\n \n\n}\n\n\n\n\n\n\nUV\n\n\nmatrix\n.\nuv\n.\nread\n();\n\n\n\n// Example uv.read() output //\n\n\n{\n\n  \nuv\n:\n \n0.013000000268220901\n \n\n}\n\n\n\n\n\n\nHumidity\n\n\nmatrix\n.\nhumidity\n.\nread\n();\n\n\n\n// Example humidity.read() output //\n\n\n{\n \n  \nhumidity\n:\n    \n29.04400062561035\n,\n \n  \ntemperature\n:\n \n33.279998779296875\n \n\n}\n\n\n\n\n\n\nPressure\n\n\nmatrix\n.\npressure\n.\nread\n();\n\n\n\n// Example pressure.read() output //\n\n\n{\n \n  \naltitude\n:\n    \n-\n47.4370002746582\n,\n\n  \npressure\n:\n    \n101896\n,\n\n  \ntemperature\n:\n \n32.9370002746582\n \n\n}", 
             "title": "Sensors"
         }, 
         {
@@ -621,24 +621,9 @@
             "title": "Import Statement"
         }, 
         {
-            "location": "/matrix-lite/js-reference/sensors/#imu", 
-            "text": "matrix . imu . read ();    // Example IMU Return Value //  {  \n   accel_x :   0.0020000000949949026 , \n   accel_y :   0.004999999888241291 , \n   accel_z :   0.9819999933242798 , \n   gyro_x :    0.7770000100135803 , \n   gyro_y :    - 0.2460000067949295 , \n   gyro_z :    0.7250000238418579 , \n   yaw :       - 177.40724182128906 , \n   pitch :     - 0.11669033765792847 , \n   roll :      0.2917275130748749 , \n   mag_x :     0.5299999713897705 , \n   mag_y :     - 0.024000000208616257 , \n   mag_z :     - 0.05999999865889549   }", 
-            "title": "IMU"
-        }, 
-        {
-            "location": "/matrix-lite/js-reference/sensors/#uv", 
-            "text": "matrix . uv . read ();    // Example UV Return Value //  {  \n   uv :   0.013000000268220901   }", 
-            "title": "UV"
-        }, 
-        {
-            "location": "/matrix-lite/js-reference/sensors/#humidity", 
-            "text": "matrix . humidity . read ();    // Example Humidity Return Value //  {  \n   humidity :      29.04400062561035 ,  \n   temperature :   33.279998779296875   }", 
-            "title": "Humidity"
-        }, 
-        {
-            "location": "/matrix-lite/js-reference/sensors/#pressure", 
-            "text": "matrix . pressure . read ();    // Example Pressure Return Value //  {  \n   altitude :      - 47.4370002746582 , \n   pressure :      101896 , \n   temperature :   32.9370002746582   }", 
-            "title": "Pressure"
+            "location": "/matrix-lite/js-reference/sensors/#reading-sensor-data", 
+            "text": "Sensor data can be read by calling  .read()  on a sensor object. This returns an object with the current sensor's values. Below are examples on how to call each sensor and what information to expect.    IMU  matrix . imu . read ();  // Example imu.read() output //  {  \n   accel_x :   0.0020000000949949026 , \n   accel_y :   0.004999999888241291 , \n   accel_z :   0.9819999933242798 , \n   gyro_x :    0.7770000100135803 , \n   gyro_y :    - 0.2460000067949295 , \n   gyro_z :    0.7250000238418579 , \n   yaw :       - 177.40724182128906 , \n   pitch :     - 0.11669033765792847 , \n   roll :      0.2917275130748749 , \n   mag_x :     0.5299999713897705 , \n   mag_y :     - 0.024000000208616257 , \n   mag_z :     - 0.05999999865889549   }    UV  matrix . uv . read ();  // Example uv.read() output //  { \n   uv :   0.013000000268220901   }    Humidity  matrix . humidity . read ();  // Example humidity.read() output //  {  \n   humidity :      29.04400062561035 ,  \n   temperature :   33.279998779296875   }    Pressure  matrix . pressure . read ();  // Example pressure.read() output //  {  \n   altitude :      - 47.4370002746582 , \n   pressure :      101896 , \n   temperature :   32.9370002746582   }", 
+            "title": "Reading Sensor Data"
         }, 
         {
             "location": "/matrix-lite/js-reference/gpio/", 
@@ -757,7 +742,7 @@
         }, 
         {
             "location": "/matrix-lite/py-reference/sensors/", 
-            "text": "Sensors\n\n\n\nDevice Compatibility\n\n\n\n\nOverview\n\n\nThe following sections below will go over how to read \n what to expect from each sensor on the MATRIX Creator.\n\n\nImport Statement\n\n\nfrom\n \nmatrix_lite\n \nimport\n \nsensors\n\n\n\n\n\n\nReading Sensor Data\n\n\n\nBelow are the functions you'll use to read data from each sensor. Reading a sensor will always return the latest values.\n\n\nIMU\n\n\nsensors\n.\nimu\n.\nread\n()\n\n\n\n\n\n\n## Example IMU Return Value ##\n\n\n{\n \n  \naccel_x\n:\n \n0.0020000000949949026\n,\n\n  \naccel_y\n:\n \n0.004999999888241291\n,\n\n  \naccel_z\n:\n \n0.9819999933242798\n,\n\n  \ngyro_x\n:\n  \n0.7770000100135803\n,\n\n  \ngyro_y\n:\n  \n-\n0.2460000067949295\n,\n\n  \ngyro_z\n:\n  \n0.7250000238418579\n,\n\n  \nyaw\n:\n     \n-\n177.40724182128906\n,\n\n  \npitch\n:\n   \n-\n0.11669033765792847\n,\n\n  \nroll\n:\n    \n0.2917275130748749\n,\n\n  \nmag_x\n:\n   \n0.5299999713897705\n,\n\n  \nmag_y\n:\n   \n-\n0.024000000208616257\n,\n\n  \nmag_z\n:\n   \n-\n0.05999999865889549\n \n\n}\n\n\n\n\nUV\n\n\nsensors\n.\nuv\n.\nread\n()\n\n\n\n\n\n\n## Example UV Return Value ##\n\n\n{\n \n  \nuv\n:\n \n0.013000000268220901\n \n\n}\n\n\n\n\nHumidity\n\n\nsensors\n.\nhumidity\n.\nread\n()\n\n\n\n\n\n\n## Example Humidity Return Value ##\n\n\n{\n \n  \nhumidity\n:\n    \n29.04400062561035\n,\n \n  \ntemperature\n:\n \n33.279998779296875\n \n\n}\n\n\n\n\nPressure\n\n\nsensors\n.\npressure\n.\nread\n()\n\n\n\n\n\n\n## Example Pressure Return Value ##\n\n\n{\n \n  \naltitude\n:\n    \n-\n47.4370002746582\n,\n\n  \npressure\n:\n    \n101896\n,\n\n  \ntemperature\n:\n \n32.9370002746582\n \n\n}", 
+            "text": "Sensors\n\n\n\nDevice Compatibility\n\n\n\n\nOverview\n\n\nThe following sections below will go over how to read \n what to expect from each sensor on the MATRIX Creator.\n\n\nImport Statement\n\n\nfrom\n \nmatrix_lite\n \nimport\n \nsensors\n\n\n\n\n\n\nReading Sensor Data\n\n\nSensor data can be read by calling \n.read()\n on a sensor object. This returns an object with the current sensor's values. Below are examples on how to call each sensor and what information to expect.\n\n\n\n\n\n\nIMU\n\n\nsensors\n.\nimu\n.\nread\n()\n\n\n\n## Example imu.read() output ##\n\n\n{\n \n  \naccel_x\n:\n \n0.0020000000949949026\n,\n\n  \naccel_y\n:\n \n0.004999999888241291\n,\n\n  \naccel_z\n:\n \n0.9819999933242798\n,\n\n  \ngyro_x\n:\n  \n0.7770000100135803\n,\n\n  \ngyro_y\n:\n  \n-\n0.2460000067949295\n,\n\n  \ngyro_z\n:\n  \n0.7250000238418579\n,\n\n  \nyaw\n:\n     \n-\n177.40724182128906\n,\n\n  \npitch\n:\n   \n-\n0.11669033765792847\n,\n\n  \nroll\n:\n    \n0.2917275130748749\n,\n\n  \nmag_x\n:\n   \n0.5299999713897705\n,\n\n  \nmag_y\n:\n   \n-\n0.024000000208616257\n,\n\n  \nmag_z\n:\n   \n-\n0.05999999865889549\n \n\n}\n\n\n\n\n\n\nUV\n\n\nsensors\n.\nuv\n.\nread\n()\n\n\n\n## Example uv.read() output ##\n\n\n{\n \n  \nuv\n:\n \n0.013000000268220901\n \n\n}\n\n\n\n\n\n\nHumidity\n\n\nsensors\n.\nhumidity\n.\nread\n()\n\n\n\n## Example humidity.read() output ##\n\n\n{\n \n  \nhumidity\n:\n    \n29.04400062561035\n,\n \n  \ntemperature\n:\n \n33.279998779296875\n \n\n}\n\n\n\n\n\n\nPressure\n\n\nsensors\n.\npressure\n.\nread\n()\n\n\n\n## Example pressure.read() output ##\n\n\n{\n \n  \naltitude\n:\n    \n-\n47.4370002746582\n,\n\n  \npressure\n:\n    \n101896\n,\n\n  \ntemperature\n:\n \n32.9370002746582\n \n\n}", 
             "title": "Sensors"
         }, 
         {
@@ -776,24 +761,9 @@
             "title": "Import Statement"
         }, 
         {
-            "location": "/matrix-lite/py-reference/sensors/#imu", 
-            "text": "sensors . imu . read ()    ## Example IMU Return Value ##  {  \n   accel_x :   0.0020000000949949026 , \n   accel_y :   0.004999999888241291 , \n   accel_z :   0.9819999933242798 , \n   gyro_x :    0.7770000100135803 , \n   gyro_y :    - 0.2460000067949295 , \n   gyro_z :    0.7250000238418579 , \n   yaw :       - 177.40724182128906 , \n   pitch :     - 0.11669033765792847 , \n   roll :      0.2917275130748749 , \n   mag_x :     0.5299999713897705 , \n   mag_y :     - 0.024000000208616257 , \n   mag_z :     - 0.05999999865889549   }", 
-            "title": "IMU"
-        }, 
-        {
-            "location": "/matrix-lite/py-reference/sensors/#uv", 
-            "text": "sensors . uv . read ()    ## Example UV Return Value ##  {  \n   uv :   0.013000000268220901   }", 
-            "title": "UV"
-        }, 
-        {
-            "location": "/matrix-lite/py-reference/sensors/#humidity", 
-            "text": "sensors . humidity . read ()    ## Example Humidity Return Value ##  {  \n   humidity :      29.04400062561035 ,  \n   temperature :   33.279998779296875   }", 
-            "title": "Humidity"
-        }, 
-        {
-            "location": "/matrix-lite/py-reference/sensors/#pressure", 
-            "text": "sensors . pressure . read ()    ## Example Pressure Return Value ##  {  \n   altitude :      - 47.4370002746582 , \n   pressure :      101896 , \n   temperature :   32.9370002746582   }", 
-            "title": "Pressure"
+            "location": "/matrix-lite/py-reference/sensors/#reading-sensor-data", 
+            "text": "Sensor data can be read by calling  .read()  on a sensor object. This returns an object with the current sensor's values. Below are examples on how to call each sensor and what information to expect.    IMU  sensors . imu . read ()  ## Example imu.read() output ##  {  \n   accel_x :   0.0020000000949949026 , \n   accel_y :   0.004999999888241291 , \n   accel_z :   0.9819999933242798 , \n   gyro_x :    0.7770000100135803 , \n   gyro_y :    - 0.2460000067949295 , \n   gyro_z :    0.7250000238418579 , \n   yaw :       - 177.40724182128906 , \n   pitch :     - 0.11669033765792847 , \n   roll :      0.2917275130748749 , \n   mag_x :     0.5299999713897705 , \n   mag_y :     - 0.024000000208616257 , \n   mag_z :     - 0.05999999865889549   }    UV  sensors . uv . read ()  ## Example uv.read() output ##  {  \n   uv :   0.013000000268220901   }    Humidity  sensors . humidity . read ()  ## Example humidity.read() output ##  {  \n   humidity :      29.04400062561035 ,  \n   temperature :   33.279998779296875   }    Pressure  sensors . pressure . read ()  ## Example pressure.read() output ##  {  \n   altitude :      - 47.4370002746582 , \n   pressure :      101896 , \n   temperature :   32.9370002746582   }", 
+            "title": "Reading Sensor Data"
         }, 
         {
             "location": "/matrix-lite/py-reference/gpio/", 
