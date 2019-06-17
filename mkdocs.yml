@@ -5,6 +5,8 @@ markdown_extensions:
   - codehilite
   - pymdownx.superfences
   - pymdownx.extrarawhtml
+  - admonition
+  - pymdownx.details
 theme_dir: matrix
 pages:
 - Overview: 'index.md'
