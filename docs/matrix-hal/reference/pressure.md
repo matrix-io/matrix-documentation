@@ -42,7 +42,7 @@ The following code accesses the parameters of `PressureData`.
 ```c++
 // Output is represented in meters
 float altitude = pressure_data.altitude;
-// Output is represented in kPa
+// Output is represented in Pa
 float pressure = pressure_data.pressure;
 // Output is represented in Celsius
 float temperature = pressure_data.temperature;

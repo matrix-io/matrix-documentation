@@ -80,7 +80,7 @@ Now we will create our `PressureData` and `PressureSensor` object and use it to 
     pressure_sensor.Read(&pressure_data);
     // Altitude output is represented in meters
     float altitude = pressure_data.altitude;
-    // Pressure output is represented in kPa
+    // Pressure output is represented in Pa
     float pressure = pressure_data.pressure;
     // Temperature output is represented in Celsius
     float temperature = pressure_data.temperature;
@@ -89,7 +89,7 @@ Now we will create our `PressureData` and `PressureSensor` object and use it to 
     // Output sensor data to console
     std::cout << " [ Pressure Sensor Output ]" << std::endl;
     std::cout << " [ Altitude (m) : " << altitude
-              << " ] [ Pressure (kPa) : " << pressure
+              << " ] [ Pressure (Pa) : " << pressure
               << " ] [ Temperature (Celsius) : " << temperature << " ]" << std::endl;
 
     // Sleep for 20000 microseconds
