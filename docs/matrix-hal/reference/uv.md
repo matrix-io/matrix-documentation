@@ -24,60 +24,52 @@ These header files are required to use the UV sensor.
 #include "matrix_hal/matrixio_bus.h"
 ```
 
-<details markdown="1" open>
-<summary style="font-size: 1.75rem; font-weight: 300;">UVData</summary>
-`UVData` is a required **object** that contains the UV sensor's supported data parameters.
+???+ info "UVData"
+    `UVData` is a required **object** that contains the UV sensor's supported data parameters.
 
-```c++
-// Create UVData object
-matrix_hal::UVData uv_data;
-```
+    ```c++
+    // Create UVData object
+    matrix_hal::UVData uv_data;
+    ```
 
-The following code accesses the parameters of `UVData`.
+    The following code accesses the parameters of `UVData`.
 
-```c++
-// Output is represented in UV Index
-float UV = uv_data.uv;
-```
-</details>
+    ```c++
+    // Output is represented in UV Index
+    float UV = uv_data.uv;
+    ```
 
-<details markdown="1" open>
-<summary style="font-size: 1.75rem; font-weight: 300;">UVSensor</summary>
-`UVSensor` is a required **object** that contains functions to interface with the UV sensor.
+???+ info "UVSensor"
+    `UVSensor` is a required **object** that contains functions to interface with the UV sensor.
 
-```c++
-// Create UVSensor object
-matrix_hal::UVSensor uv_sensor;
-```
-The functions below are part of `UVSensor`.
+    ```c++
+    // Create UVSensor object
+    matrix_hal::UVSensor uv_sensor;
+    ```
+    The functions below are part of `UVSensor`.
 
-<details markdown="1">
-<summary style="font-size: 1.5rem; font-weight: 300;">.Setup</summary>
-`Setup` is a **function** that takes a `MatrixIOBus` object as a parameter and sets that object as the bus to use for communicating with MATRIX device.
+    ??? summary ".Setup"
+        `Setup` is a **function** that takes a `MatrixIOBus` object as a parameter and sets that object as the bus to use for communicating with MATRIX device.
 
-```c++
-// Function declaration in header file
-void Setup(MatrixIOBus *bus);
-```
+        ```c++
+        // Function declaration in header file
+        void Setup(MatrixIOBus *bus);
+        ```
 
-```c++
-// Set uv_sensor to use MatrixIOBus bus
-uv_sensor.Setup(&bus);
-```
-</details>
+        ```c++
+        // Set uv_sensor to use MatrixIOBus bus
+        uv_sensor.Setup(&bus);
+        ```
 
-<details markdown="1">
-<summary style="font-size: 1.5rem; font-weight: 300;">.Read</summary>
-`Read` is a **function** that takes a `UVData` object as a parameter and writes the current humidity sensor data into the `UVData` object.
+    ??? summary ".Read"
+        `Read` is a **function** that takes a `UVData` object as a parameter and writes the current humidity sensor data into the `UVData` object.
 
-```c++
-// Function declaration in header file
-bool Read(UVData *data);
-```
+        ```c++
+        // Function declaration in header file
+        bool Read(UVData *data);
+        ```
 
-```c++
-// Overwrites uv_data with new data from UV sensor
-uv_sensor.Read(&uv_data);
-```
-</details>
-</details>
+        ```c++
+        // Overwrites uv_data with new data from UV sensor
+        uv_sensor.Read(&uv_data);
+        ```

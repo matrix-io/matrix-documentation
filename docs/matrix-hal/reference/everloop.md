@@ -26,77 +26,67 @@ These header files are required to use the Everloop.
 #include "matrix_hal/matrixio_bus.h"
 ```
 
-<details markdown="1" open>
-<summary style="font-size: 1.75rem; font-weight: 300;">EverloopImage</summary>
-`EverloopImage` is a required **object** that contains an array of `LedValue` objects.
-The `EverloopImage` constructor takes in an integer representing the amount of RGBW leds your MATRIX device has.
+???+ info "EverloopImage"
+    `EverloopImage` is a required **object** that contains an array of `LedValue` objects.
+    The `EverloopImage` constructor takes in an integer representing the amount of RGBW leds your MATRIX device has.
 
-The MatrixIOBus function `bus.MatrixLeds` outputs the number of leds on your creator.
+    The MatrixIOBus function `bus.MatrixLeds` outputs the number of leds on your creator.
 
-```c++
-// Holds the number of LEDs on MATRIX device
-int ledCount = bus.MatrixLeds();
-// Create EverloopImage object, with size of ledCount
-matrix_hal::EverloopImage everloop_image(ledCount);
-```
+    ```c++
+    // Holds the number of LEDs on MATRIX device
+    int ledCount = bus.MatrixLeds();
+    // Create EverloopImage object, with size of ledCount
+    matrix_hal::EverloopImage everloop_image(ledCount);
+    ```
 
-`EverloopImage` holds an array full of `LedValue` objects. The `LedValue` object contains the properties `red`, `green`, `blue`, `white`. These color properties accept an RGBW integer between 0-255.
+    `EverloopImage` holds an array full of `LedValue` objects. The `LedValue` object contains the properties `red`, `green`, `blue`, `white`. These color properties accept an RGBW integer between 0-255.
 
-The following code shows how to set each led in everloop_image to green.
+    The following code shows how to set each led in everloop_image to green.
 
-```c++
-// For each led, set RGBW colors
-// This sets all leds to green
-for (matrix_hal::LedValue &led : everloop_image.leds) {
-  led.red = 0;
-  led.green = 100;
-  led.blue = 0;
-  led.white = 0;
-}
-```
+    ```c++
+    // For each led, set RGBW colors
+    // This sets all leds to green
+    for (matrix_hal::LedValue &led : everloop_image.leds) {
+      led.red = 0;
+      led.green = 100;
+      led.blue = 0;
+      led.white = 0;
+    }
+    ```
 
-</details>
 
-<details markdown="1" open>
-<summary style="font-size: 1.75rem; font-weight: 300;">Everloop</summary>
-`Everloop` is a required **object** that contains functions to interface with the Everloop on the MATRIX device.
+???+ info "Everloop"
+    `Everloop` is a required **object** that contains functions to interface with the Everloop on the MATRIX device.
 
-```c++
-// Create Everloop object
-matrix_hal::Everloop everloop;
-```
+    ```c++
+    // Create Everloop object
+    matrix_hal::Everloop everloop;
+    ```
 
-The functions below are part of `Everloop`.
+    The functions below are part of `Everloop`.
 
-<details markdown="1">
-<summary style="font-size: 1.5rem; font-weight: 300;">.Setup</summary>
-`Setup` is a **function** that takes `MatrixIOBus` object as parameter and sets that object as the bus to use for communicating with MATRIX device.
+    ??? summary ".Setup"
+        `Setup` is a **function** that takes `MatrixIOBus` object as parameter and sets that object as the bus to use for communicating with MATRIX device.
 
-```c++
-// Function declaration in header file
-void Setup(MatrixIOBus *bus);
-```
-<!--  -->
-```c++
-// Set everloop to use MatrixIOBus bus
-everloop.Setup(&bus);
-```
+        ```c++
+        // Function declaration in header file
+        void Setup(MatrixIOBus *bus);
+        ```
 
-</details>
+        ```c++
+        // Set everloop to use MatrixIOBus bus
+        everloop.Setup(&bus);
+        ```
 
-<details markdown="1">
-<summary style="font-size: 1.5rem; font-weight: 300;">.Write</summary>
-`Write` is a **function** that takes an `EverloopImage` object as a parameter and updates the Everloop on the MATRIX device.
+    ??? summary ".Write"
+        `Write` is a **function** that takes an `EverloopImage` object as a parameter and updates the Everloop on the MATRIX device.
 
-```c++
-// Function declaration in header file
-bool Write(EverloopImage *everloop_image;
-```
-<!--  -->
-```c++
-// Updates the Everloop on the MATRIX device
-everloop.Write(&everloop_image);
-```
+        ```c++
+        // Function declaration in header file
+        bool Write(EverloopImage *everloop_image;
+        ```
 
-</details>
-</details>
+        ```c++
+        // Updates the Everloop on the MATRIX device
+        everloop.Write(&everloop_image);
+        ```
