@@ -509,32 +509,37 @@ Perform a <strong>reboot</strong> before moving on.
 <h2 id="protocol">Protocol</h2>
 <!-- Base PORT -->
 
-<details open>
-<summary style="font-size: 1.75rem; font-weight: 300;">Base Port</summary>
-This port accepts a single configuration for communicating with the Wakeword driver.
-
-* `wakeword` - the wakeword configuration that's created from a `WakeWordParams` message.
-
-<div class="codehilite"><pre><span></span><span class="kd">message</span> <span class="nc">DriverConfig</span> <span class="p">{</span>
+<details open="">
+<p><summary style="font-size: 1.75rem; font-weight: 300;">Base Port</summary>
+This port accepts a single configuration for communicating with the Wakeword driver.</p>
+<ul>
+<li><code>wakeword</code> - the wakeword configuration that's created from a <code>WakeWordParams</code> message.</li>
+</ul>
+<p><div class="codehilite"><pre><span></span><span class="kd">message</span> <span class="nc">DriverConfig</span> <span class="p">{</span>
   <span class="c1">// Wakeword service configuration</span>
   <span class="n">matrix_io.malos.v1.io.WakeWordParams</span> <span class="na">wakeword</span> <span class="o">=</span> <span class="mi">12</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></div>
-View the defined message <a href="https://github.com/matrix-io/protocol-buffers/blob/master/matrix_io/malos/v1/driver.proto" target="_blank">here</a>.
-
-`WakeWordParams` 
-
-* `MicChannel` - Desired MATRIX device microphone to use.
-
-* `lm_path` - File path for language model. **Obtained from Sphinx Knowledge Base**.
-
-* `dic_path` - File path for dictation. **Obtained from Sphinx Knowledge Base**.
-
-* `enable_verbose` - Boolean to send output to stdout.
-
-* `stop_recognition` - Stop Pocket Sphinx service.
-
-<div class="codehilite"><pre><span></span><span class="kd">message</span> <span class="nc">WakeWordParams</span> <span class="p">{</span>
+View the defined message <a href="https://github.com/matrix-io/protocol-buffers/blob/master/matrix_io/malos/v1/driver.proto" target="_blank">here</a>.</p>
+<p><code>WakeWordParams</code> </p>
+<ul>
+<li>
+<p><code>MicChannel</code> - Desired MATRIX device microphone to use.</p>
+</li>
+<li>
+<p><code>lm_path</code> - File path for language model. <strong>Obtained from Sphinx Knowledge Base</strong>.</p>
+</li>
+<li>
+<p><code>dic_path</code> - File path for dictation. <strong>Obtained from Sphinx Knowledge Base</strong>.</p>
+</li>
+<li>
+<p><code>enable_verbose</code> - Boolean to send output to stdout.</p>
+</li>
+<li>
+<p><code>stop_recognition</code> - Stop Pocket Sphinx service.</p>
+</li>
+</ul>
+<p><div class="codehilite"><pre><span></span><span class="kd">message</span> <span class="nc">WakeWordParams</span> <span class="p">{</span>
   <span class="c1">// Mic channels</span>
   <span class="kd">enum</span> <span class="n">MicChannel</span> <span class="p">{</span>
     <span class="na">channel0</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
@@ -563,36 +568,32 @@ View the defined message <a href="https://github.com/matrix-io/protocol-buffers/
   <span class="kt">bool</span> <span class="na">stop_recognition</span> <span class="o">=</span> <span class="mi">6</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></div>
-View the defined message <a href="https://github.com/matrix-io/protocol-buffers/blob/65397022e73ac98ec2b217937f133a9eefbd8f01/matrix_io/malos/v1/io.proto" target="_blank">here</a>.
+View the defined message <a href="https://github.com/matrix-io/protocol-buffers/blob/65397022e73ac98ec2b217937f133a9eefbd8f01/matrix_io/malos/v1/io.proto" target="_blank">here</a>.</p>
 </details>
-
 <!-- Keep-Alive PORT -->
 
-<details open>
-<summary style="font-size: 1.75rem; font-weight: 300;">Keep-alive Port</summary>
-This driver needs keep-alive messages in order to send data to your application. It's recommended to send an empty string `""` because the contents of a keep-alive message are never read.
+<details open="">
+<p><summary style="font-size: 1.75rem; font-weight: 300;">Keep-alive Port</summary>
+This driver needs keep-alive messages in order to send data to your application. It's recommended to send an empty string <code>""</code> because the contents of a keep-alive message are never read.</p>
 </details>
-
 <!-- Error PORT -->
 
-<details open>
-<summary style="font-size: 1.75rem; font-weight: 300;">Error Port</summary>
-Applications can subscribe to this port to receive driver related errors.
+<details open="">
+<p><summary style="font-size: 1.75rem; font-weight: 300;">Error Port</summary>
+Applications can subscribe to this port to receive driver related errors.</p>
 </details>
-
 <!-- Data Update PORT -->
 
-<details open>
-<summary style="font-size: 1.75rem; font-weight: 300;">Data Update Port</summary>
-Applications can subscribe to this port for Everloop data. The output will be a serialized message of type `EverloopImage` with the following information.
-
-<div class="codehilite"><pre><span></span><span class="c1">// The led array.</span>
+<details open="">
+<p><summary style="font-size: 1.75rem; font-weight: 300;">Data Update Port</summary>
+Applications can subscribe to this port for Everloop data. The output will be a serialized message of type <code>EverloopImage</code> with the following information.</p>
+<p><div class="codehilite"><pre><span></span><span class="c1">// The led array.</span>
 <span class="kd">message</span> <span class="nc">WakeWordParams</span> <span class="p">{</span>
   <span class="c1">// Wake Word</span>
   <span class="kt">string</span> <span class="na">wake_word</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></div>
-View the defined message <a href="https://github.com/matrix-io/protocol-buffers/blob/65397022e73ac98ec2b217937f133a9eefbd8f01/matrix_io/malos/v1/io.proto" target="_blank">here</a>.
+View the defined message <a href="https://github.com/matrix-io/protocol-buffers/blob/65397022e73ac98ec2b217937f133a9eefbd8f01/matrix_io/malos/v1/io.proto" target="_blank">here</a>.</p>
 </details> 
         </div>
         <div class="toc-parent col-lg-2 col-md-3">

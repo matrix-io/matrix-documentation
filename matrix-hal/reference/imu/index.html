@@ -487,16 +487,14 @@
 <span class="cp">#include</span> <span class="cpf">&quot;matrix_hal/matrixio_bus.h&quot;</span><span class="cp"></span>
 </pre></div>
 
-<details open>
-<summary style="font-size: 1.75rem; font-weight: 300;">IMUData</summary>
-`IMUData` is a required **object** that contains the IMU sensor's supported data parameters.
-
+<details open="">
+<p><summary style="font-size: 1.75rem; font-weight: 300;">IMUData</summary>
+<code>IMUData</code> is a required <strong>object</strong> that contains the IMU sensor's supported data parameters.</p>
 <div class="codehilite"><pre><span></span><span class="c1">// Create IMUData object</span>
 <span class="n">matrix_hal</span><span class="o">::</span><span class="n">IMUData</span> <span class="n">imu_data</span><span class="p">;</span>
 </pre></div>
 
-The following code accesses the parameters of `IMUData`.
-
+<p>The following code accesses the parameters of <code>IMUData</code>.</p>
 <div class="codehilite"><pre><span></span><span class="c1">// Accelerometer</span>
 <span class="kt">float</span> <span class="n">accel_X</span> <span class="o">=</span> <span class="n">imu_data</span><span class="p">.</span><span class="n">accel_x</span><span class="p">;</span>
 <span class="kt">float</span> <span class="n">accel_Y</span> <span class="o">=</span> <span class="n">imu_data</span><span class="p">.</span><span class="n">accel_y</span><span class="p">;</span>
@@ -516,44 +514,37 @@ The following code accesses the parameters of `IMUData`.
 </pre></div>
 
 </details>
-
-<details open>
-<summary style="font-size: 1.75rem; font-weight: 300;">IMUSensor</summary>
-`IMUSensor` is a required **object** that contains functions to interface with the IMU sensor.
-
+<details open="">
+<p><summary style="font-size: 1.75rem; font-weight: 300;">IMUSensor</summary>
+<code>IMUSensor</code> is a required <strong>object</strong> that contains functions to interface with the IMU sensor.</p>
 <div class="codehilite"><pre><span></span><span class="c1">// Create IMUSensor object</span>
 <span class="n">matrix_hal</span><span class="o">::</span><span class="n">IMUSensor</span> <span class="n">imu_sensor</span><span class="p">;</span>
 </pre></div>
 
-The functions below are part of `IMUSensor`.
-
+<p>The functions below are part of <code>IMUSensor</code>.</p>
 <details>
-<summary style="font-size: 1.5rem; font-weight: 300;">.Setup</summary>
-`Setup` is a **function** that takes a `MatrixIOBus` object as a parameter and sets that object as the bus to use for communicating with MATRIX device.
-
-<div class="codehilite"><pre><span></span><span class="c1">// Function declaration in header file</span>
+<p><summary style="font-size: 1.5rem; font-weight: 300;">.Setup</summary>
+<code>Setup</code> is a <strong>function</strong> that takes a <code>MatrixIOBus</code> object as a parameter and sets that object as the bus to use for communicating with MATRIX device.</p>
+<p><div class="codehilite"><pre><span></span><span class="c1">// Function declaration in header file</span>
 <span class="kt">void</span> <span class="nf">Setup</span><span class="p">(</span><span class="n">MatrixIOBus</span> <span class="o">*</span><span class="n">bus</span><span class="p">);</span>
 </pre></div>
 <!--  -->
 <div class="codehilite"><pre><span></span><span class="c1">// Set imu_sensor to use MatrixIOBus bus</span>
 <span class="n">imu_sensor</span><span class="p">.</span><span class="n">Setup</span><span class="p">(</span><span class="o">&amp;</span><span class="n">bus</span><span class="p">);</span>
-</pre></div>
-
+</pre></div></p>
 </details>
-
 <details>
-<summary style="font-size: 1.5rem; font-weight: 300;">.Read</summary>
-`Read` is a **function** that takes an `IMUData` object as a parameter and writes the current IMU sensor data into the `IMUData` object.
-
-<div class="codehilite"><pre><span></span><span class="c1">// Function declaration in header file</span>
+<p><summary style="font-size: 1.5rem; font-weight: 300;">.Read</summary>
+<code>Read</code> is a <strong>function</strong> that takes an <code>IMUData</code> object as a parameter and writes the current IMU sensor data into the <code>IMUData</code> object.</p>
+<p><div class="codehilite"><pre><span></span><span class="c1">// Function declaration in header file</span>
 <span class="kt">bool</span> <span class="nf">Read</span><span class="p">(</span><span class="n">IMUData</span> <span class="o">*</span><span class="n">data</span><span class="p">);</span>
 </pre></div>
 <!--  -->
-<div class="codehilite"><pre><span></span><span class="c1">// Overwrites imu_data with new data from IMU sensor</span>
-<span class="n">imu_sensor</span><span class="p">.</span><span class="n">Read</span><span class="p">(</span><span class="o">&amp;</span><span class="n">imu_data</span><span class="p">);</span>
-</pre></div>
-
+</p>
 </details>
+</details>
+
+
 </details> 
         </div>
         <div class="toc-parent col-lg-2 col-md-3">

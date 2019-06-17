@@ -486,10 +486,9 @@
 <div class="codehilite"><pre><span></span><span class="n">g</span><span class="o">++</span> <span class="o">-</span><span class="n">o</span> <span class="n">YOUR_OUTPUT_FILE</span> <span class="n">YOUR_CPP_FILE</span> <span class="o">-</span><span class="n">std</span><span class="o">=</span><span class="n">c</span><span class="o">++</span><span class="mi">11</span> <span class="o">-</span><span class="n">lmatrix_creator_hal</span>
 </pre></div>
 
-<details open>
-<summary style="font-size: 1.5rem; font-weight: 300;">Include Statements</summary>
-To begin working with the IMU sensor you need to include these header files.
-
+<details open="">
+<p><summary style="font-size: 1.5rem; font-weight: 300;">Include Statements</summary>
+To begin working with the IMU sensor you need to include these header files.</p>
 <div class="codehilite"><pre><span></span><span class="c1">// System calls</span>
 <span class="cp">#include</span> <span class="cpf">&lt;unistd.h&gt;</span><span class="cp"></span>
 <span class="c1">// Input/output streams and functions</span>
@@ -504,11 +503,9 @@ To begin working with the IMU sensor you need to include these header files.
 </pre></div>
 
 </details>
-
-<details open>
-<summary style="font-size: 1.5rem; font-weight: 300;">Initial Setup</summary>
-You'll then need to setup `MatrixIOBus` in order to communicate with the hardware on your MATRIX device.
-
+<details open="">
+<p><summary style="font-size: 1.5rem; font-weight: 300;">Initial Setup</summary>
+You'll then need to setup <code>MatrixIOBus</code> in order to communicate with the hardware on your MATRIX device.</p>
 <div class="codehilite"><pre><span></span><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
   <span class="c1">// Create MatrixIOBus object for hardware communication</span>
   <span class="n">matrix_hal</span><span class="o">::</span><span class="n">MatrixIOBus</span> <span class="n">bus</span><span class="p">;</span>
@@ -517,11 +514,9 @@ You'll then need to setup `MatrixIOBus` in order to communicate with the hardwar
 </pre></div>
 
 </details>
-
-<details open>
-<summary style="font-size: 1.5rem; font-weight: 300;">Main Setup</summary>
-Now we will create our `IMUData` and `IMUSensor` object and use it to receive data from the IMU sensor.
-
+<details open="">
+<p><summary style="font-size: 1.5rem; font-weight: 300;">Main Setup</summary>
+Now we will create our <code>IMUData</code> and <code>IMUSensor</code> object and use it to receive data from the IMU sensor.</p>
 <div class="codehilite"><pre><span></span>  <span class="c1">// The following code is part of main()</span>
 
   <span class="c1">// Create IMUData object</span>

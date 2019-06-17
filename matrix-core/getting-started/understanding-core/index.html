@@ -488,7 +488,7 @@
 </ul>
 <p>The following list contains the port types currently defined in MATRIX CORE.
 <!-- BASE PORT -->
-<details open>
+<details markdown="1" open>
 <summary style="font-size: 1.75rem; font-weight: 300;">Base Port</summary>
 The <code>base port</code> is used to configure a driver on your MATRIX device. This port is a <code>ZeroMQ PULL port</code> that accepts a configuration which is created as a protocol buffer.</p>
 <p>To send a configuration you need to create a valid message for each driver. For example, the UV driver uses a configuration message to set the refresh rate and timeout for sending UV data.</p>
@@ -504,19 +504,19 @@ The <code>base port</code> is used to configure a driver on your MATRIX device. 
 <p>Once the <code>DriverConfig</code> message is filled out, it needs to be serialized as a string and sent to the ZeroMQ configuration port.
 </details>
 <!-- KEEP-ALIVE PORT -->
-<details open>
+<details markdown="1" open>
 <summary style="font-size: 1.75rem; font-weight: 300;">Keep-alive Port</summary>
 <code>Port</code>: <code>base port</code> + 1</p>
 <p>The Keep-alive port is a <code>ZeroMQ PULL port</code> that is required for certain drivers to keep their function alive. Drivers that are pushing data need this in place to let it know if data will continue to be requested. For example, the Everloop driver doesn't require Keep-alive messages, but the Humidity driver does. Any message that is sent to the Keep-alive port will be discarded, so an empty string <code>""</code> makes for a good Keep-alive message.</p>
 <p></details>
 <!-- ERROR PORT -->
-<details open>
+<details markdown="1" open>
 <summary style="font-size: 1.75rem; font-weight: 300;">Error Port</summary>
 <code>Port</code>: <code>base port</code> + 2</p>
 <p>Programs can subscribe to this port to receive driver related errors. The Error port is a <code>ZeroMQ PUSH port</code> that will send you a string with any errors that it has encountered.
 </details>
 <!-- DATA UPDATE PORT -->
-<details open>
+<details markdown="1" open>
 <summary style="font-size: 1.75rem; font-weight: 300;">Data Update Port</summary>
 <code>Port</code>: <code>base port</code> + 3</p>
 <p>This <code>ZeroMQ PUSH port</code> is used by drivers that send data (Humidity, UV, etc.). Each driver uses a different message to report data to programs that subscribe for these updates.</p>

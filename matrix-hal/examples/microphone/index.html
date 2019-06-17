@@ -490,13 +490,12 @@
 </pre></div>
 
 <details>
-<summary style="font-size: 1.75rem; font-weight: 300;">Microphone Array Record to File</summary>
-The following section shows how to record data from the microphone array to a file. You can download this example <a href="https://github.com/matrix-io/matrix-hal-examples/blob/master/microphone_array/mic_record_file.cpp" target="_blank">here</a>.
-
-> Beamformed microphone is channel 8
-
-To convert the `.raw` files outputted by this example to playable `.wav` files run these commands, replacing `16000` with selected sampling rate.
-
+<p><summary style="font-size: 1.75rem; font-weight: 300;">Microphone Array Record to File</summary>
+The following section shows how to record data from the microphone array to a file. You can download this example <a href="https://github.com/matrix-io/matrix-hal-examples/blob/master/microphone_array/mic_record_file.cpp" target="_blank">here</a>.</p>
+<blockquote>
+<p>Beamformed microphone is channel 8</p>
+</blockquote>
+<p>To convert the <code>.raw</code> files outputted by this example to playable <code>.wav</code> files run these commands, replacing <code>16000</code> with selected sampling rate.</p>
 <div class="codehilite"><pre><span></span>sudo apt-get install sox alsa-utils
 sox -r <span class="m">16000</span> -c <span class="m">1</span> -e signed -c <span class="m">1</span> -e signed -b <span class="m">16</span> mic_16000_s16le_channel_0.raw channel_0.wav
 sox -r <span class="m">16000</span> -c <span class="m">1</span> -e signed -c <span class="m">1</span> -e signed -b <span class="m">16</span> mic_16000_s16le_channel_1.raw channel_1.wav
@@ -509,10 +508,9 @@ sox -r <span class="m">16000</span> -c <span class="m">1</span> -e signed -c <sp
 sox -r <span class="m">16000</span> -c <span class="m">1</span> -e signed -c <span class="m">1</span> -e signed -b <span class="m">16</span> mic_16000_s16le_channel_8.raw channel_8.wav
 </pre></div>
 
-<details open>
-<summary style="font-size: 1.5rem; font-weight: 300;">Include Statements</summary>
-To begin working with the Microphone Array you need to include these header files.
-
+<details open="">
+<p><summary style="font-size: 1.5rem; font-weight: 300;">Include Statements</summary>
+To begin working with the Microphone Array you need to include these header files.</p>
 <div class="codehilite"><pre><span></span><span class="c1">// Google gflags parser</span>
 <span class="cp">#include</span> <span class="cpf">&lt;gflags/gflags.h&gt;</span><span class="cp"></span>
 <span class="c1">// Communicating with Pi GPIO</span>
@@ -535,11 +533,9 @@ To begin working with the Microphone Array you need to include these header file
 </pre></div>
 
 </details>
-
-<details open>
-<summary style="font-size: 1.5rem; font-weight: 300;">Initial Variables</summary>
-These initial variables are used in the example.
-
+<details open="">
+<p><summary style="font-size: 1.5rem; font-weight: 300;">Initial Variables</summary>
+These initial variables are used in the example.</p>
 <div class="codehilite"><pre><span></span><span class="c1">// Defines variables from user arguments using gflags utility</span>
 <span class="c1">// (https://gflags.github.io/gflags/)</span>
 
@@ -552,11 +548,9 @@ These initial variables are used in the example.
 </pre></div>
 
 </details>
-
-<details open>
-<summary style="font-size: 1.5rem; font-weight: 300;">Initial Setup</summary>
-You'll then need to setup `MatrixIOBus` in order to communicate with the hardware on your MATRIX device. Also, parse command line flags and set user flags as variables.
-
+<details open="">
+<p><summary style="font-size: 1.5rem; font-weight: 300;">Initial Setup</summary>
+You'll then need to setup <code>MatrixIOBus</code> in order to communicate with the hardware on your MATRIX device. Also, parse command line flags and set user flags as variables.</p>
 <div class="codehilite"><pre><span></span><span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">agrv</span><span class="p">[])</span> <span class="p">{</span>
   <span class="c1">// Parse command line flags with gflags utility</span>
   <span class="c1">// (https://gflags.github.io/gflags/)</span>
@@ -574,11 +568,9 @@ You'll then need to setup `MatrixIOBus` in order to communicate with the hardwar
 </pre></div>
 
 </details>
-
-<details open>
-<summary style="font-size: 1.5rem; font-weight: 300;">Main Setup</summary>
-Now we will create our `MicrophoneArray` object and use it to interface with the microphone array.
-
+<details open="">
+<p><summary style="font-size: 1.5rem; font-weight: 300;">Main Setup</summary>
+Now we will create our <code>MicrophoneArray</code> object and use it to interface with the microphone array.</p>
 <div class="codehilite"><pre><span></span>  <span class="c1">// The following code is part of main()</span>
 
   <span class="c1">// Create MicrophoneArray object</span>
@@ -600,11 +592,9 @@ Now we will create our `MicrophoneArray` object and use it to interface with the
 </pre></div>
 
 </details>
-
-<details open>
-<summary style="font-size: 1.5rem; font-weight: 300;">Fir Filter Setup</summary>
-Now we will create our `MicrophoneCore` object and use it to enable the FIR filter.
-
+<details open="">
+<p><summary style="font-size: 1.5rem; font-weight: 300;">Fir Filter Setup</summary>
+Now we will create our <code>MicrophoneCore</code> object and use it to enable the FIR filter.</p>
 <div class="codehilite"><pre><span></span>  <span class="c1">// The following code is part of main()</span>
 
   <span class="c1">// Create MicrophoneCore object</span>
@@ -614,11 +604,9 @@ Now we will create our `MicrophoneCore` object and use it to enable the FIR filt
 </pre></div>
 
 </details>
-
-<details open>
-<summary style="font-size: 1.5rem; font-weight: 300;">Microphone Input</summary>
-Now we will read microphone array data, send to a buffer, and write to file.
-
+<details open="">
+<p><summary style="font-size: 1.5rem; font-weight: 300;">Microphone Input</summary>
+Now we will read microphone array data, send to a buffer, and write to file.</p>
 <div class="codehilite"><pre><span></span>  <span class="c1">// The following code is part of main()</span>
 
   <span class="c1">// Create a buffer array for microphone input</span>
@@ -680,38 +668,32 @@ Now we will read microphone array data, send to a buffer, and write to file.
 </pre></div>
 
 </details>
-
 </details>
-
 <details>
-<summary style="font-size: 1.75rem; font-weight: 300;">Microphone Array Record to Pipe</summary>
-The following section shows how to record data from the microphone array to a linux FIFO pipe. You can download this example <a href="https://github.com/matrix-io/matrix-hal-examples/blob/master/microphone_array/mic_record_pipe.cpp" target="_blank">here</a>.
-
-> When beamformed microphone (channel 8) is read from a FIFO pipe distortion may occur.
-
-The following commands copy a modified `asound.conf` file into `/etc/`, which allows `arecord` to record from the pipe.
-
+<p><summary style="font-size: 1.75rem; font-weight: 300;">Microphone Array Record to Pipe</summary>
+The following section shows how to record data from the microphone array to a linux FIFO pipe. You can download this example <a href="https://github.com/matrix-io/matrix-hal-examples/blob/master/microphone_array/mic_record_pipe.cpp" target="_blank">here</a>.</p>
+<blockquote>
+<p>When beamformed microphone (channel 8) is read from a FIFO pipe distortion may occur.</p>
+</blockquote>
+<p>The following commands copy a modified <code>asound.conf</code> file into <code>/etc/</code>, which allows <code>arecord</code> to record from the pipe.</p>
 <div class="codehilite"><pre><span></span>wget https://github.com/matrix-io/matrix-hal-examples/blob/master/microphone_array/asound.conf
 sudo mv -f /etc/asound.conf /etc/asound.conf_old
 sudo mv -f ./asound.conf /etc/
 </pre></div>
 
-To record from microphone channel 0 for 5 seconds at 16KHz using `arecord`, run these commands. 
-
+<p>To record from microphone channel 0 for 5 seconds at 16KHz using <code>arecord</code>, run these commands. </p>
 <div class="codehilite"><pre><span></span>rm -rf /tmp/matrix_micarray_channel_*
 ./mic_record_pipe --sampling_frequency <span class="m">16000</span> <span class="p">&amp;</span>
 arecord channel0.wav -f S16_LE -r <span class="m">16000</span> -d <span class="m">5</span> --device<span class="o">=</span>mic_channel0
 </pre></div>
 
-To stop the example from running, run this command.
-
+<p>To stop the example from running, run this command.</p>
 <div class="codehilite"><pre><span></span>killall mic_record_pipe
 </pre></div>
 
-<details open>
-<summary style="font-size: 1.5rem; font-weight: 300;">Include Statements</summary>
-To begin working with the Microphone Array you need to include these header files.
-
+<details open="">
+<p><summary style="font-size: 1.5rem; font-weight: 300;">Include Statements</summary>
+To begin working with the Microphone Array you need to include these header files.</p>
 <div class="codehilite"><pre><span></span><span class="c1">// Imports FIFO pipe support (https://en.wikipedia.org/wiki/Named_pipe)</span>
 <span class="cp">#include</span> <span class="cpf">&lt;sys/stat.h&gt;</span><span class="cp"></span>
 <span class="c1">// Linux file control options</span>
@@ -740,11 +722,9 @@ To begin working with the Microphone Array you need to include these header file
 </pre></div>
 
 </details>
-
-<details open>
-<summary style="font-size: 1.5rem; font-weight: 300;">Initial Variables</summary>
-These initial variables are used in the example.
-
+<details open="">
+<p><summary style="font-size: 1.5rem; font-weight: 300;">Initial Variables</summary>
+These initial variables are used in the example.</p>
 <div class="codehilite"><pre><span></span><span class="c1">// Defines variables from user arguments using gflags utility</span>
 <span class="c1">// (https://gflags.github.io/gflags/)</span>
 
@@ -755,11 +735,9 @@ These initial variables are used in the example.
 </pre></div>
 
 </details>
-
-<details open>
-<summary style="font-size: 1.5rem; font-weight: 300;">Initial Setup</summary>
-You'll then need to setup `MatrixIOBus` in order to communicate with the hardware on your MATRIX device. Also, parse command line flags and set user flags as variables.
-
+<details open="">
+<p><summary style="font-size: 1.5rem; font-weight: 300;">Initial Setup</summary>
+You'll then need to setup <code>MatrixIOBus</code> in order to communicate with the hardware on your MATRIX device. Also, parse command line flags and set user flags as variables.</p>
 <div class="codehilite"><pre><span></span><span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">agrv</span><span class="p">[])</span> <span class="p">{</span>
   <span class="c1">// Parse command line flags with gflags utility</span>
   <span class="c1">// (https://gflags.github.io/gflags/)</span>
@@ -776,11 +754,9 @@ You'll then need to setup `MatrixIOBus` in order to communicate with the hardwar
 </pre></div>
 
 </details>
-
-<details open>
-<summary style="font-size: 1.5rem; font-weight: 300;">Main Setup</summary>
-Now we will create our `MicrophoneArray` object and use it to interface with the microphone array.
-
+<details open="">
+<p><summary style="font-size: 1.5rem; font-weight: 300;">Main Setup</summary>
+Now we will create our <code>MicrophoneArray</code> object and use it to interface with the microphone array.</p>
 <div class="codehilite"><pre><span></span>  <span class="c1">// The following code is part of main()</span>
 
   <span class="c1">// Create MicrophoneArray object</span>
@@ -802,11 +778,9 @@ Now we will create our `MicrophoneArray` object and use it to interface with the
 </pre></div>
 
 </details>
-
-<details open>
-<summary style="font-size: 1.5rem; font-weight: 300;">Fir Filter Setup</summary>
-Now we will create our `MicrophoneCore` object and use it to enable the FIR filter.
-
+<details open="">
+<p><summary style="font-size: 1.5rem; font-weight: 300;">Fir Filter Setup</summary>
+Now we will create our <code>MicrophoneCore</code> object and use it to enable the FIR filter.</p>
 <div class="codehilite"><pre><span></span>  <span class="c1">// The following code is part of main()</span>
 
   <span class="c1">// Create MicrophoneCore object</span>
@@ -816,11 +790,9 @@ Now we will create our `MicrophoneCore` object and use it to enable the FIR filt
 </pre></div>
 
 </details>
-
-<details open>
-<summary style="font-size: 1.5rem; font-weight: 300;">Microphone Input</summary>
-Now we will read microphone array data, send to a buffer, and write to a FIFO pipe.
-
+<details open="">
+<p><summary style="font-size: 1.5rem; font-weight: 300;">Microphone Input</summary>
+Now we will read microphone array data, send to a buffer, and write to a FIFO pipe.</p>
 <div class="codehilite"><pre><span></span>  <span class="c1">// The following code is part of main()</span>
 
   <span class="c1">// Create a buffer array for microphone input</span>
@@ -881,7 +853,6 @@ Now we will read microphone array data, send to a buffer, and write to a FIFO pi
 </pre></div>
 
 </details>
-
 </details> 
         </div>
         <div class="toc-parent col-lg-2 col-md-3">

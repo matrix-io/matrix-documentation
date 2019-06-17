@@ -489,16 +489,14 @@
 <span class="cp">#include</span> <span class="cpf">&quot;matrix_hal/matrixio_bus.h&quot;</span><span class="cp"></span>
 </pre></div>
 
-<details open>
-<summary style="font-size: 1.75rem; font-weight: 300;">PressureData</summary>
-`PressureData` is a required **object** that contains the pressure sensor's supported data parameters.
-
+<details open="">
+<p><summary style="font-size: 1.75rem; font-weight: 300;">PressureData</summary>
+<code>PressureData</code> is a required <strong>object</strong> that contains the pressure sensor's supported data parameters.</p>
 <div class="codehilite"><pre><span></span><span class="c1">// Create PressureData object</span>
 <span class="n">matrix_hal</span><span class="o">::</span><span class="n">PressureData</span> <span class="n">pressure_data</span><span class="p">;</span>
 </pre></div>
 
-The following code accesses the parameters of `PressureData`.
-
+<p>The following code accesses the parameters of <code>PressureData</code>.</p>
 <div class="codehilite"><pre><span></span><span class="c1">// Output is represented in meters</span>
 <span class="kt">float</span> <span class="n">altitude</span> <span class="o">=</span> <span class="n">pressure_data</span><span class="p">.</span><span class="n">altitude</span><span class="p">;</span>
 <span class="c1">// Output is represented in kPa</span>
@@ -506,21 +504,18 @@ The following code accesses the parameters of `PressureData`.
 <span class="c1">// Output is represented in Celsius</span>
 <span class="kt">float</span> <span class="n">temperature</span> <span class="o">=</span> <span class="n">pressure_data</span><span class="p">.</span><span class="n">temperature</span><span class="p">;</span>
 </pre></div>
+
 </details>
-
-<details open>
-<summary style="font-size: 1.75rem; font-weight: 300;">PressureSensor</summary>
-`PressureSensor` is a required **object** that contains functions to interface with the pressure sensor.
-
-<div class="codehilite"><pre><span></span><span class="c1">// Create PressureSensor object</span>
+<details open="">
+<p><summary style="font-size: 1.75rem; font-weight: 300;">PressureSensor</summary>
+<code>PressureSensor</code> is a required <strong>object</strong> that contains functions to interface with the pressure sensor.</p>
+<p><div class="codehilite"><pre><span></span><span class="c1">// Create PressureSensor object</span>
 <span class="n">matrix_hal</span><span class="o">::</span><span class="n">PressureSensor</span> <span class="n">pressure_sensor</span><span class="p">;</span>
 </pre></div>
-The functions below are part of `PressureSensor`.
-
+The functions below are part of <code>PressureSensor</code>.</p>
 <details>
-<summary style="font-size: 1.5rem; font-weight: 300;">.Setup</summary>
-`Setup` is a **function** that takes a `MatrixIOBus` object as a parameter and sets that object as the bus to use for communicating with MATRIX device.
-
+<p><summary style="font-size: 1.5rem; font-weight: 300;">.Setup</summary>
+<code>Setup</code> is a <strong>function</strong> that takes a <code>MatrixIOBus</code> object as a parameter and sets that object as the bus to use for communicating with MATRIX device.</p>
 <div class="codehilite"><pre><span></span><span class="c1">// Function declaration in header file</span>
 <span class="kt">void</span> <span class="nf">Setup</span><span class="p">(</span><span class="n">MatrixIOBus</span> <span class="o">*</span><span class="n">bus</span><span class="p">);</span>
 </pre></div>
@@ -528,20 +523,17 @@ The functions below are part of `PressureSensor`.
 <div class="codehilite"><pre><span></span><span class="c1">// Set pressure_sensor to use MatrixIOBus bus</span>
 <span class="n">pressure_sensor</span><span class="p">.</span><span class="n">Setup</span><span class="p">(</span><span class="o">&amp;</span><span class="n">bus</span><span class="p">);</span>
 </pre></div>
+
 </details>
-
 <details>
-<summary style="font-size: 1.5rem; font-weight: 300;">.Read</summary>
-`Read` is a **function** that takes a `PressureData` object as a parameter and writes the current pressure sensor data into the `PressureData` object.
-
-<div class="codehilite"><pre><span></span><span class="c1">// Function declaration in header file</span>
-<span class="kt">bool</span> <span class="nf">Read</span><span class="p">(</span><span class="n">PressureData</span> <span class="o">*</span><span class="n">data</span><span class="p">);</span>
-</pre></div>
-
-<div class="codehilite"><pre><span></span><span class="c1">// Overwrites pressure_data with new data from pressure sensor</span>
+<p><summary style="font-size: 1.5rem; font-weight: 300;">.Read</summary>
+<code>Read</code> is a <strong>function</strong> that takes a <code>PressureData</code> object as a parameter and writes the current pressure sensor data into the <code>PressureData</code> object.</p>
+<p></p>
+</details>
+<p><div class="codehilite"><pre><span></span><span class="c1">// Overwrites pressure_data with new data from pressure sensor</span>
 <span class="n">pressure_sensor</span><span class="p">.</span><span class="n">Read</span><span class="p">(</span><span class="o">&amp;</span><span class="n">pressure_data</span><span class="p">);</span>
 </pre></div>
-</details>
+</details></p>
 </details> 
         </div>
         <div class="toc-parent col-lg-2 col-md-3">

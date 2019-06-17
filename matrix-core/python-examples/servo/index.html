@@ -490,8 +490,8 @@
 <p>The following sections show how to implement a connection to each of the Servo driver's ports. You can download this example <a href="https://github.com/matrix-io/matrix-core-examples/blob/master/python/servo.py" target="_blank">here</a>.</p>
 <!-- Initial Variables -->
 
-<details open>
-<summary style="font-size: 1.75rem; font-weight: 300;">Initial Variables</summary>
+<details open="">
+<p><summary style="font-size: 1.75rem; font-weight: 300;">Initial Variables</summary>
 Before we go into connecting to each port, the variables defined below are needed in order to access the ZeroMQ and MATRIX Protocol Buffer libraries for Python. We also define a few helpful variables for easy references.
 <div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">os</span> <span class="c1"># Miscellaneous operating system interface</span>
 <span class="kn">import</span> <span class="nn">zmq</span> <span class="c1"># Asynchronous messaging framework</span>
@@ -505,15 +505,13 @@ Before we go into connecting to each port, the variables defined below are neede
 <span class="n">servo_port</span> <span class="o">=</span> <span class="mi">20045</span> <span class="c1"># Driver Base port</span>
 <span class="c1"># Handy function for connecting to the Error port </span>
 <span class="kn">from</span> <span class="nn">utils</span> <span class="kn">import</span> <span class="n">register_error_callback</span>
-</pre></div>
+</pre></div></p>
 </details>
-
 <!-- Base PORT -->
 
-<details open>
-<summary style="font-size: 1.75rem; font-weight: 300;">Base Port</summary>
-Here is where the configuration for our servo example goes. Once we connect to the **Base Port**, we will pass a configuration to the servo driver. With this we can choose the pin we want to edit and the angle to set for it. This example will send random numbers to any servo attached to pin 0. This example has a `moveServo()` function that calls itself to send random angles to your servo.
-
+<details open="">
+<p><summary style="font-size: 1.75rem; font-weight: 300;">Base Port</summary>
+Here is where the configuration for our servo example goes. Once we connect to the <strong>Base Port</strong>, we will pass a configuration to the servo driver. With this we can choose the pin we want to edit and the angle to set for it. This example will send random numbers to any servo attached to pin 0. This example has a <code>moveServo()</code> function that calls itself to send random angles to your servo.</p>
 <div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">send_servo_command</span><span class="p">(</span><span class="n">pin</span><span class="p">):</span>
     <span class="c1"># Define zmq socket</span>
     <span class="n">context</span> <span class="o">=</span> <span class="n">zmq</span><span class="o">.</span><span class="n">Context</span><span class="p">()</span>
@@ -543,25 +541,23 @@ Here is where the configuration for our servo example goes. Once we connect to t
     <span class="c1"># Initial moveServo call</span>
     <span class="n">moveServo</span><span class="p">(</span><span class="mi">180</span><span class="p">)</span>
 </pre></div>
-</details>
 
+</details>
 <!-- Error PORT -->
 
-<details open>
-<summary style="font-size: 1.75rem; font-weight: 300;">Error Port</summary>
-The **Error Port** connection is taken care of by the `utils import`. Below we define a function to be called and given any error messages that occur within MATRIX CORE.
+<details open="">
+<p><summary style="font-size: 1.75rem; font-weight: 300;">Error Port</summary>
+The <strong>Error Port</strong> connection is taken care of by the <code>utils import</code>. Below we define a function to be called and given any error messages that occur within MATRIX CORE.
 <div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">servo_error_callback</span><span class="p">(</span><span class="n">error</span><span class="p">):</span>
     <span class="c1"># Log error</span>
     <span class="k">print</span><span class="p">(</span><span class="s1">&#39;{0}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">error</span><span class="p">))</span>
-</pre></div>
+</pre></div></p>
 </details>
-
 <!-- Start Process -->
 
-<details open>
-<summary style="font-size: 1.75rem; font-weight: 300;">Start Processes</summary>
-This is where we begin the asynchronous events for each of the driver ports used and where we define the functions we want to use for each port.
-
+<details open="">
+<p><summary style="font-size: 1.75rem; font-weight: 300;">Start Processes</summary>
+This is where we begin the asynchronous events for each of the driver ports used and where we define the functions we want to use for each port.</p>
 <div class="codehilite"><pre><span></span><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
     <span class="c1"># Initiate asynchronous events</span>
     <span class="n">ioloop</span><span class="o">.</span><span class="n">install</span><span class="p">()</span>
@@ -574,6 +570,7 @@ This is where we begin the asynchronous events for each of the driver ports used
     <span class="k">except</span> <span class="ne">KeyboardInterrupt</span><span class="p">:</span>
         <span class="k">print</span><span class="p">(</span><span class="s1">&#39; quit&#39;</span><span class="p">)</span>
 </pre></div>
+
 </details> 
         </div>
         <div class="toc-parent col-lg-2 col-md-3">
