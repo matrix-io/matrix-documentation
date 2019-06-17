@@ -4,7 +4,7 @@ docs_dir: docs
 markdown_extensions:
   - codehilite
   - pymdownx.superfences
-  # - pymdownx.details
+  - pymdownx.extrarawhtml
 theme_dir: matrix
 pages:
 - Overview: 'index.md'

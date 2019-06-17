@@ -28,7 +28,7 @@ These header files are required to use the pressure sensor.
 #include "matrix_hal/matrixio_bus.h"
 ```
 
-<details open>
+<details markdown="1" open>
 <summary style="font-size: 1.75rem; font-weight: 300;">PressureData</summary>
 `PressureData` is a required **object** that contains the pressure sensor's supported data parameters.
 
@@ -49,7 +49,7 @@ float temperature = pressure_data.temperature;
 ```
 </details>
 
-<details open>
+<details markdown="1" open>
 <summary style="font-size: 1.75rem; font-weight: 300;">PressureSensor</summary>
 `PressureSensor` is a required **object** that contains functions to interface with the pressure sensor.
 
@@ -59,7 +59,7 @@ matrix_hal::PressureSensor pressure_sensor;
 ```
 The functions below are part of `PressureSensor`.
 
-<details>
+<details markdown="1">
 <summary style="font-size: 1.5rem; font-weight: 300;">.Setup</summary>
 `Setup` is a **function** that takes a `MatrixIOBus` object as a parameter and sets that object as the bus to use for communicating with MATRIX device.
 
@@ -74,7 +74,7 @@ pressure_sensor.Setup(&bus);
 ```
 </details>
 
-<details>
+<details markdown="1">
 <summary style="font-size: 1.5rem; font-weight: 300;">.Read</summary>
 `Read` is a **function** that takes a `PressureData` object as a parameter and writes the current pressure sensor data into the `PressureData` object.
 

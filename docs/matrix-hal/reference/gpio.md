@@ -31,7 +31,7 @@ These header files are required to use GPIO.
 #include "matrix_hal/matrixio_bus.h"
 ```
 
-<details open>
+<details markdown="1" open>
 <summary style="font-size: 1.75rem; font-weight: 300;">GPIOControl</summary>
 `GPIOControl` is a required **object** that contains functions to interface with GPIO.
 
@@ -42,7 +42,7 @@ matrix_hal::GPIOControl gpio;
 
 The functions below are part of `GPIOControl`.
 
-<details>
+<details markdown="1">
 <summary style="font-size: 1.5rem; font-weight: 300;">.Setup</summary>
 `Setup` is a **function** that takes a `MatrixIOBus` object as a parameter and sets that object as the bus to use for communicating with MATRIX device.
 
@@ -58,7 +58,7 @@ gpio.Setup(&bus);
 
 </details>
 
-<details>
+<details markdown="1">
 <summary style="font-size: 1.5rem; font-weight: 300;">.Banks</summary>
 `Banks` is a **function** that returns a `banks_` array of `GPIOBank` objects.
 
@@ -74,7 +74,7 @@ gpio.Banks(index);
 
 </details>
 
-<details>
+<details markdown="1">
 <summary style="font-size: 1.5rem; font-weight: 300;">.SetMode</summary>
 `SetMode` is a **function** that sets GPIO pin(s) to output or input.
 `SetMode` is overloaded, and there are two definitions for the function.
@@ -114,7 +114,7 @@ gpio.SetMode(outputPinList, sizeof(outputPinList), 1);
 
 </details>
 
-<details>
+<details markdown="1">
 <summary style="font-size: 1.5rem; font-weight: 300;">.SetFunction</summary>
 `SetFunction` is a **function** that sets a single GPIO pin to I/O or PWM mode.
 
@@ -132,7 +132,7 @@ gpio.SetFunction(0, 1);
 
 </details>
 
-<details>
+<details markdown="1">
 <summary style="font-size: 1.5rem; font-weight: 300;">.GetGPIOValue</summary>
 `GetGPIOValue` is a **function** that returns a GPIO value.
 
@@ -148,7 +148,7 @@ bool value = gpio.GetGPIOValue(0);
 
 </details>
 
-<details>
+<details markdown="1">
 <summary style="font-size: 1.5rem; font-weight: 300;">.GetGPIOValues</summary>
 `GetGPIOValues` is a **function** that returns all GPIO values, each bit of the returned 16bit integer represents a pin.
 
@@ -164,7 +164,7 @@ uint16_t values = gpio.GetGPIOValues();
 
 </details>
 
-<details>
+<details markdown="1">
 <summary style="font-size: 1.5rem; font-weight: 300;">.SetGPIOValue</summary>
 `SetGPIOValue` is a **function** that sets a GPIO value.
 
@@ -182,7 +182,7 @@ gpio.SetGPIOValue(0, 0);
 
 </details>
 
-<details>
+<details markdown="1">
 <summary style="font-size: 1.5rem; font-weight: 300;">.SetGPIOValues</summary>
 `SetGPIOValues` is a **function** that sets multiple GPIO values.
 
@@ -203,7 +203,7 @@ gpio.SetGPIOValues(offPinList, sizeof(offPinList), 0);
 
 </details>
 
-<details>
+<details markdown="1">
 <summary style="font-size: 1.5rem; font-weight: 300;">.SetPrescaler</summary>
 `SetPrescaler` is a **function** that sets the prescaler for the FPGA clock.
 
@@ -220,7 +220,7 @@ gpio.SetPrescaler(0, 5);
 
 </details>
 
-<details>
+<details markdown="1">
 <summary style="font-size: 1.5rem; font-weight: 300;">.Set9GServoAngle</summary>
 `Set9GServoAngle` is a **function** that sets a servo angle. It is based on SG90 servo calibration.
 
@@ -236,7 +236,7 @@ gpio.SetPrescaler(70, 0);
 
 </details>
 
-<details>
+<details markdown="1">
 <summary style="font-size: 1.5rem; font-weight: 300;">.SetServoAngle</summary>
 `SetServoAngle` is a **function** that sets a servo angle. It is based on the min_pulse_ms entered.
 
@@ -253,7 +253,7 @@ gpio.SetServoAngle(70, 0.8, 0);
 
 </details>
 
-<details>
+<details markdown="1">
 <summary style="font-size: 1.5rem; font-weight: 300;">.SetPWM</summary>
 `SetPWM` is a **function** that sets a PWM output.
 
@@ -270,7 +270,7 @@ gpio.SetPWM(50, 25, 0);
 </details>
 </details>
 
-<details open>
+<details markdown="1" open>
 <summary style="font-size: 1.75rem; font-weight: 300;">GPIOBank</summary>
 `GPIOBank` is an **object** that contains functions to interface with GPIO PWM. `GPIOControl` contains an array of `GPIOBank` objects, called `banks`_
 
@@ -278,7 +278,7 @@ PWM Frequency is set by bank. A bank is a set of 4 pins, starting from pin 0 and
 
 The functions below are part of `GPIOBank`.
 
-<details>
+<details markdown="1">
 <summary style="font-size: 1.5rem; font-weight: 300;">.SetPeriod</summary>
 `SetPeriod` is a **function** that sets the PWM period.
 
@@ -294,7 +294,7 @@ gpio.Banks(0).SetPeriod(50000);
 
 </details>
 
-<details>
+<details markdown="1">
 <summary style="font-size: 1.5rem; font-weight: 300;">.SetDuty</summary>
 `SetDuty` is a **function** that sets the PWM duty.
 
@@ -310,7 +310,7 @@ gpio.Banks(0).SetDuty(0, 10000);
 
 </details>
 
-<details>
+<details markdown="1">
 <summary style="font-size: 1.5rem; font-weight: 300;">.SetupTimer</summary>
 >Under Maintenance
 
@@ -323,7 +323,7 @@ bool SetupTimer(uint16_t channel, uint16_t init_event, uint16_t final_event);
 
 </details>
 
-<details>
+<details markdown="1">
 <summary style="font-size: 1.5rem; font-weight: 300;">.GetTimerCounter</summary>
 >Under Maintenance
 

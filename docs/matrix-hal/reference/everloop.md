@@ -26,7 +26,7 @@ These header files are required to use the Everloop.
 #include "matrix_hal/matrixio_bus.h"
 ```
 
-<details open>
+<details markdown="1" open>
 <summary style="font-size: 1.75rem; font-weight: 300;">EverloopImage</summary>
 `EverloopImage` is a required **object** that contains an array of `LedValue` objects.
 The `EverloopImage` constructor takes in an integer representing the amount of RGBW leds your MATRIX device has.
@@ -57,7 +57,7 @@ for (matrix_hal::LedValue &led : everloop_image.leds) {
 
 </details>
 
-<details open>
+<details markdown="1" open>
 <summary style="font-size: 1.75rem; font-weight: 300;">Everloop</summary>
 `Everloop` is a required **object** that contains functions to interface with the Everloop on the MATRIX device.
 
@@ -68,7 +68,7 @@ matrix_hal::Everloop everloop;
 
 The functions below are part of `Everloop`.
 
-<details>
+<details markdown="1">
 <summary style="font-size: 1.5rem; font-weight: 300;">.Setup</summary>
 `Setup` is a **function** that takes `MatrixIOBus` object as parameter and sets that object as the bus to use for communicating with MATRIX device.
 
@@ -84,7 +84,7 @@ everloop.Setup(&bus);
 
 </details>
 
-<details>
+<details markdown="1">
 <summary style="font-size: 1.5rem; font-weight: 300;">.Write</summary>
 `Write` is a **function** that takes an `EverloopImage` object as a parameter and updates the Everloop on the MATRIX device.
 

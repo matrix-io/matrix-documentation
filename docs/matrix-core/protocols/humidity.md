@@ -21,7 +21,7 @@ The Humidity driver allows for:
 ## Protocol
 
 <!-- Base PORT -->
-<details open>
+<details markdown="1" open>
 <summary style="font-size: 1.75rem; font-weight: 300;">Base Port</summary>
 This port accepts three configurations for communicating with the Humidity driver. 
 
@@ -58,19 +58,19 @@ View the defined message <a href="https://github.com/matrix-io/protocol-buffers/
 
 
 <!-- Keep-alive PORT -->
-<details open>
+<details markdown="1" open>
 <summary style="font-size: 1.75rem; font-weight: 300;">Keep-alive Port</summary>
 This driver needs keep-alive messages in order to send data to your application. It's recommended to send an empty string `""` because the contents of a keep-alive message are never read.
 </details>
 
 <!-- Error PORT -->
-<details open>
+<details markdown="1" open>
 <summary style="font-size: 1.75rem; font-weight: 300;">Error Port</summary>
 Applications can subscribe to this port to receive driver related errors.
 </details>
 
 <!-- Data Update PORT -->
-<details open>
+<details markdown="1" open>
 <summary style="font-size: 1.75rem; font-weight: 300;">Data Update Port</summary>
 Applications can subscribe to this port for humidity data. The output will be a serialized message of type `Humidity` with the following information.
 
