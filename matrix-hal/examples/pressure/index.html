@@ -531,7 +531,7 @@ Now we will create our <code>PressureData</code> and <code>PressureSensor</code>
     <span class="n">pressure_sensor</span><span class="p">.</span><span class="n">Read</span><span class="p">(</span><span class="o">&amp;</span><span class="n">pressure_data</span><span class="p">);</span>
     <span class="c1">// Altitude output is represented in meters</span>
     <span class="kt">float</span> <span class="n">altitude</span> <span class="o">=</span> <span class="n">pressure_data</span><span class="p">.</span><span class="n">altitude</span><span class="p">;</span>
-    <span class="c1">// Pressure output is represented in kPa</span>
+    <span class="c1">// Pressure output is represented in Pa</span>
     <span class="kt">float</span> <span class="n">pressure</span> <span class="o">=</span> <span class="n">pressure_data</span><span class="p">.</span><span class="n">pressure</span><span class="p">;</span>
     <span class="c1">// Temperature output is represented in Celsius</span>
     <span class="kt">float</span> <span class="n">temperature</span> <span class="o">=</span> <span class="n">pressure_data</span><span class="p">.</span><span class="n">temperature</span><span class="p">;</span>
@@ -540,7 +540,7 @@ Now we will create our <code>PressureData</code> and <code>PressureSensor</code>
     <span class="c1">// Output sensor data to console</span>
     <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot; [ Pressure Sensor Output ]&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
     <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot; [ Altitude (m) : &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">altitude</span>
-              <span class="o">&lt;&lt;</span> <span class="s">&quot; ] [ Pressure (kPa) : &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">pressure</span>
+              <span class="o">&lt;&lt;</span> <span class="s">&quot; ] [ Pressure (Pa) : &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">pressure</span>
               <span class="o">&lt;&lt;</span> <span class="s">&quot; ] [ Temperature (Celsius) : &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">temperature</span> <span class="o">&lt;&lt;</span> <span class="s">&quot; ]&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
 
     <span class="c1">// Sleep for 20000 microseconds</span>
