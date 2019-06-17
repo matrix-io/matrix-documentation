@@ -28,7 +28,7 @@ These header files are required to use the IMU sensor.
 #include "matrix_hal/matrixio_bus.h"
 ```
 
-<details open>
+<details markdown="1" open>
 <summary style="font-size: 1.75rem; font-weight: 300;">IMUData</summary>
 `IMUData` is a required **object** that contains the IMU sensor's supported data parameters.
 
@@ -60,7 +60,7 @@ float mag_Z = imu_data.mag_z; // Z-axis points upward
 
 </details>
 
-<details open>
+<details markdown="1" open>
 <summary style="font-size: 1.75rem; font-weight: 300;">IMUSensor</summary>
 `IMUSensor` is a required **object** that contains functions to interface with the IMU sensor.
 
@@ -71,7 +71,7 @@ matrix_hal::IMUSensor imu_sensor;
 
 The functions below are part of `IMUSensor`.
 
-<details>
+<details markdown="1">
 <summary style="font-size: 1.5rem; font-weight: 300;">.Setup</summary>
 `Setup` is a **function** that takes a `MatrixIOBus` object as a parameter and sets that object as the bus to use for communicating with MATRIX device.
 
@@ -87,7 +87,7 @@ imu_sensor.Setup(&bus);
 
 </details>
 
-<details>
+<details markdown="1">
 <summary style="font-size: 1.5rem; font-weight: 300;">.Read</summary>
 `Read` is a **function** that takes an `IMUData` object as a parameter and writes the current IMU sensor data into the `IMUData` object.
 

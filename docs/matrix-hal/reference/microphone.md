@@ -26,7 +26,7 @@ These header files are required to use the microphone array.
 #include "matrix_hal/matrixio_bus.h"
 ```
 
-<details open>
+<details markdown="1" open>
 <summary style="font-size: 1.75rem; font-weight: 300;">MicrophoneArray</summary>
 `MicrophoneArray` is a required **object** that contains functions to interface with the microphone array .
 
@@ -37,7 +37,7 @@ matrix_hal::MicrophoneArray microphone_array;
 
 The functions below are part of `MicrophoneArray`.
 
-<details>
+<details markdown="1">
 <summary style="font-size: 1.5rem; font-weight: 300;">.Setup</summary>
 `Setup` is a **function** that takes a `MatrixIOBus` object as a parameter and sets that object as the bus to use for communicating with MATRIX device.
 
@@ -52,7 +52,7 @@ microphone_array.Setup(&bus);
 ```
 </details>
 
-<details>
+<details markdown="1">
 <summary style="font-size: 1.5rem; font-weight: 300;">.Read</summary>
 `Read` is a **function** that outputs microphone array data to the `delayed_data_` array and the `beamformed_` array in the `MicrophoneArray` object.
 
@@ -67,7 +67,7 @@ microphone_array.Read();
 ```
 </details>
 
-<details>
+<details markdown="1">
 <summary style="font-size: 1.5rem; font-weight: 300;">.SamplingRate</summary>
 `SamplingRate` is a **function** that returns the `sampling_frequency_` value in the `MicrophoneArray` object.
 
@@ -82,7 +82,7 @@ uint32_t SamplingRate = microphone_array.SamplingRate();
 ```
 </details>
 
-<details>
+<details markdown="1">
 <summary style="font-size: 1.5rem; font-weight: 300;">.Gain</summary>
 `Gain` is a **function** that returns the `gain_` value in the `MicrophoneArray` object.
 
@@ -97,7 +97,7 @@ uint32_t Gain = microphone_array.Gain();
 ```
 </details>
 
-<details>
+<details markdown="1">
 <summary style="font-size: 1.5rem; font-weight: 300;">.SetSamplingRate</summary>
 `SetSamplingRate` is a **function** that sets the `sampling_frequency_` value in the `MicrophoneArray` object and sends it to the microphone array.
 
@@ -112,7 +112,7 @@ microphone_array.SetSamplingRate(sampling_rate);
 ```
 </details>
 
-<details>
+<details markdown="1">
 <summary style="font-size: 1.5rem; font-weight: 300;">.SetGain</summary>
 `SetGain` is a **function** that sets the `gain_` value in the `MicrophoneArray` object and sends it to the microphone array.
 
@@ -127,7 +127,7 @@ microphone_array.SetGain(gain);
 ```
 </details>
 
-<details>
+<details markdown="1">
 <summary style="font-size: 1.5rem; font-weight: 300;">.GetSamplingRate</summary>
 `GetSamplingRate` is a **function** that gets the sampling rate value from the microphone array and saves it in the `MicrophoneArray` object as value `sampling_frequency_`.
 
@@ -142,7 +142,7 @@ microphone_array.GetSamplingRate();
 ```
 </details>
 
-<details>
+<details markdown="1">
 <summary style="font-size: 1.5rem; font-weight: 300;">.GetGain</summary>
 `GetGain` is a **function** that gets the gain value from the microphone array and saves it in the `MicrophoneArray` object as value `gain_`.
 
@@ -157,7 +157,7 @@ microphone_array.GetGain();
 ```
 </details>
 
-<details>
+<details markdown="1">
 <summary style="font-size: 1.5rem; font-weight: 300;">.ReadConfValues</summary>
 `ReadConfValues` is a **function** that runs both the `GetGain` and `GetSamplingRate` functions. 
 This updates the `gain_` and the `sampling_frequency_` values in the `MicrophoneArray' object with values from the microphone array.
@@ -173,7 +173,7 @@ microphone_array.ReadConfValues();
 ```
 </details>
 
-<details>
+<details markdown="1">
 <summary style="font-size: 1.5rem; font-weight: 300;">.ShowConfiguration</summary>
 `ShowConfiguration` is a **function** that outputs the `gain_` and `sampling_frequency_` values in the `MicrophoneArray' object.
 
@@ -195,7 +195,7 @@ std::cout << "Gain : " << gain_ << std::endl;
 ```
 </details>
 
-<details>
+<details markdown="1">
 <summary style="font-size: 1.5rem; font-weight: 300;">.Channels</summary>
 `Channels` is a **function** that returns the number of microphone channels.
 
@@ -210,7 +210,7 @@ uint16_t Channels = microphone_array.Channels();
 ```
 </details>
 
-<details>
+<details markdown="1">
 <summary style="font-size: 1.5rem; font-weight: 300;">.NumberOfSamples</summary>
 `NumberOfSamples` is a **function** that returns the number of samples.
 
@@ -227,7 +227,7 @@ uint16_t SampleAmount = microphone_array.NumberOfSamples();
 ```
 </details>
 
-<details>
+<details markdown="1">
 <summary style="font-size: 1.5rem; font-weight: 300;">.At</summary>
 `At` is a **function** that returns microphone data from the `delayed_data_` array. The `Read` function populates the `delayed_data_` array.
 
@@ -244,7 +244,7 @@ int16_t sample = microphone_array.At(s, c);
 ```
 </details>
 
-<details>
+<details markdown="1">
 <summary style="font-size: 1.5rem; font-weight: 300;">.Beam</summary>
 `Beam` is a **function** that returns beamformed microphone data from the `beamformed_` array. The `Read` function populates the `beamformed_` array.
 
@@ -259,7 +259,7 @@ int16_t sample = microphone_array.Beam(s);
 ```
 </details>
 
-<details>
+<details markdown="1">
 <summary style="font-size: 1.5rem; font-weight: 300;">.CalculateDelays</summary>
 `CalculateDelays` is a **function** that calculates and sets up delays for beamforming.
 
@@ -278,7 +278,7 @@ microphone_array.CalculateDelays(0, 0, 1000, 320 * 1000);
 
 </details>
 
-<details open>
+<details markdown="1" open>
 <summary style="font-size: 1.75rem; font-weight: 300;">MicrophoneCore</summary>
 `MicrophoneCore` is an optional **object** that contains functions to enable using a <a href="https://en.wikipedia.org/wiki/Finite_impulse_response" target="_blank">FIR</a> filter with microphone array. It accepts a `MicrophoneArray` object in it's constructor.
 
@@ -294,7 +294,7 @@ matrix_hal::MicrophoneCore microphone_core(microphone_array);
 
 The functions below are part of `MicrophoneCore`.
 
-<details>
+<details markdown="1">
 <summary style="font-size: 1.5rem; font-weight: 300;">.Setup</summary>
 `Setup` is a **function** that takes a `MatrixIOBus` object as a parameter and sets that object as the bus to use for communicating with MATRIX device. It also sets up the FIR filter by calling `SelectFIRCoeff(&FIR_default[0])`.
 
@@ -309,7 +309,7 @@ microphone_core.Setup(&bus);
 ```
 </details>
 
-<details>
+<details markdown="1">
 <summary style="font-size: 1.5rem; font-weight: 300;">.SetFIRCoeff</summary>
 `SetFIRCoeff` is a **function** that sends the `fir_coeff_` array in the `MicrophoneCore` object to the FPGA.
 
@@ -324,7 +324,7 @@ microphone_core.SetFIRCoeff();
 ```
 </details>
 
-<details>
+<details markdown="1">
 <summary style="font-size: 1.5rem; font-weight: 300;">.SetCustomFIRCoeff</summary>
 `SetCustomFIRCoeff` is a **function** that sets the `fir_coeff_` array in the `MicrophoneCore` object.
 
@@ -340,7 +340,7 @@ microphone_core.SetCustomFIRCoeff(custom_fir);
 ```
 </details>
 
-<details>
+<details markdown="1">
 <summary style="font-size: 1.5rem; font-weight: 300;">.SelectFIRCoeff</summary>
 `SelectFIRCoeff` is a **function** that sets the `fir_coeff_` array in the `MicrophoneCore` object. 
 
@@ -366,7 +366,7 @@ microphone_core.SelectFIRCoeff(&FIR_default[0]);
 ```
 </details>
 
-<details>
+<details markdown="1">
 <summary style="font-size: 1.5rem; font-weight: 300;">Provided FIR Filters</summary>
 A FIR filter is provided in `matrix_hal/microphone_core_fir.h`.
 

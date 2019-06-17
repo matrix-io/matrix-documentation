@@ -23,7 +23,7 @@ The Everloop driver allows for:
 The following sections show how to implement a connection to each of the Everloop driver's ports. You can download this example <a href="https://github.com/matrix-io/matrix-core-examples/blob/master/python/everloop.py" target="_blank">here</a>.
 
 <!-- Initial Variables -->
-<details open>
+<details markdown="1" open>
 <summary style="font-size: 1.75rem; font-weight: 300;">Initial Variables</summary>
 Before we go into connecting to each port, the variables defined below are needed in order to access the ZeroMQ and MATRIX Protocol Buffer libraries for Python. We also define a few helpful variables for easy references.
 ```python
@@ -45,7 +45,7 @@ from utils import register_error_callback
 </details>
 
 <!-- Base PORT -->
-<details open>
+<details markdown="1" open>
 <summary style="font-size: 1.75rem; font-weight: 300;">Base Port</summary>
 Here is where the configuration for our Everloop example goes. Once we connect to the **Base Port**, we will pass a configuration to the Everloop driver. With this we can set the LED configuration. The `while True` loop is used to show how you can rapidly push different LED colors.
 ```python
@@ -83,7 +83,7 @@ def config_socket(ledCount):
 </details>
 
 <!-- Keep-alive PORT -->
-<details open>
+<details markdown="1" open>
 <summary style="font-size: 1.75rem; font-weight: 300;">Keep-alive Port</summary>
 The next step is to connect and send a message to the **Keep-alive Port**. That message will grant us a response from the **Data Update Port** for the current LED count of your MATRIX device. The code below will give only send one ping because LED count will not change.
 ```python
@@ -100,7 +100,7 @@ def ping_socket():
 </details>
 
 <!-- Error PORT -->
-<details open>
+<details markdown="1" open>
 <summary style="font-size: 1.75rem; font-weight: 300;">Error Port</summary>
 The **Error Port** connection is taken care of by the `utils import`. Below we define a function to be called and given any error messages that occur within MATRIX CORE.
 ```python
@@ -111,7 +111,7 @@ def everloop_error_callback(error):
 </details>
 
 <!-- Data Update PORT -->
-<details open>
+<details markdown="1" open>
 <summary style="font-size: 1.75rem; font-weight: 300;">Data Update Port</summary>
 A connection to the **Data Update Port** will allow us to receive the current LED count on your MATRIX device. Once we connect to the port, the `updateLedCount` function will pass the LED count to a global variable and then close the connection the **Data-update Port**.
 
@@ -156,7 +156,7 @@ green: 18
 </details>
 
 <!-- Start Process -->
-<details open>
+<details markdown="1" open>
 <summary style="font-size: 1.75rem; font-weight: 300;">Start Processes</summary>
 This is where we begin the asynchronous events for each of the driver ports and where we define the functions we want to use for each port. This example is only using the **Error Port** connection asynchronously because the **Keep-alive Port** and **Data-update Port** are only used once.
 

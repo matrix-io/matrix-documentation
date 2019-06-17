@@ -24,7 +24,7 @@ These header files are required to use the UV sensor.
 #include "matrix_hal/matrixio_bus.h"
 ```
 
-<details open>
+<details markdown="1" open>
 <summary style="font-size: 1.75rem; font-weight: 300;">UVData</summary>
 `UVData` is a required **object** that contains the UV sensor's supported data parameters.
 
@@ -41,7 +41,7 @@ float UV = uv_data.uv;
 ```
 </details>
 
-<details open>
+<details markdown="1" open>
 <summary style="font-size: 1.75rem; font-weight: 300;">UVSensor</summary>
 `UVSensor` is a required **object** that contains functions to interface with the UV sensor.
 
@@ -51,7 +51,7 @@ matrix_hal::UVSensor uv_sensor;
 ```
 The functions below are part of `UVSensor`.
 
-<details>
+<details markdown="1">
 <summary style="font-size: 1.5rem; font-weight: 300;">.Setup</summary>
 `Setup` is a **function** that takes a `MatrixIOBus` object as a parameter and sets that object as the bus to use for communicating with MATRIX device.
 
@@ -66,7 +66,7 @@ uv_sensor.Setup(&bus);
 ```
 </details>
 
-<details>
+<details markdown="1">
 <summary style="font-size: 1.5rem; font-weight: 300;">.Read</summary>
 `Read` is a **function** that takes a `UVData` object as a parameter and writes the current humidity sensor data into the `UVData` object.
 

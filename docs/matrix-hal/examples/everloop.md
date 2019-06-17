@@ -24,7 +24,7 @@ The command below will compile each example. Be sure to pass in your C++ file an
 g++ -o YOUR_OUTPUT_FILE YOUR_CPP_FILE -std=c++11 -lmatrix_creator_hal
 ```
 
-<details>
+<details markdown="1">
 <summary style="font-size: 1.75rem; font-weight: 300;">Everloop Green</summary>
 The following section shows how to set the Everloop to green. You can download this example <a href="https://github.com/matrix-io/matrix-hal-examples/blob/master/everloop/everloop_green.cpp" target="_blank">here</a>.
 
@@ -32,7 +32,7 @@ The following section shows how to set the Everloop to green. You can download t
 
 ![](/matrix-hal/img/everloop_green.jpg)
 
-<details open>
+<details markdown="1" open>
 <summary style="font-size: 1.5rem; font-weight: 300;">Include Statements</summary>
 To begin working with the Everloop you need to include these header files.
 
@@ -52,7 +52,7 @@ To begin working with the Everloop you need to include these header files.
 
 </details>
 
-<details open>
+<details markdown="1" open>
 <summary style="font-size: 1.5rem; font-weight: 300;">Initial Setup</summary>
 You'll then need to setup `MatrixIOBus` in order to communicate with the hardware on your MATRIX device.
 
@@ -66,7 +66,7 @@ int main() {
 
 </details>
 
-<details open>
+<details markdown="1" open>
 <summary style="font-size: 1.5rem; font-weight: 300;">Main Setup</summary>
 Now we will create our `EverloopImage` and `Everloop` object and use it to set the Everloop to green for 10 seconds.
 
@@ -124,7 +124,7 @@ Now we will create our `EverloopImage` and `Everloop` object and use it to set t
 
 </details>
 
-<details>
+<details markdown="1">
 <summary style="font-size: 1.75rem; font-weight: 300;">Everloop Yellow/Purple</summary>
 The following section shows how to set the Everloop to yellow and purple (with color blending). You can download this example <a href="https://github.com/matrix-io/matrix-hal-examples/blob/master/everloop/everloop_yellow_purple.cpp" target="_blank">here</a>.
 
@@ -132,7 +132,7 @@ The following section shows how to set the Everloop to yellow and purple (with c
 
 ![](/matrix-hal/img/everloop_yellow_purple.jpg)
 
-<details open>
+<details markdown="1" open>
 <summary style="font-size: 1.5rem; font-weight: 300;">Include Statements</summary>
 To begin working with the Everloop you need to include these header files.
 
@@ -152,7 +152,7 @@ To begin working with the Everloop you need to include these header files.
 
 </details>
 
-<details open>
+<details markdown="1" open>
 <summary style="font-size: 1.5rem; font-weight: 300;">Initial Setup</summary>
 You'll then need to setup `MatrixIOBus` in order to communicate with the hardware on your MATRIX device.
 
@@ -166,7 +166,7 @@ int main() {
 
 </details>
 
-<details open>
+<details markdown="1" open>
 <summary style="font-size: 1.5rem; font-weight: 300;">Main Setup</summary>
 Now we will create our `EverloopImage` and `Everloop` object and use it to set the Everloop to yellow and purple for 10 seconds.
 
@@ -231,7 +231,7 @@ Now we will create our `EverloopImage` and `Everloop` object and use it to set t
 
 </details>
 
-<details>
+<details markdown="1">
 <summary style="font-size: 1.75rem; font-weight: 300;">Everloop Rainbow</summary>
 The following section shows how to set the Everloop to rainbow. You can download this example <a href="https://github.com/matrix-io/matrix-hal-examples/blob/master/everloop/everloop_rainbow.cpp" target="_blank">here</a>.
 
@@ -239,7 +239,7 @@ The following section shows how to set the Everloop to rainbow. You can download
 
 ![](/matrix-hal/img/everloop_rainbow.gif)
 
-<details open>
+<details markdown="1" open>
 <summary style="font-size: 1.5rem; font-weight: 300;">Include Statements</summary>
 To begin working with the Everloop you need to include these header files.
 
@@ -261,7 +261,7 @@ To begin working with the Everloop you need to include these header files.
 
 </details>
 
-<details open>
+<details markdown="1" open>
 <summary style="font-size: 1.5rem; font-weight: 300;">Initial Setup</summary>
 You'll then need to setup `MatrixIOBus` in order to communicate with the hardware on your MATRIX device.
 
@@ -275,7 +275,7 @@ int main() {
 
 </details>
 
-<details open>
+<details markdown="1" open>
 <summary style="font-size: 1.5rem; font-weight: 300;">Main Setup</summary>
 Now we will create our `EverloopImage` and `Everloop` object and use it to set the Everloop to rainbow for 10 seconds.
 
@@ -355,7 +355,7 @@ Now we will create our `EverloopImage` and `Everloop` object and use it to set t
 
 </details>
 
-<details>
+<details markdown="1">
 <summary style="font-size: 1.75rem; font-weight: 300;">Everloop Moving Dots</summary>
 The following section shows how to set the Everloop to moving dots. You can download this example <a href="https://github.com/matrix-io/matrix-hal-examples/blob/master/everloop/everloop_moving_dots.cpp" target="_blank">here</a>.
 
@@ -363,7 +363,7 @@ The following section shows how to set the Everloop to moving dots. You can down
 
 ![](/matrix-hal/img/everloop_moving_dots.gif)
 
-<details open>
+<details markdown="1" open>
 <summary style="font-size: 1.5rem; font-weight: 300;">Include Statements</summary>
 To begin working with the Everloop you need to include these header files.
 
@@ -385,7 +385,7 @@ To begin working with the Everloop you need to include these header files.
 
 </details>
 
-<details open>
+<details markdown="1" open>
 <summary style="font-size: 1.5rem; font-weight: 300;">Initial Setup</summary>
 You'll then need to setup `MatrixIOBus` in order to communicate with the hardware on your MATRIX device.
 
@@ -399,7 +399,7 @@ int main() {
 
 </details>
 
-<details open>
+<details markdown="1" open>
 <summary style="font-size: 1.5rem; font-weight: 300;">Main Setup</summary>
 Now we will create our `EverloopImage` and `Everloop` object and use it to set the Everloop to moving dots for 10 seconds.
 

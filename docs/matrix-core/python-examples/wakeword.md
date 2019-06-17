@@ -25,7 +25,7 @@ The following sections show how to implement a connection to each of the IMU dri
 > Before moving on, please take a look at the Wakeword driver's protocol page and follow the [Installation](./../protocols/wakeword#installation) & [Creating Custom Phrases](./../protocols/wakeword#installation#creating-custom-phrases) sections.
 
 <!-- Initial Variables -->
-<details open>
+<details markdown="1" open>
 <summary style="font-size: 1.75rem; font-weight: 300;">Initial Variables</summary>
 Before we go into connecting to each port, the variables defined below are needed in order to access the ZeroMQ and MATRIX Protocol Buffer libraries for Python. We also define a few helpful variables and the path for our <a href="http://www.speech.cs.cmu.edu/tools/lmtool-new.html" target="_blank">Sphinx Knowledge Base</a> files.
 ```python
@@ -48,7 +48,7 @@ DIC_PATH = 'INSERT_PATH_TO_YOUR_FILE.dic'# Dictation File
 </details>
 
 <!-- Base PORT -->
-<details open>
+<details markdown="1" open>
 <summary style="font-size: 1.75rem; font-weight: 300;">Base Port</summary>
 Here is where the configuration for our wakeword example goes. Once we connect to the **Base Port**, we will pass a configuration to the Wakeword driver. With this we can set our wakeword configurations.
 ```python
@@ -78,7 +78,7 @@ def config_socket():
 </details>
 
 <!-- Keep-alive PORT -->
-<details open>
+<details markdown="1" open>
 <summary style="font-size: 1.75rem; font-weight: 300;">Keep-alive Port</summary>
 The next step is to connect and send a message to the **Keep-alive Port**. That message will grant us a response from the Data Update Port with the wake words that were understood.
 ```python
@@ -97,7 +97,7 @@ def ping_socket():
 </details>
 
 <!-- Error PORT -->
-<details open>
+<details markdown="1" open>
 <summary style="font-size: 1.75rem; font-weight: 300;">Error Port</summary>
 The **Error Port** connection is also taken care of by the `utils import`. Below we define a function to be called and given any error messages that occur within MATRIX CORE.
 > The Error Port is currently reporting false errors. 
@@ -109,7 +109,7 @@ def wakeword_error_callback(error):
 </details>
 
 <!-- Data Update PORT -->
-<details open>
+<details markdown="1" open>
 <summary style="font-size: 1.75rem; font-weight: 300;">Data Update Port</summary>
 A connection to the **Data Update Port** is then made to allow us to receive each custom phrase the Wakeword driver picks up.
 
@@ -135,7 +135,7 @@ wake_word: "MATRIX START"
 </details>
 
 <!-- Start Process -->
-<details open>
+<details markdown="1" open>
 <summary style="font-size: 1.75rem; font-weight: 300;">Start Processes</summary>
 This is where we begin the asynchronous events for each of the driver ports and where we define the functions we want to use for each port.
 

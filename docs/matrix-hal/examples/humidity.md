@@ -25,7 +25,7 @@ The command below will compile the example. Be sure to pass in your C++ file and
 g++ -o YOUR_OUTPUT_FILE YOUR_CPP_FILE -std=c++11 -lmatrix_creator_hal
 ```
 
-<details open>
+<details markdown="1" open>
 <summary style="font-size: 1.5rem; font-weight: 300;">Include Statements</summary>
 To begin working with the humidity sensor you need to include these header files.
 
@@ -45,7 +45,7 @@ To begin working with the humidity sensor you need to include these header files
 
 </details>
 
-<details open>
+<details markdown="1" open>
 <summary style="font-size: 1.5rem; font-weight: 300;">Initial Setup</summary>
 You'll then need to setup `MatrixIOBus` in order to communicate with the hardware on your MATRIX device.
 
@@ -59,7 +59,7 @@ int main() {
 
 </details>
 
-<details open>
+<details markdown="1" open>
 <summary style="font-size: 1.5rem; font-weight: 300;">Main Setup</summary>
 Now we will create our `HumidityData` and `HumiditySensor` object and use it to receive data from the humidity sensor.
 

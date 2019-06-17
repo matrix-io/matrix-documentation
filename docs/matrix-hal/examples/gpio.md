@@ -31,11 +31,11 @@ The command below will compile each example. Be sure to pass in your C++ file an
 g++ -o YOUR_OUTPUT_FILE YOUR_CPP_FILE -std=c++11 -lmatrix_creator_hal
 ```
 
-<details>
+<details markdown="1">
 <summary style="font-size: 1.75rem; font-weight: 300;">GPIO I/O</summary>
 The following section shows how to use GPIO in digital I/O mode for output and input. You can download this example <a href="https://github.com/matrix-io/matrix-hal-examples/blob/master/gpio/gpio_io.cpp" target="_blank">here</a>.
 
-<details open>
+<details markdown="1" open>
 <summary style="font-size: 1.5rem; font-weight: 300;">Include Statements</summary>
 To begin working with the GPIO you need to include these header files.
 
@@ -53,7 +53,7 @@ To begin working with the GPIO you need to include these header files.
 
 </details>
 
-<details open>
+<details markdown="1" open>
 <summary style="font-size: 1.5rem; font-weight: 300;">Initial Variables</summary>
 These initial variables are used in the example.
 
@@ -73,7 +73,7 @@ uint16_t pin_in;
 
 </details>
 
-<details open>
+<details markdown="1" open>
 <summary style="font-size: 1.5rem; font-weight: 300;">Initial Setup</summary>
 You'll then need to setup `MatrixIOBus` in order to communicate with the hardware on your MATRIX device.
 
@@ -87,7 +87,7 @@ int main() {
 
 </details>
 
-<details open>
+<details markdown="1" open>
 <summary style="font-size: 1.5rem; font-weight: 300;">Main Setup</summary>
 Now we will create our `GPIOControl` object and use it to output and input a digital GPIO signal.
 
@@ -145,11 +145,11 @@ Now we will create our `GPIOControl` object and use it to output and input a dig
 
 </details>
 
-<details>
+<details markdown="1">
 <summary style="font-size: 1.75rem; font-weight: 300;">GPIO PWM</summary>
 The following section shows how to use GPIO in PWM mode for PWM output. You can download this example <a href="https://github.com/matrix-io/matrix-hal-examples/blob/master/gpio/gpio_pwm.cpp" target="_blank">here</a>.
 
-<details open>
+<details markdown="1" open>
 <summary style="font-size: 1.5rem; font-weight: 300;">Include Statements</summary>
 To begin working with the GPIO you need to include these header files.
 
@@ -165,7 +165,7 @@ To begin working with the GPIO you need to include these header files.
 
 </details>
 
-<details open>
+<details markdown="1" open>
 <summary style="font-size: 1.5rem; font-weight: 300;">Initial Variables</summary>
 These initial variables are used in the example.
 
@@ -187,7 +187,7 @@ uint16_t pin;
 
 </details>
 
-<details open>
+<details markdown="1" open>
 <summary style="font-size: 1.5rem; font-weight: 300;">Initial Setup</summary>
 You'll then need to setup `MatrixIOBus` in order to communicate with the hardware on your MATRIX device.
 
@@ -201,7 +201,7 @@ int main() {
 
 </details>
 
-<details open>
+<details markdown="1" open>
 <summary style="font-size: 1.5rem; font-weight: 300;">Main Setup</summary>
 Now we will create our `GPIOControl` object and use it to output and input a digital GPIO signal.
 
@@ -249,11 +249,11 @@ Now we will create our `GPIOControl` object and use it to output and input a dig
 
 </details>
 
-<details>
+<details markdown="1">
 <summary style="font-size: 1.75rem; font-weight: 300;">GPIO Servo</summary>
 The following section shows how to use GPIO in PWM mode for controlling a servo. You can download this example <a href="https://github.com/matrix-io/matrix-hal-examples/blob/master/gpio/gpio_servo.cpp" target="_blank">here</a>.
 
-<details open>
+<details markdown="1" open>
 <summary style="font-size: 1.5rem; font-weight: 300;">Include Statements</summary>
 To begin working with the GPIO you need to include these header files.
 
@@ -269,7 +269,7 @@ To begin working with the GPIO you need to include these header files.
 
 </details>
 
-<details open>
+<details markdown="1" open>
 <summary style="font-size: 1.5rem; font-weight: 300;">Initial Variables</summary>
 These initial variables are used in the example.
 
@@ -296,7 +296,7 @@ float min_pulse_ms;
 
 </details>
 
-<details open>
+<details markdown="1" open>
 <summary style="font-size: 1.5rem; font-weight: 300;">Initial Setup</summary>
 You'll then need to setup `MatrixIOBus` in order to communicate with the hardware on your MATRIX device.
 
@@ -310,7 +310,7 @@ int main() {
 
 </details>
 
-<details open>
+<details markdown="1" open>
 <summary style="font-size: 1.5rem; font-weight: 300;">Main Setup</summary>
 Now we will create our `GPIOControl` object and use it to output and input a digital GPIO signal.
 
