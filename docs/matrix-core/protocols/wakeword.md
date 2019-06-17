@@ -50,88 +50,80 @@ matrix ring clear
 ## Protocol
 
 <!-- Base PORT -->
-<details markdown="1" open>
-<summary style="font-size: 1.75rem; font-weight: 300;">Base Port</summary>
-This port accepts a single configuration for communicating with the Wakeword driver. 
+???+ info "Base Port"
+    This port accepts a single configuration for communicating with the Wakeword driver. 
 
-* `wakeword` - the wakeword configuration that's created from a `WakeWordParams` message.
+    * `wakeword` - the wakeword configuration that's created from a `WakeWordParams` message.
 
-```protobuf
-message DriverConfig {
-  // Wakeword service configuration
-  matrix_io.malos.v1.io.WakeWordParams wakeword = 12;
-}
-```
-View the defined message <a href="https://github.com/matrix-io/protocol-buffers/blob/master/matrix_io/malos/v1/driver.proto" target="_blank">here</a>.
+    ```protobuf
+    message DriverConfig {
+    // Wakeword service configuration
+    matrix_io.malos.v1.io.WakeWordParams wakeword = 12;
+    }
+    ```
+    View the defined message <a href="https://github.com/matrix-io/protocol-buffers/blob/master/matrix_io/malos/v1/driver.proto" target="_blank">here</a>.
 
-`WakeWordParams` 
+    `WakeWordParams` 
 
-* `MicChannel` - Desired MATRIX device microphone to use.
+    * `MicChannel` - Desired MATRIX device microphone to use.
 
-* `lm_path` - File path for language model. **Obtained from Sphinx Knowledge Base**.
+    * `lm_path` - File path for language model. **Obtained from Sphinx Knowledge Base**.
 
-* `dic_path` - File path for dictation. **Obtained from Sphinx Knowledge Base**.
+    * `dic_path` - File path for dictation. **Obtained from Sphinx Knowledge Base**.
 
-* `enable_verbose` - Boolean to send output to stdout.
+    * `enable_verbose` - Boolean to send output to stdout.
 
-* `stop_recognition` - Stop Pocket Sphinx service.
+    * `stop_recognition` - Stop Pocket Sphinx service.
 
-```protobuf
-message WakeWordParams {
-  // Mic channels
-  enum MicChannel {
-    channel0 = 0;
-    channel1 = 1;
-    channel2 = 2;
-    channel3 = 3;
-    channel4 = 4;
-    channel5 = 5;
-    channel6 = 6;
-    channel7 = 7;
-    channel8 = 8;
-  }
-  // Desired mic channel
-  MicChannel channel = 2;
+    ```protobuf
+    message WakeWordParams {
+    // Mic channels
+    enum MicChannel {
+        channel0 = 0;
+        channel1 = 1;
+        channel2 = 2;
+        channel3 = 3;
+        channel4 = 4;
+        channel5 = 5;
+        channel6 = 6;
+        channel7 = 7;
+        channel8 = 8;
+    }
+    // Desired mic channel
+    MicChannel channel = 2;
 
-  // http://www.speech.cs.cmu.edu/tools/lmtool-new.html
-  // Language model path
-  string lm_path = 3;
-  // Dictation path
-  string dic_path = 4;
+    // http://www.speech.cs.cmu.edu/tools/lmtool-new.html
+    // Language model path
+    string lm_path = 3;
+    // Dictation path
+    string dic_path = 4;
 
-  // enable pocketsphinx verbose mode
-  bool enable_verbose = 5;
+    // enable pocketsphinx verbose mode
+    bool enable_verbose = 5;
 
-  // stop recognition service
-  bool stop_recognition = 6;
-}
-```
-View the defined message <a href="https://github.com/matrix-io/protocol-buffers/blob/65397022e73ac98ec2b217937f133a9eefbd8f01/matrix_io/malos/v1/io.proto" target="_blank">here</a>.
-</details>
+    // stop recognition service
+    bool stop_recognition = 6;
+    }
+    ```
+    View the defined message <a href="https://github.com/matrix-io/protocol-buffers/blob/65397022e73ac98ec2b217937f133a9eefbd8f01/matrix_io/malos/v1/io.proto" target="_blank">here</a>.
 
 <!-- Keep-Alive PORT -->
-<details markdown="1" open>
-<summary style="font-size: 1.75rem; font-weight: 300;">Keep-alive Port</summary>
-This driver needs keep-alive messages in order to send data to your application. It's recommended to send an empty string `""` because the contents of a keep-alive message are never read.
-</details>
+???+ info "Keep-alive Port"
+    This driver needs keep-alive messages in order to send data to your application. It's recommended to send an empty string `""` because the contents of a keep-alive message are never read.
 
 <!-- Error PORT -->
-<details markdown="1" open>
-<summary style="font-size: 1.75rem; font-weight: 300;">Error Port</summary>
-Applications can subscribe to this port to receive driver related errors.
-</details>
+???+ info "Error Port"
+    Applications can subscribe to this port to receive driver related errors.
 
 <!-- Data Update PORT -->
-<details markdown="1" open>
-<summary style="font-size: 1.75rem; font-weight: 300;">Data Update Port</summary>
-Applications can subscribe to this port for Everloop data. The output will be a serialized message of type `EverloopImage` with the following information.
+???+ info "Data Update Port"
+    Applications can subscribe to this port for Everloop data. The output will be a serialized message of type `EverloopImage` with the following information.
 
-```protobuf
-// The led array.
-message WakeWordParams {
-  // Wake Word
-  string wake_word = 1;
-}
-```
-View the defined message <a href="https://github.com/matrix-io/protocol-buffers/blob/65397022e73ac98ec2b217937f133a9eefbd8f01/matrix_io/malos/v1/io.proto" target="_blank">here</a>.
-</details>
+    ```protobuf
+    // The led array.
+    message WakeWordParams {
+    // Wake Word
+    string wake_word = 1;
+    }
+    ```
+    View the defined message <a href="https://github.com/matrix-io/protocol-buffers/blob/65397022e73ac98ec2b217937f133a9eefbd8f01/matrix_io/malos/v1/io.proto" target="_blank">here</a>.

@@ -30,64 +30,58 @@ Each driver reserves 4 ports beginning with their `base port` as shown above. Th
 
 The following list contains the port types currently defined in MATRIX CORE.
 <!-- BASE PORT -->
-<details markdown="1" open>
-<summary style="font-size: 1.75rem; font-weight: 300;">Base Port</summary>
-The `base port` is used to configure a driver on your MATRIX device. This port is a `ZeroMQ PULL port` that accepts a configuration which is created as a protocol buffer.
+???+ info "Base Port"
+    The `base port` is used to configure a driver on your MATRIX device. This port is a `ZeroMQ PULL port` that accepts a configuration which is created as a protocol buffer.
 
-To send a configuration you need to create a valid message for each driver. For example, the UV driver uses a configuration message to set the refresh rate and timeout for sending UV data.
+    To send a configuration you need to create a valid message for each driver. For example, the UV driver uses a configuration message to set the refresh rate and timeout for sending UV data.
 
-Configuration messages are named `DriverConfig`. The file for where this is defined can be seen <a href="https://github.com/matrix-io/protocol-buffers/blob/master/matrix_io/malos/v1/io.proto" target="_blank">here</a>.
+    Configuration messages are named `DriverConfig`. The file for where this is defined can be seen <a href="https://github.com/matrix-io/protocol-buffers/blob/master/matrix_io/malos/v1/io.proto" target="_blank">here</a>.
 
-Below is an example for a UV configuration message:
-```protobuf
-message DriverConfig {
-  // Delay between updates. In seconds.
-  float delay_between_updates = 1;
-  // Timeout after last ping.
-  float timeout_after_last_ping = 2;
-}
-```
+    Below is an example for a UV configuration message:
+    ```protobuf
+    message DriverConfig {
+    // Delay between updates. In seconds.
+    float delay_between_updates = 1;
+    // Timeout after last ping.
+    float timeout_after_last_ping = 2;
+    }
+    ```
 
-Once the `DriverConfig` message is filled out, it needs to be serialized as a string and sent to the ZeroMQ configuration port.
-</details>
+    Once the `DriverConfig` message is filled out, it needs to be serialized as a string and sent to the ZeroMQ configuration port.
+
+
 <!-- KEEP-ALIVE PORT -->
-<details markdown="1" open>
-<summary style="font-size: 1.75rem; font-weight: 300;">Keep-alive Port</summary>
-`Port`: `base port` + 1
+???+ info "Keep-alive Port"
+    `Port`: `base port` + 1
 
-The Keep-alive port is a `ZeroMQ PULL port` that is required for certain drivers to keep their function alive. Drivers that are pushing data need this in place to let it know if data will continue to be requested. For example, the Everloop driver doesn't require Keep-alive messages, but the Humidity driver does. Any message that is sent to the Keep-alive port will be discarded, so an empty string `""` makes for a good Keep-alive message.
+    The Keep-alive port is a `ZeroMQ PULL port` that is required for certain drivers to keep their function alive. Drivers that are pushing data need this in place to let it know if data will continue to be requested. For example, the Everloop driver doesn't require Keep-alive messages, but the Humidity driver does. Any message that is sent to the Keep-alive port will be discarded, so an empty string `""` makes for a good Keep-alive message.
 
-</details>
 <!-- ERROR PORT -->
-<details markdown="1" open>
-<summary style="font-size: 1.75rem; font-weight: 300;">Error Port</summary>
-`Port`: `base port` + 2
+???+ info "Error Port"
+    `Port`: `base port` + 2
 
-Programs can subscribe to this port to receive driver related errors. The Error port is a `ZeroMQ PUSH port` that will send you a string with any errors that it has encountered.
-</details>
+    Programs can subscribe to this port to receive driver related errors. The Error port is a `ZeroMQ PUSH port` that will send you a string with any errors that it has encountered.
+
 <!-- DATA UPDATE PORT -->
-<details markdown="1" open>
-<summary style="font-size: 1.75rem; font-weight: 300;">Data Update Port</summary>
-`Port`: `base port` + 3
+???+ info "Data Update Port"
+    `Port`: `base port` + 3
 
-This `ZeroMQ PUSH port` is used by drivers that send data (Humidity, UV, etc.). Each driver uses a different message to report data to programs that subscribe for these updates.
+    This `ZeroMQ PUSH port` is used by drivers that send data (Humidity, UV, etc.). Each driver uses a different message to report data to programs that subscribe for these updates.
 
-To demonstrate, the UV driver will be used as an example. You can find the file <a href="https://github.com/matrix-io/protocol-buffers/blob/master/matrix_io/malos/v1/sense.proto">here</a>.
-The message follows:
+    To demonstrate, the UV driver will be used as an example. You can find the file <a href="https://github.com/matrix-io/protocol-buffers/blob/master/matrix_io/malos/v1/sense.proto">here</a>.
+    The message follows:
 
-```protobuf
-// Basic UV radiation lecture.
-message UV{
-  // UV index
-  float uv_index = 1;
-  // OMS risk
-  string oms_risk = 2;
-}
-```
+    ```protobuf
+    // Basic UV radiation lecture.
+    message UV{
+    // UV index
+    float uv_index = 1;
+    // OMS risk
+    string oms_risk = 2;
+    }
+    ```
 
-Applications that subscribe to UV driver updates will receive a string with serialized messages of type UV. Once received, the message needs to be deserialized by the application for the values can be used.
-
-</details>
+    Applications that subscribe to UV driver updates will receive a string with serialized messages of type UV. Once received, the message needs to be deserialized by the application for the values can be used.
 
 <br/>
 ## Next Steps

@@ -21,65 +21,57 @@ The Everloop driver allows for:
 ## Protocol
 
 <!-- Base PORT -->
-<details markdown="1" open>
-<summary style="font-size: 1.75rem; font-weight: 300;">Base Port</summary>
-This port accepts a single configuration for communicating with the Everloop driver. 
+???+ info "Base Port"
+    This port accepts a single configuration for communicating with the Everloop driver. 
 
-* `image` - the everloop configuration that's created from an `EverloopImage` message.
+    * `image` - the everloop configuration that's created from an `EverloopImage` message.
 
-```protobuf
-message DriverConfig {
-  matrix_io.malos.v1.io.EverloopImage image = 3;
-}
-```
-View the defined message <a href="https://github.com/matrix-io/protocol-buffers/blob/master/matrix_io/malos/v1/driver.proto" target="_blank">here</a>.
+    ```protobuf
+    message DriverConfig {
+    matrix_io.malos.v1.io.EverloopImage image = 3;
+    }
+    ```
+    View the defined message <a href="https://github.com/matrix-io/protocol-buffers/blob/master/matrix_io/malos/v1/driver.proto" target="_blank">here</a>.
 
-`EverloopImage` 
+    `EverloopImage` 
 
-* `led` - Must hold the value for each LED on your MATRIX device. Each LED is defined as one `LedValue`.
+    * `led` - Must hold the value for each LED on your MATRIX device. Each LED is defined as one `LedValue`.
 
-```protobuf
-// Value for an led that ranges from 0 to 255 for each color
-message LedValue {
-  uint32 red = 1;
-  uint32 green = 2;
-  uint32 blue = 3;
-  uint32 white = 4;
-}
+    ```protobuf
+    // Value for an led that ranges from 0 to 255 for each color
+    message LedValue {
+    uint32 red = 1;
+    uint32 green = 2;
+    uint32 blue = 3;
+    uint32 white = 4;
+    }
 
-// The led array.
-message EverloopImage {
-  repeated LedValue led = 1;
-}
-```
-View the defined message <a href="https://github.com/matrix-io/protocol-buffers/blob/65397022e73ac98ec2b217937f133a9eefbd8f01/matrix_io/malos/v1/io.proto" target="_blank">here</a>.
-</details>
+    // The led array.
+    message EverloopImage {
+    repeated LedValue led = 1;
+    }
+    ```
+    View the defined message <a href="https://github.com/matrix-io/protocol-buffers/blob/65397022e73ac98ec2b217937f133a9eefbd8f01/matrix_io/malos/v1/io.proto" target="_blank">here</a>.
 
 <!-- Keep-alive PORT -->
-<details markdown="1" open>
-<summary style="font-size: 1.75rem; font-weight: 300;">Keep-alive Port</summary>
-This driver needs keep-alive messages in order to send data to your application. It's recommended to send an empty string `""` because the contents of a keep-alive message are never read.
-</details>
+???+ info "Keep-alive Port"
+    This driver needs keep-alive messages in order to send data to your application. It's recommended to send an empty string `""` because the contents of a keep-alive message are never read.
 
 <!-- Error PORT -->
-<details markdown="1" open>
-<summary style="font-size: 1.75rem; font-weight: 300;">Error Port</summary>
-Applications can subscribe to this port to receive driver related errors.
-</details>
+???+ info "Error Port"
+    Applications can subscribe to this port to receive driver related errors.
 
 <!-- Data Update PORT -->
-<details markdown="1" open>
-<summary style="font-size: 1.75rem; font-weight: 300;">Data Update Port</summary>
-Applications can subscribe to this port for Everloop data. The output will be a serialized message of type `EverloopImage` with the following information.
+???+ info "Data Update Port"
+    Applications can subscribe to this port for Everloop data. The output will be a serialized message of type `EverloopImage` with the following information.
 
-```protobuf
-// The led array.
-message EverloopImage {
-  repeated LedValue led = 1;
+    ```protobuf
+    // The led array.
+    message EverloopImage {
+    repeated LedValue led = 1;
 
-  // Number of leds in the Everloop
-  int32 everloop_length = 2;
-}
-```
-View the defined message <a href="https://github.com/matrix-io/protocol-buffers/blob/65397022e73ac98ec2b217937f133a9eefbd8f01/matrix_io/malos/v1/io.proto" target="_blank">here</a>.
-</details>
+    // Number of leds in the Everloop
+    int32 everloop_length = 2;
+    }
+    ```
+    View the defined message <a href="https://github.com/matrix-io/protocol-buffers/blob/65397022e73ac98ec2b217937f133a9eefbd8f01/matrix_io/malos/v1/io.proto" target="_blank">here</a>.
