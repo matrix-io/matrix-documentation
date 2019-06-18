@@ -31,308 +31,257 @@ These header files are required to use GPIO.
 #include "matrix_hal/matrixio_bus.h"
 ```
 
-<details markdown="1" open>
-<summary style="font-size: 1.75rem; font-weight: 300;">GPIOControl</summary>
-`GPIOControl` is a required **object** that contains functions to interface with GPIO.
+???+ info "GPIOControl"
+    `GPIOControl` is a required **object** that contains functions to interface with GPIO.
 
-```c++
-// Create GPIOControl object
-matrix_hal::GPIOControl gpio;
-```
+    ```c++
+    // Create GPIOControl object
+    matrix_hal::GPIOControl gpio;
+    ```
 
-The functions below are part of `GPIOControl`.
+    The functions below are part of `GPIOControl`.
 
-<details markdown="1">
-<summary style="font-size: 1.5rem; font-weight: 300;">.Setup</summary>
-`Setup` is a **function** that takes a `MatrixIOBus` object as a parameter and sets that object as the bus to use for communicating with MATRIX device.
+    ??? summary ".Setup"
+        `Setup` is a **function** that takes a `MatrixIOBus` object as a parameter and sets that object as the bus to use for communicating with MATRIX device.
 
-```c++
-// Function declaration in header file
-void Setup(MatrixIOBus *bus);
-```
-<!--  -->
-```c++
-// Set gpio to use MatrixIOBus bus
-gpio.Setup(&bus);
-```
+        ```c++
+        // Function declaration in header file
+        void Setup(MatrixIOBus *bus);
+        ```
 
-</details>
+        ```c++
+        // Set gpio to use MatrixIOBus bus
+        gpio.Setup(&bus);
+        ```
 
-<details markdown="1">
-<summary style="font-size: 1.5rem; font-weight: 300;">.Banks</summary>
-`Banks` is a **function** that returns a `banks_` array of `GPIOBank` objects.
+    ??? summary ".Banks"
+        `Banks` is a **function** that returns a `banks_` array of `GPIOBank` objects.
 
-```c++
-// Function declaration in header file
-GPIOBank &Bank(uint16_t bank) { return banks_[bank]; }
-```
-<!--  -->
-```c++
-// Returns banks_[index]
-gpio.Banks(index);
-```
+        ```c++
+        // Function declaration in header file
+        GPIOBank &Bank(uint16_t bank) { return banks_[bank]; }
+        ```
 
-</details>
+        ```c++
+        // Returns banks_[index]
+        gpio.Banks(index);
+        ```
 
-<details markdown="1">
-<summary style="font-size: 1.5rem; font-weight: 300;">.SetMode</summary>
-`SetMode` is a **function** that sets GPIO pin(s) to output or input.
-`SetMode` is overloaded, and there are two definitions for the function.
+    ??? summary ".SetMode"
+        `SetMode` is a **function** that sets GPIO pin(s) to output or input.
+        `SetMode` is overloaded, and there are two definitions for the function.
 
-For setting single GPIO pin.
+        For setting single GPIO pin.
 
-```c++
-// Function declaration in header file
-// For setting single GPIO pin
-bool SetMode(uint16_t pin, uint16_t mode);
-```
-<!--  -->
-```c++
-// Sets pin 0 to output
-gpio.SetMode(0, 1);
-// Sets pin 0 to input
-gpio.SetMode(0, 0);
-```
+        ```c++
+        // Function declaration in header file
+        // For setting single GPIO pin
+        bool SetMode(uint16_t pin, uint16_t mode);
+        ```
 
-For setting multiple GPIO pins.
+        ```c++
+        // Sets pin 0 to output
+        gpio.SetMode(0, 1);
+        // Sets pin 0 to input
+        gpio.SetMode(0, 0);
+        ```
 
-```c++
-// Function declaration in header file
-// For setting multiple pins
-bool SetMode(unsigned char *pinList, int length, uint16_t mode);
-```
-<!--  -->
-```c++
-unsigned char inputPinList[8] = {0, 2, 4, 6, 8, 10, 12, 14};
-unsigned char outputPinList[8] = {1, 3, 5, 7, 9, 11, 13, 15};
+        For setting multiple GPIO pins.
 
-// Sets pins in inputPinList to input
-gpio.SetMode(inputPinList, sizeof(inputPinList), 0);
-// Sets pins in outputPinList to output
-gpio.SetMode(outputPinList, sizeof(outputPinList), 1);
-```
+        ```c++
+        // Function declaration in header file
+        // For setting multiple pins
+        bool SetMode(unsigned char *pinList, int length, uint16_t mode);
+        ```
 
-</details>
+        ```c++
+        unsigned char inputPinList[8] = {0, 2, 4, 6, 8, 10, 12, 14};
+        unsigned char outputPinList[8] = {1, 3, 5, 7, 9, 11, 13, 15};
 
-<details markdown="1">
-<summary style="font-size: 1.5rem; font-weight: 300;">.SetFunction</summary>
-`SetFunction` is a **function** that sets a single GPIO pin to I/O or PWM mode.
+        // Sets pins in inputPinList to input
+        gpio.SetMode(inputPinList, sizeof(inputPinList), 0);
+        // Sets pins in outputPinList to output
+        gpio.SetMode(outputPinList, sizeof(outputPinList), 1);
+        ```
 
-```c++
-// Function declaration in header file
-bool SetFunction(uint16_t pin, uint16_t function);
-```
-<!--  -->
-```c++
-// Sets pin 0 to I/O mode
-gpio.SetFunction(0, 0);
-// Sets pin 0 to PWM mode
-gpio.SetFunction(0, 1);
-```
+    ??? summary ".SetFunction"
+        `SetFunction` is a **function** that sets a single GPIO pin to I/O or PWM mode.
 
-</details>
+        ```c++
+        // Function declaration in header file
+        bool SetFunction(uint16_t pin, uint16_t function);
+        ```
 
-<details markdown="1">
-<summary style="font-size: 1.5rem; font-weight: 300;">.GetGPIOValue</summary>
-`GetGPIOValue` is a **function** that returns a GPIO value.
+        ```c++
+        // Sets pin 0 to I/O mode
+        gpio.SetFunction(0, 0);
+        // Sets pin 0 to PWM mode
+        gpio.SetFunction(0, 1);
+        ```
 
-```c++
-// Function declaration in header file
-uint16_t GetGPIOValue(uint16_t pin);
-```
-<!--  -->
-```c++
-// Gets value of pin 0
-bool value = gpio.GetGPIOValue(0);
-```
+    ??? summary ".GetGPIOValue"
+        `GetGPIOValue` is a **function** that returns a GPIO value.
 
-</details>
+        ```c++
+        // Function declaration in header file
+        uint16_t GetGPIOValue(uint16_t pin);
+        ```
 
-<details markdown="1">
-<summary style="font-size: 1.5rem; font-weight: 300;">.GetGPIOValues</summary>
-`GetGPIOValues` is a **function** that returns all GPIO values, each bit of the returned 16bit integer represents a pin.
+        ```c++
+        // Gets value of pin 0
+        bool value = gpio.GetGPIOValue(0);
+        ```
 
-```c++
-// Function declaration in header file
-uint16_t GetGPIOValues();
-```
-<!--  -->
-```c++
-// Gets all pin values
-uint16_t values = gpio.GetGPIOValues();
-```
+    ??? summary ".GetGPIOValues"
+        `GetGPIOValues` is a **function** that returns all GPIO values, each bit of the returned 16bit integer represents a pin.
 
-</details>
+        ```c++
+        // Function declaration in header file
+        uint16_t GetGPIOValues();
+        ```
 
-<details markdown="1">
-<summary style="font-size: 1.5rem; font-weight: 300;">.SetGPIOValue</summary>
-`SetGPIOValue` is a **function** that sets a GPIO value.
+        ```c++
+        // Gets all pin values
+        uint16_t values = gpio.GetGPIOValues();
+        ```
 
-```c++
-// Function declaration in header file
-bool SetGPIOValue(uint16_t pin, uint16_t value);
-```
-<!--  -->
-```c++
-// Sets pin 0 to on
-gpio.SetGPIOValue(0, 1);
-// Sets pin 0 to off
-gpio.SetGPIOValue(0, 0);
-```
+    ??? summary ".SetGPIOValue"
+        `SetGPIOValue` is a **function** that sets a GPIO value.
 
-</details>
+        ```c++
+        // Function declaration in header file
+        bool SetGPIOValue(uint16_t pin, uint16_t value);
+        ```
 
-<details markdown="1">
-<summary style="font-size: 1.5rem; font-weight: 300;">.SetGPIOValues</summary>
-`SetGPIOValues` is a **function** that sets multiple GPIO values.
+        ```c++
+        // Sets pin 0 to on
+        gpio.SetGPIOValue(0, 1);
+        // Sets pin 0 to off
+        gpio.SetGPIOValue(0, 0);
+        ```
 
-```c++
-// Function declaration in header file
-bool SetGPIOValues(unsigned char *pinList, int length, uint16_t value);
-```
-<!--  -->
-```c++
-unsigned char onPinList[8] = {0, 2, 4, 6, 8, 10, 12, 14};
-unsigned char offPinList[8] = {1, 3, 5, 7, 9, 11, 13, 15};
+    ??? summary ".SetGPIOValues"
+        `SetGPIOValues` is a **function** that sets multiple GPIO values.
 
-// Sets pins in onPinList to on
-gpio.SetGPIOValues(onPinList, sizeof(onPinList), 1);
-// Sets pins in offPinList to off
-gpio.SetGPIOValues(offPinList, sizeof(offPinList), 0);
-```
+        ```c++
+        // Function declaration in header file
+        bool SetGPIOValues(unsigned char *pinList, int length, uint16_t value);
+        ```
 
-</details>
+        ```c++
+        unsigned char onPinList[8] = {0, 2, 4, 6, 8, 10, 12, 14};
+        unsigned char offPinList[8] = {1, 3, 5, 7, 9, 11, 13, 15};
 
-<details markdown="1">
-<summary style="font-size: 1.5rem; font-weight: 300;">.SetPrescaler</summary>
-`SetPrescaler` is a **function** that sets the prescaler for the FPGA clock.
+        // Sets pins in onPinList to on
+        gpio.SetGPIOValues(onPinList, sizeof(onPinList), 1);
+        // Sets pins in offPinList to off
+        gpio.SetGPIOValues(offPinList, sizeof(offPinList), 0);
+        ```
 
-```c++
-// Function declaration in header file
-bool SetPrescaler(uint16_t bank, uint16_t prescaler);
-```
-<!--  -->
-```c++
-// Set prescaler for bank 0 to 32
-// 2^5 = 32
-gpio.SetPrescaler(0, 5);
-```
+    ??? summary ".SetPrescaler"
+        `SetPrescaler` is a **function** that sets the prescaler for the FPGA clock.
 
-</details>
+        ```c++
+        // Function declaration in header file
+        bool SetPrescaler(uint16_t bank, uint16_t prescaler);
+        ```
 
-<details markdown="1">
-<summary style="font-size: 1.5rem; font-weight: 300;">.Set9GServoAngle</summary>
-`Set9GServoAngle` is a **function** that sets a servo angle. It is based on SG90 servo calibration.
+        ```c++
+        // Set prescaler for bank 0 to 32
+        // 2^5 = 32
+        gpio.SetPrescaler(0, 5);
+        ```
 
-```c++
-// Function declaration in header file
-bool Set9GServoAngle(float angle, uint16_t pin);
-```
-<!--  -->
-```c++
-// Set servo angle to 70 degrees on pin 0
-gpio.SetPrescaler(70, 0);
-```
+    ??? summary ".Set9GServoAngle"
+        `Set9GServoAngle` is a **function** that sets a servo angle. It is based on SG90 servo calibration.
 
-</details>
+        ```c++
+        // Function declaration in header file
+        bool Set9GServoAngle(float angle, uint16_t pin);
+        ```
 
-<details markdown="1">
-<summary style="font-size: 1.5rem; font-weight: 300;">.SetServoAngle</summary>
-`SetServoAngle` is a **function** that sets a servo angle. It is based on the min_pulse_ms entered.
+        ```c++
+        // Set servo angle to 70 degrees on pin 0
+        gpio.SetPrescaler(70, 0);
+        ```
 
-```c++
-// Function declaration in header file
-bool SetServoAngle(float angle, float min_pulse_ms, uint16_t pin);
-```
-<!--  -->
-```c++
-// Set servo angle to 70 degrees on pin 0
-// For a servo that accepts a minimum pulse of 0.8ms
-gpio.SetServoAngle(70, 0.8, 0);
-```
+    ??? summary ".SetServoAngle"
+        `SetServoAngle` is a **function** that sets a servo angle. It is based on the min_pulse_ms entered.
 
-</details>
+        ```c++
+        // Function declaration in header file
+        bool SetServoAngle(float angle, float min_pulse_ms, uint16_t pin);
+        ```
 
-<details markdown="1">
-<summary style="font-size: 1.5rem; font-weight: 300;">.SetPWM</summary>
-`SetPWM` is a **function** that sets a PWM output.
+        ```c++
+        // Set servo angle to 70 degrees on pin 0
+        // For a servo that accepts a minimum pulse of 0.8ms
+        gpio.SetServoAngle(70, 0.8, 0);
+        ```
 
-```c++
-// Function declaration in header file
-bool SetPWM(float frequency, float percentage, uint16_t pin);
-```
-<!--  -->
-```c++
-// Set PWM output to 50Hz, with a 25% duty cycle on pin 0
-gpio.SetPWM(50, 25, 0);
-```
+    ??? summary ".SetPWM"
+        `SetPWM` is a **function** that sets a PWM output.
 
-</details>
-</details>
+        ```c++
+        // Function declaration in header file
+        bool SetPWM(float frequency, float percentage, uint16_t pin);
+        ```
 
-<details markdown="1" open>
-<summary style="font-size: 1.75rem; font-weight: 300;">GPIOBank</summary>
-`GPIOBank` is an **object** that contains functions to interface with GPIO PWM. `GPIOControl` contains an array of `GPIOBank` objects, called `banks`_
+        ```c++
+        // Set PWM output to 50Hz, with a 25% duty cycle on pin 0
+        gpio.SetPWM(50, 25, 0);
+        ```
 
-PWM Frequency is set by bank. A bank is a set of 4 pins, starting from pin 0 and going in order. Bank 0 is pin 0-3, Bank 1 is pin 4-7 etc.
 
-The functions below are part of `GPIOBank`.
+???+ info "GPIOBank"
+    `GPIOBank` is an **object** that contains functions to interface with GPIO PWM. `GPIOControl` contains an array of `GPIOBank` objects, called `banks`_
 
-<details markdown="1">
-<summary style="font-size: 1.5rem; font-weight: 300;">.SetPeriod</summary>
-`SetPeriod` is a **function** that sets the PWM period.
+    PWM Frequency is set by bank. A bank is a set of 4 pins, starting from pin 0 and going in order. Bank 0 is pin 0-3, Bank 1 is pin 4-7 etc.
 
-```c++
-// Function declaration in header file
-bool SetPeriod(uint16_t period);
-```
-<!--  -->
-```c++
-// Set PWM period for bank 0 to 50000 FPGA clock ticks
-gpio.Banks(0).SetPeriod(50000);
-```
+    The functions below are part of `GPIOBank`.
 
-</details>
+    ??? summary ".SetPeriod"
+        `SetPeriod` is a **function** that sets the PWM period.
 
-<details markdown="1">
-<summary style="font-size: 1.5rem; font-weight: 300;">.SetDuty</summary>
-`SetDuty` is a **function** that sets the PWM duty.
+        ```c++
+        // Function declaration in header file
+        bool SetPeriod(uint16_t period);
+        ```
 
-```c++
-// Function declaration in header file
-bool SetDuty(uint16_t channel, uint16_t duty);
-```
-<!--  -->
-```c++
-// Set PWM duty for channel 0 of bank 0 to 10000 FPGA clock ticks
-gpio.Banks(0).SetDuty(0, 10000);
-```
+        ```c++
+        // Set PWM period for bank 0 to 50000 FPGA clock ticks
+        gpio.Banks(0).SetPeriod(50000);
+        ```
 
-</details>
+    ??? summary ".SetDuty"
+        `SetDuty` is a **function** that sets the PWM duty.
 
-<details markdown="1">
-<summary style="font-size: 1.5rem; font-weight: 300;">.SetupTimer</summary>
->Under Maintenance
+        ```c++
+        // Function declaration in header file
+        bool SetDuty(uint16_t channel, uint16_t duty);
+        ```
 
-`SetupTimer` is a **function** that sets up the timer.
+        ```c++
+        // Set PWM duty for channel 0 of bank 0 to 10000 FPGA clock ticks
+        gpio.Banks(0).SetDuty(0, 10000);
+        ```
 
-```c++
-// Function declaration in header file
-bool SetupTimer(uint16_t channel, uint16_t init_event, uint16_t final_event);
-```
+    ??? summary ".SetupTimer"
+        >Under Maintenance
 
-</details>
+        `SetupTimer` is a **function** that sets up the timer.
 
-<details markdown="1">
-<summary style="font-size: 1.5rem; font-weight: 300;">.GetTimerCounter</summary>
->Under Maintenance
+        ```c++
+        // Function declaration in header file
+        bool SetupTimer(uint16_t channel, uint16_t init_event, uint16_t final_event);
+        ```
 
-`GetTimerCounter` is a **function** that returns the timer counter.
+    ??? summary ".GetTimerCounter"
+        >Under Maintenance
 
-```c++
-// Function declaration in header file
-uint16_t GetTimerCounter(uint16_t channel);
-```
+        `GetTimerCounter` is a **function** that returns the timer counter.
 
-</details>
-</details>
+        ```c++
+        // Function declaration in header file
+        uint16_t GetTimerCounter(uint16_t channel);
+        ```

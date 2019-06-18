@@ -21,73 +21,64 @@ The Humidity driver allows for:
 ## Protocol
 
 <!-- Base PORT -->
-<details markdown="1" open>
-<summary style="font-size: 1.75rem; font-weight: 300;">Base Port</summary>
-This port accepts three configurations for communicating with the Humidity driver. 
+???+ info "Base Port"
+    This port accepts three configurations for communicating with the Humidity driver. 
 
-* `delay_between_updates` - controls the output speed of messages from the **Data Update port**. 
+    * `delay_between_updates` - controls the output speed of messages from the **Data Update port**. 
 
-* `timeout_after_last_ping` - stops sending messages from the **Data Update port** if nothing has been sent to the **Keep-alive port** after the specified amount of seconds.
+    * `timeout_after_last_ping` - stops sending messages from the **Data Update port** if nothing has been sent to the **Keep-alive port** after the specified amount of seconds.
 
-* `humidity` - the humidity configuration that's created from a `HumidityParams` message.
+    * `humidity` - the humidity configuration that's created from a `HumidityParams` message.
 
-```protobuf
-message DriverConfig {
-  // Delay between updates in seconds
-  float delay_between_updates = 1;
-  // Timeout after last ping
-  float timeout_after_last_ping = 2;
-  // Humidity configuration
-  matrix_io.malos.v1.sense.HumidityParams humidity = 9;
-```
-View the defined message <a href="https://github.com/matrix-io/protocol-buffers/blob/master/matrix_io/malos/v1/driver.proto" target="_blank">here</a>.
+    ```protobuf
+    message DriverConfig {
+    // Delay between updates in seconds
+    float delay_between_updates = 1;
+    // Timeout after last ping
+    float timeout_after_last_ping = 2;
+    // Humidity configuration
+    matrix_io.malos.v1.sense.HumidityParams humidity = 9;
+    ```
+    View the defined message <a href="https://github.com/matrix-io/protocol-buffers/blob/master/matrix_io/malos/v1/driver.proto" target="_blank">here</a>.
 
-`HumidityParams`
+    `HumidityParams`
 
-* `current_temperature` - a reference of the current temperature for calibration.
+    * `current_temperature` - a reference of the current temperature for calibration.
 
-```protobuf
-message HumidityParams{
-  // Current temperature Celsius used for calibration.
-  float current_temperature = 1;
-}
-```
-View the defined message <a href="https://github.com/matrix-io/protocol-buffers/blob/master/matrix_io/malos/v1/sense.proto" target="_blank">here</a>.
-</details>
-
+    ```protobuf
+    message HumidityParams{
+    // Current temperature Celsius used for calibration.
+    float current_temperature = 1;
+    }
+    ```
+    View the defined message <a href="https://github.com/matrix-io/protocol-buffers/blob/master/matrix_io/malos/v1/sense.proto" target="_blank">here</a>.
 
 
 <!-- Keep-alive PORT -->
-<details markdown="1" open>
-<summary style="font-size: 1.75rem; font-weight: 300;">Keep-alive Port</summary>
-This driver needs keep-alive messages in order to send data to your application. It's recommended to send an empty string `""` because the contents of a keep-alive message are never read.
-</details>
+???+ info "Keep-alive Port"
+    This driver needs keep-alive messages in order to send data to your application. It's recommended to send an empty string `""` because the contents of a keep-alive message are never read.
 
 <!-- Error PORT -->
-<details markdown="1" open>
-<summary style="font-size: 1.75rem; font-weight: 300;">Error Port</summary>
-Applications can subscribe to this port to receive driver related errors.
-</details>
+???+ info "Error Port"
+    Applications can subscribe to this port to receive driver related errors.
 
 <!-- Data Update PORT -->
-<details markdown="1" open>
-<summary style="font-size: 1.75rem; font-weight: 300;">Data Update Port</summary>
-Applications can subscribe to this port for humidity data. The output will be a serialized message of type `Humidity` with the following information.
+???+ info "Data Update Port"
+    Applications can subscribe to this port for humidity data. The output will be a serialized message of type `Humidity` with the following information.
 
-```protobuf
-message Humidity {
-  // Humidity
-  float humidity = 1;
+    ```protobuf
+    message Humidity {
+    // Humidity
+    float humidity = 1;
 
-  // Temperature
-  float temperature = 2;
+    // Temperature
+    float temperature = 2;
 
-  // Raw temperature value from the sensor
-  float temperature_raw = 3;
+    // Raw temperature value from the sensor
+    float temperature_raw = 3;
 
-  //  Flag that tells if the temperature is calibrated
-  bool temperature_is_calibrated = 4;
-}
-```
-View the defined message <a href="https://github.com/matrix-io/protocol-buffers/blob/65397022e73ac98ec2b217937f133a9eefbd8f01/matrix_io/malos/v1/sense.proto" target="_blank">here</a>.
-</details>
+    //  Flag that tells if the temperature is calibrated
+    bool temperature_is_calibrated = 4;
+    }
+    ```
+    View the defined message <a href="https://github.com/matrix-io/protocol-buffers/blob/65397022e73ac98ec2b217937f133a9eefbd8f01/matrix_io/malos/v1/sense.proto" target="_blank">here</a>.
