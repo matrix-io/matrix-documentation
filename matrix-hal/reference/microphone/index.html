@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="../../../css/codehilite.css">
   <link rel="stylesheet" href="../../../css/superFences.css">
   <link rel="stylesheet" href="../../../css/clipboard.css">
+  <link rel="stylesheet" href="../../../css/details.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
 </head>
@@ -463,7 +464,7 @@
             </ul>
           </div>
         </div>
-        <div id="content" class="col-lg-8 col-md-9">
+        <div id="content" class="col-lg-8 col-md-9 md-typeset">
            <h2 style="padding-top:0">Microphone Array</h2>
 
 <h3 id="device-compatibility">Device Compatibility</h3>
@@ -486,196 +487,177 @@
 <span class="cp">#include</span> <span class="cpf">&quot;matrix_hal/matrixio_bus.h&quot;</span><span class="cp"></span>
 </pre></div>
 
-<details open="">
-<p><summary style="font-size: 1.75rem; font-weight: 300;">MicrophoneArray</summary>
-<code>MicrophoneArray</code> is a required <strong>object</strong> that contains functions to interface with the microphone array .</p>
+<details class="info" open="open"><summary>MicrophoneArray</summary><p><code>MicrophoneArray</code> is a required <strong>object</strong> that contains functions to interface with the microphone array.</p>
 <div class="codehilite"><pre><span></span><span class="c1">// Create MicrophoneArray object</span>
 <span class="n">matrix_hal</span><span class="o">::</span><span class="n">MicrophoneArray</span> <span class="n">microphone_array</span><span class="p">;</span>
 </pre></div>
 
 <p>The functions below are part of <code>MicrophoneArray</code>.</p>
-<details>
-<p><summary style="font-size: 1.5rem; font-weight: 300;">.Setup</summary>
-<code>Setup</code> is a <strong>function</strong> that takes a <code>MatrixIOBus</code> object as a parameter and sets that object as the bus to use for communicating with MATRIX device.</p>
-<p><div class="codehilite"><pre><span></span><span class="c1">// Function declaration in header file</span>
+<details class="summary"><summary>.Setup</summary><p><code>Setup</code> is a <strong>function</strong> that takes a <code>MatrixIOBus</code> object as a parameter and sets that object as the bus to use for communicating with MATRIX device.</p>
+<div class="codehilite"><pre><span></span><span class="c1">// Function declaration in header file</span>
 <span class="kt">void</span> <span class="nf">Setup</span><span class="p">(</span><span class="n">MatrixIOBus</span> <span class="o">*</span><span class="n">bus</span><span class="p">);</span>
 </pre></div>
-<!--  -->
+
 <div class="codehilite"><pre><span></span><span class="c1">// Set microphone_array to use MatrixIOBus bus</span>
 <span class="n">microphone_array</span><span class="p">.</span><span class="n">Setup</span><span class="p">(</span><span class="o">&amp;</span><span class="n">bus</span><span class="p">);</span>
-</pre></div></p>
+</pre></div>
+
 </details>
-<details>
-<p><summary style="font-size: 1.5rem; font-weight: 300;">.Read</summary>
-<code>Read</code> is a <strong>function</strong> that outputs microphone array data to the <code>delayed_data_</code> array and the <code>beamformed_</code> array in the <code>MicrophoneArray</code> object.</p>
-<p><div class="codehilite"><pre><span></span><span class="c1">// Function declaration in header file</span>
+<details class="summary"><summary>.Read</summary><p><code>Read</code> is a <strong>function</strong> that outputs microphone array data to the <code>delayed_data_</code> array and the <code>beamformed_</code> array in the <code>MicrophoneArray</code> object.</p>
+<div class="codehilite"><pre><span></span><span class="c1">// Function declaration in header file</span>
 <span class="kt">bool</span> <span class="nf">Read</span><span class="p">();</span>
 </pre></div>
-<!--  -->
+
 <div class="codehilite"><pre><span></span><span class="c1">// Reading 8-mics buffer from the FPGA</span>
 <span class="n">microphone_array</span><span class="p">.</span><span class="n">Read</span><span class="p">();</span>
-</pre></div></p>
+</pre></div>
+
 </details>
-<details>
-<p><summary style="font-size: 1.5rem; font-weight: 300;">.SamplingRate</summary>
-<code>SamplingRate</code> is a <strong>function</strong> that returns the <code>sampling_frequency_</code> value in the <code>MicrophoneArray</code> object.</p>
-<p><div class="codehilite"><pre><span></span><span class="c1">// Function declaration in header file</span>
+<details class="summary"><summary>.SamplingRate</summary><p><code>SamplingRate</code> is a <strong>function</strong> that returns the <code>sampling_frequency_</code> value in the <code>MicrophoneArray</code> object.</p>
+<div class="codehilite"><pre><span></span><span class="c1">// Function declaration in header file</span>
 <span class="kt">uint32_t</span> <span class="nf">SamplingRate</span><span class="p">()</span> <span class="p">{</span> <span class="k">return</span> <span class="n">sampling_frequency_</span><span class="p">;</span> <span class="p">}</span>
 </pre></div>
-<!--  -->
+
 <div class="codehilite"><pre><span></span><span class="c1">// Return the stored sampling rate</span>
 <span class="kt">uint32_t</span> <span class="n">SamplingRate</span> <span class="o">=</span> <span class="n">microphone_array</span><span class="p">.</span><span class="n">SamplingRate</span><span class="p">();</span>
-</pre></div></p>
+</pre></div>
+
 </details>
-<details>
-<p><summary style="font-size: 1.5rem; font-weight: 300;">.Gain</summary>
-<code>Gain</code> is a <strong>function</strong> that returns the <code>gain_</code> value in the <code>MicrophoneArray</code> object.</p>
-<p><div class="codehilite"><pre><span></span><span class="c1">// Function declaration in header file</span>
+<details class="summary"><summary>.Gain</summary><p><code>Gain</code> is a <strong>function</strong> that returns the <code>gain_</code> value in the <code>MicrophoneArray</code> object.</p>
+<div class="codehilite"><pre><span></span><span class="c1">// Function declaration in header file</span>
 <span class="kt">uint16_t</span> <span class="nf">Gain</span><span class="p">()</span> <span class="p">{</span> <span class="k">return</span> <span class="n">gain_</span><span class="p">;</span> <span class="p">}</span>
 </pre></div>
-<!--  -->
+
 <div class="codehilite"><pre><span></span><span class="c1">// Return the stored gain</span>
 <span class="kt">uint32_t</span> <span class="n">Gain</span> <span class="o">=</span> <span class="n">microphone_array</span><span class="p">.</span><span class="n">Gain</span><span class="p">();</span>
-</pre></div></p>
+</pre></div>
+
 </details>
-<details>
-<p><summary style="font-size: 1.5rem; font-weight: 300;">.SetSamplingRate</summary>
-<code>SetSamplingRate</code> is a <strong>function</strong> that sets the <code>sampling_frequency_</code> value in the <code>MicrophoneArray</code> object and sends it to the microphone array.</p>
-<p><div class="codehilite"><pre><span></span><span class="c1">// Function declaration in header file</span>
+<details class="summary"><summary>.SetSamplingRate</summary><p><code>SetSamplingRate</code> is a <strong>function</strong> that sets the <code>sampling_frequency_</code> value in the <code>MicrophoneArray</code> object and sends it to the microphone array.</p>
+<div class="codehilite"><pre><span></span><span class="c1">// Function declaration in header file</span>
 <span class="kt">bool</span> <span class="nf">SetSamplingRate</span><span class="p">(</span><span class="kt">uint32_t</span> <span class="n">sampling_frequency</span><span class="p">);</span>
 </pre></div>
-<!--  -->
+
 <div class="codehilite"><pre><span></span><span class="c1">// Set the sampling rate</span>
 <span class="n">microphone_array</span><span class="p">.</span><span class="n">SetSamplingRate</span><span class="p">(</span><span class="n">sampling_rate</span><span class="p">);</span>
-</pre></div></p>
+</pre></div>
+
 </details>
-<details>
-<p><summary style="font-size: 1.5rem; font-weight: 300;">.SetGain</summary>
-<code>SetGain</code> is a <strong>function</strong> that sets the <code>gain_</code> value in the <code>MicrophoneArray</code> object and sends it to the microphone array.</p>
-<p><div class="codehilite"><pre><span></span><span class="c1">// Function declaration in header file</span>
+<details class="summary"><summary>.SetGain</summary><p><code>SetGain</code> is a <strong>function</strong> that sets the <code>gain_</code> value in the <code>MicrophoneArray</code> object and sends it to the microphone array.</p>
+<div class="codehilite"><pre><span></span><span class="c1">// Function declaration in header file</span>
 <span class="kt">bool</span> <span class="nf">SetGain</span><span class="p">(</span><span class="kt">uint16_t</span> <span class="n">gain</span><span class="p">);</span>
 </pre></div>
-<!--  -->
+
 <div class="codehilite"><pre><span></span><span class="c1">// Set the gain</span>
 <span class="n">microphone_array</span><span class="p">.</span><span class="n">SetGain</span><span class="p">(</span><span class="n">gain</span><span class="p">);</span>
-</pre></div></p>
+</pre></div>
+
 </details>
-<details>
-<p><summary style="font-size: 1.5rem; font-weight: 300;">.GetSamplingRate</summary>
-<code>GetSamplingRate</code> is a <strong>function</strong> that gets the sampling rate value from the microphone array and saves it in the <code>MicrophoneArray</code> object as value <code>sampling_frequency_</code>.</p>
-<p><div class="codehilite"><pre><span></span><span class="c1">// Function declaration in header file</span>
+<details class="summary"><summary>.GetSamplingRate</summary><p><code>GetSamplingRate</code> is a <strong>function</strong> that gets the sampling rate value from the microphone array and saves it in the <code>MicrophoneArray</code> object as value <code>sampling_frequency_</code>.</p>
+<div class="codehilite"><pre><span></span><span class="c1">// Function declaration in header file</span>
 <span class="kt">bool</span> <span class="nf">GetSamplingRate</span><span class="p">();</span>
 </pre></div>
-<!--  -->
+
 <div class="codehilite"><pre><span></span><span class="c1">// Update sampling_frequency_ from microphone array</span>
 <span class="n">microphone_array</span><span class="p">.</span><span class="n">GetSamplingRate</span><span class="p">();</span>
-</pre></div></p>
+</pre></div>
+
 </details>
-<details>
-<p><summary style="font-size: 1.5rem; font-weight: 300;">.GetGain</summary>
-<code>GetGain</code> is a <strong>function</strong> that gets the gain value from the microphone array and saves it in the <code>MicrophoneArray</code> object as value <code>gain_</code>.</p>
-<p><div class="codehilite"><pre><span></span><span class="c1">// Function declaration in header file</span>
+<details class="summary"><summary>.GetGain</summary><p><code>GetGain</code> is a <strong>function</strong> that gets the gain value from the microphone array and saves it in the <code>MicrophoneArray</code> object as value <code>gain_</code>.</p>
+<div class="codehilite"><pre><span></span><span class="c1">// Function declaration in header file</span>
 <span class="kt">bool</span> <span class="nf">GetGain</span><span class="p">();</span>
 </pre></div>
-<!--  -->
+
 <div class="codehilite"><pre><span></span><span class="c1">// Update gain_ from microphone array</span>
 <span class="n">microphone_array</span><span class="p">.</span><span class="n">GetGain</span><span class="p">();</span>
-</pre></div></p>
+</pre></div>
+
 </details>
-<details>
-<p><summary style="font-size: 1.5rem; font-weight: 300;">.ReadConfValues</summary>
-<code>ReadConfValues</code> is a <strong>function</strong> that runs both the <code>GetGain</code> and <code>GetSamplingRate</code> functions. 
-This updates the <code>gain_</code> and the <code>sampling_frequency_</code> values in the `MicrophoneArray' object with values from the microphone array.</p>
-<p><div class="codehilite"><pre><span></span><span class="c1">// Function declaration in header file</span>
+<details class="summary"><summary>.ReadConfValues</summary><p><code>ReadConfValues</code> is a <strong>function</strong> that runs both the <code>GetGain</code> and <code>GetSamplingRate</code> functions. 
+This updates the <code>gain_</code> and the <code>sampling_frequency_</code> values in the <code>MicrophoneArray</code> object with values from the microphone array.</p>
+<div class="codehilite"><pre><span></span><span class="c1">// Function declaration in header file</span>
 <span class="kt">void</span> <span class="nf">ReadConfValues</span><span class="p">();</span>
 </pre></div>
-<!--  -->
+
 <div class="codehilite"><pre><span></span><span class="c1">// Update values from microphone array</span>
 <span class="n">microphone_array</span><span class="p">.</span><span class="n">ReadConfValues</span><span class="p">();</span>
-</pre></div></p>
+</pre></div>
+
 </details>
-<details>
-<p><summary style="font-size: 1.5rem; font-weight: 300;">.ShowConfiguration</summary>
-<code>ShowConfiguration</code> is a <strong>function</strong> that outputs the <code>gain_</code> and <code>sampling_frequency_</code> values in the `MicrophoneArray' object.</p>
-<p><div class="codehilite"><pre><span></span><span class="c1">// Function declaration in header file</span>
+<details class="summary"><summary>.ShowConfiguration</summary><p><code>ShowConfiguration</code> is a <strong>function</strong> that outputs the <code>gain_</code> and <code>sampling_frequency_</code> values in the <code>MicrophoneArray</code> object.</p>
+<div class="codehilite"><pre><span></span><span class="c1">// Function declaration in header file</span>
 <span class="kt">void</span> <span class="nf">ShowConfiguration</span><span class="p">();</span>
 </pre></div>
-<!--  -->
+
 <div class="codehilite"><pre><span></span><span class="c1">// Output `gain_` and `sampling_frequency_` values</span>
 <span class="n">microphone_array</span><span class="p">.</span><span class="kt">void</span> <span class="n">ShowConfiguration</span><span class="p">();</span>
 </pre></div>
-<!--  -->
+
 <div class="codehilite"><pre><span></span><span class="c1">// Style of output</span>
 <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;Audio Configuration: &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
 <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;Sampling Frequency: &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">sampling_frequency_</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
 <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;Gain : &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">gain_</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
-</pre></div></p>
+</pre></div>
+
 </details>
-<details>
-<p><summary style="font-size: 1.5rem; font-weight: 300;">.Channels</summary>
-<code>Channels</code> is a <strong>function</strong> that returns the number of microphone channels.</p>
-<p><div class="codehilite"><pre><span></span><span class="c1">// Function declaration in header file</span>
+<details class="summary"><summary>.Channels</summary><p><code>Channels</code> is a <strong>function</strong> that returns the number of microphone channels.</p>
+<div class="codehilite"><pre><span></span><span class="c1">// Function declaration in header file</span>
 <span class="kt">uint16_t</span> <span class="nf">Channels</span><span class="p">()</span> <span class="p">{</span> <span class="k">return</span> <span class="n">kMicrophoneChannels</span><span class="p">;</span> <span class="p">}</span>
 </pre></div>
-<!--  -->
+
 <div class="codehilite"><pre><span></span><span class="c1">// Return the number of channels</span>
 <span class="kt">uint16_t</span> <span class="n">Channels</span> <span class="o">=</span> <span class="n">microphone_array</span><span class="p">.</span><span class="n">Channels</span><span class="p">();</span>
-</pre></div></p>
+</pre></div>
+
 </details>
-<details>
-<p><summary style="font-size: 1.5rem; font-weight: 300;">.NumberOfSamples</summary>
-<code>NumberOfSamples</code> is a <strong>function</strong> that returns the number of samples.</p>
-<p><div class="codehilite"><pre><span></span><span class="c1">// Function declaration in header file</span>
+<details class="summary"><summary>.NumberOfSamples</summary><p><code>NumberOfSamples</code> is a <strong>function</strong> that returns the number of samples.</p>
+<div class="codehilite"><pre><span></span><span class="c1">// Function declaration in header file</span>
 <span class="kt">uint32_t</span> <span class="nf">NumberOfSamples</span><span class="p">()</span> <span class="p">{</span>
     <span class="k">return</span> <span class="n">kMicarrayBufferSize</span> <span class="o">/</span> <span class="n">kMicrophoneChannels</span><span class="p">;</span>
-  <span class="p">}</span>
+<span class="p">}</span>
 </pre></div>
-<!--  -->
+
 <div class="codehilite"><pre><span></span><span class="c1">// Return the number of samples</span>
 <span class="kt">uint16_t</span> <span class="n">SampleAmount</span> <span class="o">=</span> <span class="n">microphone_array</span><span class="p">.</span><span class="n">NumberOfSamples</span><span class="p">();</span>
-</pre></div></p>
+</pre></div>
+
 </details>
-<details>
-<p><summary style="font-size: 1.5rem; font-weight: 300;">.At</summary>
-<code>At</code> is a <strong>function</strong> that returns microphone data from the <code>delayed_data_</code> array. The <code>Read</code> function populates the <code>delayed_data_</code> array.</p>
-<p><div class="codehilite"><pre><span></span><span class="c1">// Function declaration in header file</span>
+<details class="summary"><summary>.At</summary><p><code>At</code> is a <strong>function</strong> that returns microphone data from the <code>delayed_data_</code> array. The <code>Read</code> function populates the <code>delayed_data_</code> array.</p>
+<div class="codehilite"><pre><span></span><span class="c1">// Function declaration in header file</span>
 <span class="kt">int16_t</span> <span class="o">&amp;</span><span class="n">At</span><span class="p">(</span><span class="kt">int16_t</span> <span class="n">sample</span><span class="p">,</span> <span class="kt">int16_t</span> <span class="n">channel</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">return</span> <span class="n">delayed_data_</span><span class="p">[</span><span class="n">sample</span> <span class="o">*</span> <span class="n">kMicrophoneChannels</span> <span class="o">+</span> <span class="n">channel</span><span class="p">];</span>
-  <span class="p">}</span>
+<span class="p">}</span>
 </pre></div>
-<!--  -->
+
 <div class="codehilite"><pre><span></span><span class="c1">// Return a single sample</span>
 <span class="kt">int16_t</span> <span class="n">sample</span> <span class="o">=</span> <span class="n">microphone_array</span><span class="p">.</span><span class="n">At</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">c</span><span class="p">);</span>
-</pre></div></p>
+</pre></div>
+
 </details>
-<details>
-<p><summary style="font-size: 1.5rem; font-weight: 300;">.Beam</summary>
-<code>Beam</code> is a <strong>function</strong> that returns beamformed microphone data from the <code>beamformed_</code> array. The <code>Read</code> function populates the <code>beamformed_</code> array.</p>
-<p><div class="codehilite"><pre><span></span><span class="c1">// Function declaration in header file</span>
+<details class="summary"><summary>.Beam</summary><p><code>Beam</code> is a <strong>function</strong> that returns beamformed microphone data from the <code>beamformed_</code> array. The <code>Read</code> function populates the <code>beamformed_</code> array.</p>
+<div class="codehilite"><pre><span></span><span class="c1">// Function declaration in header file</span>
 <span class="kt">int16_t</span> <span class="o">&amp;</span><span class="n">Beam</span><span class="p">(</span><span class="kt">int16_t</span> <span class="n">sample</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="n">beamformed_</span><span class="p">[</span><span class="n">sample</span><span class="p">];</span> <span class="p">}</span>
 </pre></div>
-<!--  -->
+
 <div class="codehilite"><pre><span></span><span class="c1">// Return a single sample</span>
 <span class="kt">int16_t</span> <span class="n">sample</span> <span class="o">=</span> <span class="n">microphone_array</span><span class="p">.</span><span class="n">Beam</span><span class="p">(</span><span class="n">s</span><span class="p">);</span>
-</pre></div></p>
-</details>
-<details>
-<p><summary style="font-size: 1.5rem; font-weight: 300;">.CalculateDelays</summary>
-<code>CalculateDelays</code> is a <strong>function</strong> that calculates and sets up delays for beamforming.</p>
-<p><div class="codehilite"><pre><span></span><span class="c1">// Function declaration in header file</span>
-<span class="kt">void</span> <span class="nf">CalculateDelays</span><span class="p">(</span><span class="kt">float</span> <span class="n">azimutal_angle</span><span class="p">,</span> <span class="kt">float</span> <span class="n">polar_angle</span><span class="p">,</span>
-                       <span class="kt">float</span> <span class="n">radial_distance_mm</span> <span class="o">=</span> <span class="mf">100.0</span><span class="p">,</span>
-                       <span class="kt">float</span> <span class="n">sound_speed_mmseg</span> <span class="o">=</span> <span class="mi">320</span> <span class="o">*</span> <span class="mf">1000.0</span><span class="p">);</span>
 </pre></div>
-<!--  -->
+
+</details>
+<details class="summary"><summary>.CalculateDelays</summary><p><code>CalculateDelays</code> is a <strong>function</strong> that calculates and sets up delays for beamforming.</p>
+<div class="codehilite"><pre><span></span><span class="c1">// Function declaration in header file</span>
+<span class="kt">void</span> <span class="nf">CalculateDelays</span><span class="p">(</span><span class="kt">float</span> <span class="n">azimutal_angle</span><span class="p">,</span> <span class="kt">float</span> <span class="n">polar_angle</span><span class="p">,</span>
+                    <span class="kt">float</span> <span class="n">radial_distance_mm</span> <span class="o">=</span> <span class="mf">100.0</span><span class="p">,</span>
+                    <span class="kt">float</span> <span class="n">sound_speed_mmseg</span> <span class="o">=</span> <span class="mi">320</span> <span class="o">*</span> <span class="mf">1000.0</span><span class="p">);</span>
+</pre></div>
+
 <div class="codehilite"><pre><span></span><span class="c1">// Calculate and set up beamforming delays</span>
 <span class="n">microphone_array</span><span class="p">.</span><span class="n">CalculateDelays</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1000</span><span class="p">,</span> <span class="mi">320</span> <span class="o">*</span> <span class="mi">1000</span><span class="p">);</span>
-</pre></div></p>
+</pre></div>
+
 </details>
 </details>
-<details open="">
-<p><summary style="font-size: 1.75rem; font-weight: 300;">MicrophoneCore</summary>
-<code>MicrophoneCore</code> is an optional <strong>object</strong> that contains functions to enable using a <a href="https://en.wikipedia.org/wiki/Finite_impulse_response" target="_blank">FIR</a> filter with microphone array. It accepts a <code>MicrophoneArray</code> object in it's constructor.</p>
+<details class="info" open="open"><summary>MicrophoneCore</summary><p><code>MicrophoneCore</code> is an optional <strong>object</strong> that contains functions to enable using a <a href="https://en.wikipedia.org/wiki/Finite_impulse_response" target="_blank">FIR</a> filter with microphone array. It accepts a <code>MicrophoneArray</code> object in it's constructor.</p>
 <p><div class="codehilite"><pre><span></span><span class="c1">// Constructor declaration in header file</span>
 <span class="n">MicrophoneCore</span><span class="p">(</span><span class="n">MicrophoneArray</span> <span class="o">&amp;</span><span class="n">microphone_array</span><span class="p">);</span>
 </pre></div>
@@ -684,20 +666,17 @@ This updates the <code>gain_</code> and the <code>sampling_frequency_</code> val
 <span class="n">matrix_hal</span><span class="o">::</span><span class="n">MicrophoneCore</span> <span class="n">microphone_core</span><span class="p">(</span><span class="n">microphone_array</span><span class="p">);</span>
 </pre></div></p>
 <p>The functions below are part of <code>MicrophoneCore</code>.</p>
-<details>
-<p><summary style="font-size: 1.5rem; font-weight: 300;">.Setup</summary>
-<code>Setup</code> is a <strong>function</strong> that takes a <code>MatrixIOBus</code> object as a parameter and sets that object as the bus to use for communicating with MATRIX device. It also sets up the FIR filter by calling <code>SelectFIRCoeff(&amp;FIR_default[0])</code>.</p>
-<p><div class="codehilite"><pre><span></span><span class="c1">// Function declaration in header file</span>
+<details class="summary"><summary>.Setup</summary><p><code>Setup</code> is a <strong>function</strong> that takes a <code>MatrixIOBus</code> object as a parameter and sets that object as the bus to use for communicating with MATRIX device. It also sets up the FIR filter by calling <code>SelectFIRCoeff(&amp;FIR_default[0])</code>.</p>
+<div class="codehilite"><pre><span></span><span class="c1">// Function declaration in header file</span>
 <span class="kt">void</span> <span class="nf">Setup</span><span class="p">(</span><span class="n">MatrixIOBus</span> <span class="o">*</span><span class="n">bus</span><span class="p">);</span>
 </pre></div>
-<!--  -->
+
 <div class="codehilite"><pre><span></span><span class="c1">// Set microphone_core to use MatrixIOBus bus</span>
 <span class="n">microphone_core</span><span class="p">.</span><span class="n">Setup</span><span class="p">(</span><span class="o">&amp;</span><span class="n">bus</span><span class="p">);</span>
-</pre></div></p>
+</pre></div>
+
 </details>
-<details>
-<p><summary style="font-size: 1.5rem; font-weight: 300;">.SetFIRCoeff</summary>
-<code>SetFIRCoeff</code> is a <strong>function</strong> that sends the <code>fir_coeff_</code> array in the <code>MicrophoneCore</code> object to the FPGA.</p>
+<details class="summary"><summary>.SetFIRCoeff</summary><p><code>SetFIRCoeff</code> is a <strong>function</strong> that sends the <code>fir_coeff_</code> array in the <code>MicrophoneCore</code> object to the FPGA.</p>
 <p><div class="codehilite"><pre><span></span><span class="c1">// Function declaration in header file</span>
 <span class="kt">bool</span> <span class="nf">SetFIRCoeff</span><span class="p">();</span>
 </pre></div>
@@ -706,44 +685,40 @@ This updates the <code>gain_</code> and the <code>sampling_frequency_</code> val
 <span class="n">microphone_core</span><span class="p">.</span><span class="n">SetFIRCoeff</span><span class="p">();</span>
 </pre></div></p>
 </details>
-<details>
-<p><summary style="font-size: 1.5rem; font-weight: 300;">.SetCustomFIRCoeff</summary>
-<code>SetCustomFIRCoeff</code> is a <strong>function</strong> that sets the <code>fir_coeff_</code> array in the <code>MicrophoneCore</code> object.</p>
+<details class="summary"><summary>.SetCustomFIRCoeff</summary><p><code>SetCustomFIRCoeff</code> is a <strong>function</strong> that sets the <code>fir_coeff_</code> array in the <code>MicrophoneCore</code> object.</p>
 <p>If input is valid then the function also calls <code>SetFIRCoeff</code> to send the <code>fir_coeff_</code> array in the <code>MicrophoneCore</code> object to the FPGA.</p>
-<p><div class="codehilite"><pre><span></span><span class="kt">bool</span> <span class="nf">SetCustomFIRCoeff</span><span class="p">(</span><span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">valarray</span><span class="o">&lt;</span><span class="kt">int16_t</span><span class="o">&gt;</span> <span class="n">custom_fir</span><span class="p">);</span>
+<div class="codehilite"><pre><span></span><span class="kt">bool</span> <span class="nf">SetCustomFIRCoeff</span><span class="p">(</span><span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">valarray</span><span class="o">&lt;</span><span class="kt">int16_t</span><span class="o">&gt;</span> <span class="n">custom_fir</span><span class="p">);</span>
 </pre></div>
-<!--  -->
+
 <div class="codehilite"><pre><span></span><span class="c1">// Sets fir_coeff_ to custom_fir</span>
 <span class="n">microphone_core</span><span class="p">.</span><span class="n">SetCustomFIRCoeff</span><span class="p">(</span><span class="n">custom_fir</span><span class="p">);</span>
-</pre></div></p>
+</pre></div>
+
 </details>
-<details>
-<p><summary style="font-size: 1.5rem; font-weight: 300;">.SelectFIRCoeff</summary>
-<code>SelectFIRCoeff</code> is a <strong>function</strong> that sets the <code>fir_coeff_</code> array in the <code>MicrophoneCore</code> object. </p>
+<details class="summary"><summary>.SelectFIRCoeff</summary><p><code>SelectFIRCoeff</code> is a <strong>function</strong> that sets the <code>fir_coeff_</code> array in the <code>MicrophoneCore</code> object. </p>
 <p>If input is valid then the function also calls <code>SetFIRCoeff</code> to send the <code>fir_coeff_</code> array in the <code>MicrophoneCore</code> object to the FPGA.</p>
 <p>This function accepts a FIRCoeff struct, which is defined below.</p>
-<p><div class="codehilite"><pre><span></span><span class="c1">// FIRCoeff definition in header file</span>
+<div class="codehilite"><pre><span></span><span class="c1">// FIRCoeff definition in header file</span>
 <span class="k">struct</span> <span class="n">FIRCoeff</span> <span class="p">{</span>
-  <span class="kt">uint32_t</span> <span class="n">rate_</span><span class="p">;</span>
-  <span class="n">std</span><span class="o">::</span><span class="n">valarray</span><span class="o">&lt;</span><span class="kt">int16_t</span><span class="o">&gt;</span> <span class="n">coeff_</span><span class="p">;</span>
+<span class="kt">uint32_t</span> <span class="n">rate_</span><span class="p">;</span>
+<span class="n">std</span><span class="o">::</span><span class="n">valarray</span><span class="o">&lt;</span><span class="kt">int16_t</span><span class="o">&gt;</span> <span class="n">coeff_</span><span class="p">;</span>
 <span class="p">};</span>
 </pre></div>
-<!--  -->
+
 <div class="codehilite"><pre><span></span><span class="kt">bool</span> <span class="nf">SelectFIRCoeff</span><span class="p">(</span><span class="n">FIRCoeff</span> <span class="o">*</span><span class="n">FIR_coeff</span><span class="p">);</span>
 </pre></div>
-<!--  -->
+
 <div class="codehilite"><pre><span></span><span class="c1">// Sets fir_coeff_ from FIR_default[0]</span>
 <span class="n">microphone_core</span><span class="p">.</span><span class="n">SelectFIRCoeff</span><span class="p">(</span><span class="o">&amp;</span><span class="n">FIR_default</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
-</pre></div></p>
+</pre></div>
+
 </details>
-<details>
-<p><summary style="font-size: 1.5rem; font-weight: 300;">Provided FIR Filters</summary>
-A FIR filter is provided in <code>matrix_hal/microphone_core_fir.h</code>.</p>
+<details class="summary"><summary>Provided FIR Filters</summary><p>A FIR filter is provided in <code>matrix_hal/microphone_core_fir.h</code>.</p>
 <p>This filter provided is in the form of a FIRCoeff struct, which is defined below.</p>
 <div class="codehilite"><pre><span></span><span class="c1">// FIRCoeff definition in header file</span>
 <span class="k">struct</span> <span class="n">FIRCoeff</span> <span class="p">{</span>
-  <span class="kt">uint32_t</span> <span class="n">rate_</span><span class="p">;</span>
-  <span class="n">std</span><span class="o">::</span><span class="n">valarray</span><span class="o">&lt;</span><span class="kt">int16_t</span><span class="o">&gt;</span> <span class="n">coeff_</span><span class="p">;</span>
+<span class="kt">uint32_t</span> <span class="n">rate_</span><span class="p">;</span>
+<span class="n">std</span><span class="o">::</span><span class="n">valarray</span><span class="o">&lt;</span><span class="kt">int16_t</span><span class="o">&gt;</span> <span class="n">coeff_</span><span class="p">;</span>
 <span class="p">};</span>
 </pre></div>
 

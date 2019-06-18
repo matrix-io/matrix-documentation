@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="../../../css/codehilite.css">
   <link rel="stylesheet" href="../../../css/superFences.css">
   <link rel="stylesheet" href="../../../css/clipboard.css">
+  <link rel="stylesheet" href="../../../css/details.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
 </head>
@@ -465,7 +466,7 @@
             </ul>
           </div>
         </div>
-        <div id="content" class="col-lg-8 col-md-9">
+        <div id="content" class="col-lg-8 col-md-9 md-typeset">
            <h2 style="padding-top:0">Wakeword</h2>
 
 <h3 id="device-compatibility">Device Compatibility</h3>
@@ -509,15 +510,13 @@ Perform a <strong>reboot</strong> before moving on.
 <h2 id="protocol">Protocol</h2>
 <!-- Base PORT -->
 
-<details open="">
-<p><summary style="font-size: 1.75rem; font-weight: 300;">Base Port</summary>
-This port accepts a single configuration for communicating with the Wakeword driver.</p>
+<details class="info" open="open"><summary>Base Port</summary><p>This port accepts a single configuration for communicating with the Wakeword driver. </p>
 <ul>
 <li><code>wakeword</code> - the wakeword configuration that's created from a <code>WakeWordParams</code> message.</li>
 </ul>
 <p><div class="codehilite"><pre><span></span><span class="kd">message</span> <span class="nc">DriverConfig</span> <span class="p">{</span>
-  <span class="c1">// Wakeword service configuration</span>
-  <span class="n">matrix_io.malos.v1.io.WakeWordParams</span> <span class="na">wakeword</span> <span class="o">=</span> <span class="mi">12</span><span class="p">;</span>
+<span class="c1">// Wakeword service configuration</span>
+<span class="n">matrix_io.malos.v1.io.WakeWordParams</span> <span class="na">wakeword</span> <span class="o">=</span> <span class="mi">12</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></div>
 View the defined message <a href="https://github.com/matrix-io/protocol-buffers/blob/master/matrix_io/malos/v1/driver.proto" target="_blank">here</a>.</p>
@@ -540,8 +539,8 @@ View the defined message <a href="https://github.com/matrix-io/protocol-buffers/
 </li>
 </ul>
 <p><div class="codehilite"><pre><span></span><span class="kd">message</span> <span class="nc">WakeWordParams</span> <span class="p">{</span>
-  <span class="c1">// Mic channels</span>
-  <span class="kd">enum</span> <span class="n">MicChannel</span> <span class="p">{</span>
+<span class="c1">// Mic channels</span>
+<span class="kd">enum</span> <span class="n">MicChannel</span> <span class="p">{</span>
     <span class="na">channel0</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
     <span class="na">channel1</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
     <span class="na">channel2</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
@@ -551,46 +550,40 @@ View the defined message <a href="https://github.com/matrix-io/protocol-buffers/
     <span class="na">channel6</span> <span class="o">=</span> <span class="mi">6</span><span class="p">;</span>
     <span class="na">channel7</span> <span class="o">=</span> <span class="mi">7</span><span class="p">;</span>
     <span class="na">channel8</span> <span class="o">=</span> <span class="mi">8</span><span class="p">;</span>
-  <span class="p">}</span>
-  <span class="c1">// Desired mic channel</span>
-  <span class="n">MicChannel</span> <span class="na">channel</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="c1">// Desired mic channel</span>
+<span class="n">MicChannel</span> <span class="na">channel</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
 
-  <span class="c1">// http://www.speech.cs.cmu.edu/tools/lmtool-new.html</span>
-  <span class="c1">// Language model path</span>
-  <span class="kt">string</span> <span class="na">lm_path</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
-  <span class="c1">// Dictation path</span>
-  <span class="kt">string</span> <span class="na">dic_path</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span>
+<span class="c1">// http://www.speech.cs.cmu.edu/tools/lmtool-new.html</span>
+<span class="c1">// Language model path</span>
+<span class="kt">string</span> <span class="na">lm_path</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
+<span class="c1">// Dictation path</span>
+<span class="kt">string</span> <span class="na">dic_path</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span>
 
-  <span class="c1">// enable pocketsphinx verbose mode</span>
-  <span class="kt">bool</span> <span class="na">enable_verbose</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
+<span class="c1">// enable pocketsphinx verbose mode</span>
+<span class="kt">bool</span> <span class="na">enable_verbose</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
 
-  <span class="c1">// stop recognition service</span>
-  <span class="kt">bool</span> <span class="na">stop_recognition</span> <span class="o">=</span> <span class="mi">6</span><span class="p">;</span>
+<span class="c1">// stop recognition service</span>
+<span class="kt">bool</span> <span class="na">stop_recognition</span> <span class="o">=</span> <span class="mi">6</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></div>
 View the defined message <a href="https://github.com/matrix-io/protocol-buffers/blob/65397022e73ac98ec2b217937f133a9eefbd8f01/matrix_io/malos/v1/io.proto" target="_blank">here</a>.</p>
 </details>
 <!-- Keep-Alive PORT -->
 
-<details open="">
-<p><summary style="font-size: 1.75rem; font-weight: 300;">Keep-alive Port</summary>
-This driver needs keep-alive messages in order to send data to your application. It's recommended to send an empty string <code>""</code> because the contents of a keep-alive message are never read.</p>
+<details class="info" open="open"><summary>Keep-alive Port</summary><p>This driver needs keep-alive messages in order to send data to your application. It's recommended to send an empty string <code>""</code> because the contents of a keep-alive message are never read.</p>
 </details>
 <!-- Error PORT -->
 
-<details open="">
-<p><summary style="font-size: 1.75rem; font-weight: 300;">Error Port</summary>
-Applications can subscribe to this port to receive driver related errors.</p>
+<details class="info" open="open"><summary>Error Port</summary><p>Applications can subscribe to this port to receive driver related errors.</p>
 </details>
 <!-- Data Update PORT -->
 
-<details open="">
-<p><summary style="font-size: 1.75rem; font-weight: 300;">Data Update Port</summary>
-Applications can subscribe to this port for Everloop data. The output will be a serialized message of type <code>EverloopImage</code> with the following information.</p>
+<details class="info" open="open"><summary>Data Update Port</summary><p>Applications can subscribe to this port for Everloop data. The output will be a serialized message of type <code>EverloopImage</code> with the following information.</p>
 <p><div class="codehilite"><pre><span></span><span class="c1">// The led array.</span>
 <span class="kd">message</span> <span class="nc">WakeWordParams</span> <span class="p">{</span>
-  <span class="c1">// Wake Word</span>
-  <span class="kt">string</span> <span class="na">wake_word</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="c1">// Wake Word</span>
+<span class="kt">string</span> <span class="na">wake_word</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></div>
 View the defined message <a href="https://github.com/matrix-io/protocol-buffers/blob/65397022e73ac98ec2b217937f133a9eefbd8f01/matrix_io/malos/v1/io.proto" target="_blank">here</a>.</p>

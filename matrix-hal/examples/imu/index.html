@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="../../../css/codehilite.css">
   <link rel="stylesheet" href="../../../css/superFences.css">
   <link rel="stylesheet" href="../../../css/clipboard.css">
+  <link rel="stylesheet" href="../../../css/details.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
 </head>
@@ -463,7 +464,7 @@
             </ul>
           </div>
         </div>
-        <div id="content" class="col-lg-8 col-md-9">
+        <div id="content" class="col-lg-8 col-md-9 md-typeset">
            <h2 style="padding-top:0">Inertial Measurement Unit (IMU)</h2>
 
 <h4 style="padding-top:0">HAL Example</h4>
@@ -486,9 +487,7 @@
 <div class="codehilite"><pre><span></span><span class="n">g</span><span class="o">++</span> <span class="o">-</span><span class="n">o</span> <span class="n">YOUR_OUTPUT_FILE</span> <span class="n">YOUR_CPP_FILE</span> <span class="o">-</span><span class="n">std</span><span class="o">=</span><span class="n">c</span><span class="o">++</span><span class="mi">11</span> <span class="o">-</span><span class="n">lmatrix_creator_hal</span>
 </pre></div>
 
-<details open="">
-<p><summary style="font-size: 1.5rem; font-weight: 300;">Include Statements</summary>
-To begin working with the IMU sensor you need to include these header files.</p>
+<details class="summary" open="open"><summary>Include Statements</summary><p>To begin working with the IMU sensor you need to include these header files.</p>
 <div class="codehilite"><pre><span></span><span class="c1">// System calls</span>
 <span class="cp">#include</span> <span class="cpf">&lt;unistd.h&gt;</span><span class="cp"></span>
 <span class="c1">// Input/output streams and functions</span>
@@ -503,31 +502,27 @@ To begin working with the IMU sensor you need to include these header files.</p>
 </pre></div>
 
 </details>
-<details open="">
-<p><summary style="font-size: 1.5rem; font-weight: 300;">Initial Setup</summary>
-You'll then need to setup <code>MatrixIOBus</code> in order to communicate with the hardware on your MATRIX device.</p>
+<details class="summary" open="open"><summary>Initial Setup</summary><p>You'll then need to setup <code>MatrixIOBus</code> in order to communicate with the hardware on your MATRIX device.</p>
 <div class="codehilite"><pre><span></span><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-  <span class="c1">// Create MatrixIOBus object for hardware communication</span>
-  <span class="n">matrix_hal</span><span class="o">::</span><span class="n">MatrixIOBus</span> <span class="n">bus</span><span class="p">;</span>
-  <span class="c1">// Initialize bus and exit program if error occurs</span>
-  <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">bus</span><span class="p">.</span><span class="n">Init</span><span class="p">())</span> <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
+    <span class="c1">// Create MatrixIOBus object for hardware communication</span>
+    <span class="n">matrix_hal</span><span class="o">::</span><span class="n">MatrixIOBus</span> <span class="n">bus</span><span class="p">;</span>
+    <span class="c1">// Initialize bus and exit program if error occurs</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">bus</span><span class="p">.</span><span class="n">Init</span><span class="p">())</span> <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
 </pre></div>
 
 </details>
-<details open="">
-<p><summary style="font-size: 1.5rem; font-weight: 300;">Main Setup</summary>
-Now we will create our <code>IMUData</code> and <code>IMUSensor</code> object and use it to receive data from the IMU sensor.</p>
-<div class="codehilite"><pre><span></span>  <span class="c1">// The following code is part of main()</span>
+<details class="summary" open="open"><summary>Main Setup</summary><p>Now we will create our <code>IMUData</code> and <code>IMUSensor</code> object and use it to receive data from the IMU sensor.</p>
+<div class="codehilite"><pre><span></span>    <span class="c1">// The following code is part of main()</span>
 
-  <span class="c1">// Create IMUData object</span>
-  <span class="n">matrix_hal</span><span class="o">::</span><span class="n">IMUData</span> <span class="n">imu_data</span><span class="p">;</span>
-  <span class="c1">// Create IMUSensor object</span>
-  <span class="n">matrix_hal</span><span class="o">::</span><span class="n">IMUSensor</span> <span class="n">imu_sensor</span><span class="p">;</span>
-  <span class="c1">// Set imu_sensor to use MatrixIOBus bus</span>
-  <span class="n">imu_sensor</span><span class="p">.</span><span class="n">Setup</span><span class="p">(</span><span class="o">&amp;</span><span class="n">bus</span><span class="p">);</span>
+    <span class="c1">// Create IMUData object</span>
+    <span class="n">matrix_hal</span><span class="o">::</span><span class="n">IMUData</span> <span class="n">imu_data</span><span class="p">;</span>
+    <span class="c1">// Create IMUSensor object</span>
+    <span class="n">matrix_hal</span><span class="o">::</span><span class="n">IMUSensor</span> <span class="n">imu_sensor</span><span class="p">;</span>
+    <span class="c1">// Set imu_sensor to use MatrixIOBus bus</span>
+    <span class="n">imu_sensor</span><span class="p">.</span><span class="n">Setup</span><span class="p">(</span><span class="o">&amp;</span><span class="n">bus</span><span class="p">);</span>
 
-  <span class="c1">// Endless loop</span>
-  <span class="k">while</span> <span class="p">(</span><span class="nb">true</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// Endless loop</span>
+    <span class="k">while</span> <span class="p">(</span><span class="nb">true</span><span class="p">)</span> <span class="p">{</span>
     <span class="c1">// Overwrites imu_data with new data from IMU sensor</span>
     <span class="n">imu_sensor</span><span class="p">.</span><span class="n">Read</span><span class="p">(</span><span class="o">&amp;</span><span class="n">imu_data</span><span class="p">);</span>
     <span class="c1">// Accelerometer Output</span>
@@ -551,22 +546,22 @@ Now we will create our <code>IMUData</code> and <code>IMUSensor</code> object an
     <span class="c1">// Output sensor data to console</span>
     <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot; [ IMU Sensor Output ]&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
     <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot; [ Acceleration In X : &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">accel_X</span>
-              <span class="o">&lt;&lt;</span> <span class="s">&quot; ] [ Acceleration In Y : &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">accel_Y</span>
-              <span class="o">&lt;&lt;</span> <span class="s">&quot; ] [ Acceleration In Z : &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">accel_Z</span> <span class="o">&lt;&lt;</span> <span class="s">&quot; ]&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+                <span class="o">&lt;&lt;</span> <span class="s">&quot; ] [ Acceleration In Y : &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">accel_Y</span>
+                <span class="o">&lt;&lt;</span> <span class="s">&quot; ] [ Acceleration In Z : &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">accel_Z</span> <span class="o">&lt;&lt;</span> <span class="s">&quot; ]&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
     <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot; [ Gyroscope In X : &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">gyro_X</span>
-              <span class="o">&lt;&lt;</span> <span class="s">&quot; ] [ Gyroscope In Y : &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">gyro_X</span>
-              <span class="o">&lt;&lt;</span> <span class="s">&quot; ] [ Gyroscope In Z : &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">gyro_Z</span> <span class="o">&lt;&lt;</span> <span class="s">&quot; ]&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+                <span class="o">&lt;&lt;</span> <span class="s">&quot; ] [ Gyroscope In Y : &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">gyro_X</span>
+                <span class="o">&lt;&lt;</span> <span class="s">&quot; ] [ Gyroscope In Z : &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">gyro_Z</span> <span class="o">&lt;&lt;</span> <span class="s">&quot; ]&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
     <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot; [ Yaw : &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">yaw</span> <span class="o">&lt;&lt;</span> <span class="s">&quot; ] [ Pitch : &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">pitch</span>
-              <span class="o">&lt;&lt;</span> <span class="s">&quot; ] [ Roll : &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">roll</span> <span class="o">&lt;&lt;</span> <span class="s">&quot; ]&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+                <span class="o">&lt;&lt;</span> <span class="s">&quot; ] [ Roll : &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">roll</span> <span class="o">&lt;&lt;</span> <span class="s">&quot; ]&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
     <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot; [ Magnetometer in X : &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">mag_X</span>
-              <span class="o">&lt;&lt;</span> <span class="s">&quot; ] [ Magnetometer in Y : &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">mag_Y</span>
-              <span class="o">&lt;&lt;</span> <span class="s">&quot; ] [ Magnetometer in Z : &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">mag_Z</span> <span class="o">&lt;&lt;</span> <span class="s">&quot; ]&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+                <span class="o">&lt;&lt;</span> <span class="s">&quot; ] [ Magnetometer in Y : &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">mag_Y</span>
+                <span class="o">&lt;&lt;</span> <span class="s">&quot; ] [ Magnetometer in Z : &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">mag_Z</span> <span class="o">&lt;&lt;</span> <span class="s">&quot; ]&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
 
     <span class="c1">// Sleep for 20000 microseconds</span>
     <span class="n">usleep</span><span class="p">(</span><span class="mi">20000</span><span class="p">);</span>
-  <span class="p">}</span>
+    <span class="p">}</span>
 
-  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></div>
 

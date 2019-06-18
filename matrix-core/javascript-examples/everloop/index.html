@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="../../../css/codehilite.css">
   <link rel="stylesheet" href="../../../css/superFences.css">
   <link rel="stylesheet" href="../../../css/clipboard.css">
+  <link rel="stylesheet" href="../../../css/details.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
 </head>
@@ -465,7 +466,7 @@
             </ul>
           </div>
         </div>
-        <div id="content" class="col-lg-8 col-md-9">
+        <div id="content" class="col-lg-8 col-md-9 md-typeset">
            <h2 style="padding-top:0">Everloop</h2>
 
 <h4 style="padding-top:0">Javascript Example</h4>
@@ -491,21 +492,18 @@
 <p>The following sections show how to implement a connection to each of the Everloop driver's ports. You can download this example <a href="https://github.com/matrix-io/matrix-core-examples/blob/master/javascript/everloop.js" target="_blank">here</a>.</p>
 <!-- Initial Variables -->
 
-<details open="">
-<p><summary style="font-size: 1.75rem; font-weight: 300;">Initial Variables</summary>
-Before we go into connecting to each port, the variables defined below are needed in order to access the ZeroMQ and MATRIX Protocol Buffer libraries for Javascript. We also define a few helpful variables for easy references.
+<details class="info" open="open"><summary>Initial Variables</summary><p>Before we go into connecting to each port, the variables defined below are needed in order to access the ZeroMQ and MATRIX Protocol Buffer libraries for Javascript. We also define a few helpful variables for easy references.</p>
 <div class="codehilite"><pre><span></span><span class="kd">var</span> <span class="nx">zmq</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;zeromq&#39;</span><span class="p">);</span><span class="c1">// Asynchronous Messaging Framework</span>
 <span class="kd">var</span> <span class="nx">matrix_io</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;matrix-protos&#39;</span><span class="p">).</span><span class="nx">matrix_io</span><span class="p">;</span><span class="c1">// Protocol Buffers for MATRIX function</span>
 <span class="kd">var</span> <span class="nx">matrix_ip</span> <span class="o">=</span> <span class="s1">&#39;127.0.0.1&#39;</span><span class="p">;</span><span class="c1">// Local IP</span>
 <span class="kd">var</span> <span class="nx">matrix_everloop_base_port</span> <span class="o">=</span> <span class="mi">20021</span><span class="p">;</span><span class="c1">// Port for Everloop driver</span>
 <span class="kd">var</span> <span class="nx">matrix_device_leds</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span><span class="c1">// Holds amount of LEDs on MATRIX device</span>
-</pre></div></p>
+</pre></div>
+
 </details>
 <!-- Base PORT -->
 
-<details open="">
-<p><summary style="font-size: 1.75rem; font-weight: 300;">Base Port</summary>
-Here is where the main logic for our Everloop example goes. Once we connect to the <strong>Base Port</strong>, the program will start an endless loop to create and send LED configurations with randomly generated RGBW values. However, before sending the LED configuration to you MATRIX device, it will wait until the amount of <code>matrix_device_leds</code> is defined.
+<details class="info" open="open"><summary>Base Port</summary><p>Here is where the main logic for our Everloop example goes. Once we connect to the <strong>Base Port</strong>, the program will start an endless loop to create and send LED configurations with randomly generated RGBW values. However, before sending the LED configuration to you MATRIX device, it will wait until the amount of <code>matrix_device_leds</code> is defined.
 <div class="codehilite"><pre><span></span><span class="c1">// Create a Pusher socket</span>
 <span class="kd">var</span> <span class="nx">configSocket</span> <span class="o">=</span> <span class="nx">zmq</span><span class="p">.</span><span class="nx">socket</span><span class="p">(</span><span class="s1">&#39;push&#39;</span><span class="p">);</span>
 <span class="c1">// Connect Pusher to Base Port</span>
@@ -516,33 +514,31 @@ Here is where the main logic for our Everloop example goes. Once we connect to t
 
 <span class="c1">// Loop every 50 milliseconds</span>
 <span class="nx">setInterval</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
-  <span class="c1">// For each device LED</span>
-  <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">matrix_device_leds</span><span class="p">;</span> <span class="o">++</span><span class="nx">i</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// For each device LED</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">matrix_device_leds</span><span class="p">;</span> <span class="o">++</span><span class="nx">i</span><span class="p">)</span> <span class="p">{</span>
     <span class="c1">// Set individual LED value</span>
     <span class="nx">image</span><span class="p">.</span><span class="nx">led</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
-      <span class="nx">red</span><span class="o">:</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">floor</span><span class="p">(</span><span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">()</span> <span class="o">*</span> <span class="mi">200</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span>
-      <span class="nx">green</span><span class="o">:</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">floor</span><span class="p">(</span><span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">()</span> <span class="o">*</span> <span class="mi">255</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span>
-      <span class="nx">blue</span><span class="o">:</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">floor</span><span class="p">(</span><span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">()</span> <span class="o">*</span> <span class="mi">50</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span>
-      <span class="nx">white</span><span class="o">:</span> <span class="mi">0</span>
+        <span class="nx">red</span><span class="o">:</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">floor</span><span class="p">(</span><span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">()</span> <span class="o">*</span> <span class="mi">200</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span>
+        <span class="nx">green</span><span class="o">:</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">floor</span><span class="p">(</span><span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">()</span> <span class="o">*</span> <span class="mi">255</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span>
+        <span class="nx">blue</span><span class="o">:</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">floor</span><span class="p">(</span><span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">()</span> <span class="o">*</span> <span class="mi">50</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span>
+        <span class="nx">white</span><span class="o">:</span> <span class="mi">0</span>
     <span class="p">};</span>
-  <span class="p">}</span>
+    <span class="p">}</span>
 
-  <span class="c1">// Store the Everloop image in MATRIX configuration</span>
-  <span class="kd">var</span> <span class="nx">config</span> <span class="o">=</span> <span class="nx">matrix_io</span><span class="p">.</span><span class="nx">malos</span><span class="p">.</span><span class="nx">v1</span><span class="p">.</span><span class="nx">driver</span><span class="p">.</span><span class="nx">DriverConfig</span><span class="p">.</span><span class="nx">create</span><span class="p">({</span>
+    <span class="c1">// Store the Everloop image in MATRIX configuration</span>
+    <span class="kd">var</span> <span class="nx">config</span> <span class="o">=</span> <span class="nx">matrix_io</span><span class="p">.</span><span class="nx">malos</span><span class="p">.</span><span class="nx">v1</span><span class="p">.</span><span class="nx">driver</span><span class="p">.</span><span class="nx">DriverConfig</span><span class="p">.</span><span class="nx">create</span><span class="p">({</span>
     <span class="s1">&#39;image&#39;</span><span class="o">:</span> <span class="nx">image</span>
-  <span class="p">});</span>
+    <span class="p">});</span>
 
-  <span class="c1">// Send MATRIX configuration to MATRIX device</span>
-  <span class="k">if</span><span class="p">(</span><span class="nx">matrix_device_leds</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="c1">// Send MATRIX configuration to MATRIX device</span>
+    <span class="k">if</span><span class="p">(</span><span class="nx">matrix_device_leds</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span>
     <span class="nx">configSocket</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="nx">matrix_io</span><span class="p">.</span><span class="nx">malos</span><span class="p">.</span><span class="nx">v1</span><span class="p">.</span><span class="nx">driver</span><span class="p">.</span><span class="nx">DriverConfig</span><span class="p">.</span><span class="nx">encode</span><span class="p">(</span><span class="nx">config</span><span class="p">).</span><span class="nx">finish</span><span class="p">());</span>
 <span class="p">},</span><span class="mi">50</span><span class="p">);</span>
 </pre></div></p>
 </details>
 <!-- Keep-alive PORT -->
 
-<details open="">
-<p><summary style="font-size: 1.75rem; font-weight: 300;">Keep-alive Port</summary>
-The next step is to connect and send a message to the <strong>Keep-alive Port</strong>. That message, an empty string, will grant us a response from the <strong>Data Update Port</strong> with the value we need for <code>matrix_device_leds</code>.
+<details class="info" open="open"><summary>Keep-alive Port</summary><p>The next step is to connect and send a message to the <strong>Keep-alive Port</strong>. That message, an empty string, will grant us a response from the <strong>Data Update Port</strong> with the value we need for <code>matrix_device_leds</code>.
 <div class="codehilite"><pre><span></span><span class="c1">// Create a Pusher socket</span>
 <span class="kd">var</span> <span class="nx">pingSocket</span> <span class="o">=</span> <span class="nx">zmq</span><span class="p">.</span><span class="nx">socket</span><span class="p">(</span><span class="s1">&#39;push&#39;</span><span class="p">)</span>
 <span class="c1">// Connect Pusher to Keep-alive port</span>
@@ -553,9 +549,7 @@ The next step is to connect and send a message to the <strong>Keep-alive Port</s
 </details>
 <!-- Error PORT -->
 
-<details open="">
-<p><summary style="font-size: 1.75rem; font-weight: 300;">Error Port</summary>
-Connecting to the <strong>Error Port</strong> is optional, but highly recommended if you want to log any errors that occur within MATRIX CORE.
+<details class="info" open="open"><summary>Error Port</summary><p>Connecting to the <strong>Error Port</strong> is optional, but highly recommended if you want to log any errors that occur within MATRIX CORE.
 <div class="codehilite"><pre><span></span><span class="c1">// Create a Subscriber socket</span>
 <span class="kd">var</span> <span class="nx">errorSocket</span> <span class="o">=</span> <span class="nx">zmq</span><span class="p">.</span><span class="nx">socket</span><span class="p">(</span><span class="s1">&#39;sub&#39;</span><span class="p">);</span>
 <span class="c1">// Connect Subscriber to Error port</span>
@@ -564,15 +558,13 @@ Connecting to the <strong>Error Port</strong> is optional, but highly recommende
 <span class="nx">errorSocket</span><span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">);</span>
 <span class="c1">// On Message</span>
 <span class="nx">errorSocket</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;message&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">error_message</span><span class="p">){</span>
-  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Error received: &#39;</span> <span class="o">+</span> <span class="nx">error_message</span><span class="p">.</span><span class="nx">toString</span><span class="p">(</span><span class="s1">&#39;utf8&#39;</span><span class="p">));</span><span class="c1">// Log error</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Error received: &#39;</span> <span class="o">+</span> <span class="nx">error_message</span><span class="p">.</span><span class="nx">toString</span><span class="p">(</span><span class="s1">&#39;utf8&#39;</span><span class="p">));</span><span class="c1">// Log error</span>
 <span class="p">});</span>
 </pre></div></p>
 </details>
 <!-- Data Update PORT -->
 
-<details open="">
-<p><summary style="font-size: 1.75rem; font-weight: 300;">Data Update Port</summary>
-A connection to the <strong>Data Update Port</strong> will allow us to receive the LED count we want for the <code>matrix_device_leds</code> variable. Once that variable is set, the MATRIX device will begin reading the Everloop images being sent to the base port.</p>
+<details class="info" open="open"><summary>Data Update Port</summary><p>A connection to the <strong>Data Update Port</strong> will allow us to receive the LED count we want for the <code>matrix_device_leds</code> variable. Once that variable is set, the MATRIX device will begin reading the Everloop images being sent to the base port.</p>
 <p><div class="codehilite"><pre><span></span><span class="c1">// Create a Subscriber socket</span>
 <span class="kd">var</span> <span class="nx">updateSocket</span> <span class="o">=</span> <span class="nx">zmq</span><span class="p">.</span><span class="nx">socket</span><span class="p">(</span><span class="s1">&#39;sub&#39;</span><span class="p">);</span>
 <span class="c1">// Connect Subscriber to Data Update port</span>
@@ -581,15 +573,15 @@ A connection to the <strong>Data Update Port</strong> will allow us to receive t
 <span class="nx">updateSocket</span><span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">);</span>
 <span class="c1">// On Message</span>
 <span class="nx">updateSocket</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;message&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">buffer</span><span class="p">){</span>
-  <span class="kd">var</span> <span class="nx">data</span> <span class="o">=</span> <span class="nx">matrix_io</span><span class="p">.</span><span class="nx">malos</span><span class="p">.</span><span class="nx">v1</span><span class="p">.</span><span class="nx">io</span><span class="p">.</span><span class="nx">EverloopImage</span><span class="p">.</span><span class="nx">decode</span><span class="p">(</span><span class="nx">buffer</span><span class="p">);</span><span class="c1">// Extract message</span>
-  <span class="nx">matrix_device_leds</span> <span class="o">=</span> <span class="nx">data</span><span class="p">.</span><span class="nx">everloopLength</span><span class="p">;</span><span class="c1">// Save MATRIX device LED count</span>
+<span class="kd">var</span> <span class="nx">data</span> <span class="o">=</span> <span class="nx">matrix_io</span><span class="p">.</span><span class="nx">malos</span><span class="p">.</span><span class="nx">v1</span><span class="p">.</span><span class="nx">io</span><span class="p">.</span><span class="nx">EverloopImage</span><span class="p">.</span><span class="nx">decode</span><span class="p">(</span><span class="nx">buffer</span><span class="p">);</span><span class="c1">// Extract message</span>
+<span class="nx">matrix_device_leds</span> <span class="o">=</span> <span class="nx">data</span><span class="p">.</span><span class="nx">everloopLength</span><span class="p">;</span><span class="c1">// Save MATRIX device LED count</span>
 <span class="p">});</span>
 </pre></div>
 <h4>Data Output</h4>
 The javascript object below is an example output you'll receive from the <strong>Data Update Port</strong>.
 <div class="codehilite"><pre><span></span><span class="p">{</span>
-  <span class="nx">led</span><span class="o">:</span> <span class="p">[],</span>
-  <span class="nx">everloopLength</span><span class="o">:</span> <span class="mi">35</span>
+<span class="nx">led</span><span class="o">:</span> <span class="p">[],</span>
+<span class="nx">everloopLength</span><span class="o">:</span> <span class="mi">35</span>
 <span class="p">}</span>
 </pre></div></p>
 </details> 

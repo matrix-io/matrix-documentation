@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="../../../css/codehilite.css">
   <link rel="stylesheet" href="../../../css/superFences.css">
   <link rel="stylesheet" href="../../../css/clipboard.css">
+  <link rel="stylesheet" href="../../../css/details.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
 </head>
@@ -463,7 +464,7 @@
             </ul>
           </div>
         </div>
-        <div id="content" class="col-lg-8 col-md-9">
+        <div id="content" class="col-lg-8 col-md-9 md-typeset">
            <h2 style="padding-top:0">UV</h2>
 
 <h3 id="device-compatibility">Device Compatibility</h3>
@@ -484,9 +485,7 @@
 <span class="cp">#include</span> <span class="cpf">&quot;matrix_hal/matrixio_bus.h&quot;</span><span class="cp"></span>
 </pre></div>
 
-<details open="">
-<p><summary style="font-size: 1.75rem; font-weight: 300;">UVData</summary>
-<code>UVData</code> is a required <strong>object</strong> that contains the UV sensor's supported data parameters.</p>
+<details class="info" open="open"><summary>UVData</summary><p><code>UVData</code> is a required <strong>object</strong> that contains the UV sensor's supported data parameters.</p>
 <div class="codehilite"><pre><span></span><span class="c1">// Create UVData object</span>
 <span class="n">matrix_hal</span><span class="o">::</span><span class="n">UVData</span> <span class="n">uv_data</span><span class="p">;</span>
 </pre></div>
@@ -497,16 +496,12 @@
 </pre></div>
 
 </details>
-<details open="">
-<p><summary style="font-size: 1.75rem; font-weight: 300;">UVSensor</summary>
-<code>UVSensor</code> is a required <strong>object</strong> that contains functions to interface with the UV sensor.</p>
+<details class="info" open="open"><summary>UVSensor</summary><p><code>UVSensor</code> is a required <strong>object</strong> that contains functions to interface with the UV sensor.</p>
 <p><div class="codehilite"><pre><span></span><span class="c1">// Create UVSensor object</span>
 <span class="n">matrix_hal</span><span class="o">::</span><span class="n">UVSensor</span> <span class="n">uv_sensor</span><span class="p">;</span>
 </pre></div>
 The functions below are part of <code>UVSensor</code>.</p>
-<details>
-<p><summary style="font-size: 1.5rem; font-weight: 300;">.Setup</summary>
-<code>Setup</code> is a <strong>function</strong> that takes a <code>MatrixIOBus</code> object as a parameter and sets that object as the bus to use for communicating with MATRIX device.</p>
+<details class="summary"><summary>.Setup</summary><p><code>Setup</code> is a <strong>function</strong> that takes a <code>MatrixIOBus</code> object as a parameter and sets that object as the bus to use for communicating with MATRIX device.</p>
 <div class="codehilite"><pre><span></span><span class="c1">// Function declaration in header file</span>
 <span class="kt">void</span> <span class="nf">Setup</span><span class="p">(</span><span class="n">MatrixIOBus</span> <span class="o">*</span><span class="n">bus</span><span class="p">);</span>
 </pre></div>
@@ -516,15 +511,16 @@ The functions below are part of <code>UVSensor</code>.</p>
 </pre></div>
 
 </details>
-<details>
-<p><summary style="font-size: 1.5rem; font-weight: 300;">.Read</summary>
-<code>Read</code> is a <strong>function</strong> that takes a <code>UVData</code> object as a parameter and writes the current humidity sensor data into the <code>UVData</code> object.</p>
-<p></p>
-</details>
-<p><div class="codehilite"><pre><span></span><span class="c1">// Overwrites uv_data with new data from UV sensor</span>
+<details class="summary"><summary>.Read</summary><p><code>Read</code> is a <strong>function</strong> that takes a <code>UVData</code> object as a parameter and writes the current humidity sensor data into the <code>UVData</code> object.</p>
+<div class="codehilite"><pre><span></span><span class="c1">// Function declaration in header file</span>
+<span class="kt">bool</span> <span class="nf">Read</span><span class="p">(</span><span class="n">UVData</span> <span class="o">*</span><span class="n">data</span><span class="p">);</span>
+</pre></div>
+
+<div class="codehilite"><pre><span></span><span class="c1">// Overwrites uv_data with new data from UV sensor</span>
 <span class="n">uv_sensor</span><span class="p">.</span><span class="n">Read</span><span class="p">(</span><span class="o">&amp;</span><span class="n">uv_data</span><span class="p">);</span>
 </pre></div>
-</details></p>
+
+</details>
 </details> 
         </div>
         <div class="toc-parent col-lg-2 col-md-3">

@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="../../../css/codehilite.css">
   <link rel="stylesheet" href="../../../css/superFences.css">
   <link rel="stylesheet" href="../../../css/clipboard.css">
+  <link rel="stylesheet" href="../../../css/details.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
 </head>
@@ -465,7 +466,7 @@
             </ul>
           </div>
         </div>
-        <div id="content" class="col-lg-8 col-md-9">
+        <div id="content" class="col-lg-8 col-md-9 md-typeset">
            <h2 style="padding-top:0">UV</h2>
 
 <h3 id="device-compatibility">Device Compatibility</h3>
@@ -484,11 +485,7 @@
 <li><code>Error port</code>: 20031</li>
 <li><code>Data Update port</code>: 20032</li>
 </ul>
-<h2 id="protocol">Protocol</h2>
-<p><!-- Base PORT -->
-<details markdown="1" open>
-<summary style="font-size: 1.75rem; font-weight: 300;">Base Port</summary>
-This port accepts 2 configurations for communicating with the UV driver. </p>
+<details class="info" open="open"><summary>Base Port</summary><p>This port accepts 2 configurations for communicating with the UV driver. </p>
 <ul>
 <li>
 <p><code>delay_between_updates</code> - controls the output speed of messages from the <strong>Data Update port</strong>. </p>
@@ -498,37 +495,31 @@ This port accepts 2 configurations for communicating with the UV driver. </p>
 </li>
 </ul>
 <p><div class="codehilite"><pre><span></span><span class="kd">message</span> <span class="nc">DriverConfig</span> <span class="p">{</span>
-  <span class="c1">// Delay between updates in seconds</span>
-  <span class="kt">float</span> <span class="na">delay_between_updates</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
-  <span class="c1">// Timeout after last ping</span>
-  <span class="kt">float</span> <span class="na">timeout_after_last_ping</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+<span class="c1">// Delay between updates in seconds</span>
+<span class="kt">float</span> <span class="na">delay_between_updates</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="c1">// Timeout after last ping</span>
+<span class="kt">float</span> <span class="na">timeout_after_last_ping</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
 </pre></div>
-View the defined message <a href="https://github.com/matrix-io/protocol-buffers/blob/master/matrix_io/malos/v1/driver.proto" target="_blank">here</a>.
-</details></p>
+View the defined message <a href="https://github.com/matrix-io/protocol-buffers/blob/master/matrix_io/malos/v1/driver.proto" target="_blank">here</a>.</p>
+</details>
 <!-- Keep-alive PORT -->
 
-<details open="">
-<p><summary style="font-size: 1.75rem; font-weight: 300;">Keep-alive Port</summary>
-This driver needs keep-alive messages in order to send data to your application. It's recommended to send an empty string <code>""</code> because the contents of a keep-alive message are never read.</p>
+<details class="info" open="open"><summary>Keep-alive Port</summary><p>This driver needs keep-alive messages in order to send data to your application. It's recommended to send an empty string <code>""</code> because the contents of a keep-alive message are never read.</p>
 </details>
 <!-- Error PORT -->
 
-<details open="">
-<p><summary style="font-size: 1.75rem; font-weight: 300;">Error Port</summary>
-Applications can subscribe to this port to receive driver related errors.</p>
+<details class="info" open="open"><summary>Error Port</summary><p>Applications can subscribe to this port to receive driver related errors.</p>
 </details>
 <!-- Data Update PORT -->
 
-<details open="">
-<p><summary style="font-size: 1.75rem; font-weight: 300;">Data Update Port</summary>
-Applications can subscribe to this port for UV data. The output will be a serialized message of type <code>UV</code> with the following information.
+<details class="info" open="open"><summary>Data Update Port</summary><p>Applications can subscribe to this port for UV data. The output will be a serialized message of type <code>UV</code> with the following information.
 <div class="codehilite"><pre><span></span><span class="kd">message</span> <span class="nc">UV</span><span class="p">{</span>
-  <span class="c1">// UV index.</span>
-  <span class="kt">float</span> <span class="na">uv_index</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="c1">// UV index.</span>
+<span class="kt">float</span> <span class="na">uv_index</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
 
-  <span class="c1">// Risk of harm from unprotected sun exposure, for the average adult.</span>
-  <span class="c1">// According to the OMS table. https://www.epa.gov/sunsafety/uv-index-scale-0</span>
-  <span class="kt">string</span> <span class="na">oms_risk</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+<span class="c1">// Risk of harm from unprotected sun exposure, for the average adult.</span>
+<span class="c1">// According to the OMS table. https://www.epa.gov/sunsafety/uv-index-scale-0</span>
+<span class="kt">string</span> <span class="na">oms_risk</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></div>
 View the defined message <a href="https://github.com/matrix-io/protocol-buffers/blob/65397022e73ac98ec2b217937f133a9eefbd8f01/matrix_io/malos/v1/sense.proto" target="_blank">here</a>.</p>
@@ -547,11 +538,6 @@ View the defined message <a href="https://github.com/matrix-io/protocol-buffers/
 </li>  <li class='nav-item'>
   <a href="#overview" class="nav-link ">
     Overview
-  </a>
-  
-</li>  <li class='nav-item'>
-  <a href="#protocol" class="nav-link ">
-    Protocol
   </a>
   
 </li> 

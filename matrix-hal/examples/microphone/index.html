@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="../../../css/codehilite.css">
   <link rel="stylesheet" href="../../../css/superFences.css">
   <link rel="stylesheet" href="../../../css/clipboard.css">
+  <link rel="stylesheet" href="../../../css/details.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
 </head>
@@ -463,7 +464,7 @@
             </ul>
           </div>
         </div>
-        <div id="content" class="col-lg-8 col-md-9">
+        <div id="content" class="col-lg-8 col-md-9 md-typeset">
            <h2 style="padding-top:0">Microphone Array</h2>
 
 <h4 style="padding-top:0">HAL Example</h4>
@@ -489,9 +490,7 @@
 <div class="codehilite"><pre><span></span><span class="n">g</span><span class="o">++</span> <span class="o">-</span><span class="n">o</span> <span class="n">YOUR_OUTPUT_FILE</span> <span class="n">YOUR_CPP_FILE</span> <span class="o">-</span><span class="n">std</span><span class="o">=</span><span class="n">c</span><span class="o">++</span><span class="mi">11</span> <span class="o">-</span><span class="n">lmatrix_creator_hal</span> <span class="o">-</span><span class="n">lgflags</span>
 </pre></div>
 
-<details>
-<p><summary style="font-size: 1.75rem; font-weight: 300;">Microphone Array Record to File</summary>
-The following section shows how to record data from the microphone array to a file. You can download this example <a href="https://github.com/matrix-io/matrix-hal-examples/blob/master/microphone_array/mic_record_file.cpp" target="_blank">here</a>.</p>
+<details class="example"><summary>Microphone Array Record to File</summary><p>The following section shows how to record data from the microphone array to a file. You can download this example <a href="https://github.com/matrix-io/matrix-hal-examples/blob/master/microphone_array/mic_record_file.cpp" target="_blank">here</a>.</p>
 <blockquote>
 <p>Beamformed microphone is channel 8</p>
 </blockquote>
@@ -508,9 +507,7 @@ sox -r <span class="m">16000</span> -c <span class="m">1</span> -e signed -c <sp
 sox -r <span class="m">16000</span> -c <span class="m">1</span> -e signed -c <span class="m">1</span> -e signed -b <span class="m">16</span> mic_16000_s16le_channel_8.raw channel_8.wav
 </pre></div>
 
-<details open="">
-<p><summary style="font-size: 1.5rem; font-weight: 300;">Include Statements</summary>
-To begin working with the Microphone Array you need to include these header files.</p>
+<details class="summary" open="open"><summary>Include Statements</summary><p>To begin working with the Microphone Array you need to include these header files.</p>
 <div class="codehilite"><pre><span></span><span class="c1">// Google gflags parser</span>
 <span class="cp">#include</span> <span class="cpf">&lt;gflags/gflags.h&gt;</span><span class="cp"></span>
 <span class="c1">// Communicating with Pi GPIO</span>
@@ -533,9 +530,7 @@ To begin working with the Microphone Array you need to include these header file
 </pre></div>
 
 </details>
-<details open="">
-<p><summary style="font-size: 1.5rem; font-weight: 300;">Initial Variables</summary>
-These initial variables are used in the example.</p>
+<details class="summary" open="open"><summary>Initial Variables</summary><p>These initial variables are used in the example.</p>
 <div class="codehilite"><pre><span></span><span class="c1">// Defines variables from user arguments using gflags utility</span>
 <span class="c1">// (https://gflags.github.io/gflags/)</span>
 
@@ -548,130 +543,120 @@ These initial variables are used in the example.</p>
 </pre></div>
 
 </details>
-<details open="">
-<p><summary style="font-size: 1.5rem; font-weight: 300;">Initial Setup</summary>
-You'll then need to setup <code>MatrixIOBus</code> in order to communicate with the hardware on your MATRIX device. Also, parse command line flags and set user flags as variables.</p>
+<details class="summary" open="open"><summary>Initial Setup</summary><p>You'll then need to setup <code>MatrixIOBus</code> in order to communicate with the hardware on your MATRIX device. Also, parse command line flags and set user flags as variables.</p>
 <div class="codehilite"><pre><span></span><span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">agrv</span><span class="p">[])</span> <span class="p">{</span>
-  <span class="c1">// Parse command line flags with gflags utility</span>
-  <span class="c1">// (https://gflags.github.io/gflags/)</span>
-  <span class="n">google</span><span class="o">::</span><span class="n">ParseCommandLineFlags</span><span class="p">(</span><span class="o">&amp;</span><span class="n">argc</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">agrv</span><span class="p">,</span> <span class="nb">true</span><span class="p">);</span>
+<span class="c1">// Parse command line flags with gflags utility</span>
+<span class="c1">// (https://gflags.github.io/gflags/)</span>
+<span class="n">google</span><span class="o">::</span><span class="n">ParseCommandLineFlags</span><span class="p">(</span><span class="o">&amp;</span><span class="n">argc</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">agrv</span><span class="p">,</span> <span class="nb">true</span><span class="p">);</span>
 
-  <span class="c1">// Create MatrixIOBus object for hardware communication</span>
-  <span class="n">matrix_hal</span><span class="o">::</span><span class="n">MatrixIOBus</span> <span class="n">bus</span><span class="p">;</span>
-  <span class="c1">// Initialize bus and exit program if error occurs</span>
-  <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">bus</span><span class="p">.</span><span class="n">Init</span><span class="p">())</span> <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
+<span class="c1">// Create MatrixIOBus object for hardware communication</span>
+<span class="n">matrix_hal</span><span class="o">::</span><span class="n">MatrixIOBus</span> <span class="n">bus</span><span class="p">;</span>
+<span class="c1">// Initialize bus and exit program if error occurs</span>
+<span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">bus</span><span class="p">.</span><span class="n">Init</span><span class="p">())</span> <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
 
-  <span class="c1">// Set user flags from gflags as variables</span>
-  <span class="kt">int</span> <span class="n">sampling_rate</span> <span class="o">=</span> <span class="n">FLAGS_sampling_frequency</span><span class="p">;</span>
-  <span class="kt">int</span> <span class="n">seconds_to_record</span> <span class="o">=</span> <span class="n">FLAGS_duration</span><span class="p">;</span>
-  <span class="kt">int</span> <span class="n">gain</span> <span class="o">=</span> <span class="n">FLAGS_gain</span><span class="p">;</span>
+<span class="c1">// Set user flags from gflags as variables</span>
+<span class="kt">int</span> <span class="n">sampling_rate</span> <span class="o">=</span> <span class="n">FLAGS_sampling_frequency</span><span class="p">;</span>
+<span class="kt">int</span> <span class="n">seconds_to_record</span> <span class="o">=</span> <span class="n">FLAGS_duration</span><span class="p">;</span>
+<span class="kt">int</span> <span class="n">gain</span> <span class="o">=</span> <span class="n">FLAGS_gain</span><span class="p">;</span>
 </pre></div>
 
 </details>
-<details open="">
-<p><summary style="font-size: 1.5rem; font-weight: 300;">Main Setup</summary>
-Now we will create our <code>MicrophoneArray</code> object and use it to interface with the microphone array.</p>
-<div class="codehilite"><pre><span></span>  <span class="c1">// The following code is part of main()</span>
+<details class="summary" open="open"><summary>Main Setup</summary><p>Now we will create our <code>MicrophoneArray</code> object and use it to interface with the microphone array.</p>
+<div class="codehilite"><pre><span></span><span class="c1">// The following code is part of main()</span>
 
-  <span class="c1">// Create MicrophoneArray object</span>
-  <span class="n">matrix_hal</span><span class="o">::</span><span class="n">MicrophoneArray</span> <span class="n">microphone_array</span><span class="p">;</span>
-  <span class="c1">// Set microphone_array to use MatrixIOBus bus</span>
-  <span class="n">microphone_array</span><span class="p">.</span><span class="n">Setup</span><span class="p">(</span><span class="o">&amp;</span><span class="n">bus</span><span class="p">);</span>
-  <span class="c1">// Set microphone sampling rate</span>
-  <span class="n">microphone_array</span><span class="p">.</span><span class="n">SetSamplingRate</span><span class="p">(</span><span class="n">sampling_rate</span><span class="p">);</span>
-  <span class="c1">// If gain is positive, set the gain</span>
-  <span class="k">if</span> <span class="p">(</span><span class="n">gain</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="n">microphone_array</span><span class="p">.</span><span class="n">SetGain</span><span class="p">(</span><span class="n">gain</span><span class="p">);</span>
+<span class="c1">// Create MicrophoneArray object</span>
+<span class="n">matrix_hal</span><span class="o">::</span><span class="n">MicrophoneArray</span> <span class="n">microphone_array</span><span class="p">;</span>
+<span class="c1">// Set microphone_array to use MatrixIOBus bus</span>
+<span class="n">microphone_array</span><span class="p">.</span><span class="n">Setup</span><span class="p">(</span><span class="o">&amp;</span><span class="n">bus</span><span class="p">);</span>
+<span class="c1">// Set microphone sampling rate</span>
+<span class="n">microphone_array</span><span class="p">.</span><span class="n">SetSamplingRate</span><span class="p">(</span><span class="n">sampling_rate</span><span class="p">);</span>
+<span class="c1">// If gain is positive, set the gain</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">gain</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="n">microphone_array</span><span class="p">.</span><span class="n">SetGain</span><span class="p">(</span><span class="n">gain</span><span class="p">);</span>
 
-  <span class="c1">// Log gain_ and sampling_frequency_ variables</span>
-  <span class="n">microphone_array</span><span class="p">.</span><span class="n">ShowConfiguration</span><span class="p">();</span>
-  <span class="c1">// Log recording duration variable</span>
-  <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;Duration : &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">seconds_to_record</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;s&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+<span class="c1">// Log gain_ and sampling_frequency_ variables</span>
+<span class="n">microphone_array</span><span class="p">.</span><span class="n">ShowConfiguration</span><span class="p">();</span>
+<span class="c1">// Log recording duration variable</span>
+<span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;Duration : &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">seconds_to_record</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;s&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
 
-  <span class="c1">// Calculate and set up beamforming delays for beamforming</span>
-  <span class="n">microphone_array</span><span class="p">.</span><span class="n">CalculateDelays</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1000</span><span class="p">,</span> <span class="mi">320</span> <span class="o">*</span> <span class="mi">1000</span><span class="p">);</span>  <span class="c1">// These are default values</span>
+<span class="c1">// Calculate and set up beamforming delays for beamforming</span>
+<span class="n">microphone_array</span><span class="p">.</span><span class="n">CalculateDelays</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1000</span><span class="p">,</span> <span class="mi">320</span> <span class="o">*</span> <span class="mi">1000</span><span class="p">);</span>  <span class="c1">// These are default values</span>
 </pre></div>
 
 </details>
-<details open="">
-<p><summary style="font-size: 1.5rem; font-weight: 300;">Fir Filter Setup</summary>
-Now we will create our <code>MicrophoneCore</code> object and use it to enable the FIR filter.</p>
-<div class="codehilite"><pre><span></span>  <span class="c1">// The following code is part of main()</span>
+<details class="summary" open="open"><summary>Fir Filter Setup</summary><p>Now we will create our <code>MicrophoneCore</code> object and use it to enable the FIR filter.</p>
+<div class="codehilite"><pre><span></span><span class="c1">// The following code is part of main()</span>
 
-  <span class="c1">// Create MicrophoneCore object</span>
-  <span class="n">matrix_hal</span><span class="o">::</span><span class="n">MicrophoneCore</span> <span class="n">microphone_core</span><span class="p">(</span><span class="n">microphone_array</span><span class="p">);</span>
-  <span class="c1">// Set microphone_core to use MatrixIOBus bus</span>
-  <span class="n">microphone_core</span><span class="p">.</span><span class="n">Setup</span><span class="p">(</span><span class="o">&amp;</span><span class="n">bus</span><span class="p">);</span>
+<span class="c1">// Create MicrophoneCore object</span>
+<span class="n">matrix_hal</span><span class="o">::</span><span class="n">MicrophoneCore</span> <span class="n">microphone_core</span><span class="p">(</span><span class="n">microphone_array</span><span class="p">);</span>
+<span class="c1">// Set microphone_core to use MatrixIOBus bus</span>
+<span class="n">microphone_core</span><span class="p">.</span><span class="n">Setup</span><span class="p">(</span><span class="o">&amp;</span><span class="n">bus</span><span class="p">);</span>
 </pre></div>
 
 </details>
-<details open="">
-<p><summary style="font-size: 1.5rem; font-weight: 300;">Microphone Input</summary>
-Now we will read microphone array data, send to a buffer, and write to file.</p>
-<div class="codehilite"><pre><span></span>  <span class="c1">// The following code is part of main()</span>
+<details class="summary" open="open"><summary>Microphone Input</summary><p>Now we will read microphone array data, send to a buffer, and write to file.</p>
+<div class="codehilite"><pre><span></span><span class="c1">// The following code is part of main()</span>
 
-  <span class="c1">// Create a buffer array for microphone input</span>
-  <span class="kt">int16_t</span> <span class="n">buffer</span><span class="p">[</span><span class="n">microphone_array</span><span class="p">.</span><span class="n">Channels</span><span class="p">()</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span>
+<span class="c1">// Create a buffer array for microphone input</span>
+<span class="kt">int16_t</span> <span class="n">buffer</span><span class="p">[</span><span class="n">microphone_array</span><span class="p">.</span><span class="n">Channels</span><span class="p">()</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span>
                 <span class="p">[</span><span class="n">microphone_array</span><span class="p">.</span><span class="n">SamplingRate</span><span class="p">()</span> <span class="o">+</span>
-                 <span class="n">microphone_array</span><span class="p">.</span><span class="n">NumberOfSamples</span><span class="p">()];</span>
+                <span class="n">microphone_array</span><span class="p">.</span><span class="n">NumberOfSamples</span><span class="p">()];</span>
 
-  <span class="c1">// Create an array of streams to write microphone data to files</span>
-  <span class="n">std</span><span class="o">::</span><span class="n">ofstream</span> <span class="n">os</span><span class="p">[</span><span class="n">microphone_array</span><span class="p">.</span><span class="n">Channels</span><span class="p">()</span> <span class="o">+</span> <span class="mi">1</span><span class="p">];</span>
+<span class="c1">// Create an array of streams to write microphone data to files</span>
+<span class="n">std</span><span class="o">::</span><span class="n">ofstream</span> <span class="n">os</span><span class="p">[</span><span class="n">microphone_array</span><span class="p">.</span><span class="n">Channels</span><span class="p">()</span> <span class="o">+</span> <span class="mi">1</span><span class="p">];</span>
 
-  <span class="c1">// For each microphone channel (+1 for beamforming), make a file and open it</span>
-  <span class="k">for</span> <span class="p">(</span><span class="kt">uint16_t</span> <span class="n">c</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">c</span> <span class="o">&lt;</span> <span class="n">microphone_array</span><span class="p">.</span><span class="n">Channels</span><span class="p">()</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span> <span class="n">c</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+<span class="c1">// For each microphone channel (+1 for beamforming), make a file and open it</span>
+<span class="k">for</span> <span class="p">(</span><span class="kt">uint16_t</span> <span class="n">c</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">c</span> <span class="o">&lt;</span> <span class="n">microphone_array</span><span class="p">.</span><span class="n">Channels</span><span class="p">()</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span> <span class="n">c</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
     <span class="c1">// Set filename for microphone output</span>
     <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">filename</span> <span class="o">=</span> <span class="s">&quot;mic_&quot;</span> <span class="o">+</span>
-                           <span class="n">std</span><span class="o">::</span><span class="n">to_string</span><span class="p">(</span><span class="n">microphone_array</span><span class="p">.</span><span class="n">SamplingRate</span><span class="p">())</span> <span class="o">+</span>
-                           <span class="s">&quot;_s16le_channel_&quot;</span> <span class="o">+</span> <span class="n">std</span><span class="o">::</span><span class="n">to_string</span><span class="p">(</span><span class="n">c</span><span class="p">)</span> <span class="o">+</span> <span class="s">&quot;.raw&quot;</span><span class="p">;</span>
+                        <span class="n">std</span><span class="o">::</span><span class="n">to_string</span><span class="p">(</span><span class="n">microphone_array</span><span class="p">.</span><span class="n">SamplingRate</span><span class="p">())</span> <span class="o">+</span>
+                        <span class="s">&quot;_s16le_channel_&quot;</span> <span class="o">+</span> <span class="n">std</span><span class="o">::</span><span class="n">to_string</span><span class="p">(</span><span class="n">c</span><span class="p">)</span> <span class="o">+</span> <span class="s">&quot;.raw&quot;</span><span class="p">;</span>
     <span class="c1">// Create and open file</span>
     <span class="n">os</span><span class="p">[</span><span class="n">c</span><span class="p">].</span><span class="n">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="n">ofstream</span><span class="o">::</span><span class="n">binary</span><span class="p">);</span>
-  <span class="p">}</span>
+<span class="p">}</span>
 
-  <span class="c1">// Counter variable for tracking recording time</span>
-  <span class="kt">uint32_t</span> <span class="n">samples</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-  <span class="c1">// For recording duration</span>
-  <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">s</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">s</span> <span class="o">&lt;</span> <span class="n">seconds_to_record</span><span class="p">;</span> <span class="n">s</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+<span class="c1">// Counter variable for tracking recording time</span>
+<span class="kt">uint32_t</span> <span class="n">samples</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="c1">// For recording duration</span>
+<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">s</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">s</span> <span class="o">&lt;</span> <span class="n">seconds_to_record</span><span class="p">;</span> <span class="n">s</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
     <span class="c1">// Endless loop</span>
     <span class="k">while</span> <span class="p">(</span><span class="nb">true</span><span class="p">)</span> <span class="p">{</span>
-      <span class="c1">// Read microphone stream data</span>
-      <span class="n">microphone_array</span><span class="p">.</span><span class="n">Read</span><span class="p">();</span>
+    <span class="c1">// Read microphone stream data</span>
+    <span class="n">microphone_array</span><span class="p">.</span><span class="n">Read</span><span class="p">();</span>
 
-      <span class="c1">// For number of samples</span>
-      <span class="k">for</span> <span class="p">(</span><span class="kt">uint32_t</span> <span class="n">s</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">s</span> <span class="o">&lt;</span> <span class="n">microphone_array</span><span class="p">.</span><span class="n">NumberOfSamples</span><span class="p">();</span> <span class="n">s</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// For number of samples</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">uint32_t</span> <span class="n">s</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">s</span> <span class="o">&lt;</span> <span class="n">microphone_array</span><span class="p">.</span><span class="n">NumberOfSamples</span><span class="p">();</span> <span class="n">s</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
         <span class="c1">// For each microphone</span>
         <span class="k">for</span> <span class="p">(</span><span class="kt">uint16_t</span> <span class="n">c</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">c</span> <span class="o">&lt;</span> <span class="n">microphone_array</span><span class="p">.</span><span class="n">Channels</span><span class="p">();</span> <span class="n">c</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-          <span class="c1">// Send microphone data to buffer</span>
-          <span class="n">buffer</span><span class="p">[</span><span class="n">c</span><span class="p">][</span><span class="n">samples</span><span class="p">]</span> <span class="o">=</span> <span class="n">microphone_array</span><span class="p">.</span><span class="n">At</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">c</span><span class="p">);</span>
+        <span class="c1">// Send microphone data to buffer</span>
+        <span class="n">buffer</span><span class="p">[</span><span class="n">c</span><span class="p">][</span><span class="n">samples</span><span class="p">]</span> <span class="o">=</span> <span class="n">microphone_array</span><span class="p">.</span><span class="n">At</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">c</span><span class="p">);</span>
         <span class="p">}</span>
         <span class="c1">// Writes beamformed microphone data into buffer</span>
         <span class="n">buffer</span><span class="p">[</span><span class="n">microphone_array</span><span class="p">.</span><span class="n">Channels</span><span class="p">()][</span><span class="n">samples</span><span class="p">]</span> <span class="o">=</span> <span class="n">microphone_array</span><span class="p">.</span><span class="n">Beam</span><span class="p">(</span><span class="n">s</span><span class="p">);</span>
         <span class="c1">// Increment samples for buffer write</span>
         <span class="n">samples</span><span class="o">++</span><span class="p">;</span>
-      <span class="p">}</span>
+    <span class="p">}</span>
 
-      <span class="c1">// Once number of samples is &gt;= sampling rate</span>
-      <span class="k">if</span> <span class="p">(</span><span class="n">samples</span> <span class="o">&gt;=</span> <span class="n">microphone_array</span><span class="p">.</span><span class="n">SamplingRate</span><span class="p">())</span> <span class="p">{</span>
+    <span class="c1">// Once number of samples is &gt;= sampling rate</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">samples</span> <span class="o">&gt;=</span> <span class="n">microphone_array</span><span class="p">.</span><span class="n">SamplingRate</span><span class="p">())</span> <span class="p">{</span>
         <span class="c1">// For each microphone channel</span>
         <span class="k">for</span> <span class="p">(</span><span class="kt">uint16_t</span> <span class="n">c</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">c</span> <span class="o">&lt;</span> <span class="n">microphone_array</span><span class="p">.</span><span class="n">Channels</span><span class="p">()</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span> <span class="n">c</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-          <span class="c1">// Write to recording file</span>
-          <span class="n">os</span><span class="p">[</span><span class="n">c</span><span class="p">].</span><span class="n">write</span><span class="p">((</span><span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="p">)</span><span class="n">buffer</span><span class="p">[</span><span class="n">c</span><span class="p">],</span> <span class="n">samples</span> <span class="o">*</span> <span class="k">sizeof</span><span class="p">(</span><span class="kt">int16_t</span><span class="p">));</span>
+        <span class="c1">// Write to recording file</span>
+        <span class="n">os</span><span class="p">[</span><span class="n">c</span><span class="p">].</span><span class="n">write</span><span class="p">((</span><span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="p">)</span><span class="n">buffer</span><span class="p">[</span><span class="n">c</span><span class="p">],</span> <span class="n">samples</span> <span class="o">*</span> <span class="k">sizeof</span><span class="p">(</span><span class="kt">int16_t</span><span class="p">));</span>
         <span class="p">}</span>
         <span class="c1">// Set samples to zero for loop to fill buffer</span>
         <span class="n">samples</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
         <span class="k">break</span><span class="p">;</span>
-      <span class="p">}</span>
     <span class="p">}</span>
-  <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 
-  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></div>
 
 </details>
 </details>
-<details>
-<p><summary style="font-size: 1.75rem; font-weight: 300;">Microphone Array Record to Pipe</summary>
-The following section shows how to record data from the microphone array to a linux FIFO pipe. You can download this example <a href="https://github.com/matrix-io/matrix-hal-examples/blob/master/microphone_array/mic_record_pipe.cpp" target="_blank">here</a>.</p>
+<details class="example"><summary>Microphone Array Record to Pipe</summary><p>The following section shows how to record data from the microphone array to a linux FIFO pipe. You can download this example <a href="https://github.com/matrix-io/matrix-hal-examples/blob/master/microphone_array/mic_record_pipe.cpp" target="_blank">here</a>.</p>
 <blockquote>
 <p>When beamformed microphone (channel 8) is read from a FIFO pipe distortion may occur.</p>
 </blockquote>
@@ -691,9 +676,7 @@ arecord channel0.wav -f S16_LE -r <span class="m">16000</span> -d <span class="m
 <div class="codehilite"><pre><span></span>killall mic_record_pipe
 </pre></div>
 
-<details open="">
-<p><summary style="font-size: 1.5rem; font-weight: 300;">Include Statements</summary>
-To begin working with the Microphone Array you need to include these header files.</p>
+<details class="summary" open="open"><summary>Include Statements</summary><p>To begin working with the Microphone Array you need to include these header files.</p>
 <div class="codehilite"><pre><span></span><span class="c1">// Imports FIFO pipe support (https://en.wikipedia.org/wiki/Named_pipe)</span>
 <span class="cp">#include</span> <span class="cpf">&lt;sys/stat.h&gt;</span><span class="cp"></span>
 <span class="c1">// Linux file control options</span>
@@ -722,9 +705,7 @@ To begin working with the Microphone Array you need to include these header file
 </pre></div>
 
 </details>
-<details open="">
-<p><summary style="font-size: 1.5rem; font-weight: 300;">Initial Variables</summary>
-These initial variables are used in the example.</p>
+<details class="summary" open="open"><summary>Initial Variables</summary><p>These initial variables are used in the example.</p>
 <div class="codehilite"><pre><span></span><span class="c1">// Defines variables from user arguments using gflags utility</span>
 <span class="c1">// (https://gflags.github.io/gflags/)</span>
 
@@ -735,87 +716,79 @@ These initial variables are used in the example.</p>
 </pre></div>
 
 </details>
-<details open="">
-<p><summary style="font-size: 1.5rem; font-weight: 300;">Initial Setup</summary>
-You'll then need to setup <code>MatrixIOBus</code> in order to communicate with the hardware on your MATRIX device. Also, parse command line flags and set user flags as variables.</p>
+<details class="summary" open="open"><summary>Initial Setup</summary><p>You'll then need to setup <code>MatrixIOBus</code> in order to communicate with the hardware on your MATRIX device. Also, parse command line flags and set user flags as variables.</p>
 <div class="codehilite"><pre><span></span><span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">agrv</span><span class="p">[])</span> <span class="p">{</span>
-  <span class="c1">// Parse command line flags with gflags utility</span>
-  <span class="c1">// (https://gflags.github.io/gflags/)</span>
-  <span class="n">google</span><span class="o">::</span><span class="n">ParseCommandLineFlags</span><span class="p">(</span><span class="o">&amp;</span><span class="n">argc</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">agrv</span><span class="p">,</span> <span class="nb">true</span><span class="p">);</span>
+<span class="c1">// Parse command line flags with gflags utility</span>
+<span class="c1">// (https://gflags.github.io/gflags/)</span>
+<span class="n">google</span><span class="o">::</span><span class="n">ParseCommandLineFlags</span><span class="p">(</span><span class="o">&amp;</span><span class="n">argc</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">agrv</span><span class="p">,</span> <span class="nb">true</span><span class="p">);</span>
 
-  <span class="c1">// Create MatrixIOBus object for hardware communication</span>
-  <span class="n">matrix_hal</span><span class="o">::</span><span class="n">MatrixIOBus</span> <span class="n">bus</span><span class="p">;</span>
-  <span class="c1">// Initialize bus and exit program if error occurs</span>
-  <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">bus</span><span class="p">.</span><span class="n">Init</span><span class="p">())</span> <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
+<span class="c1">// Create MatrixIOBus object for hardware communication</span>
+<span class="n">matrix_hal</span><span class="o">::</span><span class="n">MatrixIOBus</span> <span class="n">bus</span><span class="p">;</span>
+<span class="c1">// Initialize bus and exit program if error occurs</span>
+<span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">bus</span><span class="p">.</span><span class="n">Init</span><span class="p">())</span> <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
 
-  <span class="c1">// Set user flags from gflags as variables</span>
-  <span class="kt">int</span> <span class="n">sampling_rate</span> <span class="o">=</span> <span class="n">FLAGS_sampling_frequency</span><span class="p">;</span>
-  <span class="kt">int</span> <span class="n">gain</span> <span class="o">=</span> <span class="n">FLAGS_gain</span><span class="p">;</span>
+<span class="c1">// Set user flags from gflags as variables</span>
+<span class="kt">int</span> <span class="n">sampling_rate</span> <span class="o">=</span> <span class="n">FLAGS_sampling_frequency</span><span class="p">;</span>
+<span class="kt">int</span> <span class="n">gain</span> <span class="o">=</span> <span class="n">FLAGS_gain</span><span class="p">;</span>
 </pre></div>
 
 </details>
-<details open="">
-<p><summary style="font-size: 1.5rem; font-weight: 300;">Main Setup</summary>
-Now we will create our <code>MicrophoneArray</code> object and use it to interface with the microphone array.</p>
-<div class="codehilite"><pre><span></span>  <span class="c1">// The following code is part of main()</span>
+<details class="summary" open="open"><summary>Main Setup</summary><p>Now we will create our <code>MicrophoneArray</code> object and use it to interface with the microphone array.</p>
+<div class="codehilite"><pre><span></span><span class="c1">// The following code is part of main()</span>
 
-  <span class="c1">// Create MicrophoneArray object</span>
-  <span class="n">matrix_hal</span><span class="o">::</span><span class="n">MicrophoneArray</span> <span class="n">microphone_array</span><span class="p">;</span>
-  <span class="c1">// Set microphone_array to use MatrixIOBus bus</span>
-  <span class="n">microphone_array</span><span class="p">.</span><span class="n">Setup</span><span class="p">(</span><span class="o">&amp;</span><span class="n">bus</span><span class="p">);</span>
-  <span class="c1">// Set microphone sampling rate</span>
-  <span class="n">microphone_array</span><span class="p">.</span><span class="n">SetSamplingRate</span><span class="p">(</span><span class="n">sampling_rate</span><span class="p">);</span>
-  <span class="c1">// If gain is positive, set the gain</span>
-  <span class="k">if</span> <span class="p">(</span><span class="n">gain</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="n">microphone_array</span><span class="p">.</span><span class="n">SetGain</span><span class="p">(</span><span class="n">gain</span><span class="p">);</span>
+<span class="c1">// Create MicrophoneArray object</span>
+<span class="n">matrix_hal</span><span class="o">::</span><span class="n">MicrophoneArray</span> <span class="n">microphone_array</span><span class="p">;</span>
+<span class="c1">// Set microphone_array to use MatrixIOBus bus</span>
+<span class="n">microphone_array</span><span class="p">.</span><span class="n">Setup</span><span class="p">(</span><span class="o">&amp;</span><span class="n">bus</span><span class="p">);</span>
+<span class="c1">// Set microphone sampling rate</span>
+<span class="n">microphone_array</span><span class="p">.</span><span class="n">SetSamplingRate</span><span class="p">(</span><span class="n">sampling_rate</span><span class="p">);</span>
+<span class="c1">// If gain is positive, set the gain</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">gain</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="n">microphone_array</span><span class="p">.</span><span class="n">SetGain</span><span class="p">(</span><span class="n">gain</span><span class="p">);</span>
 
-  <span class="c1">// Log gain_ and sampling_frequency_ variables</span>
-  <span class="n">microphone_array</span><span class="p">.</span><span class="n">ShowConfiguration</span><span class="p">();</span>
-  <span class="c1">// Log recording duration variable</span>
-  <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;Duration : &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">seconds_to_record</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;s&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+<span class="c1">// Log gain_ and sampling_frequency_ variables</span>
+<span class="n">microphone_array</span><span class="p">.</span><span class="n">ShowConfiguration</span><span class="p">();</span>
+<span class="c1">// Log recording duration variable</span>
+<span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;Duration : &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">seconds_to_record</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;s&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
 
-  <span class="c1">// Calculate and set up beamforming delays for beamforming</span>
-  <span class="n">microphone_array</span><span class="p">.</span><span class="n">CalculateDelays</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1000</span><span class="p">,</span> <span class="mi">320</span> <span class="o">*</span> <span class="mi">1000</span><span class="p">);</span>  <span class="c1">// These are default values</span>
+<span class="c1">// Calculate and set up beamforming delays for beamforming</span>
+<span class="n">microphone_array</span><span class="p">.</span><span class="n">CalculateDelays</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1000</span><span class="p">,</span> <span class="mi">320</span> <span class="o">*</span> <span class="mi">1000</span><span class="p">);</span>  <span class="c1">// These are default values</span>
 </pre></div>
 
 </details>
-<details open="">
-<p><summary style="font-size: 1.5rem; font-weight: 300;">Fir Filter Setup</summary>
-Now we will create our <code>MicrophoneCore</code> object and use it to enable the FIR filter.</p>
-<div class="codehilite"><pre><span></span>  <span class="c1">// The following code is part of main()</span>
+<details class="summary" open="open"><summary>Fir Filter Setup</summary><p>Now we will create our <code>MicrophoneCore</code> object and use it to enable the FIR filter.</p>
+<div class="codehilite"><pre><span></span><span class="c1">// The following code is part of main()</span>
 
-  <span class="c1">// Create MicrophoneCore object</span>
-  <span class="n">matrix_hal</span><span class="o">::</span><span class="n">MicrophoneCore</span> <span class="n">microphone_core</span><span class="p">(</span><span class="n">microphone_array</span><span class="p">);</span>
-  <span class="c1">// Set microphone_core to use MatrixIOBus bus</span>
-  <span class="n">microphone_core</span><span class="p">.</span><span class="n">Setup</span><span class="p">(</span><span class="o">&amp;</span><span class="n">bus</span><span class="p">);</span>
+<span class="c1">// Create MicrophoneCore object</span>
+<span class="n">matrix_hal</span><span class="o">::</span><span class="n">MicrophoneCore</span> <span class="n">microphone_core</span><span class="p">(</span><span class="n">microphone_array</span><span class="p">);</span>
+<span class="c1">// Set microphone_core to use MatrixIOBus bus</span>
+<span class="n">microphone_core</span><span class="p">.</span><span class="n">Setup</span><span class="p">(</span><span class="o">&amp;</span><span class="n">bus</span><span class="p">);</span>
 </pre></div>
 
 </details>
-<details open="">
-<p><summary style="font-size: 1.5rem; font-weight: 300;">Microphone Input</summary>
-Now we will read microphone array data, send to a buffer, and write to a FIFO pipe.</p>
-<div class="codehilite"><pre><span></span>  <span class="c1">// The following code is part of main()</span>
+<details class="summary" open="open"><summary>Microphone Input</summary><p>Now we will read microphone array data, send to a buffer, and write to a FIFO pipe.</p>
+<div class="codehilite"><pre><span></span><span class="c1">// The following code is part of main()</span>
 
-  <span class="c1">// Create a buffer array for microphone input</span>
-  <span class="kt">int16_t</span> <span class="n">buffer</span><span class="p">[</span><span class="n">microphone_array</span><span class="p">.</span><span class="n">Channels</span><span class="p">()</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span>
+<span class="c1">// Create a buffer array for microphone input</span>
+<span class="kt">int16_t</span> <span class="n">buffer</span><span class="p">[</span><span class="n">microphone_array</span><span class="p">.</span><span class="n">Channels</span><span class="p">()</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span>
                 <span class="p">[</span><span class="n">microphone_array</span><span class="p">.</span><span class="n">SamplingRate</span><span class="p">()</span> <span class="o">+</span>
-                 <span class="n">microphone_array</span><span class="p">.</span><span class="n">NumberOfSamples</span><span class="p">()];</span>
+                <span class="n">microphone_array</span><span class="p">.</span><span class="n">NumberOfSamples</span><span class="p">()];</span>
 
-  <span class="c1">// For each channel plus the beamforming channel</span>
-  <span class="k">for</span> <span class="p">(</span><span class="kt">uint16_t</span> <span class="n">c</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">c</span> <span class="o">&lt;</span> <span class="n">microphone_array</span><span class="p">.</span><span class="n">Channels</span><span class="p">()</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span> <span class="n">c</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+<span class="c1">// For each channel plus the beamforming channel</span>
+<span class="k">for</span> <span class="p">(</span><span class="kt">uint16_t</span> <span class="n">c</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">c</span> <span class="o">&lt;</span> <span class="n">microphone_array</span><span class="p">.</span><span class="n">Channels</span><span class="p">()</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span> <span class="n">c</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
     <span class="c1">// Name for the FIFO pipe</span>
     <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">name</span> <span class="o">=</span> <span class="s">&quot;/tmp/matrix_micarray_channel_&quot;</span> <span class="o">+</span> <span class="n">std</span><span class="o">::</span><span class="n">to_string</span><span class="p">(</span><span class="n">c</span><span class="p">);</span>
 
     <span class="c1">// Create the FIFO pipe</span>
     <span class="k">if</span> <span class="p">(</span><span class="n">mkfifo</span><span class="p">(</span><span class="n">name</span><span class="p">.</span><span class="n">c_str</span><span class="p">(),</span> <span class="mo">0666</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
-      <span class="c1">// Output error if mkfifo fails</span>
-      <span class="n">std</span><span class="o">::</span><span class="n">cerr</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;unable to create &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">name</span> <span class="o">&lt;&lt;</span> <span class="s">&quot; FIFO.&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+    <span class="c1">// Output error if mkfifo fails</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cerr</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;unable to create &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">name</span> <span class="o">&lt;&lt;</span> <span class="s">&quot; FIFO.&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
     <span class="p">}</span>
-  <span class="p">}</span>
+<span class="p">}</span>
 
-  <span class="c1">// For pipe operations</span>
-  <span class="kt">int</span> <span class="n">named_pipe_handle</span><span class="p">;</span>
-  <span class="c1">// Endless loop</span>
-  <span class="k">while</span> <span class="p">(</span><span class="nb">true</span><span class="p">)</span> <span class="p">{</span>
+<span class="c1">// For pipe operations</span>
+<span class="kt">int</span> <span class="n">named_pipe_handle</span><span class="p">;</span>
+<span class="c1">// Endless loop</span>
+<span class="k">while</span> <span class="p">(</span><span class="nb">true</span><span class="p">)</span> <span class="p">{</span>
     <span class="c1">// Read microphone stream data</span>
     <span class="n">microphone_array</span><span class="p">.</span><span class="n">Read</span><span class="p">();</span>
 
@@ -824,31 +797,31 @@ Now we will read microphone array data, send to a buffer, and write to a FIFO pi
 
     <span class="c1">// For each microphone</span>
     <span class="k">for</span> <span class="p">(</span><span class="kt">uint16_t</span> <span class="n">c</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">c</span> <span class="o">&lt;</span> <span class="n">microphone_array</span><span class="p">.</span><span class="n">Channels</span><span class="p">()</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span> <span class="n">c</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-      <span class="c1">// Open pipe</span>
-      <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">name</span> <span class="o">=</span> <span class="s">&quot;/tmp/matrix_micarray_channel_&quot;</span> <span class="o">+</span> <span class="n">std</span><span class="o">::</span><span class="n">to_string</span><span class="p">(</span><span class="n">c</span><span class="p">);</span>
-      <span class="n">named_pipe_handle</span> <span class="o">=</span> <span class="n">open</span><span class="p">(</span><span class="n">name</span><span class="p">.</span><span class="n">c_str</span><span class="p">(),</span> <span class="n">O_WRONLY</span> <span class="o">|</span> <span class="n">O_NONBLOCK</span><span class="p">);</span>
+    <span class="c1">// Open pipe</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">name</span> <span class="o">=</span> <span class="s">&quot;/tmp/matrix_micarray_channel_&quot;</span> <span class="o">+</span> <span class="n">std</span><span class="o">::</span><span class="n">to_string</span><span class="p">(</span><span class="n">c</span><span class="p">);</span>
+    <span class="n">named_pipe_handle</span> <span class="o">=</span> <span class="n">open</span><span class="p">(</span><span class="n">name</span><span class="p">.</span><span class="n">c_str</span><span class="p">(),</span> <span class="n">O_WRONLY</span> <span class="o">|</span> <span class="n">O_NONBLOCK</span><span class="p">);</span>
 
-      <span class="c1">// For number of samples</span>
-      <span class="k">for</span> <span class="p">(</span><span class="kt">uint32_t</span> <span class="n">s</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">s</span> <span class="o">&lt;</span> <span class="n">microphone_array</span><span class="p">.</span><span class="n">NumberOfSamples</span><span class="p">();</span> <span class="n">s</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// For number of samples</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">uint32_t</span> <span class="n">s</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">s</span> <span class="o">&lt;</span> <span class="n">microphone_array</span><span class="p">.</span><span class="n">NumberOfSamples</span><span class="p">();</span> <span class="n">s</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
         <span class="n">buffer</span><span class="p">[</span><span class="n">c</span><span class="p">][</span><span class="n">s</span><span class="p">]</span> <span class="o">=</span> <span class="n">microphone_array</span><span class="p">.</span><span class="n">At</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">c</span><span class="p">);</span>
         <span class="c1">// If beamformed data was not sent to buffer, send it</span>
         <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">beam_write</span><span class="p">)</span> <span class="p">{</span>
-          <span class="c1">// Send beamformed data to buffer</span>
-          <span class="n">buffer</span><span class="p">[</span><span class="n">microphone_array</span><span class="p">.</span><span class="n">Channels</span><span class="p">()][</span><span class="n">s</span><span class="p">]</span> <span class="o">=</span> <span class="n">microphone_array</span><span class="p">.</span><span class="n">Beam</span><span class="p">(</span><span class="n">s</span><span class="p">);</span>
+        <span class="c1">// Send beamformed data to buffer</span>
+        <span class="n">buffer</span><span class="p">[</span><span class="n">microphone_array</span><span class="p">.</span><span class="n">Channels</span><span class="p">()][</span><span class="n">s</span><span class="p">]</span> <span class="o">=</span> <span class="n">microphone_array</span><span class="p">.</span><span class="n">Beam</span><span class="p">(</span><span class="n">s</span><span class="p">);</span>
         <span class="p">}</span>
-      <span class="p">}</span>
-      <span class="c1">// Flag that beamforming data is in buffer</span>
-      <span class="n">beam_write</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
-
-      <span class="c1">// Write to each pipe</span>
-      <span class="n">write</span><span class="p">(</span><span class="n">named_pipe_handle</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">buffer</span><span class="p">[</span><span class="n">c</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span>
-            <span class="k">sizeof</span><span class="p">(</span><span class="kt">int16_t</span><span class="p">)</span> <span class="o">*</span> <span class="n">microphone_array</span><span class="p">.</span><span class="n">NumberOfSamples</span><span class="p">());</span>
-      <span class="c1">// Close pipe after write</span>
-      <span class="n">close</span><span class="p">(</span><span class="n">named_pipe_handle</span><span class="p">);</span>
     <span class="p">}</span>
-  <span class="p">}</span>
+    <span class="c1">// Flag that beamforming data is in buffer</span>
+    <span class="n">beam_write</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
 
-  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="c1">// Write to each pipe</span>
+    <span class="n">write</span><span class="p">(</span><span class="n">named_pipe_handle</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">buffer</span><span class="p">[</span><span class="n">c</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span>
+            <span class="k">sizeof</span><span class="p">(</span><span class="kt">int16_t</span><span class="p">)</span> <span class="o">*</span> <span class="n">microphone_array</span><span class="p">.</span><span class="n">NumberOfSamples</span><span class="p">());</span>
+    <span class="c1">// Close pipe after write</span>
+    <span class="n">close</span><span class="p">(</span><span class="n">named_pipe_handle</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></div>
 

@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="../../../css/codehilite.css">
   <link rel="stylesheet" href="../../../css/superFences.css">
   <link rel="stylesheet" href="../../../css/clipboard.css">
+  <link rel="stylesheet" href="../../../css/details.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
 </head>
@@ -465,7 +466,7 @@
             </ul>
           </div>
         </div>
-        <div id="content" class="col-lg-8 col-md-9">
+        <div id="content" class="col-lg-8 col-md-9 md-typeset">
            <h2 style="padding-top:0">Wakeword</h2>
 
 <h4 style="padding-top:0">Python Example</h4>
@@ -495,9 +496,7 @@
 </blockquote>
 <!-- Initial Variables -->
 
-<details open="">
-<p><summary style="font-size: 1.75rem; font-weight: 300;">Initial Variables</summary>
-Before we go into connecting to each port, the variables defined below are needed in order to access the ZeroMQ and MATRIX Protocol Buffer libraries for Python. We also define a few helpful variables and the path for our <a href="http://www.speech.cs.cmu.edu/tools/lmtool-new.html" target="_blank">Sphinx Knowledge Base</a> files.
+<details class="info" open="open"><summary>Initial Variables</summary><p>Before we go into connecting to each port, the variables defined below are needed in order to access the ZeroMQ and MATRIX Protocol Buffer libraries for Python. We also define a few helpful variables and the path for our <a href="http://www.speech.cs.cmu.edu/tools/lmtool-new.html" target="_blank">Sphinx Knowledge Base</a> files.
 <div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">os</span> <span class="c1"># Miscellaneous operating system interface</span>
 <span class="kn">import</span> <span class="nn">zmq</span> <span class="c1"># Asynchronous messaging framework</span>
 <span class="kn">import</span> <span class="nn">time</span> <span class="c1"># Time access and conversions</span>
@@ -517,9 +516,7 @@ Before we go into connecting to each port, the variables defined below are neede
 </details>
 <!-- Base PORT -->
 
-<details open="">
-<p><summary style="font-size: 1.75rem; font-weight: 300;">Base Port</summary>
-Here is where the configuration for our wakeword example goes. Once we connect to the <strong>Base Port</strong>, we will pass a configuration to the Wakeword driver. With this we can set our wakeword configurations.
+<details class="info" open="open"><summary>Base Port</summary><p>Here is where the configuration for our wakeword example goes. Once we connect to the <strong>Base Port</strong>, we will pass a configuration to the Wakeword driver. With this we can set our wakeword configurations.
 <div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">config_socket</span><span class="p">():</span>
     <span class="c1"># Define zmq socket</span>
     <span class="n">context</span> <span class="o">=</span> <span class="n">zmq</span><span class="o">.</span><span class="n">Context</span><span class="p">()</span>
@@ -546,9 +543,7 @@ Here is where the configuration for our wakeword example goes. Once we connect t
 </details>
 <!-- Keep-alive PORT -->
 
-<details open="">
-<p><summary style="font-size: 1.75rem; font-weight: 300;">Keep-alive Port</summary>
-The next step is to connect and send a message to the <strong>Keep-alive Port</strong>. That message will grant us a response from the Data Update Port with the wake words that were understood.
+<details class="info" open="open"><summary>Keep-alive Port</summary><p>The next step is to connect and send a message to the <strong>Keep-alive Port</strong>. That message will grant us a response from the Data Update Port with the wake words that were understood.
 <div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">ping_socket</span><span class="p">():</span>
     <span class="c1"># Define zmq socket</span>
     <span class="n">context</span> <span class="o">=</span> <span class="n">zmq</span><span class="o">.</span><span class="n">Context</span><span class="p">()</span>
@@ -564,9 +559,7 @@ The next step is to connect and send a message to the <strong>Keep-alive Port</s
 </details>
 <!-- Error PORT -->
 
-<details open="">
-<p><summary style="font-size: 1.75rem; font-weight: 300;">Error Port</summary>
-The <strong>Error Port</strong> connection is also taken care of by the <code>utils import</code>. Below we define a function to be called and given any error messages that occur within MATRIX CORE.</p>
+<details class="info" open="open"><summary>Error Port</summary><p>The <strong>Error Port</strong> connection is also taken care of by the <code>utils import</code>. Below we define a function to be called and given any error messages that occur within MATRIX CORE.</p>
 <blockquote>
 <p>The Error Port is currently reporting false errors. 
 <div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">wakeword_error_callback</span><span class="p">(</span><span class="n">error</span><span class="p">):</span>
@@ -577,9 +570,7 @@ The <strong>Error Port</strong> connection is also taken care of by the <code>ut
 </details>
 <!-- Data Update PORT -->
 
-<details open="">
-<p><summary style="font-size: 1.75rem; font-weight: 300;">Data Update Port</summary>
-A connection to the <strong>Data Update Port</strong> is then made to allow us to receive each custom phrase the Wakeword driver picks up.</p>
+<details class="info" open="open"><summary>Data Update Port</summary><p>A connection to the <strong>Data Update Port</strong> is then made to allow us to receive each custom phrase the Wakeword driver picks up.</p>
 <p><div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">wakeword_data_callback</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
     <span class="c1"># Extract data</span>
     <span class="n">data</span> <span class="o">=</span> <span class="n">io_pb2</span><span class="o">.</span><span class="n">WakeWordParams</span><span class="p">()</span><span class="o">.</span><span class="n">FromString</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
@@ -600,9 +591,7 @@ The Python object below is an example output you'll receive from the <strong>Dat
 </details>
 <!-- Start Process -->
 
-<details open="">
-<p><summary style="font-size: 1.75rem; font-weight: 300;">Start Processes</summary>
-This is where we begin the asynchronous events for each of the driver ports and where we define the functions we want to use for each port.</p>
+<details class="info" open="open"><summary>Start Processes</summary><p>This is where we begin the asynchronous events for each of the driver ports and where we define the functions we want to use for each port.</p>
 <div class="codehilite"><pre><span></span><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
     <span class="c1"># Initiate asynchronous events</span>
     <span class="n">ioloop</span><span class="o">.</span><span class="n">install</span><span class="p">()</span>

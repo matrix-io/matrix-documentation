@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="../../../css/codehilite.css">
   <link rel="stylesheet" href="../../../css/superFences.css">
   <link rel="stylesheet" href="../../../css/clipboard.css">
+  <link rel="stylesheet" href="../../../css/details.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
 </head>
@@ -465,7 +466,7 @@
             </ul>
           </div>
         </div>
-        <div id="content" class="col-lg-8 col-md-9">
+        <div id="content" class="col-lg-8 col-md-9 md-typeset">
            <h2 style="padding-top:0">Humidity</h2>
 
 <h4 style="padding-top:0">Javascript Example</h4>
@@ -491,9 +492,7 @@
 <p>The following sections show how to implement a connection to each of the Humidity driver's ports. You can download this example <a href="https://github.com/matrix-io/matrix-core-examples/blob/master/javascript/humidity.js" target="_blank">here</a>.</p>
 <!-- Initial Variables -->
 
-<details open="">
-<p><summary style="font-size: 1.75rem; font-weight: 300;">Initial Variables</summary>
-Before we go into connecting to each port, the variables defined below are needed in order to access the ZeroMQ and MATRIX Protocol Buffer libraries for Javascript. We also define a few helpful variables for easy references.
+<details class="info" open="open"><summary>Initial Variables</summary><p>Before we go into connecting to each port, the variables defined below are needed in order to access the ZeroMQ and MATRIX Protocol Buffer libraries for Javascript. We also define a few helpful variables for easy references.
 <div class="codehilite"><pre><span></span><span class="kd">var</span> <span class="nx">zmq</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;zeromq&#39;</span><span class="p">);</span><span class="c1">// Asynchronous Messaging Framework</span>
 <span class="kd">var</span> <span class="nx">matrix_io</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;matrix-protos&#39;</span><span class="p">).</span><span class="nx">matrix_io</span><span class="p">;</span><span class="c1">// Protocol Buffers for MATRIX function</span>
 <span class="kd">var</span> <span class="nx">matrix_ip</span> <span class="o">=</span> <span class="s1">&#39;127.0.0.1&#39;</span><span class="p">;</span><span class="c1">// Local IP</span>
@@ -502,22 +501,20 @@ Before we go into connecting to each port, the variables defined below are neede
 </details>
 <!-- Base PORT -->
 
-<details open="">
-<p><summary style="font-size: 1.75rem; font-weight: 300;">Base Port</summary>
-Here is where the configuration for our Humidity example goes. Once we connect to the <strong>Base Port</strong>, we will pass a configuration to the humidity driver. With this we can set the update rate, timeout, and temperature configuration.
+<details class="info" open="open"><summary>Base Port</summary><p>Here is where the configuration for our Humidity example goes. Once we connect to the <strong>Base Port</strong>, we will pass a configuration to the humidity driver. With this we can set the update rate, timeout, and temperature configuration.
 <div class="codehilite"><pre><span></span><span class="c1">// Create a Pusher socket</span>
 <span class="kd">var</span> <span class="nx">configSocket</span> <span class="o">=</span> <span class="nx">zmq</span><span class="p">.</span><span class="nx">socket</span><span class="p">(</span><span class="s1">&#39;push&#39;</span><span class="p">);</span>
 <span class="c1">// Connect Pusher to Base port</span>
 <span class="nx">configSocket</span><span class="p">.</span><span class="nx">connect</span><span class="p">(</span><span class="s1">&#39;tcp://&#39;</span> <span class="o">+</span> <span class="nx">matrix_ip</span> <span class="o">+</span> <span class="s1">&#39;:&#39;</span> <span class="o">+</span> <span class="nx">matrix_humidity_base_port</span><span class="p">);</span>
 <span class="c1">// Create driver configuration</span>
 <span class="kd">var</span> <span class="nx">config</span> <span class="o">=</span> <span class="nx">matrix_io</span><span class="p">.</span><span class="nx">malos</span><span class="p">.</span><span class="nx">v1</span><span class="p">.</span><span class="nx">driver</span><span class="p">.</span><span class="nx">DriverConfig</span><span class="p">.</span><span class="nx">create</span><span class="p">({</span>
-  <span class="c1">// Update rate configuration</span>
-  <span class="nx">delayBetweenUpdates</span><span class="o">:</span> <span class="mf">2.0</span><span class="p">,</span><span class="c1">// 2 seconds between updates</span>
-  <span class="nx">timeoutAfterLastPing</span><span class="o">:</span> <span class="mf">6.0</span><span class="p">,</span><span class="c1">// Stop sending updates 6 seconds after pings.</span>
-  <span class="c1">// Humidity configuration</span>
-  <span class="nx">humidity</span><span class="o">:</span> <span class="nx">matrix_io</span><span class="p">.</span><span class="nx">malos</span><span class="p">.</span><span class="nx">v1</span><span class="p">.</span><span class="nx">sense</span><span class="p">.</span><span class="nx">HumidityParams</span><span class="p">.</span><span class="nx">create</span><span class="p">({</span>
+    <span class="c1">// Update rate configuration</span>
+    <span class="nx">delayBetweenUpdates</span><span class="o">:</span> <span class="mf">2.0</span><span class="p">,</span><span class="c1">// 2 seconds between updates</span>
+    <span class="nx">timeoutAfterLastPing</span><span class="o">:</span> <span class="mf">6.0</span><span class="p">,</span><span class="c1">// Stop sending updates 6 seconds after pings.</span>
+    <span class="c1">// Humidity configuration</span>
+    <span class="nx">humidity</span><span class="o">:</span> <span class="nx">matrix_io</span><span class="p">.</span><span class="nx">malos</span><span class="p">.</span><span class="nx">v1</span><span class="p">.</span><span class="nx">sense</span><span class="p">.</span><span class="nx">HumidityParams</span><span class="p">.</span><span class="nx">create</span><span class="p">({</span>
     <span class="nx">currentTemperature</span><span class="o">:</span> <span class="mi">23</span><span class="c1">// Real current temperature [Celsius] for calibration </span>
-  <span class="p">})</span>
+    <span class="p">})</span>
 <span class="p">});</span>
 <span class="c1">// Send driver configuration</span>
 <span class="nx">configSocket</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="nx">matrix_io</span><span class="p">.</span><span class="nx">malos</span><span class="p">.</span><span class="nx">v1</span><span class="p">.</span><span class="nx">driver</span><span class="p">.</span><span class="nx">DriverConfig</span><span class="p">.</span><span class="nx">encode</span><span class="p">(</span><span class="nx">config</span><span class="p">).</span><span class="nx">finish</span><span class="p">());</span>
@@ -525,9 +522,7 @@ Here is where the configuration for our Humidity example goes. Once we connect t
 </details>
 <!-- Keep-alive PORT -->
 
-<details open="">
-<p><summary style="font-size: 1.75rem; font-weight: 300;">Keep-alive Port</summary>
-The next step is to connect and send a message to the <strong>Keep-alive Port</strong>. That message, an empty string, will grant us a response from the <strong>Data Update Port</strong> for the current humidity value. An interval for pinging is then set to continuously obtain that data.
+<details class="info" open="open"><summary>Keep-alive Port</summary><p>The next step is to connect and send a message to the <strong>Keep-alive Port</strong>. That message, an empty string, will grant us a response from the <strong>Data Update Port</strong> for the current humidity value. An interval for pinging is then set to continuously obtain that data.
 <div class="codehilite"><pre><span></span><span class="c1">// Create a Pusher socket</span>
 <span class="kd">var</span> <span class="nx">pingSocket</span> <span class="o">=</span> <span class="nx">zmq</span><span class="p">.</span><span class="nx">socket</span><span class="p">(</span><span class="s1">&#39;push&#39;</span><span class="p">);</span>
 <span class="c1">// Connect Pusher to Keep-alive port</span>
@@ -536,15 +531,13 @@ The next step is to connect and send a message to the <strong>Keep-alive Port</s
 <span class="nx">pingSocket</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">);</span>
 <span class="c1">// Send ping every 5 seconds</span>
 <span class="nx">setInterval</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
-  <span class="nx">pingSocket</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">);</span>
+    <span class="nx">pingSocket</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">);</span>
 <span class="p">},</span> <span class="mi">5000</span><span class="p">);</span>
 </pre></div></p>
 </details>
 <!-- Error PORT -->
 
-<details open="">
-<p><summary style="font-size: 1.75rem; font-weight: 300;">Error Port</summary>
-Connecting to the <strong>Error Port</strong> is optional, but highly recommended if you want to log any errors that occur within MATRIX CORE.
+<details class="info" open="open"><summary>Error Port</summary><p>Connecting to the <strong>Error Port</strong> is optional, but highly recommended if you want to log any errors that occur within MATRIX CORE.
 <div class="codehilite"><pre><span></span><span class="c1">// Create a Subscriber socket</span>
 <span class="kd">var</span> <span class="nx">errorSocket</span> <span class="o">=</span> <span class="nx">zmq</span><span class="p">.</span><span class="nx">socket</span><span class="p">(</span><span class="s1">&#39;sub&#39;</span><span class="p">);</span>
 <span class="c1">// Connect Subscriber to Error port</span>
@@ -553,15 +546,13 @@ Connecting to the <strong>Error Port</strong> is optional, but highly recommende
 <span class="nx">errorSocket</span><span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">);</span>
 <span class="c1">// On Message</span>
 <span class="nx">errorSocket</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;message&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">error_message</span><span class="p">){</span>
-  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Error received: &#39;</span> <span class="o">+</span> <span class="nx">error_message</span><span class="p">.</span><span class="nx">toString</span><span class="p">(</span><span class="s1">&#39;utf8&#39;</span><span class="p">));</span><span class="c1">// Log error</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Error received: &#39;</span> <span class="o">+</span> <span class="nx">error_message</span><span class="p">.</span><span class="nx">toString</span><span class="p">(</span><span class="s1">&#39;utf8&#39;</span><span class="p">));</span><span class="c1">// Log error</span>
 <span class="p">});</span>
 </pre></div></p>
 </details>
 <!-- Data Update PORT -->
 
-<details open="">
-<p><summary style="font-size: 1.75rem; font-weight: 300;">Data Update Port</summary>
-A connection to the <strong>Data Update Port</strong> will allow us to receive the current humidity data we want.</p>
+<details class="info" open="open"><summary>Data Update Port</summary><p>A connection to the <strong>Data Update Port</strong> will allow us to receive the current humidity data we want.</p>
 <p><div class="codehilite"><pre><span></span><span class="c1">// Create a Subscriber socket</span>
 <span class="kd">var</span> <span class="nx">updateSocket</span> <span class="o">=</span> <span class="nx">zmq</span><span class="p">.</span><span class="nx">socket</span><span class="p">(</span><span class="s1">&#39;sub&#39;</span><span class="p">);</span>
 <span class="c1">// Connect Subscriber to Data Update port</span>
@@ -570,17 +561,17 @@ A connection to the <strong>Data Update Port</strong> will allow us to receive t
 <span class="nx">updateSocket</span><span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">);</span>
 <span class="c1">// On Message</span>
 <span class="nx">updateSocket</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;message&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">buffer</span><span class="p">){</span>
-  <span class="kd">var</span> <span class="nx">data</span> <span class="o">=</span> <span class="nx">matrix_io</span><span class="p">.</span><span class="nx">malos</span><span class="p">.</span><span class="nx">v1</span><span class="p">.</span><span class="nx">sense</span><span class="p">.</span><span class="nx">Humidity</span><span class="p">.</span><span class="nx">decode</span><span class="p">(</span><span class="nx">buffer</span><span class="p">);</span><span class="c1">// Extract message</span>
+<span class="kd">var</span> <span class="nx">data</span> <span class="o">=</span> <span class="nx">matrix_io</span><span class="p">.</span><span class="nx">malos</span><span class="p">.</span><span class="nx">v1</span><span class="p">.</span><span class="nx">sense</span><span class="p">.</span><span class="nx">Humidity</span><span class="p">.</span><span class="nx">decode</span><span class="p">(</span><span class="nx">buffer</span><span class="p">);</span><span class="c1">// Extract message</span>
     <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span><span class="c1">// Log new humidity data</span>
 <span class="p">});</span>
 </pre></div>
 <h4>Data Output</h4>
 The javascript object below is an example output you'll receive from the <strong>Data Update Port</strong>.
 <div class="codehilite"><pre><span></span><span class="p">{</span>
-  <span class="nx">humidity</span><span class="o">:</span> <span class="mf">29.003999710083008</span><span class="p">,</span>
-  <span class="nx">temperature</span><span class="o">:</span> <span class="mf">22.998397827148438</span><span class="p">,</span>
-  <span class="nx">temperatureRaw</span><span class="o">:</span> <span class="mf">33.124000549316406</span><span class="p">,</span>
-  <span class="nx">temperatureIsCalibrated</span><span class="o">:</span> <span class="kc">true</span> 
+<span class="nx">humidity</span><span class="o">:</span> <span class="mf">29.003999710083008</span><span class="p">,</span>
+<span class="nx">temperature</span><span class="o">:</span> <span class="mf">22.998397827148438</span><span class="p">,</span>
+<span class="nx">temperatureRaw</span><span class="o">:</span> <span class="mf">33.124000549316406</span><span class="p">,</span>
+<span class="nx">temperatureIsCalibrated</span><span class="o">:</span> <span class="kc">true</span> 
 <span class="p">}</span>
 </pre></div></p>
 </details> 
