@@ -56,6 +56,7 @@ pages:
     - 'Everloop': 'matrix-lite/py-reference/everloop.md'
     - 'Sensors': 'matrix-lite/py-reference/sensors.md'
     - 'GPIO': 'matrix-lite/py-reference/gpio.md'
+    - 'ALSA Mics': 'matrix-lite/py-reference/alsa-mics.md'
 - MATRIX HAL:
   - 'Overview': 'matrix-hal/overview.md'
   - Getting Started:
