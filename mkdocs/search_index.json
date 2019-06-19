@@ -702,7 +702,7 @@
         }, 
         {
             "location": "/matrix-lite/py-reference/", 
-            "text": "Python Reference\n\n\nEverloop\n\nInterface for the LED array.\n\n\nSensors\n\n\n\nReading data from the IMU, humidity, UV, and pressure sensors.\n\n\nGPIO\n\n\n\nGeneral Purpose Input/Output.\n\n\nALSA\n\n\n\nNot available yet.\n \n\n\nAny Python wrapper for ALSA can work as a substitute. In the future, we will expose an existing wrapper with preset configurations.", 
+            "text": "Python Reference\n\n\nEverloop\n\nInterface for the LED array.\n\n\nSensors\n\n\n\nReading data from the IMU, humidity, UV, and pressure sensors.\n\n\nGPIO\n\n\n\nGeneral Purpose Input/Output.\n\n\nALSA Microphones\n\n\n\nReading microphone data through ALSA.", 
             "title": "Index"
         }, 
         {
@@ -814,6 +814,31 @@
             "location": "/matrix-lite/py-reference/gpio/#setservoangle", 
             "text": "Use a GPIO pin to control a servo. This function requires the pin to be set to  \"PWM\"  mode.  Parameters:   config:  object  pin : Any number from 0 to 15.  angle : Positive number of degrees.  min_pulse_ms : Generally numbers between 0 and 2.  minimum pulse width for a PWM wave in milliseconds # Sets Servo to 90 Degrees with pin 0  gpio . setServoAngle ({ \n     pin :   0 , \n     angle :   90 , \n     min_pulse_ms :   0.8 ,  })", 
             "title": ".setServoAngle()"
+        }, 
+        {
+            "location": "/matrix-lite/py-reference/alsa-mics/", 
+            "text": "ALSA Microphones\n\n\n\nDevice Compatibility\n\n\n\n\n\n\nOverview\n\n\nThe following sections will go over how to read microphone data from your MATRIX device. Note the code below isn't actually part of MATRIX Lite, but a downloadable library that allows us to easily access ALSA microphones.\n\n\nDependencies\n\n\nInstall the MATRIX Kernel Modules.\n\n\n\n\nFollow \nOption1\n or \nOption2\n: \nhttps://github.com/matrix-io/matrixio-kernel-modules\n.\n\n\n\n\nInstall portaudio.\n\nsudo apt install portaudio19-dev \n\n\n\nInstall pyaudio.\n\nsudo python3 -m pip install pyaudio\n\n\n\nConfigure your Pi's asound.conf file.\n\n\n\n\nDue to the linux kernel being recently updated, the playback rate for the Raspberry Pi must be set to \n16000\n. Add the following \nhighlighted\n line to \n/etc/asound.conf\n\n\npcm.speaker \n{\n\n  \ntype\n plug\n  slave \n{\n\n    pcm \nhw:0,0\n\n\n    rate \n16000\n\n\n  \n}\n\n\n}\n\n\n\n\n\n\n\nRecording Example\n\n\nBelow is a simple example that shows you how to create an audio recording with pyaudio.\nVisit the \npyaudio documentation\n for a complete overview.\n\n\n\n\nrecordFile.py\n\n\nBe sure to run the example with \npython3\n\n\nimport\n \npyaudio\n\n\nimport\n \nwave\n\n\n\n# recording configs\n\n\nCHUNK\n \n=\n \n2048\n\n\nFORMAT\n \n=\n \npyaudio\n.\npaInt16\n\n\nCHANNELS\n \n=\n \n8\n\n\nRATE\n \n=\n \n96000\n\n\nRECORD_SECONDS\n \n=\n \n5\n\n\nWAVE_OUTPUT_FILENAME\n \n=\n \noutput.wav\n\n\n\n# create \n configure microphone\n\n\nmic\n \n=\n \npyaudio\n.\nPyAudio\n()\n\n\nstream\n \n=\n \nmic\n.\nopen\n(\nformat\n=\nFORMAT\n,\n\n                \nchannels\n=\nCHANNELS\n,\n\n                \nrate\n=\nRATE\n,\n\n                \ninput\n=\nTrue\n,\n\n                \nframes_per_buffer\n=\nCHUNK\n)\n\n\n\nprint\n(\n* recording\n)\n\n\n\n# read \n store microphone data per frame read\n\n\nframes\n \n=\n \n[]\n\n\nfor\n \ni\n \nin\n \nrange\n(\n0\n,\n \nint\n(\nRATE\n \n/\n \nCHUNK\n \n*\n \nRECORD_SECONDS\n)):\n\n    \ndata\n \n=\n \nstream\n.\nread\n(\nCHUNK\n)\n\n    \nframes\n.\nappend\n(\ndata\n)\n\n\n\nprint\n(\n* done recording\n)\n\n\n\n# kill the mic and recording\n\n\nstream\n.\nstop_stream\n()\n\n\nstream\n.\nclose\n()\n\n\nmic\n.\nterminate\n()\n\n\n\n# combine \n store all microphone data to output.wav file\n\n\noutputFile\n \n=\n \nwave\n.\nopen\n(\nWAVE_OUTPUT_FILENAME\n,\n \nwb\n)\n\n\noutputFile\n.\nsetnchannels\n(\nCHANNELS\n)\n\n\noutputFile\n.\nsetsampwidth\n(\nmic\n.\nget_sample_size\n(\nFORMAT\n))\n\n\noutputFile\n.\nsetframerate\n(\nRATE\n)\n\n\noutputFile\n.\nwriteframes\n(\nb\n.\njoin\n(\nframes\n))\n\n\noutputFile\n.\nclose\n()\n\n\n\n\n\nOnce recorded, you can play the audio through the Pi's audio jack with:\n\n# raise the output volume to max\n\namixer \nset\n PCM \n100\n%\n\n\n# play the file\n\naplay output.wav", 
+            "title": "ALSA Mics"
+        }, 
+        {
+            "location": "/matrix-lite/py-reference/alsa-mics/#device-compatibility", 
+            "text": "", 
+            "title": "Device Compatibility"
+        }, 
+        {
+            "location": "/matrix-lite/py-reference/alsa-mics/#overview", 
+            "text": "The following sections will go over how to read microphone data from your MATRIX device. Note the code below isn't actually part of MATRIX Lite, but a downloadable library that allows us to easily access ALSA microphones.", 
+            "title": "Overview"
+        }, 
+        {
+            "location": "/matrix-lite/py-reference/alsa-mics/#dependencies", 
+            "text": "Install the MATRIX Kernel Modules.   Follow  Option1  or  Option2 :  https://github.com/matrix-io/matrixio-kernel-modules .   Install portaudio. sudo apt install portaudio19-dev   Install pyaudio. sudo python3 -m pip install pyaudio  Configure your Pi's asound.conf file.   Due to the linux kernel being recently updated, the playback rate for the Raspberry Pi must be set to  16000 . Add the following  highlighted  line to  /etc/asound.conf  pcm.speaker  { \n   type  plug\n  slave  { \n    pcm  hw:0,0      rate  16000     }  }", 
+            "title": "Dependencies"
+        }, 
+        {
+            "location": "/matrix-lite/py-reference/alsa-mics/#recording-example", 
+            "text": "Below is a simple example that shows you how to create an audio recording with pyaudio.\nVisit the  pyaudio documentation  for a complete overview.   recordFile.py  Be sure to run the example with  python3  import   pyaudio  import   wave  # recording configs  CHUNK   =   2048  FORMAT   =   pyaudio . paInt16  CHANNELS   =   8  RATE   =   96000  RECORD_SECONDS   =   5  WAVE_OUTPUT_FILENAME   =   output.wav  # create   configure microphone  mic   =   pyaudio . PyAudio ()  stream   =   mic . open ( format = FORMAT , \n                 channels = CHANNELS , \n                 rate = RATE , \n                 input = True , \n                 frames_per_buffer = CHUNK )  print ( * recording )  # read   store microphone data per frame read  frames   =   []  for   i   in   range ( 0 ,   int ( RATE   /   CHUNK   *   RECORD_SECONDS )): \n     data   =   stream . read ( CHUNK ) \n     frames . append ( data )  print ( * done recording )  # kill the mic and recording  stream . stop_stream ()  stream . close ()  mic . terminate ()  # combine   store all microphone data to output.wav file  outputFile   =   wave . open ( WAVE_OUTPUT_FILENAME ,   wb )  outputFile . setnchannels ( CHANNELS )  outputFile . setsampwidth ( mic . get_sample_size ( FORMAT ))  outputFile . setframerate ( RATE )  outputFile . writeframes ( b . join ( frames ))  outputFile . close ()   Once recorded, you can play the audio through the Pi's audio jack with: # raise the output volume to max \namixer  set  PCM  100 % # play the file \naplay output.wav", 
+            "title": "Recording Example"
         }, 
         {
             "location": "/matrix-hal/overview/", 
