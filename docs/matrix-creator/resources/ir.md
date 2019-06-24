@@ -3,7 +3,7 @@
 
 
 ## Overview
-There are two IR transmitters and one IR receiver on the MATRIX Creator. Both components are wired to the [Pi's GPIO pins](http://127.0.0.1:8000/matrix-creator/resources/pinout/#raspberry-pi-gpio) for you to directly call.
+There are two IR transmitters and one IR receiver on the MATRIX Creator. Both components are wired to the [Pi's GPIO pins](pinout/#raspberry-pi-gpio) for you to directly call.
 
 !!! info "IR Transmitters"
     **Raspberry Pi** `GPIO BCM Pin: 13`<br/>
