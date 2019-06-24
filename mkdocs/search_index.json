@@ -72,7 +72,7 @@
         }, 
         {
             "location": "/matrix-creator/resources/overview/", 
-            "text": "Resources\n\n\nPinout\n\n\n\nLists and labels of the MATRIX Creator's Pinouts\n\n\nMicrophones\n\n\n\nMicrophone drivers, sample rate, and board position\n\n\nReference Models\n\n\n\nDownload or view the Matrix Creator's 3D models and case\n\n\nSystem Architecture\n\n\n\nView a technical diagram of the MATRIX Creator architecture.\n\n\nTechnical Datasheets\n\n\n\nPDFs of MATRIX Creator Components\n\n\nMCU\n\n\n\nMicrocontroller source and flashing guide\n\n\nFPGA\n\n\n\nFPGA source and flashing guide", 
+            "text": "Resources\n\n\nPinout\n\n\n\nLists and labels of the MATRIX Creator's Pinouts\n\n\nMicrophones\n\n\n\nMicrophone drivers, sample rate, and board position\n\n\nIR\n\n\n\nGeneral information on the infrared receiver and transmitters.\n\n\nReference Models\n\n\n\nDownload or view the Matrix Creator's 3D models and case\n\n\nSystem Architecture\n\n\n\nView a technical diagram of the MATRIX Creator architecture.\n\n\nTechnical Datasheets\n\n\n\nPDFs of MATRIX Creator Components\n\n\nMCU\n\n\n\nMicrocontroller source and flashing guide\n\n\nFPGA\n\n\n\nFPGA source and flashing guide", 
             "title": "Overview"
         }, 
         {
@@ -99,6 +99,26 @@
             "location": "/matrix-creator/resources/pinout/#gpio-locations", 
             "text": "", 
             "title": "GPIO Locations"
+        }, 
+        {
+            "location": "/matrix-creator/resources/ir/", 
+            "text": "IR on MATRIX Creator\n\n\n\n\nOverview\n\n\nThere are two IR transmitters and one IR receiver on the MATRIX Creator. Both components are wired to the \nPi's GPIO pins\n for you to directly call.\n\n\n\n\nIR Transmitters\n\n\nRaspberry Pi\n \nGPIO BCM Pin: 13\n\nBoth transmitters are located on the front \n back of the MATRIX Creator. They are both connected to the same pin.\n\n\n\n\n\n\nIR Receiver\n\n\nRaspberry Pi\n \nGPIO BCM Pin: 16\n\nThe receiver is located on the front of the MATRIX Creator.\n\n\n\n\nUsage\n\n\nThe IR components on the MATRIX Creator should work the same as if they were directly placed on a Raspberry Pi. This means that libraries which utilize IR components can work with the MATRIX Creator. Below are a few we've seen work.\n\n\n\n\npigpio\n\n\nThe \n\npigpio library\n \nhas an example that can record and send IR signals you want to record. However, the implementation will cause issues with using audio recording/playback.\n\n\nExample Repositories:\n\n\n\n\nIR Test\n: Simple record \n playback of an IR signal.\n\n\nTV Remote Website\n: Website that can command the MATRIX Creator to send IR signals. \n\n\n\n\n\n\n\n\nLIRC\n\n\nThe \n\nLIRC Package\n \nallows for receiving and sending IR signals with common IR remotes. Unlike pigpio, this package seems to play well with audio recording/playback.\n\n\n\n\nKernel 4.19 workaround\n\n\nTo utilize LIRC on the latest Kernel modules for Raspbian Stretch, A patch needs to be applied for the package. \n\nThese community contributed instructions\n \ncan help solve this issue.", 
+            "title": "IR"
+        }, 
+        {
+            "location": "/matrix-creator/resources/ir/#ir-on-matrix-creator", 
+            "text": "", 
+            "title": "IR on MATRIX Creator"
+        }, 
+        {
+            "location": "/matrix-creator/resources/ir/#overview", 
+            "text": "There are two IR transmitters and one IR receiver on the MATRIX Creator. Both components are wired to the  Pi's GPIO pins  for you to directly call.   IR Transmitters  Raspberry Pi   GPIO BCM Pin: 13 \nBoth transmitters are located on the front   back of the MATRIX Creator. They are both connected to the same pin.    IR Receiver  Raspberry Pi   GPIO BCM Pin: 16 \nThe receiver is located on the front of the MATRIX Creator.", 
+            "title": "Overview"
+        }, 
+        {
+            "location": "/matrix-creator/resources/ir/#usage", 
+            "text": "The IR components on the MATRIX Creator should work the same as if they were directly placed on a Raspberry Pi. This means that libraries which utilize IR components can work with the MATRIX Creator. Below are a few we've seen work.   pigpio  The  pigpio library  \nhas an example that can record and send IR signals you want to record. However, the implementation will cause issues with using audio recording/playback.  Example Repositories:   IR Test : Simple record   playback of an IR signal.  TV Remote Website : Website that can command the MATRIX Creator to send IR signals.      LIRC  The  LIRC Package  \nallows for receiving and sending IR signals with common IR remotes. Unlike pigpio, this package seems to play well with audio recording/playback.   Kernel 4.19 workaround  To utilize LIRC on the latest Kernel modules for Raspbian Stretch, A patch needs to be applied for the package.  These community contributed instructions  \ncan help solve this issue.", 
+            "title": "Usage"
         }, 
         {
             "location": "/matrix-creator/resources/microphone/", 
