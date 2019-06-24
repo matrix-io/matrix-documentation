@@ -7,7 +7,7 @@ Lists and labels of the MATRIX Creator's Pinouts
 Microphone drivers, sample rate, and board position
 
 <h3 style="padding-top: 0"><a href="../ir">IR</a></h3>
-General information on the infrared receiver and emitters.
+General information on the infrared receiver and transmitters.
 
 <h3 style="padding-top: 0"><a href="../reference-models">Reference Models</a></h3>
 Download or view the Matrix Creator's 3D models and case
