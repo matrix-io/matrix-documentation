@@ -18,6 +18,7 @@ pages:
   - Resources:
     - 'Overview': 'matrix-creator/resources/overview.md'
     - 'Pinout': 'matrix-creator/resources/pinout.md'
+    - 'IR': 'matrix-creator/resources/ir.md'
     - 'Microphones': 'matrix-creator/resources/microphone.md'
     - 'Reference Models': 'matrix-creator/resources/reference-models.md'
     - 'System Architecture': 'matrix-creator/resources/system-architecture.md'
