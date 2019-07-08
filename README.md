@@ -1,37 +1,46 @@
-# README
+# Overview
 
-MATRIX Documentation uses [MkDocs](http://www.mkdocs.org/) to format and compile Markdown into a HTML site.
+MATRIX Documentation uses [MkDocs](http://www.mkdocs.org/) to format and compile Markdown into a HTML site. Choose one of the following setups to start writing documentation.
 
-# Install Dependencies
-1. Install [pip](https://pip.pypa.io/) and [virtualenv](https://virtualenv.pypa.io/) if you do not already have them.
-2. Create a virtualenv. Samples compatible with Python 2.7 and 3.4+.
-3. Optionally you may also want to install [virtualenv wrapper](https://virtualenvwrapper.readthedocs.io/en/latest/)
-   to make your life easier.
+# Development Setup (Python 2.7)
+> Install [pip](https://pip.pypa.io/) and [virtualenv](https://virtualenv.pypa.io/) on your computer.
 
+
+
+Create and start a Python virtual enviorment.
 ```
-$ virtualenv env
-$ source env/bin/activate
+virtualenv env
+source env/bin/activate
 ```
-
+Install required dependencies.
 ```
-# Do this to get the docs running locally.
 pip install --upgrade -r requirements.txt
+```
+Serve the documentation locally at http://localhost:8000
+```
 mkdocs serve
 ```
 
-### Deployment
-The master branch will automatically be built and pushed to GitHub Pages.
+# Docker Development Setup
+> [Install Docker](https://docs.docker.com/v17.12/install/) on your computer.
 
-# Developing With Docker
-Assuming you have Docker installed.
+Download and move into the MATRIX docs.
 ```
 git clone https://github.com/matrix-io/matrix-documentation
 cd matrix-documentation
 ```
 
+Create the Docker image
 ```
-docker build -t docs -f Dockerfile .   
-docker run -p 8000:8000 -v ~/Desktop/matrix-documentation:/volume docs
+docker build -t matrix_docs -f Dockerfile .   
+```
+
+Start a Docker container and serve the recently downloaded repository.
+```
+docker run -p 8000:8000 -v `pwd`/.:/volume matrix_docs
 ```
 
 You can now go to http://localhost:8000 to view the docs.
+
+# Deployment To GitHub Pages
+The **master** branch will automatically be built and pushed to GitHub Pages.
