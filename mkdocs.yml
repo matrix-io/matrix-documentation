@@ -1,5 +1,6 @@
 site_name: MATRIX
 site_description: MATRIX Documentation
+dev_addr: '0.0.0.0:8000'
 docs_dir: docs
 markdown_extensions:
   - codehilite

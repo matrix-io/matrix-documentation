@@ -21,3 +21,17 @@ mkdocs serve
 
 ### Deployment
 The master branch will automatically be built and pushed to GitHub Pages.
+
+# Developing With Docker
+Assuming you have Docker installed.
+```
+git clone https://github.com/matrix-io/matrix-documentation
+cd matrix-documentation
+```
+
+```
+docker build -t docs -f Dockerfile .   
+docker run -p 8000:8000 -v ~/Desktop/matrix-documentation:/volume docs
+```
+
+You can now go to http://localhost:8000 to view the docs.
