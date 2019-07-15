@@ -39,7 +39,7 @@ Here we're installing the requirements needed to allow your pc to develop and co
 
 - Linux: <a href="https://esp-idf.readthedocs.io/en/latest/get-started/linux-setup.html" target="_blank">https://esp-idf.readthedocs.io/en/latest/get-started/linux-setup.html</a>
 - Mac: <a href="https://esp-idf.readthedocs.io/en/latest/get-started/macos-setup.html" target="_blank">https://esp-idf.readthedocs.io/en/latest/get-started/macos-setup.html</a>
-- Windows: <a href="https://esp-idf.readthedocs.io/en/latest/get-started/windows-setup.html" target="_blank">https://esp-idf.readthedocs.io/en/latest/get-started/windows-setup.html</a>(currently not functioning)
+- Windows: <a href="https://esp-idf.readthedocs.io/en/latest/get-started/windows-setup.html" target="_blank">https://esp-idf.readthedocs.io/en/latest/get-started/windows-setup.html</a>
 - Stop Following when you reach "Next Steps"
 
 <b>Setup ESP-IDF development framework:</b>
