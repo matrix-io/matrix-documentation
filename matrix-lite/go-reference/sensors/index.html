@@ -499,51 +499,43 @@
 <label for="__tab_1_0">IMU</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span><span class="nx">m</span><span class="p">.</span><span class="nx">Imu</span><span class="p">.</span><span class="nx">Read</span><span class="p">()</span>
 
-<span class="c1">// Example m.Imu properties</span>
-<span class="p">{</span> 
-  <span class="nx">AccelX</span><span class="p">:</span> <span class="mf">0.0020000000949949026</span><span class="p">,</span>
-  <span class="nx">AccelY</span><span class="p">:</span> <span class="mf">0.004999999888241291</span><span class="p">,</span>
-  <span class="nx">AccelZ</span><span class="p">:</span> <span class="mf">0.9819999933242798</span><span class="p">,</span>
-  <span class="nx">GyroX</span><span class="p">:</span>  <span class="mf">0.7770000100135803</span><span class="p">,</span>
-  <span class="nx">GyroY</span><span class="p">:</span>  <span class="o">-</span><span class="mf">0.2460000067949295</span><span class="p">,</span>
-  <span class="nx">GyroZ</span><span class="p">:</span>  <span class="mf">0.7250000238418579</span><span class="p">,</span>
-  <span class="nx">Yaw</span><span class="p">:</span>    <span class="o">-</span><span class="mf">177.40724182128906</span><span class="p">,</span>
-  <span class="nx">Pitch</span><span class="p">:</span>  <span class="o">-</span><span class="mf">0.11669033765792847</span><span class="p">,</span>
-  <span class="nx">Roll</span><span class="p">:</span>   <span class="mf">0.2917275130748749</span><span class="p">,</span>
-  <span class="nx">MagX</span><span class="p">:</span>   <span class="mf">0.5299999713897705</span><span class="p">,</span>
-  <span class="nx">MagY</span><span class="p">:</span>   <span class="o">-</span><span class="mf">0.024000000208616257</span><span class="p">,</span>
-  <span class="nx">MagZ</span><span class="p">:</span>   <span class="o">-</span><span class="mf">0.05999999865889549</span> 
-<span class="p">}</span>
+<span class="c1">// Imu properties</span>
+<span class="nx">m</span><span class="p">.</span><span class="nx">Imu</span><span class="p">.</span><span class="nx">AccelX</span> <span class="kt">float32</span>
+<span class="nx">m</span><span class="p">.</span><span class="nx">Imu</span><span class="p">.</span><span class="nx">AccelY</span> <span class="kt">float32</span>
+<span class="nx">m</span><span class="p">.</span><span class="nx">Imu</span><span class="p">.</span><span class="nx">AccelZ</span> <span class="kt">float32</span>
+<span class="nx">m</span><span class="p">.</span><span class="nx">Imu</span><span class="p">.</span><span class="nx">GyroX</span>  <span class="kt">float32</span>
+<span class="nx">m</span><span class="p">.</span><span class="nx">Imu</span><span class="p">.</span><span class="nx">GyroY</span>  <span class="kt">float32</span>
+<span class="nx">m</span><span class="p">.</span><span class="nx">Imu</span><span class="p">.</span><span class="nx">GyroZ</span>  <span class="kt">float32</span>
+<span class="nx">m</span><span class="p">.</span><span class="nx">Imu</span><span class="p">.</span><span class="nx">Yaw</span>    <span class="kt">float32</span>
+<span class="nx">m</span><span class="p">.</span><span class="nx">Imu</span><span class="p">.</span><span class="nx">Pitch</span>  <span class="kt">float32</span>
+<span class="nx">m</span><span class="p">.</span><span class="nx">Imu</span><span class="p">.</span><span class="nx">Roll</span>   <span class="kt">float32</span>
+<span class="nx">m</span><span class="p">.</span><span class="nx">Imu</span><span class="p">.</span><span class="nx">MagX</span>   <span class="kt">float32</span>
+<span class="nx">m</span><span class="p">.</span><span class="nx">Imu</span><span class="p">.</span><span class="nx">MagY</span>   <span class="kt">float32</span>
+<span class="nx">m</span><span class="p">.</span><span class="nx">Imu</span><span class="p">.</span><span class="nx">MagZ</span>   <span class="kt">float32</span> 
 </pre></div></div>
 <input name="__tabs_1" type="radio" id="__tab_1_1" />
 <label for="__tab_1_1">UV</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span><span class="nx">m</span><span class="p">.</span><span class="nx">Uv</span><span class="p">.</span><span class="nx">Read</span><span class="p">()</span>
 
-<span class="c1">// Example m.Uv properties</span>
-<span class="p">{</span> 
-  <span class="nx">Uv</span><span class="p">:</span> <span class="mf">0.013000000268220901</span> 
-<span class="p">}</span>
+<span class="c1">// Uv properties</span>
+<span class="nx">m</span><span class="p">.</span><span class="nx">Uv</span><span class="p">.</span><span class="nx">Uv</span> <span class="kt">float32</span> 
 </pre></div></div>
 <input name="__tabs_1" type="radio" id="__tab_1_2" />
 <label for="__tab_1_2">Humidity</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span><span class="nx">m</span><span class="p">.</span><span class="nx">Humidity</span><span class="p">.</span><span class="nx">Read</span><span class="p">()</span>
 
-<span class="c1">// Example m.Humidity properties</span>
-<span class="p">{</span> 
-  <span class="nx">Humidity</span><span class="p">:</span>    <span class="mf">29.04400062561035</span><span class="p">,</span> 
-  <span class="nx">Temperature</span><span class="p">:</span> <span class="mf">33.279998779296875</span> 
-<span class="p">}</span>
+<span class="c1">// Humidity properties</span>
+ <span class="nx">m</span><span class="p">.</span><span class="nx">Humidity</span><span class="p">.</span><span class="nx">Humidity</span>    <span class="kt">float32</span> 
+ <span class="nx">m</span><span class="p">.</span><span class="nx">Humidity</span><span class="p">.</span><span class="nx">Temperature</span> <span class="kt">float32</span>
 </pre></div></div>
 <input name="__tabs_1" type="radio" id="__tab_1_3" />
 <label for="__tab_1_3">Pressure</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span><span class="nx">m</span><span class="p">.</span><span class="nx">Pressure</span><span class="p">.</span><span class="nx">Read</span><span class="p">()</span>
 
-<span class="c1">// Example m.Pressure properties</span>
-<span class="p">{</span> 
-  <span class="nx">Altitude</span><span class="p">:</span>    <span class="o">-</span><span class="mf">47.4370002746582</span><span class="p">,</span>
-  <span class="nx">Pressure</span><span class="p">:</span>    <span class="mi">101896</span><span class="p">,</span>
-  <span class="nx">Temperature</span><span class="p">:</span> <span class="mf">32.9370002746582</span> 
-<span class="p">}</span>
+<span class="c1">// Pressure properties</span>
+ <span class="nx">m</span><span class="p">.</span><span class="nx">Pressure</span><span class="p">.</span><span class="nx">Altitude</span>    <span class="kt">float32</span>
+ <span class="nx">m</span><span class="p">.</span><span class="nx">Pressure</span><span class="p">.</span><span class="nx">Pressure</span>    <span class="kt">float32</span>
+ <span class="nx">m</span><span class="p">.</span><span class="nx">Pressure</span><span class="p">.</span><span class="nx">Temperature</span> <span class="kt">float32</span> 
 </pre></div></div>
 </div> 
         </div>
