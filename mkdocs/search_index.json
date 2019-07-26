@@ -2,7 +2,7 @@
     "docs": [
         {
             "location": "/", 
-            "text": "MATRIX Ecosystem Overview\n\n\nObjective: Hardware shouldn't be hard\n\nThe MATRIX Ecosystem was created to make powerful hardware projects very approachable for software developers. The pillars of MATRIX, computer vision, hardware interfaces, distributed internet communication, and data-driven end-user clients, are all programming disciplines which require years for an individual to master, or for a team to build a solution around.\n\n\n\n\nSupport \n Resources\n\n\nFeel free to visit our communities and projects for any suggestions and/or questions you may have!\n\n\n Post questions or comments on \ncommunity.matrix.one\n.\n\n\n\n \nSubmit documentation issues or improvements to the \nMATRIX Documentation Repository\n.\n\n\n\n Check out our Hackster projects and guides on our \nHackster Page\n.\n\n\n\n Follow our live streams and tutorial videos on \nYouTube\n.\n\n\n\n View blog posts \n&\n project guides on our \nelement14 page\n.\n\n\n\n \nAlert issues on our \nGitHub\n under the corresponding repository.\n\n\n\n\n\nProgramming Layers\n\n\nThe MATRIX platform adds powerful capabilities to your Raspberry Pi, depending on your background and the kind of application you want to write, you may need to decide on which layer best fits your need. The documentation is organized according to these layers:\n\n\nMATRIX Lite\n\n\n\nLanguages:\n JavaScript, Python, \n Ruby\n\n\nA straightforward library that's aimed at users of all skill levels. This layer is an abstraction around MATRIX HAL and allows you to program your MATRIX Device with as little as one line of code.\n\n\nRead more about MATRIX Lite\n\n\nMATRIX HAL\n\n\n\nLanguage:\n C++\n\n\nInteracts with the kernel modules by using C++ drivers, enabling it to access available sensors and components on your device.\n\n\nRead more about MATRIX HAL\n\n\nMATRIX Core\n\n\n\nLanguages:\n Over 40 (Examples in JavaScript \n Python)\n\n\nAbstraction layer for \nMATRIX HAL\n. Hosts a ZeroMQ + Protobuf communication layer which makes device information accessible via high-level interfaces. Supports 40+ different languages through Protocol Buffers: C++, Python, Ruby, PHP, Java, etc.\n\n\nRead more about MATRIX Core\n\n\n\n\nDevices\n\n\n\n\nEach programming layer in the MATRIX platform is compatible with each MATRIX product, excluding specific components on the boards.\n\n\n\n\nMATRIX Creator\n\n\n\n\n\n\nA fully-featured development board for the Raspberry Pi with various sensors and communication protocols such as a 3D Gyroscope, Accelerometer, an 8 Microphone Array, zigbee, Z-Wave, and more!\n\n\nRead more about the MATRIX Creator\n\n\nMATRIX Voice\n\n\n\n\n\n\nA voice and audio focused development board with an 8 microphone array that enables you to create your own audio driven applications or use voice assistants such as \n\nAmazon Alexa\n, \n\nGoogle Assistant\n, \nPocketSphinx, etc.\n\n\nRead more about the MATRIX Voice", 
+            "text": "MATRIX Ecosystem Overview\n\n\nObjective: Hardware shouldn't be hard\n\nThe MATRIX Ecosystem was created to make powerful hardware projects very approachable for software developers. The pillars of MATRIX, computer vision, hardware interfaces, distributed internet communication, and data-driven end-user clients, are all programming disciplines which require years for an individual to master, or for a team to build a solution around.\n\n\n\n\nSupport \n Resources\n\n\nFeel free to visit our communities and projects for any suggestions and/or questions you may have!\n\n\n Post questions or comments on \ncommunity.matrix.one\n.\n\n\n\n \nSubmit documentation issues or improvements to the \nMATRIX Documentation Repository\n.\n\n\n\n Check out our Hackster projects and guides on our \nHackster Page\n.\n\n\n\n Follow our live streams and tutorial videos on \nYouTube\n.\n\n\n\n View blog posts \n&\n project guides on our \nelement14 page\n.\n\n\n\n \nAlert issues on our \nGitHub\n under the corresponding repository.\n\n\n\n\n\nProgramming Layers\n\n\nThe MATRIX platform adds powerful capabilities to your Raspberry Pi, depending on your background and the kind of application you want to write, you may need to decide on which layer best fits your need. The documentation is organized according to these layers:\n\n\nMATRIX Lite\n\n\n\nLanguages:\n JavaScript, Python, Go, \n Ruby\n\n\nA straightforward library that's aimed at users of all skill levels. This layer is an abstraction around MATRIX HAL and allows you to program your MATRIX Device with as little as one line of code.\n\n\nRead more about MATRIX Lite\n\n\nMATRIX HAL\n\n\n\nLanguage:\n C++\n\n\nInteracts with the kernel modules by using C++ drivers, enabling it to access available sensors and components on your device.\n\n\nRead more about MATRIX HAL\n\n\nMATRIX Core\n\n\n\nLanguages:\n Over 40 (Examples in JavaScript \n Python)\n\n\nAbstraction layer for \nMATRIX HAL\n. Hosts a ZeroMQ + Protobuf communication layer which makes device information accessible via high-level interfaces. Supports multiple different languages through Protocol Buffers: C++, Python, Ruby, PHP, Java, etc.\n\n\nRead more about MATRIX Core\n\n\n\n\nDevices\n\n\n\n\nEach programming layer in the MATRIX platform is compatible with each MATRIX product, excluding specific components on the boards.\n\n\n\n\nMATRIX Creator\n\n\n\n\n\n\nA fully-featured development board for the Raspberry Pi with various sensors and communication protocols such as a 3D Gyroscope, Accelerometer, an 8 Microphone Array, zigbee, Z-Wave, and more!\n\n\nRead more about the MATRIX Creator\n\n\nMATRIX Voice\n\n\n\n\n\n\nA voice and audio focused development board with an 8 microphone array that enables you to create your own audio driven applications or use voice assistants such as \n\nAmazon Alexa\n, \n\nGoogle Assistant\n, \nPocketSphinx, etc.\n\n\nRead more about the MATRIX Voice", 
             "title": "Overview"
         }, 
         {
@@ -522,27 +522,27 @@
         }, 
         {
             "location": "/matrix-lite/overview/", 
-            "text": "MATRIX Lite\n\n\n\nMATRIX Lite is a series of libraries for exposing \nMATRIX HAL\n to other languages. These libraries are built with a native C/C++ extension or a \n\nSWIG interface\n. We currently support JavaScript, Python, and Ruby.\n\n\n\n\nRuby is currently in early development. See it \n\nhere\n!\n\n\n\n\nGetting Started\n\n\nLearn how to install MATRIX Lite with either JavaScript or Python.\n\n\nReference\n\n\nLook over the MATRIX Lite functions to learn how to program with your MATRIX device.\n\n\n\n\nJavaScript Reference\n\n\nPython Reference\n\n\n\n\nContribute\n\n\nHelp improve our libraries by submitting issues \n pull requests to our GitHub repositories.\n\n\n\n\n\n\nmatrix-lite-js\n: Node.js addon for exposing MATRIX HAL.\n\n\n\n\n\n\nmatrix-hal-swig\n: A \nSWIG\n interface to expose MATRIX HAL for multiple languages.\n\n\n\n\n\n\nmatrix-lite-py\n: Our SWIG implementation compiled and abstracted for Python. \n\n\n\n\n\n\nmatrix-lite-rb\n: Our SWIG implementation compiled for Ruby.", 
+            "text": "MATRIX Lite\n\n\n\nMATRIX Lite is a series of libraries for exposing \nMATRIX HAL\n to other languages. These libraries are built with a native C/C++ extension or a \n\nSWIG interface\n. We currently support JavaScript, Python, Go, and Ruby.\n\n\nGetting Started\n\n\nLearn how to install MATRIX Lite with either JavaScript, Python or Golang.\n\n\nReference\n\n\nLook over the MATRIX Lite functions to learn how to program with your MATRIX device.\n\n\n\n\nJavaScript Reference\n\n\nPython Reference\n\n\nGo Reference\n\n\nRuby Reference\n \n[Under Development]\n\n\n\n\nContributing\n\n\nHelp improve our libraries by submitting issues \n pull requests to our GitHub repositories.\n\n\n\n\n\n\nmatrix-lite-js\n: Node.js addon for calling MATRIX HAL.\n\n\n\n\n\n\nmatrix-lite-go\n: Go package for calling MATRIX HAL.\n\n\n\n\n\n\nmatrix-hal-swig\n: A \nSWIG\n interface to expose MATRIX HAL for multiple languages.\n\n\n\n\n\n\nmatrix-lite-py\n: SWIG implementation compiled and abstracted for Python. \n\n\n\n\n\n\nmatrix-lite-rb\n: SWIG implementation compiled for Ruby.", 
             "title": "Overview"
         }, 
         {
             "location": "/matrix-lite/overview/#getting-started", 
-            "text": "Learn how to install MATRIX Lite with either JavaScript or Python.", 
+            "text": "Learn how to install MATRIX Lite with either JavaScript, Python or Golang.", 
             "title": "Getting Started"
         }, 
         {
             "location": "/matrix-lite/overview/#reference", 
-            "text": "Look over the MATRIX Lite functions to learn how to program with your MATRIX device.   JavaScript Reference  Python Reference", 
+            "text": "Look over the MATRIX Lite functions to learn how to program with your MATRIX device.   JavaScript Reference  Python Reference  Go Reference  Ruby Reference   [Under Development]", 
             "title": "Reference"
         }, 
         {
-            "location": "/matrix-lite/overview/#contribute", 
-            "text": "Help improve our libraries by submitting issues   pull requests to our GitHub repositories.    matrix-lite-js : Node.js addon for exposing MATRIX HAL.    matrix-hal-swig : A  SWIG  interface to expose MATRIX HAL for multiple languages.    matrix-lite-py : Our SWIG implementation compiled and abstracted for Python.     matrix-lite-rb : Our SWIG implementation compiled for Ruby.", 
-            "title": "Contribute"
+            "location": "/matrix-lite/overview/#contributing", 
+            "text": "Help improve our libraries by submitting issues   pull requests to our GitHub repositories.    matrix-lite-js : Node.js addon for calling MATRIX HAL.    matrix-lite-go : Go package for calling MATRIX HAL.    matrix-hal-swig : A  SWIG  interface to expose MATRIX HAL for multiple languages.    matrix-lite-py : SWIG implementation compiled and abstracted for Python.     matrix-lite-rb : SWIG implementation compiled for Ruby.", 
+            "title": "Contributing"
         }, 
         {
             "location": "/matrix-lite/getting-started/", 
-            "text": "Programming Languages\n\n\nJavaScript Setup\n\n\n\nLearn how to install and setup Node.js with MATRIX lite.\n\n\nPython Setup\n\n\n\nLearn how to install and setup Python 3 with MATRIX lite.", 
+            "text": "Programming Languages\n\n\nJavaScript Setup\n\n\n\nLearn how to install and setup Node.js with MATRIX Lite.\n\n\nPython Setup\n\n\n\nLearn how to install and setup Python 3 with MATRIX Lite.\n\n\nGo Setup\n\n\n\nLearn how to install and setup Go with MATRIX Lite.", 
             "title": "Index"
         }, 
         {
@@ -552,12 +552,12 @@
         }, 
         {
             "location": "/matrix-lite/getting-started/javascript/", 
-            "text": "Prerequisite MATRIX HAL\n\n\n\n\n\n\n\n\nMake sure you have installed \nMATRIX HAL\n, before continuing.\n\n\n\n\nJavaScript Setup\n\n\nInstall Node.js\n\ncurl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh \n|\n bash\n. ~/.bashrc\nnvm install node\n\n\n\nCreate A Project Folder.\n\nmkdir lite_js\n\ncd\n lite_js\nnpm init -y\ntouch index.js\n\n\n\nDownload the matrix-lite-js Package.\n\nnpm install @matrix-io/matrix-lite --save\n\n\n\n\n\nNext Steps\n\n\nWith your device now setup, you can visit our \nReference\n page to get started with MATRIX Lite.", 
+            "text": "Prerequisite MATRIX HAL\n\n\n\n\n\n\n\n\nMake sure you have installed \nMATRIX HAL\n, before continuing.\n\n\n\n\nJavaScript Setup\n\n\nInstall Node.js\n\ncurl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh \n|\n bash\n. ~/.bashrc\nnvm install node\n\n\n\nCreate a project folder.\n\nmkdir lite_js\n\ncd\n lite_js\nnpm init -y\ntouch index.js\n\n\n\nDownload the matrix-lite-js package.\n\nnpm install @matrix-io/matrix-lite --save\n\n\n\n\n\nNext Steps\n\n\nWith your device now setup, you can visit our \nReference\n page to get started with MATRIX Lite.", 
             "title": "Javascript Setup"
         }, 
         {
             "location": "/matrix-lite/getting-started/javascript/#javascript-setup", 
-            "text": "Install Node.js curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh  |  bash\n. ~/.bashrc\nnvm install node  Create A Project Folder. mkdir lite_js cd  lite_js\nnpm init -y\ntouch index.js  Download the matrix-lite-js Package. npm install @matrix-io/matrix-lite --save", 
+            "text": "Install Node.js curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh  |  bash\n. ~/.bashrc\nnvm install node  Create a project folder. mkdir lite_js cd  lite_js\nnpm init -y\ntouch index.js  Download the matrix-lite-js package. npm install @matrix-io/matrix-lite --save", 
             "title": "JavaScript Setup"
         }, 
         {
@@ -567,16 +567,31 @@
         }, 
         {
             "location": "/matrix-lite/getting-started/python/", 
-            "text": "Prerequisite MATRIX HAL\n\n\n\n\n\n\n\n\nMake sure you have installed \nMATRIX HAL\n, before continuing.\n\n\n\n\nPython Setup\n\n\nInstall the PIP3 package manager.\n\nsudo apt-get install python3-pip\n\n\n\nUpgrade PIP3.\n\npython3\n \n-\nm\n \npip\n \ninstall\n \n--upgrade pip\n\n\n\n\nCreate A Project Folder.\n\nmkdir lite_py\n\ncd\n lite_py\ntouch app.py\n\n\n\nDownload the matrix-lite-py Package. Note that the module to import is called \nmatrix_lite\n.\n\nsudo python3 -m pip install matrix-lite\n\n\n\n\n\nNext Steps\n\n\nWith your device now setup, you can visit our \nReference\n page to get started with MATRIX Lite.", 
+            "text": "Prerequisite MATRIX HAL\n\n\n\n\n\n\n\n\nMake sure you have installed \nMATRIX HAL\n, before continuing.\n\n\n\n\nPython Setup\n\n\nInstall the PIP3 package manager.\n\nsudo apt-get install python3-pip\n\n\n\nUpgrade PIP3.\n\npython3\n \n-\nm\n \npip\n \ninstall\n \n--upgrade pip\n\n\n\n\nCreate a project folder.\n\nmkdir lite_py\n\ncd\n lite_py\ntouch app.py\n\n\n\nDownload the matrix-lite-py package. Note that the module to import is called \nmatrix_lite\n.\n\ngo get -u github.com/matrix-io/matrix-lite-go\n\n\n\n\n\nNext Steps\n\n\nWith your device now setup, you can visit our \nReference\n page to get started with MATRIX Lite.", 
             "title": "Python Setup"
         }, 
         {
             "location": "/matrix-lite/getting-started/python/#python-setup", 
-            "text": "Install the PIP3 package manager. sudo apt-get install python3-pip  Upgrade PIP3. python3   - m   pip   install   --upgrade pip   Create A Project Folder. mkdir lite_py cd  lite_py\ntouch app.py  Download the matrix-lite-py Package. Note that the module to import is called  matrix_lite . sudo python3 -m pip install matrix-lite", 
+            "text": "Install the PIP3 package manager. sudo apt-get install python3-pip  Upgrade PIP3. python3   - m   pip   install   --upgrade pip   Create a project folder. mkdir lite_py cd  lite_py\ntouch app.py  Download the matrix-lite-py package. Note that the module to import is called  matrix_lite . go get -u github.com/matrix-io/matrix-lite-go", 
             "title": "Python Setup"
         }, 
         {
             "location": "/matrix-lite/getting-started/python/#next-steps", 
+            "text": "With your device now setup, you can visit our  Reference  page to get started with MATRIX Lite.", 
+            "title": "Next Steps"
+        }, 
+        {
+            "location": "/matrix-lite/getting-started/go/", 
+            "text": "Prerequisite MATRIX HAL\n\n\n\n\n\nMake sure you have installed \nMATRIX HAL\n, before continuing.\n\n\n\n\nGo Setup\n\n\nInstall Go.\n\nsudo apt-get install golang\n\n\n\nCreate a project folder.\n\nmkdir\n \nlite_go\n\n\ncd\n \nlite_go\n\n\ngo\n \nmod\n \ninit\n \nmyapp\n\n\n\n\nDownload the matrix-lite-go package.\n\ngo get -u github.com/matrix-io/matrix-lite-go\n\n\n\n\n\nNext Steps\n\n\nWith your device now setup, you can visit our \nReference\n page to get started with MATRIX Lite.", 
+            "title": "Go Setup"
+        }, 
+        {
+            "location": "/matrix-lite/getting-started/go/#go-setup", 
+            "text": "Install Go. sudo apt-get install golang  Create a project folder. mkdir   lite_go  cd   lite_go  go   mod   init   myapp   Download the matrix-lite-go package. go get -u github.com/matrix-io/matrix-lite-go", 
+            "title": "Go Setup"
+        }, 
+        {
+            "location": "/matrix-lite/getting-started/go/#next-steps", 
             "text": "With your device now setup, you can visit our  Reference  page to get started with MATRIX Lite.", 
             "title": "Next Steps"
         }, 
@@ -592,7 +607,7 @@
         }, 
         {
             "location": "/matrix-lite/js-reference/everloop/", 
-            "text": "Everloop\n\n\n\nDevice Compatibility\n\n\n\n\n\n\nOverview\n\n\nThe following sections below will go over how to control the LED array on your MATRIX Device.\n\n\nImport Statement\n\n\nconst\n \nmatrix\n \n=\n \nrequire\n(\n@matrix-io/matrix-lite\n);\n\n\n\n\n\n.length\n\n\nReturns the size of the LED array on your MATRIX device.\n\nmatrix\n.\nled\n.\nlength\n;\n\n\n\n\n.set()\n\n\nAllows you to set the colors of each LED. A \nstring\n, \nobject\n, \narray\n, or an \nundefined\n value can be given to this function.\n\n\nString input\n\n\n// Turns each LED to blue\n\n\nmatrix\n.\nled\n.\nset\n(\nblue\n);\n \n// color name\n\n\nmatrix\n.\nled\n.\nset\n(\nrgb(0,0,255)\n);\n \n// RGB values\n\n\nmatrix\n.\nled\n.\nset\n(\n#0000ff\n);\n \n// Hex values\n\n\n\n// Turn off each LED\n\n\nmatrix\n.\nled\n.\nset\n(\nblack\n);\n \n// color name\n\n\nmatrix\n.\nled\n.\nset\n(\nrgb(0,0,0)\n);\n \n// RGB values\n\n\nmatrix\n.\nled\n.\nset\n(\n#000000\n);\n \n// Hex values\n\n\n\n\nObject input\n\n\n// Turns each LED to blue\n\n\nmatrix\n.\nled\n.\nset\n({\n\n  \nr\n:\n0\n,\n\n  \ng\n:\n0\n,\n\n  \nb\n:\n255\n,\n\n  \nw\n:\n0\n\n\n});\n\n\n\n// Turn off each LED\n\n\nmatrix\n.\nled\n.\nset\n({})\n \n// unspecified values are set to 0\n\n\n\n\nArray Input\n\n\nPassing in an array allows you to set each individual LED color. However, passing an array that's larger than \nled.length\n will result in an error.\n\n// Basic array example\n\n\nmatrix\n.\nled\n.\nset\n([\nred\n,\n \ngold\n,\n \npurple\n,\n \n{},\n \n,\n \n#6F41C1\n,\n \nrgb(0,0,255)\n,\n \n{\ng\n:\n255\n}]);", 
+            "text": "Everloop\n\n\n\nDevice Compatibility\n\n\n\n\n\n\nOverview\n\n\nThe following sections below will go over how to control the LED array on your MATRIX Device.\n\n\nImport Statement\n\n\nconst\n \nmatrix\n \n=\n \nrequire\n(\n@matrix-io/matrix-lite\n);\n\n\n\n\n\n.length\n\n\nReturns the size of the LED array on your MATRIX device.\n\nmatrix\n.\nled\n.\nlength\n;\n\n\n\n\n.set()\n\n\nAllows you to set the colors of each LED. A \nstring\n, \nobject\n, \narray\n, or an \nundefined\n value can be given to this function.\n\n\nString input\n\n\n// Valid ways to turn LEDs blue\n\n\nmatrix\n.\nled\n.\nset\n(\nblue\n);\n \n// color name\n\n\nmatrix\n.\nled\n.\nset\n(\nrgb(0,0,255)\n);\n \n// RGB values\n\n\nmatrix\n.\nled\n.\nset\n(\n#0000ff\n);\n \n// Hex values\n\n\n\n// Valid ways to turn off LEDs\n\n\nmatrix\n.\nled\n.\nset\n(\nblack\n);\n \n// color name\n\n\nmatrix\n.\nled\n.\nset\n(\nrgb(0,0,0)\n);\n \n// RGB values\n\n\nmatrix\n.\nled\n.\nset\n(\n#000000\n);\n \n// Hex values\n\n\n\n\nObject input\n\n\n// Turn LEDs blue\n\n\nmatrix\n.\nled\n.\nset\n({\n\n  \nr\n:\n0\n,\n\n  \ng\n:\n0\n,\n\n  \nb\n:\n255\n,\n\n  \nw\n:\n0\n\n\n});\n\n\n\n// Turn off LEDs \n\n\nmatrix\n.\nled\n.\nset\n({})\n \n// unspecified values are set to 0\n\n\n\n\nArray Input\n\n\nPassing in an array allows you to set each individual LED color. However, passing an array that's larger than \nled.length\n will result in an error.\n\n// Basic array example\n\n\nmatrix\n.\nled\n.\nset\n([\nred\n,\n \ngold\n,\n \npurple\n,\n \n{},\n \n,\n \n#6F41C1\n,\n \nrgb(0,0,255)\n,\n \n{\ng\n:\n255\n}]);", 
             "title": "Everloop"
         }, 
         {
@@ -617,7 +632,7 @@
         }, 
         {
             "location": "/matrix-lite/js-reference/everloop/#set", 
-            "text": "Allows you to set the colors of each LED. A  string ,  object ,  array , or an  undefined  value can be given to this function.  String input  // Turns each LED to blue  matrix . led . set ( blue );   // color name  matrix . led . set ( rgb(0,0,255) );   // RGB values  matrix . led . set ( #0000ff );   // Hex values  // Turn off each LED  matrix . led . set ( black );   // color name  matrix . led . set ( rgb(0,0,0) );   // RGB values  matrix . led . set ( #000000 );   // Hex values   Object input  // Turns each LED to blue  matrix . led . set ({ \n   r : 0 , \n   g : 0 , \n   b : 255 , \n   w : 0  });  // Turn off each LED  matrix . led . set ({})   // unspecified values are set to 0   Array Input  Passing in an array allows you to set each individual LED color. However, passing an array that's larger than  led.length  will result in an error. // Basic array example  matrix . led . set ([ red ,   gold ,   purple ,   {},   ,   #6F41C1 ,   rgb(0,0,255) ,   { g : 255 }]);", 
+            "text": "Allows you to set the colors of each LED. A  string ,  object ,  array , or an  undefined  value can be given to this function.  String input  // Valid ways to turn LEDs blue  matrix . led . set ( blue );   // color name  matrix . led . set ( rgb(0,0,255) );   // RGB values  matrix . led . set ( #0000ff );   // Hex values  // Valid ways to turn off LEDs  matrix . led . set ( black );   // color name  matrix . led . set ( rgb(0,0,0) );   // RGB values  matrix . led . set ( #000000 );   // Hex values   Object input  // Turn LEDs blue  matrix . led . set ({ \n   r : 0 , \n   g : 0 , \n   b : 255 , \n   w : 0  });  // Turn off LEDs   matrix . led . set ({})   // unspecified values are set to 0   Array Input  Passing in an array allows you to set each individual LED color. However, passing an array that's larger than  led.length  will result in an error. // Basic array example  matrix . led . set ([ red ,   gold ,   purple ,   {},   ,   #6F41C1 ,   rgb(0,0,255) ,   { g : 255 }]);", 
             "title": ".set()"
         }, 
         {
@@ -859,6 +874,121 @@
             "location": "/matrix-lite/py-reference/alsa-mics/#recording-example", 
             "text": "Below is a simple example that shows you how to create an audio recording with pyaudio.\nVisit the  pyaudio documentation  for a complete overview.   recordFile.py  Be sure to run the example with  python3  import   pyaudio  import   wave  # recording configs  CHUNK   =   2048  FORMAT   =   pyaudio . paInt16  CHANNELS   =   8  RATE   =   96000  RECORD_SECONDS   =   5  WAVE_OUTPUT_FILENAME   =   output.wav  # create   configure microphone  mic   =   pyaudio . PyAudio ()  stream   =   mic . open ( format = FORMAT , \n                 channels = CHANNELS , \n                 rate = RATE , \n                 input = True , \n                 frames_per_buffer = CHUNK )  print ( * recording )  # read   store microphone data per frame read  frames   =   []  for   i   in   range ( 0 ,   int ( RATE   /   CHUNK   *   RECORD_SECONDS )): \n     data   =   stream . read ( CHUNK ) \n     frames . append ( data )  print ( * done recording )  # kill the mic and recording  stream . stop_stream ()  stream . close ()  mic . terminate ()  # combine   store all microphone data to output.wav file  outputFile   =   wave . open ( WAVE_OUTPUT_FILENAME ,   wb )  outputFile . setnchannels ( CHANNELS )  outputFile . setsampwidth ( mic . get_sample_size ( FORMAT ))  outputFile . setframerate ( RATE )  outputFile . writeframes ( b . join ( frames ))  outputFile . close ()   Once recorded, you can play the audio through the Pi's audio jack with: # raise the output volume to max \namixer  set  PCM  100 % # play the file \naplay output.wav", 
             "title": "Recording Example"
+        }, 
+        {
+            "location": "/matrix-lite/go-reference/", 
+            "text": "Go Reference\n\n\nGoDoc\n\n\n\nAuto-generated documentation.\n\n\nEverloop\n\n\n\nInterface for the LED array.\n\n\nSensors\n\n\n\nReading data from the IMU, humidity, UV, and pressure sensors.\n\n\nGPIO\n\n\n\nGeneral Purpose Input/Output.", 
+            "title": "Index"
+        }, 
+        {
+            "location": "/matrix-lite/go-reference/#go-reference", 
+            "text": "", 
+            "title": "Go Reference"
+        }, 
+        {
+            "location": "/matrix-lite/go-reference/everloop/", 
+            "text": "Everloop\n\n\n\nDevice Compatibility\n\n\n\n\n\n\nOverview\n\n\nThe following sections below will go over how to control the LED array on your MATRIX Device.\n\n\nImport Statement\n\n\nimport\n \n(\ngithub.com/matrix-io/matrix-lite-go\n)\n\n\n\n\n\n\n\nMATRIX Initialization\n\n\n.Init\n will contain an \nLed\n struct to call the functions below\n\nm\n \n:=\n \nmatrix\n.\nInit\n()\n\n\n\n\n\n\n.Length\n\n\nReturns the size of the LED array on your MATRIX device.\n\nm\n.\nLed\n.\nLength\n\n\n\n\n.Set()\n\n\nAllows you to set the colors of each LED. A \nstring\n, \nRgbw struct\n, \nslice\n or \narray\n can be given to this function.\n\n\nString input\n\n\n// Turn LEDs blue\n\n\nm\n.\nLed\n.\nSet\n(\nblue\n)\n\n\n\n// Valid ways to turn LEDs off\n\n\nm\n.\nLed\n.\nSet\n(\nblack\n)\n\n\nm\n.\nLed\n.\nSet\n(\n)\n\n\nm\n.\nLed\n.\nSet\n(\ninvalid color names will default to black\n)\n\n\n\n\nRgbw Struct input\n\n\n// Turn LEDs blue\n\n\nm\n.\nLed\n.\nSet\n(\nmatrix\n.\nRgbw\n{\n0\n,\n \n0\n,\n \n10\n,\n \n0\n})\n\n\n\n// Turn LEDs off\n\n\nm\n.\nLed\n.\nSet\n(\nmatrix\n.\nRgbw\n{})\n\n\n\n\nSlice \n Array Input\n\n\nPassing in an a slice or array allows you to set each individual LED color. However, passing anything that's larger than \nLed.Length\n will result in an error. It's recommended to use slices so that \nLed.Length\n can be used as the size.\n\n// Slice\n\n\nm\n.\nLed\n.\nSet\n([]\nstring\n{\nred\n,\n \ngold\n,\n \nblack\n,\n \npurple\n})\n\n\n\n// Slice with different data types\n\n\nm\n.\nLed\n.\nSet\n([]\ninterface\n{}{\nred\n,\n \n,\n \nmatrix\n.\nRgbw\n{},\n \nblack\n,\n \nmatrix\n.\nRgbw\n{\nG\n:\n \n255\n}})\n\n\n\n// Array\n\n\nm\n.\nLed\n.\nSet\n([\n5\n]\nstring\n{\nred\n,\n \ngold\n,\n \nblack\n,\n \npurple\n})", 
+            "title": "Everloop"
+        }, 
+        {
+            "location": "/matrix-lite/go-reference/everloop/#device-compatibility", 
+            "text": "", 
+            "title": "Device Compatibility"
+        }, 
+        {
+            "location": "/matrix-lite/go-reference/everloop/#overview", 
+            "text": "The following sections below will go over how to control the LED array on your MATRIX Device.", 
+            "title": "Overview"
+        }, 
+        {
+            "location": "/matrix-lite/go-reference/everloop/#import-statement", 
+            "text": "import   ( github.com/matrix-io/matrix-lite-go )    MATRIX Initialization  .Init  will contain an  Led  struct to call the functions below m   :=   matrix . Init ()", 
+            "title": "Import Statement"
+        }, 
+        {
+            "location": "/matrix-lite/go-reference/everloop/#length", 
+            "text": "Returns the size of the LED array on your MATRIX device. m . Led . Length", 
+            "title": ".Length"
+        }, 
+        {
+            "location": "/matrix-lite/go-reference/everloop/#set", 
+            "text": "Allows you to set the colors of each LED. A  string ,  Rgbw struct ,  slice  or  array  can be given to this function.  String input  // Turn LEDs blue  m . Led . Set ( blue )  // Valid ways to turn LEDs off  m . Led . Set ( black )  m . Led . Set ( )  m . Led . Set ( invalid color names will default to black )   Rgbw Struct input  // Turn LEDs blue  m . Led . Set ( matrix . Rgbw { 0 ,   0 ,   10 ,   0 })  // Turn LEDs off  m . Led . Set ( matrix . Rgbw {})   Slice   Array Input  Passing in an a slice or array allows you to set each individual LED color. However, passing anything that's larger than  Led.Length  will result in an error. It's recommended to use slices so that  Led.Length  can be used as the size. // Slice  m . Led . Set ([] string { red ,   gold ,   black ,   purple })  // Slice with different data types  m . Led . Set ([] interface {}{ red ,   ,   matrix . Rgbw {},   black ,   matrix . Rgbw { G :   255 }})  // Array  m . Led . Set ([ 5 ] string { red ,   gold ,   black ,   purple })", 
+            "title": ".Set()"
+        }, 
+        {
+            "location": "/matrix-lite/go-reference/sensors/", 
+            "text": "Sensors\n\n\n\nDevice Compatibility\n\n\n\n\nOverview\n\n\nThe following sections below will go over how to read \n what to expect from each sensor on the MATRIX Creator.\n\n\nImport Statement\n\n\nimport\n \n(\ngithub.com/matrix-io/matrix-lite-go\n)\n\n\n\n\n\n\n\nMATRIX Initialization\n\n\n.Init\n will contain a \nSensors\n struct to call the functions below\n\nm\n \n:=\n \nmatrix\n.\nInit\n()\n\n\n\n\n\n\nReading Sensor Data\n\n\nSensor data can be read by calling \n.Read()\n on a sensor struct. This updates the existing sensor's values. Below are examples on how to call each sensor and what information to expect.\n\n\n\n\n\n\nIMU\n\n\nm\n.\nImu\n.\nRead\n()\n\n\n\n// Example m.Imu properties\n\n\n{\n \n  \nAccelX\n:\n \n0.0020000000949949026\n,\n\n  \nAccelY\n:\n \n0.004999999888241291\n,\n\n  \nAccelZ\n:\n \n0.9819999933242798\n,\n\n  \nGyroX\n:\n  \n0.7770000100135803\n,\n\n  \nGyroY\n:\n  \n-\n0.2460000067949295\n,\n\n  \nGyroZ\n:\n  \n0.7250000238418579\n,\n\n  \nYaw\n:\n    \n-\n177.40724182128906\n,\n\n  \nPitch\n:\n  \n-\n0.11669033765792847\n,\n\n  \nRoll\n:\n   \n0.2917275130748749\n,\n\n  \nMagX\n:\n   \n0.5299999713897705\n,\n\n  \nMagY\n:\n   \n-\n0.024000000208616257\n,\n\n  \nMagZ\n:\n   \n-\n0.05999999865889549\n \n\n}\n\n\n\n\n\n\nUV\n\n\nm\n.\nUv\n.\nRead\n()\n\n\n\n// Example m.Uv properties\n\n\n{\n \n  \nUv\n:\n \n0.013000000268220901\n \n\n}\n\n\n\n\n\n\nHumidity\n\n\nm\n.\nHumidity\n.\nRead\n()\n\n\n\n// Example m.Humidity properties\n\n\n{\n \n  \nHumidity\n:\n    \n29.04400062561035\n,\n \n  \nTemperature\n:\n \n33.279998779296875\n \n\n}\n\n\n\n\n\n\nPressure\n\n\nm\n.\nPressure\n.\nRead\n()\n\n\n\n// Example m.Pressure properties\n\n\n{\n \n  \nAltitude\n:\n    \n-\n47.4370002746582\n,\n\n  \nPressure\n:\n    \n101896\n,\n\n  \nTemperature\n:\n \n32.9370002746582\n \n\n}", 
+            "title": "Sensors"
+        }, 
+        {
+            "location": "/matrix-lite/go-reference/sensors/#device-compatibility", 
+            "text": "", 
+            "title": "Device Compatibility"
+        }, 
+        {
+            "location": "/matrix-lite/go-reference/sensors/#overview", 
+            "text": "The following sections below will go over how to read   what to expect from each sensor on the MATRIX Creator.", 
+            "title": "Overview"
+        }, 
+        {
+            "location": "/matrix-lite/go-reference/sensors/#import-statement", 
+            "text": "import   ( github.com/matrix-io/matrix-lite-go )    MATRIX Initialization  .Init  will contain a  Sensors  struct to call the functions below m   :=   matrix . Init ()", 
+            "title": "Import Statement"
+        }, 
+        {
+            "location": "/matrix-lite/go-reference/sensors/#reading-sensor-data", 
+            "text": "Sensor data can be read by calling  .Read()  on a sensor struct. This updates the existing sensor's values. Below are examples on how to call each sensor and what information to expect.    IMU  m . Imu . Read ()  // Example m.Imu properties  {  \n   AccelX :   0.0020000000949949026 , \n   AccelY :   0.004999999888241291 , \n   AccelZ :   0.9819999933242798 , \n   GyroX :    0.7770000100135803 , \n   GyroY :    - 0.2460000067949295 , \n   GyroZ :    0.7250000238418579 , \n   Yaw :      - 177.40724182128906 , \n   Pitch :    - 0.11669033765792847 , \n   Roll :     0.2917275130748749 , \n   MagX :     0.5299999713897705 , \n   MagY :     - 0.024000000208616257 , \n   MagZ :     - 0.05999999865889549   }    UV  m . Uv . Read ()  // Example m.Uv properties  {  \n   Uv :   0.013000000268220901   }    Humidity  m . Humidity . Read ()  // Example m.Humidity properties  {  \n   Humidity :      29.04400062561035 ,  \n   Temperature :   33.279998779296875   }    Pressure  m . Pressure . Read ()  // Example m.Pressure properties  {  \n   Altitude :      - 47.4370002746582 , \n   Pressure :      101896 , \n   Temperature :   32.9370002746582   }", 
+            "title": "Reading Sensor Data"
+        }, 
+        {
+            "location": "/matrix-lite/go-reference/gpio/", 
+            "text": "GPIO\n\n\n\nDevice Compatibility\n\n\n\n\n\n\nOverview\n\n\nThe following sections below will go over how to utilize the GPIO on your MATRIX Device.\n\n\nImport Statement\n\n\nimport\n \n(\ngithub.com/matrix-io/matrix-lite-go\n)\n\n\n\n\n\n\n\nMATRIX Initialization\n\n\n.Init\n will contain a \nGpio\n struct to call the functions below\n\nm\n \n:=\n \nmatrix\n.\nInit\n()\n\n\n\n\n\n\n.SetFunction()\n\n\nSpecify if a GPIO pin is being used for \nDIGITAL\n or \nPWM\n.\n\n\nParameters:\n\n\n\n\npin\n: Any number from 0 to 15.\n\n\nfunction\n: \n\"DIGITAL\"\n or \n\"PWM\"\n\n\n\n\n// Set pin 0 as a Digital pin\n\n\nm\n.\nGpio\n.\nSetFunction\n(\n0\n,\n \nDIGITAL\n)\n\n\n\n// Set pin 1 as a PWM pin\n\n\nm\n.\nGpio\n.\nSetFunction\n(\n1\n,\n \nPWM\n);\n\n\n\n\n\n.SetMode()\n\n\nSpecify if a GPIO pin is being used for \ninput\n or \noutput\n.\n\n\nParameters:\n\n\n\n\npin\n: Any number from 0 to 15.\n\n\nmode\n: \n\"input\"\n or \n\"output\"\n\n\n\n\n// Set pin 0 to receive input\n\n\nm\n.\nGpio\n.\nSetMode\n(\n0\n,\n \ninput\n)\n\n\n\n// Set pin 1 to output\n\n\nm\n.\nGpio\n.\nSetMode\n(\n0\n,\n \noutput\n)\n\n\n\n\n\n.GetDigital()\n\n\nRetrieve the current digital signal of a GPIO pin.\n\n\nParameters:\n\n\n\n\npin\n: Any number from 0 to 15.\n\n\n\n\nReturn Value:\n\n\n\n\nvalue\n: \n0\n or \n1\n representing ON/OFF respectively\n\n\n\n\n// Return the current ON/OFF state of pin 0\n\n\nm\n.\nGpio\n.\nGetDigital\n(\n0\n)\n\n\n\n\n\n.SetDigital()\n\n\nSet the current digital signal of a GPIO pin.\n\n\nParameters:\n\n\n\n\npin\n: Any number from 0 to 15.\n\n\nvalue\n: \n\"ON\"\n or \n\"OFF\"\n\n\n\n\n// Set pin 0 to OFF\n\n\nm\n.\nGpio\n.\nSetDigital\n(\n0\n,\n \nON\n)\n\n\n\n// Set pin 1 to ON\n\n\nm\n.\nGpio\n.\nSetDigital\n(\n1\n,\n \nON\n)\n\n\n\n\n\n.SetPWM()\n\n\nSet the current PWM signal of a GPIO pin.\n\n\nParameters:\n\n\n\n\npin\n: Any number from 0 to 15.\n\n\npercentage\n: Any number from 0 to 100.\n\n\nfrequency\n: Any number from 36 to \nmax value not tested\n.\n\n\n\n\n// Set PWM for pin 0\n\n\nm\n.\nGpio\n.\nSetPWM\n(\n0\n,\n \n25\n,\n \n50\n);\n\n\n\n\n\n.SetServoAngle()\n\n\nUse a GPIO pin to control a servo. This function requires the pin to be set to \n\"PWM\"\n mode.\n\n\nParameters:\n\n\n\n\npin\n: Any number from 0 to 15.\n\n\nangle\n: Positive number of degrees.\n\n\nmin_pulse_ms\n: Generally numbers between 0 and 2.\n\n\nminimum pulse width for a PWM wave in milliseconds\n\n\n\n\n\n\n\n\n// Sets Servo to 90 Degrees with pin 0\n\n\nm\n.\nGpio\n.\nSetServoAngle\n(\n0\n,\n \n90\n,\n \n0.8\n)", 
+            "title": "GPIO"
+        }, 
+        {
+            "location": "/matrix-lite/go-reference/gpio/#device-compatibility", 
+            "text": "", 
+            "title": "Device Compatibility"
+        }, 
+        {
+            "location": "/matrix-lite/go-reference/gpio/#overview", 
+            "text": "The following sections below will go over how to utilize the GPIO on your MATRIX Device.", 
+            "title": "Overview"
+        }, 
+        {
+            "location": "/matrix-lite/go-reference/gpio/#import-statement", 
+            "text": "import   ( github.com/matrix-io/matrix-lite-go )    MATRIX Initialization  .Init  will contain a  Gpio  struct to call the functions below m   :=   matrix . Init ()", 
+            "title": "Import Statement"
+        }, 
+        {
+            "location": "/matrix-lite/go-reference/gpio/#setfunction", 
+            "text": "Specify if a GPIO pin is being used for  DIGITAL  or  PWM .  Parameters:   pin : Any number from 0 to 15.  function :  \"DIGITAL\"  or  \"PWM\"   // Set pin 0 as a Digital pin  m . Gpio . SetFunction ( 0 ,   DIGITAL )  // Set pin 1 as a PWM pin  m . Gpio . SetFunction ( 1 ,   PWM );", 
+            "title": ".SetFunction()"
+        }, 
+        {
+            "location": "/matrix-lite/go-reference/gpio/#setmode", 
+            "text": "Specify if a GPIO pin is being used for  input  or  output .  Parameters:   pin : Any number from 0 to 15.  mode :  \"input\"  or  \"output\"   // Set pin 0 to receive input  m . Gpio . SetMode ( 0 ,   input )  // Set pin 1 to output  m . Gpio . SetMode ( 0 ,   output )", 
+            "title": ".SetMode()"
+        }, 
+        {
+            "location": "/matrix-lite/go-reference/gpio/#getdigital", 
+            "text": "Retrieve the current digital signal of a GPIO pin.  Parameters:   pin : Any number from 0 to 15.   Return Value:   value :  0  or  1  representing ON/OFF respectively   // Return the current ON/OFF state of pin 0  m . Gpio . GetDigital ( 0 )", 
+            "title": ".GetDigital()"
+        }, 
+        {
+            "location": "/matrix-lite/go-reference/gpio/#setdigital", 
+            "text": "Set the current digital signal of a GPIO pin.  Parameters:   pin : Any number from 0 to 15.  value :  \"ON\"  or  \"OFF\"   // Set pin 0 to OFF  m . Gpio . SetDigital ( 0 ,   ON )  // Set pin 1 to ON  m . Gpio . SetDigital ( 1 ,   ON )", 
+            "title": ".SetDigital()"
+        }, 
+        {
+            "location": "/matrix-lite/go-reference/gpio/#setpwm", 
+            "text": "Set the current PWM signal of a GPIO pin.  Parameters:   pin : Any number from 0 to 15.  percentage : Any number from 0 to 100.  frequency : Any number from 36 to  max value not tested .   // Set PWM for pin 0  m . Gpio . SetPWM ( 0 ,   25 ,   50 );", 
+            "title": ".SetPWM()"
+        }, 
+        {
+            "location": "/matrix-lite/go-reference/gpio/#setservoangle", 
+            "text": "Use a GPIO pin to control a servo. This function requires the pin to be set to  \"PWM\"  mode.  Parameters:   pin : Any number from 0 to 15.  angle : Positive number of degrees.  min_pulse_ms : Generally numbers between 0 and 2.  minimum pulse width for a PWM wave in milliseconds     // Sets Servo to 90 Degrees with pin 0  m . Gpio . SetServoAngle ( 0 ,   90 ,   0.8 )", 
+            "title": ".SetServoAngle()"
         }, 
         {
             "location": "/matrix-hal/overview/", 

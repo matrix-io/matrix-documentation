@@ -216,6 +216,7 @@
   <ul class="subnav">
         
         
+        
       
   </ul>
 
@@ -255,6 +256,22 @@
 
   <ul class="subnav">
         
+        
+        
+        
+      
+  </ul>
+
+    
+  <!-- 2 deep  -->
+  <!-- print subroot  -->
+  <li>
+    <a href="../../go-reference/" class="">
+      Go Reference
+    </a>
+  </li>
+
+  <ul class="subnav">
         
         
         
@@ -479,18 +496,18 @@
 <h3 id="set">.set()</h3>
 <p>Allows you to set the colors of each LED. A <code>string</code>, <code>object</code>, <code>array</code>, or an <code>undefined</code> value can be given to this function.</p>
 <p><strong>String input</strong>
-<div class="codehilite"><pre><span></span><span class="c1">// Turns each LED to blue</span>
+<div class="codehilite"><pre><span></span><span class="c1">// Valid ways to turn LEDs blue</span>
 <span class="nx">matrix</span><span class="p">.</span><span class="nx">led</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s2">&quot;blue&quot;</span><span class="p">);</span> <span class="c1">// color name</span>
 <span class="nx">matrix</span><span class="p">.</span><span class="nx">led</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s2">&quot;rgb(0,0,255)&quot;</span><span class="p">);</span> <span class="c1">// RGB values</span>
 <span class="nx">matrix</span><span class="p">.</span><span class="nx">led</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s2">&quot;#0000ff&quot;</span><span class="p">);</span> <span class="c1">// Hex values</span>
 
-<span class="c1">// Turn off each LED</span>
+<span class="c1">// Valid ways to turn off LEDs</span>
 <span class="nx">matrix</span><span class="p">.</span><span class="nx">led</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s2">&quot;black&quot;</span><span class="p">);</span> <span class="c1">// color name</span>
 <span class="nx">matrix</span><span class="p">.</span><span class="nx">led</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s2">&quot;rgb(0,0,0)&quot;</span><span class="p">);</span> <span class="c1">// RGB values</span>
 <span class="nx">matrix</span><span class="p">.</span><span class="nx">led</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s2">&quot;#000000&quot;</span><span class="p">);</span> <span class="c1">// Hex values</span>
 </pre></div></p>
 <p><strong>Object input</strong>
-<div class="codehilite"><pre><span></span><span class="c1">// Turns each LED to blue</span>
+<div class="codehilite"><pre><span></span><span class="c1">// Turn LEDs blue</span>
 <span class="nx">matrix</span><span class="p">.</span><span class="nx">led</span><span class="p">.</span><span class="nx">set</span><span class="p">({</span>
   <span class="nx">r</span><span class="o">:</span><span class="mi">0</span><span class="p">,</span>
   <span class="nx">g</span><span class="o">:</span><span class="mi">0</span><span class="p">,</span>
@@ -498,7 +515,7 @@
   <span class="nx">w</span><span class="o">:</span><span class="mi">0</span>
 <span class="p">});</span>
 
-<span class="c1">// Turn off each LED</span>
+<span class="c1">// Turn off LEDs </span>
 <span class="nx">matrix</span><span class="p">.</span><span class="nx">led</span><span class="p">.</span><span class="nx">set</span><span class="p">({})</span> <span class="c1">// unspecified values are set to 0</span>
 </pre></div></p>
 <p><strong>Array Input</strong></p>

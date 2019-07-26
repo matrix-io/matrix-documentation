@@ -194,7 +194,7 @@
 
 <!-- print root node  -->
 <li class="">
-  <a href="../../matrix-lite/overview/" class="">
+  <a href="../overview/" class="active">
     MATRIX Lite
   </a>
 </li>
@@ -203,12 +203,12 @@
    
   <!-- only 1 deep, print menu items  -->
    
-  <li><a href="../../matrix-lite/overview/" class="">Overview</a></li>
+  <li><a href="../overview/" class="">Overview</a></li>
      
   <!-- 2 deep  -->
   <!-- print subroot  -->
   <li>
-    <a href="../../matrix-lite/getting-started/" class="">
+    <a href="../getting-started/" class="">
       Getting Started
     </a>
   </li>
@@ -224,7 +224,7 @@
   <!-- 2 deep  -->
   <!-- print subroot  -->
   <li>
-    <a href="../../matrix-lite/js-reference/" class="">
+    <a href="../js-reference/" class="">
       JavaScript Reference
     </a>
   </li>
@@ -241,7 +241,7 @@
   <!-- 2 deep  -->
   <!-- print subroot  -->
   <li>
-    <a href="../../matrix-lite/py-reference/" class="">
+    <a href="../py-reference/" class="">
       Python Reference
     </a>
   </li>
@@ -258,15 +258,21 @@
   <!-- 2 deep  -->
   <!-- print subroot  -->
   <li>
-    <a href="../../matrix-lite/go-reference/" class="">
+    <a href="./" class="active">
       Go Reference
     </a>
   </li>
 
   <ul class="subnav">
         
+    
+    <li><a href="everloop/" class="">Everloop</a></li>
         
+    
+    <li><a href="sensors/" class="">Sensors</a></li>
         
+    
+    <li><a href="gpio/" class="">GPIO</a></li>
       
   </ul>
 
@@ -366,7 +372,7 @@
 
 <!-- print root node  -->
 <li class="">
-  <a href="../overview/" class="active">
+  <a href="../../matrix-core/overview/" class="">
     MATRIX Core
   </a>
 </li>
@@ -375,32 +381,22 @@
    
   <!-- only 1 deep, print menu items  -->
    
-  <li><a href="../overview/" class="">Overview</a></li>
+  <li><a href="../../matrix-core/overview/" class="">Overview</a></li>
      
   <!-- 2 deep  -->
   <!-- print subroot  -->
   <li>
-    <a href="./" class="active">
+    <a href="../../matrix-core/getting-started/" class="">
       Getting Started
     </a>
   </li>
 
   <ul class="subnav">
         
-    
-    <li><a href="core-installation/" class="">Installation</a></li>
         
-    
-    <li><a href="understanding-core/" class="">Understanding CORE</a></li>
         
-    
-    <li><a href="javascript-installation/" class="">Javascript Setup</a></li>
         
-    
-    <li><a href="python-installation/" class="">Python Setup</a></li>
         
-    
-    <li><a href="golang-installation/" class="">Golang Setup</a></li>
       
   </ul>
 
@@ -408,7 +404,7 @@
   <!-- 2 deep  -->
   <!-- print subroot  -->
   <li>
-    <a href="../protocols/" class="">
+    <a href="../../matrix-core/protocols/" class="">
       Driver Protocols
     </a>
   </li>
@@ -429,7 +425,7 @@
   <!-- 2 deep  -->
   <!-- print subroot  -->
   <li>
-    <a href="../javascript-examples/" class="">
+    <a href="../../matrix-core/javascript-examples/" class="">
       Javascript Examples
     </a>
   </li>
@@ -450,7 +446,7 @@
   <!-- 2 deep  -->
   <!-- print subroot  -->
   <li>
-    <a href="../python-examples/" class="">
+    <a href="../../matrix-core/python-examples/" class="">
       Python Examples
     </a>
   </li>
@@ -470,7 +466,7 @@
     
   <!-- only 1 deep, print menu items  -->
    
-  <li><a href="../troubleshooting/" class="">Troubleshooting</a></li>
+  <li><a href="../../matrix-core/troubleshooting/" class="">Troubleshooting</a></li>
     
 </ul>
 
@@ -480,24 +476,21 @@
           </div>
         </div>
         <div id="content" class="col-lg-8 col-md-9 md-typeset">
-           <h2 id="getting-started">Getting Started</h2>
-<h3 style="padding-top:0"><a href="core-installation">Installation</a></h3>
+           <h2 id="go-reference">Go Reference</h2>
+<h3 style="padding-top:0.6em;"><a href="https://godoc.org/github.com/matrix-io/matrix-lite-go" target="blank">GoDoc</a></h3>
 
-<p>Learn how to install MATRIX CORE on your MATRIX Device.</p>
-<h3 style="padding-top:0"><a href="understanding-core">Understanding CORE</a></h3>
+<p>Auto-generated documentation.</p>
+<h3 style="padding-top:0.6em;"><a href="everloop">Everloop</a></h3>
 
-<p>Understand how MATRIX CORE uses ZeroMQ to communicate with Protocol Buffers.
-<br/><br/></p>
-<h2 id="programming-languages">Programming Languages</h2>
-<h3 style="padding-top:0"> <a href="javascript-installation">Javascript Setup</a></h3>
+<p>Interface for the LED array.</p>
+<h3 style="padding-top:0.6em;"><a href="sensors">Sensors</a></h3>
 
-<p>Use Javascript to program with MATRIX CORE.</p>
-<h3 style="padding-top:0"><a href="python-installation">Python Setup</a></h3>
+<p>Reading data from the IMU, humidity, UV, and pressure sensors.</p>
+<h3 style="padding-top:0.6em;"><a href="gpio">GPIO</a></h3>
 
-<p>Use Python to program with MATRIX CORE.</p>
-<h3 style="padding-top:0"><a href="golang-installation">Golang Setup</a></h3>
-
-<p>Use Golang to program with MATRIX CORE.</p> 
+<p>General Purpose Input/Output.</p>
+<!-- <h3 style="padding-top:0.6em;"><a href="alsa-mics">ALSA Microphones</a></h3>
+Reading microphone data through ALSA. --> 
         </div>
         <div class="toc-parent col-lg-2 col-md-3">
           <div class="toc">
@@ -505,13 +498,8 @@
             <h3>Contents</h3>
             <ul class="nav flex-column">
                <li class='nav-item'>
-  <a href="#getting-started" class="nav-link active">
-    Getting Started
-  </a>
-  
-</li>  <li class='nav-item'>
-  <a href="#programming-languages" class="nav-link ">
-    Programming Languages
+  <a href="#go-reference" class="nav-link active">
+    Go Reference
   </a>
   
 </li> 
