@@ -23,12 +23,12 @@ Allows you to set the colors of each LED. A `string`, `object`, `array`, or an `
 
 **String input**
 ```js
-// Turns each LED to blue
+// Valid ways to turn LEDs blue
 matrix.led.set("blue"); // color name
 matrix.led.set("rgb(0,0,255)"); // RGB values
 matrix.led.set("#0000ff"); // Hex values
 
-// Turn off each LED
+// Valid ways to turn off LEDs
 matrix.led.set("black"); // color name
 matrix.led.set("rgb(0,0,0)"); // RGB values
 matrix.led.set("#000000"); // Hex values
@@ -36,7 +36,7 @@ matrix.led.set("#000000"); // Hex values
 
 **Object input**
 ```js
-// Turns each LED to blue
+// Turn LEDs blue
 matrix.led.set({
   r:0,
   g:0,
@@ -44,7 +44,7 @@ matrix.led.set({
   w:0
 });
 
-// Turn off each LED
+// Turn off LEDs 
 matrix.led.set({}) // unspecified values are set to 0
 ```
 

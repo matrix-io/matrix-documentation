@@ -16,16 +16,16 @@ Upgrade PIP3.
 python3 -m pip install --upgrade pip
 ```
 
-Create A Project Folder.
+Create a project folder.
 ```bash
 mkdir lite_py
 cd lite_py
 touch app.py
 ```
 
-Download the matrix-lite-py Package. Note that the module to import is called `matrix_lite`.
+Download the matrix-lite-py package. Note that the module to import is called `matrix_lite`.
 ```bash
-sudo python3 -m pip install matrix-lite
+go get -u github.com/matrix-io/matrix-lite-go
 ```
 
 <br/>
