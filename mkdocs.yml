@@ -47,6 +47,7 @@ pages:
     - 'Index': 'matrix-lite/getting-started/index.md'
     - 'Javascript Setup': 'matrix-lite/getting-started/javascript.md'
     - 'Python Setup': 'matrix-lite/getting-started/python.md'
+    - 'Go Setup': 'matrix-lite/getting-started/go.md'
   - JavaScript Reference:
     - 'Index': 'matrix-lite/js-reference/index.md'
     - 'Everloop': 'matrix-lite/js-reference/everloop.md'
@@ -59,6 +60,12 @@ pages:
     - 'Sensors': 'matrix-lite/py-reference/sensors.md'
     - 'GPIO': 'matrix-lite/py-reference/gpio.md'
     - 'ALSA Mics': 'matrix-lite/py-reference/alsa-mics.md'
+  - Go Reference:
+    - 'Index': 'matrix-lite/go-reference/index.md'
+    - 'Everloop': 'matrix-lite/go-reference/everloop.md'
+    - 'Sensors': 'matrix-lite/go-reference/sensors.md'
+    - 'GPIO': 'matrix-lite/go-reference/gpio.md'
+    # - 'ALSA Mics': 'matrix-lite/go-reference/alsa-mics.md'
 - MATRIX HAL:
   - 'Overview': 'matrix-hal/overview.md'
   - Getting Started:

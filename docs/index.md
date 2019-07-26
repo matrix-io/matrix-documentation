@@ -15,7 +15,6 @@ Submit documentation issues or improvements to the <a href="https://github.com/m
 
 <p><img src="./img/youtube.png" height="24px" width="24px"> Follow our live streams and tutorial videos on <a href="https://youtube.com/MATRIXLabs" target="_blank">YouTube</a>.</p>
 
-
 <p><img src="./img/E14.svg" height="24px" width="24px"> View blog posts & project guides on our <a href="https://element14.com/community/people/matrixlabs/content" target="_blank">element14 page</a>.</p>
 
 <p><img src="./img/Github.svg" height="24px" width="24px"> 
@@ -27,7 +26,7 @@ Alert issues on our <a href="https://github.com/matrix-io" target="_blank">GitHu
 The MATRIX platform adds powerful capabilities to your Raspberry Pi, depending on your background and the kind of application you want to write, you may need to decide on which layer best fits your need. The documentation is organized according to these layers:
 
 <h3 style="padding-top:0;">MATRIX Lite</h3>
-**Languages:** JavaScript, Python, & Ruby
+**Languages:** JavaScript, Python, Go, & Ruby
 
 A straightforward library that's aimed at users of all skill levels. This layer is an abstraction around MATRIX HAL and allows you to program your MATRIX Device with as little as one line of code.
 
@@ -43,7 +42,7 @@ Interacts with the kernel modules by using C++ drivers, enabling it to access av
 <h3 style="padding-top:0;">MATRIX Core</h3>
 **Languages:** Over 40 (Examples in JavaScript & Python)
 
-Abstraction layer for **MATRIX HAL**. Hosts a ZeroMQ + Protobuf communication layer which makes device information accessible via high-level interfaces. Supports 40+ different languages through Protocol Buffers: C++, Python, Ruby, PHP, Java, etc.<br/>
+Abstraction layer for **MATRIX HAL**. Hosts a ZeroMQ + Protobuf communication layer which makes device information accessible via high-level interfaces. Supports multiple different languages through Protocol Buffers: C++, Python, Ruby, PHP, Java, etc.<br/>
 
 [Read more about MATRIX Core](matrix-core/overview)
 

@@ -13,7 +13,7 @@ curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | 
 nvm install node
 ```
 
-Create A Project Folder.
+Create a project folder.
 ```bash
 mkdir lite_js
 cd lite_js
@@ -21,7 +21,7 @@ npm init -y
 touch index.js
 ```
 
-Download the matrix-lite-js Package.
+Download the matrix-lite-js package.
 ```bash
 npm install @matrix-io/matrix-lite --save
 ```
