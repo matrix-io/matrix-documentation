@@ -498,7 +498,7 @@
 <div class="codehilite"><pre><span></span><span class="nx">m</span><span class="p">.</span><span class="nx">Led</span><span class="p">.</span><span class="nx">Length</span>
 </pre></div></p>
 <h3 id="set">.Set()</h3>
-<p>Allows you to set the colors of each LED. A <code>string</code>, <code>Rgbw struct</code>, <code>slice</code> or <code>array</code> can be given to this function.</p>
+<p>Allows you to set the colors of each LED. A <code>string</code>, <code>RGBW struct</code>, <code>slice</code> or <code>array</code> can be given to this function.</p>
 <p><strong>String input</strong>
 <div class="codehilite"><pre><span></span><span class="c1">// Turn LEDs blue</span>
 <span class="nx">m</span><span class="p">.</span><span class="nx">Led</span><span class="p">.</span><span class="nx">Set</span><span class="p">(</span><span class="s">&quot;blue&quot;</span><span class="p">)</span>
@@ -508,12 +508,12 @@
 <span class="nx">m</span><span class="p">.</span><span class="nx">Led</span><span class="p">.</span><span class="nx">Set</span><span class="p">(</span><span class="s">&quot;&quot;</span><span class="p">)</span>
 <span class="nx">m</span><span class="p">.</span><span class="nx">Led</span><span class="p">.</span><span class="nx">Set</span><span class="p">(</span><span class="s">&quot;invalid color names will default to black&quot;</span><span class="p">)</span>
 </pre></div></p>
-<p><strong>Rgbw Struct input</strong>
+<p><strong>RGBW Struct input</strong>
 <div class="codehilite"><pre><span></span><span class="c1">// Turn LEDs blue</span>
-<span class="nx">m</span><span class="p">.</span><span class="nx">Led</span><span class="p">.</span><span class="nx">Set</span><span class="p">(</span><span class="nx">matrix</span><span class="p">.</span><span class="nx">Rgbw</span><span class="p">{</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">0</span><span class="p">})</span>
+<span class="nx">m</span><span class="p">.</span><span class="nx">Led</span><span class="p">.</span><span class="nx">Set</span><span class="p">(</span><span class="nx">matrix</span><span class="p">.</span><span class="nx">RGBW</span><span class="p">{</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">0</span><span class="p">})</span>
 
 <span class="c1">// Turn LEDs off</span>
-<span class="nx">m</span><span class="p">.</span><span class="nx">Led</span><span class="p">.</span><span class="nx">Set</span><span class="p">(</span><span class="nx">matrix</span><span class="p">.</span><span class="nx">Rgbw</span><span class="p">{})</span>
+<span class="nx">m</span><span class="p">.</span><span class="nx">Led</span><span class="p">.</span><span class="nx">Set</span><span class="p">(</span><span class="nx">matrix</span><span class="p">.</span><span class="nx">RGBW</span><span class="p">{})</span>
 </pre></div></p>
 <p><strong>Slice &amp; Array Input</strong></p>
 <p>Passing in an a slice or array allows you to set each individual LED color. However, passing anything that's larger than <code>Led.Length</code> will result in an error. It's recommended to use slices so that <code>Led.Length</code> can be used as the size.
@@ -521,7 +521,7 @@
 <span class="nx">m</span><span class="p">.</span><span class="nx">Led</span><span class="p">.</span><span class="nx">Set</span><span class="p">([]</span><span class="kt">string</span><span class="p">{</span><span class="s">&quot;red&quot;</span><span class="p">,</span> <span class="s">&quot;gold&quot;</span><span class="p">,</span> <span class="s">&quot;black&quot;</span><span class="p">,</span> <span class="s">&quot;purple&quot;</span><span class="p">})</span>
 
 <span class="c1">// Slice with different data types</span>
-<span class="nx">m</span><span class="p">.</span><span class="nx">Led</span><span class="p">.</span><span class="nx">Set</span><span class="p">([]</span><span class="kd">interface</span><span class="p">{}{</span><span class="s">&quot;red&quot;</span><span class="p">,</span> <span class="s">&quot;&quot;</span><span class="p">,</span> <span class="nx">matrix</span><span class="p">.</span><span class="nx">Rgbw</span><span class="p">{},</span> <span class="s">&quot;black&quot;</span><span class="p">,</span> <span class="nx">matrix</span><span class="p">.</span><span class="nx">Rgbw</span><span class="p">{</span><span class="nx">G</span><span class="p">:</span> <span class="mi">255</span><span class="p">}})</span>
+<span class="nx">m</span><span class="p">.</span><span class="nx">Led</span><span class="p">.</span><span class="nx">Set</span><span class="p">([]</span><span class="kd">interface</span><span class="p">{}{</span><span class="s">&quot;red&quot;</span><span class="p">,</span> <span class="s">&quot;&quot;</span><span class="p">,</span> <span class="nx">matrix</span><span class="p">.</span><span class="nx">RGBW</span><span class="p">{},</span> <span class="s">&quot;black&quot;</span><span class="p">,</span> <span class="nx">matrix</span><span class="p">.</span><span class="nx">RGBW</span><span class="p">{</span><span class="nx">G</span><span class="p">:</span> <span class="mi">255</span><span class="p">}})</span>
 
 <span class="c1">// Array</span>
 <span class="nx">m</span><span class="p">.</span><span class="nx">Led</span><span class="p">.</span><span class="nx">Set</span><span class="p">([</span><span class="mi">5</span><span class="p">]</span><span class="kt">string</span><span class="p">{</span><span class="s">&quot;red&quot;</span><span class="p">,</span> <span class="s">&quot;gold&quot;</span><span class="p">,</span> <span class="s">&quot;black&quot;</span><span class="p">,</span> <span class="s">&quot;purple&quot;</span><span class="p">})</span>
