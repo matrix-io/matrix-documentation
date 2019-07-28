@@ -25,7 +25,7 @@ m.Led.Length
 ```
 
 ### .Set()
-Allows you to set the colors of each LED. A `string`, `Rgbw struct`, `slice` or `array` can be given to this function.
+Allows you to set the colors of each LED. A `string`, `RGBW struct`, `slice` or `array` can be given to this function.
 
 **String input**
 ```go
@@ -38,13 +38,13 @@ m.Led.Set("")
 m.Led.Set("invalid color names will default to black")
 ```
 
-**Rgbw Struct input**
+**RGBW Struct input**
 ```go
 // Turn LEDs blue
-m.Led.Set(matrix.Rgbw{0, 0, 10, 0})
+m.Led.Set(matrix.RGBW{0, 0, 10, 0})
 
 // Turn LEDs off
-m.Led.Set(matrix.Rgbw{})
+m.Led.Set(matrix.RGBW{})
 ```
 
 **Slice & Array Input**
@@ -55,7 +55,7 @@ Passing in an a slice or array allows you to set each individual LED color. Howe
 m.Led.Set([]string{"red", "gold", "black", "purple"})
 
 // Slice with different data types
-m.Led.Set([]interface{}{"red", "", matrix.Rgbw{}, "black", matrix.Rgbw{G: 255}})
+m.Led.Set([]interface{}{"red", "", matrix.RGBW{}, "black", matrix.RGBW{G: 255}})
 
 // Array
 m.Led.Set([5]string{"red", "gold", "black", "purple"})

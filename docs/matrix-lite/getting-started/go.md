@@ -14,6 +14,7 @@ Create a project folder.
 mkdir lite_go
 cd lite_go
 go mod init myapp
+touch main.go
 ```
 
 Download the matrix-lite-go package.
