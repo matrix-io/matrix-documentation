@@ -496,8 +496,56 @@
 touch app.py
 </pre></div></p>
 <p>Download the matrix-lite-py package. Note that the module to import is called <code>matrix_lite</code>.
-<div class="codehilite"><pre><span></span>go get -u github.com/matrix-io/matrix-lite-go
+<div class="codehilite"><pre><span></span>sudo python3 -m pip install matrix-lite
 </pre></div></p>
+<h2 id="creating-an-application">Creating An Application</h2>
+<p>Copy our Hello World example below into <code>app.py</code> to test your installation.</p>
+<div class="codehilite"><pre><span></span><span class="kn">from</span> <span class="nn">matrix_lite</span> <span class="kn">import</span> <span class="n">led</span>
+<span class="kn">from</span> <span class="nn">time</span> <span class="kn">import</span> <span class="n">sleep</span>
+<span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">pi</span><span class="p">,</span> <span class="n">sin</span>
+
+<span class="n">everloop</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;black&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="n">led</span><span class="o">.</span><span class="n">length</span>
+
+<span class="n">ledAdjust</span> <span class="o">=</span> <span class="mf">0.0</span>
+<span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">everloop</span><span class="p">)</span> <span class="o">==</span> <span class="mi">35</span><span class="p">:</span>
+    <span class="n">ledAdjust</span> <span class="o">=</span> <span class="mf">0.51</span> <span class="c1"># MATRIX Creator</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">ledAdjust</span> <span class="o">=</span> <span class="mf">1.01</span> <span class="c1"># MATRIX Voice</span>
+
+<span class="n">frequency</span> <span class="o">=</span> <span class="mf">0.375</span>
+<span class="n">counter</span> <span class="o">=</span> <span class="mf">0.0</span>
+<span class="n">tick</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">everloop</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
+
+<span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+    <span class="c1"># Create rainbow</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">everloop</span><span class="p">)):</span>
+        <span class="n">r</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="p">(</span><span class="n">sin</span><span class="p">(</span><span class="n">frequency</span><span class="o">*</span><span class="n">counter</span><span class="o">+</span><span class="p">(</span><span class="n">pi</span><span class="o">/</span><span class="mi">180</span><span class="o">*</span><span class="mi">240</span><span class="p">))</span><span class="o">*</span><span class="mi">155</span><span class="o">+</span><span class="mi">100</span><span class="p">)</span><span class="o">/</span><span class="mi">10</span><span class="p">))</span>
+        <span class="n">g</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="p">(</span><span class="n">sin</span><span class="p">(</span><span class="n">frequency</span><span class="o">*</span><span class="n">counter</span><span class="o">+</span><span class="p">(</span><span class="n">pi</span><span class="o">/</span><span class="mi">180</span><span class="o">*</span><span class="mi">120</span><span class="p">))</span><span class="o">*</span><span class="mi">155</span><span class="o">+</span><span class="mi">100</span><span class="p">)</span><span class="o">/</span><span class="mi">10</span><span class="p">))</span>
+        <span class="n">b</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="p">(</span><span class="n">sin</span><span class="p">(</span><span class="n">frequency</span><span class="o">*</span><span class="n">counter</span><span class="p">)</span><span class="o">*</span><span class="mi">155</span><span class="o">+</span><span class="mi">100</span><span class="p">)</span><span class="o">/</span><span class="mi">10</span><span class="p">))</span>
+
+        <span class="n">counter</span> <span class="o">+=</span> <span class="n">ledAdjust</span>
+
+        <span class="n">everloop</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;r&#39;</span><span class="p">:</span><span class="n">r</span><span class="p">,</span> <span class="s1">&#39;g&#39;</span><span class="p">:</span><span class="n">g</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">:</span><span class="n">b</span><span class="p">}</span>
+
+    <span class="c1"># Slowly show rainbow</span>
+    <span class="k">if</span> <span class="n">tick</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">reversed</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">tick</span><span class="p">)):</span>
+            <span class="n">everloop</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="n">tick</span> <span class="o">-=</span> <span class="mi">1</span>
+
+    <span class="n">led</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">everloop</span><span class="p">)</span>
+
+    <span class="n">sleep</span><span class="p">(</span><span class="o">.</span><span class="mo">035</span><span class="p">)</span>
+</pre></div>
+
+<h3 style="padding-top: 0">Running app.py</h3>
+
+<p>Once you have <code>app.py</code> ready, use the following command to run our rainbow Hello World. 
+<div class="codehilite"><pre><span></span>python3 app.py
+</pre></div></p>
+<h3 style="padding-top: 0">Result</h3>
+
+<p><img alt="" src="../../../matrix-lite/img/everloop_rainbow.gif" /></p>
 <p><br/></p>
 <h2 id="next-steps">Next Steps</h2>
 <p>With your device now setup, you can visit our <a href="../../py-reference">Reference</a> page to get started with MATRIX Lite.</p> 
@@ -510,6 +558,11 @@ touch app.py
                <li class='nav-item'>
   <a href="#python-setup" class="nav-link active">
     Python Setup
+  </a>
+  
+</li>  <li class='nav-item'>
+  <a href="#creating-an-application" class="nav-link ">
+    Creating An Application
   </a>
   
 </li>  <li class='nav-item'>

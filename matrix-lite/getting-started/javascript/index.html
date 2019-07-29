@@ -498,6 +498,57 @@ touch index.js
 <p>Download the matrix-lite-js package.
 <div class="codehilite"><pre><span></span>npm install @matrix-io/matrix-lite --save
 </pre></div></p>
+<h2 id="creating-an-application">Creating An Application</h2>
+<p>Copy our Hello World example below into <code>index.js</code> to test your installation.</p>
+<div class="codehilite"><pre><span></span><span class="kr">const</span> <span class="nx">matrix</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;@matrix-io/matrix-lite&quot;</span><span class="p">)</span>
+
+<span class="kd">let</span> <span class="nx">everloop</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Array</span><span class="p">(</span><span class="nx">matrix</span><span class="p">.</span><span class="nx">led</span><span class="p">.</span><span class="nx">length</span><span class="p">);</span>
+
+<span class="kd">let</span> <span class="nx">ledAdjust</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">;</span>
+<span class="k">if</span> <span class="p">(</span><span class="nx">everloop</span><span class="p">.</span><span class="nx">length</span> <span class="o">==</span> <span class="mi">35</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">ledAdjust</span> <span class="o">=</span> <span class="mf">0.51</span><span class="p">;</span> <span class="c1">// MATRIX Creator</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="nx">ledAdjust</span> <span class="o">=</span> <span class="mf">1.01</span><span class="p">;</span> <span class="c1">// MATRIX Voice</span>
+<span class="p">}</span>
+
+<span class="kd">let</span> <span class="nx">frequency</span> <span class="o">=</span> <span class="mf">0.375</span><span class="p">;</span>
+<span class="kd">let</span> <span class="nx">counter</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">;</span>
+<span class="kd">let</span> <span class="nx">tick</span> <span class="o">=</span> <span class="nx">everloop</span><span class="p">.</span><span class="nx">length</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span>
+
+<span class="nx">setInterval</span><span class="p">(()=&gt;{</span>
+    <span class="c1">// Create rainbow</span>
+    <span class="k">for</span><span class="p">(</span><span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">everloop</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kd">let</span> <span class="nx">led</span> <span class="o">=</span> <span class="p">{};</span>
+        <span class="nx">led</span><span class="p">.</span><span class="nx">r</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">round</span><span class="p">(</span><span class="nb">Math</span><span class="p">.</span><span class="nx">max</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="p">(</span><span class="nb">Math</span><span class="p">.</span><span class="nx">sin</span><span class="p">(</span><span class="nx">frequency</span><span class="o">*</span><span class="nx">counter</span><span class="o">+</span><span class="p">(</span><span class="nb">Math</span><span class="p">.</span><span class="nx">PI</span><span class="o">/</span><span class="mi">180</span><span class="o">*</span><span class="mi">240</span><span class="p">))</span><span class="o">*</span><span class="mi">155</span><span class="o">+</span><span class="mi">100</span><span class="p">)</span><span class="o">/</span><span class="mi">10</span><span class="p">));</span>
+        <span class="nx">led</span><span class="p">.</span><span class="nx">g</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">round</span><span class="p">(</span><span class="nb">Math</span><span class="p">.</span><span class="nx">max</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="p">(</span><span class="nb">Math</span><span class="p">.</span><span class="nx">sin</span><span class="p">(</span><span class="nx">frequency</span><span class="o">*</span><span class="nx">counter</span><span class="o">+</span><span class="p">(</span><span class="nb">Math</span><span class="p">.</span><span class="nx">PI</span><span class="o">/</span><span class="mi">180</span><span class="o">*</span><span class="mi">120</span><span class="p">))</span><span class="o">*</span><span class="mi">155</span><span class="o">+</span><span class="mi">100</span><span class="p">)</span><span class="o">/</span><span class="mi">10</span><span class="p">));</span>
+        <span class="nx">led</span><span class="p">.</span><span class="nx">b</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">round</span><span class="p">(</span><span class="nb">Math</span><span class="p">.</span><span class="nx">max</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="p">(</span><span class="nb">Math</span><span class="p">.</span><span class="nx">sin</span><span class="p">(</span><span class="nx">frequency</span><span class="o">*</span><span class="nx">counter</span><span class="p">)</span><span class="o">*</span><span class="mi">155</span><span class="o">+</span><span class="mi">100</span><span class="p">)</span><span class="o">/</span><span class="mi">10</span><span class="p">));</span>
+
+        <span class="nx">counter</span> <span class="o">+=</span> <span class="nx">ledAdjust</span><span class="p">;</span>
+
+        <span class="nx">everloop</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">=</span> <span class="nx">led</span><span class="p">;</span>
+    <span class="p">};</span>
+
+    <span class="c1">// Slowly show rainbow</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">tick</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">for</span> <span class="p">(</span><span class="nx">i</span> <span class="o">=</span> <span class="nx">tick</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span><span class="o">--</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">everloop</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">{};</span>
+        <span class="p">}</span>
+        <span class="nx">tick</span><span class="o">--</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="nx">matrix</span><span class="p">.</span><span class="nx">led</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="nx">everloop</span><span class="p">);</span>
+
+<span class="p">},</span><span class="mi">35</span><span class="p">);</span>
+</pre></div>
+
+<h3 style="padding-top: 0">Running index.js</h3>
+
+<p>Once you have <code>index.js</code> ready, use the following command to run our rainbow Hello World. 
+<div class="codehilite"><pre><span></span>node index.js
+</pre></div></p>
+<h3 style="padding-top: 0">Result</h3>
+
+<p><img alt="" src="../../../matrix-lite/img/everloop_rainbow.gif" /></p>
 <p><br/></p>
 <h2 id="next-steps">Next Steps</h2>
 <p>With your device now setup, you can visit our <a href="../../js-reference">Reference</a> page to get started with MATRIX Lite.</p> 
@@ -510,6 +561,11 @@ touch index.js
                <li class='nav-item'>
   <a href="#javascript-setup" class="nav-link active">
     JavaScript Setup
+  </a>
+  
+</li>  <li class='nav-item'>
+  <a href="#creating-an-application" class="nav-link ">
+    Creating An Application
   </a>
   
 </li>  <li class='nav-item'>
