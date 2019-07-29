@@ -24,7 +24,7 @@ go get -u github.com/matrix-io/matrix-lite-go
 
 ## Creating An Application
 
-Copy our Hello World example below into the `main.go` to test your installation.
+Copy our Hello World example below into `main.go` to test your installation.
 
 ```go
 package main
@@ -80,7 +80,7 @@ func main() {
 ```
 
 <h3 style="padding-top: 0">Running main.go</h3>
-Once you have `main.go` ready, use the following command to our rainbow Hello World. 
+Once you have `main.go` ready, use the following command to run our rainbow Hello World. 
 ```
 go run main.go
 ```
