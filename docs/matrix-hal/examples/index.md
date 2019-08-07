@@ -39,3 +39,9 @@ General Purpose Input/Output.
 
 <h3 style="padding-top:0.6em;"><a href="microphone">Microphone</a></h3>
 Microphone Array.
+
+<h3 style="padding-top:0.6em;"><a href="nfc">NFC</a></h3>
+Near field communication.
+
+> The NFC Examples are not part of the main HAL Repository, they can be found [here](https://github.com/matrix-io/matrix-hal-nfc/tree/master/examples).
+

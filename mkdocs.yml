@@ -73,6 +73,7 @@ pages:
     - 'Installation From Package': 'matrix-hal/getting-started/installation-package.md'
     - 'Installation From Source': 'matrix-hal/getting-started/installation-source.md'
     - 'Compiling Programs': 'matrix-hal/getting-started/programs.md'
+    - 'Installing NFC Support': 'matrix-hal/getting-started/installation-nfc.md'
   - References :
     - 'Index': 'matrix-hal/reference/index.md'
     - 'Everloop': 'matrix-hal/reference/everloop.md'
@@ -82,6 +83,7 @@ pages:
     - 'UV': 'matrix-hal/reference/uv.md'
     - 'GPIO': 'matrix-hal/reference/gpio.md'
     - 'Microphone': 'matrix-hal/reference/microphone.md'
+    - 'NFC': 'matrix-hal/reference/nfc.md'
   - Examples :
     - 'Index': 'matrix-hal/examples/index.md'
     - 'Everloop': 'matrix-hal/examples/everloop.md'
@@ -91,6 +93,7 @@ pages:
     - 'UV': 'matrix-hal/examples/uv.md'
     - 'GPIO': 'matrix-hal/examples/gpio.md'
     - 'Microphone': 'matrix-hal/examples/microphone.md'
+    - 'NFC': 'matrix-hal/examples/nfc.md'
   - Troubleshooting: 'matrix-hal/troubleshooting.md'
 - MATRIX Core:
   - 'Overview': 'matrix-core/overview.md'

@@ -20,3 +20,6 @@ General Purpose Input/Output.
 
 <h3 style="padding-top:0.6em;"><a href="microphone">Microphone</a></h3>
 Microphone Array.
+
+<h3 style="padding-top:0.6em;"><a href="nfc">NFC</a></h3>
+Near field communication.

@@ -17,8 +17,6 @@ The FPGA handles:
 
 ## FPGA Source
 
-> ⚠️FPGA source does not contain audio processing code⚠️
-
 FPGA source code is located <a href="https://github.com/matrix-io/matrix-voice-fpga" target="_blank">here</a>.
 
 ## FPGA Flashing
