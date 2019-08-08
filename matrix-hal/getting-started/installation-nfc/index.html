@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Pinout MATRIX</title>
+  <title>Installing NFC Support MATRIX</title>
   <link rel="shortcut icon" href="../../../img/favicon.ico">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
   <link rel="stylesheet" href="../../../css/theme.css">
@@ -32,7 +32,7 @@
         <div class="row">
           <div class="col-sm-8">
             
-            <h1>Pinout</h1>
+            <h1>Installing NFC Support</h1>
             
           </div>
           <div class="col-sm-4">
@@ -140,7 +140,7 @@
 
 <!-- print root node  -->
 <li class="">
-  <a href="../../overview/" class="active">
+  <a href="../../../matrix-voice/overview/" class="">
     MATRIX Voice
   </a>
 </li>
@@ -149,50 +149,38 @@
    
   <!-- only 1 deep, print menu items  -->
    
-  <li><a href="../../overview/" class="">Overview</a></li>
+  <li><a href="../../../matrix-voice/overview/" class="">Overview</a></li>
      
   <!-- only 1 deep, print menu items  -->
    
-  <li><a href="../../device-setup/" class="">Device Setup</a></li>
+  <li><a href="../../../matrix-voice/device-setup/" class="">Device Setup</a></li>
      
   <!-- only 1 deep, print menu items  -->
    
-  <li><a href="../../esp32/" class="">ESP32</a></li>
+  <li><a href="../../../matrix-voice/esp32/" class="">ESP32</a></li>
      
   <!-- 2 deep  -->
   <!-- print subroot  -->
   <li>
-    <a href="../overview/" class="active">
+    <a href="../../../matrix-voice/resources/overview/" class="">
       Resources
     </a>
   </li>
 
   <ul class="subnav">
         
-    
-    <li><a href="./" class="active">Pinout</a></li>
         
-    
-    <li><a href="../microphone/" class="">Microphones</a></li>
         
-    
-    <li><a href="../reference-models/" class="">Reference Models</a></li>
         
-    
-    <li><a href="../system-architecture/" class="">System Architecture</a></li>
         
-    
-    <li><a href="../technical-datasheets/" class="">Technical Datasheets</a></li>
         
-    
-    <li><a href="../fpga/" class="">FPGA</a></li>
       
   </ul>
 
     
   <!-- only 1 deep, print menu items  -->
    
-  <li><a href="../../troubleshooting/" class="">Troubleshooting</a></li>
+  <li><a href="../../../matrix-voice/troubleshooting/" class="">Troubleshooting</a></li>
     
 </ul>
 
@@ -295,7 +283,7 @@
 
 <!-- print root node  -->
 <li class="">
-  <a href="../../../matrix-hal/overview/" class="">
+  <a href="../../overview/" class="active">
     MATRIX HAL
   </a>
 </li>
@@ -304,21 +292,29 @@
    
   <!-- only 1 deep, print menu items  -->
    
-  <li><a href="../../../matrix-hal/overview/" class="">Overview</a></li>
+  <li><a href="../../overview/" class="">Overview</a></li>
      
   <!-- 2 deep  -->
   <!-- print subroot  -->
   <li>
-    <a href="../../../matrix-hal/getting-started/" class="">
+    <a href="../" class="active">
       Getting Started
     </a>
   </li>
 
   <ul class="subnav">
         
+    
+    <li><a href="../installation-package/" class="">Installation From Package</a></li>
         
+    
+    <li><a href="../installation-source/" class="">Installation From Source</a></li>
         
+    
+    <li><a href="../programs/" class="">Compiling Programs</a></li>
         
+    
+    <li><a href="./" class="active">Installing NFC Support</a></li>
       
   </ul>
 
@@ -326,7 +322,7 @@
   <!-- 2 deep  -->
   <!-- print subroot  -->
   <li>
-    <a href="../../../matrix-hal/reference/" class="">
+    <a href="../../reference/" class="">
       References
     </a>
   </li>
@@ -347,7 +343,7 @@
   <!-- 2 deep  -->
   <!-- print subroot  -->
   <li>
-    <a href="../../../matrix-hal/examples/" class="">
+    <a href="../../examples/" class="">
       Examples
     </a>
   </li>
@@ -367,7 +363,7 @@
     
   <!-- only 1 deep, print menu items  -->
    
-  <li><a href="../../../matrix-hal/troubleshooting/" class="">Troubleshooting</a></li>
+  <li><a href="../../troubleshooting/" class="">Troubleshooting</a></li>
     
 </ul>
 
@@ -485,12 +481,49 @@
           </div>
         </div>
         <div id="content" class="col-lg-8 col-md-9 md-typeset">
-           <h2 id="expansion-gpio">Expansion GPIO</h2>
-<p><img alt="" src="../../img/m-4.png" /></p>
-<h2 id="raspberry-pi-gpio">Raspberry Pi GPIO</h2>
-<p><img alt="" src="../../img/m-5.png" /></p>
-<h2 id="gpio-locations">GPIO Locations</h2>
-<p><img alt="" src="../../img/m-6.png" /> <img alt="" src="../../img/m-7.png" /></p> 
+           <h2 id="installing-matrix-hal-nfc">Installing MATRIX HAL NFC</h2>
+<h3 id="device-compatibility">Device Compatibility</h3>
+<p><img class="creator-compatibility-icon" src="../../../img/creator-icon.svg"></p>
+<blockquote>
+<p>Make sure you have installed <a href="../../../matrix-hal/getting-started/">MATRIX HAL</a> before continuing.</p>
+</blockquote>
+<h3 id="downloading-the-nxp-library">Downloading the NXP Library</h3>
+<blockquote>
+<p>Due to NXP's terms &amp; conditions, we cannot directly distribute the library to our users.</p>
+</blockquote>
+<p>You can download the <strong>NFC Reader Library for PN512</strong> by creating an account on the NXP website and downloading the zip file <a href="https://www.nxp.com/products/identification-security/secure-car-access/nfc-reader-library-software-support-for-nfc-frontend-solutions:NFC-READER-LIBRARY?tab=In-Depth_Tab#nogo"><strong>here</strong></a>.</p>
+<p>Click the download button.</p>
+<p><img alt="" src="../../../matrix-hal/img/nxp_download_link.png" /></p>
+<p>Click the <code>4.04.05 NFC Reader Library for PN512</code>.</p>
+<p><img alt="" src="../../../matrix-hal/img/pn512_library.png" /></p>
+<p>Then click <code>SW297940.zip</code> to download <code>NFC Reader Library v4.040.05 R2 for PNEV512B including all software examples</code>.</p>
+<p><img alt="" src="../../../matrix-hal/img/pn512_zip.png" /></p>
+<h3 id="compiling-and-installing-matrix-hal-nfc">Compiling and Installing MATRIX HAL NFC</h3>
+<p>Before starting, ensure you have access to the terminal of your Raspberry Pi via an <a href="https://www.raspberrypi.org/documentation/remote-access/ssh/" target="_blank">SSH-session</a> or connect a screen, mouse, and keyboard. Once you've opened the terminal, insert and run the following commands.</p>
+<p>Clone the MATRIX HAL NFC repository.</p>
+<div class="codehilite"><pre><span></span>git clone https://github.com/matrix-io/matrix-hal-nfc.git
+<span class="nb">cd</span> matrix-hal-nfc
+</pre></div>
+
+<p>Now move the <code>SW297940.zip</code> file you downloaded into the <code>matrix-hal-nfc</code> folder. If you don't know how to transfer files into your Raspberry Pi, follow this <a href="https://www.techmuzz.com/how-to/raspberrypi/transfer-files-raspberry-pi-computer/">simple guide on using an FTP client</a>.</p>
+<p>Once complete, you can install the NXP library into <code>/usr/local/include/matrix_nfc/nxp_nfc</code> with the following command. Please ensure that you have have placed <code>SW297940.zip</code> inside <code>matrix-hal-nfc</code>.</p>
+<div class="codehilite"><pre><span></span>./install_nxp.sh
+</pre></div>
+
+<p>Reboot your device.</p>
+<div class="codehilite"><pre><span></span>sudo reboot
+</pre></div>
+
+<h2 id="nfc-examples-compile-instructions">NFC Examples &amp; Compile Instructions</h2>
+<p>After building is complete, a few compiled examples will be in the <code>build/examples</code> folder.</p>
+<p>You can compile your own programs with the following command.
+<div class="codehilite"><pre><span></span>g++ -o YOUR_OUTPUT YOUR_INPUT -std<span class="o">=</span>c++11 -DNXPBUILD__PH_RASPBERRY_PI -I/usr/local/include/matrix_nfc/nxp_nfc/NxpNfcRdLib/types -I/usr/local/include/matrix_nfc/nxp_nfc/NxpNfcRdLib/intfs -lmatrix_hal_nfc -lmatrix_creator_hal
+</pre></div></p>
+<h2 id="helpful-information">Helpful Information</h2>
+<p>MATRIX HAL NFC header files are installed in <code>/usr/local/include/matrix_nfc</code>. </p>
+<p>The compiled MATRIX HAL NFC library file is installed in <code>/usr/local/lib/libmatrix_hal_nfc.so</code>.</p>
+<h2 id="next-steps">Next Steps</h2>
+<p>Now that MATRIX HAL NFC is properly installed, you can find examples <a href="../../examples/nfc">here</a> and references <a href="../../reference/nfc">here</a>.</p> 
         </div>
         <div class="toc-parent col-lg-2 col-md-3">
           <div class="toc">
@@ -498,18 +531,45 @@
             <h3>Contents</h3>
             <ul class="nav flex-column">
                <li class='nav-item'>
-  <a href="#expansion-gpio" class="nav-link active">
-    Expansion GPIO
+  <a href="#installing-matrix-hal-nfc" class="nav-link active">
+    Installing MATRIX HAL NFC
+  </a>
+  
+  <ul>
+    
+    <li>
+      <a class="nav-link" href="#device-compatibility">
+        Device Compatibility
+      </a>
+    </li>
+    
+    <li>
+      <a class="nav-link" href="#downloading-the-nxp-library">
+        Downloading the NXP Library
+      </a>
+    </li>
+    
+    <li>
+      <a class="nav-link" href="#compiling-and-installing-matrix-hal-nfc">
+        Compiling and Installing MATRIX HAL NFC
+      </a>
+    </li>
+    
+  </ul>
+  
+</li>  <li class='nav-item'>
+  <a href="#nfc-examples-compile-instructions" class="nav-link ">
+    NFC Examples &amp; Compile Instructions
   </a>
   
 </li>  <li class='nav-item'>
-  <a href="#raspberry-pi-gpio" class="nav-link ">
-    Raspberry Pi GPIO
+  <a href="#helpful-information" class="nav-link ">
+    Helpful Information
   </a>
   
 </li>  <li class='nav-item'>
-  <a href="#gpio-locations" class="nav-link ">
-    GPIO Locations
+  <a href="#next-steps" class="nav-link ">
+    Next Steps
   </a>
   
 </li> 
