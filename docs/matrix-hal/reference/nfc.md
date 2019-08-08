@@ -3,6 +3,7 @@
 ### Device Compatibility
 
 <img class="creator-compatibility-icon" src="../../img/creator-icon.svg">
+
 ## Overview
 
 The NFC abstraction supports:
