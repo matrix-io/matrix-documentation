@@ -13,19 +13,25 @@ You can download the **NFC Reader Library for PN512** by creating an account on 
 
 Click the download button.
 
-![](/matrix-hal/img/nxp_download_link.png)
+![](../img/nxp_download_link.png)
 
 Click the `4.04.05 NFC Reader Library for PN512`.
 
-![](/matrix-hal/img/pn512_library.png)
+![](../img/pn512_library.png)
 
 Then click `SW297940.zip` to download `NFC Reader Library v4.040.05 R2 for PNEV512B including all software examples`.
 
-![](/matrix-hal/img/pn512_zip.png)
+![](../img/pn512_zip.png)
 
 ### Compiling and Installing MATRIX HAL NFC
 
 Before starting, ensure you have access to the terminal of your Raspberry Pi via an <a href="https://www.raspberrypi.org/documentation/remote-access/ssh/" target="_blank">SSH-session</a> or connect a screen, mouse, and keyboard. Once you've opened the terminal, insert and run the following commands.
+
+Install the tools needed to build MATRIX HAL NFC
+
+```bash
+sudo apt-get install cmake g++ git
+```
 
 Clone the MATRIX HAL NFC repository.
 
@@ -42,10 +48,10 @@ Once complete, you can install the NXP library into `/usr/local/include/matrix_n
 ./install_nxp.sh
 ```
 
-Reboot your device.
+Now build and install MATRIX HAL NFC with the following command.
 
 ```bash
-sudo reboot
+./build.sh
 ```
 
 ## NFC Examples & Compile Instructions
