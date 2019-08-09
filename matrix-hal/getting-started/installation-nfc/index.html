@@ -493,13 +493,17 @@
 </blockquote>
 <p>You can download the <strong>NFC Reader Library for PN512</strong> by creating an account on the NXP website and downloading the zip file <a href="https://www.nxp.com/products/identification-security/secure-car-access/nfc-reader-library-software-support-for-nfc-frontend-solutions:NFC-READER-LIBRARY?tab=In-Depth_Tab#nogo"><strong>here</strong></a>.</p>
 <p>Click the download button.</p>
-<p><img alt="" src="../../../matrix-hal/img/nxp_download_link.png" /></p>
+<p><img alt="" src="../../img/nxp_download_link.png" /></p>
 <p>Click the <code>4.04.05 NFC Reader Library for PN512</code>.</p>
-<p><img alt="" src="../../../matrix-hal/img/pn512_library.png" /></p>
+<p><img alt="" src="../../img/pn512_library.png" /></p>
 <p>Then click <code>SW297940.zip</code> to download <code>NFC Reader Library v4.040.05 R2 for PNEV512B including all software examples</code>.</p>
-<p><img alt="" src="../../../matrix-hal/img/pn512_zip.png" /></p>
+<p><img alt="" src="../../img/pn512_zip.png" /></p>
 <h3 id="compiling-and-installing-matrix-hal-nfc">Compiling and Installing MATRIX HAL NFC</h3>
 <p>Before starting, ensure you have access to the terminal of your Raspberry Pi via an <a href="https://www.raspberrypi.org/documentation/remote-access/ssh/" target="_blank">SSH-session</a> or connect a screen, mouse, and keyboard. Once you've opened the terminal, insert and run the following commands.</p>
+<p>Install the tools needed to build MATRIX HAL NFC</p>
+<div class="codehilite"><pre><span></span>sudo apt-get install cmake g++ git
+</pre></div>
+
 <p>Clone the MATRIX HAL NFC repository.</p>
 <div class="codehilite"><pre><span></span>git clone https://github.com/matrix-io/matrix-hal-nfc.git
 <span class="nb">cd</span> matrix-hal-nfc
@@ -510,8 +514,8 @@
 <div class="codehilite"><pre><span></span>./install_nxp.sh
 </pre></div>
 
-<p>Reboot your device.</p>
-<div class="codehilite"><pre><span></span>sudo reboot
+<p>Now build and install MATRIX HAL NFC with the following command.</p>
+<div class="codehilite"><pre><span></span>./build.sh
 </pre></div>
 
 <h2 id="nfc-examples-compile-instructions">NFC Examples &amp; Compile Instructions</h2>
