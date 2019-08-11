@@ -474,9 +474,11 @@
         </div>
         <div id="content" class="col-lg-8 col-md-9 md-typeset">
            <h2 id="esp32-setup">ESP32 Setup</h2>
-<p>This guide will show you how to get started with the ESP32 module on the MATRIX Voice ESP32 version.</p>
+<p>This guide will show you how to program the Matrix Voice's ESP32 with Visual Studio Code using PlatformIO, an open source ecosystem for IoT development.</p>
+<p><img alt="" src="../img/pio_intro.jpg" /></p>
+<p><br></p>
 <h2 id="step-1-raspberry-pi-setup">Step 1: Raspberry Pi Setup</h2>
-<p>Run the following commands inside your Raspberry Pi terminal to install the MATRIX Voice Software. This will keep the FPGA firmware updated and install few tools to flash the ESP-WROOM-32.</p>
+<p>Run the following commands inside your Raspberry Pi terminal to install the MATRIX Voice Software. This will keep the FPGA firmware updated and install a few tools to flash the ESP-WROOM-32.</p>
 <p>Add the MATRIX repository and key.
 <div class="codehilite"><pre><span></span>curl https://apt.matrix.one/doc/apt-key.gpg <span class="p">|</span> sudo apt-key add -
 <span class="nb">echo</span> <span class="s2">&quot;deb https://apt.matrix.one/raspbian </span><span class="k">$(</span>lsb_release -sc<span class="k">)</span><span class="s2"> main&quot;</span> <span class="p">|</span> sudo tee /etc/apt/sources.list.d/matrixlabs.list
@@ -491,45 +493,81 @@ sudo apt-get upgrade
 <p>Reboot your Raspberry Pi.
 <div class="codehilite"><pre><span></span>sudo reboot
 </pre></div></p>
+<p>SSH back into your Raspberry Pi and enable the ESP32 communications.
+<div class="codehilite"><pre><span></span>sudo voice_esp32_enable
+</pre></div></p>
+<p>Reset the ESP32 flash memory.
+<div class="codehilite"><pre><span></span>esptool.py --chip esp32 --port /dev/ttyS0 --baud <span class="m">115200</span> --before default_reset --after hard_reset erase_flash
+</pre></div></p>
+<p>Reboot your Raspberry Pi.
+<div class="codehilite"><pre><span></span>sudo reboot
+</pre></div></p>
+<p><br></p>
 <h2 id="step-2-personal-computer-setup">Step 2: Personal Computer Setup</h2>
-<p>Here we're installing the requirements needed to allow your pc to develop and compile ESP32 projects.</p>
-<p><b>Install Git:</b></p>
+<p>Here we're installing the requirements needed to allow your PC to develop and compile ESP32 projects.</p>
 <ul>
-<li><a href="https://git-scm.com/downloads" target="_blank">https://git-scm.com/downloads</a></li>
+<li><a href="https://git-scm.com/downloads">Git</a> : Version control tool.</li>
+<li><a href="https://code.visualstudio.com/docs/introvideos/basics">Visual Studio Code</a> : Powerful text editor.</li>
+<li><a href="https://platformio.org/">PlatformIO</a> : Development ecosystem with Espressif IDF preinstalled.</li>
+<li><a href="https://docs.platformio.org/en/latest/installation.html#install-shell-commands">Add PlatformIO to your PATH</a>.</li>
 </ul>
-<p><b>Install ESP32 toolchain:</b></p>
-<ul>
-<li>Linux: <a href="https://esp-idf.readthedocs.io/en/latest/get-started/linux-setup.html" target="_blank">https://esp-idf.readthedocs.io/en/latest/get-started/linux-setup.html</a></li>
-<li>Mac: <a href="https://esp-idf.readthedocs.io/en/latest/get-started/macos-setup.html" target="_blank">https://esp-idf.readthedocs.io/en/latest/get-started/macos-setup.html</a></li>
-<li>Windows: <a href="https://esp-idf.readthedocs.io/en/latest/get-started/windows-setup.html" target="_blank">https://esp-idf.readthedocs.io/en/latest/get-started/windows-setup.html</a></li>
-<li>Stop Following when you reach "Next Steps"</li>
-</ul>
-<p><b>Setup ESP-IDF development framework:</b></p>
-<ul>
-<li>Download ESP-IDF: <a href="https://esp-idf.readthedocs.io/en/latest/get-started/index.html#get-esp-idf" target="_blank">https://esp-idf.readthedocs.io/en/latest/get-started/index.html#get-esp-idf</a></li>
-<li>Set ESP-IDF Path: <a href="https://esp-idf.readthedocs.io/en/latest/get-started/add-idf_path-to-profile.html" target="_blank">https://esp-idf.readthedocs.io/en/latest/get-started/add-idf_path-to-profile.html</a></li>
-</ul>
-<p><b>Clone MATRIX Voice ESP32 repository</b></p>
-<p>This repository contains the necessary libraries to control the MATRIX Voice's components.
-<div class="codehilite"><pre><span></span><span class="c1"># windows must be using MINGw32 terminal from toolchain step</span>
-git clone https://github.com/matrix-io/matrixio_hal_esp32.git
-</pre></div></p>
-<h2 id="step-3-build-and-deploy">Step 3: Build and Deploy</h2>
-<p>Here we will be deploying and running one of the example apps in the Repository we just downloaded.</p>
-<p><b>Configuring IDF (one time setup):</b>
-<div class="codehilite"><pre><span></span><span class="nb">cd</span> matrixio_hal_esp32/examples/mic_energy/
-make menuconfig
-</pre></div></p>
-<p><img alt="" src="../img/esp32-1.jpg" /></p>
-<p>You will now be taken to the IDF Configuration screen, as shown above. Once there, select the <Exit> option to save default configuration.</p>
-<p><b>Running example project:</b></p>
-<p>To finish running the example, all that's left is to make and deploy the code to the Raspberry Pi. This requires the Pi's IP address and you will be prompted to insert the Pi's password as well.
-<div class="codehilite"><pre><span></span><span class="nb">export</span> <span class="nv">RPI_HOST</span><span class="o">=</span>pi@RASPBERRY_IP_ADDRESS
-make deploy
-</pre></div></p>
-<h2 id="step-4-finishing-up">Step 4: Finishing Up</h2>
-<p><img alt="" src="../img/esp32-2.gif" /></p>
-<p>Your MATRIX Voice ESP32 should now be running the deployed example. With the program properly flashed in the ESP32, the Voice can now run without the Pi if you choose to do so. Ensure the MATRIX Voice and Pi are not powered before connecting or disconnecting.</p> 
+<p>Once you have completed the above items, run the following command to clone the PlatformIO project.</p>
+<div class="codehilite"><pre><span></span>git clone https://github.com/matrix-io/esp32-platformio
+</pre></div>
+
+<p><br></p>
+<h2 id="step-3-configure-ota-over-the-air-deployment">Step 3: Configure OTA (Over The Air) Deployment</h2>
+<p>Open Visual Studio Code and open the PlatformIO home hub. </p>
+<p><img alt="" src="../img/pio_home.png" /></p>
+<p>Click on <code>Open Project</code> and select the <code>esp32-platformio</code> folder. </p>
+<p><img alt="" src="../img/pio_open.png" /></p>
+<p>Once inside the <code>esp32-platformio</code> folder open <code>platformio.ini</code>.</p>
+<p>The example code in the initial <code>src/main.cpp</code> file uses OTA updates to easily redeploy code to the ESP32.</p>
+<p>To enable OTA updates, make sure to change the <code>SSID_GOES_HERE</code> and <code>PASSWORD_GOES_HERE</code> to your actual WiFi SSID and password.</p>
+<p><img alt="" src="../img/pio_ini.png" /></p>
+<p><br></p>
+<h2 id="step-4-initial-build-and-deploy">Step 4: Initial Build and Deploy</h2>
+<p>To compile the code, click on the button with the check mark on the bottom left corner of Visual Studio Code. This will build and compile the code to <code>.pio/build/lolin32/firmware.bin</code> in the <code>esp32-platformio</code> directory.</p>
+<div class="admonition tip">
+<p class="admonition-title">Alternatively you can use the <code>pio run</code> command while in the <code>esp32-platformio</code> directory.</p>
+</div>
+<p><img alt="" src="../img/pio_run.png" /></p>
+<p>To deploy the compiled firmware run the commands below. Replace <code>YOUR_PI_IP_HERE</code> with the IP of your Raspberry Pi. If you are running Windows please use <code>Git Bash</code> as your terminal for the following commands.</p>
+<div class="codehilite"><pre><span></span><span class="nb">cd</span> esp32-platformio/ota
+./install.sh YOUR_PI_IP_HERE
+</pre></div>
+
+<p><br></p>
+<h2 id="step-5-deploying-after-initial-upload">Step 5: Deploying After Initial Upload</h2>
+<p>After the initial upload, all successive uploads can be done through OTA or through the <code>install.sh</code> script above. 
+To upload using OTA, open a terminal, go into the project directory, and run this command.</p>
+<div class="codehilite"><pre><span></span>pio run --target upload
+</pre></div>
+
+<p><br></p>
+<h2 id="finishing-up">Finishing Up</h2>
+<p><img alt="" src="../img/pio_example.gif" /></p>
+<p>Your MATRIX Voice ESP32 should now be running the deployed example shown above. With the program properly flashed in the ESP32, the Voice can now run without the Pi if you choose to do so. Ensure the MATRIX Voice and Pi are not powered before connecting or disconnecting.</p>
+<p>The deployed code can be found in the <code>src/main.cpp</code> file inside the <code>esp32-platformio</code> directory.</p>
+<p>More examples can be found <a href="https://github.com/matrix-io/matrixio_hal_esp32/tree/master/examples">here</a>.</p>
+<p><br></p>
+<h2 id="how-to-update-platformio-libraries">How To Update PlatformIO Libraries</h2>
+<p>To update PlatformIO and PlatformIO libraries run the following commands.</p>
+<div class="codehilite"><pre><span></span>pio update
+pio lib update
+</pre></div>
+
+<p><br></p>
+<h2 id="troubleshooting">Troubleshooting</h2>
+<p>If the <code>pio run --target upload</code> command does not work please check the <code>MVID</code> parameter inside <code>platformio.ini</code>, it should have a maximum length of 8 characters. Alternatively you can pass the ESP32's IP in the <code>upload_port</code> parameter inside <code>platformio.ini</code>.</p>
+<p>If <code>pio run --target upload</code> still does not work try running the below command instead, replacing <code>'MVESP.local'</code> with the data from the <code>upload_port</code> parameter inside <code>platformio.ini</code>.</p>
+<div class="codehilite"><pre><span></span>~/.platformio/packages/framework-arduinoespressif32/tools/espota.py --port<span class="o">=</span><span class="m">3232</span> --auth<span class="o">=</span>voice --debug --progress -i <span class="s1">&#39;MVESP.local&#39;</span> -f .pio/build/esp32dev/firmware.bin
+</pre></div>
+
+<p>If you encounter issues with building try removing build files, reinstalling libraries, and rebuilding project with the following commands.</p>
+<div class="codehilite"><pre><span></span>pio run -t clean <span class="o">&amp;&amp;</span> rm -r .pio
+pio run
+</pre></div> 
         </div>
         <div class="toc-parent col-lg-2 col-md-3">
           <div class="toc">
@@ -552,13 +590,33 @@ make deploy
   </a>
   
 </li>  <li class='nav-item'>
-  <a href="#step-3-build-and-deploy" class="nav-link ">
-    Step 3: Build and Deploy
+  <a href="#step-3-configure-ota-over-the-air-deployment" class="nav-link ">
+    Step 3: Configure OTA (Over The Air) Deployment
   </a>
   
 </li>  <li class='nav-item'>
-  <a href="#step-4-finishing-up" class="nav-link ">
-    Step 4: Finishing Up
+  <a href="#step-4-initial-build-and-deploy" class="nav-link ">
+    Step 4: Initial Build and Deploy
+  </a>
+  
+</li>  <li class='nav-item'>
+  <a href="#step-5-deploying-after-initial-upload" class="nav-link ">
+    Step 5: Deploying After Initial Upload
+  </a>
+  
+</li>  <li class='nav-item'>
+  <a href="#finishing-up" class="nav-link ">
+    Finishing Up
+  </a>
+  
+</li>  <li class='nav-item'>
+  <a href="#how-to-update-platformio-libraries" class="nav-link ">
+    How To Update PlatformIO Libraries
+  </a>
+  
+</li>  <li class='nav-item'>
+  <a href="#troubleshooting" class="nav-link ">
+    Troubleshooting
   </a>
   
 </li> 
