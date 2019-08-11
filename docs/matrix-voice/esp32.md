@@ -1,9 +1,14 @@
 ## ESP32 Setup
-This guide will show you how to get started with the ESP32 module on the MATRIX Voice ESP32 version.
+
+This guide will show you how to program the Matrix Voice's ESP32 with Visual Studio Code using PlatformIO, an open source ecosystem for IoT development.
+
+![](img/pio_intro.jpg)
+
+<br>
 
 ## Step 1: Raspberry Pi Setup
 
-Run the following commands inside your Raspberry Pi terminal to install the MATRIX Voice Software. This will keep the FPGA firmware updated and install few tools to flash the ESP-WROOM-32.
+Run the following commands inside your Raspberry Pi terminal to install the MATRIX Voice Software. This will keep the FPGA firmware updated and install a few tools to flash the ESP-WROOM-32.
 
 Add the MATRIX repository and key.
 ```bash
@@ -27,62 +32,125 @@ Reboot your Raspberry Pi.
 sudo reboot
 ```
 
+SSH back into your Raspberry Pi and enable the ESP32 communications.
+```bash
+sudo voice_esp32_enable
+```
+
+Reset the ESP32 flash memory.
+```bash
+esptool.py --chip esp32 --port /dev/ttyS0 --baud 115200 --before default_reset --after hard_reset erase_flash
+```
+
+Reboot your Raspberry Pi.
+```bash
+sudo reboot
+```
+
+<br>
+
 ## Step 2: Personal Computer Setup
 
-Here we're installing the requirements needed to allow your pc to develop and compile ESP32 projects.
+Here we're installing the requirements needed to allow your PC to develop and compile ESP32 projects.
 
-<b>Install Git:</b>
+* [Git](https://git-scm.com/downloads) : Version control tool.
+* [Visual Studio Code](https://code.visualstudio.com/docs/introvideos/basics) : Powerful text editor.
+* [PlatformIO](https://platformio.org/) : Development ecosystem with Espressif IDF preinstalled.
+* [Add PlatformIO to your PATH](https://docs.platformio.org/en/latest/installation.html#install-shell-commands).
 
-- <a href="https://git-scm.com/downloads" target="_blank">https://git-scm.com/downloads</a>
+Once you have completed the above items, run the following command to clone the PlatformIO project.
 
-<b>Install ESP32 toolchain:</b>
-
-- Linux: <a href="https://esp-idf.readthedocs.io/en/latest/get-started/linux-setup.html" target="_blank">https://esp-idf.readthedocs.io/en/latest/get-started/linux-setup.html</a>
-- Mac: <a href="https://esp-idf.readthedocs.io/en/latest/get-started/macos-setup.html" target="_blank">https://esp-idf.readthedocs.io/en/latest/get-started/macos-setup.html</a>
-- Windows: <a href="https://esp-idf.readthedocs.io/en/latest/get-started/windows-setup.html" target="_blank">https://esp-idf.readthedocs.io/en/latest/get-started/windows-setup.html</a>
-- Stop Following when you reach "Next Steps"
-
-<b>Setup ESP-IDF development framework:</b>
-
-- Download ESP-IDF: <a href="https://esp-idf.readthedocs.io/en/latest/get-started/index.html#get-esp-idf" target="_blank">https://esp-idf.readthedocs.io/en/latest/get-started/index.html#get-esp-idf</a>
-- Set ESP-IDF Path: <a href="https://esp-idf.readthedocs.io/en/latest/get-started/add-idf_path-to-profile.html" target="_blank">https://esp-idf.readthedocs.io/en/latest/get-started/add-idf_path-to-profile.html</a>
-
-<b>Clone MATRIX Voice ESP32 repository</b>
-
-This repository contains the necessary libraries to control the MATRIX Voice's components.
 ```bash
-# windows must be using MINGw32 terminal from toolchain step
-git clone https://github.com/matrix-io/matrixio_hal_esp32.git
+git clone https://github.com/matrix-io/esp32-platformio
 ```
 
-## Step 3: Build and Deploy
+<br>
 
-Here we will be deploying and running one of the example apps in the Repository we just downloaded.
+## Step 3: Configure OTA (Over The Air) Deployment
 
-<b>Configuring IDF (one time setup):</b>
+Open Visual Studio Code and open the PlatformIO home hub. 
+
+![](img/pio_home.png)
+
+Click on `Open Project` and select the `esp32-platformio` folder. 
+
+![](img/pio_open.png)
+
+Once inside the `esp32-platformio` folder open `platformio.ini`.
+
+The example code in the initial `src/main.cpp` file uses OTA updates to easily redeploy code to the ESP32.
+
+To enable OTA updates, make sure to change the `SSID_GOES_HERE` and `PASSWORD_GOES_HERE` to your actual WiFi SSID and password.
+
+![](img/pio_ini.png)
+
+<br>
+
+## Step 4: Initial Build and Deploy
+
+To compile the code, click on the button with the check mark on the bottom left corner of Visual Studio Code. This will build and compile the code to `.pio/build/lolin32/firmware.bin` in the `esp32-platformio` directory.
+
+!!! tip "Alternatively you can use the `pio run` command while in the `esp32-platformio` directory."
+
+![](img/pio_run.png)
+
+To deploy the compiled firmware run the commands below. Replace `YOUR_PI_IP_HERE` with the IP of your Raspberry Pi. If you are running Windows please use `Git Bash` as your terminal for the following commands.
+
 ```bash
-cd matrixio_hal_esp32/examples/mic_energy/
-make menuconfig
+cd esp32-platformio/ota
+./install.sh YOUR_PI_IP_HERE
 ```
 
-![](img/esp32-1.jpg)
+<br>
 
-You will now be taken to the IDF Configuration screen, as shown above. Once there, select the <Exit> option to save default configuration.
+## Step 5: Deploying After Initial Upload
 
-<b>Running example project:</b>
+After the initial upload, all successive uploads can be done through OTA or through the `install.sh` script above. 
+To upload using OTA, open a terminal, go into the project directory, and run this command.
 
-To finish running the example, all that's left is to make and deploy the code to the Raspberry Pi. This requires the Pi's IP address and you will be prompted to insert the Pi's password as well.
 ```bash
-export RPI_HOST=pi@RASPBERRY_IP_ADDRESS
-make deploy
+pio run --target upload
 ```
 
-## Step 4: Finishing Up
+<br>
 
-![](img/esp32-2.gif)
+## Finishing Up
 
-Your MATRIX Voice ESP32 should now be running the deployed example. With the program properly flashed in the ESP32, the Voice can now run without the Pi if you choose to do so. Ensure the MATRIX Voice and Pi are not powered before connecting or disconnecting.
+![](img/pio_example.gif)
+
+Your MATRIX Voice ESP32 should now be running the deployed example shown above. With the program properly flashed in the ESP32, the Voice can now run without the Pi if you choose to do so. Ensure the MATRIX Voice and Pi are not powered before connecting or disconnecting.
+
+The deployed code can be found in the `src/main.cpp` file inside the `esp32-platformio` directory.
+
+More examples can be found [here](https://github.com/matrix-io/matrixio_hal_esp32/tree/master/examples).
+
+<br>
+
+## How To Update PlatformIO Libraries
+
+To update PlatformIO and PlatformIO libraries run the following commands.
+
+```bash
+pio update
+pio lib update
+```
+
+<br>
+
+## Troubleshooting
+
+If the `pio run --target upload` command does not work please check the `MVID` parameter inside `platformio.ini`, it should have a maximum length of 8 characters. Alternatively you can pass the ESP32's IP in the `upload_port` parameter inside `platformio.ini`.
+
+If `pio run --target upload` still does not work try running the below command instead, replacing `'MVESP.local'` with the data from the `upload_port` parameter inside `platformio.ini`.
 
 
+```bash
+~/.platformio/packages/framework-arduinoespressif32/tools/espota.py --port=3232 --auth=voice --debug --progress -i 'MVESP.local' -f .pio/build/esp32dev/firmware.bin
+```
 
+If you encounter issues with building try removing build files, reinstalling libraries, and rebuilding project with the following commands.
 
+```bash
+pio run -t clean && rm -r .pio
+pio run
+```
