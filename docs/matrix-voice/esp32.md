@@ -42,11 +42,6 @@ Reset the ESP32 flash memory.
 esptool.py --chip esp32 --port /dev/ttyS0 --baud 115200 --before default_reset --after hard_reset erase_flash
 ```
 
-Reboot your Raspberry Pi.
-```bash
-sudo reboot
-```
-
 <br>
 
 ## Step 2: Personal Computer Setup
@@ -54,7 +49,7 @@ sudo reboot
 Here we're installing the requirements needed to allow your PC to develop and compile ESP32 projects.
 
 * [Git](https://git-scm.com/downloads) : Version control tool.
-* [Visual Studio Code](https://code.visualstudio.com/docs/introvideos/basics) : Powerful text editor.
+* [Visual Studio Code](https://code.visualstudio.com/) : Powerful text editor.
 * [PlatformIO](https://platformio.org/) : Development ecosystem with Espressif IDF preinstalled.
 * [Add PlatformIO to your PATH](https://docs.platformio.org/en/latest/installation.html#install-shell-commands).
 
@@ -83,6 +78,19 @@ The example code in the initial `src/main.cpp` file uses OTA updates to easily r
 To enable OTA updates, make sure to change the `SSID_GOES_HERE` and `PASSWORD_GOES_HERE` to your actual WiFi SSID and password.
 
 ![](img/pio_ini.png)
+
+???+ bug "For Windows Users"
+
+    If you are using Windows, replace the `upload_port` parameter inside `platformio.ini` with the IP of your MATRIX VOICE ESP32.
+
+    For example, if your IP is `192.168.1.1` then change
+    ```
+    upload_port = 'MVESP.local'`
+    ```
+    to
+    ```
+    upload_port = 192.168.1.1
+    ```
 
 <br>
 
@@ -126,23 +134,42 @@ More examples can be found [here](https://github.com/matrix-io/matrixio_hal_esp3
 
 <br>
 
-## How To Update PlatformIO Libraries
+## Helpful Information
 
-To update PlatformIO and PlatformIO libraries run the following commands.
+??? info "Updating PlatformIO Libraries"
 
-```bash
-pio update
-pio lib update
-```
+    To update PlatformIO and PlatformIO libraries run the following commands.
+
+    ```bash
+    pio update
+    pio lib update
+    ```
+
+??? info "Connecting to the ESP32 UART from Raspberry Pi"
+
+    To read the serial output from the ESP32 using `minicom` the MATRIX VOICE ESP32 must be connected to the Pi.
+
+    First install `minicom` on your Raspberry Pi.
+
+    ```bash
+    sudo apt install minicom
+    ```
+
+    Then to connect and read from serial run the following command.
+
+    ```bash
+    sudo minicom -D /dev/ttyS0
+    ```
+
+    To close minicom press `Ctrl+A` then `X`.
 
 <br>
 
 ## Troubleshooting
 
-If the `pio run --target upload` command does not work please check the `MVID` parameter inside `platformio.ini`, it should have a maximum length of 8 characters. Alternatively you can pass the ESP32's IP in the `upload_port` parameter inside `platformio.ini`.
+If the `pio run --target upload` command does not work please check the `MVID` parameter inside `platformio.ini`, it should have a maximum length of 8 characters. 
 
 If `pio run --target upload` still does not work try running the below command instead, replacing `'MVESP.local'` with the data from the `upload_port` parameter inside `platformio.ini`.
-
 
 ```bash
 ~/.platformio/packages/framework-arduinoespressif32/tools/espota.py --port=3232 --auth=voice --debug --progress -i 'MVESP.local' -f .pio/build/esp32dev/firmware.bin
