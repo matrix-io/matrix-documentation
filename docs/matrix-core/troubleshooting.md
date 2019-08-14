@@ -27,7 +27,7 @@ sudo reboot
 
 Install MATRIX CORE [here](/matrix-core/getting-started/core-installation).
 
-## Audio Open Error
+<!-- ## Audio Open Error
 If you encounter the error log below, your microphones are being used by the Pocketsphinx service for the [Wakeword Driver](protocols/wakeword).
 ```
 arecord: main:788: audio open error: Device or resource busy
@@ -35,7 +35,7 @@ arecord: main:788: audio open error: Device or resource busy
 You can solve this by running the following command to kill the service.
 ```bash
 sudo pkill malos_wakeword
-```
+``` -->
 
 <!-- ### Running Services Manually
 
