@@ -499,15 +499,12 @@ sudo apt-get upgrade
 <p>Reset the ESP32 flash memory.
 <div class="codehilite"><pre><span></span>esptool.py --chip esp32 --port /dev/ttyS0 --baud <span class="m">115200</span> --before default_reset --after hard_reset erase_flash
 </pre></div></p>
-<p>Reboot your Raspberry Pi.
-<div class="codehilite"><pre><span></span>sudo reboot
-</pre></div></p>
 <p><br></p>
 <h2 id="step-2-personal-computer-setup">Step 2: Personal Computer Setup</h2>
 <p>Here we're installing the requirements needed to allow your PC to develop and compile ESP32 projects.</p>
 <ul>
 <li><a href="https://git-scm.com/downloads">Git</a> : Version control tool.</li>
-<li><a href="https://code.visualstudio.com/docs/introvideos/basics">Visual Studio Code</a> : Powerful text editor.</li>
+<li><a href="https://code.visualstudio.com/">Visual Studio Code</a> : Powerful text editor.</li>
 <li><a href="https://platformio.org/">PlatformIO</a> : Development ecosystem with Espressif IDF preinstalled.</li>
 <li><a href="https://docs.platformio.org/en/latest/installation.html#install-shell-commands">Add PlatformIO to your PATH</a>.</li>
 </ul>
@@ -525,6 +522,14 @@ sudo apt-get upgrade
 <p>The example code in the initial <code>src/main.cpp</code> file uses OTA updates to easily redeploy code to the ESP32.</p>
 <p>To enable OTA updates, make sure to change the <code>SSID_GOES_HERE</code> and <code>PASSWORD_GOES_HERE</code> to your actual WiFi SSID and password.</p>
 <p><img alt="" src="../img/pio_ini.png" /></p>
+<details class="bug" open="open"><summary>For Windows Users</summary><p>If you are using Windows, replace the <code>upload_port</code> parameter inside <code>platformio.ini</code> with the IP of your MATRIX VOICE ESP32.</p>
+<p>For example, if your IP is <code>192.168.1.1</code> then change
+<div class="codehilite"><pre><span></span><span class="n">upload_port</span> <span class="o">=</span> <span class="s1">&#39;MVESP.local&#39;</span><span class="o">`</span>
+</pre></div>
+to
+<div class="codehilite"><pre><span></span><span class="n">upload_port</span> <span class="o">=</span> <span class="mi">192</span><span class="p">.</span><span class="mi">168</span><span class="p">.</span><span class="mi">1</span><span class="p">.</span><span class="mi">1</span>
+</pre></div></p>
+</details>
 <p><br></p>
 <h2 id="step-4-initial-build-and-deploy">Step 4: Initial Build and Deploy</h2>
 <p>To compile the code, click on the button with the check mark on the bottom left corner of Visual Studio Code. This will build and compile the code to <code>.pio/build/lolin32/firmware.bin</code> in the <code>esp32-platformio</code> directory.</p>
@@ -551,15 +556,27 @@ To upload using OTA, open a terminal, go into the project directory, and run thi
 <p>The deployed code can be found in the <code>src/main.cpp</code> file inside the <code>esp32-platformio</code> directory.</p>
 <p>More examples can be found <a href="https://github.com/matrix-io/matrixio_hal_esp32/tree/master/examples">here</a>.</p>
 <p><br></p>
-<h2 id="how-to-update-platformio-libraries">How To Update PlatformIO Libraries</h2>
-<p>To update PlatformIO and PlatformIO libraries run the following commands.</p>
+<h2 id="helpful-information">Helpful Information</h2>
+<details class="info"><summary>Updating PlatformIO Libraries</summary><p>To update PlatformIO and PlatformIO libraries run the following commands.</p>
 <div class="codehilite"><pre><span></span>pio update
 pio lib update
 </pre></div>
 
+</details>
+<details class="info"><summary>Connecting to the ESP32 UART from Raspberry Pi</summary><p>To read the serial output from the ESP32 using <code>minicom</code> the MATRIX VOICE ESP32 must be connected to the Pi.</p>
+<p>First install <code>minicom</code> on your Raspberry Pi.</p>
+<div class="codehilite"><pre><span></span>sudo apt install minicom
+</pre></div>
+
+<p>Then to connect and read from serial run the following command.</p>
+<div class="codehilite"><pre><span></span>sudo minicom -D /dev/ttyS0
+</pre></div>
+
+<p>To close minicom press <code>Ctrl+A</code> then <code>X</code>.</p>
+</details>
 <p><br></p>
 <h2 id="troubleshooting">Troubleshooting</h2>
-<p>If the <code>pio run --target upload</code> command does not work please check the <code>MVID</code> parameter inside <code>platformio.ini</code>, it should have a maximum length of 8 characters. Alternatively you can pass the ESP32's IP in the <code>upload_port</code> parameter inside <code>platformio.ini</code>.</p>
+<p>If the <code>pio run --target upload</code> command does not work please check the <code>MVID</code> parameter inside <code>platformio.ini</code>, it should have a maximum length of 8 characters. </p>
 <p>If <code>pio run --target upload</code> still does not work try running the below command instead, replacing <code>'MVESP.local'</code> with the data from the <code>upload_port</code> parameter inside <code>platformio.ini</code>.</p>
 <div class="codehilite"><pre><span></span>~/.platformio/packages/framework-arduinoespressif32/tools/espota.py --port<span class="o">=</span><span class="m">3232</span> --auth<span class="o">=</span>voice --debug --progress -i <span class="s1">&#39;MVESP.local&#39;</span> -f .pio/build/esp32dev/firmware.bin
 </pre></div>
@@ -610,8 +627,8 @@ pio run
   </a>
   
 </li>  <li class='nav-item'>
-  <a href="#how-to-update-platformio-libraries" class="nav-link ">
-    How To Update PlatformIO Libraries
+  <a href="#helpful-information" class="nav-link ">
+    Helpful Information
   </a>
   
 </li>  <li class='nav-item'>
