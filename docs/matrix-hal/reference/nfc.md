@@ -222,8 +222,7 @@ Most functions that execute NFC sensor commands return status codes, and the `NF
         The function `WritePage` accepts a page number and a byte vector and writes the byte vector to the desired page.
         For MFUL and NTAG type cards the page length is always 4.
         Passing a vector with a length above 4 will result in truncation.
-        Passing a vector with a length below 4 will result in zeros being written to the unspecified spots.
-        eg. if [30, 40, 50] is passed then the specified page will be set to [30, 40, 50, 0]
+        Passing a vector with a length below 4 will result in undefined behavior.
         
         ```c++
         // Usage
@@ -569,6 +568,258 @@ Most functions that execute NFC sensor commands return status codes, and the `NF
         // Function declaration in header file
         std::string ToString();
         ```
+
+    ??? summary ".GetEncodedSize" & ".Encode"
+        The function `GetEncodedSize` will return the size of the encoded representation of the NDEF message. It is used to create a `uint8_t` array large enough to store the encoded message.
+
+        The function `Encode` will encode the NDEF message into the proper format for writing to an NFC tag.
+
+        ```c++
+        // Usage
+        matrix_hal::NDEFParser ndef_parser = NDEFParser();
+        // Adding some records to NDEFParser
+        ndef_parser.AddUriRecord("http://docs.matrix.one");
+        ndef_parser.AddTextRecord("hello world!");
+
+        int size = ndef_parser.GetEncodedSize();
+        uint8_t encoded_ndef_message[size];
+        // Populate encoded_ndef_message
+        ndef_parser.Encode(encoded_ndef_message);
+
+        // Function declarations in header file
+        int GetEncodedSize();
+
+        void Encode(uint8_t* data);
+        ```
+
+    ??? summary ".GetRecordCount" & ".GetRecord"
+        The function `GetRecordCount` will return the number of NDEF records inside the NDEF message.
+
+        The function `GetRecord` will return the NDEF record at a specified index.
+
+        The NDEFParser class also overloads the bracket operator to return the NDEF record at a specified index.
+
+        ```c++
+        // Usage
+        matrix_hal::NDEFParser ndef_parser = NDEFParser();
+        // Adding some records to NDEFParser
+        ndef_parser.AddUriRecord("http://docs.matrix.one");
+        ndef_parser.AddTextRecord("hello world!");
+
+        int size = ndef_parser.GetRecordCount();
+        // Get the last NDEF record
+        matrix_hal::NDEFRecord last_record = ndef_parser.GetRecord(size - 1);
+        // Alternatively Using operator[] overload instead of .GetRecord function
+        matrix_hal::NDEFRecord last_record = ndef_parser[size - 1];
+
+        // Function/operator declarations in header file
+        unsigned int GetRecordCount();
+
+        NDEFRecord GetRecord(int index);
+
+        NDEFRecord operator[](int index);
+        ```
     
 ???+ info "NDEFRecord"
-    The `NDEFRecord` class is used to create custom NDEF records, for use with `NDEFParser`. This is not recommended for beginners.
+    The `NDEFRecord` class is used to create custom NDEF records, for use with `NDEFParser`.
+
+    ```c++
+    // Create an empty NDEFRecord object
+    matrix_hal::NDEFRecord ndef_record = NDEFRecord();
+    ```
+
+    ??? summary ".GetPayloadLength" & ".GetPayload"
+        The function `GetPayloadLength` will return the length of the NDEF record's payload parameter.
+
+        The function `GetPayload` will populate a uint8_t array with the NDEF record's payload parameter.
+
+        ```c++
+        // Usage
+        matrix_hal::NDEFParser ndef_parser = NDEFParser();
+        // Adding some records to NDEFParser
+        ndef_parser.AddUriRecord("http://docs.matrix.one");
+        ndef_parser.AddTextRecord("hello world!");
+
+        // Get the first record
+        matrix_hal::NDEFRecord first_record = ndef_parser[0];
+
+        // Get first record's payload
+        int payload_size = first_record.GetPayloadLength();
+        uint8_t* payload = new uint8_t[payload_size];
+
+        // Function declarations in header file
+        int GetPayloadLength();
+
+        void GetPayload(uint8_t *payload);
+        ```
+
+    ??? summary ".GetTypeLength" & ".GetType"
+        The function `GetTypeLength` will return the length of the NDEF record's type parameter
+
+        The function `GetType` will populate a uint8_t array with the NDEF record's type parameter
+
+        The `GetType` function is also overloaded, returning a string of the type parameter instead if called with no argument.
+
+        ```c++
+        // Usage
+        matrix_hal::NDEFParser ndef_parser = NDEFParser();
+        // Adding some records to NDEFParser
+        ndef_parser.AddUriRecord("http://docs.matrix.one");
+        ndef_parser.AddTextRecord("hello world!");
+
+        // Get the first record
+        matrix_hal::NDEFRecord first_record = ndef_parser[0];
+
+        // Get first record's type
+        int type_size = first_record.GetTypeLength();
+        uint8_t* type = new uint8_t[type_size];
+
+        // Alternatively get type string
+        std::string type_string = first_record.GetType();
+
+        // Function declarations in header file
+        unsigned int GetTypeLength();
+
+        void GetType(uint8_t *type);
+
+        std::string GetType();
+        ```
+
+    ??? summary ".GetIdLength" & ".GetId"
+        The function `GetIdLength` will return the length of the NDEF record's ID parameter.
+
+        The function `GetId` will populate a uint8_t array with the NDEF record's ID parameter.
+
+        The `GetId` function is also overloaded, returning a string of the ID parameter instead if called with no argument.
+
+        ```c++
+        // Usage
+        matrix_hal::NDEFParser ndef_parser = NDEFParser();
+        // Adding some records to NDEFParser
+        ndef_parser.AddUriRecord("http://docs.matrix.one");
+        ndef_parser.AddTextRecord("hello world!");
+
+        // Get the first record
+        matrix_hal::NDEFRecord first_record = ndef_parser[0];
+
+        // Get first record's ID
+        int id_size = first_record.GetTypeLength();
+        uint8_t* type = new uint8_t[id_size];
+
+        // Alternatively get ID string
+        std::string id_string = first_record.GetId();
+
+        // Function declarations in header file
+        unsigned int GetIdLength();
+
+        void GetId(uint8_t *id);
+
+        std::string GetId();
+        ```
+
+    ??? summary ".GetTnf"
+        The function `GetTnf` will return a uint8_t of the NDEF record's TNF parameter.
+
+        ```c++
+        // Usage
+        matrix_hal::NDEFParser ndef_parser = NDEFParser();
+        // Adding some records to NDEFParser
+        ndef_parser.AddUriRecord("http://docs.matrix.one");
+        ndef_parser.AddTextRecord("hello world!");
+
+        // Get the first record
+        matrix_hal::NDEFRecord first_record = ndef_parser[0];
+
+        // Get first record's TNF
+        uint8_t tnf = first_record.GetTnf();
+
+        // Function declaration in header file
+        uint8_t GetTnf();
+        ```
+
+    ??? summary ".SetTnf"
+        The function `SetTnf` will set the NDEF record's TNF parameter to the value passed in.
+
+        ```c++
+        // Usage
+        matrix_hal::NDEFParser ndef_parser = NDEFParser();
+        // Adding some records to NDEFParser
+        ndef_parser.AddUriRecord("http://docs.matrix.one");
+        ndef_parser.AddTextRecord("hello world!");
+
+        // Get the first record
+        matrix_hal::NDEFRecord first_record = ndef_parser[0];
+
+        // Set first record's TNF
+        uint8_t tnf_to_set = 0;
+        first_record.SetTnf(tnf_to_set);
+
+        // Function declaration in header file
+        void SetTnf(uint8_t tnf);
+        ```
+
+    ??? summary ".SetType"
+        The function `SetType` will set the NDEF record's type parameter to the value passed in.
+
+        ```c++
+        // Usage
+        matrix_hal::NDEFParser ndef_parser = NDEFParser();
+        // Adding some records to NDEFParser
+        ndef_parser.AddUriRecord("http://docs.matrix.one");
+        ndef_parser.AddTextRecord("hello world!");
+
+        // Get the first record
+        matrix_hal::NDEFRecord first_record = ndef_parser[0];
+
+        // Set first record's type
+        int size = 20;
+        uint8_t type_to_set[size] = {};
+        first_record.SetType(type_to_set, size);
+
+        // Function declaration in header file
+        void SetType(const uint8_t *type, const unsigned int numBytes);
+        ```
+
+    ??? summary ".SetPayload"
+        The function `SetPayload` will set the NDEF record's payload parameter to the value passed in.
+
+        ```c++
+        // Usage
+        matrix_hal::NDEFParser ndef_parser = NDEFParser();
+        // Adding some records to NDEFParser
+        ndef_parser.AddUriRecord("http://docs.matrix.one");
+        ndef_parser.AddTextRecord("hello world!");
+
+        // Get the first record
+        matrix_hal::NDEFRecord first_record = ndef_parser[0];
+
+        // Set first record's payload
+        int size = 20;
+        uint8_t payload_to_set[size] = {};
+        first_record.SetType(payload_to_set, size);
+
+        // Function declaration in header file
+        void SetPayload(const uint8_t *payload, const int numBytes);
+        ```
+
+    ??? summary ".SetId"
+        The function `SetId` will set the NDEF record's ID parameter to the value passed in.
+
+        ```c++
+        // Usage
+        matrix_hal::NDEFParser ndef_parser = NDEFParser();
+        // Adding some records to NDEFParser
+        ndef_parser.AddUriRecord("http://docs.matrix.one");
+        ndef_parser.AddTextRecord("hello world!");
+
+        // Get the first record
+        matrix_hal::NDEFRecord first_record = ndef_parser[0];
+
+        // Set first record's ID
+        int size = 20;
+        uint8_t id_to_set[size] = {};
+        first_record.SetId(id_to_set, size);
+
+        // Function declaration in header file
+        void SetId(const uint8_t *id, const unsigned int numBytes);
+        ```
