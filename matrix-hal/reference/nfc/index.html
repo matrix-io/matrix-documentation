@@ -678,8 +678,7 @@ This class is nested within the <code>NFC</code> class above, and should not be 
 <p>The function <code>WritePage</code> accepts a page number and a byte vector and writes the byte vector to the desired page.
 For MFUL and NTAG type cards the page length is always 4.
 Passing a vector with a length above 4 will result in truncation.
-Passing a vector with a length below 4 will result in zeros being written to the unspecified spots.
-eg. if [30, 40, 50] is passed then the specified page will be set to [30, 40, 50, 0]</p>
+Passing a vector with a length below 4 will result in undefined behavior.</p>
 <div class="codehilite"><pre><span></span><span class="c1">// Usage</span>
 <span class="c1">// Must first activate card</span>
 <span class="n">nfc</span><span class="p">.</span><span class="n">Activate</span><span class="p">();</span>
@@ -967,8 +966,231 @@ If the character is not printable it will be replaced with '.'.</p>
 </pre></div>
 
 </details>
+<details class="summary"><summary>.GetEncodedSize" &amp; ".Encode</summary><p>The function <code>GetEncodedSize</code> will return the size of the encoded representation of the NDEF message. It is used to create a <code>uint8_t</code> array large enough to store the encoded message.</p>
+<p>The function <code>Encode</code> will encode the NDEF message into the proper format for writing to an NFC tag.</p>
+<div class="codehilite"><pre><span></span><span class="c1">// Usage</span>
+<span class="n">matrix_hal</span><span class="o">::</span><span class="n">NDEFParser</span> <span class="n">ndef_parser</span> <span class="o">=</span> <span class="n">NDEFParser</span><span class="p">();</span>
+<span class="c1">// Adding some records to NDEFParser</span>
+<span class="n">ndef_parser</span><span class="p">.</span><span class="n">AddUriRecord</span><span class="p">(</span><span class="s">&quot;http://docs.matrix.one&quot;</span><span class="p">);</span>
+<span class="n">ndef_parser</span><span class="p">.</span><span class="n">AddTextRecord</span><span class="p">(</span><span class="s">&quot;hello world!&quot;</span><span class="p">);</span>
+
+<span class="kt">int</span> <span class="n">size</span> <span class="o">=</span> <span class="n">ndef_parser</span><span class="p">.</span><span class="n">GetEncodedSize</span><span class="p">();</span>
+<span class="kt">uint8_t</span> <span class="n">encoded_ndef_message</span><span class="p">[</span><span class="n">size</span><span class="p">];</span>
+<span class="c1">// Populate encoded_ndef_message</span>
+<span class="n">ndef_parser</span><span class="p">.</span><span class="n">Encode</span><span class="p">(</span><span class="n">encoded_ndef_message</span><span class="p">);</span>
+
+<span class="c1">// Function declarations in header file</span>
+<span class="kt">int</span> <span class="nf">GetEncodedSize</span><span class="p">();</span>
+
+<span class="kt">void</span> <span class="nf">Encode</span><span class="p">(</span><span class="kt">uint8_t</span><span class="o">*</span> <span class="n">data</span><span class="p">);</span>
+</pre></div>
+
 </details>
-<details class="info" open="open"><summary>NDEFRecord</summary><p>The <code>NDEFRecord</code> class is used to create custom NDEF records, for use with <code>NDEFParser</code>. This is not recommended for beginners.</p>
+<details class="summary"><summary>.GetRecordCount" &amp; ".GetRecord</summary><p>The function <code>GetRecordCount</code> will return the number of NDEF records inside the NDEF message.</p>
+<p>The function <code>GetRecord</code> will return the NDEF record at a specified index.</p>
+<p>The NDEFParser class also overloads the bracket operator to return the NDEF record at a specified index.</p>
+<div class="codehilite"><pre><span></span><span class="c1">// Usage</span>
+<span class="n">matrix_hal</span><span class="o">::</span><span class="n">NDEFParser</span> <span class="n">ndef_parser</span> <span class="o">=</span> <span class="n">NDEFParser</span><span class="p">();</span>
+<span class="c1">// Adding some records to NDEFParser</span>
+<span class="n">ndef_parser</span><span class="p">.</span><span class="n">AddUriRecord</span><span class="p">(</span><span class="s">&quot;http://docs.matrix.one&quot;</span><span class="p">);</span>
+<span class="n">ndef_parser</span><span class="p">.</span><span class="n">AddTextRecord</span><span class="p">(</span><span class="s">&quot;hello world!&quot;</span><span class="p">);</span>
+
+<span class="kt">int</span> <span class="n">size</span> <span class="o">=</span> <span class="n">ndef_parser</span><span class="p">.</span><span class="n">GetRecordCount</span><span class="p">();</span>
+<span class="c1">// Get the last NDEF record</span>
+<span class="n">matrix_hal</span><span class="o">::</span><span class="n">NDEFRecord</span> <span class="n">last_record</span> <span class="o">=</span> <span class="n">ndef_parser</span><span class="p">.</span><span class="n">GetRecord</span><span class="p">(</span><span class="n">size</span> <span class="o">-</span> <span class="mi">1</span><span class="p">);</span>
+<span class="c1">// Alternatively Using operator[] overload instead of .GetRecord function</span>
+<span class="n">matrix_hal</span><span class="o">::</span><span class="n">NDEFRecord</span> <span class="n">last_record</span> <span class="o">=</span> <span class="n">ndef_parser</span><span class="p">[</span><span class="n">size</span> <span class="o">-</span> <span class="mi">1</span><span class="p">];</span>
+
+<span class="c1">// Function/operator declarations in header file</span>
+<span class="kt">unsigned</span> <span class="kt">int</span> <span class="nf">GetRecordCount</span><span class="p">();</span>
+
+<span class="n">NDEFRecord</span> <span class="nf">GetRecord</span><span class="p">(</span><span class="kt">int</span> <span class="n">index</span><span class="p">);</span>
+
+<span class="n">NDEFRecord</span> <span class="k">operator</span><span class="p">[](</span><span class="kt">int</span> <span class="n">index</span><span class="p">);</span>
+</pre></div>
+
+</details>
+</details>
+<details class="info" open="open"><summary>NDEFRecord</summary><p>The <code>NDEFRecord</code> class is used to create custom NDEF records, for use with <code>NDEFParser</code>.</p>
+<div class="codehilite"><pre><span></span><span class="c1">// Create an empty NDEFRecord object</span>
+<span class="n">matrix_hal</span><span class="o">::</span><span class="n">NDEFRecord</span> <span class="n">ndef_record</span> <span class="o">=</span> <span class="n">NDEFRecord</span><span class="p">();</span>
+</pre></div>
+
+<details class="summary"><summary>.GetPayloadLength" &amp; ".GetPayload</summary><p>The function <code>GetPayloadLength</code> will return the length of the NDEF record's payload parameter.</p>
+<p>The function <code>GetPayload</code> will populate a uint8_t array with the NDEF record's payload parameter.</p>
+<div class="codehilite"><pre><span></span><span class="c1">// Usage</span>
+<span class="n">matrix_hal</span><span class="o">::</span><span class="n">NDEFParser</span> <span class="n">ndef_parser</span> <span class="o">=</span> <span class="n">NDEFParser</span><span class="p">();</span>
+<span class="c1">// Adding some records to NDEFParser</span>
+<span class="n">ndef_parser</span><span class="p">.</span><span class="n">AddUriRecord</span><span class="p">(</span><span class="s">&quot;http://docs.matrix.one&quot;</span><span class="p">);</span>
+<span class="n">ndef_parser</span><span class="p">.</span><span class="n">AddTextRecord</span><span class="p">(</span><span class="s">&quot;hello world!&quot;</span><span class="p">);</span>
+
+<span class="c1">// Get the first record</span>
+<span class="n">matrix_hal</span><span class="o">::</span><span class="n">NDEFRecord</span> <span class="n">first_record</span> <span class="o">=</span> <span class="n">ndef_parser</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+
+<span class="c1">// Get first record&#39;s payload</span>
+<span class="kt">int</span> <span class="n">payload_size</span> <span class="o">=</span> <span class="n">first_record</span><span class="p">.</span><span class="n">GetPayloadLength</span><span class="p">();</span>
+<span class="kt">uint8_t</span><span class="o">*</span> <span class="n">payload</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">uint8_t</span><span class="p">[</span><span class="n">payload_size</span><span class="p">];</span>
+
+<span class="c1">// Function declarations in header file</span>
+<span class="kt">int</span> <span class="nf">GetPayloadLength</span><span class="p">();</span>
+
+<span class="kt">void</span> <span class="nf">GetPayload</span><span class="p">(</span><span class="kt">uint8_t</span> <span class="o">*</span><span class="n">payload</span><span class="p">);</span>
+</pre></div>
+
+</details>
+<details class="summary"><summary>.GetTypeLength" &amp; ".GetType</summary><p>The function <code>GetTypeLength</code> will return the length of the NDEF record's type parameter</p>
+<p>The function <code>GetType</code> will populate a uint8_t array with the NDEF record's type parameter</p>
+<p>The <code>GetType</code> function is also overloaded, returning a string of the type parameter instead if called with no argument.</p>
+<div class="codehilite"><pre><span></span><span class="c1">// Usage</span>
+<span class="n">matrix_hal</span><span class="o">::</span><span class="n">NDEFParser</span> <span class="n">ndef_parser</span> <span class="o">=</span> <span class="n">NDEFParser</span><span class="p">();</span>
+<span class="c1">// Adding some records to NDEFParser</span>
+<span class="n">ndef_parser</span><span class="p">.</span><span class="n">AddUriRecord</span><span class="p">(</span><span class="s">&quot;http://docs.matrix.one&quot;</span><span class="p">);</span>
+<span class="n">ndef_parser</span><span class="p">.</span><span class="n">AddTextRecord</span><span class="p">(</span><span class="s">&quot;hello world!&quot;</span><span class="p">);</span>
+
+<span class="c1">// Get the first record</span>
+<span class="n">matrix_hal</span><span class="o">::</span><span class="n">NDEFRecord</span> <span class="n">first_record</span> <span class="o">=</span> <span class="n">ndef_parser</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+
+<span class="c1">// Get first record&#39;s type</span>
+<span class="kt">int</span> <span class="n">type_size</span> <span class="o">=</span> <span class="n">first_record</span><span class="p">.</span><span class="n">GetTypeLength</span><span class="p">();</span>
+<span class="kt">uint8_t</span><span class="o">*</span> <span class="n">type</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">uint8_t</span><span class="p">[</span><span class="n">type_size</span><span class="p">];</span>
+
+<span class="c1">// Alternatively get type string</span>
+<span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">type_string</span> <span class="o">=</span> <span class="n">first_record</span><span class="p">.</span><span class="n">GetType</span><span class="p">();</span>
+
+<span class="c1">// Function declarations in header file</span>
+<span class="kt">unsigned</span> <span class="kt">int</span> <span class="nf">GetTypeLength</span><span class="p">();</span>
+
+<span class="kt">void</span> <span class="nf">GetType</span><span class="p">(</span><span class="kt">uint8_t</span> <span class="o">*</span><span class="n">type</span><span class="p">);</span>
+
+<span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">GetType</span><span class="p">();</span>
+</pre></div>
+
+</details>
+<details class="summary"><summary>.GetIdLength" &amp; ".GetId</summary><p>The function <code>GetIdLength</code> will return the length of the NDEF record's ID parameter.</p>
+<p>The function <code>GetId</code> will populate a uint8_t array with the NDEF record's ID parameter.</p>
+<p>The <code>GetId</code> function is also overloaded, returning a string of the ID parameter instead if called with no argument.</p>
+<div class="codehilite"><pre><span></span><span class="c1">// Usage</span>
+<span class="n">matrix_hal</span><span class="o">::</span><span class="n">NDEFParser</span> <span class="n">ndef_parser</span> <span class="o">=</span> <span class="n">NDEFParser</span><span class="p">();</span>
+<span class="c1">// Adding some records to NDEFParser</span>
+<span class="n">ndef_parser</span><span class="p">.</span><span class="n">AddUriRecord</span><span class="p">(</span><span class="s">&quot;http://docs.matrix.one&quot;</span><span class="p">);</span>
+<span class="n">ndef_parser</span><span class="p">.</span><span class="n">AddTextRecord</span><span class="p">(</span><span class="s">&quot;hello world!&quot;</span><span class="p">);</span>
+
+<span class="c1">// Get the first record</span>
+<span class="n">matrix_hal</span><span class="o">::</span><span class="n">NDEFRecord</span> <span class="n">first_record</span> <span class="o">=</span> <span class="n">ndef_parser</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+
+<span class="c1">// Get first record&#39;s ID</span>
+<span class="kt">int</span> <span class="n">id_size</span> <span class="o">=</span> <span class="n">first_record</span><span class="p">.</span><span class="n">GetTypeLength</span><span class="p">();</span>
+<span class="kt">uint8_t</span><span class="o">*</span> <span class="n">type</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">uint8_t</span><span class="p">[</span><span class="n">id_size</span><span class="p">];</span>
+
+<span class="c1">// Alternatively get ID string</span>
+<span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">id_string</span> <span class="o">=</span> <span class="n">first_record</span><span class="p">.</span><span class="n">GetId</span><span class="p">();</span>
+
+<span class="c1">// Function declarations in header file</span>
+<span class="kt">unsigned</span> <span class="kt">int</span> <span class="nf">GetIdLength</span><span class="p">();</span>
+
+<span class="kt">void</span> <span class="nf">GetId</span><span class="p">(</span><span class="kt">uint8_t</span> <span class="o">*</span><span class="n">id</span><span class="p">);</span>
+
+<span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">GetId</span><span class="p">();</span>
+</pre></div>
+
+</details>
+<details class="summary"><summary>.GetTnf</summary><p>The function <code>GetTnf</code> will return a uint8_t of the NDEF record's TNF parameter.</p>
+<div class="codehilite"><pre><span></span><span class="c1">// Usage</span>
+<span class="n">matrix_hal</span><span class="o">::</span><span class="n">NDEFParser</span> <span class="n">ndef_parser</span> <span class="o">=</span> <span class="n">NDEFParser</span><span class="p">();</span>
+<span class="c1">// Adding some records to NDEFParser</span>
+<span class="n">ndef_parser</span><span class="p">.</span><span class="n">AddUriRecord</span><span class="p">(</span><span class="s">&quot;http://docs.matrix.one&quot;</span><span class="p">);</span>
+<span class="n">ndef_parser</span><span class="p">.</span><span class="n">AddTextRecord</span><span class="p">(</span><span class="s">&quot;hello world!&quot;</span><span class="p">);</span>
+
+<span class="c1">// Get the first record</span>
+<span class="n">matrix_hal</span><span class="o">::</span><span class="n">NDEFRecord</span> <span class="n">first_record</span> <span class="o">=</span> <span class="n">ndef_parser</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+
+<span class="c1">// Get first record&#39;s TNF</span>
+<span class="kt">uint8_t</span> <span class="n">tnf</span> <span class="o">=</span> <span class="n">first_record</span><span class="p">.</span><span class="n">GetTnf</span><span class="p">();</span>
+
+<span class="c1">// Function declaration in header file</span>
+<span class="kt">uint8_t</span> <span class="nf">GetTnf</span><span class="p">();</span>
+</pre></div>
+
+</details>
+<details class="summary"><summary>.SetTnf</summary><p>The function <code>SetTnf</code> will set the NDEF record's TNF parameter to the value passed in.</p>
+<div class="codehilite"><pre><span></span><span class="c1">// Usage</span>
+<span class="n">matrix_hal</span><span class="o">::</span><span class="n">NDEFParser</span> <span class="n">ndef_parser</span> <span class="o">=</span> <span class="n">NDEFParser</span><span class="p">();</span>
+<span class="c1">// Adding some records to NDEFParser</span>
+<span class="n">ndef_parser</span><span class="p">.</span><span class="n">AddUriRecord</span><span class="p">(</span><span class="s">&quot;http://docs.matrix.one&quot;</span><span class="p">);</span>
+<span class="n">ndef_parser</span><span class="p">.</span><span class="n">AddTextRecord</span><span class="p">(</span><span class="s">&quot;hello world!&quot;</span><span class="p">);</span>
+
+<span class="c1">// Get the first record</span>
+<span class="n">matrix_hal</span><span class="o">::</span><span class="n">NDEFRecord</span> <span class="n">first_record</span> <span class="o">=</span> <span class="n">ndef_parser</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+
+<span class="c1">// Set first record&#39;s TNF</span>
+<span class="kt">uint8_t</span> <span class="n">tnf_to_set</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="n">first_record</span><span class="p">.</span><span class="n">SetTnf</span><span class="p">(</span><span class="n">tnf_to_set</span><span class="p">);</span>
+
+<span class="c1">// Function declaration in header file</span>
+<span class="kt">void</span> <span class="nf">SetTnf</span><span class="p">(</span><span class="kt">uint8_t</span> <span class="n">tnf</span><span class="p">);</span>
+</pre></div>
+
+</details>
+<details class="summary"><summary>.SetType</summary><p>The function <code>SetType</code> will set the NDEF record's type parameter to the value passed in.</p>
+<div class="codehilite"><pre><span></span><span class="c1">// Usage</span>
+<span class="n">matrix_hal</span><span class="o">::</span><span class="n">NDEFParser</span> <span class="n">ndef_parser</span> <span class="o">=</span> <span class="n">NDEFParser</span><span class="p">();</span>
+<span class="c1">// Adding some records to NDEFParser</span>
+<span class="n">ndef_parser</span><span class="p">.</span><span class="n">AddUriRecord</span><span class="p">(</span><span class="s">&quot;http://docs.matrix.one&quot;</span><span class="p">);</span>
+<span class="n">ndef_parser</span><span class="p">.</span><span class="n">AddTextRecord</span><span class="p">(</span><span class="s">&quot;hello world!&quot;</span><span class="p">);</span>
+
+<span class="c1">// Get the first record</span>
+<span class="n">matrix_hal</span><span class="o">::</span><span class="n">NDEFRecord</span> <span class="n">first_record</span> <span class="o">=</span> <span class="n">ndef_parser</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+
+<span class="c1">// Set first record&#39;s type</span>
+<span class="kt">int</span> <span class="n">size</span> <span class="o">=</span> <span class="mi">20</span><span class="p">;</span>
+<span class="kt">uint8_t</span> <span class="n">type_to_set</span><span class="p">[</span><span class="n">size</span><span class="p">]</span> <span class="o">=</span> <span class="p">{};</span>
+<span class="n">first_record</span><span class="p">.</span><span class="n">SetType</span><span class="p">(</span><span class="n">type_to_set</span><span class="p">,</span> <span class="n">size</span><span class="p">);</span>
+
+<span class="c1">// Function declaration in header file</span>
+<span class="kt">void</span> <span class="nf">SetType</span><span class="p">(</span><span class="k">const</span> <span class="kt">uint8_t</span> <span class="o">*</span><span class="n">type</span><span class="p">,</span> <span class="k">const</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">numBytes</span><span class="p">);</span>
+</pre></div>
+
+</details>
+<details class="summary"><summary>.SetPayload</summary><p>The function <code>SetPayload</code> will set the NDEF record's payload parameter to the value passed in.</p>
+<div class="codehilite"><pre><span></span><span class="c1">// Usage</span>
+<span class="n">matrix_hal</span><span class="o">::</span><span class="n">NDEFParser</span> <span class="n">ndef_parser</span> <span class="o">=</span> <span class="n">NDEFParser</span><span class="p">();</span>
+<span class="c1">// Adding some records to NDEFParser</span>
+<span class="n">ndef_parser</span><span class="p">.</span><span class="n">AddUriRecord</span><span class="p">(</span><span class="s">&quot;http://docs.matrix.one&quot;</span><span class="p">);</span>
+<span class="n">ndef_parser</span><span class="p">.</span><span class="n">AddTextRecord</span><span class="p">(</span><span class="s">&quot;hello world!&quot;</span><span class="p">);</span>
+
+<span class="c1">// Get the first record</span>
+<span class="n">matrix_hal</span><span class="o">::</span><span class="n">NDEFRecord</span> <span class="n">first_record</span> <span class="o">=</span> <span class="n">ndef_parser</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+
+<span class="c1">// Set first record&#39;s payload</span>
+<span class="kt">int</span> <span class="n">size</span> <span class="o">=</span> <span class="mi">20</span><span class="p">;</span>
+<span class="kt">uint8_t</span> <span class="n">payload_to_set</span><span class="p">[</span><span class="n">size</span><span class="p">]</span> <span class="o">=</span> <span class="p">{};</span>
+<span class="n">first_record</span><span class="p">.</span><span class="n">SetType</span><span class="p">(</span><span class="n">payload_to_set</span><span class="p">,</span> <span class="n">size</span><span class="p">);</span>
+
+<span class="c1">// Function declaration in header file</span>
+<span class="kt">void</span> <span class="nf">SetPayload</span><span class="p">(</span><span class="k">const</span> <span class="kt">uint8_t</span> <span class="o">*</span><span class="n">payload</span><span class="p">,</span> <span class="k">const</span> <span class="kt">int</span> <span class="n">numBytes</span><span class="p">);</span>
+</pre></div>
+
+</details>
+<details class="summary"><summary>.SetId</summary><p>The function <code>SetId</code> will set the NDEF record's ID parameter to the value passed in.</p>
+<div class="codehilite"><pre><span></span><span class="c1">// Usage</span>
+<span class="n">matrix_hal</span><span class="o">::</span><span class="n">NDEFParser</span> <span class="n">ndef_parser</span> <span class="o">=</span> <span class="n">NDEFParser</span><span class="p">();</span>
+<span class="c1">// Adding some records to NDEFParser</span>
+<span class="n">ndef_parser</span><span class="p">.</span><span class="n">AddUriRecord</span><span class="p">(</span><span class="s">&quot;http://docs.matrix.one&quot;</span><span class="p">);</span>
+<span class="n">ndef_parser</span><span class="p">.</span><span class="n">AddTextRecord</span><span class="p">(</span><span class="s">&quot;hello world!&quot;</span><span class="p">);</span>
+
+<span class="c1">// Get the first record</span>
+<span class="n">matrix_hal</span><span class="o">::</span><span class="n">NDEFRecord</span> <span class="n">first_record</span> <span class="o">=</span> <span class="n">ndef_parser</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+
+<span class="c1">// Set first record&#39;s ID</span>
+<span class="kt">int</span> <span class="n">size</span> <span class="o">=</span> <span class="mi">20</span><span class="p">;</span>
+<span class="kt">uint8_t</span> <span class="n">id_to_set</span><span class="p">[</span><span class="n">size</span><span class="p">]</span> <span class="o">=</span> <span class="p">{};</span>
+<span class="n">first_record</span><span class="p">.</span><span class="n">SetId</span><span class="p">(</span><span class="n">id_to_set</span><span class="p">,</span> <span class="n">size</span><span class="p">);</span>
+
+<span class="c1">// Function declaration in header file</span>
+<span class="kt">void</span> <span class="nf">SetId</span><span class="p">(</span><span class="k">const</span> <span class="kt">uint8_t</span> <span class="o">*</span><span class="n">id</span><span class="p">,</span> <span class="k">const</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">numBytes</span><span class="p">);</span>
+</pre></div>
+
+</details>
 </details> 
         </div>
         <div class="toc-parent col-lg-2 col-md-3">
