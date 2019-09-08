@@ -21,7 +21,9 @@ Help improve our libraries by submitting issues & pull requests to our GitHub re
 
 - <a href="https://github.com/matrix-io/matrix-lite-js" target="_blank">matrix-lite-js</a>: Node.js addon for calling MATRIX HAL.
 
-- <a href="https://github.com/matrix-io/matrix-lite-go" target="_blank">matrix-lite-go</a>: Go package for calling MATRIX HAL.
+- <a href="https://github.com/matrix-io/matrix-lite-nfc-js" target="_blank">matrix-lite-nfc-js</a>: Node.js addon for calling MATRIX HAL NFC.
+
+- <a href="https://github.com/matrix-io/matrix-lite-go" target="_blank">matrix-lite-go</a>: Go bindings for calling MATRIX HAL.
 
 - <a href="https://github.com/matrix-io/matrix-hal-swig" target="_blank">matrix-hal-swig</a>: A <a href="http://www.swig.org/doc.html" target="_blank">SWIG</a> interface to expose MATRIX HAL for multiple languages.
 
