@@ -12,11 +12,15 @@ The following sections below will go over how to install and access the NFC chip
 - **Reading NDEF**      (MIFARE Ultralight & NTAG)
 - **Writing NDEF**      (MIFARE Ultralight & NTAG)
 
+Helpful Smartphone Apps For NFC:
+
+- <a href="https://apps.apple.com/us/app/nfc-taginfo-by-nxp/id1246143596" target="_blank">IOS App</a>
+- <a href="https://play.google.com/store/apps/details?id=com.nxp.nfc.tagwriter&hl=en_US" target="_blank">Android App</a>
 
 ???+ info "Installation"
     <!-- **** -->
 
-    !!! warning "Make sure you've installed [MATRIX HAL NFC](/matrix-hal/getting-started/installation-nfc) before continuing."
+    !!! warning "Make sure you've installed <a href="/matrix-hal/getting-started/installation-nfc" target="_blank">MATRIX HAL NFC</a> before continuing."
     
     ??? danger "Only one can process interact with the NFC Chip!"
         The applies to anything that interfaces with NFC, including the C++ library. Multiple processes using NFC will cause unpredictable errors.
@@ -41,7 +45,7 @@ const nfc = require("@matrix-io/matrix-lite-nfc-js");
     // Example output
     // nfc.status(256) will return "Activation Done"
     ```
-???+ info ".message()"
+???+ summary ".message()"
     Represents an NDEF message. Each message can contain an NDEF Record. Each record can hold text, Cellular numbers, emails, links, etc..
 
     ```js
@@ -274,7 +278,7 @@ NFC tags are read by using a loop to check if a tag is within range.
     ]
     ```
 
-    ```js tab="pages"
+    ```js tab="Pages"
     const nfc = require("@matrix-io/matrix-lite-nfc-js");
 
     nfc.read.start({rate:100, pages:true}, (code, tag)=>{
@@ -333,7 +337,7 @@ NFC tags are read by using a loop to check if a tag is within range.
 
     ```
 
-    ```js tab="page"
+    ```js tab="Page"
     const nfc = require("@matrix-io/matrix-lite-nfc-js");
 
     nfc.read.start({rate:100, page:0}, (code, tag)=>{
@@ -459,20 +463,103 @@ Writing allows NDEF messages to be written & erased. There is also an option to 
 
 ??? summary ".message()"
     ```js
-
+    // Create an NDEF message with a record
+    var msg = new nfc.message();
+    msg.addUriRecord("https://community.matrix.one");
+    
+    // Write the message into the NFC tag
+    nfc.write.message(msg).then((code)=>{
+        // codes.activation : NFC activation status
+        // codes.write      : NFC write status
+    });
     ```
 
 ??? summary ".erase()"
     ```js
-
+    // Erase the NDEF message on an NFC tag
+    nfc.write.erase(msg).then((code)=>{
+        // codes.activation : NFC activation status
+        // codes.write      : NFC write status
+    });
     ```
 
 ??? summary ".page()"
-    ```js
+    !!! danger "Writing to a random page may lock your NFC tag"
+        ```js
+        var page_index = 25;            // page you want to overwrite
+        var page_byte = [48,45,59,21];  // Array of numbers that represents a byte
 
-    ```
+        nfc.write.page(page_index, page_byte).then((code)=>{
+            // codes.activation : NFC activation status
+            // codes.write      : NFC write status
+        });
+        ```
 
 ??? example "Writing Examples"
-    ```js
+    ```js tab="NDEF"
+    const nfc = require("@matrix-io/matrix-lite-nfc-js");
 
+    // Create an NDEF message with a link
+    var msg = new nfc.message();
+    msg.addUriRecord("https://community.matrix.one");
+
+    nfc.read.start({rate: 10, info:true}, (code, tag)=>{
+            if (code === 256){
+                nfc.write.message(msg).then((code)=>{
+                    console.log("Activation Status:" + code.activation + " == " + nfc.status(code.activation));
+                    console.log("Write Status:" + code.write + " == " + nfc.status(code.write));
+
+                    // Exit after successful writing
+                    if(code.write === 0)
+                        process.exit(0);
+                });
+            }
+
+            else if (code === 1024)
+                console.log("Nothing Was Scanned");
+    });
+    ```
+    
+    ```js tab="Erase NDEF"
+    const nfc = require("@matrix-io/matrix-lite-nfc-js");
+
+    nfc.read.start({rate: 100, info:true}, (code, tag)=>{
+        if (code === 256){
+            nfc.write.erase().then((code)=>{
+                console.log("Activation Status:" + code.activation + " == " + nfc.status(code.activation));
+                console.log("Write Status:" + code.write + " == " + nfc.status(code.write));
+
+                // Exit after successful writing
+                if(code.write === 0)
+                    process.exit(0);
+            });
+        }
+
+        else if (code === 1024)
+            console.log("Nothing Was Scanned");
+    });
+    ```
+
+    ```js tab="Page"
+    /* DO NOT WRITE TO A PAGE IF YOU DON'T KNOW WHAT IT DOES. */
+    const nfc = require("@matrix-io/matrix-lite-nfc-js");
+
+    let page_index = /*insert page number*/;
+    let page_byte = [48,45,59,21];
+
+    nfc.read.start({rate: 100, info:true}, (code, tag)=>{
+            if (code === 256){
+                nfc.write.page(page_index, page_byte).then((code)=>{
+                    console.log("Activation Status:" + code.activation + " == " + nfc.status(code.activation));
+                    console.log("Write Status:" + code.write + " == " + nfc.status(code.write));
+
+                    // Exit after successful writing
+                    if(code.write === 0)
+                        process.exit(0);
+                });
+            }
+
+            else if (code === 1024)
+                console.log("Nothing Was Scanned");
+    });
     ```
