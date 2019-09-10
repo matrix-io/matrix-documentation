@@ -4,7 +4,7 @@
 <img class="creator-compatibility-icon" src="../../../img/creator-icon.svg">
 
 ## Overview
-The following sections below will go over how to install and access the NFC chip on your MATRIX Creator. This library currently implements the following:
+The following sections will go over how to install and access the NFC chip on your MATRIX Creator. This library currently implements the following:
 
 - **Reading General Information**  (All tags)
 - **Reading Pages**     (MIFARE Ultralight & NTAG)
@@ -14,7 +14,7 @@ The following sections below will go over how to install and access the NFC chip
 
 Helpful Smartphone Apps For NFC:
 
-- <a href="https://apps.apple.com/us/app/nfc-taginfo-by-nxp/id1246143596" target="_blank">IOS App</a>
+- <a href="https://apps.apple.com/us/app/nfc-taginfo-by-nxp/id1246143596" target="_blank">iOS App</a>
 - <a href="https://play.google.com/store/apps/details?id=com.nxp.nfc.tagwriter&hl=en_US" target="_blank">Android App</a>
 
 ???+ info "Installation"
@@ -22,8 +22,8 @@ Helpful Smartphone Apps For NFC:
 
     !!! warning "Make sure you've installed <a href="/matrix-hal/getting-started/installation-nfc" target="_blank">MATRIX HAL NFC</a> before continuing."
     
-    ??? danger "Only one can process interact with the NFC Chip!"
-        The applies to anything that interfaces with NFC, including the C++ library. Multiple processes using NFC will cause unpredictable errors.
+    ??? danger "Only one process can interact with the NFC Chip!"
+        This applies to anything that interfaces with NFC, including the C++ library. Multiple processes using NFC will cause unpredictable errors.
 
     Inside your Node.js project, run the following.
     ```js
@@ -38,7 +38,7 @@ const nfc = require("@matrix-io/matrix-lite-nfc-js");
 ### nfc
 
 ???+ summary ".status()"
-    When a read or write function completes, it will return a status code to indicate the result. nfc.Status returns a string of what that number means.
+    When a read or write function completes, it will return a status code to indicate the result. `nfc.Status` returns a string of what that number means.
     ```js
     nfc.status(/*number*/);
 
@@ -46,7 +46,7 @@ const nfc = require("@matrix-io/matrix-lite-nfc-js");
     // nfc.status(256) will return "Activation Done"
     ```
 ???+ summary ".message()"
-    Represents an NDEF message. Each message can contain an NDEF Record. Each record can hold text, Cellular numbers, emails, links, etc..
+    Represents an NDEF message. Each message can contain multiple NDEF Records. Each record can hold text, cellular numbers, emails, links, etc.
 
     ```js
     // Creates an empty message
@@ -152,7 +152,7 @@ const nfc = require("@matrix-io/matrix-lite-nfc-js");
 
     ??? summary ".getRecord()"
         ```js
-        // Returns an object representing an NDEF Record
+        // Returns the specified NDEF Record
         msg.getRecord(0);
 
         // Example output
@@ -173,7 +173,7 @@ const nfc = require("@matrix-io/matrix-lite-nfc-js");
         msg.getRecordCount();
         ```
     ??? summary ".getEncodedSize()"
-        ```
+        ```js
         // Returns the size of the encoded representation of the NDEF message
         msg.getEncodedSize();
         ```
@@ -459,7 +459,7 @@ NFC tags are read by using a loop to check if a tag is within range.
     ```
 
 ### nfc.write()
-Writing allows NDEF messages to be written & erased. There is also an option to directly write to a tag's page. Writing is normally done withing an NFC read loop.
+Writing allows NDEF messages to be written & erased. There is also an option to directly write to a tag's page. Writing is normally done within an NFC read loop.
 
 ??? summary ".message()"
     ```js
@@ -477,7 +477,7 @@ Writing allows NDEF messages to be written & erased. There is also an option to 
 ??? summary ".erase()"
     ```js
     // Erase the NDEF message on an NFC tag
-    nfc.write.erase(msg).then((code)=>{
+    nfc.write.erase().then((code)=>{
         // codes.activation : NFC activation status
         // codes.write      : NFC write status
     });
@@ -487,7 +487,7 @@ Writing allows NDEF messages to be written & erased. There is also an option to 
     !!! danger "Writing to a random page may lock your NFC tag"
         ```js
         var page_index = 25;            // page you want to overwrite
-        var page_byte = [48,45,59,21];  // Array of numbers that represents a byte
+        var page_byte = [48,45,59,21];  // Array of numbers that represents a page
 
         nfc.write.page(page_index, page_byte).then((code)=>{
             // codes.activation : NFC activation status
