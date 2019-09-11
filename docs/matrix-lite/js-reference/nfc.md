@@ -185,7 +185,7 @@ NFC tags are read by using a loop to check if a tag is within range.
     ```js
     // Configure what you want to read
     let options = {
-        rate: 100    // Read loop speed (Milliseconds)
+        rate: 100,   // Read loop speed (Milliseconds)
         // At least 1 read options is required. Less options -> faster reading!
         info: true,  // Generic information for any NFC tag
         pages: true, // All page data
