@@ -20,7 +20,7 @@ Helpful Smartphone Apps For NFC:
 ???+ info "Installation"
     <!-- **** -->
 
-    !!! warning "Make sure you've installed <a href="/matrix-hal/getting-started/installation-nfc" target="_blank">MATRIX HAL NFC</a> before continuing."
+    !!! warning "Make sure you've installed [MATRIX HAL NFC](/matrix-hal/getting-started/installation-nfc) before continuing."
     
     ??? danger "Only one process can interact with the NFC Chip!"
         This applies to anything that interfaces with NFC, including the C++ library. Multiple processes using NFC will cause unpredictable errors.
