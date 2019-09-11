@@ -27,12 +27,12 @@ Helpful Smartphone Apps For NFC:
 
     Inside your Node.js project, run the following.
     ```js
-    npm install @matrix-io/matrix-lite-nfc-js --save
+    npm install @matrix-io/matrix-lite-nfc --save
     ```
 
 ## Import Statement
 ```js
-const nfc = require("@matrix-io/matrix-lite-nfc-js");
+const nfc = require("@matrix-io/matrix-lite-nfc");
 ```
 
 ### nfc
@@ -208,7 +208,7 @@ NFC tags are read by using a loop to check if a tag is within range.
 
 ??? example "Reading Examples"
     ```js tab="Info"
-    const nfc = require("@matrix-io/matrix-lite-nfc-js");
+    const nfc = require("@matrix-io/matrix-lite-nfc");
 
     nfc.read.start({rate:100, info:true}, (code, tag)=>{
         if (code === 256){
@@ -240,7 +240,7 @@ NFC tags are read by using a loop to check if a tag is within range.
     ```
 
     ```js tab="NDEF"
-    const nfc = require("@matrix-io/matrix-lite-nfc-js");
+    const nfc = require("@matrix-io/matrix-lite-nfc");
 
     nfc.read.start({rate:100, ndef:true}, (code, tag)=>{
         if (code === 256){
@@ -279,7 +279,7 @@ NFC tags are read by using a loop to check if a tag is within range.
     ```
 
     ```js tab="Pages"
-    const nfc = require("@matrix-io/matrix-lite-nfc-js");
+    const nfc = require("@matrix-io/matrix-lite-nfc");
 
     nfc.read.start({rate:100, pages:true}, (code, tag)=>{
         if (code === 256){
@@ -338,7 +338,7 @@ NFC tags are read by using a loop to check if a tag is within range.
     ```
 
     ```js tab="Page"
-    const nfc = require("@matrix-io/matrix-lite-nfc-js");
+    const nfc = require("@matrix-io/matrix-lite-nfc");
 
     nfc.read.start({rate:100, page:0}, (code, tag)=>{
         if (code === 256){
@@ -355,7 +355,7 @@ NFC tags are read by using a loop to check if a tag is within range.
     ```
     
     ```js tab="Everything"
-    const nfc = require("@matrix-io/matrix-lite-nfc-js");
+    const nfc = require("@matrix-io/matrix-lite-nfc");
 
     let options = {
         rate: 50,    // Read loop speed (Milliseconds)
@@ -497,7 +497,7 @@ Writing allows NDEF messages to be written & erased. There is also an option to 
 
 ??? example "Writing Examples"
     ```js tab="NDEF"
-    const nfc = require("@matrix-io/matrix-lite-nfc-js");
+    const nfc = require("@matrix-io/matrix-lite-nfc");
 
     // Create an NDEF message with a link
     var msg = new nfc.message();
@@ -521,7 +521,7 @@ Writing allows NDEF messages to be written & erased. There is also an option to 
     ```
     
     ```js tab="Erase NDEF"
-    const nfc = require("@matrix-io/matrix-lite-nfc-js");
+    const nfc = require("@matrix-io/matrix-lite-nfc");
 
     nfc.read.start({rate: 100, info:true}, (code, tag)=>{
         if (code === 256){
@@ -542,7 +542,7 @@ Writing allows NDEF messages to be written & erased. There is also an option to 
 
     ```js tab="Page"
     /* DO NOT WRITE TO A PAGE IF YOU DON'T KNOW WHAT IT DOES. */
-    const nfc = require("@matrix-io/matrix-lite-nfc-js");
+    const nfc = require("@matrix-io/matrix-lite-nfc");
 
     let page_index = /*insert page number*/;
     let page_byte = [48,45,59,21];
