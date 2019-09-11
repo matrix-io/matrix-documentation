@@ -652,7 +652,7 @@
 <p>NFC tags are read by using a loop to check if a tag is within range.</p>
 <details class="summary"><summary>.start()</summary><div class="codehilite"><pre><span></span><span class="c1">// Configure what you want to read</span>
 <span class="kd">let</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="nx">rate</span><span class="o">:</span> <span class="mi">100</span>    <span class="c1">// Read loop speed (Milliseconds)</span>
+    <span class="nx">rate</span><span class="o">:</span> <span class="mi">100</span><span class="p">,</span>   <span class="c1">// Read loop speed (Milliseconds)</span>
     <span class="c1">// At least 1 read options is required. Less options -&gt; faster reading!</span>
     <span class="nx">info</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>  <span class="c1">// Generic information for any NFC tag</span>
     <span class="nx">pages</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span> <span class="c1">// All page data</span>
