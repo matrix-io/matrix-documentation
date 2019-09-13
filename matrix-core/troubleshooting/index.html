@@ -415,7 +415,6 @@
         
         
         
-        
       
   </ul>
 
@@ -436,7 +435,6 @@
         
         
         
-        
       
   </ul>
 
@@ -450,7 +448,6 @@
   </li>
 
   <ul class="subnav">
-        
         
         
         
@@ -492,27 +489,25 @@
 </pre></div>
 
 <p>Install MATRIX CORE <a href="../../matrix-core/getting-started/core-installation">here</a>.</p>
-<h2 id="audio-open-error">Audio Open Error</h2>
-<p>If you encounter the error log below, your microphones are being used by the Pocketsphinx service for the <a href="../protocols/wakeword">Wakeword Driver</a>.
+<!-- ## Audio Open Error
+If you encounter the error log below, your microphones are being used by the Pocketsphinx service for the [Wakeword Driver](protocols/wakeword).
 <div class="codehilite"><pre><span></span><span class="n">arecord</span><span class="o">:</span> <span class="n">main</span><span class="o">:</span><span class="mi">788</span><span class="o">:</span> <span class="n">audio</span> <span class="n">open</span> <span class="n">error</span><span class="o">:</span> <span class="n">Device</span> <span class="n">or</span> <span class="n">resource</span> <span class="n">busy</span>
 </pre></div>
 You can solve this by running the following command to kill the service.
 <div class="codehilite"><pre><span></span>sudo pkill malos_wakeword
-</pre></div></p>
-<!-- ### Running Services Manually
+<span class="sb">```</span> --&gt;
+
+&lt;!-- <span class="c1">### Running Services Manually</span>
 
 If your services are not listed as shown above, you can run them manually using the following terminal commands:
-
-<div class="codehilite"><pre><span></span><span class="o">#</span> <span class="n">Running</span> <span class="n">MATRIX</span> <span class="n">CORE</span> <span class="n">Sensors</span> <span class="o">&amp;</span> <span class="n">Comm</span><span class="p">.</span> <span class="n">Services</span>
-<span class="err">$</span> <span class="n">malos</span>
-
-<span class="o">#</span> <span class="n">Running</span> <span class="n">MATRIX</span> <span class="n">CORE</span> <span class="n">Vision</span> <span class="n">Services</span>
-<span class="err">$</span> <span class="n">malos_eye</span>
 </pre></div>
+# Running MATRIX CORE Sensors & Comm. Services
+$ malos
 
-### Stopping Services
-
-```
+# Running MATRIX CORE Vision Services
+$ malos_eye
+<div class="codehilite"><pre><span></span><span class="o">###</span> <span class="n">Stopping</span> <span class="n">Services</span>
+</pre></div>
 # Stopping the services altogether
 
 $ pkill -9 malos
@@ -537,11 +532,6 @@ $ pkill -9 malos_eye
 </li>  <li class='nav-item'>
   <a href="#reinstall-matrix-core" class="nav-link ">
     Reinstall MATRIX CORE
-  </a>
-  
-</li>  <li class='nav-item'>
-  <a href="#audio-open-error" class="nav-link ">
-    Audio Open Error
   </a>
   
 </li> 
