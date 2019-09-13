@@ -20,5 +20,5 @@ Adjust servo positions.
 <h3 style="padding-top:0.6em;"><a href="gpio">GPIO</a></h3>
 General Purpose Input/Output.
 
-<h3 style="padding-top:0.6em;"><a href="wakeword">Wakeword</a></h3>
-Create custom voice commands with Pocket Sphinx.
+<!-- <h3 style="padding-top:0.6em;"><a href="wakeword">Wakeword</a></h3>
+Create custom voice commands with Pocket Sphinx. -->
