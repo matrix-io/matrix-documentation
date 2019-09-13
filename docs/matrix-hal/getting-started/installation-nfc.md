@@ -9,7 +9,7 @@
 
 > Due to NXP's terms & conditions, we cannot directly distribute the library to our users.
 
-You can download the **NFC Reader Library for PN512** by creating an account on the NXP website and downloading the zip file [**here**](https://www.nxp.com/products/identification-security/secure-car-access/nfc-reader-library-software-support-for-nfc-frontend-solutions:NFC-READER-LIBRARY?tab=In-Depth_Tab#nogo).
+You can download the **NFC Reader Library for PN512** by creating an account on the NXP website and downloading the zip file <a href="https://www.nxp.com/products/identification-security/secure-car-access/nfc-reader-library-software-support-for-nfc-frontend-solutions:NFC-READER-LIBRARY?tab=In-Depth_Tab#nogo" target="_blank">**here**</a>.
 
 Click the download button.
 
