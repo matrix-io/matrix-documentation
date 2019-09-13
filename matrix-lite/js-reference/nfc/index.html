@@ -966,7 +966,7 @@
 <span class="kd">var</span> <span class="nx">msg</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">nfc</span><span class="p">.</span><span class="nx">message</span><span class="p">();</span>
 <span class="nx">msg</span><span class="p">.</span><span class="nx">addUriRecord</span><span class="p">(</span><span class="s2">&quot;https://community.matrix.one&quot;</span><span class="p">);</span>
 
-<span class="nx">nfc</span><span class="p">.</span><span class="nx">read</span><span class="p">.</span><span class="nx">start</span><span class="p">({</span><span class="nx">rate</span><span class="o">:</span> <span class="mi">10</span><span class="p">,</span> <span class="nx">info</span><span class="o">:</span><span class="kc">true</span><span class="p">},</span> <span class="p">(</span><span class="nx">code</span><span class="p">,</span> <span class="nx">tag</span><span class="p">)=&gt;{</span>
+<span class="nx">nfc</span><span class="p">.</span><span class="nx">read</span><span class="p">.</span><span class="nx">start</span><span class="p">({</span><span class="nx">rate</span><span class="o">:</span> <span class="mi">100</span><span class="p">,</span> <span class="nx">info</span><span class="o">:</span><span class="kc">true</span><span class="p">},</span> <span class="p">(</span><span class="nx">code</span><span class="p">,</span> <span class="nx">tag</span><span class="p">)=&gt;{</span>
         <span class="k">if</span> <span class="p">(</span><span class="nx">code</span> <span class="o">===</span> <span class="mi">256</span><span class="p">){</span>
             <span class="nx">nfc</span><span class="p">.</span><span class="nx">write</span><span class="p">.</span><span class="nx">message</span><span class="p">(</span><span class="nx">msg</span><span class="p">).</span><span class="nx">then</span><span class="p">((</span><span class="nx">code</span><span class="p">)=&gt;{</span>
                 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Activation Status:&quot;</span> <span class="o">+</span> <span class="nx">code</span><span class="p">.</span><span class="nx">activation</span> <span class="o">+</span> <span class="s2">&quot; == &quot;</span> <span class="o">+</span> <span class="nx">nfc</span><span class="p">.</span><span class="nx">status</span><span class="p">(</span><span class="nx">code</span><span class="p">.</span><span class="nx">activation</span><span class="p">));</span>
@@ -974,7 +974,7 @@
 
                 <span class="c1">// Exit after successful writing</span>
                 <span class="k">if</span><span class="p">(</span><span class="nx">code</span><span class="p">.</span><span class="nx">write</span> <span class="o">===</span> <span class="mi">0</span><span class="p">)</span>
-                    <span class="nx">process</span><span class="p">.</span><span class="nx">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+                    <span class="nx">nfc</span><span class="p">.</span><span class="nx">read</span><span class="p">.</span><span class="nx">stop</span><span class="p">();</span>
             <span class="p">});</span>
         <span class="p">}</span>
 
@@ -994,7 +994,7 @@
 
             <span class="c1">// Exit after successful writing</span>
             <span class="k">if</span><span class="p">(</span><span class="nx">code</span><span class="p">.</span><span class="nx">write</span> <span class="o">===</span> <span class="mi">0</span><span class="p">)</span>
-                <span class="nx">process</span><span class="p">.</span><span class="nx">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+                <span class="nx">nfc</span><span class="p">.</span><span class="nx">read</span><span class="p">.</span><span class="nx">stop</span><span class="p">();</span>
         <span class="p">});</span>
     <span class="p">}</span>
 
@@ -1018,7 +1018,7 @@
 
                 <span class="c1">// Exit after successful writing</span>
                 <span class="k">if</span><span class="p">(</span><span class="nx">code</span><span class="p">.</span><span class="nx">write</span> <span class="o">===</span> <span class="mi">0</span><span class="p">)</span>
-                    <span class="nx">process</span><span class="p">.</span><span class="nx">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+                    <span class="nx">nfc</span><span class="p">.</span><span class="nx">read</span><span class="p">.</span><span class="nx">stop</span><span class="p">();</span>
             <span class="p">});</span>
         <span class="p">}</span>
 
