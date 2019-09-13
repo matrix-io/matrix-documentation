@@ -503,7 +503,7 @@ Writing allows NDEF messages to be written & erased. There is also an option to 
     var msg = new nfc.message();
     msg.addUriRecord("https://community.matrix.one");
 
-    nfc.read.start({rate: 10, info:true}, (code, tag)=>{
+    nfc.read.start({rate: 100, info:true}, (code, tag)=>{
             if (code === 256){
                 nfc.write.message(msg).then((code)=>{
                     console.log("Activation Status:" + code.activation + " == " + nfc.status(code.activation));
@@ -511,7 +511,7 @@ Writing allows NDEF messages to be written & erased. There is also an option to 
 
                     // Exit after successful writing
                     if(code.write === 0)
-                        process.exit(0);
+                        nfc.read.stop();
                 });
             }
 
@@ -531,7 +531,7 @@ Writing allows NDEF messages to be written & erased. There is also an option to 
 
                 // Exit after successful writing
                 if(code.write === 0)
-                    process.exit(0);
+                    nfc.read.stop();
             });
         }
 
@@ -555,7 +555,7 @@ Writing allows NDEF messages to be written & erased. There is also an option to 
 
                     // Exit after successful writing
                     if(code.write === 0)
-                        process.exit(0);
+                        nfc.read.stop();
                 });
             }
 
