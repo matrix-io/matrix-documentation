@@ -19,6 +19,10 @@ The FPGA handles:
 
 FPGA source code is located <a href="https://github.com/matrix-io/matrix-voice-fpga" target="_blank">here</a>.
 
+## Verilog Cheat Sheet
+
+For refreshers on FPGA Verilog HDL syntax and concepts, check out <a href="https://github.com/matrix-io/matrix-voice-fpga/blob/master/verilogCheatSheet.md" target="_blank">this</a> cheat sheet.
+
 ## FPGA Flashing
 
 Below is a guide on how to flash a premade user-provided FPGA bitstream onto the Xilinx Spartan-6 FPGA for the MATRIX Voice.
