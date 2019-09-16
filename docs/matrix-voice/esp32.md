@@ -85,7 +85,7 @@ To enable OTA updates, make sure to change the `SSID_GOES_HERE` and `PASSWORD_GO
 
     For example, if your IP is `192.168.1.1` then change
     ```
-    upload_port = 'MVESP.local'`
+    upload_port = 'MVESP.local'
     ```
     to
     ```
