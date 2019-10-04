@@ -1,7 +1,6 @@
 <h2 style="padding-top:0;">MATRIX Lite</h2>
 
-MATRIX Lite is a series of libraries for exposing [MATRIX HAL](../matrix-hal/overview) to other languages. These libraries are built with a native C/C++ extension or a 
-<a href="https://github.com/matrix-io/matrix-hal-swig" target="_blank">SWIG interface</a>. We currently support JavaScript, Python, Go, and Ruby.
+MATRIX Lite is a series of libraries for exposing [MATRIX HAL](../matrix-hal/overview) to other languages. We currently support JavaScript, Python, Go, and Ruby.
 
 
 ### [Getting Started](getting-started)
@@ -25,8 +24,8 @@ Help improve our libraries by submitting issues & pull requests to our GitHub re
 
 - <a href="https://github.com/matrix-io/matrix-lite-go" target="_blank">matrix-lite-go</a>: Go bindings for calling MATRIX HAL.
 
-- <a href="https://github.com/matrix-io/matrix-hal-swig" target="_blank">matrix-hal-swig</a>: A <a href="http://www.swig.org/doc.html" target="_blank">SWIG</a> interface to expose MATRIX HAL for multiple languages.
+- <a href="https://github.com/matrix-io/matrix-lite-py" target="_blank">matrix-lite-py</a>: A <a href="https://pybind11.readthedocs.io/en/stable/" target="_blank">pybind11</a> extension for calling MATRIX HAL. 
 
-- <a href="https://github.com/matrix-io/matrix-lite-py" target="_blank">matrix-lite-py</a>: SWIG implementation compiled and abstracted for Python. 
+- <a href="https://github.com/matrix-io/matrix-hal-swig" target="_blank">matrix-hal-swig</a>: A <a href="http://www.swig.org/doc.html" target="_blank">SWIG</a> interface to expose MATRIX HAL for multiple languages.
 
 - <a href="https://github.com/matrix-io/matrix-lite-rb" target="_blank">matrix-lite-rb</a>: SWIG implementation compiled for Ruby.
