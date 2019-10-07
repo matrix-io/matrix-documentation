@@ -20,7 +20,7 @@ import ("github.com/matrix-io/matrix-lite-go")
 
 ### led
 
-???+ summary ".length"
+???+ summary ".Length"
     Returns the number of LEDs on a MATRIX device.
     ```go
     m.Led.Length
@@ -32,7 +32,7 @@ import ("github.com/matrix-io/matrix-lite-go")
     purple := m.RGBW{R: 255, G: 0, B:255, W:0}
     ```
 
-???+ summary ".set()"
+???+ summary ".Set()"
     Allows you to set the colors of each LED. A `string`, `RGBW struct`, `slice` or `array` can be given to this function.
 
     ```go
