@@ -101,12 +101,12 @@ const matrix = require("@matrix-io/matrix-lite");
     // Set pin 1 to be ON
     matrix.gpio.setFunction(1, 'DIGITAL');
     matrix.gpio.setMode(1, 'output');
-    matrix.gpio.setDigital(1, 'ON')
+    matrix.gpio.setDigital(1, 'ON');
 
     // Set pin 10 to be OFF
     matrix.gpio.setFunction(10, 'DIGITAL');
     matrix.gpio.setMode(10, 'output');
-    matrix.gpio.setDigital(10, 'OFF')
+    matrix.gpio.setDigital(10, 'OFF');
     ```
 
     ```js tab="PWM Output"
