@@ -27,7 +27,7 @@ const matrix = require("@matrix-io/matrix-lite");
     // Valid ways to set each LED
     matrix.led.set("blue"); // color name
     matrix.led.set("rgb(0,0,255)"); // RGB values
-    matrix.led.set("#0000ff"); // Hex values
+    matrix.led.set("#0000ff"); // hex values
     matrix.led.set({r:0,g:0,b:255,w:0}); // objects
     ```
 
@@ -39,6 +39,7 @@ const matrix = require("@matrix-io/matrix-lite");
 ???+ example "Everloop Examples"
 
     ```js tab="LEDs blue"
+    const matrix = require("@matrix-io/matrix-lite");
     // A single string or object sets all LEDs
     // Below are different ways of expressing the color blue (number values are from 0-255)
     matrix.led.set('blue');
@@ -48,6 +49,7 @@ const matrix = require("@matrix-io/matrix-lite");
     ```
 
     ```js tab="LEDs off"
+    const matrix = require("@matrix-io/matrix-lite");
     // Each line below is a valid way of turning the LEDs off
     matrix.led.set('black');
     matrix.led.set([]);
@@ -56,18 +58,20 @@ const matrix = require("@matrix-io/matrix-lite");
     ```
 
     ```js tab="Moving blue LED"
-    everloop = new Array(matrix.led.length).fill({});// Array of black LEDs
+    const matrix = require("@matrix-io/matrix-lite");
+
+    let everloop = new Array(matrix.led.length).fill({});// Array of black LEDs
     everloop[0] = {b:100};
 
-    setInterval(function(){
-      var lastColor = everloop.shift();
+    setInterval(()=>{
+      let lastColor = everloop.shift();
       everloop.push(lastColor);
       matrix.led.set(everloop);
     },50);
     ```
 
     ```js tab="Rainbow"
-    const matrix = require("@matrix-io/matrix-lite")
+    const matrix = require("@matrix-io/matrix-lite");
 
     let everloop = new Array(matrix.led.length);
 

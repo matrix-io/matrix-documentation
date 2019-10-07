@@ -236,7 +236,6 @@ NFC tags are read by using a loop to check if a tag is within range.
         read_status: 0
       }
     }
-
     ```
 
     ```js tab="NDEF"
