@@ -37,7 +37,7 @@ const nfc = require("@matrix-io/matrix-lite-nfc");
 
 ### nfc
 
-???+ summary ".status()"
+??? summary ".status()"
     When a read or write function completes, it will return a status code to indicate the result. `nfc.Status` returns a string of what that number means.
     ```js
     nfc.status(/*number*/);
@@ -45,7 +45,7 @@ const nfc = require("@matrix-io/matrix-lite-nfc");
     // Example output
     // nfc.status(256) will return "Activation Done"
     ```
-???+ summary ".message()"
+??? summary ".message()"
     Represents an NDEF message. Each message can contain multiple NDEF Records. Each record can hold text, cellular numbers, emails, links, etc.
 
     ```js
@@ -178,7 +178,7 @@ const nfc = require("@matrix-io/matrix-lite-nfc");
         msg.getEncodedSize();
         ```
 
-### nfc.read()
+### nfc.read
 NFC tags are read by using a loop to check if a tag is within range.
 
 ??? summary ".start()"
@@ -458,7 +458,7 @@ NFC tags are read by using a loop to check if a tag is within range.
     }
     ```
 
-### nfc.write()
+### nfc.write
 Writing allows NDEF messages to be written & erased. There is also an option to directly write to a tag's page. Writing is normally done within an NFC read loop.
 
 ??? summary ".message()"
