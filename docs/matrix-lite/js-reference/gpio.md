@@ -15,6 +15,7 @@ const matrix = require("@matrix-io/matrix-lite");
 ### gpio
 
 ??? summary ".setFunction()"
+
     ```js
     // Valid ways of setting a pin as a digital pin
     matrix.gpio.setFunction(0, "DIGITAL");
@@ -24,7 +25,9 @@ const matrix = require("@matrix-io/matrix-lite");
     matrix.gpio.setFunction(0, "PWM");
     matrix.gpio.setFunction(0, 1);
     ```
+
 ??? summary ".setMode()"
+
     ```js
     // Valid ways of setting a pin to receive input
     matrix.gpio.setMode(0, "input");
@@ -36,12 +39,14 @@ const matrix = require("@matrix-io/matrix-lite");
     ```
 
 ??? summary ".getDigital()"
+
     ```js
     // Returns a 1 or 0 representing the ON/OFF state of a pin
     matrix.gpio.getDigital(0);
     ```
 
 ??? summary ".setDigital()"
+
     ```js
     // Controls the digital output of a pin
 
@@ -55,6 +60,7 @@ const matrix = require("@matrix-io/matrix-lite");
     ```
 
 ??? summary ".setPWM()"
+
     ```js
     // Controls the PWM output of a pin
     matrix.gpio.setPWM({
@@ -65,6 +71,7 @@ const matrix = require("@matrix-io/matrix-lite");
     ```
 
 ??? summary ".setServoAngle()"
+
     ```js
     // This function requires the pin to be set to "PWM" mode.
     matrix.gpio.setServoAngle({
@@ -76,7 +83,7 @@ const matrix = require("@matrix-io/matrix-lite");
     ```
 
 ???+ example "GPIO examples"
-    
+  
     ```js tab="Read Pin"
     const matrix = require('@matrix-io/matrix-lite');
 
