@@ -487,44 +487,99 @@
 <h2 id="overview">Overview</h2>
 <p>The following sections below will go over how to control the LED array on your MATRIX Device.</p>
 <h2 id="import-statement">Import Statement</h2>
-<div class="codehilite"><pre><span></span><span class="nx">from</span> <span class="nx">matrix_lite</span> <span class="kr">import</span> <span class="nx">led</span>
+<div class="codehilite"><pre><span></span><span class="kn">from</span> <span class="nn">matrix_lite</span> <span class="kn">import</span> <span class="n">led</span>
 </pre></div>
 
-<h3 id="length">.length</h3>
-<p>Returns the size of the LED array on your MATRIX device.
+<h3 id="led">led</h3>
+<details class="summary" open="open"><summary>.length</summary><p>Returns the number of LEDs on a MATRIX device.
 <div class="codehilite"><pre><span></span><span class="n">led</span><span class="o">.</span><span class="n">length</span>
 </pre></div></p>
-<h3 id="set">.set()</h3>
-<p>Allows you to set the colors of each LED. A <code>string</code>, <code>object</code>, <code>tuple</code>, or <code>array</code> can be given to this function.</p>
-<p><strong>String input</strong>
-<div class="codehilite"><pre><span></span><span class="c1"># Sets each LED to blue</span>
-<span class="n">led</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span><span class="c1"># color name</span>
-<span class="n">led</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">&#39;#0000ff&#39;</span><span class="p">)</span><span class="c1"># Hex values</span>
+</details>
+<details class="summary" open="open"><summary>.set()</summary><p>Allows you to set the colors of each LED. A <code>string</code>, <code>object</code>, <code>tuple</code> or <code>array</code> can be given to this function.</p>
+<div class="codehilite"><pre><span></span><span class="n">led</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span> <span class="c1"># color name</span>
+<span class="n">led</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">&#39;#0000ff&#39;</span><span class="p">)</span> <span class="c1"># hex values</span>
+<span class="n">led</span><span class="o">.</span><span class="n">set</span><span class="p">({</span><span class="s1">&#39;r&#39;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;g&#39;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">:</span><span class="mi">255</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">:</span><span class="mi">0</span> <span class="p">})</span> <span class="c1"># object</span>
+<span class="n">led</span><span class="o">.</span><span class="n">set</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">255</span><span class="p">,</span><span class="mi">0</span><span class="p">))</span> <span class="c1"># tuple</span>
+</pre></div>
 
-<span class="c1"># Turns off each LED</span>
-<span class="n">led</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">&#39;black&#39;</span><span class="p">)</span> <span class="c1"># color name</span>
-<span class="n">led</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">&#39;#000000&#39;</span><span class="p">)</span> <span class="c1"># Hex values</span>
-</pre></div></p>
-<p><strong>Object input</strong>
-<div class="codehilite"><pre><span></span><span class="c1"># Sets each LED to blue</span>
-<span class="n">led</span><span class="o">.</span><span class="n">set</span><span class="p">({</span><span class="s1">&#39;r&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;g&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">:</span> <span class="mi">255</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">})</span>
-<span class="n">led</span><span class="o">.</span><span class="n">set</span><span class="p">({</span><span class="s1">&#39;b&#39;</span><span class="p">:</span> <span class="mi">255</span><span class="p">})</span>
-
-<span class="c1"># Turns off each LED</span>
-<span class="n">led</span><span class="o">.</span><span class="n">set</span><span class="p">({})</span>
-</pre></div></p>
-<p><strong>Tuple input</strong>
-<div class="codehilite"><pre><span></span><span class="c1"># Sets each LED to blue</span>
-<span class="n">led</span><span class="o">.</span><span class="n">set</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">255</span><span class="p">,</span><span class="mi">0</span><span class="p">))</span> <span class="c1"># Each RGBW value in a tuple must be defined</span>
-
-<span class="c1"># Turns off each LED</span>
-<span class="n">led</span><span class="o">.</span><span class="n">set</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">))</span>
-</pre></div></p>
-<p><strong>Array Input</strong></p>
 <p>Passing in an array allows you to set each individual LED color. However, passing an array that's larger than <code>led.length</code> will result in an error.
-<div class="codehilite"><pre><span></span><span class="c1"># Basic array example</span>
-<span class="n">led</span><span class="o">.</span><span class="n">set</span><span class="p">([</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="s1">&#39;gold&#39;</span><span class="p">,</span> <span class="p">(</span><span class="mi">255</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">255</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span> <span class="p">{},</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="s1">&#39;#6F41C1&#39;</span><span class="p">,</span> <span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;g&#39;</span><span class="p">:</span><span class="mi">255</span><span class="p">}])</span>
-</pre></div></p> 
+<div class="codehilite"><pre><span></span><span class="n">led</span><span class="o">.</span><span class="n">set</span><span class="p">([</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="s1">&#39;gold&#39;</span><span class="p">,</span> <span class="p">(</span><span class="mi">255</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">255</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span> <span class="p">{},</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="s1">&#39;#6F41C1&#39;</span><span class="p">,</span> <span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;g&#39;</span><span class="p">:</span><span class="mi">255</span><span class="p">}])</span>
+</pre></div></p>
+</details>
+<details class="example" open="open"><summary>Everloop Examples</summary><div class="superfences-tabs">
+<input name="__tabs_1" type="radio" id="__tab_1_0" checked="checked" />
+<label for="__tab_1_0">LEDs blue</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="kn">from</span> <span class="nn">matrix_lite</span> <span class="kn">import</span> <span class="n">led</span>
+<span class="c1"># A single string or object sets all LEDs</span>
+<span class="c1"># Below are different ways of expressing the color blue (number values are from 0-255)</span>
+<span class="n">led</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span>
+<span class="n">led</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">&#39;#0000ff&#39;</span><span class="p">)</span>
+<span class="n">led</span><span class="o">.</span><span class="n">set</span><span class="p">({</span><span class="s1">&#39;r&#39;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;g&#39;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">:</span><span class="mi">255</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">:</span><span class="mi">0</span> <span class="p">})</span> <span class="c1"># objects can set white</span>
+<span class="n">led</span><span class="o">.</span><span class="n">set</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">255</span><span class="p">,</span><span class="mi">0</span><span class="p">))</span> <span class="c1"># tuples can set white</span>
+</pre></div></div>
+<input name="__tabs_1" type="radio" id="__tab_1_1" />
+<label for="__tab_1_1">LEDs off</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="kn">from</span> <span class="nn">matrix_lite</span> <span class="kn">import</span> <span class="n">led</span>
+<span class="c1"># Each line below is a valid way of turning the LEDs off</span>
+<span class="n">led</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+<span class="n">led</span><span class="o">.</span><span class="n">set</span><span class="p">([])</span>
+<span class="n">led</span><span class="o">.</span><span class="n">set</span><span class="p">()</span>
+<span class="n">led</span><span class="o">.</span><span class="n">set</span><span class="p">({})</span>
+</pre></div></div>
+<input name="__tabs_1" type="radio" id="__tab_1_2" />
+<label for="__tab_1_2">Moving blue LED</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="kn">from</span> <span class="nn">matrix_lite</span> <span class="kn">import</span> <span class="n">led</span>
+<span class="kn">import</span> <span class="nn">time</span>
+
+<span class="n">everloop</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;black&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="n">led</span><span class="o">.</span><span class="n">length</span>
+<span class="n">everloop</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;b&#39;</span><span class="p">:</span><span class="mi">100</span><span class="p">}</span>
+
+<span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+    <span class="n">everloop</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">everloop</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
+    <span class="n">led</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">everloop</span><span class="p">)</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.050</span><span class="p">)</span>
+</pre></div></div>
+<input name="__tabs_1" type="radio" id="__tab_1_3" />
+<label for="__tab_1_3">Rainbow</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="kn">from</span> <span class="nn">matrix_lite</span> <span class="kn">import</span> <span class="n">led</span>
+<span class="kn">from</span> <span class="nn">time</span> <span class="kn">import</span> <span class="n">sleep</span>
+<span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">pi</span><span class="p">,</span> <span class="n">sin</span>
+
+<span class="n">everloop</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;black&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="n">led</span><span class="o">.</span><span class="n">length</span>
+
+<span class="n">ledAdjust</span> <span class="o">=</span> <span class="mf">0.0</span>
+<span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">everloop</span><span class="p">)</span> <span class="o">==</span> <span class="mi">35</span><span class="p">:</span>
+    <span class="n">ledAdjust</span> <span class="o">=</span> <span class="mf">0.51</span> <span class="c1"># MATRIX Creator</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">ledAdjust</span> <span class="o">=</span> <span class="mf">1.01</span> <span class="c1"># MATRIX Voice</span>
+
+<span class="n">frequency</span> <span class="o">=</span> <span class="mf">0.375</span>
+<span class="n">counter</span> <span class="o">=</span> <span class="mf">0.0</span>
+<span class="n">tick</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">everloop</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
+
+<span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+    <span class="c1"># Create rainbow</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">everloop</span><span class="p">)):</span>
+        <span class="n">r</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="p">(</span><span class="n">sin</span><span class="p">(</span><span class="n">frequency</span><span class="o">*</span><span class="n">counter</span><span class="o">+</span><span class="p">(</span><span class="n">pi</span><span class="o">/</span><span class="mi">180</span><span class="o">*</span><span class="mi">240</span><span class="p">))</span><span class="o">*</span><span class="mi">155</span><span class="o">+</span><span class="mi">100</span><span class="p">)</span><span class="o">/</span><span class="mi">10</span><span class="p">))</span>
+        <span class="n">g</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="p">(</span><span class="n">sin</span><span class="p">(</span><span class="n">frequency</span><span class="o">*</span><span class="n">counter</span><span class="o">+</span><span class="p">(</span><span class="n">pi</span><span class="o">/</span><span class="mi">180</span><span class="o">*</span><span class="mi">120</span><span class="p">))</span><span class="o">*</span><span class="mi">155</span><span class="o">+</span><span class="mi">100</span><span class="p">)</span><span class="o">/</span><span class="mi">10</span><span class="p">))</span>
+        <span class="n">b</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="p">(</span><span class="n">sin</span><span class="p">(</span><span class="n">frequency</span><span class="o">*</span><span class="n">counter</span><span class="p">)</span><span class="o">*</span><span class="mi">155</span><span class="o">+</span><span class="mi">100</span><span class="p">)</span><span class="o">/</span><span class="mi">10</span><span class="p">))</span>
+
+        <span class="n">counter</span> <span class="o">+=</span> <span class="n">ledAdjust</span>
+
+        <span class="n">everloop</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;r&#39;</span><span class="p">:</span><span class="n">r</span><span class="p">,</span> <span class="s1">&#39;g&#39;</span><span class="p">:</span><span class="n">g</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">:</span><span class="n">b</span><span class="p">}</span>
+
+    <span class="c1"># Slowly show rainbow</span>
+    <span class="k">if</span> <span class="n">tick</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">reversed</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">tick</span><span class="p">)):</span>
+            <span class="n">everloop</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="n">tick</span> <span class="o">-=</span> <span class="mi">1</span>
+
+    <span class="n">led</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">everloop</span><span class="p">)</span>
+
+    <span class="n">sleep</span><span class="p">(</span><span class="o">.</span><span class="mo">035</span><span class="p">)</span>
+</pre></div></div>
+</div>
+</details> 
         </div>
         <div class="toc-parent col-lg-2 col-md-3">
           <div class="toc">
@@ -549,14 +604,8 @@
   <ul>
     
     <li>
-      <a class="nav-link" href="#length">
-        .length
-      </a>
-    </li>
-    
-    <li>
-      <a class="nav-link" href="#set">
-        .set()
+      <a class="nav-link" href="#led">
+        led
       </a>
     </li>
     

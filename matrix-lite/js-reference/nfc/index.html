@@ -515,14 +515,14 @@
 </pre></div>
 
 <h3 id="nfc">nfc</h3>
-<details class="summary" open="open"><summary>.status()</summary><p>When a read or write function completes, it will return a status code to indicate the result. <code>nfc.Status</code> returns a string of what that number means.
+<details class="summary"><summary>.status()</summary><p>When a read or write function completes, it will return a status code to indicate the result. <code>nfc.Status</code> returns a string of what that number means.
 <div class="codehilite"><pre><span></span><span class="nx">nfc</span><span class="p">.</span><span class="nx">status</span><span class="p">(</span><span class="cm">/*number*/</span><span class="p">);</span>
 
 <span class="c1">// Example output</span>
 <span class="c1">// nfc.status(256) will return &quot;Activation Done&quot;</span>
 </pre></div></p>
 </details>
-<details class="summary" open="open"><summary>.message()</summary><p>Represents an NDEF message. Each message can contain multiple NDEF Records. Each record can hold text, cellular numbers, emails, links, etc.</p>
+<details class="summary"><summary>.message()</summary><p>Represents an NDEF message. Each message can contain multiple NDEF Records. Each record can hold text, cellular numbers, emails, links, etc.</p>
 <div class="codehilite"><pre><span></span><span class="c1">// Creates an empty message</span>
 <span class="kd">let</span> <span class="nx">msg</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">nfc</span><span class="p">.</span><span class="nx">message</span><span class="p">();</span>
 
@@ -645,7 +645,7 @@
 
 </details>
 </details>
-<h3 id="nfcread">nfc.read()</h3>
+<h3 id="nfcread">nfc.read</h3>
 <p>NFC tags are read by using a loop to check if a tag is within range.</p>
 <details class="summary"><summary>.start()</summary><div class="codehilite"><pre><span></span><span class="c1">// Configure what you want to read</span>
 <span class="kd">let</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span>
@@ -922,7 +922,7 @@
 </pre></div></div>
 </div>
 </details>
-<h3 id="nfcwrite">nfc.write()</h3>
+<h3 id="nfcwrite">nfc.write</h3>
 <p>Writing allows NDEF messages to be written &amp; erased. There is also an option to directly write to a tag's page. Writing is normally done within an NFC read loop.</p>
 <details class="summary"><summary>.message()</summary><div class="codehilite"><pre><span></span><span class="c1">// Create an NDEF message with a record</span>
 <span class="kd">var</span> <span class="nx">msg</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">nfc</span><span class="p">.</span><span class="nx">message</span><span class="p">();</span>
@@ -1059,13 +1059,13 @@
     
     <li>
       <a class="nav-link" href="#nfcread">
-        nfc.read()
+        nfc.read
       </a>
     </li>
     
     <li>
       <a class="nav-link" href="#nfcwrite">
-        nfc.write()
+        nfc.write
       </a>
     </li>
     

@@ -483,7 +483,7 @@
 <p><img class="creator-compatibility-icon" src="../../../img/creator-icon.svg">
 <img class="creator-compatibility-icon" src="../../../img/voice-icon.svg"></p>
 <h2 id="overview">Overview</h2>
-<p>The following sections below will go over how to utilize the GPIO on your MATRIX Device.</p>
+<p>The following sections below will go over how to utilize the GPIO on your MATRIX Device. These functions affect <code>pins: 0-15</code>.</p>
 <h2 id="import-statement">Import Statement</h2>
 <div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="p">(</span><span class="s">&quot;github.com/matrix-io/matrix-lite-go&quot;</span><span class="p">)</span>
 </pre></div>
@@ -494,88 +494,122 @@
 <div class="codehilite"><pre><span></span><span class="nx">m</span> <span class="o">:=</span> <span class="nx">matrix</span><span class="p">.</span><span class="nx">Init</span><span class="p">()</span>
 </pre></div></p>
 </div>
-<h3 id="setfunction">.SetFunction()</h3>
-<p>Specify if a GPIO pin is being used for <strong>DIGITAL</strong> or <strong>PWM</strong>.</p>
-<p><strong>Parameters:</strong></p>
-<ul>
-<li><strong>pin</strong>: Any number from 0 to 15.</li>
-<li><strong>function</strong>: <code>"DIGITAL"</code> or <code>"PWM"</code></li>
-</ul>
-<div class="codehilite"><pre><span></span><span class="c1">// Set pin 0 as a Digital pin</span>
+<h3 id="gpio">gpio</h3>
+<details class="summary"><summary>.SetFunction()</summary><div class="codehilite"><pre><span></span><span class="c1">// Set a pin as use a digital signal</span>
 <span class="nx">m</span><span class="p">.</span><span class="nx">Gpio</span><span class="p">.</span><span class="nx">SetFunction</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s">&quot;DIGITAL&quot;</span><span class="p">)</span>
 
-<span class="c1">// Set pin 1 as a PWM pin</span>
-<span class="nx">m</span><span class="p">.</span><span class="nx">Gpio</span><span class="p">.</span><span class="nx">SetFunction</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s">&quot;PWM&quot;</span><span class="p">);</span>
+<span class="c1">// Set a pin as use a PWM signal</span>
+<span class="nx">m</span><span class="p">.</span><span class="nx">Gpio</span><span class="p">.</span><span class="nx">SetFunction</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s">&quot;PWM&quot;</span><span class="p">)</span>
 </pre></div>
 
-<h3 id="setmode">.SetMode()</h3>
-<p>Specify if a GPIO pin is being used for <strong>input</strong> or <strong>output</strong>.</p>
-<p><strong>Parameters:</strong></p>
-<ul>
-<li><strong>pin</strong>: Any number from 0 to 15.</li>
-<li><strong>mode</strong>: <code>"input"</code> or <code>"output"</code></li>
-</ul>
-<div class="codehilite"><pre><span></span><span class="c1">// Set pin 0 to receive input</span>
+</details>
+<details class="summary"><summary>.SetMode()</summary><div class="codehilite"><pre><span></span><span class="c1">// Valid ways of setting a pin to receive input</span>
 <span class="nx">m</span><span class="p">.</span><span class="nx">Gpio</span><span class="p">.</span><span class="nx">SetMode</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s">&quot;input&quot;</span><span class="p">)</span>
 
-<span class="c1">// Set pin 1 to output</span>
+<span class="c1">// Valid ways of setting a pin to allow output</span>
 <span class="nx">m</span><span class="p">.</span><span class="nx">Gpio</span><span class="p">.</span><span class="nx">SetMode</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s">&quot;output&quot;</span><span class="p">)</span>
 </pre></div>
 
-<h3 id="getdigital">.GetDigital()</h3>
-<p>Retrieve the current digital signal of a GPIO pin.</p>
-<p><strong>Parameters:</strong></p>
-<ul>
-<li><strong>pin</strong>: Any number from 0 to 15.</li>
-</ul>
-<p><strong>Return Value:</strong></p>
-<ul>
-<li><strong>value</strong>: <code>0</code> or <code>1</code> representing ON/OFF respectively</li>
-</ul>
-<div class="codehilite"><pre><span></span><span class="c1">// Return the current ON/OFF state of pin 0</span>
+</details>
+<details class="summary"><summary>.GetDigital()</summary><div class="codehilite"><pre><span></span><span class="c1">// Returns a 1 or 0 representing the ON/OFF state of a pin</span>
 <span class="nx">m</span><span class="p">.</span><span class="nx">Gpio</span><span class="p">.</span><span class="nx">GetDigital</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 </pre></div>
 
-<h3 id="setdigital">.SetDigital()</h3>
-<p>Set the current digital signal of a GPIO pin.</p>
-<p><strong>Parameters:</strong></p>
-<ul>
-<li><strong>pin</strong>: Any number from 0 to 15.</li>
-<li><strong>value</strong>: <code>"ON"</code> or <code>"OFF"</code></li>
-</ul>
-<div class="codehilite"><pre><span></span><span class="c1">// Set pin 0 to OFF</span>
-<span class="nx">m</span><span class="p">.</span><span class="nx">Gpio</span><span class="p">.</span><span class="nx">SetDigital</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s">&quot;ON&quot;</span><span class="p">)</span>
+</details>
+<details class="summary"><summary>.SetDigital()</summary><div class="codehilite"><pre><span></span><span class="c1">// Controls the digital output of a pin</span>
 
-<span class="c1">// Set pin 1 to ON</span>
+<span class="c1">// Set a pin to OFF</span>
+<span class="nx">m</span><span class="p">.</span><span class="nx">Gpio</span><span class="p">.</span><span class="nx">SetDigital</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s">&quot;OFF&quot;</span><span class="p">)</span>
+
+<span class="c1">// Set a pin to ON</span>
 <span class="nx">m</span><span class="p">.</span><span class="nx">Gpio</span><span class="p">.</span><span class="nx">SetDigital</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s">&quot;ON&quot;</span><span class="p">)</span>
 </pre></div>
 
-<h3 id="setpwm">.SetPWM()</h3>
-<p>Set the current PWM signal of a GPIO pin.</p>
-<p><strong>Parameters:</strong></p>
-<ul>
-<li><strong>pin</strong>: Any number from 0 to 15.</li>
-<li><strong>percentage</strong>: Any number from 0 to 100.</li>
-<li><strong>frequency</strong>: Any number from 36 to <strong>max value not tested</strong>.</li>
-</ul>
-<div class="codehilite"><pre><span></span><span class="c1">// Set PWM for pin 0</span>
-<span class="nx">m</span><span class="p">.</span><span class="nx">Gpio</span><span class="p">.</span><span class="nx">SetPWM</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">50</span><span class="p">);</span>
+</details>
+<details class="summary"><summary>.SetPWM()</summary><div class="codehilite"><pre><span></span><span class="c1">// Controls the PWM output of a pin</span>
+<span class="nx">m</span><span class="p">.</span><span class="nx">Gpio</span><span class="p">.</span><span class="nx">SetPWM</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">50</span><span class="p">);</span><span class="c1">// pin, percentage, frequency</span>
 </pre></div>
 
-<h3 id="setservoangle">.SetServoAngle()</h3>
-<p>Use a GPIO pin to control a servo. This function requires the pin to be set to <code>"PWM"</code> mode.</p>
-<p><strong>Parameters:</strong></p>
-<ul>
-<li><strong>pin</strong>: Any number from 0 to 15.</li>
-<li><strong>angle</strong>: Positive number of degrees.</li>
-<li><strong>min_pulse_ms</strong>: Generally numbers between 0 and 2.<ul>
-<li>minimum pulse width for a PWM wave in milliseconds</li>
-</ul>
-</li>
-</ul>
-<div class="codehilite"><pre><span></span><span class="c1">// Sets Servo to 90 Degrees with pin 0</span>
-<span class="nx">m</span><span class="p">.</span><span class="nx">Gpio</span><span class="p">.</span><span class="nx">SetServoAngle</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">)</span>
-</pre></div> 
+</details>
+<details class="summary"><summary>.SetServoAngle()</summary><div class="codehilite"><pre><span></span><span class="c1">// This function requires the pin to be set to &quot;PWM&quot; mode.</span>
+<span class="nx">m</span><span class="p">.</span><span class="nx">Gpio</span><span class="p">.</span><span class="nx">SetServoAngle</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">)</span><span class="c1">// pin, angle, minimum pulse width for a PWM wave (in milliseconds)</span>
+</pre></div>
+
+</details>
+<details class="example" open="open"><summary>GPIO examples</summary><div class="superfences-tabs">
+<input name="__tabs_1" type="radio" id="__tab_1_0" checked="checked" />
+<label for="__tab_1_0">Read Pin</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="kn">package</span> <span class="nx">main</span>
+
+<span class="kn">import</span> <span class="p">(</span>
+    <span class="s">&quot;fmt&quot;</span>
+
+    <span class="s">&quot;github.com/matrix-io/matrix-lite-go&quot;</span>
+<span class="p">)</span>
+
+<span class="kd">func</span> <span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">m</span> <span class="o">:=</span> <span class="nx">matrix</span><span class="p">.</span><span class="nx">Init</span><span class="p">()</span>
+
+    <span class="c1">// Configure pin 0</span>
+    <span class="nx">m</span><span class="p">.</span><span class="nx">Gpio</span><span class="p">.</span><span class="nx">SetFunction</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s">&quot;DIGITAL&quot;</span><span class="p">)</span>
+    <span class="nx">m</span><span class="p">.</span><span class="nx">Gpio</span><span class="p">.</span><span class="nx">SetMode</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s">&quot;input&quot;</span><span class="p">)</span>
+
+    <span class="c1">// Read pin 0</span>
+    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">m</span><span class="p">.</span><span class="nx">Gpio</span><span class="p">.</span><span class="nx">GetDigital</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
+<span class="p">}</span>
+</pre></div></div>
+<input name="__tabs_1" type="radio" id="__tab_1_1" />
+<label for="__tab_1_1">Digital Output</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="kn">package</span> <span class="nx">main</span>
+
+<span class="kn">import</span> <span class="s">&quot;github.com/matrix-io/matrix-lite-go&quot;</span>
+
+<span class="kd">func</span> <span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">m</span> <span class="o">:=</span> <span class="nx">matrix</span><span class="p">.</span><span class="nx">Init</span><span class="p">()</span>
+
+    <span class="c1">// Set pin 1 to be ON</span>
+    <span class="nx">m</span><span class="p">.</span><span class="nx">Gpio</span><span class="p">.</span><span class="nx">SetFunction</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s">&quot;DIGITAL&quot;</span><span class="p">)</span>
+    <span class="nx">m</span><span class="p">.</span><span class="nx">Gpio</span><span class="p">.</span><span class="nx">SetMode</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s">&quot;output&quot;</span><span class="p">)</span>
+    <span class="nx">m</span><span class="p">.</span><span class="nx">Gpio</span><span class="p">.</span><span class="nx">SetDigital</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s">&quot;ON&quot;</span><span class="p">)</span>
+
+    <span class="c1">// Set pin 10 to be OFF</span>
+    <span class="nx">m</span><span class="p">.</span><span class="nx">Gpio</span><span class="p">.</span><span class="nx">SetFunction</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="s">&quot;DIGITAL&quot;</span><span class="p">)</span>
+    <span class="nx">m</span><span class="p">.</span><span class="nx">Gpio</span><span class="p">.</span><span class="nx">SetMode</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="s">&quot;output&quot;</span><span class="p">)</span>
+    <span class="nx">m</span><span class="p">.</span><span class="nx">Gpio</span><span class="p">.</span><span class="nx">SetDigital</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="s">&quot;OFF&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+</pre></div></div>
+<input name="__tabs_1" type="radio" id="__tab_1_2" />
+<label for="__tab_1_2">PWM Output</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="kn">package</span> <span class="nx">main</span>
+
+<span class="kn">import</span> <span class="s">&quot;github.com/matrix-io/matrix-lite-go&quot;</span>
+
+<span class="kd">func</span> <span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">m</span> <span class="o">:=</span> <span class="nx">matrix</span><span class="p">.</span><span class="nx">Init</span><span class="p">()</span>
+
+    <span class="c1">// Set pin 2 to be output a PWM signal</span>
+    <span class="nx">m</span><span class="p">.</span><span class="nx">Gpio</span><span class="p">.</span><span class="nx">SetFunction</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s">&quot;PWM&quot;</span><span class="p">);</span>
+    <span class="nx">m</span><span class="p">.</span><span class="nx">Gpio</span><span class="p">.</span><span class="nx">SetMode</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s">&quot;output&quot;</span><span class="p">);</span>
+    <span class="nx">m</span><span class="p">.</span><span class="nx">Gpio</span><span class="p">.</span><span class="nx">SetPWM</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">50</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div></div>
+<input name="__tabs_1" type="radio" id="__tab_1_3" />
+<label for="__tab_1_3">Set Servo</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="kn">package</span> <span class="nx">main</span>
+
+<span class="kn">import</span> <span class="s">&quot;github.com/matrix-io/matrix-lite-go&quot;</span>
+
+<span class="kd">func</span> <span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">m</span> <span class="o">:=</span> <span class="nx">matrix</span><span class="p">.</span><span class="nx">Init</span><span class="p">()</span>
+
+    <span class="c1">// Tell pin 3 to set servo to 90 degrees</span>
+    <span class="nx">m</span><span class="p">.</span><span class="nx">Gpio</span><span class="p">.</span><span class="nx">SetFunction</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="s">&quot;PWM&quot;</span><span class="p">);</span>
+    <span class="nx">m</span><span class="p">.</span><span class="nx">Gpio</span><span class="p">.</span><span class="nx">SetMode</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="s">&quot;output&quot;</span><span class="p">);</span>
+    <span class="nx">m</span><span class="p">.</span><span class="nx">Gpio</span><span class="p">.</span><span class="nx">SetServoAngle</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">);</span><span class="c1">// pin, angle, min_pulse_ms</span>
+<span class="p">}</span>
+</pre></div></div>
+</div>
+</details> 
         </div>
         <div class="toc-parent col-lg-2 col-md-3">
           <div class="toc">
@@ -600,38 +634,8 @@
   <ul>
     
     <li>
-      <a class="nav-link" href="#setfunction">
-        .SetFunction()
-      </a>
-    </li>
-    
-    <li>
-      <a class="nav-link" href="#setmode">
-        .SetMode()
-      </a>
-    </li>
-    
-    <li>
-      <a class="nav-link" href="#getdigital">
-        .GetDigital()
-      </a>
-    </li>
-    
-    <li>
-      <a class="nav-link" href="#setdigital">
-        .SetDigital()
-      </a>
-    </li>
-    
-    <li>
-      <a class="nav-link" href="#setpwm">
-        .SetPWM()
-      </a>
-    </li>
-    
-    <li>
-      <a class="nav-link" href="#setservoangle">
-        .SetServoAngle()
+      <a class="nav-link" href="#gpio">
+        gpio
       </a>
     </li>
     
