@@ -5,115 +5,133 @@
 <img class="creator-compatibility-icon" src="../../../img/voice-icon.svg">
 
 ## Overview
-The following sections below will go over how to utilize the GPIO on your MATRIX Device.
+The following sections below will go over how to utilize the GPIO on your MATRIX Device. These functions affect `pins: 0-15`.
 
 ## Import Statement
 ```js
 const matrix = require("@matrix-io/matrix-lite");
 ```
 
-### .setFunction()
-Specify if a GPIO pin is being used for **DIGITAL** or **PWM**.
+### gpio
 
-**Parameters:**
+??? summary ".setFunction()"
 
-- **pin**: Any number from 0 to 15.
-- **function**: Can be `0`,`1` or `"DIGITAL"`, `"PWM"` respectively.
+    ```js
+    // Valid ways of setting a pin as a digital pin
+    matrix.gpio.setFunction(0, "DIGITAL");
+    matrix.gpio.setFunction(0, 0);
 
-```js
-// Valid ways of setting pin 0 as a digital pin
-matrix.gpio.setFunction(0, "DIGITAL");
-matrix.gpio.setFunction(0, 0);
+    // Valid ways of setting a pin as a PWM pin
+    matrix.gpio.setFunction(0, "PWM");
+    matrix.gpio.setFunction(0, 1);
+    ```
 
-// Valid ways of setting pin 1 as a PWM pin
-matrix.gpio.setFunction(1, "PWM");
-matrix.gpio.setFunction(1, 1);
-```
+??? summary ".setMode()"
 
-### .setMode()
-Specify if a GPIO pin is being used for **input** or **output**.
+    ```js
+    // Valid ways of setting a pin to receive input
+    matrix.gpio.setMode(0, "input");
+    matrix.gpio.setMode(0, 0);
 
-**Parameters:**
+    // Valid ways of setting a pin to allow output
+    matrix.gpio.setMode(0, "output");
+    matrix.gpio.setMode(0, 1);
+    ```
 
-- **pin**: Any number from 0 to 15.
-- **mode**: Can be `0`,`1` or `"input"`, `"output"` respectively.
-```js
-// Valid ways of setting pin 0 to receive input
-matrix.gpio.setMode(0, "input");
-matrix.gpio.setMode(0, 0);
+??? summary ".getDigital()"
 
-// Valid ways of setting pin 1 to allow output
-matrix.gpio.setMode(1, "output");
-matrix.gpio.setMode(1, 1);
-```
+    ```js
+    // Returns a 1 or 0 representing the ON/OFF state of a pin
+    matrix.gpio.getDigital(0);
+    ```
 
-### .getDigital()
-Retrieve the current digital signal of a GPIO pin.
+??? summary ".setDigital()"
 
-**Parameters:**
+    ```js
+    // Controls the digital output of a pin
 
-- **pin**: Any number from 0 to 15.
+    // Valid ways of setting a pin to OFF
+    matrix.gpio.setDigital(0,"OFF");
+    matrix.gpio.setDigital(0,0);
 
-**Return Value:**
+    // Valid ways of setting a pin to ON
+    matrix.gpio.setDigital(0,"ON");
+    matrix.gpio.setDigital(0,1);
+    ```
 
-- **value**: `0` or `1` representing ON/OFF respectively
+??? summary ".setPWM()"
 
-```js
-// Return the current ON/OFF state of pin 0
-matrix.gpio.getDigital(0);
-```
+    ```js
+    // Controls the PWM output of a pin
+    matrix.gpio.setPWM({
+      pin: 0,
+      percentage: 25,
+      frequency: 50
+    });
+    ```
 
-### .setDigital()
-Set the current digital signal of a GPIO pin.
+??? summary ".setServoAngle()"
 
-**Parameters:**
+    ```js
+    // This function requires the pin to be set to "PWM" mode.
+    matrix.gpio.setServoAngle({
+      pin: 0,
+      angle: 90,
+      // minimum pulse width for a PWM wave (in milliseconds)
+      min_pulse_ms: 0.8
+    });
+    ```
 
-- **pin**: Any number from 0 to 15.
-- **value**: Can be `0`,`1` or `"OFF"`, `"ON"` respectively
+???+ example "GPIO examples"
+  
+    ```js tab="Read Pin"
+    const matrix = require('@matrix-io/matrix-lite');
 
-```js
-// Valid ways of setting pin 0 to OFF
-matrix.gpio.setDigital(0,"OFF");
-matrix.gpio.setDigital(0,0);
+    // Configure pin 0
+    matrix.gpio.setFunction(0, 'DIGITAL');
+    matrix.gpio.setMode(0, 'input');
 
-// Valid ways of setting pin 1 to ON
-matrix.gpio.setDigital(1,"ON");
-matrix.gpio.setDigital(1,1);
-```
+    // Read pin 0
+    console.log(matrix.gpio.getDigital(0));
+    ```
 
-### .setPWM()
-Set the current PWM signal of a GPIO pin.
+    ```js tab="Digital Output"
+    const matrix = require('@matrix-io/matrix-lite');
 
-**Parameters:**
+    // Set pin 1 to be ON
+    matrix.gpio.setFunction(1, 'DIGITAL');
+    matrix.gpio.setMode(1, 'output');
+    matrix.gpio.setDigital(1, 'ON');
 
-* **config: `object`**
-    * **pin**: Any number from 0 to 15.
-    * **percentage**: Any number from 0 to 100.
-    * **frequency**: Any number from 36 to **max value not tested**.
-```js
-// Set PWM for pin 0
-matrix.gpio.setPWM({
-  pin: 0,
-  percentage: 25,
-  frequency: 50
-});
-```
+    // Set pin 10 to be OFF
+    matrix.gpio.setFunction(10, 'DIGITAL');
+    matrix.gpio.setMode(10, 'output');
+    matrix.gpio.setDigital(10, 'OFF');
+    ```
 
-### .setServoAngle()
-Use a GPIO pin to control a servo. This function requires the pin to be set to `"PWM"` mode.
+    ```js tab="PWM Output"
+    const matrix = require('@matrix-io/matrix-lite');
 
-**Parameters:**
+    // Set pin 2 to be output a PWM signal
+    matrix.gpio.setFunction(2, 'PWM');
+    matrix.gpio.setMode(2, 'output');
+    matrix.gpio.setPWM({
+      pin: 2,
+      percentage: 25,
+      frequency: 50 // min 36
+    });
+    ```
 
-* **config: `object`**
-    * **pin**: Any number from 0 to 15.
-    * **angle**: Positive number of degrees.
-    * **min_pulse_ms**: Generally numbers between 0 and 2.
-        * minimum pulse width for a PWM wave in milliseconds
-```js
-// Sets Servo to 90 Degrees with pin 0
-matrix.gpio.setServoAngle({
-  pin: 0,
-  angle: 90,
-  min_pulse_ms: 0.8
-});
-```
+    ```js tab="Set Servo"
+    const matrix = require('@matrix-io/matrix-lite');
+
+    // Tell pin 3 to set servo to 90 degrees
+    matrix.gpio.setFunction(3, 'PWM');
+    matrix.gpio.setMode(3, 'output');
+    matrix.gpio.setServoAngle({
+      pin: 3,
+      angle: 90,
+      // minimum pulse width for a PWM wave (in milliseconds)
+      min_pulse_ms: 0.8
+    });
+    ```

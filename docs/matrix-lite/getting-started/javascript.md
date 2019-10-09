@@ -31,7 +31,7 @@ npm install @matrix-io/matrix-lite --save
 Copy our Hello World example below into `index.js` to test your installation.
 
 ```js
-const matrix = require("@matrix-io/matrix-lite")
+const matrix = require("@matrix-io/matrix-lite");
 
 let everloop = new Array(matrix.led.length);
 

@@ -5,7 +5,7 @@
 <img class="creator-compatibility-icon" src="../../../img/voice-icon.svg">
 
 ## Overview
-The following sections below will go over how to utilize the GPIO on your MATRIX Device.
+The following sections below will go over how to utilize the GPIO on your MATRIX Device. These functions affect `pins: 0-15`.
 
 ## Import Statement
 ```go
@@ -17,96 +17,130 @@ import ("github.com/matrix-io/matrix-lite-go")
     ```go
     m := matrix.Init()
     ```
+### gpio
 
-### .SetFunction()
-Specify if a GPIO pin is being used for **DIGITAL** or **PWM**.
+??? summary ".SetFunction()"
 
-**Parameters:**
+    ```go
+    // Set a pin as use a digital signal
+    m.Gpio.SetFunction(0, "DIGITAL")
 
-- **pin**: Any number from 0 to 15.
-- **function**: `"DIGITAL"` or `"PWM"`
+    // Set a pin as use a PWM signal
+    m.Gpio.SetFunction(0, "PWM")
+    ```
 
-```go
-// Set pin 0 as a Digital pin
-m.Gpio.SetFunction(0, "DIGITAL")
+??? summary ".SetMode()"
 
-// Set pin 1 as a PWM pin
-m.Gpio.SetFunction(1, "PWM");
-```
+    ```go
+    // Valid ways of setting a pin to receive input
+    m.Gpio.SetMode(0, "input")
 
-### .SetMode()
-Specify if a GPIO pin is being used for **input** or **output**.
+    // Valid ways of setting a pin to allow output
+    m.Gpio.SetMode(0, "output")
+    ```
 
-**Parameters:**
+??? summary ".GetDigital()"
 
-- **pin**: Any number from 0 to 15.
-- **mode**: `"input"` or `"output"`
+    ```go
+    // Returns a 1 or 0 representing the ON/OFF state of a pin
+    m.Gpio.GetDigital(0)
+    ```
 
-```go
-// Set pin 0 to receive input
-m.Gpio.SetMode(0, "input")
+??? summary ".SetDigital()"
 
-// Set pin 1 to output
-m.Gpio.SetMode(0, "output")
-```
+    ```go
+    // Controls the digital output of a pin
 
-### .GetDigital()
-Retrieve the current digital signal of a GPIO pin.
+    // Set a pin to OFF
+    m.Gpio.SetDigital(0, "OFF")
 
-**Parameters:**
+    // Set a pin to ON
+    m.Gpio.SetDigital(1, "ON")
+    ```
 
-- **pin**: Any number from 0 to 15.
+??? summary ".SetPWM()"
 
-**Return Value:**
+    ```go
+    // Controls the PWM output of a pin
+    m.Gpio.SetPWM(0, 25, 50);// pin, percentage, frequency
+    ```
 
-- **value**: `0` or `1` representing ON/OFF respectively
+??? summary ".SetServoAngle()"
 
-```go
-// Return the current ON/OFF state of pin 0
-m.Gpio.GetDigital(0)
-```
+    ```go
+    // This function requires the pin to be set to "PWM" mode.
+    m.Gpio.SetServoAngle(0, 90, 0.8)// pin, angle, minimum pulse width for a PWM wave (in milliseconds)
+    ```
 
-### .SetDigital()
-Set the current digital signal of a GPIO pin.
+???+ example "GPIO examples"
+  
+    ```go tab="Read Pin"
+    package main
 
-**Parameters:**
+    import (
+        "fmt"
+    
+        "github.com/matrix-io/matrix-lite-go"
+    )
 
-- **pin**: Any number from 0 to 15.
-- **value**: `"ON"` or `"OFF"`
+    func main() {
+        m := matrix.Init()
+        
+        // Configure pin 0
+        m.Gpio.SetFunction(0, "DIGITAL")
+	    m.Gpio.SetMode(0, "input")
+        
+        // Read pin 0
+        fmt.Println(m.Gpio.GetDigital(0))
+    }
+    ```
 
-```go
-// Set pin 0 to OFF
-m.Gpio.SetDigital(0, "ON")
+    ```go tab="Digital Output"
+    package main
 
-// Set pin 1 to ON
-m.Gpio.SetDigital(1, "ON")
-```
+    import "github.com/matrix-io/matrix-lite-go"
 
-### .SetPWM()
-Set the current PWM signal of a GPIO pin.
+    func main() {
+        m := matrix.Init()
 
-**Parameters:**
+        // Set pin 1 to be ON
+        m.Gpio.SetFunction(1, "DIGITAL")
+        m.Gpio.SetMode(1, "output")
+        m.Gpio.SetDigital(1, "ON")
 
-* **pin**: Any number from 0 to 15.
-* **percentage**: Any number from 0 to 100.
-* **frequency**: Any number from 36 to **max value not tested**.
+        // Set pin 10 to be OFF
+        m.Gpio.SetFunction(10, "DIGITAL")
+        m.Gpio.SetMode(10, "output")
+        m.Gpio.SetDigital(10, "OFF")
+    }
+    ```
 
-```go
-// Set PWM for pin 0
-m.Gpio.SetPWM(0, 25, 50);
-```
+    ```go tab="PWM Output"
+    package main
 
-### .SetServoAngle()
-Use a GPIO pin to control a servo. This function requires the pin to be set to `"PWM"` mode.
+    import "github.com/matrix-io/matrix-lite-go"
 
-**Parameters:**
+    func main() {
+        m := matrix.Init()
 
-* **pin**: Any number from 0 to 15.
-* **angle**: Positive number of degrees.
-* **min_pulse_ms**: Generally numbers between 0 and 2.
-    * minimum pulse width for a PWM wave in milliseconds
+        // Set pin 2 to be output a PWM signal
+        m.Gpio.SetFunction(2, "PWM");
+        m.Gpio.SetMode(2, "output");
+        m.Gpio.SetPWM(2, 25, 50);
+    }
+    ```
 
-```go
-// Sets Servo to 90 Degrees with pin 0
-m.Gpio.SetServoAngle(0, 90, 0.8)
-```
+    ```go tab="Set Servo"
+    package main
+
+    import "github.com/matrix-io/matrix-lite-go"
+
+    func main() {
+        m := matrix.Init()
+
+        // Tell pin 3 to set servo to 90 degrees
+        m.Gpio.SetFunction(3, "PWM");
+        m.Gpio.SetMode(3, "output");
+        m.Gpio.SetServoAngle(3, 90, 0.8);// pin, angle, min_pulse_ms
+    }
+    ```
