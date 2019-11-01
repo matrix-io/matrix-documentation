@@ -26,6 +26,8 @@ Help improve our libraries by submitting issues & pull requests to our GitHub re
 
 - <a href="https://github.com/matrix-io/matrix-lite-py" target="_blank">matrix-lite-py</a>: A <a href="https://pybind11.readthedocs.io/en/stable/" target="_blank">pybind11</a> extension for calling MATRIX HAL. 
 
+- <a href="https://github.com/matrix-io/matrix-lite-nfc-py" target="_blank">matrix-lite-nfc-py</a>: A <a href="https://pybind11.readthedocs.io/en/stable/" target="_blank">pybind11</a> extension for calling MATRIX HAL NFC. 
+
 - <a href="https://github.com/matrix-io/matrix-hal-swig" target="_blank">matrix-hal-swig</a>: A <a href="http://www.swig.org/doc.html" target="_blank">SWIG</a> interface to expose MATRIX HAL for multiple languages.
 
 - <a href="https://github.com/matrix-io/matrix-lite-rb" target="_blank">matrix-lite-rb</a>: SWIG implementation compiled for Ruby.
