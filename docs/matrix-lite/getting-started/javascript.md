@@ -10,7 +10,7 @@ Install Node.js
 ```bash
 curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash
 . ~/.bashrc
-nvm install node
+nvm install 12
 ```
 
 Create a project folder.
