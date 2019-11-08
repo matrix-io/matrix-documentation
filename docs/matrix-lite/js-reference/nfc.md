@@ -133,7 +133,7 @@ const nfc = require("@matrix-io/matrix-lite-nfc");
           tnf: 'Well Known',
           type: 'U',
           payload: '.https://community.matrix.one',
-          ByteSize: 33,
+          byteSize: 33,
           typeLength: 1,
           payloadLength: 29,
           IdLength: 0
@@ -142,7 +142,7 @@ const nfc = require("@matrix-io/matrix-lite-nfc");
           tnf: 'Well Known',
           type: 'T',
           payload: '.enHello World',
-          ByteSize: 23,
+          byteSize: 23,
           typeLength: 1,
           payloadLength: 19,
           IdLength: 0
@@ -160,7 +160,7 @@ const nfc = require("@matrix-io/matrix-lite-nfc");
           tnf: 'Well Known',
           type: 'U',
           payload: '.https://community.matrix.one',
-          ByteSize: 33,
+          byteSize: 33,
           typeLength: 1,
           payloadLength: 29,
           IdLength: 0
@@ -260,7 +260,7 @@ NFC tags are read by using a loop to check if a tag is within range.
             tnf: 'Well Known',
             type: 'U',
             payload: '.https://community.matrix.one',
-            ByteSize: 33,
+            byteSize: 33,
             typeLength: 1,
             payloadLength: 29,
             IdLength: 0
@@ -269,7 +269,7 @@ NFC tags are read by using a loop to check if a tag is within range.
             tnf: 'Well Known',
             type: 'T',
             payload: '.enHello World',
-            ByteSize: 23,
+            byteSize: 23,
             typeLength: 1,
             payloadLength: 19,
             IdLength: 0
