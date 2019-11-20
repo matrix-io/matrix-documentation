@@ -378,103 +378,105 @@ Writing allows NDEF messages to be written & erased. There is also an option to 
 
 ??? summary ".message()"
     ```py
-    // Create an NDEF message with a record
-    var msg = new nfc.message();
-    msg.addUriRecord("https://community.matrix.one");
+    # Create an NDEF message with a record
+    msg = nfc.Message()
+    msg.addUriRecord("https://community.matrix.one")
     
-    // Write the message into the NFC tag
-    nfc.write.message(msg).then((code)=>{
-        // codes.activation : NFC activation status
-        // codes.write      : NFC write status
-    });
+    # Write the message into the NFC tag
+    result = nfc.write.message(msg)
+    # result.activation : NFC activation status
+    # result.write      : NFC write status
     ```
 
 ??? summary ".erase()"
     ```py
-    // Erase the NDEF message on an NFC tag
-    nfc.write.erase().then((code)=>{
-        // codes.activation : NFC activation status
-        // codes.write      : NFC write status
-    });
+    # Erase the NDEF message on an NFC tag
+    result = nfc.write.erase()
+    # result.activation : NFC activation status
+    # result.write      : NFC write status
     ```
 
 ??? summary ".page()"
     !!! danger "Writing to a random page may lock your NFC tag"
         ```py
-        var page_index = 25;            // page you want to overwrite
-        var page_byte = [48,45,59,21];  // Array of numbers that represents a page
+        page_index = 25           # page you want to overwrite
+        page_byte = [48,45,59,21] # Array of numbers that represents a page
 
-        nfc.write.page(page_index, page_byte).then((code)=>{
-            // codes.activation : NFC activation status
-            // codes.write      : NFC write status
-        });
+        result = nfc.write.page(page_index, page_byte)
+        # result.activation : NFC activation status
+        # result.write      : NFC write status
         ```
 
 ??? example "Writing Examples"
     ```py tab="NDEF"
-    const nfc = require("@matrix-io/matrix-lite-nfc");
+    import matrix_lite_nfc as nfc
 
-    // Create an NDEF message with a link
-    var msg = new nfc.message();
+    msg = nfc.Message()
     msg.addUriRecord("https://community.matrix.one");
 
-    nfc.read.start({rate: 100, info:true}, (code, tag)=>{
-            if (code === 256){
-                nfc.write.message(msg).then((code)=>{
-                    console.log("Activation Status:" + code.activation + " == " + nfc.status(code.activation));
-                    console.log("Write Status:" + code.write + " == " + nfc.status(code.write));
+    def read_callback(tag):
+        if (tag.status == 256):
+            print("Tag Was Scanned")
 
-                    // Exit after successful writing
-                    if(code.write === 0)
-                        nfc.read.stop();
-                });
-            }
+            status = nfc.write.message(msg).write
+            # Exit if write was successful
+            if (status == 0):
+                print("Write was successful! Stopping loop.")
+                nfc.read.stop()
+            # Or print status code message
+            else:
+                print(nfc.status(status))
 
-            else if (code === 1024)
-                console.log("Nothing Was Scanned");
-    });
+        elif (tag.status == 1024):
+            print("Nothing Was Scanned")
+
+    nfc.read.start({"rate": 1, "info": True}, read_callback)
     ```
     
     ```py tab="Erase NDEF"
-    const nfc = require("@matrix-io/matrix-lite-nfc");
+    import matrix_lite_nfc as nfc
 
-    nfc.read.start({rate: 100, info:true}, (code, tag)=>{
-        if (code === 256){
-            nfc.write.erase().then((code)=>{
-                console.log("Activation Status:" + code.activation + " == " + nfc.status(code.activation));
-                console.log("Write Status:" + code.write + " == " + nfc.status(code.write));
+    def read_callback(tag):
+        if (tag.status == 256):
+            print("Tag Was Scanned")
 
-                // Exit after successful writing
-                if(code.write === 0)
-                    nfc.read.stop();
-            });
-        }
+            status = nfc.write.erase().write
+            # Exit if erase was successful
+            if (status == 0):
+                print("Erase was successful! Stopping loop.")
+                nfc.read.stop()
+            # Or print status code message
+            else:
+                print(nfc.status(status))
 
-        else if (code === 1024)
-            console.log("Nothing Was Scanned");
-    });
+        elif (tag.status == 1024):
+            print("Nothing Was Scanned")
+
+    nfc.read.start({"rate": 1, "info": True}, read_callback)
     ```
 
     ```py tab="Page"
-    /* DO NOT WRITE TO A PAGE IF YOU DON'T KNOW WHAT IT DOES. */
-    const nfc = require("@matrix-io/matrix-lite-nfc");
+    #* DO NOT WRITE TO A PAGE IF YOU DON'T KNOW WHAT IT DOES. *#
+    import matrix_lite_nfc as nfc
 
-    let page_index = /*insert page number*/;
-    let page_byte = [48,45,59,21];
+    page_index = #*insert page number*#
+    page_bytes = [48,45,59,21]
 
-    nfc.read.start({rate: 100, info:true}, (code, tag)=>{
-            if (code === 256){
-                nfc.write.page(page_index, page_byte).then((code)=>{
-                    console.log("Activation Status:" + code.activation + " == " + nfc.status(code.activation));
-                    console.log("Write Status:" + code.write + " == " + nfc.status(code.write));
+    def read_callback(tag):
+        if (tag.status == 256):
+            print("Tag Was Scanned")
 
-                    // Exit after successful writing
-                    if(code.write === 0)
-                        nfc.read.stop();
-                });
-            }
+            status = nfc.write.page(page_index, page_bytes).write
+            # Exit if write was successful
+            if (status == 0):
+                print("Write was successful! Stopping loop.")
+                nfc.read.stop()
+            # Or print status code message
+            else:
+                print(nfc.status(status))
 
-            else if (code === 1024)
-                console.log("Nothing Was Scanned");
-    });
+        elif (tag.status == 1024):
+            print("Nothing Was Scanned")
+
+    nfc.read.start({"rate": 1, "info": True}, read_callback)
     ```
