@@ -41,7 +41,7 @@ import matrix_lite_nfc as nfc
 ??? summary ".status()"
     When a read or write function completes, it will return a status code to indicate the result. `nfc.Status` returns a string of what that number means.
     ```py
-    nfc.status(/*number*/);
+    nfc.status(/*number*/)
 
     # Example output
     # nfc.status(256) will return "Activation Done"
@@ -412,7 +412,7 @@ Writing allows NDEF messages to be written & erased. There is also an option to 
     import matrix_lite_nfc as nfc
 
     msg = nfc.Message()
-    msg.addUriRecord("https://community.matrix.one");
+    msg.addUriRecord("https://community.matrix.one")
 
     def read_callback(tag):
         if (tag.status == 256):
