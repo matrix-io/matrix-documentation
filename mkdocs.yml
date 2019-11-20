@@ -1,6 +1,6 @@
 site_name: MATRIX
 site_description: MATRIX Documentation
-dev_addr: '0.0.0.0:8000'
+dev_addr: "0.0.0.0:8000"
 docs_dir: docs
 markdown_extensions:
   - codehilite
@@ -10,129 +10,130 @@ markdown_extensions:
   - pymdownx.details
 theme_dir: matrix
 pages:
-- Overview: 'index.md'
-- Support : 'help.md'
-# MATRIX Boards
-- MATRIX Creator:
-  - 'Overview': 'matrix-creator/overview.md'
-  - 'Device Setup': 'matrix-creator/device-setup.md'
-  - Resources:
-    - 'Overview': 'matrix-creator/resources/overview.md'
-    - 'Pinout': 'matrix-creator/resources/pinout.md'
-    - 'IR': 'matrix-creator/resources/ir.md'
-    - 'Microphones': 'matrix-creator/resources/microphone.md'
-    - 'Reference Models': 'matrix-creator/resources/reference-models.md'
-    - 'System Architecture': 'matrix-creator/resources/system-architecture.md'
-    - 'Technical Datasheets': 'matrix-creator/resources/technical-datasheets.md'
-    - 'MCU': 'matrix-creator/resources/mcu.md'
-    - 'FPGA': 'matrix-creator/resources/fpga.md'
-  - 'Troubleshooting': 'matrix-creator/troubleshooting.md'
-- MATRIX Voice:
-  - 'Overview': 'matrix-voice/overview.md'
-  - 'Device Setup': 'matrix-voice/device-setup.md'
-  - 'ESP32': 'matrix-voice/esp32.md'
-  - Resources:
-    - 'Overview': 'matrix-voice/resources/overview.md'
-    - 'Pinout': 'matrix-voice/resources/pinout.md'
-    - 'Microphones': 'matrix-voice/resources/microphone.md'
-    - 'Reference Models': 'matrix-voice/resources/reference-models.md'
-    - 'System Architecture': 'matrix-voice/resources/system-architecture.md'
-    - 'Technical Datasheets': 'matrix-voice/resources/technical-datasheets.md'
-    - 'FPGA': 'matrix-voice/resources/fpga.md'
-  - 'Troubleshooting': 'matrix-voice/troubleshooting.md'
-# Ecosystem
-- MATRIX Lite :
-  - 'Overview': 'matrix-lite/overview.md'
-  - Getting Started:
-    - 'Index': 'matrix-lite/getting-started/index.md'
-    - 'Javascript Setup': 'matrix-lite/getting-started/javascript.md'
-    - 'Python Setup': 'matrix-lite/getting-started/python.md'
-    - 'Go Setup': 'matrix-lite/getting-started/go.md'
-  - JavaScript Reference:
-    - 'Index': 'matrix-lite/js-reference/index.md'
-    - 'Everloop': 'matrix-lite/js-reference/everloop.md'
-    - 'Sensors': 'matrix-lite/js-reference/sensors.md'
-    - 'GPIO': 'matrix-lite/js-reference/gpio.md'
-    - 'ALSA': 'matrix-lite/js-reference/alsa.md'
-    - 'NFC': 'matrix-lite/js-reference/nfc.md'
-  - Python Reference:
-    - 'Index': 'matrix-lite/py-reference/index.md'
-    - 'Everloop': 'matrix-lite/py-reference/everloop.md'
-    - 'Sensors': 'matrix-lite/py-reference/sensors.md'
-    - 'GPIO': 'matrix-lite/py-reference/gpio.md'
-    - 'ALSA Mics': 'matrix-lite/py-reference/alsa-mics.md'
-  - Go Reference:
-    - 'Index': 'matrix-lite/go-reference/index.md'
-    - 'Everloop': 'matrix-lite/go-reference/everloop.md'
-    - 'Sensors': 'matrix-lite/go-reference/sensors.md'
-    - 'GPIO': 'matrix-lite/go-reference/gpio.md'
-    # - 'ALSA Mics': 'matrix-lite/go-reference/alsa-mics.md'
-- MATRIX HAL:
-  - 'Overview': 'matrix-hal/overview.md'
-  - Getting Started:
-    - 'Index': 'matrix-hal/getting-started/index.md'
-    - 'Installation From Package': 'matrix-hal/getting-started/installation-package.md'
-    - 'Installation From Source': 'matrix-hal/getting-started/installation-source.md'
-    - 'Compiling Programs': 'matrix-hal/getting-started/programs.md'
-    - 'Installing NFC Support': 'matrix-hal/getting-started/installation-nfc.md'
-  - References :
-    - 'Index': 'matrix-hal/reference/index.md'
-    - 'Everloop': 'matrix-hal/reference/everloop.md'
-    - 'Humidity': 'matrix-hal/reference/humidity.md'
-    - 'IMU': 'matrix-hal/reference/imu.md'
-    - 'Pressure': 'matrix-hal/reference/pressure.md'
-    - 'UV': 'matrix-hal/reference/uv.md'
-    - 'GPIO': 'matrix-hal/reference/gpio.md'
-    - 'Microphone': 'matrix-hal/reference/microphone.md'
-    - 'NFC': 'matrix-hal/reference/nfc.md'
-  - Examples :
-    - 'Index': 'matrix-hal/examples/index.md'
-    - 'Everloop': 'matrix-hal/examples/everloop.md'
-    - 'Humidity': 'matrix-hal/examples/humidity.md'
-    - 'IMU': 'matrix-hal/examples/imu.md'
-    - 'Pressure': 'matrix-hal/examples/pressure.md'
-    - 'UV': 'matrix-hal/examples/uv.md'
-    - 'GPIO': 'matrix-hal/examples/gpio.md'
-    - 'Microphone': 'matrix-hal/examples/microphone.md'
-    - 'NFC': 'matrix-hal/examples/nfc.md'
-  - Troubleshooting: 'matrix-hal/troubleshooting.md'
-- MATRIX Core:
-  - 'Overview': 'matrix-core/overview.md'
-  - Getting Started:
-    - 'Index': 'matrix-core/getting-started/index.md'
-    - 'Installation': 'matrix-core/getting-started/core-installation.md'
-    - 'Understanding CORE': 'matrix-core/getting-started/understanding-core.md'
-    - 'Javascript Setup': 'matrix-core/getting-started/javascript-installation.md'
-    - 'Python Setup': 'matrix-core/getting-started/python-installation.md'
-    - 'Golang Setup': 'matrix-core/getting-started/golang-installation.md'
-  - Driver Protocols: 
-    - 'Index': 'matrix-core/protocols/index.md'
-    - 'Everloop': 'matrix-core/protocols/everloop.md'
-    - 'Humidity': 'matrix-core/protocols/humidity.md'
-    - 'IMU': 'matrix-core/protocols/imu.md'
-    - 'Pressure': 'matrix-core/protocols/pressure.md'
-    - 'UV': 'matrix-core/protocols/uv.md'
-    - 'Servo': 'matrix-core/protocols/servo.md'
-    - 'GPIO': 'matrix-core/protocols/gpio.md'
-    # - 'Wakeword': 'matrix-core/protocols/wakeword.md'
-  - Javascript Examples:
-    - 'Index': 'matrix-core/javascript-examples/index.md'
-    - 'Everloop': 'matrix-core/javascript-examples/everloop.md'
-    - 'Humidity': 'matrix-core/javascript-examples/humidity.md'
-    - 'IMU': 'matrix-core/javascript-examples/imu.md'
-    - 'Pressure': 'matrix-core/javascript-examples/pressure.md'
-    - 'UV': 'matrix-core/javascript-examples/uv.md'
-    - 'Servo': 'matrix-core/javascript-examples/servo.md'
-    - 'GPIO': 'matrix-core/javascript-examples/gpio.md'
-    # - 'Wakeword': 'matrix-core/javascript-examples/wakeword.md'
-  - Python Examples:
-    - 'Index': 'matrix-core/python-examples/index.md'
-    - 'Everloop': 'matrix-core/python-examples/everloop.md'
-    - 'Humidity': 'matrix-core/python-examples/humidity.md'
-    - 'IMU': 'matrix-core/python-examples/imu.md'
-    - 'Pressure': 'matrix-core/python-examples/pressure.md'
-    - 'UV': 'matrix-core/python-examples/uv.md'
-    - 'Servo': 'matrix-core/python-examples/servo.md'
-    - 'GPIO': 'matrix-core/python-examples/gpio.md'
-    # - 'Wakeword': 'matrix-core/python-examples/wakeword.md'
-  - Troubleshooting: 'matrix-core/troubleshooting.md'
+  - Overview: "index.md"
+  - Support: "help.md"
+  # MATRIX Boards
+  - MATRIX Creator:
+      - "Overview": "matrix-creator/overview.md"
+      - "Device Setup": "matrix-creator/device-setup.md"
+      - Resources:
+          - "Overview": "matrix-creator/resources/overview.md"
+          - "Pinout": "matrix-creator/resources/pinout.md"
+          - "IR": "matrix-creator/resources/ir.md"
+          - "Microphones": "matrix-creator/resources/microphone.md"
+          - "Reference Models": "matrix-creator/resources/reference-models.md"
+          - "System Architecture": "matrix-creator/resources/system-architecture.md"
+          - "Technical Datasheets": "matrix-creator/resources/technical-datasheets.md"
+          - "MCU": "matrix-creator/resources/mcu.md"
+          - "FPGA": "matrix-creator/resources/fpga.md"
+      - "Troubleshooting": "matrix-creator/troubleshooting.md"
+  - MATRIX Voice:
+      - "Overview": "matrix-voice/overview.md"
+      - "Device Setup": "matrix-voice/device-setup.md"
+      - "ESP32": "matrix-voice/esp32.md"
+      - Resources:
+          - "Overview": "matrix-voice/resources/overview.md"
+          - "Pinout": "matrix-voice/resources/pinout.md"
+          - "Microphones": "matrix-voice/resources/microphone.md"
+          - "Reference Models": "matrix-voice/resources/reference-models.md"
+          - "System Architecture": "matrix-voice/resources/system-architecture.md"
+          - "Technical Datasheets": "matrix-voice/resources/technical-datasheets.md"
+          - "FPGA": "matrix-voice/resources/fpga.md"
+      - "Troubleshooting": "matrix-voice/troubleshooting.md"
+  # Ecosystem
+  - MATRIX Lite:
+      - "Overview": "matrix-lite/overview.md"
+      - Getting Started:
+          - "Index": "matrix-lite/getting-started/index.md"
+          - "Javascript Setup": "matrix-lite/getting-started/javascript.md"
+          - "Python Setup": "matrix-lite/getting-started/python.md"
+          - "Go Setup": "matrix-lite/getting-started/go.md"
+      - JavaScript Reference:
+          - "Index": "matrix-lite/js-reference/index.md"
+          - "Everloop": "matrix-lite/js-reference/everloop.md"
+          - "Sensors": "matrix-lite/js-reference/sensors.md"
+          - "GPIO": "matrix-lite/js-reference/gpio.md"
+          - "ALSA": "matrix-lite/js-reference/alsa.md"
+          - "NFC": "matrix-lite/js-reference/nfc.md"
+      - Python Reference:
+          - "Index": "matrix-lite/py-reference/index.md"
+          - "Everloop": "matrix-lite/py-reference/everloop.md"
+          - "Sensors": "matrix-lite/py-reference/sensors.md"
+          - "GPIO": "matrix-lite/py-reference/gpio.md"
+          - "ALSA Mics": "matrix-lite/py-reference/alsa-mics.md"
+          - "NFC": "matrix-lite/py-reference/nfc.md"
+      - Go Reference:
+          - "Index": "matrix-lite/go-reference/index.md"
+          - "Everloop": "matrix-lite/go-reference/everloop.md"
+          - "Sensors": "matrix-lite/go-reference/sensors.md"
+          - "GPIO": "matrix-lite/go-reference/gpio.md"
+        # - 'ALSA Mics': 'matrix-lite/go-reference/alsa-mics.md'
+  - MATRIX HAL:
+      - "Overview": "matrix-hal/overview.md"
+      - Getting Started:
+          - "Index": "matrix-hal/getting-started/index.md"
+          - "Installation From Package": "matrix-hal/getting-started/installation-package.md"
+          - "Installation From Source": "matrix-hal/getting-started/installation-source.md"
+          - "Compiling Programs": "matrix-hal/getting-started/programs.md"
+          - "Installing NFC Support": "matrix-hal/getting-started/installation-nfc.md"
+      - References:
+          - "Index": "matrix-hal/reference/index.md"
+          - "Everloop": "matrix-hal/reference/everloop.md"
+          - "Humidity": "matrix-hal/reference/humidity.md"
+          - "IMU": "matrix-hal/reference/imu.md"
+          - "Pressure": "matrix-hal/reference/pressure.md"
+          - "UV": "matrix-hal/reference/uv.md"
+          - "GPIO": "matrix-hal/reference/gpio.md"
+          - "Microphone": "matrix-hal/reference/microphone.md"
+          - "NFC": "matrix-hal/reference/nfc.md"
+      - Examples:
+          - "Index": "matrix-hal/examples/index.md"
+          - "Everloop": "matrix-hal/examples/everloop.md"
+          - "Humidity": "matrix-hal/examples/humidity.md"
+          - "IMU": "matrix-hal/examples/imu.md"
+          - "Pressure": "matrix-hal/examples/pressure.md"
+          - "UV": "matrix-hal/examples/uv.md"
+          - "GPIO": "matrix-hal/examples/gpio.md"
+          - "Microphone": "matrix-hal/examples/microphone.md"
+          - "NFC": "matrix-hal/examples/nfc.md"
+      - Troubleshooting: "matrix-hal/troubleshooting.md"
+  - MATRIX Core:
+      - "Overview": "matrix-core/overview.md"
+      - Getting Started:
+          - "Index": "matrix-core/getting-started/index.md"
+          - "Installation": "matrix-core/getting-started/core-installation.md"
+          - "Understanding CORE": "matrix-core/getting-started/understanding-core.md"
+          - "Javascript Setup": "matrix-core/getting-started/javascript-installation.md"
+          - "Python Setup": "matrix-core/getting-started/python-installation.md"
+          - "Golang Setup": "matrix-core/getting-started/golang-installation.md"
+      - Driver Protocols:
+          - "Index": "matrix-core/protocols/index.md"
+          - "Everloop": "matrix-core/protocols/everloop.md"
+          - "Humidity": "matrix-core/protocols/humidity.md"
+          - "IMU": "matrix-core/protocols/imu.md"
+          - "Pressure": "matrix-core/protocols/pressure.md"
+          - "UV": "matrix-core/protocols/uv.md"
+          - "Servo": "matrix-core/protocols/servo.md"
+          - "GPIO": "matrix-core/protocols/gpio.md"
+        # - 'Wakeword': 'matrix-core/protocols/wakeword.md'
+      - Javascript Examples:
+          - "Index": "matrix-core/javascript-examples/index.md"
+          - "Everloop": "matrix-core/javascript-examples/everloop.md"
+          - "Humidity": "matrix-core/javascript-examples/humidity.md"
+          - "IMU": "matrix-core/javascript-examples/imu.md"
+          - "Pressure": "matrix-core/javascript-examples/pressure.md"
+          - "UV": "matrix-core/javascript-examples/uv.md"
+          - "Servo": "matrix-core/javascript-examples/servo.md"
+          - "GPIO": "matrix-core/javascript-examples/gpio.md"
+        # - 'Wakeword': 'matrix-core/javascript-examples/wakeword.md'
+      - Python Examples:
+          - "Index": "matrix-core/python-examples/index.md"
+          - "Everloop": "matrix-core/python-examples/everloop.md"
+          - "Humidity": "matrix-core/python-examples/humidity.md"
+          - "IMU": "matrix-core/python-examples/imu.md"
+          - "Pressure": "matrix-core/python-examples/pressure.md"
+          - "UV": "matrix-core/python-examples/uv.md"
+          - "Servo": "matrix-core/python-examples/servo.md"
+          - "GPIO": "matrix-core/python-examples/gpio.md"
+        # - 'Wakeword': 'matrix-core/python-examples/wakeword.md'
+      - Troubleshooting: "matrix-core/troubleshooting.md"
