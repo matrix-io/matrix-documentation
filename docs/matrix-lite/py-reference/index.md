@@ -1,4 +1,5 @@
 ## Python Reference
+
 <h3 style="padding-top:0.6em;"><a href="everloop">Everloop</a></h3>
 Interface for the LED array.
 
@@ -10,3 +11,6 @@ General Purpose Input/Output.
 
 <h3 style="padding-top:0.6em;"><a href="alsa-mics">ALSA Microphones</a></h3>
 Reading microphone data through ALSA.
+
+<h3 style="padding-top:0.6em;"><a href="nfc">NFC</a></h3>
+Read & Write to NFC tags.
