@@ -157,13 +157,23 @@
         }, 
         {
             "location": "/matrix-creator/resources/system-architecture/", 
-            "text": "System Architecture", 
+            "text": "System Architecture\n\n\nOverview\n\n\n\n\nExpanded Overview", 
             "title": "System Architecture"
         }, 
         {
             "location": "/matrix-creator/resources/system-architecture/#system-architecture", 
             "text": "", 
             "title": "System Architecture"
+        }, 
+        {
+            "location": "/matrix-creator/resources/system-architecture/#overview", 
+            "text": "", 
+            "title": "Overview"
+        }, 
+        {
+            "location": "/matrix-creator/resources/system-architecture/#expanded-overview", 
+            "text": "", 
+            "title": "Expanded Overview"
         }, 
         {
             "location": "/matrix-creator/resources/technical-datasheets/", 
