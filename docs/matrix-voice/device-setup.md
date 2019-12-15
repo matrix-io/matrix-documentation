@@ -10,7 +10,7 @@
     * Zero
     * Zero W
 * 5V 2.5A Micro USB Power Supply
-* MicroSD Card With the latest version of <a href="https://www.raspberrypi.org/downloads/raspbian/" target="_blank">Raspbian</a> Installed
+* MicroSD Card with the latest version of <a href="https://www.raspberrypi.org/downloads/raspbian/" target="_blank">Raspbian</a> installed
     * We recommend using <a href="https://etcher.io/" target="_blank">Etcher.io</a> for easy flashing
 
 ## Device Installation
