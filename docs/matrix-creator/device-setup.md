@@ -1,14 +1,16 @@
 ## Hardware Prerequisites
 * <a href="https://www.matrix.one/products/creator" target="_blank">MATRIX Creator</a>
 * Compatible Raspberry Pi:
+    * 4 Model B
     * 3 Model B+
     * 3 Model B
+    * 3 Model A+
     * 2 Model B
     * 1 Model B+
     * Zero
     * Zero W
 * 5V 2.5A Micro USB Power Supply
-* MicroSD Card With <a href="https://www.raspberrypi.org/downloads/raspbian/" target="_blank">Raspbian Stretch</a> Lite or Desktop Installed
+* MicroSD Card With the latest version of <a href="https://www.raspberrypi.org/downloads/raspbian/" target="_blank">Raspbian</a> Installed
     * We recommend using <a href="https://etcher.io/" target="_blank">Etcher.io</a> for easy flashing
 
 ## Device Installation
