@@ -52,12 +52,12 @@
         }, 
         {
             "location": "/matrix-creator/device-setup/", 
-            "text": "Hardware Prerequisites\n\n\n\n\nMATRIX Creator\n\n\nCompatible Raspberry Pi:\n\n\n3 Model B+\n\n\n3 Model B\n\n\n2 Model B\n\n\n1 Model B+\n\n\nZero\n\n\nZero W\n\n\n\n\n\n\n5V 2.5A Micro USB Power Supply\n\n\nMicroSD Card With \nRaspbian Stretch\n Lite or Desktop Installed\n\n\nWe recommend using \nEtcher.io\n for easy flashing\n\n\n\n\n\n\n\n\nDevice Installation\n\n\n\n\nSteps\n\n\n\n\nInsert flashed microSD card into Raspberry Pi\n\n\nAttach MATRIX Creator onto Raspberry Pi GPIO pins\n\n\nPower Raspberry Pi with micro USB power supply\n\n\n\n\nChoosing A Programming Environment\n\n\nAfter your MATRIX Creator is setup, visit \nEcosystem Overview\n for information about the three programming environments available to you in the MATRIX platform.", 
+            "text": "Hardware Prerequisites\n\n\n\n\nMATRIX Creator\n\n\nCompatible Raspberry Pi:\n\n\n4 Model B\n\n\n3 Model B+\n\n\n3 Model B\n\n\n3 Model A+\n\n\n2 Model B\n\n\n1 Model B+\n\n\nZero\n\n\nZero W\n\n\n\n\n\n\n5V 2.5A Micro USB Power Supply\n\n\nMicroSD Card with the latest version of \nRaspbian\n installed\n\n\nWe recommend using \nEtcher.io\n for easy flashing\n\n\n\n\n\n\n\n\nDevice Installation\n\n\n\n\nSteps\n\n\n\n\nInsert flashed microSD card into Raspberry Pi\n\n\nAttach MATRIX Creator onto Raspberry Pi GPIO pins\n\n\nPower Raspberry Pi with micro USB power supply\n\n\n\n\nChoosing A Programming Environment\n\n\nAfter your MATRIX Creator is setup, visit \nEcosystem Overview\n for information about the three programming environments available to you in the MATRIX platform.", 
             "title": "Device Setup"
         }, 
         {
             "location": "/matrix-creator/device-setup/#hardware-prerequisites", 
-            "text": "MATRIX Creator  Compatible Raspberry Pi:  3 Model B+  3 Model B  2 Model B  1 Model B+  Zero  Zero W    5V 2.5A Micro USB Power Supply  MicroSD Card With  Raspbian Stretch  Lite or Desktop Installed  We recommend using  Etcher.io  for easy flashing", 
+            "text": "MATRIX Creator  Compatible Raspberry Pi:  4 Model B  3 Model B+  3 Model B  3 Model A+  2 Model B  1 Model B+  Zero  Zero W    5V 2.5A Micro USB Power Supply  MicroSD Card with the latest version of  Raspbian  installed  We recommend using  Etcher.io  for easy flashing", 
             "title": "Hardware Prerequisites"
         }, 
         {
@@ -322,12 +322,12 @@
         }, 
         {
             "location": "/matrix-voice/device-setup/", 
-            "text": "Hardware Prerequisites\n\n\n\n\nMATRIX Voice\n\n\nCompatible Raspberry Pi:\n\n\n3 Model B+\n\n\n3 Model B\n\n\n2 Model B\n\n\n1 Model B+\n\n\nZero\n\n\nZero W\n\n\n\n\n\n\n5V 2.5A Micro USB Power Supply\n\n\nMicroSD Card With \nRaspbian Stretch\n Lite or Desktop Installed\n\n\nWe recommend using \nEtcher.io\n for easy flashing\n\n\n\n\n\n\n\n\nDevice Installation\n\n\n\n\nSteps\n\n\n\n\nInsert flashed microSD card into Raspberry Pi\n\n\nAttach MATRIX Voice onto Raspberry Pi GPIO pins\n\n\nPower Raspberry Pi with micro USB power supply\n\n\n\n\n\n\nThe yellow startup LED sequence (with 1 LED off) will be removed when a programming environment is installed.\n\n\n\n\nChoosing A Programming Environment\n\n\nAfter your MATRIX Voice is setup, visit \nEcosystem Overview\n for information about the three programming environments available to you in the MATRIX platform.\n\n\n\n\nAll 3 programming environments are compatible with the MATRIX Voice \n MATRIX Voice ESP32 version on a Raspberry Pi.  \n\n\n\n\nESP32 Setup\n\n\nUsers with a MATRIX Voice ESP32 version can also follow this \nguide\n on how to program their ESP32 module.", 
+            "text": "Hardware Prerequisites\n\n\n\n\nMATRIX Voice\n\n\nCompatible Raspberry Pi:\n\n\n4 Model B\n\n\n3 Model B+\n\n\n3 Model B\n\n\n3 Model A+\n\n\n2 Model B\n\n\n1 Model B+\n\n\nZero\n\n\nZero W\n\n\n\n\n\n\n5V 2.5A Micro USB Power Supply\n\n\nMicroSD Card with the latest version of \nRaspbian\n installed\n\n\nWe recommend using \nEtcher.io\n for easy flashing\n\n\n\n\n\n\n\n\nDevice Installation\n\n\n\n\nSteps\n\n\n\n\nInsert flashed microSD card into Raspberry Pi\n\n\nAttach MATRIX Voice onto Raspberry Pi GPIO pins\n\n\nPower Raspberry Pi with micro USB power supply\n\n\n\n\n\n\nThe yellow startup LED sequence (with 1 LED off) will be removed when a programming environment is installed.\n\n\n\n\nChoosing A Programming Environment\n\n\nAfter your MATRIX Voice is setup, visit \nEcosystem Overview\n for information about the three programming environments available to you in the MATRIX platform.\n\n\n\n\nAll 3 programming environments are compatible with the MATRIX Voice \n MATRIX Voice ESP32 version on a Raspberry Pi.  \n\n\n\n\nESP32 Setup\n\n\nUsers with a MATRIX Voice ESP32 version can also follow this \nguide\n on how to program their ESP32 module.", 
             "title": "Device Setup"
         }, 
         {
             "location": "/matrix-voice/device-setup/#hardware-prerequisites", 
-            "text": "MATRIX Voice  Compatible Raspberry Pi:  3 Model B+  3 Model B  2 Model B  1 Model B+  Zero  Zero W    5V 2.5A Micro USB Power Supply  MicroSD Card With  Raspbian Stretch  Lite or Desktop Installed  We recommend using  Etcher.io  for easy flashing", 
+            "text": "MATRIX Voice  Compatible Raspberry Pi:  4 Model B  3 Model B+  3 Model B  3 Model A+  2 Model B  1 Model B+  Zero  Zero W    5V 2.5A Micro USB Power Supply  MicroSD Card with the latest version of  Raspbian  installed  We recommend using  Etcher.io  for easy flashing", 
             "title": "Hardware Prerequisites"
         }, 
         {
