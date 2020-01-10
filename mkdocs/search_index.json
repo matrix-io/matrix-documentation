@@ -652,7 +652,7 @@
         }, 
         {
             "location": "/matrix-lite/js-reference/", 
-            "text": "JavaScript Reference\n\n\nEverloop\n\nInterface for the LED array.\n\n\nSensors\n\n\n\nReading data from the IMU, humidity, UV, and pressure sensors.\n\n\nGPIO\n\n\n\nGeneral Purpose Input/Output.\n\n\nALSA\n\n\n\nAudio management through the use of ALSA.\n\n\nNFC\n\n\n\nRead \n Write to NFC tags.", 
+            "text": "JavaScript Reference\n\n\nEverloop\n\nInterface for the LED array.\n\n\nSensors\n\n\n\nReading data from the IMU, humidity, UV, and pressure sensors.\n\n\nGPIO\n\n\n\nGeneral Purpose Input/Output.\n\n\nALSA\n\n\n\nAudio management through the use of ALSA.\n\n\nInfo\n\n\n\nInformation about your MATRIX device.\n\n\nNFC\n\n\n\nRead \n Write to NFC tags.", 
             "title": "Index"
         }, 
         {
@@ -759,6 +759,31 @@
             "location": "/matrix-lite/js-reference/alsa/#mic", 
             "text": "This function will allow you to configure your MATRIX microphone settings. Default values will be used if no configuration was given.    config:  object  rate : Any number from 0 to 15.  debug : true or false.  exitOnSilence : number of seconds.  channels : Any number from 1 to 8.     var   mic   =   matrix . alsa . mic ();  // or  var   mic   =   matrix . alsa . mic ({ \n   rate :   16000 , \n   debug :   true , \n   exitOnSilence :   6 , \n   channels :   1  });   Once the microphone is setup, visit  npm mic page  to see what functions   event listeners are available. This package is included in MATRIX Lite.", 
             "title": ".mic"
+        }, 
+        {
+            "location": "/matrix-lite/js-reference/info/", 
+            "text": "Info\n\n\n\nDevice Compatibility\n\n\n\n\n\n\nOverview\n\n\nThe following sections below will go over how to obtain information on your MATRIX device.\n\n\nImport Statement\n\n\nconst\n \nmatrix\n \n=\n \nrequire\n(\n@matrix-io/matrix-lite\n);\n\n\n\n\n\nInfo\n\n\n.deviceType\nA \nstring\n of the MATRIX device currently attached.\n\nconsole\n.\nlog\n(\nThe \n \n+\n \nmatrix\n.\ninfo\n.\ndeviceType\n \n+\n \n is attached to the pi\n);\n\n\n\n\n\n\n.isDirectBus\nA \nboolean\n that's true, if the kernel modules are not installed.\n\nconsole\n.\nlog\n(\nAre the Kernel Modules installed? \n \n+\n \nmatrix\n.\ninfo\n.\nisDirectBus\n);", 
+            "title": "Info"
+        }, 
+        {
+            "location": "/matrix-lite/js-reference/info/#device-compatibility", 
+            "text": "", 
+            "title": "Device Compatibility"
+        }, 
+        {
+            "location": "/matrix-lite/js-reference/info/#overview", 
+            "text": "The following sections below will go over how to obtain information on your MATRIX device.", 
+            "title": "Overview"
+        }, 
+        {
+            "location": "/matrix-lite/js-reference/info/#import-statement", 
+            "text": "const   matrix   =   require ( @matrix-io/matrix-lite );", 
+            "title": "Import Statement"
+        }, 
+        {
+            "location": "/matrix-lite/js-reference/info/#info", 
+            "text": ".deviceType A  string  of the MATRIX device currently attached. console . log ( The    +   matrix . info . deviceType   +    is attached to the pi );    .isDirectBus A  boolean  that's true, if the kernel modules are not installed. console . log ( Are the Kernel Modules installed?    +   matrix . info . isDirectBus );", 
+            "title": "Info"
         }, 
         {
             "location": "/matrix-lite/js-reference/nfc/", 
