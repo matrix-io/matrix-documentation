@@ -54,6 +54,7 @@ pages:
           - "Sensors": "matrix-lite/js-reference/sensors.md"
           - "GPIO": "matrix-lite/js-reference/gpio.md"
           - "ALSA": "matrix-lite/js-reference/alsa.md"
+          - "Info": "matrix-lite/js-reference/info.md"
           - "NFC": "matrix-lite/js-reference/nfc.md"
       - Python Reference:
           - "Index": "matrix-lite/py-reference/index.md"
